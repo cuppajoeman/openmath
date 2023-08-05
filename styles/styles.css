@@ -32,3 +32,127 @@
 .definition .content {
   padding: 15px 15px 15px 15px;
 }
+
+.theorem {
+  display: block;
+  /* font-style: italic; */
+  /* font-size: 24px; */
+  /* font-family: "Times New Roman"; */
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(222,222,231);
+  box-shadow: 5px 10px 8px #888888;
+  margin: 1em 0 1em 0;
+}
+
+.theorem .title {
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  width: -webkit-fill-available;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 5px 5px 15px;
+  background-color: rgb(38, 134, 38);
+}
+
+.theorem .title h3 {
+  margin: 0;
+}
+
+.theorem .content {
+  padding: 15px 15px 15px 15px;
+}
+
+.lemma {
+  display: block;
+  /* font-style: italic; */
+  /* font-size: 24px; */
+  /* font-family: "Times New Roman"; */
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(222,222,231);
+  box-shadow: 5px 10px 8px #888888;
+  margin: 1em 0 1em 0;
+}
+
+.lemma .title {
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  width: -webkit-fill-available;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 5px 5px 15px;
+  background-color: rgb(134, 38, 38);
+}
+
+.lemma .title h3 {
+  margin: 0;
+}
+
+.lemma .content {
+  padding: 15px 15px 15px 15px;
+}
+
+.corollary {
+  display: block;
+  /* font-style: italic; */
+  /* font-size: 24px; */
+  /* font-family: "Times New Roman"; */
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(222,222,231);
+  box-shadow: 5px 10px 8px #888888;
+  margin: 1em 0 1em 0;
+}
+
+.corollary .title {
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  width: -webkit-fill-available;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 5px 5px 15px;
+  background-color: rgb(134, 34, 134);
+}
+
+.corollary .title h3 {
+  margin: 0;
+}
+
+.corollary .content {
+  padding: 15px 15px 15px 15px;
+}
+
+.proof {
+  display: block;
+  /* font-style: italic; */
+  /* font-size: 24px; */
+  /* font-family: "Times New Roman"; */
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(222,222,231);
+  box-shadow: 5px 10px 8px #888888;
+  margin: 1em 0 1em 0;
+}
+
+.proof .title {
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  width: -webkit-fill-available;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 5px 5px 15px;
+  background-color: black;
+}
+
+.proof .title h3 {
+  margin: 0;
+}
+
+.proof .content {
+  padding: 15px 15px 15px 15px;
+}

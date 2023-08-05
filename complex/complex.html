@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>topology</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+    <script src="../latest.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <div class="thin-wrapper">
+        <h1>complex</h1>
+
+        <div class="definition">
+            <div class="title">analytic function</div>
+            <div class="content">
+                a function `f` is analytic if it can be represented by a power series
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">power series</div>
+            <div class="content">
+                a power series around `z_0 in CC` is a function of the following form `f(z) = sum_{k = 0}^oo a_k * (z  - z_0)^k`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">convergence of a power series</div>
+            <div class="content">
+                Suppose that `f(z) = sum_{k = 0}^oo a_k * (z  - z_0)^k` is a power series, then there exists a unique `r in RR uu {oo}` known as the radius of convergence such that:
+                <ul>
+                    <li>if `|z - z_0| < r` then the given power series converges</li>
+                    <li>if `|z - z_0| > r` then the power series diverges</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="theorem"> 
+            <div class="title">
+            </div>
+            <div class="content">
+                a power series is an analytic function on the inside of it's circle of convergence
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">coefficients of a power series </div>
+            <div class="content">
+                Let `f(z) = sum_{n = 0}^oo a_n * (z - z_0)^n` be the analytic function defined on the inside of the circle of convergence of the given power series. Then `f'(x) = sum_{n = 1}^{oo} n * a_n (z - z_0)^(n - 1)` and this series has the same circle of convergence as `sum a_n (z - z_0)^n`, moreover the cofficents `a_n` are given by `a_n = f^{(n)}(z_0) /(n!)`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">power series expansions around the same center are unique</div>
+            <div class="content">
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">taylors theorem</div>
+            <div class="content">
+                let `f` be analytic on an open set `A sube CC`, let `z_0 in A` and let `A_r = {z in CC : |z - z_0| < r} sube A`, then for every `z in A_r` the series 
+                <p>
+                    `sum_{n = 0}^oo f^{(n)}(z_0)/(n!) * (z - z_0)^n`
+                </p>
+                converges on `A_r` (`r` is it's radious of convergence) And
+                <p>
+                    `f(z) = sum_{n = 0}^oo f^{(n)}(z_0)/(n!) * (z - z_0)^n`
+                </p>
+            </div>
+        </div>
+        
+        <div class="corollary">
+            <div class="title">
+                analytic iff power series
+            </div>
+            <div class="content">
+                Let `A` be a region in `CC` and let `f` be a complex valued function defined on `A`. Then `f` is analytic on `A` iff for each `z_0` in `A` there is a number `r > 0` such that the disk `D(z_0, r) sube A` and `f` equals a convergent power series on `D(z_0, r)`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">
+                zeros of analytic functions
+            </div>
+            <div class="content">
+                suppose `f: Omega -> CC` is analytic on an open set `omega in CC` and that `c in Omega`. We know taht the taylor series for `f(z)` centered at `c` converges to `f(z)` at least in the largest open disk `D(c, r)` centered at `c` and contained in `Omega`. Therefore we have:
+                <p>
+                    `f(z) = sum_{k = 0}^{oo} f^{(k)}(c) / (k!) (z - c)^k`
+                </p>
+                for `|z - c| < r`. 
+                
+                <ul>
+                    <li>If `f^{(k)}(c) = 0` for all `k`, then `f(z)` is identically `0` in `D(c, r)`</li>
+                    <li>
+                        If not, then there is a smallest non-negative integer `n` holding `f^{(n)}(c) != 0`. If `n = 0`, then `f(c) !=0`. If `n > 0`, then `f(c) = f'(c) = f''(c) = ... = f^{(n - 1)}(c) = 0` but `f^{(n)}(c) != 0` and we say that `f` has a zero of order `n` at `c`. From algebra we know that a polynomial has a zero at `c` iff `z - c` is a factor of that polynomial. The zero has order of multiplicity `n` if the factor `z - c` occurs exactly `n` times. Consideration of the Taylor series shows that an analytic function has a zero at `c` iff `z - c` is a factor of that function and the multiplicity is defined in the same way. For `z` in `D(c, r)`, then since the first `n - 1` terms wer zeros then the power series becomes
+                        <p>
+                            `f(z) = a_n* (z - c)^n + a_(n + 1) (z - c)^(n + 1) + + a_(n + 2) (z - c)^(n + 2) + ... = (z - c)^n * [a_n + a_(n + 1) * (z - c) + a_(n + 2) * (z - c)^2 + ...]`
+                        </p>
+                        where `a_k = f^{(k)}(c)/(k!)`. The power series in the square brackets converges in `D(c, r)` to an analytic function `phi(z)` TODO: why? with `phi(c) = a_n = f^{(n)}(c)/(n!) != 0`. Thus `f` has a zeor of order `n` at `c` iff `f(z)` can be factored in a neightborhood of `c` as `f(z) = (z - c)^n phi(z)` where `phi` is analytic in a neighborhood of `c` and `phi(c) != 0`.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="title">isolated zeros</div>
+            <div class="content">
+                looking at the factorization in the last theorem, we can see that `phi(z)` is analytic and so is continuous on `D(c, r)`, since `phi(c) != 0`, there is a radius `p` with `0 < p < r` such that `phi(z)` is never 0 for `|z - c| < p`. Since `f(z) = (z - c)^n phi(z)` for all `z in D(c, p)` we conclude that `f` has no zeros other than `c` in that disk, in this sense the zeros of `f` are isolated.
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">laurent expansion theorem</div>
+            <div class="content">
+                Let `0 <= r_1 < r_2` and `z_0 in CC`, and consider the region `A = {z in CC | r_1 < |z - z_0| < r_2}`. We allow `r_1 = 0` or `r_2 = oo` or both. Let `f` be analytic on the region `A`. Then we can write
+                <p>
+                    `f(z) = sum_{n = 0}^oo a_n(z - z_0)^n + sum_{n = 1}^oo b_n/(z-z_0)^n`
+                </p>
+                where both series on the right side of the equation converge absoltely on `A` and uniformly in the sets of the form `B_{p_1, p_2} = {z in CC : p_1 <= |z - z_0| <= p_2} ` where `r_1 < p_1 < p_2 < r_2`
+            </div>
+        </div>
+
+        <h2>1</h2>
+
+        <p>
+            We first want to show that f is `n` times differentiable at 0, to be n times differentiable at 0, we need to
+            show that the limit `lim_{h -> 0} f^{(n-1)}(h)/h` exists, since the function is piecewise at zero, we'll
+            want to show that the right and left limit are both equal.
+        </p>
+
+        <p>
+            Consider when `x > 0`, in this situation we know that the function is defined as `e^{(-1)/x^2}`, and let's
+            try to come
+            up with a generic n-th derivative.
+        </p>
+
+        <p>
+            taking a look at the first derivative get `f(x) * {-1 * -2}/x^3 = f(x) * 2/x^3`, then taking the derivative again and using the product rule we get `f(x) * 2/x^3 + f(x) * {-6}/x^4 = f(x) * (2/x^3 + {-6}/x^4)`, we can observe that by usign the product rule, and the fact that `e^(k(x))` likes to stay around that `f^(n)(x) = e^{(-1)/x^2} * sum_{i = 1}^{3 * n} (a_i)/x^i` where `a_i in bb R` where `a_1 = a_2 = 0` and `a_k = (k-1)! * (-1)^k` for `k >= 3`.  Note that I haven't actually proven this fact, but it follows naturally by induction with the chain and product rule, I will save induction for the second half.
+        </p>
+
+        <p>
+            for `x <= 0` then we know that all derivatives are equal to zero, since taking the derivative of any
+                constant becomes zero 
+        </p>
+
+        <p>
+            Suppose `n = 1` let's first check the first derivative at 0, from the left, we can see that `lim_{x->0^-} {f(x) - f(0)}/{x - 0} = lim_{x->0^-} {0 - 0} / x = 0` from the right, we're computing `lim_{x-> 0^+} {(1/e)^(1/x^2)}/{x}` considering `t = 1/x`, then we can rewrite the limit as `lim_{t -> oo^+} t * (1/e)^{t^2} = lim_{t -> oo^+} t/e^{t^2}`, since it's in an indeterminate form, we may use l'hopitals rule which gives us `lim_{t -> oo^+} 1/{2t* e^{t^2}} = 0` thus we've shown it's differentiable here and it's derviative is 0.
+        </p>
+
+        <p>
+            let `n in bb N` and assume that the above is true for `n`, that is that `f^{(n)}(x)` is differentiable at 0 and that it's derivative is 0, now let's show it's true for `n + 1`, we need to check the n-th  `lim_{x-> 0^+} {f^{(n)}(x) - f^{(n)}(0)}/{x}` by the induction hypothesis we already know that `f^{(n)}(0) = 0` so our limit is just `lim_{x-> 0^+} {f^{(n)}(x)}/{x}` which is equal to `lim_{x-> 0^+} {e^{(-1)/x^2} * sum_{i = 1}^{3 * n} (a_i)/x^i}/{x}`.
+        </p>
+
+        <p>
+            To show  `lim_{x-> 0^+} {e^{(-1)/x^2} * sum_{i = 1}^{3 * n} (a_i)/x^i}/{x} = 0` it suffices to show that for any `l in {1, ..., 3n}` that `lim_{x-> 0^+} {e^{(-1)/x^2} * (a_l)/x^l}/{x} = 0` as we can use summation rules for limits. We should also note that `lim_{x-> 0^+} {e^{(-1)/x^2} * (a_l)/x^l}/{x} = lim_{x-> 0^+} {e^{(-1)/x^2} * (a_l)/x^l}/{x} = lim_{x-> 0^+} {(a_l)/x^(l + 1)}/{e^{1/x^2}}` which is equivalent to `lim_{x-> +oo} {(a_l)* x^(l + 1)}/{e^{x^2}} = (a_l)* lim_{x-> +oo} {x^(l + 1)}/{e^{x^2}}`.
+        </p>
+
+        <p>
+            Since for `x >= 1` we have `e^(x^2) >= e^x` then by first year calculus we know `lim_{x -> +oo} {e^x}/{x^k} = +oo` it would imply that also `lim_{x -> +oo} {e^(x^2)}/{x^k} = +oo` and that `lim_{x -> 0} {x^k}/{e^{x^2}} = 0`, therefore `(a_l)* lim_{x-> +oo} {x^(l + 1)}/{e^{x^2}} = 0` and thus the right and left side limits match, so the function is n-times differentiable at 0 with it's derviative actually equalling 0.
+        </p>
+
+
+        <h2>2</h2>
+
+        <p>
+            Since all derivatives of `f(x)` are zero at `0` then `f(x)` is identically 0 on some disk around `0`, that's assuming that there is an expansion for `f(x)` near the origin, since clearly the function is not constant around the origin, then there cannot be an expansion for `f(x)` around the origin.
+        </p>
+
+        <h2>3</h2>
+
+        <div class="theorem">
+            <div class="title">taylors theorem in `RR`</div>
+            <div class="content">
+                Let `k >= 1` be an integerand let the function `f: RR -> RR` be k times differentiable at the point `a in RR`. Then there exists a function `h_k: RR -> RR` such that
+                <p>
+                    `f(x) = f(a) + f'(a) * (x - a) + f''(a)/(2!) (x - a)^2 + ... + f^{(k)}(a)/(k!)(x - a)^k + h_k(x) (x - a)^k`
+                </p> 
+                where `lim_{x -> a} h_k(x) = 0`
+            </div>
+        </div>
+
+        <p>
+            the hypothesis is stated above, with an emphasis that `f` must be k times differentiable
+        </p>
+
+        <h2>4</h2>
+
+        <p>
+            this exercise shows us that that analytic functions are `C^oo(RR)` but that `C^oo(RR)` functions are certainly might not be analytic, also in `CC` we know that if you're once differentiable then you're analytic which is much stronger than in `RR`
+        </p>
+
+        <h1>question 2</h1>
+
+        <p>suppose `f` is analytic on `A` with an isolated singularity at `z_0` and that `z_0` is a removable singularity</p>
+
+        <p>
+            `=> (1)`, since `z_0` is a removable singularity, then all of the `b_k`'s are zero, then we know that `f(z) = sum_{n = 0}^{oo} a_n (z - z_0)^n` is an analytic and continuous function `g` on `A uu {z_0}` and also any neighborhood of `z_0`, since the image of a compact set through a continuous function is bounded, we can see that `f` is bounded
+        </p>
+
+        <p>
+            `=> (2)` the limit should exist since `f(z) = sum_{n = 0}^{oo} a_n (z - z_0)^n` thus as `z -> z_0` then the limit tends to `a_0 in CC`
+        </p>
+
+        <p>
+            `=> (3)` since the previous limit exists and we know that `lim_{z -> z_0} (z - z_0) = 0` then the product is also zero.
+        </p>
+
+        <p>
+            (`lArr`) To show equivalence we need to prove each of the opposite directions, we can see that if b were true, it would imply c to be true, and if a were true then c would also be true because the limit would be bounded above by `M * |z - z_0|` which goes to 0, therefore we only have to prove that `(c) => z_0` is a removable singularity, that is to say each `b_k` is zero in the laurent expansion around `z_0`.
+        </p>
+
+        <p>
+            By the definition of the laurent expansion we know that each coefficient `b_k = 1/(2 pi i) int_{gamma_r} f(zeta)(zeta - z_0)^(k - 1) d zeta` where `gamma_r` is a circle in `A` whose interior lies in A. Since we've assumed c to be true and using the epsilon delta definition of limit, we can see that by letting `epsilon > 0`, there is some `0 < r < 1` where for any point `x in gamma_r`, we know that `|f(x) * (x - z_0)| < epsilon <=> |f(x)| < epsilon / |x - z_0| = epsilon / r`, thus `|b_k| <= 1/(2 pi) int_{gamma_r} |f(zeta)||zeta - z_0|^(k - 1) |d zeta| <= 1/2pi * epsilon / r * r^{k - 1} int_{gamma_r} |d zeta| = 1 / (2 pi) * epsilon / r * r^{k - 1} 2 pi r = epsilon * r^{k - 1} <= epsilon` (since `0 < r < 1`) that is to say that `b_k = 0`
+        </p>
+
+        <h2>question 3</h2>
+
+        <h3>1</h3>
+
+        <p>
+            (`=>`) Assume that `z_0` is a simple pole, that is to say that `f(z) = sum_{n = 0}^{oo} a_n (z - z_0)^n + b_1 / (z - z_0)` with `b_1 != 0`, then `lim_{z -> z_0} (z - z_0) f(z) = lim_{z -> z_0} b_1 + (z - z_0) *  sum_{n = 0}^{oo} a_n (z - z_0)^n = b_1 != 0` as needed
+        </p>   
+
+        <p>
+            (`lArr`) Assume that `lim_{z -> z_0} (z - z_0) f(z)` exists and is non-zero, we'll take a moment to introduce corollary of question 2 which I found in the book (which can be obtained by subbing in `f(z) * (z - z_0)^k` into question 2 in place of `f(z)`)
+        </p>
+
+        <div class="corollary">
+            <div class="title">pole order equivalence</div>
+            <div class="content">
+                `z_0` is a pole of order `<= n` (or possibly removable singularity) iff `lim_{z -> z_0} (z - z_0)^(n + 1) f(z) = 0`
+            </div>
+        </div>
+
+        <p>
+            from our initial assumption we can see that `lim_{z -> z_0} (z - z_0)^2 f(z) = 0` by the above corollary we know that this means `f(z) = sum_{n = 0}^oo a_n (z - z_0)^n + b_1/ (z - z_0)` for some constant `b_1` which may or may not be zero. Either way it implies that `(z - z_0) f(z) = (z - z_0) (sum_{n = 0}^oo a_n) + b_1` thus the limit of `(z - z_0) f(z)` as `z -> z_0` is equal to `b_1`, but by assumption it must not be zero, which implies that `f` has a simple pole at `z_0`
+        </p>
+
+        <h3>2</h3>
+
+        <p>
+            `z_0` is a pole of order `k >= 1` is by definition: `f(z) = b_k / (z - z_0)^k + b_(k - 1)/ (z - z_0)^(k - 1) + ... + b_1 / (z - z_0) + sum_{n = 0}^oo a_n (z - z_0)^n = 1/(z - z_0)^k * [b_k + b_(k - 1) (z - z_0) + ... + b_1 ( z - z_0)^(k - 1) + sum_{n = 0}^oo a_n (z - z_0)^(n + k)]` (valid in a deleted neighborhood of `z_0` and `b_k` non-zero), then let `phi(z)` be equal to the entire expression contained in the square braces, which we can see is analytic in the neighborhood with `z_0` re-inserted as it is a convergent power series and when evaluated at `z_0` is non-zero. Note that all of these steps are bi-implications, meaning that we can traverse the proof in reverse order to acheive the other direction, as needed.
+        </p>
+
+        <h2>question 4</h2>
+
+        <p>
+            In the book it says the following on higher order poles:
+        </p>
+
+        <img src="images/higher_order_poles.png" alt="">
+
+        <p>
+            therefore I will focus on the formula given by proposition 4.1.6, the general formula is as above, and the main concepts behind this proof are to use part 2 of question 3 to rewrite `phi(z)` as the inner part of the square brackets which yields `f(z) = b_k / (z - z_0)^k + b_(k - 1) / (z - z_0)^(k - 1) + ... + b_1 / (z - z_0) + a_0 + a_1(z - z_0) + ...`, then use contradiction to see `b_k` is non-zero thus we have a pole of order `k`, the last idea is to differentiate `k` times to obtain a closed formula.
+        </p>
+
+        <script src="" async defer></script>
+</body>
+
+</html>
