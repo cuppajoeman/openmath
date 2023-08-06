@@ -1,6 +1,26 @@
+/* content formatting */
+
 .thin-wrapper {
     margin: 10%;
 }
+
+.centered-content {
+  display: block;
+  text-align: center;
+  margin: 1em;
+}
+
+
+/* links */
+
+a {
+  text-decoration: none;
+  color: purple;
+}
+
+
+
+/* custom content styling */
 
 .definition {
   display: block;
@@ -12,6 +32,10 @@
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
   margin: 1em 0 1em 0;
+}
+
+.definition .title::before {
+  content: "definition: "
 }
 
 .definition .title {
@@ -45,6 +69,10 @@
   margin: 1em 0 1em 0;
 }
 
+.theorem .title::before {
+  content: "theorem: "
+}
+
 .theorem .title {
   font-weight: bold;
   font-style: normal;
@@ -74,6 +102,11 @@
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
   margin: 1em 0 1em 0;
+}
+
+
+.lemma .title::before {
+  content: "lemma: "
 }
 
 .lemma .title {
@@ -107,6 +140,10 @@
   margin: 1em 0 1em 0;
 }
 
+.corollary .title::before {
+  content: "corollary: "
+}
+
 .corollary .title {
   font-weight: bold;
   font-style: normal;
@@ -138,6 +175,11 @@
   margin: 1em 0 1em 0;
 }
 
+
+.proof .title::before {
+  content: "proof"
+}
+
 .proof .title {
   font-weight: bold;
   font-style: normal;
@@ -156,3 +198,35 @@
 .proof .content {
   padding: 15px 15px 15px 15px;
 }
+
+.exercise {
+  display: block;
+  /* font-style: italic; */
+  /* font-size: 24px; */
+  /* font-family: "Times New Roman"; */
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(222,222,231);
+  box-shadow: 5px 10px 8px #888888;
+  margin: 1em 0 1em 0;
+}
+
+.exercise .title {
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  width: -webkit-fill-available;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 5px 5px 15px;
+  background-color: grey;
+}
+
+.exercise .title h3 {
+  margin: 0;
+}
+
+.exercise .content {
+  padding: 15px 15px 15px 15px;
+}
+
