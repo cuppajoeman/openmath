@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>linear algebra</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../styles/styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="thin-wrapper">
+            <h1>linear algebra</h1>            
+
+            <div class="definition">
+                <div class="title">matrix</div>
+                <div class="content">
+                    <p>
+                        A matrix is a rectangular array of objects arranged in rows and columns. We say the dimensions of a matrix are `m xx n` when it has `m` rows and `n` columns.
+                    </p>
+                    <p>
+                        Usually matrices are denoted by capital letters such as `A, B, M, N`, we can get the value at the `i`-th row and `j`-th column by writing `A_{i, j}` 
+                    </p>
+                    <p>
+                        If we were to write the matrix graphically we would introduce coefficients that represent each value inside the matrix like so
+                    </p>
+                    <div class="centered-content">
+                        `A = [ [a_{1,1}, a_{1, 2}, ..., a_{1, n}], [a_{2,1}, a_{2, 2,}, ..., a_{2, n}], [vdots, vdots, ddots, vdots], [a_{m, 1}, a_{m, 2}, ..., a_{m, n}]]`
+                    </div>
+                    <p>
+                        If we want to talk about a certain row of `A` we can write `A_{i, -}` for a column of `A` we may write `A_{|, j}`. The `-` represents that we may vary the column variable horizontally, and the `|` denotes that the row variable may be varied vertically. 
+                    </p>
+
+                    <p>
+                        If we want to represent the matrix as rows graphically, we may do so like this
+                    </p>
+
+                    <div class="centered-content">
+                        `A = [[larr, A_{1, -}, rarr], [larr, A_{2, -}, rarr], [larr, vdots, rarr], [larr, A_{m, -}, rarr] ]`
+                    </div>
+
+                    <p>
+                        If we want to represent the matrix as columns graphically, we may do so like this
+                    </p>
+
+                    <div class="centered-content">
+                        `A = [ [uarr, uarr, uarr, uarr], [A_{|, 1}, A_{|, 2}, ..., A_{|, n}], [darr, darr, darr, darr] ]`
+                    </div>
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">dot product</div>
+                <div class="content">
+                    Given two sequences of numbers of the same length: `a = (a_1, ..., a_k)` and `b = (b_1, ..., b_k)`, their dot product denoted and defined by by `a * b = sum_{i = 1}^k a_i * b_i`. Note that `* : RR^k xx RR^k to RR`
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">matrix multiplication</div>
+                <div class="content">
+                    <p>
+                        Given two matrices `A, B` we define their multiplication as a new matrix `C` such that 
+                    </p>
+
+                    <div class="centered-content">
+                        `C = [ [A_{1,-} * B_{|, 1}, A_{1, -} * B_{|, 2}, ..., A_{1, -} * B_{|, n}], [A_{2,-} * B_{|, 1}, A_{2, -} * B_{|, 2}, ..., A_{2, -} * B_{|, n}], [vdots, vdots, ddots, vdots], [A_{m, -} * B_{|, 1}, A_{m, -} * B_{|, 2}, ..., A_{m, -} * B_{|, n}]]`
+                    </div>
+                    <p>
+                        Where `A_{i, -} * B_{|, j}` represents the dot product of the `i`-th row of `A` with the `j`-th column of `B`
+                    </p>
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">column matrix</div>
+                <div class="content">
+                    a column matrix is any element `C in M_{k xx 1}` for `k in ZZ^+`
+                </div>
+            </div>
+
+            <div class="corollary">
+                <div class="title">column matrix multiplication</div>
+                <div class="content">
+                    suppose that `C = [[c_1], [c_2], [vdots], [c_k]]` is a column matrix and `M` is a matrix of the form 
+                    <div class="centered-content">
+                        `M = [ [uarr, uarr, uarr, uarr], [M_{|, 1}, M_{|, 2}, ..., M_{|, k}], [darr, darr, darr, darr] ]`
+                    </div>
+                    then
+                    <div class="centered-content">
+                        `CM = [ [uarr, uarr, uarr, uarr], [c_1 * M_{|, 1}, c_2 * M_{|, 2}, ..., c_k * M_{|, k}], [darr, darr, darr, darr]]`
+                    </div>
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    TODO here
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">unit column matrix</div>
+                <div class="content">
+                   `1_i` is a column matrix who's i-th row is `1` and the rest are `0`
+                </div>
+            </div>
+
+            <div class="theorem">
+                <div class="title">extracting columns from a matrix</div>
+                <div class="content">
+                    suppose `M in M_{m xx n}` then the `k`-th column of `M` is given by `M e_k`
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">representation in a basis</div>
+                <div class="content">
+                    <p>
+                        Let `cc B = {b_1, ..., b_n}` be a basis for a subspace `V` and let `v in V`. The representation of `v` in the basis notated by `text(wam)(v,cc B)` is the matrix:
+                    </p>
+                    <div class="centered-content">
+                       `text(wam)(v, cc B) = [[a_1], [vdots], [a_k]]`
+                    </div>
+                    <p>
+                        where `v = sum_{i = 1}^k a_i b_i`, note that `text(wam)( *, cc B) : V  to M_{k xx 1}(RR)` and wam is an acronym for "written as matrix".  We can also define the inverse function `text(wav)( * , cc B) : M_{k xx 1} (RR) -> V`. Which stands for "written as vector"
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">uniquely determined</div>
+                <div class="content">
+                    Given a vector space `V` of dimension `k` we say that a vector `x` is uniquely determined, when there exists only one collection of constants `c_1, ..., c_k` such that `x = sum_{i = 1}^k c_i * v_i` where each `v_i` is a basis element for the basis of `V`
+                </div>
+            </div>
+
+            <div class="theorem" id="basis-implies-unique-representation">
+                <div class="title">basis implies unique representation</div>
+                <div class="content">
+                    suppose that `V` is a vector space and let `S` be a non-empty subset of `V`. Then `S` is a basis of `V` if and only if every vector `x in V` can be represented uniquely as a linear combination of the vectors in `S`
+                </div>
+            </div>
+            
+            <div class="theorem">
+                <div class="title">
+                    something
+                </div>
+                <div class="content">
+                    Let `T: V to W` be a linear transformation between two vector spaces with `dim(V) = k` `dim(W) = l` with `k, l in ZZ^+`.  Supposing that `{v_1, ..., v_k}` and `{w_1, ..., w_l}` are the respective bases, then `T: V to W` is uniquely determined by the `l * k` scalars used to express `T(v_j)` for each `j in [k]` in terms of `{w_1, ... , w_l}`
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    <p>
+                        To show that the linear transformation is uniquely determined by these scalars, we will try to use the fact that elements in each vector space are already uniquely determined by their own constants and go from there.
+                    </p>
+
+                    <p>
+                        Let `v_j` be one of the basis vectors for `V`, then consider `T(v_j) in W` since it's a vector in `W` it can be written as a linear combination of the basis vectors in `W`, so that `T(v_j) = sum_{i = 1}^l a_i w_i`.
+                    </p>
+
+                    <p>
+                        Now given a generic `x in V` which is not necessarily a basis vector, we can represent it as follows `T(x) = T(sum_{j = 1} ^ k c_j v_j) = sum_{j = 1}^k c_j T(v_j)` recalling from our previosu paragraph, we can see that `sum_{j = 1}^k (c_j sum_{i = 1}^l a_i w_i) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i`. 
+                    </p>
+
+                    <p>
+                        The lets us conclude that `T(x) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i` and that `T` is uniquely determined by these `l * k` constants
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">matrix representation of a transformation</div>
+                <div class="content">
+                    Let `T : V to W` be a linear transformation.
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">change of basis matrix</div>
+                <div class="content">
+                    Let `T: V to W` be a linear transformation between two finite dimensional vector spaces, and let `alpha = {v_1, ..., v_k}` and `beta = {w_1, ..., w_1}` be their bases respectively, then the matrix `M` such that 
+                    <div class="centered-content">
+                        M []
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
