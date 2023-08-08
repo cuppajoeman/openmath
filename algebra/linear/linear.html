@@ -69,11 +69,11 @@
                 <div class="title">matrix multiplication</div>
                 <div class="content">
                     <p>
-                        Given two matrices `A, B` we define their multiplication as a new matrix `C` such that 
+                        Given two matrices `A in M_{a xx b}(RR) B in M_{c xx d}(RR)` we define their multiplication as a new matrix `C in M_{a, d} (RR)` such that 
                     </p>
 
                     <div class="centered-content">
-                        `C = [ [A_{1,-} * B_{|, 1}, A_{1, -} * B_{|, 2}, ..., A_{1, -} * B_{|, n}], [A_{2,-} * B_{|, 1}, A_{2, -} * B_{|, 2}, ..., A_{2, -} * B_{|, n}], [vdots, vdots, ddots, vdots], [A_{m, -} * B_{|, 1}, A_{m, -} * B_{|, 2}, ..., A_{m, -} * B_{|, n}]]`
+                        `C = [ [A_{1,-} * B_{|, 1}, A_{1, -} * B_{|, 2}, ..., A_{1, -} * B_{|, d}], [A_{2,-} * B_{|, 1}, A_{2, -} * B_{|, 2}, ..., A_{2, -} * B_{|, d}], [vdots, vdots, ddots, vdots], [A_{a, -} * B_{|, 1}, A_{a, -} * B_{|, 2}, ..., A_{a, -} * B_{|, d}]]`
                     </div>
                     <p>
                         Where `A_{i, -} * B_{|, j}` represents the dot product of the `i`-th row of `A` with the `j`-th column of `B`
@@ -91,13 +91,9 @@
             <div class="corollary">
                 <div class="title">column matrix multiplication</div>
                 <div class="content">
-                    suppose that `C = [[c_1], [c_2], [vdots], [c_k]]` is a column matrix and `M` is a matrix of the form 
+                    suppose that `C = [[c_1], [c_2], [vdots], [c_k]]` is a column matrix and `M in M_{n xx k}(RR)`, then
                     <div class="centered-content">
-                        `M = [ [uarr, uarr, uarr, uarr], [M_{|, 1}, M_{|, 2}, ..., M_{|, k}], [darr, darr, darr, darr] ]`
-                    </div>
-                    then
-                    <div class="centered-content">
-                        `CM = [ [uarr, uarr, uarr, uarr], [c_1 * M_{|, 1}, c_2 * M_{|, 2}, ..., c_k * M_{|, k}], [darr, darr, darr, darr]]`
+                        `MC = sum_{i = 1}^k c_i M_{|, i} in M_{n xx 1} (RR)`
                     </div>
                 </div>
             </div>
@@ -105,21 +101,46 @@
             <div class="proof">
                 <div class="title"></div>
                 <div class="content">
-                    TODO here
+                    <details>
+                        <summary>details</summary>
+                        <p>
+                            By the definition of matrix multiplication the answer should be equal to
+                        </p>
+                        `[ [m_{1,1}, m_{1, 2}, ..., m_{1, k}], [m_{2,1}, m_{2, 2,}, ..., m_{2, k}], [vdots, vdots, ddots, vdots], [m_{j, 1}, m_{j, 2}, ..., m_{j, k}]]` `[[c_1], [c_2], [vdots], [c_k]]` `= [ [c_1 * m_{1,1} + c_2 * m_{1, 2} + ... + c_k * m_{1, k}], [c_1 * m_{2,1} + c_2 * m_{2, 2} + ... + c_k * m_{2, k}], [vdots], [ c_1 * m_{j, 1} + c_2 * m_{j, 2} + ... + c_k * m_{j, k}]]` ` = c_1 M_{|, 1} + c_2 M_{|, 2} + ... + c_k M_{|, k} in M_{n xx 1}(RR)`
+                    </details>
                 </div>
             </div>
 
             <div class="definition">
                 <div class="title">unit column matrix</div>
                 <div class="content">
-                   `1_i` is a column matrix who's i-th row is `1` and the rest are `0`
+                   `e_i` is a column matrix who's i-th row is `1` and the rest are `0`
                 </div>
             </div>
 
-            <div class="theorem">
-                <div class="title">extracting columns from a matrix</div>
+            <div class="corollary">
+                <div class="title">column extraction</div>
                 <div class="content">
-                    suppose `M in M_{m xx n}` then the `k`-th column of `M` is given by `M e_k`
+                    suppose `M in M_{j xx k}` then the `n`-th column of `M` is given by `M` multiplied by `e_n` (where `1 <= n <= k`)
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    <details>
+                        <summary>details</summary>
+                        <p>
+                            Due to the way that column matrix multiplication works, we can see that `M e_n = sum_{i = 0}^k(e_n)_i M_{|, i} = M_{|, n}` this is clear since only the `n`-th component of `e_n` is `1` and the rest are `0`.
+                        </p>
+                    </details>
+                </div>
+            </div>
+            
+            <div class="definition">
+                <div class="title">basis</div>
+                <div class="content">
+                    if the vector space is denoted by `X`, then for ease we will denote the basis by a calligraphic version of that character `cc X`
                 </div>
             </div>
 
@@ -136,6 +157,24 @@
                         where `v = sum_{i = 1}^k a_i b_i`, note that `text(wam)( *, cc B) : V  to M_{k xx 1}(RR)` and wam is an acronym for "written as matrix".  We can also define the inverse function `text(wav)( * , cc B) : M_{k xx 1} (RR) -> V`. Which stands for "written as vector"
                     </p>
 
+                    <p>
+                        If a basis is clear by context, then we may omit it and write `text(wam)(v)` or `text(wav)(v)`.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="corollary">
+                <div class="title">generating a unit column matrix</div>
+                <div class="content">
+                    Given a vector space `V` with basis `cc V = {v1, ..., v_k}`, then for each element `i in [k]`, `text(wam)(v_i, cc V) = e_i`
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    `v_i = 0 v_1 + ... + 1 v_i + ... + 0 v_k` therefore by the definition of `wam` we have `wam(v_i, cc V) = e_i`
                 </div>
             </div>
 
@@ -165,39 +204,71 @@
             <div class="proof">
                 <div class="title"></div>
                 <div class="content">
-                    <p>
-                        To show that the linear transformation is uniquely determined by these scalars, we will try to use the fact that elements in each vector space are already uniquely determined by their own constants and go from there.
-                    </p>
+                    <details>
+                        <summary>details</summary>
 
-                    <p>
-                        Let `v_j` be one of the basis vectors for `V`, then consider `T(v_j) in W` since it's a vector in `W` it can be written as a linear combination of the basis vectors in `W`, so that `T(v_j) = sum_{i = 1}^l a_i w_i`.
-                    </p>
+                        <p>
+                            To show that the linear transformation is uniquely determined by these scalars, we will try to use the fact that elements in each vector space are already uniquely determined by their own constants and go from there.
+                        </p>
 
-                    <p>
-                        Now given a generic `x in V` which is not necessarily a basis vector, we can represent it as follows `T(x) = T(sum_{j = 1} ^ k c_j v_j) = sum_{j = 1}^k c_j T(v_j)` recalling from our previosu paragraph, we can see that `sum_{j = 1}^k (c_j sum_{i = 1}^l a_i w_i) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i`. 
-                    </p>
+                        <p>
+                            Let `v_j` be one of the basis vectors for `V`, then consider `T(v_j) in W` since it's a vector in `W` it can be written as a linear combination of the basis vectors in `W`, so that `T(v_j) = sum_{i = 1}^l a_i w_i`.
+                        </p>
 
-                    <p>
-                        The lets us conclude that `T(x) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i` and that `T` is uniquely determined by these `l * k` constants
-                    </p>
+                        <p>
+                            Now given a generic `x in V` which is not necessarily a basis vector, we can represent it as follows `T(x) = T(sum_{j = 1} ^ k c_j v_j) = sum_{j = 1}^k c_j T(v_j)` recalling from our previosu paragraph, we can see that `sum_{j = 1}^k (c_j sum_{i = 1}^l a_i w_i) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i`. 
+                        </p>
+
+                        <p>
+                            The lets us conclude that `T(x) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i` and that `T` is uniquely determined by these `l * k` constants
+                        </p>
+                    </details>
 
                 </div>
             </div>
 
-            <div class="definition">
+            <div class="theorem">
                 <div class="title">matrix representation of a transformation</div>
                 <div class="content">
-                    Let `T : V to W` be a linear transformation.
+                    Let `T : V to W` be a linear transformation, then there exists a matrix `M_T` such that 
+                    <div class="centered-content">
+                        `text(wav)(M_T text(wam)(v)) = Tv`
+                    </div>
+                    for any `v in V`
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    <p>
+                        To see what the matrix is, we can try to figure out what it's columns are.
+                    </p>
+                    <p>
+                        Recall that we can extract the column of a matrix using the column extraction method discussed earlier 
+                        
+                        
+                    </p>
+                    <p>
+                        To be successful at that we need to generate a unit column matrix. We can do so by plugging in `v_k in cc V` into the above equation which yields: `T v_k = text(wav)(M_T text(wam)(v_k, cc V)) = text(wav)(M_T e_k) = text(wav)((M_T)_{|, k}) ` 
+                    </p>
+                    <p>
+                        Thus `text(wam)(Tv_k) = (M_T)_{|, k}`, so the columns of `M_T` are `T v_k` written as a column matrices. Graphically we have
+                    </p>
+                    <div class="centered-content">
+                        `M_T = [ [uarr, uarr, uarr, uarr], [text(wam)(T v_1), text(wam)(T v_2), ..., text(wam)(T v_k)], [darr, darr, darr, darr] ]`
+                    </div>
                 </div>
             </div>
 
             <div class="definition">
                 <div class="title">change of basis matrix</div>
                 <div class="content">
-                    Let `T: V to W` be a linear transformation between two finite dimensional vector spaces, and let `alpha = {v_1, ..., v_k}` and `beta = {w_1, ..., w_1}` be their bases respectively, then the matrix `M` such that 
+                    let `cc V = {v_1, ..., v_k}` and `cc W = {w_1, ..., w_1}` be bases for a vector space `V` and `v` be an arbitrary element of `V`.  Then the matrix `M_{cc V to cc W}` such that :
                     <div class="centered-content">
-                        M []
+                        `M_{cc V to cc W} text(wam)(v, cc V) = text(wam)(v, cc W)`
                     </div>
+                    is called the change of basis matrix from `cc V` to `cc W` 
                 </div>
             </div>
 
