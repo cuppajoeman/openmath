@@ -92,6 +92,41 @@ a {
   padding: 15px 15px 15px 15px;
 }
 
+.proposition {
+  display: block;
+  /* font-style: italic; */
+  /* font-size: 24px; */
+  /* font-family: "Times New Roman"; */
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(222,222,231);
+  box-shadow: 5px 10px 8px #888888;
+  margin: 1em 0 1em 0;
+}
+
+.proposition .title::before {
+  content: "proposition: "
+}
+
+.proposition .title {
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  width: -webkit-fill-available;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 5px 5px 15px;
+  background-color: rgb(38, 134, 134);
+}
+
+.proposition .title h3 {
+  margin: 0;
+}
+
+.proposition .content {
+  padding: 15px 15px 15px 15px;
+}
+
 .lemma {
   display: block;
   /* font-style: italic; */
@@ -209,6 +244,10 @@ a {
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
   margin: 1em 0 1em 0;
+}
+
+.exercise .title::before {
+  content: "exercise: "
 }
 
 .exercise .title {

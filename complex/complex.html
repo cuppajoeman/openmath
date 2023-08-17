@@ -12,8 +12,20 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../styles/styles.css">
+
+    <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            asciimath2jax: {
+                delimiters: [['$','$'], ['`','`']],
+            },
+            "CommonHTML": { linebreaks: { automatic: true } }
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
-    <script src="../latest.js"></script>
+
 </head>
 
 <body>
@@ -21,8 +33,957 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+
     <div class="thin-wrapper">
+
+        <div class="centered-content">
+            <h1>`Theta rho epsilon eta Pi alpha tau pi`</h1>
+        </div>
+
         <h1>complex</h1>
+
+        <div class="definition">
+            <div class="title">conjugate</div>
+            <div class="content">
+                suppose `z = x + iy`, then the conjugate is denoted by
+                <div class="centered-content">
+                    `bar z := x - iy`
+                </div>
+            </div>
+        </div>
+
+        <div class="proposition" id="a-complex-number-times-it's-conjugate-equals-the-modulus-squared">
+            <div class="title">a complex number times it's conjugate equals the modulus squared</div>
+            <div class="content">
+                <div class="centered-content">
+                    `z * bar z = |z|^2`
+                </div>
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                suppose that `z = x + iy`, then `z * bar z = (x + iy) * (x - iy) = x^2 + y^2 + xyi - xyi = x^2 + y^2`, but then again `abs(z) = abs(x + iy) = sqrt(x^2 + y^2)` thus `z * bar z = abs(z)^2`
+            </div>
+        </div>
+
+
+        <div class="definition">
+            <div class="title">real part of a complex number</div>
+            <div class="content">
+                given `z = x + iy in CC` we say that `x` is the real part of `z` and define the function
+                <div class="centered-content">
+                    `cc R(z) = x`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">imaginary part of a complex number</div>
+            <div class="content">
+                given `z = x + iy in CC` we say that `y` is the imaginary part of `z` and define the function
+                <div class="centered-content">
+                    `cc I(z) = y`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">modulus</div>
+            <div class="content">
+                for any `z = x + iy in CC`, we define
+                <div class="centered-content">
+                    `abs(z) := sqrt(x^2 + y^2)`
+                </div>
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title">modulus is greater than it's components</div>
+            <div class="content">
+                for any `z in CC` we have both
+                <ul>
+                    <li>`cc R (z) le abs(z)`</li>
+                    <li>`cc I (z) le abs(z)`</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="proposition" id="modulus-plus-one-of-it's-components-is-positive">
+            <div class="title">modulus plus one of it's components is positive</div>
+            <div class="content">
+                Suppose that `f in {cc R, cc I}`, then
+                <div class="centered-content">
+                    `abs(z) + f(z) ge 0`
+                </div>
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                Let `z = x + iy in CC` then suppose without loss of generality that `f = cc R`, then
+                <div class="centered-content">
+                    `-x le abs(x) = sqrt(x^2) le sqrt(x^2 + y^2) = abs(x + iy)`
+                </div>
+                therefore `0 le x + abs(x+ iy)` which means `0 le cc R(z) + abs(z)`
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title">creating squares</div>
+            <div class="content">
+                without use of the triangle inequality prove that `abs(z - 1)^2 = abs(z)^2 + 1 - 2 cc R(z)`, then conclude that `abs(z - 1) le abs(z) + 1`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <p>
+                    `abs(z - 1)^2` <a href="#a-complex-number-times-it's-conjugate-equals-the-modulus-squared">=</a> `(z - 1) * bar(z - 1) = (z - 1) * (bar z - 1) = z * bar z - z - bar(z) + 1`, now recall that `cc R(z) = (z + bar(z)) / 2` so we can continue the equality with `abs(z)^2 - 2 cc R(z) + 1`, showing the first part
+                </p>
+                <p>
+                    for the second part, we can notice that `(abs(z) + 1)^2 = abs(z)^2 + 2abs(z) + 1`, so then `abs(z - 1)^2 = abs(z)^2 + 1 - 2 cc R(z) = abs(z)^2 + 2 abs(z) - 2 abs(z) + 1 - 2 cc R(z) = (abs(z) + 1)^2 - 2 ( abs(z) + cc R(z))`, then by
+                    <a href="#modulus-plus-one-of-it's-components-is-positive">this</a> proposition we can see that the last term in the previous equality chain is less than or equal to `(abs(z) + 1)^2` allowing us to conclude that `abs(z - 1)^2 le (abs(z) + 1)^2` which implies that `abs(z - 1) le abs(z) + 1`
+                </p>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">complex multiplication</div>
+            <div class="content">
+                given `a + bi, c + di in CC`, then: 
+                <div class="centered-content">
+                    `(a + bi) * (c + di) = ab + i (ad + bc) - db = (ad - bd) + i (ad + bc)`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">complex sin</div>
+            <div class="content">
+                `sin: CC to CC`
+                <div class="centered-content">
+                    `sin(z) := (e^(iz) - e^(-iz))/2i`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">complex cos</div>
+            <div class="content">
+                `cos: CC to CC`
+                <div class="centered-content">
+                    `sin(z) := (e^(iz) + e^(-iz))/2`
+                </div>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">polar form</div>
+            <div class="content">
+                given any `z in CC` there are unique `r, theta` such that `z = r(cos(theta) + i sin(theta))`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">argument of a complex number</div>
+            <div class="content">
+                suppose `z in CC`, then `arg(z)` is any value such that `z = abs(z) * e^(i arg(z))`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">principal argument</div>
+            <div class="content">
+                We define `Arg(z)` to be the argument of `z` such that `Arg(z) in (-pi, pi]`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">complex number to the power of another</div>
+            <div class="content">
+                given `z, w in CC` we say that `z^w := e^(Log(z) * w)`
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title">aye aye captain!</div>
+            <div class="content">
+                compute `i^i`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                `i^i = e^(Log(i) * i) = e^(i pi/2 * i) = 1/e^(pi/2)`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">multivalued function</div>
+        </div>
+
+        <div class="definition">
+            <div class="title">branch of a multivalued function</div>
+            <div class="content">
+                the branch of a multivalued function `f(z)` is a single valued function `F(z)` on a region `D sube C` that coincides with `f(z)`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">principal value log</div>
+            <div class="content">
+                `Log(z)` is a branch of `log(z)` such that `fr I(Log(z)) in (-pi, pi]`
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                `Log(4 + 4i) = Log(4 * (1 + i)) = log(4) + Log(1 + i) = log(4) + log(sqrt(2)) + i pi/4 = log(4 * sqrt(2)) + i pi/4`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">polar function</div>
+            <div class="content">
+                we can define a function `rho : RR xx RR to CC` as 
+                <div class="centered-content">
+                    `rho(r, theta) = r (cos(theta) + i sin(theta))`
+                </div>
+                note that for any `k in ZZ, rho(r, theta + 2pi * k) = rho(r, theta)`
+            </div>
+        </div>
+
+        <div class="corollary" id="polar-uniqueness-upto-a-rotation">
+            <div class="title">polar uniqueness upto a rotation</div>
+            <div class="content">
+                `rho(r, alpha) = rho(r, beta)` if and only if `alpha = beta + 2pi * k` for some `k in ZZ`
+            </div>
+        </div>
+
+
+        <div class="proposition">
+            <div class="title">multiplication in polar form</div>
+            <div class="content">
+                given `z = r_z(cos(theta_z) + i sin(theta_z))` and `w = r_w(cos(theta_w) + i sin(theta_w))`, then 
+                <div class="centered-content">
+                    `zw = r_z * r_w ( cos(theta_z + theta_w) + i sin(theta_z + theta_w))`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">open</div>
+            <div class="content">
+                a set `A sube CC` is said to be open if for every `a in A`, there is some `epsilon in R^(>0)` such that `B(a, epsilon) sube A`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">closed</div>
+            <div class="content">
+                a set `A sube CC` is said to be closed if it's complement `A^C` is open
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                is the image of the strip `S = {z in CC: -pi/2 < cc I(z) < pi/2}` under `f(z) = e^z` an open set?
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <p>
+                    first of all, there is no theorem which says the image of an open set is open <a href="https://math.stackexchange.com/a/1279640/571643">counter example</a>, thus we must actually compute the image which isn't too hard.
+                </p>
+                <p>
+                    suppose that `z in S` and now consider `e^z`, `z = x + iy` where `x in RR` and `y in (-pi/2, pi/2)`, therefore `e^z = e^x * e^(iy)`, thus the image equals the right hand side of the plane excluding the `y` axis (TODO: details), which is open because (TODO)
+                </p>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">demoivre's</div>
+            <div class="content">
+                if `z = r(cos(theta) + i sin(theta))` and `n in ZZ^+` then 
+                <div class="centered-content">
+                    `z^n = r^n(cos(ntheta) + i sin(ntheta))`
+                </div>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">`n`-th roots of a complex number</div>
+            <div class="content">
+                let `w in CC` and consider any `z` satisfying `z^n = w`, then we call `z` one of the `n`-th roots of `w`. An explicit formula can be obtained for each `z` by first representing `w` in it's polar form `r (cos(theta) + i sin(theta))`, here is the formula
+                <div class="centered-content">
+                    `r^(1/n) (cos(theta/n + 2pi/n))`
+                </div>
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <details>
+                    <summary>details</summary>
+                    <p>
+                        We can easily verify that `s = r^(1/n)( cos(theta/n) + i sin(theta/n))` is a solution as by demoivre's theorem we can see that `s^n = r (cos(theta) + i sin(theta))`, although we know that `rho(r, theta + 2pi * k) = rho(r, theta)`, so there may be more solutions for when we consider `r^(1/n) (cos((theta + 2pi k)/n) + i sin((theta + 2pi k)/n))`, so long as none of these angles are full rotations of eachother, they are <a href="#polar-uniqueness-upto-a-rotation">unique</a> solutions. 
+                    </p>
+                    <p>
+                        for `k in {0, ..., n - 1}` we can see that `theta/n + 2pi * k/n` all differ by angles smaller than `2pi` and thus produce unique complex numbers, considering any integer `k >= n` will produce the same solutions, just rotated around (TODO: rigor) therefore the solutions are given by 
+                    </p>
+                    <div class="centered-content">
+                        `r^(1/n) (cos(theta/n + 2pi * k/n) + isin(theta/n + 2pi * k/n))`
+                    </div>
+                    for `k in {0, ..., n-1}`
+                </details>
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="title">roots of unity</div>
+            <div class="content">
+                the `n`-th roots of `1` are given by `n` equally spaced points around the unit circle with `1` being one of them.
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">complex differentiable</div>
+            <div class="content">
+                a function `f: A to CC` with `A` open is said to be complex differentiable at `z_0 in A` if 
+                <div class="centered-content">
+                    `lim_{z to z_0} (f(z) - f(z_0))/(z - z_0)` exists
+                </div>
+                if it exists then it's denoted by `f'(z_0)`
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title">differentiable implies continuous</div>
+            <div class="content">
+                if `f : A to CC` is differentiable at `z_0` then it is continuous at `z_0`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                We know that `f` is continuous at `f(z_0)` if `lim_{z to z_0} f(z) = f(z_0)` TODO, re-write as subtraction equals zero using division idea
+            </div>
+        </div>
+
+
+        <div class="definition">
+            <div class="title">conformal map</div>
+            <div class="content">
+                given `f : A to CC`, we say that `f` is conformal at `z_0` if 
+
+                <ul>
+                    <li>
+                        there is some `theta in [0, 2pi)` and `r > 0` such that:
+                    </li>
+                    <li>
+                        for any differentiable curve `gamma: [0, 1] to A` that is differentiable at `0` and `gamma(0) = z_0` and `gamma^'(0) ne 0` 
+                    </li>
+                    <li>
+                        the curve `sigma(t) = f(gamma(t))` is differentiable at `t = 0` 
+                    </li>
+                    <li>
+                        setting `u(t) = sigma^'(t)` and `v = gamma^'(t)` we have 
+                    </li>
+                
+                </ul>
+                <div class="centered-content">
+                    `abs(u(t)) = r abs(v(t))` and `text(arg)(u(t)) = text(arg)(v) + (theta % 2pi)`
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">conformal mapping</div>
+            <div class="content">
+                if `f: A to CC` is holomorphic on `A` and `f'(z_0) ne 0`, then `f` is conformal at `z_0` with `theta = text(arg)(f'(z_0))` and `r = abs(f'(z_0))`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">holomorphic</div>
+            <div class="content">
+                a function `f: A to CC` with `A` open is said to be holomorphic on `A` if is differentiable at every point in `A`
+            </div>
+        </div>
+        
+        <div class="theorem">
+            <div class="title">holomorphic composition of functions</div>
+            <div class="content">
+                if `f, g` are holomorphic functions then so is `g circ f`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">connecting real and complex functions</div>
+            <div class="content">
+                <p>
+                    given `f: A sube RR^2 to RR^2`, we have `f(x,y) = (f_1(x,y), f_2(x,y))` since we have a simple way of going from `RR^2 to CC`, we can define a function `g` as follows. For every `(x, y) in A`, we have `a = x + iy in CC` and thus `g(a) = f_1(x, y) + i f_2(x, y)` which is a function `CC to CC`
+                </p>
+                <p>
+                    we can also define a real function based on a complex one. So assuming that `g: CC to CC`, we can define `f: RR^2 to RR^2` as follows. Given `x + iy = a in CC`, then `f(x, y) = (fr R(g(a)), fr I(g(a)))`. The convention is to write `u(x, y) = fr R(g(x + iy)) ` and `v(x, y) = fr I(g(x + iy))`
+                </p>
+                <p>
+                    Given a complex function `f` we can notated the real version as `f_RR`, for the real function `g` we notate the complex one as `g_CC`
+                </p>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">cauchy riemann equations</div>
+            <div class="content">
+                suppose `A` is an open subset of `CC` and `f: A to C` is given. Then `f'(z_0)` exists if and only if `f` is differentiable in the sense of real variables and at `(x_0, y_0) = z_0` the functions `u, v` satisfy:
+                <div class="centered-content">
+                    `(del u) / (del x) = (del v) / (del y)` and `(del u) / (del y) = - (del v) / (del x)`
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                Suppose that `f(x + iy) = u(x, y) + i v(x, y)` is holomorphic and that `u(x, y) = x^2 - y^2` derive a formula for `v(x, y)`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                since `f` is holomorphic, that means that the derivative exists at every point in it's domain, thus the cauchy riemann equations hold at every point in it's domain, and so `del / (del x) u = 2x = del / (del y) v`, and we also have `del / (del y) u = -2y = del / (del x) v`
+
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">harmonic function</div>
+            <div class="content">
+                a function `g: RR^2 to RR` is called harmonic if 
+                <div class="centered-content">
+                    `del^2 / (del x^2) g + del^2 / (del y^2) g = 0`
+                </div>
+            </div>    
+        </div>
+
+        <div class="proposition">
+            <div class="title">holomorphic implies harmonic</div>
+            <div class="content">
+                `f: A to C` is holomorphic on `A` implies that `fr I(f(z))` and `fr R(f(z))` are harmonic
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">complex integral</div>
+            <div class="content">
+                Let `h: [a, b] sube R to CC`, and then there are two functions `u` and `v` such that `h(t) = u(t) + i v(t)`, with `u, v` continuous, then the integral of `h` is defined as follows:
+                <div class="centered-content">
+                    `int_a^b h(t) dt := int_a^b u(t) dt + i * int_a^b v(t) dt`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">contour</div>
+            <div class="content">
+                a contour in `CC` is a continuous function `gamma: [a, b] to CC`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">piecewise smooth contour</div>
+            <div class="content">
+                a contour is called piecewise if we can devide it's domain `[a, b]` into finitely many sub-intervals `a = s_0, ..., s_k = b` such that `gamma^'(t)` exists on `(s_i, s_(i + 1))` and is continuous on `[s_i, s_(i + 1)]`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">contour integral</div>
+            <div class="content">
+                Suppose that `f`is `C^0` on an open set `A sube CC` and that `gamma` is a piecewise smooth contour such that `gamma([a, b]) sube A`, then the contour integral along `gamma` is defined and notated as:
+                <div class="centered-content">
+                    ` int_gamma f(z) dz := sum_{i = 0}^(k - 1) int_(s_i)^(s_(i + 1)) f(gamma(t)) * gamma^'(t) dt`
+                </div>
+                `int_gamma f` is shorthand for the above integral.
+            </div>
+        </div>
+
+
+        <div class="definition">
+            <div class="title">n-times continuously differentiable</div>
+            <div class="content">
+                for any `n in NN`, `C^n` is a collection of functions such that `f in C^n` iff for all `k in [n]`, `f^(k)` is a continuous function. Note that `C^0` are regular continuous functions
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="content">
+                suppose `f, g` are complex `C^0` functions, `c_1, c_2 in CC` and that `gamma, gamma_1, gamma_2` are piecewise `C^1` curves, then:
+                <ol>
+                    <li>`int_gamma (c_1 f + c_2 g) = c_1 int_gamma f + c_2 int_gamma g`</li>
+                    <li>
+                        `int_gamma -f = -  int_gamma f`
+                    </li>
+                    <li>
+                        `int_(gamma_1 + gamma_2) f = int_(gamma_1) f + int_(gamma_2) `
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">reparametrization </div>
+            <div class="content">
+                suppose `gamma: [a, b] to CC, bar gamma: [bar a, bar b] to CC` are piecewise `C^1` curves, then `bar gamma` is called a reparametrization of `gamma` if there is a `C^1` function `alpha : [a, b] to [bar a, bar b]` with `alpha^'(t) > 0, alpha(a) = bar a` and `alpha(b) = bar b` such that `gamma(t) = bar gamma(alpha(t))`
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title">reparametrization</div>
+            <div class="content">
+                if `bar gamma` is a reparametrization of `gamma`, and `f` is a continuous function defined on an open set containing the `text(im)(gamma) = text(im)(bar gamma)`, then 
+                <div class="centered-content">
+                    `int_gamma f = int_(bar gamma) f`
+                </div>
+            </div>
+        </div>
+        
+        <div class="definition">
+            <div class="title">arclength</div>
+            <div class="arclength">
+                the arc-length of a curve `gamma: [a, b] to CC` is defined by 
+                <div class="centered-content">
+                    `text(arclen)(gamma) := int_a^b abs(gamma^'(t)) dt`
+                </div>
+            </div>
+        </div>
+
+        <div class="lemma">
+            <div class="title">estimation lemma</div>
+            <div class="content">
+                given `f` is a continuous complex valued function on the contour `Gamma` and that there exists some `M in RR` such that `AA z in Gamma, abs(f(z)) <= M ` then:
+                
+                <div class="centered-content">
+                    `abs(int_Gamma f(z) dz) le M * text(arclen) (Gamma) `
+                </div>
+                in particular `M = text(sup)_{z in Gamma} abs(f(z))`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                TODO
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title">real part of the integral</div>
+            <div class="content">
+                `g: [a, b] to RR`, then `fr R (int_a^b g(t) dt) = int_a^b fr R(g(t))` 
+            </div>
+        </div>
+
+        <div class="lemma">
+            <div class="title"></div>
+            <div class="content">
+                `abs(int_a^b g(t) dt) = int_a^b abs(g(t)) dt` 
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">fundamental theorem of calculus for contour integrals</div>
+            <div class="content">
+                let `gamma: [a, b] to CC` be piecewise `C^1` and `F` holomorphic on an open set `G supe text(im)(gamma)`, then if `F^'` is continuous then 
+                <div class="centered-content">
+                    `int_gamma F' = F(gamma(b)) - F(gamma(a))`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">disconnected</div>
+            <div class="content">
+                a set `S sube CC` is disconnected if there are open sets `U` and `V` such that 
+                <ol>
+                    <li>
+                        `S sube U uu V`
+                    </li>
+                    <li>
+                        `S nn U ne O/` and `S nn V ne O/`
+                    </li>
+                    <li>
+                        `(S nn U) nn (S nn V) = O/`
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">connected</div>
+            <div class="content">
+                A set `S sube CC` is connected if it is not disconnected
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="title"></div>
+            <div class="content">
+                `f` holomorphic on `G sube CC` open and connected with `f'(z) = 0` for every `z in G`, then `f` is a constant function
+            </div>
+        </div>
+
+        <div class="theorem">
+             <div class="title">path independence</div>
+             <div class="content">
+                suppose that `f` is a continuous function on an open connected set `G sube CC`, then the following are equivalent
+                <ol>
+                    <li>
+                        Integrals are path independent: if `z_0` and `z_1` are any two points in `G` and `gamma_0, gamma_1` are paths in `G` from `z_0` to `z_1` then 
+                        <div class="centered-content">
+                            `int_{gamma_0} f(z) dz = int_{gamma_1} f(z) dz`
+                        </div>
+                    </li> 
+                    <li>
+                        Integrals around closed curves are zero: if `Gamma` is a closed curve in `G`, then `int_Gamma f(z) dz = 0`   
+                    </li>
+                    <li>
+                        There is a global antiderivative for `f` on `G`: There is a function `F` defined and holomorphic on `G` such that `F'(z) = f(z)` for all `z in G`
+                    </li>
+                </ol>
+             </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">homotopic curves</div>
+            <div class="content">
+                given `gamma_1, gamma_2: [0, 1] to G` with `z_1 = gamma_1(0) = gamma_1(1)` and `z_2 = gamma_2(0) = gamma_2(1)`, we say that `gamma_1` is homotopic to `gamma_2` if there exists a continuous `H: [0, 1]^2 to G` such that
+                <ul>
+                    <li>`H(0, t) = gamma_1(t)`</li>
+                    <li>`H(1, t) = gamma_2(t)`</li>
+                </ul>
+                We say that a curve `gamma` is homotopic to a point when it's homotopic to a constant curve `bar gamma(t) = bar z` for some `bar z in CC`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">simply connected</div>
+            <div class="content">
+                `A sube CC` is simply connected if and only iff
+                <ul>
+                    <li>`A` is connected</li>
+                    <li>Every closed curve in `A` is homotopic to a point `z_0`</li>
+                </ul>
+                This means that your set has no holes
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">region</div>
+            <div class="content">
+                a subset `S sube S` is called a region iff it is open and connected
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">cauchy's theorem for simply connected regions</div>
+            <div class="content">
+                Suppose that `f` is holomorphic on a simply connected region `G`, if `gamma` is a closed curve in `G` then `int_gamma f = 0`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title"></div>
+            <div class="content">
+                suppose that `f` is holomorphic on a simply connected region `A`, then there exists a holomorphic function `F` on `A` up to a unique additive constant such that `F'(z) = f(z)` for every `z in A`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">existance of logarithm</div>
+            <div class="content">
+                let `A` be a simply connected region and assume that `0 notin A`. Then there is a holomorphic function `F(z)` up to a unique up to the addition of multiples of `2pi` such that `e^F(z) = z`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">cauchy's theorem for a rectangle</div>
+            <div class="content">
+                Let `R` be a rectanglular path with sides parallel to the axes. Then if `f` is holomorphic on a region `G supe R`, then `int_R f = 0`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">cauchy's theorem for a triangle</div>
+            <div class="content">
+                Supose that `f: G to CC` is holomorphic with `G` open. Let `T` be a triangle contained in `G`, then `int_T f = 0`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">cauchy's theorem for a disk</div>
+            <div class="content">
+                suppose `D` is an open disk and `f: D to CC` is holomorphic on `D`, then if `gamma` is a closed curve contained in `D` then `int_gamma f = 0` and `f` has an antiderivative on `D`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">strengthened cauchy's theorem for a disk</div>
+            <div class="content">
+                assume that `f` is continuous on `D`, and that `gamma` is closed and holomorphic on `D \\ {z_0}`, then `int_gamma f = 0`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">deformation</div>
+            <div class="content">
+                given a holomorphic function `f: G to CC` for `G` open and `gamma_0, gamma_1` piecewise `C^1` on `G`, then if `gamma_0` is homotopic to `gamma_1`, then `int_{gamma_0} f = int_{gamma_1} f`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">homotopy form of cauchy's theorem</div>
+            <div class="content">
+                Let `f` be holomorphic on a region `G`, and let `gamma` be a closed curve in `G` homotopic to a point in `G`, then `int_gamma f = 0`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">index of a closed path</div>
+            <div class="content">
+                let `gamma` be a closed curve in `CC`, and let `z_0 in C` but `z_0 notin text(im)(gamma)`, then the index or winding number of `gamma` with respect to `z_0` is defined by 
+                <div class="centered-content">
+                    `I(gamma, z_0) := 1/(2 pi i) int_gamma dz / (z - z_0)`
+                </div>
+                and we say that `gamma` winds around `z_0` `I(gamma, z_0)` times
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="title"></div>
+            <div class="content">
+                `z_0 notin text(im)(gamma_1) uu text(im)(gamma_2)` and `gamma_1, gamma_2` are homotopic then 
+                <div class="centered-content">
+                    `I(gamma_1, z_0) = I(gamma_2, z_0)`
+                </div>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">the index of a curve is an integer</div>
+            <div class="content">
+                let `gamma: [a, b] to CC` be a piecewise `C^1` closed curve and `z_0` a point not on `gamma`, then `I(gamma, z_0)` is an integer
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">cauchy's integral formula</div>
+            <div class="content">
+                Let `f` be holomorphic on a region `A`. Let `gamma` be a closed curve in `A` that is homotopic to a point, and let `z_0 in A` be a point not on `gamma`, then
+                <div class="centered-content">
+                    `f(z_0) * I(gamma, z_0) = 1/(2 pi i) int_gamma f(z)/( z - z_0) dz`
+                </div>
+                This formula is often applied when `gamma` is a simple closed curve and `z_0` is inside `gamma` which simplifies `I(gamma, z_0) = 1`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">differentiability of cauchy type integrals</div>
+            <div class="content">
+                Suppose `gamma` is a curve in `CC` and `g` is a continuous function defined along `text(im(gamma))`, then the function 
+                <div class="centered-content">
+                    `G(z) := 1/(2 pi i) int_gamma g(zeta) / (zeta - z) d zeta`
+                </div>
+                is holomorphic on `CC \\ text(im)(gamma)`, moreover `G` is infinitely differentiable with the `k`-th derivative being equal to 
+                <div class="centered-content">
+                    `(k!) / (2 pi i) int_gamma g(zeta) / (zeta - z)^(k + 1) d zeta`
+                </div>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">cauchy integral formula for derivatives</div>
+            <div class="content">
+                let `f` be analytic on a region `A`, then all the derivatives exist on `A` furthermore for `z_0` in `A` and any closed curve `gamma` homotopic to a point in `a` with `z_0 notin text(im)(gamma)`, we have
+                <div class="centered-content">
+                    `f^{(k)}(z_0) * I(gamma, z_0) = (k!) / (2 pi i) int_gamma f(zeta)/ (zeta - z_0)^{k + 1} d zeta`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">natural numbers</div>
+            <div class="content">
+                We define for any non-negative integer `k` we define 
+                <div class="centered-content">
+                    `NN_k := {k, k + 1, k + 2, ...}`
+                </div>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">cauchy's inequalities</div>
+            <div class="content">
+                Let `f` be holomorphic on a region `A` and let `gamma` be a circle with radius `R` and center `z_0` that lies in `A`. Assume that the disk `{z in CC: abs(z - z_0) < R}` also lies in `A`, supose that `abs(f(z)) le M` for all `z` on `gamma`, then for any `k in NN_0`
+                <div class="centered-content">
+                    `abs(f^{(k)}(z_0)) le (k!) / (R^k) * M`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">entire function</div>
+            <div class="content">
+                a function `f: CC to CC` is said to be entire if it is holomorphic on it's domain.
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">liouville's</div>
+            <div class="content">
+                if `f` is entire and there is a constant `M` such that `abs(f(z)) le M` for all `z in CC` then `f` is constant
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">fundamental theorem of algebra</div>
+            <div class="content">
+                Let `a_0, a_1, ..., a_n` be a collection of `n + 1` complex numbers with `n ge 1` and `a_n ne0`, let `p(z) = a_0 + a_1 z + ... + a_n z^n`, then there exists a point `z_0 in CC` such that `p(z_0) = 0`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">morera's</div>
+            <div class="content">
+                Let `f` be continuous on a region `A` and suppose that `int_gamma f = 0` for every closed curve in `A`. Then `f` is holomorphic on `A` and `f = F'` for some analytic function `F` on `A`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">local maximum modulus</div>
+            <div class="content">
+                Let `f` be holomorphic on a region `A` if `abs(f)` has a local maximum at `z_0 in A` then `f` is constant in some neighborhood of `z_0`
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">mean value property</div>
+            <div class="content">
+                given `f` holomorphic on a circle of radius `r` centered at `z_0`: `gamma_r = z_0 + re^(i theta), theta in [0, 2pi)`, then 
+                <div class="centered-content">
+                    `f(z_0) = 1/( 2 pi ) int_0^(2 pi) f(z_0 + r e^(i theta)) d theta` 
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">closure</div>
+            <div class="content">
+                Given a subset `A sube C`, then the closure of `A` denoted by `bar A` is the intersection of all closed supersets of `A`
+            </div>
+        </div>
+
+        <div class="theorem" id="global-maximum-modulus">
+            <div class="title">global maximum modulus</div>
+            <div class="content">
+                Let `A` be open, connected and bounded as a subset of `CC` and suppose that `f: bar A to CC` is holomorphic on `A` and continuous on `bar A`. Then `abs(f)` has a finite maximum value on `bar A` which is attained at some point on the boundary of `A`. If it is also attained in the interior of `A`, then `A` must be constant on `bar A`
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title">outside in</div>
+            <div class="content">
+                Let `D` be an open disc on the complex plane,
+                <ol>
+                    <li>
+                        suppose that `f, g` are continuous on `bar D` and holomorphic on `D`. If `g` is non-vanishing on `bar D` and that for every `z in del D` we have `abs(f(z)) le abs(g(z))`, show that `abs(f(z)) le abs(g(z))` for every `z in bar D`
+                    </li>
+                    <li>
+                        Suppose that `f` is continuous on `bar D` and holomorphic and non-vanishing on `D`, if `abs(f(z)) = 10` for every `z in del D`, show that `f` is constant
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <ol>
+                    <li>
+                        Since `g` is non-vanishing we know that for all `z in del D, abs(f(z)/ f(g)) le 1`, thus by the
+                        <a href="#global-maximum-modulus">global maximum modulus</a> theorem we can say that `abs(f(z) / g(z)) <= 1` on `bar D` and so `abs(f(z)) le abs(g(z))` on `bar D`
+                    </li>
+                    <li>
+                        This also implies that `abs(1/f(z)) = 1/10` on `del D`, which tells that on `bar D` `abs(1/f(z)) le 1/10 iff abs(f(z)) ge 10`, but then again on `del D`  `abs(f(z)) = 10` and so on `bar D` `abs(f(z)) le 10` which together implies that `abs(f(z)) = 10` on `bar D`, so that it attains a maximum on `text(int)(D)` and thus by the <a href="#global-maximum-modulus">global maximum modulus</a> we can see that `f` must be constant
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="lemma">
+            <div class="title">schwarz</div>
+            <div class="content">
+                <p>
+                    suppose that `f` is holomorphic on `A = {z in CC : abs(z) < 1}` with `f(0) = 0` and `abs(f(z)) le 1` for all `z in A`, then `abs(f^'(0)) le 1` and `abs(f(z)) le abs(z)`.
+                </p>
+                <p>
+                   moreover if `abs(f^'(0)) = 1` or if there is a point `z_0` other than `0` in `A` with `abs(f(z_0)) = abs(z_0)`, then there is a constant `c in CC` where `abs(c) = 1` and `f(z) = cz` for all `z in A`
+                </p>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">series</div>
+            <div class="content">
+                <div class="centered-content">
+                    `sum_{k = 1}^oo a_n := lim_{n to oo} sum_{k = 1}^n a_k` 
+                </div>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">cauchy criterion for series</div>
+            <div class="content">
+                `sum_{k = 1}^oo a_k` converges iff for each `epsilon > 0`, there is an `N` such that for all `n ge N` we have
+                <div class="centered-content">
+                    `abs(sum_{k = n + 1}^{n + p} a_k) < epsilon`
+                </div>
+                for every `p in NN_1`
+            </div>
+        </div>
+        
+        <div class="definition">
+            <div class="title">absolute convergence</div>
+            <div class="content">
+                a complex series `sum_{k = 1}^oo a_k` converges absolutely when `sum_{k = 1}^oo abs(a_k)` converges
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">Weierstrass `M` test</div>
+            <div class="content">
+                let `g_n` be a sequence of functions defined on a set `A sube CC`, suppose that there is a sequence of real constants `M_n ge 0` such that both of the following conditions hold
+                <ul>
+                    <li>`abs(g_n(z)) le M_n` for all `z in A`</li>
+                    <li>`sum_{n = 1}^oo M_n` converges</li>
+                </ul>
+                then `sum_{n = 1}^oo g_n` converges absolutely and uniformly on `A`
+            </div>
+        </div>
 
         <div class="definition">
             <div class="title">analytic function</div>
@@ -49,9 +1010,15 @@
             </div>
         </div>
 
-        <div class="theorem"> 
-            <div class="title">
+        <div class="lemma">
+            <div class="title">abel-weierstrass</div>
+            <div class="content">
+                Suppose that `r_0 > 0` and that `abs(a_n) r_0^n le M` holds for all `n in NN_0`, for some constant `M`. Then for any `r < r_0`, the series `sum_{n = 0}^oo a_n (z - z_0)^n` uniformly and absolutely on the closed disk `A_r = {z in CC: abs(z - z_0) le r}`
             </div>
+        </div>
+
+        <div class="theorem"> 
+            <div class="title">analyticity of a power series</div>
             <div class="content">
                 a power series is an analytic function on the inside of it's circle of convergence
             </div>
@@ -67,8 +1034,24 @@
         <div class="theorem">
             <div class="title">power series expansions around the same center are unique</div>
             <div class="content">
+                if they are equal, then their coefficients must be equal.
             </div>
         </div>
+
+        <div class="theorem">
+            <div class="title">ratio test</div>
+            <div class="content">
+                let `sum_{n = 1}^oo a_n (z - z_0)^n` be a power series, if `lim_{n to oo} abs(a_n) / abs(a_(n+1))` exists then it equals the radius of convergence of the series
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">root test</div>
+            <div class="content">
+                let `sum_{n = 1}^oo a_n (z - z_0)^n` be a power series, if `rho = lim_{n to oo} abs(a_n)^(1/n)` exists, then  `R = 1/rho` is the radius of convergence, if `rho` happens to be `0` then `R = oo`
+            </div>
+        </div>
+
 
         <div class="theorem">
             <div class="title">taylors theorem</div>
@@ -77,10 +1060,17 @@
                 <p>
                     `sum_{n = 0}^oo f^{(n)}(z_0)/(n!) * (z - z_0)^n`
                 </p>
-                converges on `A_r` (`r` is it's radious of convergence) And
+                converges on `A_r` (`r` is it's radius of convergence) And
                 <p>
                     `f(z) = sum_{n = 0}^oo f^{(n)}(z_0)/(n!) * (z - z_0)^n`
                 </p>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">holomorphic if and only if analytic</div>
+            <div class="content">
+                a complex function is holomorphic if and only if it is analytic
             </div>
         </div>
         
@@ -92,6 +1082,7 @@
                 Let `A` be a region in `CC` and let `f` be a complex valued function defined on `A`. Then `f` is analytic on `A` iff for each `z_0` in `A` there is a number `r > 0` such that the disk `D(z_0, r) sube A` and `f` equals a convergent power series on `D(z_0, r)`
             </div>
         </div>
+
 
         <div class="theorem">
             <div class="title">
@@ -127,11 +1118,296 @@
         <div class="theorem">
             <div class="title">laurent expansion theorem</div>
             <div class="content">
-                Let `0 <= r_1 < r_2` and `z_0 in CC`, and consider the region `A = {z in CC | r_1 < |z - z_0| < r_2}`. We allow `r_1 = 0` or `r_2 = oo` or both. Let `f` be analytic on the region `A`. Then we can write
+                Let `0 <= r_1 < r_2` and `z_0 in CC`, and consider the annulus `A = {z in CC | r_1 < |z - z_0| < r_2}`. We allow `r_1 = 0` or `r_2 = oo` or both. Let `f` be analytic on the region `A`. Then we can write
                 <p>
                     `f(z) = sum_{n = 0}^oo a_n(z - z_0)^n + sum_{n = 1}^oo b_n/(z-z_0)^n`
                 </p>
-                where both series on the right side of the equation converge absoltely on `A` and uniformly in the sets of the form `B_{p_1, p_2} = {z in CC : p_1 <= |z - z_0| <= p_2} ` where `r_1 < p_1 < p_2 < r_2`
+                where both series on the right side of the equation converge absolutely on `A` and uniformly in the sets of the form `B_{p_1, p_2} = {z in CC : p_1 <= |z - z_0| <= p_2} ` where `r_1 < p_1 < p_2 < r_2`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">deleted neighborhood of a point</div>
+            <div class="content">
+                a deleted neigbhorhood of a point `c in CC` is the set `B(c, epsilon)^(ne c)`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">isolated singularity</div>
+            <div class="content">
+                <p>
+                    an isolated singularity of a function `f` is a point `z_0` where an `epsilon` exists such that `f(z)` is analytic on `B(z_0, epsilon)^(ne z_0)` but is undefined at `z = z_0`
+                </p>
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="title">isolated singularity yields laurent expansion</div>
+            <div class="content">
+                suppose that `z_0` is an isolated singularity of a function `f`, then since it's analytic on `B(z_0, epsilon)^(ne z_0)` we can get a laurent expansion (with `r_0 = 0`), so that
+                <div class="centered-content">
+                    `f(z) = sum_{n = 0}^oo a_n(z - z_0)^n + sum_{n = 1}^oo b_n/(z-z_0)^n`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition" id="pole">
+            <div class="title">pole</div>
+            <div class="content">
+                if `z_0` is an isolated singularity of `f` and it's it's laurent expansion if all but finitely many of `b_n` are zero (in otherwords, most are non-zero), then `z_0` is called a pole of `f`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">pole of order `k`</div>
+            <div class="content">
+                Within the context of the <a href="#pole">definition of a pole</a> if `k` is the largest integer such that `b_k ne 0`, then `z_0` is called a pole of order `k`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">simple pole</div>
+            <div class="content">a pole of order 1</div>
+        </div>
+
+        <div class="definition">
+            <div class="title">essential singularity</div>
+            <div class="content">
+                suppose that `f` has an isolated singularity at `z_0`, if in `f`'s laurent expansion an infinite number of the `b_k`'s are non-zero, then `z_0` is called an essential singularity
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">residue</div>
+            <div class="content">
+                if `f` has an isolated singularity at `z_0`, then the value `b_1` in the laurent expansion of `f` is called the residue of `f` at `z_0` and we write `text(res)(f, z_0) := b_1`
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                compute `int_{abs(z) = 2} e^(1/z) dz`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                we know that `e^(1/z)` has an isolated singularity at `z = 0`, but we already know the expansion of `e^(1/z) = sum_{k = 0}^oo ((1/z)^k)/(k!)` and thus is already a laurent expansion with `b_1 = 0`, thus `text(res)(e^(1/z), 0) = 1` and so by the residue theorem `int_{abs(z) = 2} e^(1/z) dz = 2 pi i * 1`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">removable singularity</div>
+            <div class="content">
+                if `f` has an isolated singularity at `z_0`, and all the `b_k`'s are zero in it's laurent expansion, then `z_0` is a removable singularity of `f`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">meromorphic</div>
+            <div class="content">
+                if `f` is analytic on a region `A`, except for poles in `A`, then it is meromorphic in `A`. A function that is meromorphic in `CC` is called a meromorphic function (no set required in the statement)
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="content">
+                if `f` has a removable singularity, then we know that `f(z) = sum_{n = 0}^oo a_n(z - z_0)^(n)` is a convergent power series. We can then extend `f` to be defined on `z_0` creating a new function `bar f` which is the same as `f` except that `bar f(z_0) = a_0`, then `bar f` is holomorphic.
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title"></div>
+            <div class="content">
+                suppose that `f` is analytic on a region `A` and has an isolated singularity at `z_0` with residue `b_1` at `z_0`. If `gamma` is any circle around `z_0 in A` whose interior without `z_0` lies in `A`, then
+                <div class="centered-content">
+                    `int_gamma f(z) dz = b_1 * 2 pi i`
+                </div>
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title">identifying singularities</div>
+            <div class="content">
+                Suppose that `f` is analytic on a region `A` and has an isolated singularity at `z_0`, then we can determine the type of singularity as follows
+                <ol>
+                    <li>`z_0` is a removable singularity iff any one of the following holds</li>
+                    <ul>
+                        <li>`f` is bounded in a deleted neighborhood of `z_0`</li>
+                        <li>`lim_{z to z_0} f(z)` exists</li>
+                        <li>`lim_{z to z_0} (z - z_0) f(z) = 0`</li>
+                    </ul>
+                    <li>
+                        `z_0` is a simple pole iff `lim_{z to z_0} ( z - z_0) f(z)` exists and is unequal to zero. When it exists it equals the residue of `f` at `z_0`
+                    </li>
+                    <li>
+                        `z_0` is a pole of order less than or equal to `k` iff any one of the following conditions holds
+                    </li>
+                    <ul>
+                        <li>
+                            There is a constant `M > 0` and an integer `k ge 1` such that
+                            <div class="centered-content">
+                                `abs(f(z)) le M / abs(z - z_0)^k`
+                            </div>
+                            in a deleted neighborhood of `z_0`
+                        </li>
+                        <li>
+                            `lim_{z to z_0} (z - z_0)^(k + 1) f(z) = 0`
+                        </li>
+                        <li>
+                            `lim_{z to z_0} (z - z_0)^(k) f(z)` exists
+                        </li>
+                    </ul>
+                    <li>
+                        `z_0` is a pole of order `k ge 1` iff there is an analytic function `phi` defined on a neighborhood `U` of `z_0` such that `U \\ {z_0} sube A`, `phi(z_0) ne0`and
+                        <div class="centered-content">
+                            `f(z) = (phi(z)) / (z - z_0)^k`
+                        </div>
+                        for all `z in U \\ {z_0}`
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="corollary" id="residue-formula-for-simple-poles">
+            <div class="title">residue formula for simple poles</div>
+            <div class="content">
+                Let `g` and `h` be analytic at `z_0` and assume that `g(z_0) ne 0` and `h(z_0) = 0` and `h^'(z_0) ne 0`. Then `f(z) := g(z)/(h(z))` has a simple pole at `z_0` and
+                <div class="centered-content">
+                    `text(res)(f, z_0) = g(z_0)/(h^'(z_0))`
+                </div>
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                Note that `h(z_0) = 0`, thus ``
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">zero of order `n`</div>
+            <div class="content">
+                the zeros of `f(z)` (of order 1) are the points `z_0` where `f(z_0) = 0`. a zero is of order `n` when
+                <div class="centered-content">
+                    `0 = f^(0)(z_0) = f^1(z_0) = f^(2)(z_0) = ... = f^{(n - 1)}(z_0)` but `f^{(n)}(z_0) ne 0`
+                </div>
+                where we are indexing over `0, ..., n-1`-th derivatives, note that the zero-th derivative of a function is the original, and that if `n = 0` the index set is empty, and thus we do not even require that `f(z_0) = 0`
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title"></div>
+            <div class="content">
+                for any `c in CC` the function `f(z) = (z-c)^k` for some `k in NN_1` has a zero of order `k-1`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <p>
+                    for any `m in [k - 1]` we have`f^{(m)}(z) = [(k) * (k-1) * ... * (k - (m-1))] (z - c)^(k-m)`, which when evaluated at `c` yields zero, note that this holds up to `m = k-1` which at that point we have `f^{(k - 1)}(z) = [(k) * (k-1) * ... * (k - ((k - 1) -1))] (z - c)^(k-(k - 1)) = [(k) * (k-1) * ... * 2] (z - c)^(1) = k! (z - c)`
+                </p>
+                <p>
+                    additionally `f^{(k)}(z) = k!` which when evaluated at `c` is not zero, so we can conclude that `f(z)` has a zero of order `k - 1` at `c`
+                </p>
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title">connection between zeros and poles</div>
+            <div class="content">
+                suppose that `f` and `g` are analytic in a neighborhood of `z_0` with zeros at `z_0` of order `n` and `k` respectively, then the function `h(z) = f(z)/g(z)` satisfies the following:
+                <ol>
+                    <li>if `k > n`, then `h` has a pole of order `k - n` at `z_0`</li>
+                    <li>if `k = n`, then `h` has a removable singularity with nonzero limit at `z_0`</li>
+                    <li>if `k < n`, then `h` has a removable singularity at `z_0`, and setting `h(z_0) = 0` produces an analytic function with a zero of order `n - k` at `z_0`</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                show that `1/(z-c)^k` has a pole of order `k`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                ``
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">casorati-wieierstrass</div>
+            <div class="content">
+                Let `f` have an isolated singularity at `z_0` and `w in CC`. Then there is a sequence `z_1, z_2, z_3, ... ` in `C` such that `z_n to z_0` and `f(z_n) to w`
+            </div>
+        </div>
+
+
+        <div class="proposition">
+            <div class="title"></div>
+            <div class="content">
+                suppose that `g(z)` has a pole of order `k` at `z_0` and that `h(z)` has a zero of order `k + 1`, then `g(z) / h(z)` has a simple pole with
+                <div class="centered-content">
+                    `text(res)(g/h, z_0) = (k + 1) g^{(k)}(z_0) / h^{(k + 1)}(z_0)`
+                </div>
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title"></div>
+            <div class="content">
+                suppose that `f` has an isolated singularity at `z_0` and let `k in NN_0` be the smallest such that `lim_{z to z_0} (z - z_0)^k f(z)` exists, then `f(z)` has a pole of order `k` at `z_0` and if we let `phi(z) = (z - z_0)^k f(z)`, then `phi` can be defined uniquely at `z_0` so that `phi` is analytic at `z_0` and
+                <div class="centered-content">
+                    `text(res)(f, z_0) = (phi(k-1)(z_0)) / (k - 1)!`
+                </div>
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">residue</div>
+            <div class="content">
+               Let `A` be a region and let `z_1, ..., z_n in A` be `n` distinct points in `A` and suppose that `f` is analytic on `A \ {z_1, ..., z_n}` with `z_1, ..., z_n` being isolated singularities of `f` and let `gamma` be a closed curve in `A` homotopic to a point in `A`, then if no `z_i in text(im)(gamma)`, then
+                <div class="centered-content">
+                    `int_gamma f(z) dz = 2 pi i * sum_{i = 1}^n (text(res)(f, z_i) * I(gamma, z_i)`
+                </div>
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">pole at infinity</div>
+            <div class="content">
+               Suppose that `F(z) = f(1/z)` for some analytic function `f`, then we say that `f` has a pole of order `k` at `oo` if `F` has a pole of order `k` at `0`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">zero at infinity</div>
+            <div class="content">
+                Suppose that `F(z) = f(1/z)` for some analytic function `f`, then we say that `f` has a zero of order `k` at `oo` if `F` has a zero of order `k` at `0`
+            </div>
+        </div>
+
+        <div class="definition">
+            <div class="title">residue at infinity</div>
+            <div class="content">
+                Suppose that `F(z) = f(1/z)` for some analytic function `f` then `text(res)(f, oo) := - text(res)( (1/z^2) F(z), 0)`
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title"></div>
+            <div class="content">
+                Suppose there is an `R _0 > 0` such that `f` is analytic ` ^`
             </div>
         </div>
 
@@ -189,7 +1465,7 @@
                 Let `k >= 1` be an integerand let the function `f: RR -> RR` be k times differentiable at the point `a in RR`. Then there exists a function `h_k: RR -> RR` such that
                 <p>
                     `f(x) = f(a) + f'(a) * (x - a) + f''(a)/(2!) (x - a)^2 + ... + f^{(k)}(a)/(k!)(x - a)^k + h_k(x) (x - a)^k`
-                </p> 
+                </p>
                 where `lim_{x -> a} h_k(x) = 0`
             </div>
         </div>
@@ -268,6 +1544,157 @@
         <p>
             therefore I will focus on the formula given by proposition 4.1.6, the general formula is as above, and the main concepts behind this proof are to use part 2 of question 3 to rewrite `phi(z)` as the inner part of the square brackets which yields `f(z) = b_k / (z - z_0)^k + b_(k - 1) / (z - z_0)^(k - 1) + ... + b_1 / (z - z_0) + a_0 + a_1(z - z_0) + ...`, then use contradiction to see `b_k` is non-zero thus we have a pole of order `k`, the last idea is to differentiate `k` times to obtain a closed formula.
         </p>
+
+        <h2>question 1</h2>
+
+
+
+
+        <div class="exercise">
+            <div class="title">Evaluate `int_0^oo 1/(1 + x^6) dx`</div>
+            <div class="content">
+                plan
+                <ol>
+                    <li>show our integral converges using the <a href="../analysis/single_variable.html#indefinite-integral-comparison-test">indefinite integral comparison test</a></li>
+                    <li>re-write as a symmetric integral</li>
+                    <li>extend to a path</li>
+                    <li>use the residue theorem to compute it</li>
+                </ol>
+                <p>
+                    We can see that the following integral converges: `int_1^oo 1/x^2 = lim_{B to oo} (1/B + 1/1) = 1`, we can also see that for `x >= 1` `x^2 <= x^6`, so also `x^2 < 1 + x^6` which tells us that `1/x^2 > 1/(1 + x^6)`, therefore by the <a href="../analysis/single_variable.html#indefinite-integral-comparison-test"> indefinite integral comparison test</a> we can see that since `int_1^oo 1/x^2 dx` converges then so does `int_1^oo 1/(1 + x^6) dx` also since `1/(1 + x^6)` is bounded and the set of discontinuities has zero measure on `[0, 1]` and thus the integral of `int_0^oo 1/(1+x^6) dx` converges as well.
+                </p>
+                <p>
+                    Since we know it converges we can compute it as `int_0^oo f(x) dx = 1/2 lim_{R to oo} int_-R^R f(x) dx`. The interval `[-R, R]` may be considered as a subset of `CC` and can be extended to a simple closed curve by connecting `-R` to `R` with a semi-arc `S_R = {z in CC: |z| = R text( and ) Im(z) >= 0}` to create the semicircle `[-R, R] uu S_R`
+                </p>
+                <p>
+                    Considering the `CC` version of original function `g(z) = 1/(1 + z^6)`, then we know that along `x in [-R, R] sube CC, f(x) = g(x)` and that is is analytic everywhere except for when `1 + x^6 = 0` which are the 6 roots of `-1`, so solutions to `z^6 = -1` are complex numbers on the unit circle of the form `e^(it)` so we have `e^(i6t) = e^(k pi i)` for `k in {1, 3, 5, ..., 11}` comparing angles we must have `6t = k pi` so `t = (pi k)/6`, so solutions are `e^(i * pi * 1/6), e^(i * pi * 3/6), e^(i * pi * 5/6), e^(i * pi * 7/6), e^(i * pi * 9/6), e^(i * pi * 11/6)`.
+                </p>
+                <p>
+                    Only `e^(i * pi * 1/6), e^(i * pi * 3/6), e^(i * pi * 5/6)` (specified by `z_1, z_2, z_3` respectively) reside in the first two quadrants, and therefore when `R > 1` they are contained within the semicircle, thus by the residue theorem we have:
+                </p>
+                <div class="centered-content">
+                    `int_C f(z) dz = 2pi i(text(res)(f, z_1) + text(res)(f, z_2) + text(res)(f, z_3))`
+                </div>
+                <p>
+                    since we know that each of these three points are simple poles then we can compute each one using the <a href="#residue-formula-for-simple-poles">residue formula for simple poles</a> and that `f(z) = 1 / (1 + z^6)`we can see that `text(res)(f, z_k) = 1 / (6(z_k)^5)` so that:
+                </p>
+                <div class="centered-content">
+                    `int_C f(z) dz = 2pi i(text(res)(f, z_1) + text(res)(f, z_2) + text(res)(f, z_3)) = 2/6 pi i (e^(-i pi 5/6) + e^(-i pi 15/6) + e^(-i pi 25/6)) `
+                </div>
+                <p>
+                    Since `-pi * 5/6` `25 = 6 * 4 + 1` then the angle of `-pi * 25/6` is the same as the angle `-pi * 1/6`, therefore `x = e^(-pi * 5/6)` and `y = e^(-pi * 25/6)` share the property of being 30-60-90 triangles, which are mirror over the `y` axis, so that `x + y = -i`
+                </p>
+                <div class="centered-content">
+                    `1/3 pi i (e^(-i pi 5/6) + e^(-i pi 15/6) + e^(-i pi 25/6))  = 1/3 pi i ( -i + e^(-i pi 5/2))` 
+                </div>
+                <p>
+                    Since `e^(-i pi * 2.5)` lands on the `y` negative `y` axis, we know `e^(-i pi * 2.5) = -i` and we have
+                </p>
+                <div class="centered-content">
+                    `1/3 pi i ( -i + -i) = (i * (-2 i) * pi) / 3 = (2 pi) /3 `
+                </div>
+                <p>
+                    along `z in S` we know that `|z| = R > 1` so then `abs(1/(1 +z^6)) = 1/(1 + R^6)`, so by the <a href="#estimation-lemma">estimation lemma</a> we can see that `abs(int_C f(z) dz) <= 1/(1 + R^6) text(arclen)(C) = (pi R)/(1 + R^6)`
+                </p>
+
+                <p>
+                    as `R to oo`, we can note that `(pi R)/(1 + R^6)` goes to `0` so then `abs(int_C f(x) dx)` must also become `0` as it's bounded above by it, and so also `int_C f(x) dx` must be zero as well.
+                </p>
+
+                <p>
+                    from the residue theorem we were able to determine that `(2pi)/3 = int_C g(z) dz = lim_{R to oo} int_(C_R) g(z) dz = lim_{R to oo} int_(S_R) g(z) dz + lim_{R to oo} in int_{[-R, R]} g(z) dz` `= 0 + lim_{R to oo} + int_-R^R g(z) dz` `= int_-oo^oo f(z) dz`, since we're only interested in half of that and that `f` is an even function, then `int_0^oo f(z) dz = pi/3`
+                </p>
+
+            </div>
+        </div>
+
+        <div class="theorem">
+            <div class="title">Cauchy's theorem for simply connected regions</div>
+            <div class="content">
+                if `f` is holomorphic on a simply connected region `G`, if `gamma` is a closed curve in `G` then:
+                <div class="centered-content">
+                    `int_gamma f = 0`
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                <ol>
+                    <li>drawing</li>
+                    <li>
+                        the function `(1 - e^iz)/z^2` is holomorphic as it's the composition of holomorphic functions (since the integration domain doesn't contain zero), also we can visually determine that `D` is simply connected, thus since `Gamma` is the boundary which is contained in `D`, we can see that `int_Gamma f = 0` by cauchy's theorem on simply connected regions
+                    </li>
+                    <li>
+                       by the definition of the contour integral, we can see that 
+                       <div class="centered-content">
+                        `0 = int_Gamma f(z) dz = int_{-R to -epsilon} f(z) dz + int_{R to epsilon} f(z) dz + int_{gamma_epsilon} f(z) dz + int_{gamma_R} f(z) dz`
+                       </div> 
+                    </li>
+                    <li>
+                       along the exterior path `z = R e^(it) = R cos(t) + i R sin(t)`, the integrand's numerator is `1 - e^(iz) = 1 - e^(-R sin(t) + i R cos(t))` since `t in [0, pi]` then we know that `sin` stays within `[0, 1]` and `R > 0` so `e^(-R sin(t)) le 1`, thus we can say that `abs(1 - e^(iz)) le 2` to conclude that 
+                       <div class="centered-content">
+                        `abs((1 - e^(iz))/z^2) le 2 / abs(z)^2`
+                       </div>
+                    </li>
+                    <li>
+                        As `R to oo` in the above, then clearly the above expresion becomes 0, this bound allows us to use the <a href="#estimation-lemma">estimation lemma</a> which shows that `int_{gamma_R} f(z) dz = 0`
+                    </li>
+                    <li>
+                        We can show that `f(z) + iz/z^2` is bounded expanding the taylor series and comparing by using a geometric series, by knowing that it's bounded it means that in the limit there won't be any contribution to the path integral, which is due to the fact that arc length approaches zero.
+                    </li>
+                    <li>
+                        `int_0^pi (1 - e^(i(epsilon * e^(i theta))))/(epsilon e^(i theta))^2 i (epsilon e^(i theta)) d theta = i int_0^pi (1 - e^(i epsilon e^(i theta)))/(epsilon e^(i theta)) d theta =i int_0^pi (1 - sum_{k = 0}^oo (i^k (epsilon e^(i theta))^k)/(k!))/(epsilon e^(i theta)) d theta = -i int_0^pi (sum_{k = 1}^oo (i^k (epsilon e^(i theta))^k)/(k!))/(epsilon e^(i theta)) d theta = -i int_0^pi sum_{k = 1}^oo (i^k (epsilon e^(i theta))^(k - 1))/(k!) d theta`
+                        <p>
+                            Note that as `epsilon to 0` the inner summation simply becomes `i` and thus: 
+                        </p>
+                        `-i int_0^pi i d theta = int_0^pi d theta = pi`, therefore the correctly oriented integral is `-pi`
+                    </li>
+                    <li>
+                        <p>
+                            By `3` and `5` we can conclude that `pi = int_-oo^oo f(x) dx = int_-oo^oo (1 - cos(x)) / x^2 - (i sin(x))/x^2 dx = int_-oo^oo (1- cos(x))/x^2 - i int_-oo^oo (sin(x)/ x^2) dx `
+                        </p>
+                        <p>
+                            Thus by taking the real parts of both sides we can see that `pi = int_-oo^oo (1 - cos(x))/x^2`
+                        </p>
+                    </li>
+                    <li>
+                        Since our function `(1 - cos(x))/x^2` is a composition of even functions, it is even as well, and thus `int_0^oo f(z) dz = pi/2`
+                    </li>
+
+                </ol>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title">evaluate `int_-oo^oo 1 / (x^2 + 1)^2 dx`</div>
+            <div class="content">
+                <p>
+                    Consider the extension of the integrand to a function `g(z) = 1/(z^2 + 1)^2` which makes things at least a little better as `(z^2 + 1)^2 = (z + i)^2 (z - i)^2`, which tells us we have poles at `z = pm i`.
+                </p>
+                <p>
+                    If we consider the semicircle of radius `R` in the upper two quadrants, so long as `R > 1` `i` will be contained within the semicircle, note that `-i` will never be contained within it.
+                </p>
+                <p>
+                    Therefore using the residue theorem we can see that `int_(S_R) f(z) dz = int_-R^R f(x) dx + int_(C_R) f(z) dz = 2pi i * text(res)(g, i)`
+                </p>
+                <p>
+                    On the upper cap `C_R` we note that `abs(f(z)) = 1/(z^2 + 1)^2` and that by the reciprocal of the reverse triangle equality we have for any `a, b in CC, 1/abs(a - b) le 1/abs(abs(a) - abs(b))` so that `abs(1/(z^2 + 1)^2) = 1/abs((z^2 + 1))^2 le 1/abs(abs(z^2) + abs(1))^2 = 1/(R^2 + 1)^2` thus by the estimation lemma, we see that `abs(int_-oo^oo f(x) dx) le 1/(R^2 + 1)^2 * R pi` since `R to oo` then this integral is zero.
+                </p>
+                <p>
+                    Therefore from the residue theorem we can see that `lim_{R to oo} int_-R^R f(x) dx = 2pi i * text(res)(g, i)` now all we have to figure out is the value of `text(res)(g, i)`
+                </p>
+                <p>
+                    Since this pole is of order two, we can invoke the residue formula for higher order poles
+                    <div class="centered-content">
+                        `text(res)(1/(1+x^2)^2, i) =   d/dz [(z - i)^2 * 1 / ((z + i)^2 * (z - 1)^2)] = d/dz [1/(z + i)^2] = -2/(z + i)^3`
+                    </div>
+                    <p>
+                    </p>
+                </p>
+            </div>
+        </div>
 
         <script src="" async defer></script>
 </body>

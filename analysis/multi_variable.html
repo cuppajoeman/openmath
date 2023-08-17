@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>multi variable</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../styles/styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+        <script src="../latest.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="thin-wrapper">
+            <h1>multi variable analysis</h1>
+
+            <div class="definition">
+                <div class="title">partial derivative</div>
+                <div class="content">
+                    Let `U in RR^n` be open and consider `f: U to RR`, then the partial derivative of `f` at a point `a = (a_1, ..., a_n) in U` with respect to the `i`-th variable `x_i` is defined as 
+                    <div class="centered-content">
+                        `del/(del x_i) f(a) := lim_{h to 0} (f(a + h e_i) - f(a))/h`
+                    </div>
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">directional derivative</div>
+                <div class="content">
+                    Let `f: RR^n to R` and let `a, v in RR^n`, then the directional derivative of `f` at `a` along `v` is defined as
+                    <div class="centered-content">
+                        `grad_v f(a) := lim_(h to 0) (f(x + hv) - f(x)) / h`
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="definition">
+                <div class="title">differentaibility</div>
+                <div class="content">
+                    a function `f: A to RR^m` with `A sube RR^n` is differentiable at the point `a in RR^n` if there exists a linear transformation `T: RR^n to RR^m` such that 
+                    <div class="centered-content">
+                        `lim_{x to a} norm(f(x) - (f(a) + T(x - a)))/ norm(x - a) = 0`
+                    </div>
+                </div>
+            </div>
+
+            <div class="theorem">
+                <div class="title">continuous partials implies differentiability</div>
+                <div class="content">
+                    If all the partial derivatives of a function exist in a neighborhood of a point `x_0` and are continuous at the point `x_0`, then the function is differentiable at that point `x_0`
+                </div>
+            </div>
+
+        </div>
+
+        
+        <script src="" async defer></script>
+    </body>
+</html>
