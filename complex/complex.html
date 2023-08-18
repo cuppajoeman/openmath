@@ -89,6 +89,13 @@
             </div>
         </div>
 
+        <div class="proposition">
+            <div class="title">extracting the real part of a complex number</div>
+            <div class="content">
+                suppose `z in CC`, then `fr R(z) = (z + bar(z))/2`
+            </div>
+        </div>
+
         <div class="definition">
             <div class="title">modulus</div>
             <div class="content">
@@ -99,14 +106,21 @@
             </div>
         </div>
 
-        <div class="proposition">
+        <div class="proposition" id="proposition-modulus-is-greater-than-it's-components">
             <div class="title">modulus is greater than it's components</div>
             <div class="content">
                 for any `z in CC` we have both
                 <ul>
-                    <li>`cc R (z) le abs(z)`</li>
-                    <li>`cc I (z) le abs(z)`</li>
+                    <li>`abs(fr R (z)) le abs(z)`</li>
+                    <li>`abs(fr I (z)) le abs(z)`</li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-imaginary-part-distributes">
+            <div class="title">imaginary part distributes</div>
+            <div class="content">
+                `fr I(z + w) = fr I(z) + fr I(w)`
             </div>
         </div>
 
@@ -162,6 +176,20 @@
         </div>
 
         <div class="definition">
+            <div class="title">linear fractional transformation</div>
+            <div class="content">
+                any function of the form `f(z) = (az + b)/(cz + d)` for `a, b, c, d in CC` is called a linear fractional transformation
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                find a linear fractional transformation which maps the upper half plane to the unit disk and sends `1` to `1`
+            </div>
+        </div>
+
+        <div class="definition">
             <div class="title">complex sin</div>
             <div class="content">
                 `sin: CC to CC`
@@ -176,8 +204,22 @@
             <div class="content">
                 `cos: CC to CC`
                 <div class="centered-content">
-                    `sin(z) := (e^(iz) + e^(-iz))/2`
+                    `cos(z) := (e^(iz) + e^(-iz))/2`
                 </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                prove the following is true or false `-1 le abs(cos(z)) le 1`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                consider `abs(cos(z)) = abs((e^(i z) + e^(-i z))/2) = 1/2 * abs(e^(i z) + e^(-i z)) le 1/2 * (abs(e^(iz)) + abs(e^(-iz)) )`, since `z = x + i y` then we know `abs(e^(iz)) = abs(e^(-y)*e^(ix)) = e^-y` and `abs(e^(-iz)) = e^y * e^(-ix)` thus by we have `abs(cos(z)) le e^-y + e^y`, this might cause an issue as when `y = 0` we only get the bound `abs(cos(z)) le 2`. If we consider `z = ln(4)i` then `abs(cos(ln(4)i)) = 1/2 * abs(e^(-ln(4)) + e^ln(4)) = 1/2 (1/4 + 4) = 2 + 1/8 gt 1` thus the original statement is proven false
             </div>
         </div>
 
@@ -278,9 +320,34 @@
         </div>
 
         <div class="definition">
-            <div class="title">open</div>
+            <div class="title">open set</div>
             <div class="content">
                 a set `A sube CC` is said to be open if for every `a in A`, there is some `epsilon in R^(>0)` such that `B(a, epsilon) sube A`
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                Show that `Omega := {z in CC: fr I(z) > 1}` is an open set
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <p>
+                    Let `z_Omega in Omega`, then take `B(z_Omega, fr I(z_omega) - 1)`, let `z in B(z_Omega, fr I(z_omega) - 1)`, now we want to prove that `z in Omega`, that is that `fr I(z) > 1`
+                </p>
+                <p>
+                    If `fr I(z) >= fr I(z_Omega)`, then clearly `fr I(z) > 1`, on the other hand if `fr I(z) < fr I(z_Omega)` we have more work to do. So assume `fr I(z) < fr I(z_Omega)`.
+                </p>
+                <p>
+                    Due to the fact that `z` resides in a ball with radius `fr I(z_Omega) - 1` we can see that `fr I(z_Omega) - 1 gt abs(z - z_Omega) = abs(z_Omega - z)` <a href="#proposition-modulus-is-greater-than-it's-components">`ge`</a> `abs(fr I(z_Omega - z)) `<a href="#proposition-imaginary-part-distributes">`=`</a>`abs(fr I(z_Omega) - fr I(z))` and since `fr I : CC to RR` and that `fr I(z) < fr I(z_Omega)` we know that `fr I(z_Omega) - fr I(z) gt 0` and thus `abs(fr I(z_Omega) - fr I(z)) `<a href="../analysis/single_variable.html#definition-absolute-value">`=`</a>`fr I(z_Omega) - fr I(z)`.
+                </p>
+                <p>
+                    By collapsing our inequalities we have that `fr I(z_Omega) - 1 gt fr I(z_Omega) - fr I(z)` thus subtracting `fr I(z_Omega)` from both sides and then multiplying by `-1` yields `1 lt fr I(z)` thus `z in Omega` as needed.
+                </p>
             </div>
         </div>
 
@@ -445,14 +512,18 @@
             </div>
         </div>
 
-        <div class="theorem">
+        <div class="theorem" id="theorem-cauchy-riemann-equations">
             <div class="title">cauchy riemann equations</div>
             <div class="content">
                 suppose `A` is an open subset of `CC` and `f: A to C` is given. Then `f'(z_0)` exists if and only if `f` is differentiable in the sense of real variables and at `(x_0, y_0) = z_0` the functions `u, v` satisfy:
                 <div class="centered-content">
-                    `(del u) / (del x) = (del v) / (del y)` and `(del u) / (del y) = - (del v) / (del x)`
+                    `(del u) / (del x) (z_0) = (del v) / (del y) (z_0)` and `(del u) / (del y) (z_0) = - (del v) / (del x) (z_0)`
                 </div>
             </div>
+        </div>
+
+        <div class="exercise">
+
         </div>
 
         <div class="exercise">
@@ -466,7 +537,6 @@
             <div class="title"></div>
             <div class="content">
                 since `f` is holomorphic, that means that the derivative exists at every point in it's domain, thus the cauchy riemann equations hold at every point in it's domain, and so `del / (del x) u = 2x = del / (del y) v`, and we also have `del / (del y) u = -2y = del / (del x) v`
-
             </div>
         </div>
 
@@ -480,12 +550,39 @@
             </div>    
         </div>
 
-        <div class="proposition">
+        <div class="proposition" id="proposition-holomoprhic-implies-harmonic">
             <div class="title">holomorphic implies harmonic</div>
             <div class="content">
                 `f: A to C` is holomorphic on `A` implies that `fr I(f(z))` and `fr R(f(z))` are harmonic
             </div>
         </div>
+
+        <div class="definition">
+            <div class="title">harmonic conjugate</div>
+            <div class="content">
+                the harmonic conjugate to a given harmonic function `u(x,y)` is a function `v(x,y)` such that `f(x,y) = u(x, y) + i v(x,y)` such that `v(x, y)` is complex differentiable
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                find a harmonic conjugate for `e^x cos(y)`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <p>
+                    `e^x cos(y)` satisfies the <a href="#theorem-cauchy-riemann-equations">CRE's</a> so it's harmonic, to find the harmonic conjugate we need `v(x,y)` such that `f(x+iy) = e^x cos(y) + i v(x,y)` is holomorphic. Thus we require it to also satisfy the CRE's
+                </p>
+                <p>
+                    That means we need `(del u) / (del x) = e^x cos(y) = (del v) / (del y)` and also that `(del u) / (del y) = - e^x sin(y) = - (del v) / (del x)`, since `(del v) / (del y) = e^x cos(y)` then `v(x,y) = e^x sin(y) + g(x)`  and so `(del v) / (del x) = e^x cos(y) + g'(x) = e^x sin(y)` so `g'(x) = 0` thus it is constant in `x` so `g(x) = c in CC` therefore `v(x,y) = e^x sin(y) + c` is our harmonic conjugate
+                </p>
+            </div>
+        </div>
+
 
         <div class="definition">
             <div class="title">complex integral</div>
@@ -845,10 +942,29 @@
             </div>
         </div>
 
-        <div class="definition">
+        <div class="definition" id="definition-entire-function">
             <div class="title">entire function</div>
             <div class="content">
                 a function `f: CC to CC` is said to be entire if it is holomorphic on it's domain.
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                is `f(x + iy) = 3x^2 - y + i(e^x - 2 sin(y))` an entire function?
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <p>
+                    if `f` is an entire function, then we know that it's holomorphic on all of `CC`, that would require that the <a href="#theorem-cauchy-riemann-equations">cauchy riemann equations</a> be satisfied at every point in `CC`
+                </p>
+                <p>
+                    we can see that `u(x, y) = 3x^2 - y` and `v(x, y) = e^x - 2 sin(y)`, so `(del u) / (del x) (x, y) = 6x` and `(del v) / (del y) (x, y) = -2cos(y)` which clearly don't satisfy the cauchy riemann contstraints, thus `f` cannot be entire
+                </p>
             </div>
         </div>
 
@@ -863,6 +979,20 @@
             <div class="title">fundamental theorem of algebra</div>
             <div class="content">
                 Let `a_0, a_1, ..., a_n` be a collection of `n + 1` complex numbers with `n ge 1` and `a_n ne0`, let `p(z) = a_0 + a_1 z + ... + a_n z^n`, then there exists a point `z_0 in CC` such that `p(z_0) = 0`
+            </div>
+        </div>
+
+        <div class="proposition">
+            <div class="title"></div>
+            <div class="content">
+                is `p(x)` is a non-constant complex polynomial, then the range of `p` is `CC`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                Let `w in CC`, then `p(x) - w` is a non constant polynomial thus by the FTA there is some `z_0 in CC` such that `p(z_0) - w = 0` thus we have `p(z_0) = w` so it's range is `CC`
             </div>
         </div>
 
@@ -934,7 +1064,7 @@
             </div>
         </div>
 
-        <div class="lemma">
+        <div class="lemma" id="schwarz">
             <div class="title">schwarz</div>
             <div class="content">
                 <p>
@@ -942,6 +1072,28 @@
                 </p>
                 <p>
                    moreover if `abs(f^'(0)) = 1` or if there is a point `z_0` other than `0` in `A` with `abs(f(z_0)) = abs(z_0)`, then there is a constant `c in CC` where `abs(c) = 1` and `f(z) = cz` for all `z in A`
+                </p>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                Suppose, `f(z)` is an analytic function which maps the unit disk bijectively onto itself, and `f(0) = 0`. Prove that `f(z) = λz` where `|λ| = 1`.
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <p>
+                    since `f` maps into the unit circle then clearly `AA z in text(dom)(f), abs(f(z)) le 1`, then by <a href="#schwarz">schwarz</a> we can see that `abs(f^'(0)) le 1` and `abs(f(z)) le abs(z)`
+                </p>
+                <p>
+                    at the same time `f^-1` is also holomorphic (TODO: why) and for any `z` in the unit disk `f^-1` maps back into the unit circle thus `abs(f^-1(z)) <= 1` and so by schwarz again we know that `abs(f^-1(z)) le |z|` on the unit disk
+                </p>
+                <p>
+                    let `a` be an element in the unit disk that is not zero, then `f(a)` is an element in the unit disk, and thus from the above paragraph we can see that `abs(f^-1(f(a))) le abs(f(a))` meaning that `abs(a) le abs(f(a))`. But from our first paragraph we know that `abs(f(a)) le abs(a)`, which implies that `abs(f(a)) = abs(a)`, thus by the second part of the schwarz lemma then we get some constant `c` with `abs(c) = 1` with `f(z) = cz` for all `z` on the unit disk, then we can take `lambda = c`
                 </p>
             </div>
         </div>
@@ -988,7 +1140,7 @@
         <div class="definition">
             <div class="title">analytic function</div>
             <div class="content">
-                a function `f` is analytic if it can be represented by a power series
+                a function `f` is analytic on an open set `D sube CC` if for any `z_0 in D` and for any `z` in a neighborhood of `z_0`  `f(z) = sum_{k = 0}^oo a_k * (z - z_0)^k` with `a_k in CC`
             </div>
         </div>
 
@@ -1007,6 +1159,20 @@
                     <li>if `|z - z_0| < r` then the given power series converges</li>
                     <li>if `|z - z_0| > r` then the power series diverges</li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                If `f(z) = sum_{n=0}^oo a_n(z − z0)^n` has radius of convergence `R`, then `f(z)` is analytic on `B(z0,R)`.
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                Let `z_1 in B(z_0, R)` since any open ball is open, there is another ball `B sube B(z_0, R)` centered around `z_1` since it's entirely contained within `B(z_0, R)` then for any `z in B` we know that `f(z)` equals the power series, thus it it's analytic
             </div>
         </div>
 
@@ -1126,6 +1292,7 @@
             </div>
         </div>
 
+
         <div class="definition">
             <div class="title">deleted neighborhood of a point</div>
             <div class="content">
@@ -1133,7 +1300,7 @@
             </div>
         </div>
 
-        <div class="definition">
+        <div class="definition" id="definition-isolated-singularity">
             <div class="title">isolated singularity</div>
             <div class="content">
                 <p>
@@ -1155,7 +1322,7 @@
         <div class="definition" id="pole">
             <div class="title">pole</div>
             <div class="content">
-                if `z_0` is an isolated singularity of `f` and it's it's laurent expansion if all but finitely many of `b_n` are zero (in otherwords, most are non-zero), then `z_0` is called a pole of `f`
+                if `z_0` is an isolated singularity of `f` and in its laurent expansion if all but finitely many of `b_n` are zero and there is at least one `b_n` which is not zero, then `z_0` is called a pole of `f`
             </div>
         </div>
 
@@ -1178,26 +1345,14 @@
             </div>
         </div>
 
-        <div class="definition">
+        <div class="definition" id="definition-residue">
             <div class="title">residue</div>
             <div class="content">
                 if `f` has an isolated singularity at `z_0`, then the value `b_1` in the laurent expansion of `f` is called the residue of `f` at `z_0` and we write `text(res)(f, z_0) := b_1`
             </div>
         </div>
 
-        <div class="exercise">
-            <div class="title"></div>
-            <div class="content">
-                compute `int_{abs(z) = 2} e^(1/z) dz`
-            </div>
-        </div>
 
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                we know that `e^(1/z)` has an isolated singularity at `z = 0`, but we already know the expansion of `e^(1/z) = sum_{k = 0}^oo ((1/z)^k)/(k!)` and thus is already a laurent expansion with `b_1 = 0`, thus `text(res)(e^(1/z), 0) = 1` and so by the residue theorem `int_{abs(z) = 2} e^(1/z) dz = 2 pi i * 1`
-            </div>
-        </div>
 
         <div class="definition">
             <div class="title">removable singularity</div>
@@ -1272,22 +1427,6 @@
             </div>
         </div>
 
-        <div class="corollary" id="residue-formula-for-simple-poles">
-            <div class="title">residue formula for simple poles</div>
-            <div class="content">
-                Let `g` and `h` be analytic at `z_0` and assume that `g(z_0) ne 0` and `h(z_0) = 0` and `h^'(z_0) ne 0`. Then `f(z) := g(z)/(h(z))` has a simple pole at `z_0` and
-                <div class="centered-content">
-                    `text(res)(f, z_0) = g(z_0)/(h^'(z_0))`
-                </div>
-            </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                Note that `h(z_0) = 0`, thus ``
-            </div>
-        </div>
 
         <div class="definition">
             <div class="title">zero of order `n`</div>
@@ -1319,7 +1458,7 @@
             </div>
         </div>
 
-        <div class="proposition">
+        <div class="proposition" id="connection-between-zeros-and-poles">
             <div class="title">connection between zeros and poles</div>
             <div class="content">
                 suppose that `f` and `g` are analytic in a neighborhood of `z_0` with zeros at `z_0` of order `n` and `k` respectively, then the function `h(z) = f(z)/g(z)` satisfies the following:
@@ -1342,6 +1481,42 @@
             <div class="title"></div>
             <div class="content">
                 ``
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                prove true or false, that if `p(z), q(z)` are non-constant polynomials then `(p(z))/(q(z))` has at least one pole, but since they both have zeros of order 1, at `0` then the quotient of the two functions has a removable singularity at `0` meaning that all `b_k` in it's laurent expansion are zero, and thus there is no pole
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                consider `p(z) = z` and `q(z) = z` which are non-constant polynomials, then `(p(z))/(q(z)) = z/z` which is defined on `CC\\{0}`
+            </div>
+        </div>
+
+        <div class="proposition" id="residue-formula-for-simple-poles">
+            <div class="title">residue formula for simple poles</div>
+            <div class="content">
+                Let `g` and `h` be analytic at `z_0` and assume that `g(z_0) ne 0` and `h(z_0) = 0` and `h^'(z_0) ne 0`. Then `f(z) := g(z)/(h(z))` has a simple pole at `z_0` and
+                <div class="centered-content">
+                    `text(res)(f, z_0) = g(z_0)/(h^'(z_0))`
+                </div>
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                <p>
+                    we can see that `z_0` is a zero of order `1` of `h` and `z_0` is a zero of order 0 of `g` therefore by the <a href="#connection-between-zeros-and-poles">connection between zeros and poles</a> we can see that `f(z)` has a pole of order `1`, that is, it has a simple pole
+                </p>
+                <p>
+                    since `z_0` is a simple pole, then we know `lim_{z to z_0} (z - z_0)f(z)` exists and is not zero, by the definition of `f` and the fact that `h(z_0) = 0` we obtain the following `lim_{z to z_0} (z - z_0)f(z) = lim_{z to z_0} (z - z_0)g(z)/(h(z)) = lim_{z to z_0} g(z)/((h(z))/(z - z_0)) = lim_{z to z_0} g(z)/((h(z) - h(z_0))/(z - z_0)) = g(z_0)/(lim_{z to z_0}(h(z) - h(z_0))/(z - z_0)) = g(z_0)/(h'(z_0))`
+                </p>
             </div>
         </div>
 
@@ -1373,13 +1548,44 @@
             </div>
         </div>
 
-        <div class="theorem">
+        <div class="theorem" id="theorem-residue">
             <div class="title">residue</div>
             <div class="content">
                Let `A` be a region and let `z_1, ..., z_n in A` be `n` distinct points in `A` and suppose that `f` is analytic on `A \ {z_1, ..., z_n}` with `z_1, ..., z_n` being isolated singularities of `f` and let `gamma` be a closed curve in `A` homotopic to a point in `A`, then if no `z_i in text(im)(gamma)`, then
                 <div class="centered-content">
                     `int_gamma f(z) dz = 2 pi i * sum_{i = 1}^n (text(res)(f, z_i) * I(gamma, z_i)`
                 </div>
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                suppose that `f(z)` is analytic on the annulus `r_1 gt abs(z) lt r_2` and `r_1 < r < r_2`, then is it true that
+                <div class="centered-content">
+                    `int_{abs(z) = r} f(z) dz = 2pi i text(res)(f, 0)`
+                </div>
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                the definition of `text(res)(f, 0)` recall the <a href="#residue-definition">definition of residue</a>, then we require that `f` have an <a href="#definition-isolated-singularity">isolated singularity</a> at `0`
+            </div>
+        </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                compute `int_{abs(z) = 2} e^(1/z) dz`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content">
+                we know that `e^(1/z)` has an isolated singularity at `z = 0`, but we already know the expansion of `e^(1/z) = sum_{k = 0}^oo ((1/z)^k)/(k!)` and thus is already a laurent expansion with `b_1 = 0`, thus `text(res)(e^(1/z), 0) = 1` and so by the residue theorem `int_{abs(z) = 2} e^(1/z) dz = 2 pi i * 1`
             </div>
         </div>
 
