@@ -28,10 +28,26 @@
                 <li><a href="https://www.sfu.ca/math-coursenotes/Math%20158%20Course%20Notes/frontmatter-1.html">SFU calc notes</a></li>
             </ul>
 
+
             <div class="definition">
                 <div class="title">`RR` modifications</div>
                 <div class="content">
                     Given `RR` and a unary relation `star: RR to RR` we can write `RR^{star}` to denote the set `{x in RR: star(x)}`. We can take binary operations and load a value in to produce a unary operation to write something like `R^{!= 0}`
+                </div>
+            </div>
+
+            <div class="definition" id="definition-open-set">
+                <div class="title">open set</div>
+                <div class="content">
+                    A set `U` is open in `RR` when for every point `x in U` there is some `epsilon in RR^(>0)` such that `(x - epsilon, x + epsilon) sube U`
+                </div>
+            </div>
+
+            <div class="definition" id="definition-neighbourhood-of-a-point">
+                <div class="title">neighbourhood of a point</div>
+                <div class="content">
+                    given a point `x in RR` a neighborhood of `x` is a set of the form `(x - epsilon, x + epsilon)` where `epsilon in RR^{gt 0}`, in other words it's an
+                    <a href="#definition-open-set">open set</a> centered at `x`
                 </div>
             </div>
             
@@ -140,9 +156,6 @@
                 </div>
             </div>
 
-            
-
-
             <div class="theorem">
                 <div class="title">`1/x` is continuous on `RR^{ne 0}`</div>
                 <div class="content"> </div>
@@ -181,6 +194,115 @@
                 <div class="title">composition of continuous functions is continuous</div>
                 <div class="content">
                     TODO
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">power series</div>
+                <div class="content">
+                    a power series is an infinite series of the form
+                    <div class="centered-content">
+                        `sum_{n = 0}^oo a_n(x - c)^n`
+                    </div>
+                    where `a_n, c in RR`
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">taylor series</div>
+                <div class="content">
+                    the taylor series for a function `f : A sube RR to RR` that is `C^oo` at `a in RR` is given by
+                    <div class="centered-content">
+                        `sum_{n = 0}^oo (f^{(n)}(a)) / (n!) (x - a)^n`
+                    </div>
+                    where `f^{(n)}(a)` is the `n`-th derivative of `f` evaulated at the point `a`
+                </div>
+            </div>
+
+            <div class="theorem">
+                <div class="title">taylor's</div>
+                <div class="content">
+                    Let `k >= 1` be an integer and let the function `f: RR -> RR` be k times differentiable at the point `a in RR`. Then there exists a function `h_k: RR -> RR` such that
+                    <p>
+                        `f(x) = f(a) + f^'(a) * (x - a) + f^('')(a)/(2!) (x - a)^2 + ... + f^{(k)}(a)/(k!)(x - a)^k + h_k(x) (x - a)^k`
+                    </p>
+                    where `lim_{x -> a} h_k(x) = 0`
+                </div>
+            </div>
+
+            <div class="definition" id="definition-real-analytic">
+                <div class="title">real analytic</div>
+                <div class="content">
+                    we say that a function `f` is real analytic on an open set `D sube RR` if given any point `x_0 in D` we can write it as a taylor series
+                    <div class="centered-content">
+                        `f(x) = sum_{n = 0}^oo (f^{(n)}(x_0)) / (n!) (x - x_0)^n`
+                    </div>
+                    where the above equality holds for any `x` in a neighborhood of `x_0`
+                </div>
+            </div>
+
+            <div class="theorem">
+                <div class="title">taylor's expansion</div>
+                <div class="content">
+                    Let `I sube RR` be an open interval, suppose `f: I to RR` is <a href="#definition-real-analytic">real analytic</a> on `I`,so that for every `a in I` then there exists some `r in RR^{>0}` with `(a - r, a + r) sube RR` and for every `x in (a-r, a+r)` we have
+                    <div class="centered-content">
+                        `f(x) = sum_{n = 0}^oo (f^{(n)}(a)) / (n!) (x - a)^n`
+                    </div>
+                    And we denote `r` as the radius of convergence.
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    <p>
+                        Since we know that `f: I to RR` is real analytic, we know that for every point `a in I`, there is some neighborhood `U` of `a` where the equality `f(x) = sum_{n = 0}^oo (f^{(n)}(x_0)) / (n!) (x - x_0)^n` holds
+                    </p>
+                    <p>
+                        By the definition of <a href="#definition-neighbourhood-of-a-point">neighbourhood</a>, we know that `U = (a - epsilon, a + epsilon)` for some `epsilon in RR^{gt 0}`.
+                    </p>
+                    <p>
+                        Therefore we can take `r = epsilon`
+                    </p>
+                </div>
+            </div>
+
+            <div class="lemma" id="lemma-closed-form-of-a-geometric-series">
+                <div class="title">closed form of a geometric series</div>
+                <div class="content">
+                    `sum_{n = 0}^k x^n = (1 - x^(k+1)) / (1 - x)`
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    Let `S = sum_{n = 0}^k x^n`, then `xS - S = x^(k+1) - x^0` therefore `S = (x^(k+1) - 1)/(x - 1)`, so also `S =(1 - x^(k+1))/(1 - x)` by factoring -1 from the numerator and the denominator, as needed
+                </div>
+            </div>
+
+            <div class="lemma" id="lemma-exponent-limit">
+                <div class="title">exponent limit</div>
+                <div class="content">
+                    if `abs(r) < 1`, then `lim_{k to oo} r^k = 0` otherwise it diverges to infinity
+                </div>
+            </div>
+
+            <div class="proposition" id="proposition-geometric-power-series">
+                <div class="title">geometric power series</div>
+                <div class="content">
+                    for `abs(x) < 1` we have `sum_{n = 0}^oo x^n = 1/(1 - x)`
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    <details>
+                        <summary>details</summary>
+                        By definition we know that `sum_{n = 0}^oo x^n = lim_{k to oo} sum_{n = 0}^k x^n` and by the <a href="#lemma-closed-form-of-a-geometric-series"> closed form of the geometric series</a> we know that `lim_{k to oo} sum_{n = 0}^k x^n = lim_{k to oo}(1 - x^(k+1))/(1-x)` thus by the
+                        <a href="#lemma-exponent-limit">exponent limit lemma</a> if `abs(x) < 1` then `lim_{k to oo} x^(k+1)` becomes zero and we get `lim_{k to oo} (1 - x^(k+1))/(1-x) = 1/(1-x)`
+                    </details>
                 </div>
             </div>
 

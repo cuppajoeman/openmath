@@ -894,9 +894,22 @@
                 <div class="centered-content">
                     `f(z_0) * I(gamma, z_0) = 1/(2 pi i) int_gamma f(z)/( z - z_0) dz`
                 </div>
-                This formula is often applied when `gamma` is a simple closed curve and `z_0` is inside `gamma` which simplifies `I(gamma, z_0) = 1`
+                This formula is often applied when `gamma` is a simple closed curve and `z_0` is inside `gamma` which simplifies `I(gamma, z_0) = 1`. It is also used to compute integrals easily
             </div>
         </div>
+
+        <div class="exercise">
+            <div class="title"></div>
+            <div class="content">
+                evaluate the integral `int_gamma e^z/z` where `gamma` is the rotated square with vertices `pm i, pm 1`
+            </div>
+        </div>
+
+        <div class="proof">
+            <div class="title"></div>
+            <div class="content"></div>
+        </div>
+
 
         <div class="theorem">
             <div class="title">differentiability of cauchy type integrals</div>
@@ -1668,7 +1681,7 @@
         <div class="theorem">
             <div class="title">taylors theorem in `RR`</div>
             <div class="content">
-                Let `k >= 1` be an integerand let the function `f: RR -> RR` be k times differentiable at the point `a in RR`. Then there exists a function `h_k: RR -> RR` such that
+                Let `k >= 1` be an integer and let the function `f: RR -> RR` be k times differentiable at the point `a in RR`. Then there exists a function `h_k: RR -> RR` such that
                 <p>
                     `f(x) = f(a) + f'(a) * (x - a) + f''(a)/(2!) (x - a)^2 + ... + f^{(k)}(a)/(k!)(x - a)^k + h_k(x) (x - a)^k`
                 </p>
