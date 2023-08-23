@@ -10,6 +10,10 @@
   margin: 1em;
 }
 
+.knowledge-link {
+  color: rgb(41, 91, 110);
+}
+
 
 /* links */
 
@@ -31,14 +35,14 @@ a {
   border-radius: 10px;
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
-  margin: 1em 0 1em 0;
+  margin: 1.5em 0 1.5em 0;
 }
 
-.definition .title::before {
+.definition>.title::before {
   content: "definition: "
 }
 
-.definition .title {
+.definition>.title {
   font-weight: bold;
   font-style: normal;
   display: inline-block;
@@ -49,11 +53,11 @@ a {
   background-color: rgb(38, 38, 134);
 }
 
-.definition .title h3 {
+.definition>.title h3 {
   margin: 0;
 }
 
-.definition .content {
+.definition>.content {
   padding: 15px 15px 15px 15px;
 }
 
@@ -66,14 +70,14 @@ a {
   border-radius: 10px;
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
-  margin: 1em 0 1em 0;
+  margin: 1.5em 0 1.5em 0;
 }
 
-.theorem .title::before {
+.theorem>.title::before {
   content: "theorem: "
 }
 
-.theorem .title {
+.theorem>.title {
   font-weight: bold;
   font-style: normal;
   display: inline-block;
@@ -84,11 +88,11 @@ a {
   background-color: rgb(38, 134, 38);
 }
 
-.theorem .title h3 {
+.theorem>.title h3 {
   margin: 0;
 }
 
-.theorem .content {
+.theorem>.content {
   padding: 15px 15px 15px 15px;
 }
 
@@ -101,14 +105,14 @@ a {
   border-radius: 10px;
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
-  margin: 1em 0 1em 0;
+  margin: 1.5em 0 1.5em 0;
 }
 
-.proposition .title::before {
+.proposition>.title::before {
   content: "proposition: "
 }
 
-.proposition .title {
+.proposition>.title {
   font-weight: bold;
   font-style: normal;
   display: inline-block;
@@ -119,11 +123,11 @@ a {
   background-color: rgb(38, 134, 134);
 }
 
-.proposition .title h3 {
+.proposition>.title h3 {
   margin: 0;
 }
 
-.proposition .content {
+.proposition>.content {
   padding: 15px 15px 15px 15px;
 }
 
@@ -136,15 +140,15 @@ a {
   border-radius: 10px;
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
-  margin: 1em 0 1em 0;
+  margin: 1.5em 0 1.5em 0;
 }
 
 
-.lemma .title::before {
+.lemma>.title::before {
   content: "lemma: "
 }
 
-.lemma .title {
+.lemma>.title {
   font-weight: bold;
   font-style: normal;
   display: inline-block;
@@ -155,11 +159,11 @@ a {
   background-color: rgb(134, 38, 38);
 }
 
-.lemma .title h3 {
+.lemma>.title h3 {
   margin: 0;
 }
 
-.lemma .content {
+.lemma>.content {
   padding: 15px 15px 15px 15px;
 }
 
@@ -172,14 +176,14 @@ a {
   border-radius: 10px;
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
-  margin: 1em 0 1em 0;
+  margin: 1.5em 0 1.5em 0;
 }
 
-.corollary .title::before {
+.corollary>.title::before {
   content: "corollary: "
 }
 
-.corollary .title {
+.corollary>.title {
   font-weight: bold;
   font-style: normal;
   display: inline-block;
@@ -190,11 +194,11 @@ a {
   background-color: rgb(134, 34, 134);
 }
 
-.corollary .title h3 {
+.corollary>.title h3 {
   margin: 0;
 }
 
-.corollary .content {
+.corollary>.content {
   padding: 15px 15px 15px 15px;
 }
 
@@ -207,15 +211,15 @@ a {
   border-radius: 10px;
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
-  margin: 1em 0 1em 0;
+  margin: 1.5em 0 1.5em 0;
 }
 
 
-.proof .title::before {
+.proof>.title::before {
   content: "proof"
 }
 
-.proof .title {
+.proof>.title {
   font-weight: bold;
   font-style: normal;
   display: inline-block;
@@ -226,11 +230,11 @@ a {
   background-color: black;
 }
 
-.proof .title h3 {
+.proof>.title h3 {
   margin: 0;
 }
 
-.proof .content {
+.proof>.content {
   padding: 15px 15px 15px 15px;
 }
 
@@ -243,14 +247,14 @@ a {
   border-radius: 10px;
   background-color: rgb(222,222,231);
   box-shadow: 5px 10px 8px #888888;
-  margin: 1em 0 1em 0;
+  margin: 1.5em 0 1.5em 0;
 }
 
-.exercise .title::before {
+.exercise>.title::before {
   content: "exercise: "
 }
 
-.exercise .title {
+.exercise>.title {
   font-weight: bold;
   font-style: normal;
   display: inline-block;
@@ -261,11 +265,11 @@ a {
   background-color: grey;
 }
 
-.exercise .title h3 {
+.exercise>.title h3 {
   margin: 0;
 }
 
-.exercise .content {
+.exercise>.content {
   padding: 15px 15px 15px 15px;
 }
 

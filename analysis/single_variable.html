@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../styles/styles.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
-        <script src="../latest.js"></script>
+        <script src="../js/script.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -28,13 +28,34 @@
                 <li><a href="https://www.sfu.ca/math-coursenotes/Math%20158%20Course%20Notes/frontmatter-1.html">SFU calc notes</a></li>
             </ul>
 
-
-            <div class="definition">
-                <div class="title">`RR` modifications</div>
+            <div class="definition" id="definition-relation">
+                <div class="title">relation</div>
                 <div class="content">
-                    Given `RR` and a unary relation `star: RR to RR` we can write `RR^{star}` to denote the set `{x in RR: star(x)}`. We can take binary operations and load a value in to produce a unary operation to write something like `R^{!= 0}`
+                    A relation on two sets `X, Y` is a subset of `X xx Y`
                 </div>
             </div>
+
+            <div class="definition" id="definition-function">
+                <div class="title">function</div>
+                <div class="content">
+                    a <span class="knowledge-link" data-href="/analysis/single_variable.html#definition-relation">relation</span> that has no repeated (TODO: rigor) x values is said to be a function. 
+                </div>
+            </div>
+
+            <p>
+            Functions are usually denoted by the symbols `f,g,h,...` and if `(x,y) in f` then we say that `f(x) = y` and we can think of `f` mapping `x` to `y`
+            </p>
+
+            <div class="definition">
+                <div class="title">set filter</div>
+                <div class="content">
+                    Given a set `S` and a unary relation `star: S to S` we can write `RR^{star}` to denote the set `{x in S: star(x)}`. 
+                </div>
+            </div>
+
+            <p>
+                We can take binary operations and load a value in to produce a unary operation to write something like `RR^{!= 0}` which denotes the set of real numbers that are non-zero.
+            </p>
 
             <div class="definition" id="definition-open-set">
                 <div class="title">open set</div>
@@ -48,6 +69,16 @@
                 <div class="content">
                     given a point `x in RR` a neighborhood of `x` is a set of the form `(x - epsilon, x + epsilon)` where `epsilon in RR^{gt 0}`, in other words it's an
                     <a href="#definition-open-set">open set</a> centered at `x`
+                </div>
+            </div>
+
+            <div class="definition" id="definition-limit-of-a-function-at-a-point">
+                <div class="title">limit of a function at a point</div>
+                <div class="content">
+                    given a <span class="knowledge-link" data-href="/analysis/single_variable.html#definition-function">function</span>`f: RR to RR`, we say that the limit of `f` as `x to a` equals `L` when the following is satisfied
+                    <div class="centered-content">
+                        `AA epsilon in RR^(gt 0), EE delta in RR^(gt 0), text(such that) AA x in text(dom)(f), abs(x - a) lt delta => abs(f(x) - L) lt epsilon`
+                    </div>
                 </div>
             </div>
             

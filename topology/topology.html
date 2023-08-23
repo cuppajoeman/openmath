@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../styles/styles.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
-        <script src="../latest.js"></script>
+        <script src="../js/script.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -37,9 +37,7 @@
             <h2>topological space</h2>
 
             <div class="definition" id="topology-on-a-set">
-                <div class="title">
-                    <h3>definition: a topology on a set `X`</h3>
-                </div>
+                <div class="title">topology on a set `X`</div>
                 <div class="content">
                     <p>
                         is a collection `cc T` of subset of `X` with the following properties
@@ -58,7 +56,7 @@
                 </div>
                 <div class="content">
                     <p>
-                        suppose that `cc T` and `cc T'` are two <a href="#topology-on-a-set">topologies</a> on a given set `X`. If `cc T sube cc T'`, then `cc T'` is finer than `cc T`. If the reverse inclusion is true, then we say that `cc T'` is coarser than `cc T`, there are also strict variations of these definitions for the strict inclusions.
+                        suppose that `cc T` and `cc T'` are two <span class="knowledge-link" data-href="/topology/topology.html#topology-on-a-set">topologies</span> on a given set `X`. If `cc T sube cc T'`, then `cc T'` is finer than `cc T`. If the reverse inclusion is true, then we say that `cc T'` is coarser than `cc T`, there are also strict variations of these definitions for the strict inclusions.
                     </p>
                 </div>
             </div>
@@ -478,6 +476,13 @@ space is a Hausdorff space.
                     Let `X` and `Y` be topological spaces. A function `f : X -> Y` is said to be continuous if
 for each open subset `V` of `Y`, the set `f −1(V)` is an open subset of `X`.     
                 </div>          
+            </div>
+
+            <div class="exercise">
+                <div class="title"></div>
+                <div class="content">
+                    prove that this definition of continuity is equivalent to the <span class="knowledge-link" data-href="/analysis/single_variable.html#definition-limit-of-a-function-at-a-point">epsilon delta definition</span>
+                </div>
             </div>
             
             <div class="definition" id="continuous-function-for-a-basis">
