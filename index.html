@@ -10,228 +10,144 @@
         <title>Homepage</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="styles/styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <h1>openmath</h1>
-        <p>
-            welcome to openmath a fully open source project to create a math learning resource to everyone
-        </p>
+        <div class="thin-wrapper">
 
-        <h2>principles</h2>
-        <p>
-            there are already many online resources to learn math, each one having at least something that could be considered annoying
-        </p>
-        <ul>
-            <li>youtube - not suitable for offline use, contributing requires computer with video editing software</li>
-            <li><a href="https://en.wikipedia.org/wiki/Main_Page">wikipedia </a> contains extraneous information, goal is for general information</li>
-            <li><a href="https://en.wikibooks.org/wiki/Main_Page">wikibooks</a> contains few complete books, haven't seen active development in a while, goal is creating books, needs a working knowledge of mediawiki to contribute</li>
-            <li><a href="https://en.wikiversity.org/wiki/Portal:Mathematics">wikiversity</a></li>
-            <li><a href="https://proofwiki.org/wiki/Main_Page">proofwiki</a> less of a tool to learn topics more of a proof database, mediawiki tech stack</li>
-            <li><a href="statck">nlab</a> - higher level mathematics less accessible for beginners, mediawiki</li>
-            <li>brilliant - nice entry for beginners lacks cumulative content, payment required</li>
-            <li>textbooks - most of them are freely accessible online, but are not easy to navigate (index to page number workflow) closed for further development</li>
-            <li><a href="https://math.libretexts.org/">libretexts</a> - quite useful, users cannot easily contribute, complex tech stack</li>
-            <li><a href="https://proofwiki.org/">proof wiki</a> great site, doesn't focus on the learning aspect just presents proofs, uses recursive learning, but bound within mediawiki's technologies, no external community platform</li>
-        </ul>
+            <div class="centered-content">
+                <h1>`Theta rho epsilon eta Pi alpha tau pi`</h1>
+                <p>
+                    welcome to openmath, a fully open source project to create a math learning resource to everyone
+                </p>
+            </div>
 
-        <p>
-            what openmath tries to do is as follows
-        </p>
 
-        <ul>
-            <li>focus on learning topics in mathematics</li>
-            <li>suitable for offline use</li>
-            <li>contains concise mathematical information</li>
-            <li>simple tech stack (minimal possible dependencies)</li>
-            <li>accessible for all skill levels</li>
-            <li>easy to navigate</li>
-            <li>freely accessible</li>
-            <li>any user can contribute</li>
-            <li>write explanatory proofs</li>
+            <h2>principles</h2>
+            <p>
+                there are already many online resources to learn math, each one specializes in something different yielding pros and cons.
+            </p>
+
             <ul>
+                <li>youtube - not suitable for offline use, contributing requires computer with video editing software</li>
+                <li><a href="https://en.wikipedia.org/wiki/Main_Page">wikipedia </a> contains extraneous information their goal is for general information, not necessarily mathematical information</li>
+                <li><a href="https://en.wikibooks.org/wiki/Main_Page">wikibooks</a> contains few complete books, haven't seen active development in a while for mathematical topics, goal is creating books, needs a working knowledge of mediawiki to contribute</li>
+                <li><a href="https://en.wikiversity.org/wiki/Portal:Mathematics">wikiversity</a>same as above</li>
+                <li><a href="https://proofwiki.org/wiki/Main_Page">proofwiki</a> less of a tool to learn topics more of a proof database, relies on mediawiki tech stack</li>
+                <li><a href="statck">nlab</a> higher level mathematics less accessible for beginners, mediawiki</li>
+                <li>brilliant nice entry for beginners lacks cumulative content, payment required</li>
+                <li>textbooks most of them are freely accessible online, but are not easy to navigate (index to page number workflow)  and are closed for further development</li>
+                <li><a href="https://math.libretexts.org/">libretexts</a> - quite useful, users cannot easily contribute, complex tech stack</li>
+                <li><a href="https://proofwiki.org/">proof wiki</a> great site, doesn't focus on the learning aspect just presents proofs, uses recursive learning, but bound within mediawiki's technologies, no external community platform</li>
+            </ul>
+
+            <p>
+                what openmath tries to do is as follows
+            </p>
+
+            <ul>
+                <li>focus on learning topics in mathematics</li>
+                <li>suitable for offline use</li>
+                <li>contains concise mathematical information</li>
+                <li>simple tech stack (minimal possible dependencies)</li>
+                <li>accessible for all skill levels</li>
+                <li>easy to navigate</li>
+                <li>freely accessible</li>
+                <li>any user can contribute</li>
+                <li>write explanatory proofs</li>
+                <ul>
+                    <li>
+                        when reading a proof you may be able to understand that it's true by following along, then a second analysis is required to figure out how they have come up with the proof, we will try to write explanatory proofs which do both at the same time.
+                    </li>
+                </ul>
                 <li>
-                    when reading a proof you may be able to understand that it's true by following along, then a second analysis is required to figure out how they have come up with the proof, we will try to write explanatory proofs which do both at the same time.
+                    <details>
+                        <summary>keep proofs short containing at most 7 ideas</summary>
+                        <p>
+                            it has been shown that our short term memory can on average hold up to 7 items, when writing functions in programming it's useful to write every function in 7 lines so that you can remember every step that your function is doing, then you give it a name which reflects these steps.
+                        </p>
+                    </details>
+
                 </li>
             </ul>
-            <li>
-                <details>
-                    <summary>keep proofs short containing at most 7 ideas</summary>
-                    <p>
-                        it has been shown that our short term memory can on average hold up to 7 items, when writing functions in programming it's useful to write every function in 7 lines so that you can remember every step that your function is doing, then you give it a name which reflects these steps.
-                    </p>
-                </details>
 
-            </li>
-        </ul>
+            <p>
+                additionally it focuses on <i>recursive learning</i>, which is that given a statement for each definition in that statement you can follow it back to a previous definition recursively until you're at some fundamental definition and then work your way back to the original statement. openmath attempts to make <i>recursive learning</i> as smooth as possible
+            </p>
 
-        <p>
-            additionally it focuses on <i>recursive learning</i>, which is that given a statement for each definition in that statement you can follow it back to a previous definition recursively until you're at some fundamental definition and then work your way back to the original statement. openmath attempts to make <i>recursive learning</i> as smooth as possible
-        </p>
+            <h2>disciplines</h2>
 
-        <h2>disciplines</h2>
+            <ul>
+                <li><a href="algebra/linear/linear.html">linear algebra</a></li>
+                <li><a href="analysis/single_variable.html">single variable analysis</a></li>
+                <li><a href="analysis/multi_variable.html">multi variable analysis</a></li>
+                <li><a href="topology/topology.html">topology</a></li>
+            </ul>
 
-        <ul>
-            <li><a href="topology/topology.html"></a>topology</li>
-        </ul>
+            <h2>contributing and maintaining</h2>
 
-        <h2>contributing and maintaining</h2>
+            <p>
+                the goal of openmath is not to have a final "edition" done and completed you can imagine it as moving through states where in each state it moves more and more towards being "complete", but is still always be in a continuous state of development, we strive to make sure that at any point openmath is usable for others.
+            </p>
 
-        <p>
-            the goal of openmath is not to have a final "edition" done and completed you can imagine it as moving through states where in each state it moves more and more towards being "complete", but is still always be in a continuous state of development, we strive to make sure that at any point openmath is usable for others.
-        </p>
+            <p>
+                an example to help understand the above paragraph: suppose you might know something is true but don't yet have the proof, if that's the case you may enter the conjecture leave out the proof and leave a warning to other users that it hasn't been proven yet
+            </p>
 
-        <p>
-            an example to help understand the above paragraph: suppose you might know something is true but don't yet have the proof, if that's the case you may enter the conjecture leave out the proof and leave a warning to other users that it hasn't been proven yet
-        </p>
+            <p>
+                another user sees this and fills in a proof for the conjecture, now everything holds and we've moved to a more complete state, later on another user simplifies the proof moving the project more towards the complete state
+            </p>
 
-        <p>
-            another user sees this and fills in a proof for the conjecture, now everything holds and we've moved to a more complete state, later on another user simplifies the proof moving the project more towards the complete state
-        </p>
+            <p>
+                this process continues so that the project moves towards a more complete state
+            </p>
 
-        <p>
-            this process continues so that the project moves towards a more complete state
-        </p>
+            <p>
+                another example could be a user who uploads a image of a proof they did on paper and upload it directly into a proof div, this is an improvement as now there is a proof in place of no proof, in their pull request they mention that they don't know how to use ascii math and this is the best they can do right now
+            </p>
 
-        <p>
-            another example could be a user who uploads a image of a proof they did on paper and upload it directly into a proof div, this is an improvement as now there is a proof in place of no proof, in their pull request they mention that they don't know how to use ascii math and this is the best they can do right now
-        </p>
+            <p>
+                later on a user parses out the latex out of it and into asciimath, and another user grabs any drawings they have and paste them in as images
+            </p>
 
-        <p>
-            later on a user parses out the latex out of it and into asciimath, and another user grabs any drawings they have and paste them in as images
-        </p>
-
-        <p>
-            later on another user sees the pasted images, and uses tikz to generate an svg in place (with included souce code, in case others want to modify it further)
-        </p>
+            <p>
+                later on another user sees the pasted images, and uses tikz to generate an svg in place (with included souce code, in case others want to modify it further)
+            </p>
 
 
-        <details>
-            <summary>5S method</summary>
-                <ol>
-                    <li>
-                        <h3> Sort (seiri 整理) </h3>
-                        <p>
-                            1S – a red tag area containing items waiting for removal.
-                            Seiri is sorting through all items in a location and removing all unnecessary items from the location.
-                        </p>
+            <p>
+                anyone can contribute to openmath, to get started make a github account and then check out the <a href="https://github.com/cuppajoeman/openmath">source code</a>
+            </p>
 
-                        <h4> Goals: </h4>
+            <p>
+                only basic computer usage is required to edit the files, if you see typos or anything you'd like to change then you can edit them in the browser yourself (TODO: how)
+            </p>
 
-                        <ul>
-                            <li>Reduce time loss looking for an item by reducing the number of unnecessary items.</li>
-                            <li>Reduce the chance of distraction by unnecessary items.</li>
-                            <li>Simplify inspection.</li>
-                            <li>Increase the amount of available, useful space.</li>
-                            <li>Increase safety by eliminating obstacles.</li>
-                        </ul>
+            <p>
+                when adding theorems the ettiquette is to at a minimum add empty stubs for all of the other theorems, definitions, lemma's corollaries that it uses as dependencies and put (TODO: complete) in them. Doing this will allow other contributors to fill in details or you can come back to them later
+            </p>
 
+            <p>
+                additionally you can ask questions and discuss with others using our <a href="https://github.com/cuppajoeman/openmath/discussions">github discussions</a>, the reason why we use this is that if you're contributing you already have a github account.
+            </p>
 
-                        <h4> Implementation: </h4>
+            <h2>basic terminology</h2>
+            <ul>
+                <li>definition: notation words or anything used to encapsulate something larger into something smaller</li>
+                <li>theorem: something which is true, that takes more effort to show and is most likely used in many places</li>
+                <li>proposition: a theorem of lesser importance</li>
+                <li>lemma: a true statement which is used in proving of a theorem, and not used in many other places</li>
+                <li>corollary: a true statement that doesn't take much effort to prove from a theorem or lemma</li>
+                <li>exercise: something for the reader to try themselves</li>
+            </ul>
+            
+            </div>
 
-                        <ul>
-                            <li>Check all items in a location and evaluate whether or not their presence at the location is useful or necessary.</li>
-                            <li>Remove unnecessary items as soon as possible. Place those that cannot be removed immediately in a 'red tag area' so that they are easy to remove later on.</li>
-                            <li>Keep the working floor clear of materials except for those that are in use for production.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Set in order (seiton 整頓)
-                        2S – simple floor marking.
-                        (Sometimes shown as Straighten)
-
-                        Seiton is putting all necessary items in the optimal place for fulfilling their function in the workplace.
-
-                        Goal:
-
-                        Make the workflow smooth and easy.
-                        Implementation:
-
-                        Arrange work stations in such a way that all tooling/equipment is in close proximity, in an easy to reach spot and in a logical order adapted to the work performed. Place components according to their uses, with the frequently used components being nearest to the workplace.
-                        Arrange all necessary items so that they can be easily selected for use. Make it easy to find and pick up necessary items.
-                        Assign fixed locations for items. Use clear labels, marks or hints so that items are easy to return to the correct location and so that it is easy to spot missing items.
-
-                    </li>
-                    <li>
-                        Shine (seiso 清掃)
-
-                        3S – cleanliness point with cleaning tools and resources.
-                        Seiso is sweeping or cleaning and inspecting the workplace, tools and machinery on a regular basis.
-
-                        Goals:
-
-                        Improves the production process efficiency and safety, reduces waste, prevents errors and defects.
-                        Keep the workplace safe and easy to work in.
-                        Keep the workplace clean and pleasing to work in.
-                        When in place, anyone not familiar to the environment must be able to detect any problems within 15 metres (50 ft) in 5 seconds.
-                        Implementation:
-
-                        Clean the workplace and equipment on a daily basis, or at another appropriate (high frequency) cleaning interval.
-                        Inspect the workplace and equipment while cleaning.
-
-                    </li>
-                    <li>
-                        Standardize (seiketsu 清潔)
-                        Seiketsu is to standardize the processes used to sort, order and clean the workplace.
-
-                        Goal:
-
-                        Establish procedures and schedules to ensure the repetition of the first three 'S' practices.
-                        Implementation:
-
-                        Develop a work structure that will support the new practices and make it part of the daily routine.
-                        Ensure everyone knows their responsibilities of performing the sorting, organizing and cleaning.
-                        Use photos and visual controls to help keep everything as it should be.
-                        Review the status of 5S implementation regularly using audit checklists.
-                    </li>
-                    <li>
-                        Sustain/self-discipline (shitsuke しつけ)
-
-                        Shadow board (with tools' outline) and worker's movement that is being used in production floor
-                        Shitsuke or sustain is the developed processes by self-discipline of the workers. Also translates as "do without being told".
-
-                        Goal:
-
-                        Ensure that the 5S approach is followed.
-                        Implementation:
-
-                        Organize training sessions.
-                        Perform regular audits to ensure that all defined standards are being implemented and followed.
-                        Implement improvements whenever possible. Worker inputs can be very valuable for identifying improvements.
-                    </li>
-                </ol>
-
-        </details>
-
-        <p>
-            anyone can contribute to openmath, to get started make a github account and then check out the <a href="https://github.com/cuppajoeman/openmath">source code</a>
-        </p>
-
-        <p>
-            only basic computer usage is required to edit the files, if you see typos or anything you'd like to change then you can edit them in the browser yourself (TODO: how)
-        </p>
-
-        <p>
-            when adding theorems the ettiquette is to at a minimum add empty stubs for all of the other theorems, definitions, lemma's corollaries that it uses as dependencies and put (TODO: complete) in them. Doing this will allow other contributors to fill in details or you can come back to them later
-        </p>
-
-        <p>
-            additionally you can ask questions and discuss with others using our <a href="https://github.com/cuppajoeman/openmath/discussions">github discussions</a>, the reason why we use this is that if you're contributing you already have a github account.
-        </p>
-
-        <h2>basic terminology</h2>
-        <ul>
-            <li>definition: notation words or anything used to encapsulate something larger into something smaller</li>
-            <li>theorem: something which is true, that takes more effort to show and is most likely used in many places</li>
-            <li>proposition: a theorem of lesser importance</li>
-            <li>lemma: a true statement which is used in proving of a theorem, and not used in many other places</li>
-            <li>corollary: a true statement that doesn't take much effort to prove from a theorem or lemma</li>
-            <li>exercise: something for the reader to try themselves</li>
-        </ul>
 
         
         <script src="" async defer></script>
