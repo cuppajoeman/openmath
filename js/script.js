@@ -135,12 +135,11 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
 
         if (event.target !== event.currentTarget) return; // Since we add recursive children make sure we're not clicking on parents
 
-        console.log(event)
         const firstTimeOpening = knowledgeLinkElement.dataset.openedAtLeastOnce == "false" && knowledgeLinkElement.dataset.currentlyOpened == "false"; // strings used since data-* attributes only pass through as string
         if (firstTimeOpening) { // create the element
             const destinationElement = await fetchElement(destinationURL, destinationId);
             knowledgeLinkElement.appendChild(destinationElement)
-            destinationElement.classList.add("opened-knowledge");
+            destinationElement.classList.add("expanded-knowledge");
 
             typesetNewMathJax();
             // Now set up and knowledge links that this one has
@@ -153,8 +152,8 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
             }
 
         } else { // after created just toggle visibility
-            console.assert(knowledgeLinkElement.firstElementChild != null, "a knowledge link only ever has one child, though they may be nested")
-            const expandedKnowledgeElement = knowledgeLinkElement.firstElementChild;
+            console.assert(knowledgeLinkElement.querySelector(".expanded-knowledge") != null, "the expanded knowledge should have already been added");
+            const expandedKnowledgeElement = knowledgeLinkElement.querySelector(".expanded-knowledge")
             if (knowledgeLinkElement.dataset.currentlyOpened == "true") {
                 expandedKnowledgeElement.style.display = "none";
             } else {
