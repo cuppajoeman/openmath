@@ -1,3 +1,86 @@
+
+:root, :root[data-force-color-mode="light"] {
+  --main-bg-color: white;
+  --main-text-color: black;
+  --topbar-background-color: rgb(150, 150, 150);
+  --knowledge-link-text-color: rgb(41, 91, 110);
+  --knowledge-content-text-color: black;
+  --knowledge-content-background-color: rgb(222, 222, 222);
+  --knowledge-content-shadow-color: #888888;
+}
+
+/* checks the the system colorscheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-bg-color: rgb(30, 30, 30);
+    --main-text-color: rgb(220, 220, 220);
+    --topbar-background-color: rgb(70, 70, 70);
+    --knowledge-link-text-color: rgb(200, 91, 110);
+    --knowledge-content-text-color: rgb(220, 220, 220);
+    --knowledge-content-background-color: rgb(80, 80, 80);
+    --knowledge-content-shadow-color: rgb(20, 20, 20);
+  }
+}
+
+/* manual override of colorscheme, TODO can duplication be removed ?*/
+:root[data-force-color-mode="dark"] { 
+    --main-bg-color: rgb(30, 30, 30);
+    --main-text-color: rgb(220, 220, 220);
+    --topbar-background-color: rgb(70, 70, 70);
+    --knowledge-link-text-color: rgb(200, 91, 110);
+    --knowledge-content-text-color: rgb(220, 220, 220);
+    --knowledge-content-background-color: rgb(80, 80, 80);
+    --knowledge-content-shadow-color: rgb(20, 20, 20);
+}
+
+/* Visually hide the checkbox and label text  */
+#toggle-darkmode {
+	display: none;
+}
+#toggle-darkmode + label > span {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+}
+
+/* Inject Light/Dark Mode Icon (based on checkbox value) */
+#toggle-darkmode + label:after {
+	font-size: 2em;
+	content: "🔆";
+	cursor: pointer;
+}
+#toggle-darkmode:checked + label:after {
+	content: "🌙";
+}
+
+/* body {
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+} */
+
+
+body {
+  color: var(--main-text-color);
+  background-color: var(--main-bg-color);
+}
+
+/* top bar */
+
+#topbar {
+  position: relative; /* so that the button can be placed in the corner */
+}
+
 /* content formatting */
 
 .thin-wrapper {
@@ -11,31 +94,39 @@
 }
 
 .knowledge-link {
-  color: rgb(41, 91, 110);
+  color: var(--knowledge-link-text-color);
+  cursor: pointer;
 }
-
-
-/* links */
-
-a {
-  text-decoration: none;
-  color: purple;
-}
-
 
 
 /* custom content styling */
 
-.definition {
+.definition, .lemma, .theorem, .corollary, .proposition, .exercise, .proof {
   display: block;
   /* font-style: italic; */
   /* font-size: 24px; */
   /* font-family: "Times New Roman"; */
-  color: black;
+  color: var(--knowledge-content-text-color);
   border-radius: 10px;
-  background-color: rgb(222,222,231);
-  box-shadow: 5px 10px 8px #888888;
+  background-color: var(--knowledge-content-background-color);
+  box-shadow: 5px 10px 8px var(--knowledge-content-shadow-color);
   margin: 1.5em 0 1.5em 0;
+}
+
+
+
+.definition>.title, .lemma>.title, .theorem>.title, .corollary>.title, .proposition>.title, .exercise>.title, .proof>.title {
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  width: -webkit-fill-available;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 5px 5px 15px;
+}
+
+.definition>.content, .lemma>.content, .theorem>.content, .corollary>.content, .proposition>.content, .exercise>.content, .proof>.content {
+  padding: 15px 15px 15px 15px;
 }
 
 .definition>.title::before {
@@ -43,69 +134,16 @@ a {
 }
 
 .definition>.title {
-  font-weight: bold;
-  font-style: normal;
-  display: inline-block;
-  width: -webkit-fill-available;
-  color: white;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 5px 5px 15px;
   background-color: rgb(38, 38, 134);
 }
 
-.definition>.title h3 {
-  margin: 0;
-}
-
-.definition>.content {
-  padding: 15px 15px 15px 15px;
-}
-
-.theorem {
-  display: block;
-  /* font-style: italic; */
-  /* font-size: 24px; */
-  /* font-family: "Times New Roman"; */
-  color: black;
-  border-radius: 10px;
-  background-color: rgb(222,222,231);
-  box-shadow: 5px 10px 8px #888888;
-  margin: 1.5em 0 1.5em 0;
-}
 
 .theorem>.title::before {
   content: "theorem: "
 }
 
 .theorem>.title {
-  font-weight: bold;
-  font-style: normal;
-  display: inline-block;
-  width: -webkit-fill-available;
-  color: white;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 5px 5px 15px;
   background-color: rgb(38, 134, 38);
-}
-
-.theorem>.title h3 {
-  margin: 0;
-}
-
-.theorem>.content {
-  padding: 15px 15px 15px 15px;
-}
-
-.proposition {
-  display: block;
-  /* font-style: italic; */
-  /* font-size: 24px; */
-  /* font-family: "Times New Roman"; */
-  color: black;
-  border-radius: 10px;
-  background-color: rgb(222,222,231);
-  box-shadow: 5px 10px 8px #888888;
-  margin: 1.5em 0 1.5em 0;
 }
 
 .proposition>.title::before {
@@ -113,70 +151,15 @@ a {
 }
 
 .proposition>.title {
-  font-weight: bold;
-  font-style: normal;
-  display: inline-block;
-  width: -webkit-fill-available;
-  color: white;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 5px 5px 15px;
   background-color: rgb(38, 134, 134);
 }
-
-.proposition>.title h3 {
-  margin: 0;
-}
-
-.proposition>.content {
-  padding: 15px 15px 15px 15px;
-}
-
-.lemma {
-  display: block;
-  /* font-style: italic; */
-  /* font-size: 24px; */
-  /* font-family: "Times New Roman"; */
-  color: black;
-  border-radius: 10px;
-  background-color: rgb(222,222,231);
-  box-shadow: 5px 10px 8px #888888;
-  margin: 1.5em 0 1.5em 0;
-}
-
 
 .lemma>.title::before {
   content: "lemma: "
 }
 
 .lemma>.title {
-  font-weight: bold;
-  font-style: normal;
-  display: inline-block;
-  width: -webkit-fill-available;
-  color: white;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 5px 5px 15px;
   background-color: rgb(134, 38, 38);
-}
-
-.lemma>.title h3 {
-  margin: 0;
-}
-
-.lemma>.content {
-  padding: 15px 15px 15px 15px;
-}
-
-.corollary {
-  display: block;
-  /* font-style: italic; */
-  /* font-size: 24px; */
-  /* font-family: "Times New Roman"; */
-  color: black;
-  border-radius: 10px;
-  background-color: rgb(222,222,231);
-  box-shadow: 5px 10px 8px #888888;
-  margin: 1.5em 0 1.5em 0;
 }
 
 .corollary>.title::before {
@@ -184,70 +167,15 @@ a {
 }
 
 .corollary>.title {
-  font-weight: bold;
-  font-style: normal;
-  display: inline-block;
-  width: -webkit-fill-available;
-  color: white;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 5px 5px 15px;
   background-color: rgb(134, 34, 134);
 }
-
-.corollary>.title h3 {
-  margin: 0;
-}
-
-.corollary>.content {
-  padding: 15px 15px 15px 15px;
-}
-
-.proof {
-  display: block;
-  /* font-style: italic; */
-  /* font-size: 24px; */
-  /* font-family: "Times New Roman"; */
-  color: black;
-  border-radius: 10px;
-  background-color: rgb(222,222,231);
-  box-shadow: 5px 10px 8px #888888;
-  margin: 1.5em 0 1.5em 0;
-}
-
 
 .proof>.title::before {
   content: "proof"
 }
 
 .proof>.title {
-  font-weight: bold;
-  font-style: normal;
-  display: inline-block;
-  width: -webkit-fill-available;
-  color: white;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 5px 5px 15px;
   background-color: black;
-}
-
-.proof>.title h3 {
-  margin: 0;
-}
-
-.proof>.content {
-  padding: 15px 15px 15px 15px;
-}
-
-.exercise {
-  display: block;
-  /* font-style: italic; */
-  /* font-size: 24px; */
-  /* font-family: "Times New Roman"; */
-  color: black;
-  border-radius: 10px;
-  background-color: rgb(222,222,231);
-  box-shadow: 5px 10px 8px #888888;
-  margin: 1.5em 0 1.5em 0;
 }
 
 .exercise>.title::before {
@@ -255,21 +183,6 @@ a {
 }
 
 .exercise>.title {
-  font-weight: bold;
-  font-style: normal;
-  display: inline-block;
-  width: -webkit-fill-available;
-  color: white;
-  border-radius: 10px 10px 0 0;
-  padding: 10px 5px 5px 15px;
   background-color: grey;
-}
-
-.exercise>.title h3 {
-  margin: 0;
-}
-
-.exercise>.content {
-  padding: 15px 15px 15px 15px;
 }
 
