@@ -140,6 +140,7 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
         if (firstTimeOpening) { // create the element
             const destinationElement = await fetchElement(destinationURL, destinationId);
             knowledgeLinkElement.appendChild(destinationElement)
+            destinationElement.classList.add("opened-knowledge");
 
             typesetNewMathJax();
             // Now set up and knowledge links that this one has
