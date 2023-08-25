@@ -118,7 +118,7 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
     const fullDestinationUrl = knowledgeLinkElement.dataset.href
     const splitUrl = fullDestinationUrl.split("#") // also removes the #
 
-    console.assert(splitUrl.length == 2)
+    console.assert(splitUrl.length == 2, splitUrl);
 
     var destinationURL = splitUrl[0]
     const destinationId = "#"+ splitUrl[1] // add it back on
