@@ -75,11 +75,36 @@
                 <div class="content">
                     <details>
                         <summary>details</summary>
-                        Let `x in bigcup_{C in cc C}`, then `x in U` for some `U in cc C`, since `U` must be a subset of `X` then x is also in `X`. As needed 
+                        Let `x in bigcup_{C in cc C} C`, then `x in U` for some `U in cc C`, since `U` must be a subset of `X` then x is also in `X`. As needed
                     </details>
                 </div>
             </div>
         </div>
+
+        <div id="proposition-a-set-filled-with-subsets-is-a-union">
+            <div class="proposition" >
+                <div class="title">a set covered in subsets is a union</div>
+                <div class="content">
+                    Suppose `A` is a set and that for each `a in A`, there is a `B_a` such that `a in B_a sube A`, then `A = bigcup_{a in A} B_a`
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    <details>
+                        <summary>show</summary>
+                        <p>
+                            We can see that `cc C = {B_a: a in A}` is a collection of subsets of `A`, so since <span class="knowledge-link" data-href="/fundamentals/set_theory.html#proposition-union-of-subsets-is-still-a-subset">a union of a subsets is still a subset</span> we have `bigcup_{a in A} B_a sube A`.
+                        </p>
+                        <p>
+                            But also given `p in A` we know that `p in B_p` so `p in bigcup_{a in A} B_a` which shows `A sube bigcup_{a in A} B_a`, so we can conclude `A = bigcup_{a in A} B_a`.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </div>
+
 
         <div class="definition">
             <div class="title">n tuple</div>

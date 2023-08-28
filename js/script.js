@@ -1,5 +1,6 @@
 // keeping track of dynamically loaded elements since they cannot be gotten through the dom e.g.) getElementById
 var colorModeButton;
+const debugging = false;
 
 async function fetchElement(url, selector) {
     const data = await fetch(url).then(res => res.text())
@@ -15,7 +16,8 @@ async function preparePage() {
     await setUpAndAddHeader();
     setUpKnowledgeLinks();
     createSystemColorModeListener();
-    checkForSavedColorMode(); 
+    checkForSavedColorMode();
+    setCustomCursor();
 }
 
 async function setUpAndAddHeader() {
@@ -169,4 +171,48 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
 function typesetNewMathJax() {
         console.assert(typeof MathJax !== 'undefined', "You need to load MathJax before you set up knowledge links")
         MathJax.Hub.Typeset() 
+}
+
+function setCustomCursor() {
+    var canvas = document.createElement("canvas")
+    // these values are not specific, they were tweaked by hand so the cursor fits
+    const fontSizePx = 60;
+    const rotationAngle = Math.PI/2 + Math.PI/4;
+    const sideLength = fontSizePx * Math.sin(rotationAngle)
+    // contained in a fitting square
+    // note: (it always fits the square meaning the dagger is less than 60 px high)
+    canvas.width = sideLength;
+    canvas.height = sideLength;
+    const context = canvas.getContext("2d")
+    if (debugging) {
+        context.strokeRect(0, 0, canvas.width, canvas.height); // outline the canvas
+    }
+    // addRotatedText(context, "†");
+    addRotatedDagger(fontSizePx, rotationAngle, canvas, context);
+    document.body.style.cursor = "url('" + canvas.toDataURL() + "'), auto"
+}
+
+function addRotatedDagger(fontSizePx, rotationAngle, canvas, context) {
+    const text = "†"
+    const tipOverflowPx = fontSizePx/6; // the dagger pokes through the baseline by a percent of it's height
+    context.font = `${fontSizePx}px 'sans serif'`;
+    context.strokeStyle = 'white'
+    context.lineWidth = 1;
+    context.save();
+    if (debugging) {
+        markOrigin(context); //for debugging
+    }
+    context.rotate(rotationAngle);
+    // Here we make sure the dagger is drawn so that the tip lands at the origin.
+    context.textAlign = "center"; // lines up on x axis
+    context.fillText(text, 0, -tipOverflowPx); // lines up on y
+    context.strokeText(text, 0, -tipOverflowPx);
+    context.restore();
+}
+
+function markOrigin(context) {
+
+    context.arc(0, 0, 5, 0, 2 * Math.PI);
+    context.fillStyle = "blue";
+    context.fill();
 }

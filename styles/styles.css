@@ -171,6 +171,13 @@ body {
   background-color: black;
 }
 
+/* add a tombstone to the end of every opened proof */
+.proof details[open]::after {
+    content: "□";
+    text-align: right;
+    display: block;
+}
+
 .exercise>.title::before {
   content: "exercise: "
 }
