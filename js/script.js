@@ -174,7 +174,33 @@ function typesetNewMathJax() {
 }
 
 function setCustomCursor() {
-    var canvas = document.createElement("canvas")
+    // addRotatedText(context, "†");
+    const normalDaggerCanvas = createRotatedDagger("black");
+    const normalCursorUrl = "url('" + normalDaggerCanvas.toDataURL() + "'), auto";
+
+    const activatedDaggerCanvas = createRotatedDagger("purple");
+    const activatedCursorUrl = "url('" + activatedDaggerCanvas.toDataURL() + "'), auto";
+
+    var styles = `
+    body {
+        cursor: ${normalCursorUrl} 
+    }
+    
+    a, label, .knowledge-link, #reset-darkmode  { 
+        cursor: ${activatedCursorUrl}
+    }
+    `
+
+    const styleSheet = document.createElement("style")
+    styleSheet.innerText = styles
+    document.head.appendChild(styleSheet)
+
+    document.body.style.cursor = "url('" + normalDaggerCanvas.toDataURL() + "'), auto"; // important so that it overrides everything
+}
+
+function createRotatedDagger(fillStyle) {
+
+    const canvas = document.createElement("canvas")
     // these values are not specific, they were tweaked by hand so the cursor fits
     const fontSizePx = 60;
     const rotationAngle = Math.PI/2 + Math.PI/4;
@@ -183,19 +209,15 @@ function setCustomCursor() {
     // note: (it always fits the square meaning the dagger is less than 60 px high)
     canvas.width = sideLength;
     canvas.height = sideLength;
+
     const context = canvas.getContext("2d")
     if (debugging) {
         context.strokeRect(0, 0, canvas.width, canvas.height); // outline the canvas
     }
-    // addRotatedText(context, "†");
-    addRotatedDagger(fontSizePx, rotationAngle, canvas, context);
-    document.body.style.cursor = "url('" + canvas.toDataURL() + "'), auto"
-}
-
-function addRotatedDagger(fontSizePx, rotationAngle, canvas, context) {
     const text = "†"
     const tipOverflowPx = fontSizePx/6; // the dagger pokes through the baseline by a percent of it's height
     context.font = `${fontSizePx}px 'sans serif'`;
+    context.fillStyle = fillStyle;
     context.strokeStyle = 'white'
     context.lineWidth = 1;
     context.save();
@@ -208,6 +230,8 @@ function addRotatedDagger(fontSizePx, rotationAngle, canvas, context) {
     context.fillText(text, 0, -tipOverflowPx); // lines up on y
     context.strokeText(text, 0, -tipOverflowPx);
     context.restore();
+
+    return canvas;
 }
 
 function markOrigin(context) {

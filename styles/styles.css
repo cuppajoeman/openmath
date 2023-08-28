@@ -55,7 +55,6 @@
 #toggle-darkmode + label:after {
 	font-size: 2em;
 	content: "🔆";
-	cursor: pointer;
 }
 #toggle-darkmode:checked + label:after {
 	content: "🌙";
