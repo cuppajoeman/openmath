@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>exponential function</title>
+        <link rel="stylesheet" href="../../styles/styles.css">
+        <script src="../../js/script.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+    </head>
+    <body>
+        <div class="thin-wrapper">
+
+            <h1>unsorted dependencies</h1>
+
+            <div class="definition" id="definition-exponentiation">
+                <div class="title">exponentiation</div>
+                <div class="content">
+                    Suppose `b in RR`, and `n in NN_1`, then `b^n := ubrace(b * b * ... * b * b)_(n text( times ))`, note that `b^n : NN_1 to RR`
+                </div>
+            </div>
+
+            <div class="proposition" id="proposition-exponentiation-of-a-positive-number-is-positive">
+                <div class="title">exponentiation of a positive number is positive</div>
+                <div class="content">
+                    Suppose that `x in RR^(>0)`, then `x^n in RR^(>0)`
+                </div>
+            </div>
+
+            <div class="proposition" id="proposition-product-of-two-reals-of-the-same-sign-is-positive">
+                <div class="title">product of two reals of the same sign is positive</div>
+                <div class="content">
+                    Given `x, y in RR`, if `x, y < 0 or `x, y > 0`, then `x * y = 0`
+                </div>
+            </div>
+
+            <h1>exponential function</h1>
+
+            <div class="definition">
+                <div class="title">exponential</div>
+                <div class="content">
+                    `e^x := sum_{k = 0}^oo x^k/(k!)`, note that `e^x : RR to RR` and that `x^k` is <span class="knowledge-link" data-href="/analysis/single_variable/exponential_function.html#definition-exponentiation">exponentiation</span>. We say that `e^x` is the exponential.
+                </div>
+            </div>
+
+            <div class="proposition">
+                <div class="title">inverse of the exponential</div>
+                <div class="content">
+                    `e^x * e^-x = 1`
+                </div>
+            </div>
+
+            <div class="theorem">
+                <div class="title">exponential is always positive</div>
+                <div class="content">
+                    `AA x in R, e^x > 0`
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    <p>
+                        If `x > 0`, then since <span class="knowledge-link" data-href="/analysis/single_variable/exponential_function.html#proposition-exponentiation-of-a-positive-number-is-positive">exponentiation of a positive number is positive</span> then each term in the infinite summation of `e^x` is positive and so the sum is positive.
+                    </p>
+                    <p>
+                        If `x < 0`, then since `e^x * e^-x = 1` and we know `e^x` is positive, then `e^(-x)` also must be positive because of the fact that <span class="knowledge-link" data-href="/analysis/single_variable/exponential_function.html#proposition-product-of-two-reals-of-the-same-sign-is-positive">this proposition</span> forces it to be positive (TODO: details).
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
