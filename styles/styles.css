@@ -111,7 +111,8 @@ body {
   font-weight: bold;
   font-style: normal;
   display: inline-block;
-  width: -webkit-fill-available;
+  width: -webkit-stretch;
+  width: -moz-available;
   color: white;
   border-radius: 10px 10px 0 0;
   padding: 10px 5px 5px 15px;

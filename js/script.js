@@ -175,10 +175,10 @@ function typesetNewMathJax() {
 
 function setCustomCursor() {
     // addRotatedText(context, "†");
-    const normalDaggerCanvas = createRotatedDagger("black");
+    const normalDaggerCanvas = createRotatedDagger("black", "white");
     const normalCursorUrl = "url('" + normalDaggerCanvas.toDataURL() + "'), auto";
 
-    const activatedDaggerCanvas = createRotatedDagger("purple");
+    const activatedDaggerCanvas = createRotatedDagger("white", "black");
     const activatedCursorUrl = "url('" + activatedDaggerCanvas.toDataURL() + "'), auto";
 
     var styles = `
@@ -198,7 +198,7 @@ function setCustomCursor() {
     document.body.style.cursor = "url('" + normalDaggerCanvas.toDataURL() + "'), auto"; // important so that it overrides everything
 }
 
-function createRotatedDagger(fillStyle) {
+function createRotatedDagger(fillStyle, strokeStyle) {
 
     const canvas = document.createElement("canvas")
     // these values are not specific, they were tweaked by hand so the cursor fits
@@ -218,7 +218,7 @@ function createRotatedDagger(fillStyle) {
     const tipOverflowPx = fontSizePx/6; // the dagger pokes through the baseline by a percent of it's height
     context.font = `${fontSizePx}px 'sans serif'`;
     context.fillStyle = fillStyle;
-    context.strokeStyle = 'white'
+    context.strokeStyle = strokeStyle;
     context.lineWidth = 1;
     context.save();
     if (debugging) {
