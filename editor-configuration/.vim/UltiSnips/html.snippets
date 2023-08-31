@@ -1,0 +1,101 @@
+
+# simple snippets for commonly used math symbols all on the homerow.
+
+snippet mm "ascii math mode entry" i
+\`$1\`$0
+endsnippet
+
+snippet jj "parenthesis" i
+($1)$0
+endsnippet
+
+snippet kk "parenthesis" i
+{$1}$0
+endsnippet
+
+snippet ll "parenthesis" i
+[$1]$0
+endsnippet
+
+snippet aa "addition" i
++
+endsnippet
+
+snippet ss "subtraction" i
+-
+endsnippet
+
+snippet dd "multiplication" i
+*
+endsnippet
+
+snippet ff "division" i
+/
+endsnippet
+
+snippet gg "exponent" i
+^
+endsnippet
+
+snippet hh "subscript" i
+_
+endsnippet
+
+snippet el "html element"
+<$1>$2</$1>
+endsnippet
+
+snippet ul "unordered list" 
+<ul>
+    <li>$1</li>
+</ul>
+endsnippet
+
+snippet definition "definition"
+<div class="definition" id="definition-TODO">
+    <div class="title">TODO</div>
+    <div class="content">
+	$1
+    </div>
+</div>
+endsnippet
+
+snippet theorem "theorem"
+<div id="theorem-TODO">
+	<div class="theorem">
+		<div class="title"></div>
+		<div class="content">
+			$1
+		</div>
+	</div>
+
+	<div class="proof">
+		<div class="title"></div>
+		<div class="content">
+			TODO
+		</div>
+	</div>
+</div>
+endsnippet
+
+snippet proposition "proposition"
+<div id="proposition-${3:TODO}">
+	<div class="proposition">
+	<div class="title">$2</div>
+		<div class="content">
+			$1
+		</div>
+	</div>
+
+	<div class="proof">
+		<div class="title"></div>
+		<div class="content">
+			${4:TODO}
+		</div>
+	</div>
+</div>
+endsnippet
+
+snippet k-l "knowledge link"
+<span class="knowledge-link" data-href="$1">$2</span>
+endsnippet
