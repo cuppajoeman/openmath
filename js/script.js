@@ -13,6 +13,7 @@ async function fetchElement(url, selector) {
 document.addEventListener('DOMContentLoaded', preparePage, false);
 
 async function preparePage() {
+	// Due to this function you must defer this script so that the mathjax is loaded after everything is added to the dom
     await setUpAndAddHeader();
     setUpKnowledgeLinks();
     createSystemColorModeListener();
