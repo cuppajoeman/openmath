@@ -61,17 +61,17 @@ endsnippet
 
 snippet definition "definition"
 <div class="definition" id="definition-TODO">
-    <div class="title">TODO</div>
-    <div class="content">
-	$1
-    </div>
+	<div class="title">TODO</div>
+	<div class="content">
+		$1
+	</div>
 </div>
 endsnippet
 
 snippet theorem "theorem"
-<div id="theorem-TODO">
+<div id="theorem-$3{TODO}">
 	<div class="theorem">
-		<div class="title"></div>
+		<div class="title">$2</div>
 		<div class="content">
 			$1
 		</div>
@@ -80,7 +80,7 @@ snippet theorem "theorem"
 	<div class="proof">
 		<div class="title"></div>
 		<div class="content">
-			TODO
+			$4{TODO}
 		</div>
 	</div>
 </div>

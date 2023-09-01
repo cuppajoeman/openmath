@@ -86,27 +86,30 @@
 			<div class="proof">
 				<div class="title"></div>
 				<div class="content">
-					<p>
-						Let `a, b in ZZ` and assume `b ne 0`. Define `S = {x in ZZ : x ge 0 text( and ) x = a + abs(b) * k text( where ) k in ZZ} supe NN_0`, we'll show that `S` is non-empty. We can think of `S` as taking `a` and then either adding muliples of `abs(b)` or subtracting them to `a`, each time leaving some remainder, thinking ahead we can guess that the smallest value of this set should be the smallest remainder and possibly the `r` we are looking for.
-					</p>
-					<p>
-						If `a ge 0` then when `k = 0` we have `a + abs(b)*k = a ge 0` thus `a in S`, on the other hand if `a lt 0`, then observe that since `0 le r lt abs(b)`, then `1 le abs(b) iff 0 le abs(b) - 1` and also `-a gt 0`, then we have `0 le (abs(b) - 1)*(-a)`. But also we can see that `(abs(b) - 1) * (-a) = abs(b) * (-a) + a` so it's of the form of an element in `S` and since it's non-negative, it must be an element of `S`. Therefore this paragraph shows us that `S` has at least one element, no matter the value of `a`.
-					</p>
-					<p>
-						Due to this and since `S sube NN_0`, then by the well ordering principle there is some smallest element `s in S`, we know that this value satisfies `s = a - abs(b) * k`. Now we will show that `0 le s lt abs(b)`.
-					</p>
-					<p>
-						`s in S` so therefore `s ge 0`, if we were to assume that `s ge abs(b)` then `s - abs(b) ge 0`. By recalling the equality that `s` satisifies we can write `s - abs(b) = (a - abs (b) * k) - abs(b) = a - abs(b) (k + 1)`, therefore `s - abs(b) in S` but since `abs(b) gt 1` then `s - abs(b) lt s` which is a contradiction because we assumed that `s` was the smallest element in `S`, thus we must have that `s < abs(b)`
-					</p>
-					<p>
-					At this point we have `a = abs(b) * k + s` where `0 le s lt abs(b)` so take `q = text(sgn)(b) * k` and `r = s`. If `b ge 0`, then `abs(b) = b` and `text(sgn)(b) = 1`, so we obtain `a = b * k + s`, if ` b < 0`, then `abs(b) = - b` and `text(sgn)(b)=-1` so again we have `a = (- b) * (-1)k + s`. We'll finish the proof by showing that these values are unique.
-					</p>
-					<p>
-						Assume we have another pair `bar q, bar r` satisfying `a = b * bar q + bar r` with `0 le bar r le abs b` but `bar q ne q` and `bar r ne r`, therefore we have `b * q + r = b bar q + bar r iff bar r - r = b * (bar q - q)`.
-					</p>
-					<p>
-						Without loss of generality assume `bar r gt  r`, then ` bar r - r gt 0` and since `0 le r lt abs(b) ` then ` 0 le bar r - r le bar r lt abs(b)`, recalling that ` bar r - r = abs(b) * (bar q - q)`, we can re-write our last inequality as ` 0 le abs(b) * (bar q - q) lt abs(b)` and since `b ne 0` we can divide by `abs(b)` to get ` 0 lt bar q - q lt 1` but since `q, bar q in ZZ` this force `q = bar q`, which then shows `r = bar r` by previous equalities, therefore assuming we have another solution, it turns out it must be our original one, and thus our solution is unique.
-					</p>
+					<details>
+						<summary>show</summary>
+						<p>
+							Let `a, b in ZZ` and assume `b ne 0`. Define `S = {x in ZZ : x ge 0 text( and ) x = a + abs(b) * k text( where ) k in ZZ} supe NN_0`, we'll show that `S` is non-empty. We can think of `S` as taking `a` and then either adding muliples of `abs(b)` or subtracting them to `a`, each time leaving some remainder, thinking ahead we can guess that the smallest value of this set should be the smallest remainder and possibly the `r` we are looking for.
+						</p>
+						<p>
+							If `a ge 0` then when `k = 0` we have `a + abs(b)*k = a ge 0` thus `a in S`, on the other hand if `a lt 0`, then observe that since `0 le r lt abs(b)`, then `1 le abs(b) iff 0 le abs(b) - 1` and also `-a gt 0`, then we have `0 le (abs(b) - 1)*(-a)`. But also we can see that `(abs(b) - 1) * (-a) = abs(b) * (-a) + a` so it's of the form of an element in `S` and since it's non-negative, it must be an element of `S`. Therefore this paragraph shows us that `S` has at least one element, no matter the value of `a`.
+						</p>
+						<p>
+							Due to this and since `S sube NN_0`, then by the well ordering principle there is some smallest element `s in S`, we know that this value satisfies `s = a - abs(b) * k`. Now we will show that `0 le s lt abs(b)`.
+						</p>
+						<p>
+							`s in S` so therefore `s ge 0`, if we were to assume that `s ge abs(b)` then `s - abs(b) ge 0`. By recalling the equality that `s` satisifies we can write `s - abs(b) = (a - abs (b) * k) - abs(b) = a - abs(b) (k + 1)`, therefore `s - abs(b) in S` but since `abs(b) gt 1` then `s - abs(b) lt s` which is a contradiction because we assumed that `s` was the smallest element in `S`, thus we must have that `s < abs(b)`
+						</p>
+						<p>
+						At this point we have `a = abs(b) * k + s` where `0 le s lt abs(b)` so take `q = text(sgn)(b) * k` and `r = s`. If `b ge 0`, then `abs(b) = b` and `text(sgn)(b) = 1`, so we obtain `a = b * k + s`, if ` b < 0`, then `abs(b) = - b` and `text(sgn)(b)=-1` so again we have `a = (- b) * (-1)k + s`. We'll finish the proof by showing that these values are unique.
+						</p>
+						<p>
+							Assume we have another pair `bar q, bar r` satisfying `a = b * bar q + bar r` with `0 le bar r le abs b` but `bar q ne q` and `bar r ne r`, therefore we have `b * q + r = b bar q + bar r iff bar r - r = b * (bar q - q)`.
+						</p>
+						<p>
+							Without loss of generality assume `bar r gt  r`, then ` bar r - r gt 0` and since `0 le r lt abs(b) ` then ` 0 le bar r - r le bar r lt abs(b)`, recalling that ` bar r - r = abs(b) * (bar q - q)`, we can re-write our last inequality as ` 0 le abs(b) * (bar q - q) lt abs(b)` and since `b ne 0` we can divide by `abs(b)` to get ` 0 lt bar q - q lt 1` but since `q, bar q in ZZ` this force `q = bar q`, which then shows `r = bar r` by previous equalities, therefore assuming we have another solution, it turns out it must be our original one, and thus our solution is unique.
+						</p>
+					</details>
 				</div>
 			</div>
 		</div>
