@@ -55,13 +55,19 @@ endsnippet
 
 snippet ul "unordered list" 
 <ul>
-    <li>$1</li>
+	<li>$1</li>
 </ul>
 endsnippet
 
+snippet p "paragraph"
+<p>
+	$1
+</p>
+endsnippet
+
 snippet definition "definition"
-<div class="definition" id="definition-TODO">
-	<div class="title">TODO</div>
+<div class="definition" id="definition-${3:TODO}">
+	<div class="title">${2:TODO}</div>
 	<div class="content">
 		$1
 	</div>
@@ -69,7 +75,7 @@ snippet definition "definition"
 endsnippet
 
 snippet theorem "theorem"
-<div id="theorem-$3{TODO}">
+<div id="theorem-${3:TODO}">
 	<div class="theorem">
 		<div class="title">$2</div>
 		<div class="content">
@@ -80,11 +86,13 @@ snippet theorem "theorem"
 	<div class="proof">
 		<div class="title"></div>
 		<div class="content">
-			$4{TODO}
+			${4:TODO}
 		</div>
 	</div>
 </div>
 endsnippet
+
+
 
 snippet proposition "proposition"
 <div id="proposition-${3:TODO}">
@@ -104,6 +112,30 @@ snippet proposition "proposition"
 </div>
 endsnippet
 
+snippet corollary "corollary"
+<div id="corollary-${3:TODO}">
+	<div class="corollary">
+	<div class="title">$2</div>
+		<div class="content">
+			$1
+		</div>
+	</div>
+
+	<div class="proof">
+		<div class="title"></div>
+		<div class="content">
+			${4:TODO}
+		</div>
+	</div>
+</div>
+endsnippet
+
 snippet k-l "knowledge link"
 <span class="knowledge-link" data-href="$1">$2</span>
+endsnippet
+
+snippet c-c "centered-content"
+<div class="centered-content">
+	$1
+</div>
 endsnippet
