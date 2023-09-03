@@ -22,9 +22,9 @@ set tabstop=4
 set shiftwidth=4 smarttab
 
 " Simple ultisnips triggers 
-let g:UltiSnipsExpandTrigger=".."                                            
-let g:UltiSnipsJumpForwardTrigger=".."                                       
-let g:UltiSnipsJumpBackwardTrigger=",,"                                    
+let g:UltiSnipsExpandTrigger="<tab>"                                            
+let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"                                    
 
 " nerdtree mappings
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -35,3 +35,9 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " keep the active line centered in the middle of the screen
 nnoremap k kzz
 nnoremap j jzz
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif

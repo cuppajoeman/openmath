@@ -6,6 +6,6 @@ call NERDTreeAddKeyMap({
 function! NERDTreeYankCurrentNode()
     let n = g:NERDTreeFileNode.GetSelected()
     if n != {}
-        call setreg('"', n.path.str())
+		call setreg('"', fnamemodify(n.path.str(), ':.'))
     endif
 endfunction
