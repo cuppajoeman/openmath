@@ -136,12 +136,11 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
 
     knowledgeLinkElement.onclick = async function(event) {
 
-        if (event.target !== event.currentTarget) return; // Since we add recursive children make sure we're not clicking on parents
-
         const firstTimeOpening = knowledgeLinkElement.dataset.openedAtLeastOnce == "false" && knowledgeLinkElement.dataset.currentlyOpened == "false"; // strings used since data-* attributes only pass through as string
         if (firstTimeOpening) { // create the element
             const destinationElement = await fetchElement(destinationURL, destinationId);
-            knowledgeLinkElement.appendChild(destinationElement)
+            //knowledgeLinkElement.appendChild(destinationElement)
+            knowledgeLinkElement.after(destinationElement)
             destinationElement.classList.add("expanded-knowledge");
 
             typesetNewMathJax();
@@ -155,8 +154,8 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
             }
 
         } else { // after created just toggle visibility
-            console.assert(knowledgeLinkElement.querySelector(".expanded-knowledge") != null, "the expanded knowledge should have already been added");
-            const expandedKnowledgeElement = knowledgeLinkElement.querySelector(".expanded-knowledge")
+            console.assert(knowledgeLinkElement.nextSibling.classList.contains("expanded-knowledge") , "the expanded knowledge should have already been added as a sibiling");
+            const expandedKnowledgeElement = knowledgeLinkElement.nextSibling
             if (knowledgeLinkElement.dataset.currentlyOpened == "true") {
                 expandedKnowledgeElement.style.display = "none";
             } else {
@@ -172,6 +171,16 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
 function typesetNewMathJax() {
         console.assert(typeof MathJax !== 'undefined', "You need to load MathJax before you set up knowledge links")
         MathJax.Hub.Typeset() 
+}
+
+function elementIsMathJax(element) {
+	for (var i = 0; i < element.classList.length; i++) {
+		var className = element.classList[i];
+		if (className.includes("mjx")) {
+			return true;
+		}
+	}
+	return false;
 }
 
 function setCustomCursor() {

@@ -21,8 +21,13 @@ for dir_path, dirs, file_names in walk(content_directory ):
                 for i, line in enumerate(lines):
                     line_number = i + 1
                     if search_term in line:
+                        print("")
                         print(f"We found that term in at: {full_path} on line {line_number}, here's the match:")
+                        print("")
+                        print("==Match Start==")
                         print(line)
+                        print("==Match End==")
+                        print("")
 
                 #data=f.read()
                 #data=data.lower()
