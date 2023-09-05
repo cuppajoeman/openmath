@@ -121,8 +121,9 @@ img {
   font-weight: bold;
   font-style: normal;
   display: inline-block;
-  width: -webkit-stretch;
+  width: -webkit-fill-available;
   width: -moz-available;
+  width: stretch;
   color: white;
   border-radius: 10px 10px 0 0;
   padding: 10px 5px 5px 15px;
