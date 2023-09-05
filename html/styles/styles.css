@@ -8,6 +8,7 @@
   --knowledge-content-background-color: rgb(222, 222, 222);
   --knowledge-content-border-color: black;
   --knowledge-content-shadow-color: #888888;
+  --image-invert-amount: .13;
 }
 
 /* checks the the system colorscheme */
@@ -21,6 +22,7 @@
     --knowledge-content-background-color: rgb(80, 80, 80);
     --knowledge-content-border-color: white;
     --knowledge-content-shadow-color: rgb(20, 20, 20);
+  	--image-invert-amount: 0.68;
   }
 }
 
@@ -34,12 +36,14 @@
     --knowledge-content-background-color: rgb(80, 80, 80);
     --knowledge-content-border-color: white;
     --knowledge-content-shadow-color: rgb(20, 20, 20);
+  	--image-invert-amount: 0.68;
 }
 
 /* Visually hide the checkbox and label text  */
 #toggle-darkmode {
 	display: none;
 }
+
 #toggle-darkmode + label > span {
 	position: absolute;
 	overflow: hidden;
@@ -60,11 +64,17 @@
 	content: "🌙";
 }
 
+/* general elements */
 
 body {
   color: var(--main-text-color);
   background-color: var(--main-bg-color);
 }
+
+img {
+	filter: invert(var(--image-invert-amount))
+}
+
 
 /* top bar */
 
