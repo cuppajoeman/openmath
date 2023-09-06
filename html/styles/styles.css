@@ -75,6 +75,10 @@ img {
 	filter: invert(var(--image-invert-amount))
 }
 
+a {
+	color: green;
+}
+
 
 /* top bar */
 
