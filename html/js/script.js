@@ -1,5 +1,10 @@
 // keeping track of dynamically loaded elements since they cannot be gotten through the dom e.g.) getElementById
+// emojis I can use: 🚀 📋 🖋️
 var colorModeButton;
+
+const websiteDomain = "www.openmath.net";
+const copyLinkEmoji = "📋";
+
 const debugging = false;
 
 async function fetchElement(url, selector) {
@@ -15,6 +20,7 @@ document.addEventListener('DOMContentLoaded', preparePage, false);
 async function preparePage() {
 	// Due to this function you must defer this script so that the mathjax is loaded after everything is added to the dom
     await setUpAndAddHeader();
+	addLinksToEveryPieceOfKnowledge();
     setUpKnowledgeLinks();
     createSystemColorModeListener();
     checkForSavedColorMode();
@@ -38,6 +44,42 @@ async function setUpAndAddHeader() {
         // event.preventDefault();
         setColorMode(false);
     }
+}
+
+function addLinksToEveryPieceOfKnowledge() {
+	const definitions = document.getElementsByClassName("definition")
+	var currentHtmlFilePath = window.location.pathname;
+
+	// TODO one day merge into one for loop when definitions have the same structure as swp
+    for (let i = 0; i < definitions.length; i++) {
+		var definition = definitions[i];	
+
+		var title = definition.querySelector(".title");
+		var linkToSelf = document.createElement("a");
+		linkToSelf.style.cssFloat ='right';
+		linkToSelf.textContent = copyLinkEmoji;
+		linkToSelf.href = currentHtmlFilePath + "#" + definition.id;
+		linkToSelf.onclick = copyURI;
+		title.append(linkToSelf);
+	}
+
+	var statementsWithProof = document.querySelectorAll(".theorem,.lemma,.corollary,.proposition,.exercise");
+
+    for (let i = 0; i <statementsWithProof.length; i++) {
+
+		var statementWithProof = statementsWithProof[i];	
+
+		var wrapper = statementWithProof.parentElement;
+
+		var title = statementWithProof.querySelector(".title");
+		var linkToSelf = document.createElement("a");
+		linkToSelf.style.cssFloat ='right';
+		linkToSelf.textContent = copyLinkEmoji;
+		linkToSelf.onclick = copyURI;
+		linkToSelf.href = currentHtmlFilePath + "#" + wrapper.id;
+		title.append(linkToSelf);
+	}
+
 }
 
 
@@ -142,6 +184,16 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
             //knowledgeLinkElement.appendChild(destinationElement)
             knowledgeLinkElement.after(destinationElement)
             destinationElement.classList.add("expanded-knowledge");
+
+			const destinationTitle = destinationElement.querySelector(".title")
+
+			// add link for newly created element
+			var linkToSelf = document.createElement("a");
+			linkToSelf.style.cssFloat ='right';
+			linkToSelf.textContent = copyLinkEmoji;
+			linkToSelf.href = fullDestinationUrl;
+			linkToSelf.onclick = copyURI;
+			destinationTitle.append(linkToSelf);
 
             typesetNewMathJax();
             // Now set up and knowledge links that this one has
@@ -249,4 +301,10 @@ function markOrigin(context) {
     context.arc(0, 0, 5, 0, 2 * Math.PI);
     context.fillStyle = "blue";
     context.fill();
+}
+
+function copyURI(evt) {
+	// requires the target to have an href, eg put this on a tags
+    evt.preventDefault();
+    navigator.clipboard.writeText(websiteDomain + evt.target.getAttribute('href'));
 }

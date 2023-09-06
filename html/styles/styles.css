@@ -131,7 +131,7 @@ a {
   width: stretch;
   color: white;
   border-radius: 10px 10px 0 0;
-  padding: 10px 5px 5px 15px;
+  padding: 8px 15px 8px 15px;
 }
 
 .definition>.content, .lemma>.content, .theorem>.content, .corollary>.content, .proposition>.content, .exercise>.content, .proof>.content {
