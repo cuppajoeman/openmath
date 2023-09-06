@@ -2,7 +2,7 @@
 // emojis I can use: 🚀 📋 🖋️
 var colorModeButton;
 
-const websiteDomain = "www.openmath.net";
+const websiteDomain = "https://www.openmath.net";
 const copyLinkEmoji = "📋";
 
 const debugging = false;
