@@ -10,7 +10,8 @@
         <title>Homepage</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="/styles/styles.css">
+        <script src="/js/script.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
     </head>
     <body>
@@ -21,7 +22,6 @@
         <div class="thin-wrapper">
 
             <div class="centered-content">
-                <h1>`Theta rho epsilon eta Pi alpha tau pi`</h1>
                 <p>
                     welcome to openmath, a fully open source project to create a math learning resource to everyone
                 </p>
@@ -56,62 +56,27 @@
                 <li><a href="logic/">logic</a></li>
             </ul>
 
-            <h2>contributing and maintaining</h2>
+			<h2>community</h2>
+
+			<p>
+				for the younger generation we have a <a href="https://discord.gg/Yztnzcsmqg">discord server</a>
+			</p>
 
             <p>
-                the goal of openmath is not to have a final "edition" done and completed you can imagine it as moving through states where in each state it moves more and more towards being "complete", but is still always be in a continuous state of development, we strive to make sure that at any point openmath is usable for others.
+                as a catch-all for anyone who doesn't want to use discord, we have <a href="https://github.com/cuppajoeman/openmath/discussions">github discussions</a>, which you will have access to already if you have a github account
             </p>
+
+            <h2>contributing</h2>
 
             <p>
-                an example to help understand the above paragraph: suppose you might know something is true but don't yet have the proof, if that's the case you may enter the conjecture leave out the proof and leave a warning to other users that it hasn't been proven yet
+                anyone can contribute to openmath, to get started make a github account and head to <a href="https://github.com/cuppajoeman/openmath">source code</a>
             </p>
 
-            <p>
-                another user sees this and fills in a proof for the conjecture, now everything holds and we've moved to a more complete state, later on another user simplifies the proof moving the project more towards the complete state
-            </p>
+			<p>
+				For more details on how to contribute check <a href="contributing.html">here</a>, for more details on how everything works see <a href="explanation.html">here</a>
+			</p>
 
-            <p>
-                this process continues so that the project moves towards a more complete state
-            </p>
-
-            <p>
-                another example could be a user who uploads a image of a proof they did on paper and upload it directly into a proof div, this is an improvement as now there is a proof in place of no proof, in their pull request they mention that they don't know how to use ascii math and this is the best they can do right now
-            </p>
-
-            <p>
-                later on a user parses out the latex out of it and into asciimath, and another user grabs any drawings they have and paste them in as images
-            </p>
-
-            <p>
-                later on another user sees the pasted images, and uses tikz to generate an svg in place (with included souce code, in case others want to modify it further)
-            </p>
-
-
-            <p>
-                anyone can contribute to openmath, to get started make a github account and then check out the <a href="https://github.com/cuppajoeman/openmath">source code</a>
-            </p>
-
-            <p>
-                only basic computer usage is required to edit the files, if you see typos or anything you'd like to change then you can edit them in the browser yourself (TODO: how)
-            </p>
-
-            <p>
-                when adding theorems the ettiquette is to at a minimum add empty stubs for all of the other theorems, definitions, lemma's corollaries that it uses as dependencies and put (TODO: complete) in them. Doing this will allow other contributors to fill in details or you can come back to them later
-            </p>
-
-            <p>
-                additionally you can ask questions and discuss with others using our <a href="https://github.com/cuppajoeman/openmath/discussions">github discussions</a>, the reason why we use this is that if you're contributing you already have a github account.
-            </p>
-
-	    <h2>development environment</h2>
-
-	    <p>optimal development environment</p>
-	    <ul>
-	        <li>an easy way to write html code elements</li>
-	        <li>a method to select and inject paths quickly into a text file</li>
-	    </ul>
-
-            <h2>basic terminology</h2>
+            <h2>terminology</h2>
             <ul>
                 <li>definition: notation words or anything used to encapsulate something larger into something smaller</li>
                 <li>theorem: something which is true, that takes more effort to show and is most likely used in many places</li>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>contributing</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles/styles.css">
+        <script src="/js/script.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+    </head>
+    <body>
+
+        <div class="thin-wrapper">
+			<h1>adding definitions</h1>
+
+			<p>
+				A general template may be used like this
+			</p>
+
+			<code>
+				<pre>
+&ltdiv class="definition" id="definition-TODO"&gt
+	&ltdiv class="title"&gtTODO&lt/div&gt
+	&ltdiv class="content"&gt
+		TODO
+	&lt/div&gt
+&lt/div&gt
+				</pre>
+			</code>
+
+			<ul>
+				<li>
+					The mathematical content goes in place of the TODO between the content divs
+				</li>
+				<li>
+					The name of the definition goes between the title divs.	
+				</li>
+				<li>
+					The TODO after <code>definition-</code> should be the title in lowercase, with asciimath removed and all spaces replaced with dashes. 
+					<details>
+						<summary>example</summary>
+						if the title was <code>point in `RR^(n)`</code>, then the id would be <code>definition-point-in-Rn</code>
+					</details>
+					
+				</li>
+			</ul>
+
+			<h1>adding statements with proof</h1>
+
+			<p>
+				These are theorems, propositions, lemmas, corollaries, exercises
+			</p>
+
+			
+			<code>
+				<pre>
+&ltdiv id="STATEMENT_TYPE-TODO"&gt
+	&ltdiv class="STATEMENT_TYPE" &gt
+		&ltdiv class="title"&gtTODO&lt/div&gt
+		&ltdiv class="content"&gt
+			TODO
+		&lt/div&gt
+	&lt/div&gt
+
+	&ltdiv class="proof"&gt
+		&ltdiv class="title"&gt&lt/div&gt
+		&ltdiv class="content"&gt
+			TODO
+		&lt/div&gt
+	&lt/div&gt
+&lt/div&gt
+				</pre>
+			</code>
+
+			<ul>
+				<li>STATEMENT_TYPE should be replaced by one of theorem, proposition, lemma, corollary or exercise</li>
+				<li>for the TODO in the id, follow the same procedure for the definition</li>
+				<li>the proof has a title element with no content inside, this automatically generates the black title with the text proof inside (see styles.css)</li>
+				<li>note that the id is stored as a div containing both the statement and the proof, this is so that if it is dynamically loaded elsewhere the proof will be visible as well.</li>
+
+			</ul>
+
+			<h1>adding knowledge links</h1>
+			
+			<p>
+				A knowledge link allows you to have a clickable element which expands whatever it links to directly on the page. In general knowledge will be any definition or statement with proof
+			</p>
+			<code>
+				<pre>
+&ltspan class="knowledge-link" data-href="ABSOLUTE_PATH_TO_FILE_CONTAINING_KNOLWEDGE#KNOWLEDGE_ID"&gtTODO&lt/span&gt
+				</pre>
+			</code>
+			<p>
+				The easiest way to understand this is by example:
+			</p>
+
+			<code>
+				<pre>
+&ltspan class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides"&gtdivides&lt/span&gt
+				</pre>
+			</code>
+
+
+		</div>
+    </body>
+</html>

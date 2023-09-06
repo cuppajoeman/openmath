@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>contributing</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles/styles.css">
+        <script src="/js/script.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+    </head>
+    <body>
+
+        <div class="thin-wrapper">
+
+			<h1>mathematical content</h1>
+
+			<p>
+				openmath is a static html site that uses vanilla js and css. Mathjax is used to render mathematical equations.
+			</p>
+			
+			<p>
+				let's look at the basic form of a definition, for example division	
+			</p>
+			
+			<code>
+				<pre>
+&ltdiv class="definition" id="definition-divides"&gt
+	&ltdiv class="title"&gtdivides&lt/div&gt
+	&ltdiv class="content"&gt
+		an integer `n` is divisible by a non-zero integer `m` if there exists an integer `k` such that `n = k * m`. If this is all true we write `m | n`.
+	&lt/div&gt
+&lt/div&gt
+				</pre>
+			</code>
+			
+			<p>
+				breaking it down, we can see that there is a title, the content, mathematical equations written in <a href="http://asciimath.org/">asciimath</a> surrounded by backticks and the outer div is given a special id.
+			</p>
+			
+			<p>
+				Each of the classes used here are defined in <code>/styles/style.css</code> and gives it styling (similar to beamer)
+			</p>
+
+			<p>
+				Now let's look at a more complicated example	
+			</p>
+
+			<code>
+				<pre>
+&ltdiv id="proposition-1-divides-everything"&gt
+	&ltdiv class="proposition"&gt
+		&ltdiv class="title"&gt1 divides everything&lt/div&gt
+		&ltdiv class="content"&gt
+			Suppose that `j in ZZ`, then `1 | j`
+		&lt/div&gt
+	&lt/div&gt
+
+	&ltdiv class="proof"&gt
+		&ltdiv class="title"&gt&lt/div&gt
+		&ltdiv class="content"&gt
+			In the &ltspan class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides"&gtdefinition of divides&lt/span&gt take `k = j`, then we can see that `j = j * 1` thus we can say that `1 | j`
+		&lt/div&gt
+	&lt/div&gt
+&lt/div&gt
+				</pre>
+			</code>
+
+			<p>
+				As you can see we've packaged both the statement and the proof into a div with it's own id. In the proof, we have something new: the knowledge link. 
+			</p>
+			<p>
+				A knowledge link is what allows for recursive learning, and is used when we are referencing a piece of information such as a definition, or proved statement, so that the reader knows how we deduce that the next statement is true via this knowledge.
+			</p>
+
+			<p>
+				Notice that the form of the <code>data-href</code> is an absolute path and the id of the element delimited with a # symbol. This was chosen because of the way the <code>data-href</code> in the javascript code.
+			</p>
+
+			<p>
+				Speaking of javascript, let's take a look at <code>/js/script.js</code> which contains all the main logic, specificially let's take a look at the function <code>setUpKnowledgeLink</code>. Feel free to open this code in your editor of choice. 
+			</p>
+
+			<p>
+				In this function the main steps are to use the <code>data-href</code> to fetch the relevant section of html from the respective webpage, and paste it after the knowledge link when it is clicked.
+			</p>
+
+			<p>
+				From this point onward, you can explore the <code>preparePage</code> function which is main function call used on every page, besides the css for a page that is all the code that runs.
+			</p>
+
+
+			<h1>header</h1>
+
+			<p>
+				in <code>preparePage</code> the header is loaded in programatically using a fetch call, see <code>setUpAndAddHeader</code>
+			</p>
+
+		</div>
+
+    </body>
+</html>
