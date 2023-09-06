@@ -67,7 +67,10 @@
 	&ltdiv class="proof"&gt
 		&ltdiv class="title"&gt&lt/div&gt
 		&ltdiv class="content"&gt
-			TODO
+			&ltdetails&gt
+				&ltsummary&gtshow&lt/summary&gt
+				TODO
+			&lt/details&gt
 		&lt/div&gt
 	&lt/div&gt
 &lt/div&gt
@@ -78,6 +81,7 @@
 				<li>STATEMENT_TYPE should be replaced by one of theorem, proposition, lemma, corollary or exercise</li>
 				<li>for the TODO in the id, follow the same procedure for the definition</li>
 				<li>the proof has a title element with no content inside, this automatically generates the black title with the text proof inside (see styles.css)</li>
+				<li>note that the proof is wrapped in a details element which allows the user to open or hide the proof, when developing feel free to remove this tag for easy debugging, but remember to re-add it before you push your code</li>
 				<li>note that the id is stored as a div containing both the statement and the proof, this is so that if it is dynamically loaded elsewhere the proof will be visible as well.</li>
 
 			</ul>
@@ -102,7 +106,15 @@
 				</pre>
 			</code>
 
+			<h1>adding new files</h1>
 
+			<p>
+				When creating new files, make sure that the name of the file is in lowercase <a href="https://en.wikipedia.org/wiki/Snake_case">snake_case</a>, make sure to include the stylesheet <code>/styles/style.css</code> and the javascript <code>/js/script.js</code> and <code>defer</code> it's loading. Also wrap everything in the body with a <code>thin-wrapper</code> classed div.
+			</p>
+			
+			<p>
+				The path to the file should make logical sense and each level represent another level of detail/abstraction
+			</p>
 		</div>
     </body>
 </html>
