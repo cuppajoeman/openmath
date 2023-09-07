@@ -14,3 +14,6 @@ def start_webserver(ip_address='localhost', port=8000):
     httpd = HTTPServer((ip_address, port), muted_handler)
     httpd.serve_forever()
 
+
+if __name__ == "__main__":
+    start_webserver()

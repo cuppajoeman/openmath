@@ -23,7 +23,37 @@
 				<div class="title">continuous function</div>
 				<div class="content">
 					a function `f: A to RR` is continuous, when it is <span class="knowledge-link" data-href="/analysis/single_variable/continuity.html#definition-continuity-of-a-function-at-a-point">continuous at each point `a in A`</span>
+				</div>
+			</div>
 
+			<div id="exercise-continuity-equivalence">
+				<div class="exercise">
+					<div class="title">continuity equivalence</div>
+					<div class="content">
+						`f` is <span class="knowledge-link" data-href="/analysis/single_variable/continuity.html#definition-continuity-of-a-function-at-a-point">continuous</span> at `a` if and only if `lim_(h to 0) f(a + h) = f(a)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<details>
+							<summary>show</summary>
+
+							<p>
+								Assume that `f` is continuous at `a`,  now we will prove that `lim_(h to 0) f(a + h) = f(a)`. To show this limit exists, we refer the the definition of  <span class="knowledge-link" data-href="/analysis\single_variable.html#definition-limit-of-a-function-at-a-point">limit of a function</span>. So let `epsilon in RR^(gt 0)`, then since `f` is continuous at `a` then we know there is some `delta_c in RR^(gt 0)` such that `AA x in dom(f), abs(x - a) lt delta_c implies abs(f(x) - f(a)) lt epsilon`.
+							</p>
+							<p>
+								We need to prove that there is some `delta in RR^(gt 0)` such that `AA h in dom(f), abs(h - 0) lt delta implies abs(f(a + h) - f(a)) lt epsilon`, so suppose that `h in text(dom)(f)`, thus we can also consider the value of `h + a in text(dom)(f)`. Thus by the assumption of continuity, as it holds for all `x` in `text(dom)(f)` then `abs((h + a) - a) lt delta_c implies abs(f(a + h) - f(a)) lt epsilon`, therefore taking `delta = delta_c` will complete this direction of the proof.
+							</p>
+							<p>
+								Now we work in the other direction, first assuming that  `lim_(h to 0) f(a + h) = f(a)` and trying to show that `f` is continuous at `a`, so let `epsilon_c in RR^(gt 0)`, thus since the aformentioned limit exists, then we have some `delta in RR^(gt 0)` such that `AA h in text(dom)(f), abs(h - 0) lt delta implies abs(f(h + a) - f(a)) lt epsilon_c`.
+							</p>
+							<p>
+								Working in s similar fashion as in our first direction, we consider the value `x - a in text(dom)(f)`, since the latter statement in the previous paragraph is for all `h in text(dom)(f)`, we can consider `h = x - a`, which says that `abs(x - a - 0) lt delta implies abs(f(x - a + a) - f(a)) lt epsilon_c` which is equivalent to `abs(x - a) lt delta implies abs(f(x)- f(a)) lt epsilon_c`, which is exactly what we wanted to prove.
+							</p>
+						</details>
+					</div>
 				</div>
 			</div>
 
