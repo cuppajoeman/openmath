@@ -16,6 +16,31 @@
 
 <body>
     <div class="thin-wrapper">
+
+		<div class="definition" id="definition-set">
+			<div class="title">set</div>
+			<div class="content">
+				A set is a collection of distinct objects which we call elements of the set. A set can have a finite number of elements or infinitely many elements.
+			</div>
+		</div>
+
+		<div class="definition" id="definition-empty-set">
+			<div class="title">empty set</div>
+			<div class="content">
+				The set with no elements is called the empty set and is denoted by `O/`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-declaration-of-a-finite-set">
+			<div class="title">declaration of a finite set</div>
+			<div class="content">
+				We may declare a finite set by listing it's elements between curly braces like so `{a, b, c, d}` or `{1, 2, 3, 41}`
+				<p>
+				</p>
+			</div>
+		</div>
+
+		Suppose we wrote out the set `{a, b, c, d}` and then later on realized that `a = b = c = d`, then this set is simply `{a, a, a, a}`, which we define to just be `{a}`. Therefore we allow duplicates when declaring a set, but realize the set it generates has no such duplicate, so `{1, 1, 1} = {1, 1} = {1}`
         
         <div class="definition" id="definition-subset">
             <div class="title">subset</div>
@@ -113,7 +138,7 @@
             </div>
         </div>
 
-        <div class="definition">
+        <div class="definition" id="definition-cartesian-product">
             <div class="title">cartesian product</div>
             <div class="content">
                 Suppose that `A, B` are sets, then we define `A xx B := {(a, b): a in A, b in B}`
