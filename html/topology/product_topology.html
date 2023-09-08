@@ -110,18 +110,18 @@
 				<div class="proof">
 					<div class="title"></div>
 					<div class="content">
-						<p>
-							Given this subbasis `S`, and supposing that `cc T` is the product topology on `X xx Y`, our goal is to show that `cc T _(cc B _S) = cc T`.					
-						</p>
-						<p>
-							We'll first show that `cc T_(cc B _S) sube cc T`	in a straightforward manner, so assume that `s in S`, so <span class="knowledge-link" data-href="/topology\product_topology.html#corollary-inverse-of-a-projection">then</span> either `s = U xx Y` or `s = X xx V` for open sets `U, V`, <span class="knowledge-link" data-href="/topology/product_topology.html#definition-product-topology">therefore</span> `s in cc T`.
-						</p>
-						<p>
-							An arbitrary element of `cc T_(cc B_S)` <span class="knowledge-link" data-href="/topology\topological_spaces.html#theorem-topology-generated-by-a-basis-consists-of-unions">is</span> `M = bigcup_(E in B) E` where `B sube cc B_S`, since `E` <span class="knowledge-link" data-href="/topology\topological_spaces.html#proposition-intersections-of-subbasis-elements-forms-a-basis">is</span> a finite intersection of elements of `S` (which we know are open in `X xx Y`), <span class="knowledge-link" data-href="/topology\topological_spaces.html#definition-topology-on-a-set">then</span> `M in cc T`, showing that `cc T_(cc B_S) sube cc T`
-						</p>
-						<p>
-							For the other inclusion, let `U xx V` be a basis element for `cc T`, but note that `U xx V = U xx Y nn X xx V = pi_1^(-1)(U)nn pi_2^(-1)(V)`, thus by <span class="knowledge-link" data-href="/topology\topological_spaces.html#proposition-intersections-of-subbasis-elements-forms-a-basis">definition </span> an element of `cc B _S`, <span class="knowledge-link" data-href="/topology\topological_spaces.html#corollary-basis-elements-are-open-in-a-generated-topology">therefore </span>`U xx V in cc T_(cc B_S)` TODO (finish here)
-						</p>
+						<details>
+							<summary>show</summary>
+							<p>
+								Given this subbasis `S`, and supposing that `cc T` is the product topology on `X xx Y`, our goal is to show that `cc T _(cc B _S) = cc T`.					
+							</p>
+							<p>
+								We'll first show that `cc T_(cc B _S) sube cc T`, an arbitrary element of `cc T_(cc B_S)` <span class="knowledge-link" data-href="/topology\topological_spaces.html#theorem-topology-generated-by-a-basis-consists-of-unions">is</span> `M = bigcup_(E in B) E` where `B sube cc B_S`, since `E` <span class="knowledge-link" data-href="/topology\topological_spaces.html#proposition-intersections-of-subbasis-elements-forms-a-basis">is</span> a finite intersection of elements of `S` (which we know are open in `X xx Y`), <span class="knowledge-link" data-href="/topology\topological_spaces.html#definition-topology-on-a-set">then</span> `M in cc T`, showing that `cc T_(cc B_S) sube cc T`
+							</p>
+							<p>
+								For the other inclusion, let `U xx V` be a basis element for `cc T`, but note that `U xx V = U xx Y nn X xx V = pi_1^(-1)(U)nn pi_2^(-1)(V)`, thus by <span class="knowledge-link" data-href="/topology\topological_spaces.html#proposition-intersections-of-subbasis-elements-forms-a-basis">definition </span> an element of `cc B _S`, <span class="knowledge-link" data-href="/topology/topological_spaces.html#lemma-basis-finer-equivalence">which shows</span> that `cc T sube cc T_(cc B _ S)`
+							</p>
+						</details>
 					</div>
 				</div>
 			</div>
