@@ -16,7 +16,7 @@
 
 <body>
     <div class="thin-wrapper">
-
+        
         <div class="definition" id="definition-subset">
             <div class="title">subset</div>
             <div class="content">
@@ -173,7 +173,14 @@
 		<div class="definition" id="definition-binary-relation">
 			<div class="title">binary relation</div>
 			<div class="content">
-				A binary relation `R` is a <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-nary-relation">`2`-ary relation</span> 
+				A binary relation `R` is a <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-nary-relation">`2`-ary relation</span>, when `(x, y) in R`, then we write `x R y` to say that `x` is related to `y`.
+			</div>
+		</div>
+
+		<div class="definition" id="definition-reflexive-relation">
+			<div class="title">reflexive relation</div>
+			<div class="content">
+                Given a <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-binary-relation">binary relation</span> R on X, we say it is reflexive when every element of X relates to itself.
 			</div>
 		</div>
 
@@ -181,11 +188,11 @@
 		    <div class="title">partial order</div>
 		    <div class="content">
 				<p>
-					a partial order is a binary relation on a set `X` such that for any `a, b, c in X` we have that:
+					a partial order is a binary relation `R` on a set `X` such that for any `a, b, c in X` we have that:
 					<ul>
-						<li>`a le a`</li>
-						<li>if `a le b` and `b le a` then `a = b`</li>
-						<li>if `a le b` and `b le c` then `a le c`</li>
+						<li>`a R a`</li>
+						<li>if `a R b` and `b R a` then `a = b`</li>
+						<li>if `a R b` and `b R c` then `a R c`</li>
 					</ul>
 					And we say that `X` is a partially ordered set.
 				</p>
