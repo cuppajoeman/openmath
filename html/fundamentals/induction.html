@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Homepage</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles/styles.css">
+        <script src="/js/script.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+    </head>
+    <body>
+        <div class="thin-wrapper">
+
+			<div id="theorem-induction">
+				<div class="theorem">
+					<div class="title">induction</div>
+					<div class="content">
+						Suppose that `a in ZZ` and `P(k): ZZ^(ge a) to { bb T, bb F}`  is a predicate, if `P(a)` holds true and `P(k) implies P(k + 1)`, then `P(k)` holds true for all `k in ZZ^(ge a)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						Let `k in ZZ^(ge a)`, if `k = a`, then we know that `P(k)` is true, otherwise if `k > a`, then `k = a + r` for some `r in NN_1`, therefore `P(a) implies P(a + 1)`, so we know that `P(a + 1)` is true, then applying the same reasonging `P(a + 1) implies P(a + 2)` so `P(a + 2)` is true, thus we can see that after `r` iterations of that `P(a + r) = P(k)` is also true.
+					</div>
+				</div>
+			</div>
+
+			<div id="proposition-linear-recursive-sum">
+				<div class="proposition">
+					<div class="title">linear recursive sum</div>
+					<div class="content">
+						Suppose that `(x_n)_(n in NN_0)` is a sequence such that for any `k in NN_1` we have `x_k := a x_(k - 1) + b`, where `a, b in RR`, prove that 
+						<div class="centered-content">
+							`x_k = a^k (x_0 - b / (1 - a)) + b / (1 - a)`
+						</div>
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<p>
+							We proceed with a proof by induction so let `k in NN_1`, suppose that `k = 1`, thus by the definition of `x_1` we know it's equal to `a * x_0 + b`, now some algebra: `a * x_0 + b = a * x_0 + b ((1 - a) / (1 - a)) = a^1 * x_0 - (ba) / (1 - a) + b / (1 - a) = a^k (x_0 - b / (1 - a)) + b/(1 - a)`, which is what we needed to show.
+						</p>
+						<p>
+							Now for the induction step, so suppose that `k > 1` and that `x_k = a^k (x_0 - b / (1 - a)) + b / (1 - a)` holds true (and call it our Induction Hypothesis), we'll now show that `x_(k + 1) =  a^(k + 1) (x_0 - b / (1 - a)) + b / (1 - a)`.
+						</p>
+						<p>
+							First recall the very definition of `x_(k + 1)` which is that `x_(k + 1) = a x_(k) + b`, but from our induction hypothesis, we know that `x_k = a^k (x_0 - b / (1 - a)) + b / (1 - a)`, so therefore `x_(k + 1) = a [a^k (x_0 - b / (1 - a)) + b / (1 - a)] + b`.
+						</p>
+						<p>
+							We'll start by multiplying everything out and then seeing what we get:  ` a [a^k (x_0 - b / (1 - a)) + b / (1 - a)] + b = a^(k + 1)(x_0 - b / (1 - a)) + (ab) / (1 - a) + b = a^(k + 1)(x_0 - b / (1 - a)) + (ab) / (1 - a) + b ((1 - a) / (1 - a)) ` `= a^(k + 1)(x_0 - b / (1 - a)) + (ab  + b - ab) / (1 - a)` `= a^(k + 1)(x_0 - b / (1 - a)) +  b / (1 - a) ` which is exactly what we set out to prove.
+						</p>
+						<p>
+							Therefore since the statement holds for `k = 1`, and if when it holds for `k` then it also holds for `k + 1`, then the statement is true for all `k in NN_1`, as needed.
+						</p>
+					</div>
+				</div>
+			</div>
+
+
+		</div>	
+    </body>
+</html>
