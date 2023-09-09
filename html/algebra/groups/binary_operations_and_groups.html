@@ -73,6 +73,227 @@
 				</div>
 			</div>
 
+			<div id="proposition-identity-element-is-unique-in-a-group">
+				<div class="proposition">
+					<div class="title">identity element is unique in a group</div>
+					<div class="content">
+						Suppose `G` is a group, then the identity element `e` is unique
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+
+			<div id="proposition-TODO">
+				<div class="proposition">
+					<div class="title">TODO</div>
+					<div class="content">
+						Suppose `G` is a group, and `a in G`, then there is a unique element `b` such that `a star b = b star a = e`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-inverse">
+				<div class="title">inverse</div>
+				<div class="content">
+					Given a group `G` and `a in G`, we denote the unique element `b` such that `a star b = b star a = e` as `a^(-1)` and call it the inverse of `a`
+				</div>
+			</div>
+
+			<div id="proposition-inverse-of-ab">
+				<div class="proposition">
+					<div class="title">inverse of ab</div>
+					<div class="content">
+						Given a group `G` and `a, b in G`, then `(a star b)^(-1) = b^(-1) star a^(-1)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div id="proposition-cancellation">
+				<div class="proposition">
+					<div class="title">cancellation</div>
+					<div class="content">
+						Suppose `G` is a group and `a, b, c in G`, then `a star c implies a = b` and `c star a = c star b implies a = b`, in other words, we can cancel common elements on right and left
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-order-of-a-group">
+				<div class="title">order of a group</div>
+				<div class="content">
+					The order of a group `G` denoted by `abs(G)` is the cardinality of `G`
+				</div>
+			</div>
+
+			<div class="definition" id="definition-abelian">
+				<div class="title">abelian</div>
+				<div class="content">
+					Given a group, if it's composition law is commutative, then we say that the group is abelian
+				</div>
+			</div>
+
+			<div class="definition" id="definition-multiplicative-notation">
+				<div class="title">multiplicative notation</div>
+				<div class="content">
+					<p>
+						Given a group `(G, star)` then since there is only one operation in question, instead of writing the operator between every two pairs of elements we may limit it to `a b`, to refer to `a star b` to reduce visual clutter
+					</p>
+					<p>
+						note: <i>since `*` is also a simple thing to write, we may also use it in place of `star`</i>
+					</p>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-power-of-an-element">
+				<div class="title">power of an element</div>
+				<div class="content">
+					Given a group `G` and `a in G`, then we define `a^n := obrace(a a ... a)^("n times")` for any `n in ZZ^(gt 0)` and `a^0 := e`, when `n in ZZ^(lt 0)` then `a^n := (a^(-1))^n`, thus we've defined `a^n` for all `n in ZZ`
+				</div>
+			</div>
+
+			<div id="proposition-power-properties">
+				<div class="proposition">
+					<div class="title">power properties</div>
+					<div class="content">
+						For all `a, b in G`, `a^n a^m = a ^(n + m)` and `(a^n)^m = a^(nm)` for any `m, n in ZZ`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-order-of-a-group-element">
+				<div class="title">order of a group element</div>
+				<div class="content">
+					The order of an element `a in G`, denoted `abs(a)`, is the smallest `n in NN_1` such that `a^n=e`
+				</div>
+			</div>
+
+			<div id="exercise-TODO">
+				<div class="exercise">
+					<div class="title">TODO</div>
+					<div class="content">
+						Show that `QQ, RR, CC` are groups under multiplicaiton
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-TODO">
+				<div class="title">TODO</div>
+				<div class="content">
+					The notation `(: a :)` denotes the set `{a^n: n in ZZ}`. Then `a in G` is said to be a generator of `g` if and only if `G = (: a :)`
+				</div>
+			</div>
+
+			<div class="definition" id="definition-cyclic-group">
+				<div class="title">cyclic group</div>
+				<div class="content">
+					A group `G` is considered a cyclic group if and only iff there exists some `a in G` such that `G = (: a :)`
+				</div>
+			</div>
+
+			<div id="proposition-cyclic-implies-abelian">
+				<div class="proposition">
+					<div class="title">cyclic implies abelian</div>
+					<div class="content">
+						If a group `G` is cyclic, then it is abelian
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div id="proposition-power-equivalence">
+				<div class="proposition">
+					<div class="title">power equivalence</div>
+					<div class="content">
+						For a group `G` with `a in G`, if `G` has infinite order, then `a^i = a^j` if and only if ` i = j` otherwise if `G` has finite order `n` then `a^i = a^j` if and only if `i % n = j % n`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div id="theorem-gcd-generates-the-same">
+				<div class="theorem">
+					<div class="title">gcd generates the same</div>
+					<div class="content">
+						Suppose `G` is a group. Let `a in G` so that `abs(a) = n`, then `(: a^k :) = (: a^gcd(n, k) :)` and `abs(a^k) = n / gcd(n, k)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div id="corollary-TODO">
+				<div class="corollary">
+					<div class="title">TODO</div>
+					<div class="content">
+						For a group `G` and `a in G`, then `abs(a)` divides `abs(G)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
 
 
         </div>
