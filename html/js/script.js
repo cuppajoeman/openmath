@@ -44,7 +44,55 @@ async function setUpAndAddHeader() {
         // event.preventDefault();
         setColorMode(false);
     }
+
+	createCurrentPathNavigation();
 }
+
+
+
+
+function createCurrentPathNavigation() {
+
+
+	var path = window.location.pathname;
+
+	const currentPathElement = document.getElementById("current-path");
+
+	var slashIncludedInString = path.lastIndexOf("/") != -1
+
+	while (slashIncludedInString) {
+	  const indexOfLastSlashInString = path.lastIndexOf("/");
+
+	  var endOfPath = path.substring(indexOfLastSlashInString + 1);
+
+
+	  if (path == "") {
+		var a_element = createATag("~", "/");
+
+		currentPathElement.prepend(a_element);
+	  } else {
+		var a_element = createATag(endOfPath, path);
+	  
+		currentPathElement.prepend(a_element);
+		currentPathElement.prepend(document.createTextNode("/"))
+	  }
+
+	  slashIncludedInString = path.lastIndexOf("/") != -1
+
+	  path = path.substring(0, indexOfLastSlashInString)
+	}
+
+}
+
+function createATag(content, link) {
+   var a = document.createElement('a');
+    var linkText = document.createTextNode(content);
+    a.appendChild(linkText);
+    a.title = "my title text";
+    a.href = link;
+    return a;
+}
+
 
 function addLinksToEveryPieceOfKnowledge() {
 	const definitions = document.getElementsByClassName("definition")
