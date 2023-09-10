@@ -53,6 +53,7 @@ async function setUpAndAddHeader() {
 
 function createCurrentPathNavigation() {
 
+	var pathDelimiter = "/";
 
 	var path = window.location.pathname;
 
@@ -74,7 +75,7 @@ function createCurrentPathNavigation() {
 		var a_element = createATag(endOfPath, path);
 	  
 		currentPathElement.prepend(a_element);
-		currentPathElement.prepend(document.createTextNode("/"))
+		currentPathElement.prepend(document.createTextNode(pathDelimiter))
 	  }
 
 	  slashIncludedInString = path.lastIndexOf("/") != -1
