@@ -89,7 +89,6 @@ function createATag(content, link) {
    var a = document.createElement('a');
     var linkText = document.createTextNode(content);
     a.appendChild(linkText);
-    a.title = "my title text";
     a.href = link;
     return a;
 }
@@ -109,6 +108,7 @@ function addLinksToEveryPieceOfKnowledge() {
 		linkToSelf.textContent = copyLinkEmoji;
 		linkToSelf.href = currentHtmlFilePath + "#" + definition.id;
 		linkToSelf.onclick = copyURI;
+		linkToSelf.title = "copy link";
 		title.append(linkToSelf);
 	}
 

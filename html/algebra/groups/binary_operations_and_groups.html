@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>linear algebra</title>
+        <title>binary operations and groups</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/styles/styles.css">
@@ -106,7 +106,7 @@
 					<div class="content">
 						<details>
 							<summary>show</summary>
-							Suppose that `b` and `c` are both inverses to `a`, thus `a  * b = e = c star a`, then `c = c star e = c star (a star b) = (c star a) star b = e star b = b` so then `c = b`
+							Suppose that `b` and `c` are both inverses to `a`, thus `a star b = e = c star a`, then `c = c star e = c star (a star b) = (c star a) star b = e star b = b` so then `c = b`
 						</details>
 					</div>
 				</div>
@@ -130,7 +130,10 @@
 				<div class="proof">
 					<div class="title"></div>
 					<div class="content">
-						TODO
+						<details>
+							<summary>show</summary>
+							To show this is true we want to show that `a^(- 1) star a = a star a^(-1) = e`, though the definition of `a^(- 1)` is such that `a star a^(-1) = a^(-1) star a = e` and since the equality symbol is a reflexive relation, this proves what we needed to show
+						</details>
 					</div>
 				</div>
 			</div>
@@ -146,7 +149,10 @@
 				<div class="proof">
 					<div class="title"></div>
 					<div class="content">
-						TODO
+						<details>
+							<summary>show</summary>
+							For ease let `c = (a star b)^(-1)`, <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-inverse">so that</span> `(a star b) star c = c star (a star b) = e` <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">since we know</span> `(a star b) star c = a star (b star c) = e` , and thus `a^(-1) star (a star (b star c)) = a^(-1) star e`, thus `(a^(-1) star a) star (b star c) = a^(-1) e`, which simplifies to `e star (b star c) = a^(-1)`, so we can see that `a^(-1) = b star c`, as needed
+						</details>
 					</div>
 				</div>
 			</div>
@@ -220,6 +226,32 @@
 				<div class="title">order of a group element</div>
 				<div class="content">
 					The order of an element `a in G`, denoted `abs(a)`, is the smallest `n in NN_1` such that `a^n=e`
+				</div>
+			</div>
+
+			<div id="exercise-TODO">
+				<div class="exercise">
+					<div class="title">TODO</div>
+					<div class="content">
+						An element of a group has order `1` if and only if `x = e`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<details>
+							<summary>show</summary>
+							<p>
+							        <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-order-of-a-group-element"></span>
+
+								Suppose that `a in G`, then `abs(a) = 1` if and only if `a^1 = e` note that `a^1 = a`, so `a = e` as needed
+							</p>
+							<p>
+								For the reverse direction, follow the above proof backwards, noting that each connection is a bi-implication
+							</p>
+						</details>
+					</div>
 				</div>
 			</div>
 
@@ -314,6 +346,15 @@
 					<div class="content">
 						TODO
 					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-TODO">
+				<div class="title">TODO</div>
+				<div class="content">
+					        
+
+					Let `n in NN_1`, and define a relation on `ZZ` by `a R b` if and only if <span class="knowledge-link" data-href="/number_theory/index.html#definition-remainder-function">`a % n = b % n`</span>
 				</div>
 			</div>
 
