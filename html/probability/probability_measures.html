@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>probability</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/styles.css">
+
+    <script src="../js/script.js" defer></script> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+			<div class="definition" id="definition-sample-space">
+				<div class="title">sample space</div>
+				<div class="content">
+					A sample space `Omega` is a non-empty set
+				</div>
+			</div>
+
+			<div class="definition" id="definition-probability-measure">
+				<div class="title">probability measure</div>
+				<div class="content">
+					        
+					Given a <span class="knowledge-link" data-href="/probability/probability_measures.html#definition-sample-space">sample space</span> `Omega` and a function `P: Omega to [0, 1]` , then we say that `P` is a probability if the following hold
+					<ul>
+						<li>`P(Omega) = 1`</li>
+						<li>
+							`AA E_1, E_2, ... sube Omega` such that `E_i nn E_j = O/` `AA i ne j in NN_1`, then 
+							<div class="centered-content">
+								`P(bigcup_(i = 1)^oo E_i) = sum_(i = 1)^oo P(E_i) `
+							</div>
+						</li>
+					</ul>
+					<ul>
+					</ul>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-conditional-probability">
+				<div class="title">conditional probability</div>
+				<div class="content">
+					Suppose that `A, B sube Omega`, with `P(B) gt 0`, then we define the conditional probability of `A` given `B` as 
+					<div class="centered-content">
+						`P(A | B) = (P(A nn B)) / (P(B))`
+					</div>
+				</div>
+			</div>
+		
+
+    </div>
+</body>
