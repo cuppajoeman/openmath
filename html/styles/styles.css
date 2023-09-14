@@ -93,6 +93,10 @@ a {
     margin: 0 10%;
 }
 
+.align {
+	margin: 2em auto;
+}
+
 .centered-content {
   display: block;
   text-align: center;
@@ -116,8 +120,8 @@ a {
   border-radius: 10px;
   background-color: var(--knowledge-content-background-color);
   box-shadow: 5px 10px 8px var(--knowledge-content-shadow-color);
-  margin: 1.5em 0 1.5em 0;
-  border: 1px solid var(--knowledge-content-border-color);
+  margin: 4em 0 4em 0;
+  border: 2px solid var(--knowledge-content-border-color);
 }
 
 
@@ -145,7 +149,6 @@ a {
 .definition>.title {
   background-color: rgb(38, 38, 134);
 }
-
 
 .theorem>.title::before {
   content: "theorem: "

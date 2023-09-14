@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>binary operations and groups</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="/styles/styles.css">
+        <script src="/js/script.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+    </head>
+    <body>
+
+        <div class="thin-wrapper">
+            <h1>binary operations and groups</h1>            
+
+			<div class="definition" id="definition-binary-operation">
+				<div class="title">binary operation</div>
+				<div class="content">
+					Let `S` be a set, a binary operation on `S` is a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> `star : S xx S to S` where we denote `star(a, b)` as `a star b` using infix notation
+				</div>
+			</div>
+
+			<div class="definition" id="definition-commutative-binary-relation">
+				<div class="title">commutative binary operation</div>
+				<div class="content">
+					A <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</span> on a set `S` such that for any `a, b in S`, then `a star b = b star a` is called commutative
+				</div>
+			</div>
+
+			<div class="definition" id="definition-associative-binary-operation">
+				<div class="title">associative binary operation</div>
+				<div class="content">
+					A <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</span> on a set `S` such that for any `a, b, c in S`, then `(a star b) star c = a star (b star c)` is called associative
+				</div>
+			</div>
+
+			<div id="theorem-bracket-placement-doesn't-matter-for-associative-binary-operations">
+				<div class="theorem">
+					<div class="title">bracket placement doesn't matter for associative binary operations</div>
+					<div class="content">
+						Suppose that `star` is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</span>, then for any `n in ZZ^(ge 3)`, then no matter how one places the brackets in the product `x_1 star x_2 star ... star x_n` it always evaluates to the same value
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-composition-law">
+				<div class="title">composition law</div>
+				<div class="content">
+					A composition law is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</span>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-group">
+				<div class="title">group</div>
+				<div class="content">
+					a group is a set `G` with a <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition law</span> `star` and a distinguished element `e` satisfying the following axioms:
+					<ul>
+						<li>identity: `a star e = e star a = a` for all `a in G`</li>
+						<li>inversion: for every `a in G` we have some `b in G` such that `a star b = b star a = e`
+					</ul>
+					<p>
+				        note: <i>informally this says that you can do nothing, and you can also undo anything</i>
+					</p>
+				</div>
+			</div>
+
+			<div id="proposition-identity-element-is-unique-in-a-group">
+				<div class="proposition">
+					<div class="title">identity element is unique in a group</div>
+					<div class="content">
+						Suppose `G` is a group, then the identity element `e` is unique
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<details>
+							<summary>show</summary>
+							Suppose that `f` and `g` are both identity elements, then by the identity property of a group, we know that `f star g = g star f = f` since `g` is an identity element, but also `g star f = f star g = g` since `f` is the identity, as well. Relating the equalities yields that `f = g` and therefore the identity element is unique.
+						</details>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="proposition-inverse-element-is-unique">
+				<div class="proposition">
+					<div class="title">inverse element is unique</div>
+					<div class="content">
+						Suppose `G` is a group, and `a in G`, then there is a unique element `b` such that `a star b = b star a = e`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<details>
+							<summary>show</summary>
+							Suppose that `b` and `c` are both inverses to `a`, thus `a star b = e = c star a`, then `c = c star e = c star (a star b) = (c star a) star b = e star b = b` so then `c = b`
+						</details>
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-inverse">
+				<div class="title">inverse</div>
+				<div class="content">
+					Given a group `G` and `a in G`, we denote the unique element `b` such that `a star b = b star a = e` as `a^(-1)` and call it the inverse of `a`
+				</div>
+			</div>
+
+			<div id="proposition-two-inverses-cancel">
+				<div class="proposition">
+					<div class="title">two inverses cancel</div>
+					<div class="content">
+						`(a^(-1))^(-1) = a`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<details>
+							<summary>show</summary>
+							To show this is true we want to show that `a^(- 1) star a = a star a^(-1) = e`, though the definition of `a^(- 1)` is such that `a star a^(-1) = a^(-1) star a = e` and since the equality symbol is a reflexive relation, this proves what we needed to show
+						</details>
+					</div>
+				</div>
+			</div>
+
+			<div id="proposition-inverse-of-ab">
+				<div class="proposition">
+					<div class="title">inverse of ab</div>
+					<div class="content">
+						Given a group `G` and `a, b in G`, then `(a star b)^(-1) = b^(-1) star a^(-1)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<details>
+							<summary>show</summary>
+							For ease let `c = (a star b)^(-1)`, <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-inverse">so that</span> `(a star b) star c = c star (a star b) = e` <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">since we know</span> `(a star b) star c = a star (b star c) = e` , and thus `a^(-1) star (a star (b star c)) = a^(-1) star e`, thus `(a^(-1) star a) star (b star c) = a^(-1) e`, which simplifies to `e star (b star c) = a^(-1)`, so we can see that `a^(-1) = b star c`, as needed
+						</details>
+					</div>
+				</div>
+			</div>
+
+			<div id="proposition-cancellation">
+				<div class="proposition">
+					<div class="title">cancellation</div>
+					<div class="content">
+						Suppose `G` is a group and `a, b, c in G`, then `a star c implies a = b` and `c star a = c star b implies a = b`, in other words, we can cancel common elements on right and left
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-order-of-a-group">
+				<div class="title">order of a group</div>
+				<div class="content">
+					The order of a group `G` denoted by `abs(G)` is the cardinality of `G`
+				</div>
+			</div>
+
+			<div class="definition" id="definition-abelian">
+				<div class="title">abelian</div>
+				<div class="content">
+					Given a group, if it's composition law is commutative, then we say that the group is abelian
+				</div>
+			</div>
+
+			<div class="definition" id="definition-multiplicative-notation">
+				<div class="title">multiplicative notation</div>
+				<div class="content">
+					<p>
+						Given a group `(G, star)` then since there is only one operation in question, instead of writing the operator between every two pairs of elements we may limit it to `a b`, to refer to `a star b` to reduce visual clutter
+					</p>
+					<p>
+						note: <i>since `*` is also a simple thing to write, we may also use it in place of `star`</i>
+					</p>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-power-of-an-element">
+				<div class="title">power of an element</div>
+				<div class="content">
+					Given a group `G` and `a in G`, then we define `a^n := obrace(a a ... a)^("n times")` for any `n in ZZ^(gt 0)` and `a^0 := e`, when `n in ZZ^(lt 0)` then `a^n := (a^(-1))^n`, thus we've defined `a^n` for all `n in ZZ`
+				</div>
+			</div>
+
+			<div id="proposition-power-properties">
+				<div class="proposition">
+					<div class="title">power properties</div>
+					<div class="content">
+						For all `a, b in G`, `a^n a^m = a ^(n + m)` and `(a^n)^m = a^(nm)` for any `m, n in ZZ`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-order-of-a-group-element">
+				<div class="title">order of a group element</div>
+				<div class="content">
+					The order of an element `a in G`, denoted `abs(a)`, is the smallest `n in NN_1` such that `a^n=e`
+				</div>
+			</div>
+
+			<div id="exercise-TODO">
+				<div class="exercise">
+					<div class="title">TODO</div>
+					<div class="content">
+						An element of a group has order `1` if and only if `x = e`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<details>
+							<summary>show</summary>
+							<p>
+							        <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-order-of-a-group-element"></span>
+
+								Suppose that `a in G`, then `abs(a) = 1` if and only if `a^1 = e` note that `a^1 = a`, so `a = e` as needed
+							</p>
+							<p>
+								For the reverse direction, follow the above proof backwards, noting that each connection is a bi-implication
+							</p>
+						</details>
+					</div>
+				</div>
+			</div>
+
+			<div id="exercise-TODO">
+				<div class="exercise">
+					<div class="title">TODO</div>
+					<div class="content">
+						Show that `QQ, RR, CC` are groups under multiplicaiton
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-TODO">
+				<div class="title">TODO</div>
+				<div class="content">
+					The notation `(: a :)` denotes the set `{a^n: n in ZZ}`. Then `a in G` is said to be a generator of `g` if and only if `G = (: a :)`
+				</div>
+			</div>
+
+			<div class="definition" id="definition-cyclic-group">
+				<div class="title">cyclic group</div>
+				<div class="content">
+					A group `G` is considered a cyclic group if and only iff there exists some `a in G` such that `G = (: a :)`
+				</div>
+			</div>
+
+			<div id="proposition-cyclic-implies-abelian">
+				<div class="proposition">
+					<div class="title">cyclic implies abelian</div>
+					<div class="content">
+						If a group `G` is cyclic, then it is abelian
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div id="proposition-power-equivalence">
+				<div class="proposition">
+					<div class="title">power equivalence</div>
+					<div class="content">
+						For a group `G` with `a in G`, if `G` has infinite order, then `a^i = a^j` if and only if ` i = j` otherwise if `G` has finite order `n` then `a^i = a^j` if and only if `i % n = j % n`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div id="theorem-gcd-generates-the-same">
+				<div class="theorem">
+					<div class="title">gcd generates the same</div>
+					<div class="content">
+						Suppose `G` is a group. Let `a in G` so that `abs(a) = n`, then `(: a^k :) = (: a^gcd(n, k) :)` and `abs(a^k) = n / gcd(n, k)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div id="corollary-TODO">
+				<div class="corollary">
+					<div class="title">TODO</div>
+					<div class="content">
+						For a group `G` and `a in G`, then `abs(a)` divides `abs(G)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+
+			<div class="definition" id="definition-congruence-equivalence-classes-notation">
+				<div class="title">congruence equivalence classes notation</div>
+				<div class="content">
+				    With `n in NN_1` then the relation `a R b` defined as `a % n = b % n` <span class="knowledge-link" data-href="/fundamentals/relations.html#exercise-congruences-induce-a-equivalence-relation">induces an equivalence relation</span> therefore given any `a in ZZ` we get an equivalence class `[a]`, and we define `bar a := [a]` to lighten the standard notation of equivalence classes
+				</div>
+			</div>
+
+			<div class="definition" id="definition-the-integers-modulo-n">
+				<div class="title">the integers modulo `n`</div>
+				<div class="content">
+					Suppose that `n in NN_1`, then we define `ZZ // nZZ := {bar 0, bar 1, bar 2, ..., bar(n - 1)} ` and call this set the integers modulo `n`
+				</div>
+			</div>
+
+			<div class="definition" id="definition-addition-in-the-integers-modulo-n">
+				<div class="title">addition in `ZZ // n ZZ`</div>
+				<div class="content">
+					Suppose that `a, b in ZZ`, then we define `bar a + bar b = bar(a + b)` 
+				</div>
+			</div>
+
+			<div class="definition" id="definition-multiplication-in-the-integers-modulo-n">
+				<div class="title">multipliccation in `ZZ  // nZZ`</div>
+				<div class="content">
+					Suppose that `a, b in ZZ`, then we define `bar a * bar b = bar(a * b)`
+				</div>
+			</div>
+
+			<div id="proposition-choice-of-representative-doesn't-matter-for-addition">
+				<div class="proposition">
+					<div class="title">choice of representative doesn't matter for addition</div>
+					<div class="content">
+						Suppose that `a_1, a_2, b_1, b_2 in ZZ` and that `bar a_1 = bar b_1` and `bar a _2 = bar b _2`, then `bar(a_1 + a_2 ) = bar(b_1 + b_2)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<p>
+							Consider the set `bar (a_1 + a_2)` which is defined as `{w in ZZ: w % n = (a_1 + a_2) % n}`, we'd like to show that it is equal to `{z in ZZ: z % n = (b_1 + b_2) % n}`
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="proposition-representiative-doesn't-matter-for-multiplication">
+				<div class="proposition">
+					<div class="title">representitive doens't matter for multiplication</div>
+					<div class="content">
+						Suppose that `a_1, a_2, b_1, b_2 in ZZ` and that `bar a_1 = bar b_1` and `a_2 = bar b_2` then `bar(a_1a_2) = bar(b_1b_2)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+			
+
+        </div>
+        
+    </body>
+</html>

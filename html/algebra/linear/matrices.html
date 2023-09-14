@@ -10,7 +10,8 @@
         <title>linear algebra</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../styles/styles.css">
+		<link rel="stylesheet" href="/styles/styles.css">
+        <script src="/js/script.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
     </head>
     <body>
@@ -58,12 +59,6 @@
                 </div>
             </div>
 
-            <div class="definition">
-                <div class="title">dot product</div>
-                <div class="content">
-                    Given two sequences of numbers of the same length: `a = (a_1, ..., a_k)` and `b = (b_1, ..., b_k)`, their dot product denoted and defined by by `a * b = sum_{i = 1}^k a_i * b_i`. Note that `* : RR^k xx RR^k to RR`
-                </div>
-            </div>
 
             <div class="definition">
                 <div class="title">matrix multiplication</div>
@@ -76,7 +71,7 @@
                         `C = [ [A_{1,-} * B_{|, 1}, A_{1, -} * B_{|, 2}, ..., A_{1, -} * B_{|, d}], [A_{2,-} * B_{|, 1}, A_{2, -} * B_{|, 2}, ..., A_{2, -} * B_{|, d}], [vdots, vdots, ddots, vdots], [A_{a, -} * B_{|, 1}, A_{a, -} * B_{|, 2}, ..., A_{a, -} * B_{|, d}]]`
                     </div>
                     <p>
-                        Where `A_{i, -} * B_{|, j}` represents the dot product of the `i`-th row of `A` with the `j`-th column of `B`
+                        Where `A_{i, -} * B_{|, j}` represents the <span class="knowledge-link" data-href="/algebra/linear/vectors.html#definition-dot-product">dot product</span> of the `i`-th row of `A` with the `j`-th column of `B`
                     </p>
                 </div>
             </div>

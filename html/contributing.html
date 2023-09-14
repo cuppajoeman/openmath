@@ -13,7 +13,53 @@
     <body>
 
         <div class="thin-wrapper">
-			<h1>adding definitions</h1>
+
+
+			<h1>github intro</h1>
+
+			<p>
+				We store the website files on github, it's a way to track changes and allow others to contribute to the website. The openmath repository is the true version as to what you see online. If this repository were to be editable by anoyone without review then it would turn to pure chaos and malicious users could simply delete the entire site if they wanted to.
+			</p>
+
+			<p>
+				To deal with this github has something called a <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork</a> which allows you to take a github repository and make acopy under your ownership, this forked repository is editable by you in any way, but these changes do not affect the openmath repository. Assuming you've made non-malicious edits to your forked repository and you want to merge them into the openmath repository, you can create a pull request which is a request to merge in your changes.
+			</p>
+
+			<p>
+				When a maintainer on the openmath repository sees your pull request they will review it and if they think it looks good, they will merge your  your work into the openmath, once that happens the website is rebuilt with the new update and should be live within minutes.
+			</p>
+			
+			<p>
+				If it's your first time using github then an easy way to get started is to create a github account and download <a href="https://desktop.github.com/">github desktop</a>
+
+			<h1>setting up the local server</h1>
+
+			<p>
+				While working on the project, we use fetch requests to load in content from local files like headers and knowledge from other webpages, so we <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp#loading_a_local_file">have to set up a local server to let the fetch requests go through</a>
+			</p>
+
+			<p>
+				An easy way if you have python is installed and run <code>python -m http.server</code> in the html folder to start up a webserver, you can then access this at <code>localhost:8000</code>
+			</p>
+
+			<h1>content editing</h1>
+
+			<h3>writing math</h3>
+
+			<p>
+			
+				To write mathematical equations and symbols we use <a href="http://asciimath.org/">asciimath</a> which is a syntax similar to latex, but wherein the formulas themselves are quite readable before being rendedered. 
+			</p>
+
+			<p>
+				Most mathematicians would know what you're saying if you wrote <code>x^2 or a_(m n) or a_{m n} or (x+1)/y</code> in an email, IRC or any other chat forum, in asciimath this renders as `x^2` or `a_(m n)` or `a_{m n}` or `(x + 1)/y`
+			</p>
+
+			<p>
+				To get started, enclose your math with single backticks and check the <a href="http://asciimath.org/#syntax">syntax</a> to find the symbols you need.
+			</p>
+			
+			<h2>adding definitions</h2>
 
 			<p>
 				A general template may be used like this
@@ -47,7 +93,7 @@
 				</li>
 			</ul>
 
-			<h1>adding statements with proof</h1>
+			<h2>adding statements with proof</h2>
 
 			<p>
 				These are theorems, propositions, lemmas, corollaries, exercises
@@ -86,7 +132,7 @@
 
 			</ul>
 
-			<h1>adding knowledge links</h1>
+			<h2>adding knowledge links</h2>
 			
 			<p>
 				A knowledge link allows you to have a clickable element which expands whatever it links to directly on the page. In general knowledge will be any definition or statement with proof
@@ -106,15 +152,32 @@
 				</pre>
 			</code>
 
-			<h1>adding new files</h1>
+			<h2>adding new files</h2>
 
 			<p>
-				When creating new files, make sure that the name of the file is in lowercase <a href="https://en.wikipedia.org/wiki/Snake_case">snake_case</a>, make sure to include the stylesheet <code>/styles/style.css</code> and the javascript <code>/js/script.js</code> and <code>defer</code> it's loading. Also wrap everything in the body with a <code>thin-wrapper</code> classed div.
+				When creating new files, make sure that the name of the file is in lowercase <a href="https://en.wikipedia.org/wiki/Snake_case">snake_case</a>, make sure to include the stylesheet <code>/styles/style.css</code> and the javascript <code>/js/script.js</code> and <code>defer</code> it's loading. Also wrap everything in the body with a <code>thin-wrapper</code> classed div
 			</p>
 			
 			<p>
 				The path to the file should make logical sense and each level represent another level of detail/abstraction
 			</p>
+
+			<h1>update the main repository with your changes</h1>
+
+			<p>
+				Once you've made your changes, then you can commit them and push them to your fork. Once you've pushed them you can create a pull request by going to the github page for your branch
+			</p>
+
+			<h1>check out the changes</h1>
+
+			<p>
+				Your changes will be live once once your pull request has been merged into the openmath repository (which is reviewed by hand) and after the github pages build process completes.
+			</p>
+
+			<p>
+				If you still don't see changes use <code>control+shift+r</code> to clear your browser cache and forces the browser to reload the most recent version of the current page
+			</p>
 		</div>
+
     </body>
 </html>

@@ -16,11 +16,118 @@
 
 <body>
     <div class="thin-wrapper">
+
+		<div class="definition" id="definition-set">
+			<div class="title">set</div>
+			<div class="content">
+				A set is a collection of distinct objects which we call elements of the set. A set can have a finite number of elements or infinitely many elements.
+			</div>
+		</div>
+
+		<div class="definition" id="definition-empty-set">
+			<div class="title">empty set</div>
+			<div class="content">
+				The set with no elements is called the empty set and is denoted by `O/`
+			</div>
+		</div>
+
+		
+
+		<div class="definition" id="definition-element-of">
+			<div class="title">element of</div>
+			<div class="content">
+				Suppose that `a` is an element of a set `S`, then we write `a in S`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-declaration-of-a-finite-set">
+			<div class="title">declaration of a finite set</div>
+			<div class="content">
+				We may declare a finite set by listing it's elements between curly braces like so `{a, b, c, d}` or `{1, 2, 3, 41}`
+				<p>
+				</p>
+			</div>
+		</div>
+
+		Suppose we wrote out the set `{a, b, c, d}` and then later on realized that `a = b = c = d`, then this set is simply `{a, a, a, a}`, which we define to just be `{a}`. Therefore we allow duplicates when declaring a set, but realize the set it generates has no such duplicate, so `{1, 1, 1} = {1, 1} = {1}`
+
+		<div class="definition" id="definition-set-builder-notation">
+			<div class="title">set builder notation</div>
+			<div class="content">
+				Suppose that `P(x)` represents a  statement which depends on the variable `x`, then we define `{x in S: P(x)}` to be the set of elements of `S` such that the statement `P` holds true.
+			</div>
+		</div>
+
+		<div class="definition" id="definition-union">
+			<div class="title">union</div>
+			<div class="content">
+				Given two sets `A, B sube X`, then the union of `A` and `B` is defined as the set `A uu B := {p in X: p in A text( or ) p in B }`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-intersection">
+			<div class="title">intersection</div>
+			<div class="content">
+				Given two sets `A, B sube X`, then the intersection of `A` and `B` is defined as the set `A nn B := {p in X: p in A text( and ) p in B }`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-disjoint-sets">
+			<div class="title">disjoint sets</div>
+			<div class="content">
+				
+				Given two sets `A,B` we say that `A` and `B` are disjoint when <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-intersection">`A nn B`</span> = <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-empty-set">`O/`</span>
+
+			</div>
+		</div>
+
+		<div class="definition" id="definition-pairwise-disjoint-sets">
+			<div class="title">pairwise disjoint sets</div>
+			<div class="content">
+				Let `n in NN_1` and suppose that `S_1, S_2, S_3, ..., S_n` are sets, then these sets are pairwise disjoint if given `i, j in {1, 2, ..., n}` if `i ne j` then `S_i nn S_j = O/`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-rationals">
+			<div class="title">rationals</div>
+			<div class="content">
+				The integers are the set `QQ := {p/q : p, q in ZZ, q ne 0}`
+				<p>
+					note: <i>The symbol for rationals can be remebered as they are `QQ`uotients</i> 
+				</p>
+			</div>
+		</div>
+
+		<div class="definition" id="definition-integers">
+			<div class="title">integers</div>
+			<div class="content">
+				The integers are the set `ZZ := {..., -3, -2, -1, 0, 1, 2, 3, ...}`
+				<p>
+					note: <i>The symbol for integers can be remembered as the word for number in German is `ZZ`ahlen</i> 
+				</p>
+			</div>
+		</div>
+
+		<div class="definition" id="definition-natural-numbers-0">
+			<div class="title">natural numbers 0</div>
+			<div class="content">
+				We define `NN_0 := {0, 1, 2, 3, 4, ...}`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-natural-numbers-1">
+			<div class="title">natural numbers 1</div>
+			<div class="content">
+				We define `NN_1 := {1, 2, 3, 4, ...}`
+			</div>
+		</div>
+		
+
         
         <div class="definition" id="definition-subset">
             <div class="title">subset</div>
             <div class="content">
-                We say that `A` is a subset of `B` when for every `a in A`, `a` is also in `B`. When this is the case we write `A sube B`
+                Suppose that `A, B` are two <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">sets</span>, then we say that `A` is a subset of `B` when for every `a in A`, `a` is also in `B`. When this is the case we write `A sube B`
             </div>
         </div>
 
@@ -52,7 +159,7 @@
                     <details>
                         <summary>show</summary>
                         <p>
-                            We will show the sets are equal using the <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-set-equality">definition of set equality</span>.
+                            We will show the sets are equal using the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">definition of set equality</span>.
                         </p>
                         <p>
                             To show that a bi-implication is true, we have to prove both directions. So first suppose that `x in A`, then since `A sube B`, `x in B`. For the other direction suppose that `x in B`, then since `B sube A` then `x in A`. Therefore we know that `x in A` if and only if `x in B` as needed.
@@ -95,7 +202,7 @@
                     <details>
                         <summary>show</summary>
                         <p>
-                            We can see that `cc C = {B_a: a in A}` is a collection of subsets of `A`, so since <span class="knowledge-link" data-href="/fundamentals/set_theory.html#proposition-union-of-subsets-is-still-a-subset">a union of a subsets is still a subset</span> we have `bigcup_{a in A} B_a sube A`.
+                            We can see that `cc C = {B_a: a in A}` is a collection of subsets of `A`, so since <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-union-of-subsets-is-still-a-subset">a union of a subsets is still a subset</span> we have `bigcup_{a in A} B_a sube A`.
                         </p>
                         <p>
                             But also given `p in A` we know that `p in B_p` so `p in bigcup_{a in A} B_a` which shows `A sube bigcup_{a in A} B_a`, so we can conclude `A = bigcup_{a in A} B_a`.
@@ -113,7 +220,7 @@
             </div>
         </div>
 
-        <div class="definition">
+        <div class="definition" id="definition-cartesian-product">
             <div class="title">cartesian product</div>
             <div class="content">
                 Suppose that `A, B` are sets, then we define `A xx B := {(a, b): a in A, b in B}`
@@ -135,7 +242,7 @@
                     <details>
                         <summary>show</summary>
                         <p>
-                            We will prove this true by the <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-set-equality">definition of set equality.</span>
+                            We will prove this true by the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">definition of set equality.</span>
                         </p>
                         <p>
                             Suppose that `(x,y) in (A xx B) nn (C xx D)`, which is true iff `(x,y) in (A xx B)`, so that `x in A` and `y in B`.
@@ -154,109 +261,6 @@
             </div>
 
         </div>
-
-
-        <div class="definition" id="definition-arithmetic-function">
-            <div class="title">arithmetic function</div>
-            <div class="content">
-                a function whose domain is `ZZ^+`
-            </div>
-        </div>
-
-		<div class="definition" id="definition-nary-relation">
-		    <div class="title">`n`-ary relation</div>
-		    <div class="content">
-				An `n`-ary relation on the sets `X_1, X_2, ..., X_n` is a subset `R` of their cartesian product, where we say that the relation holds between `x_1, x_2, ..., x_n`  when `(x_1, x_2, ..., x_n) in R`
-		    </div>
-		</div>
-
-		<div class="definition" id="definition-binary-relation">
-			<div class="title">binary relation</div>
-			<div class="content">
-				A binary relation `R` is a <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-nary-relation">`2`-ary relation</span> 
-			</div>
-		</div>
-
-		<div class="definition" id="definition-reflexive-relation">
-			<div class="title">reflexive relation</div>
-			<div class="content">
-                Given a <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-binary-relation">binary relation</span> R on X, we say it is reflexive when every element of X relates to itself.
-			</div>
-		</div>
-
-		<div class="definition" id="definition-partial-order">
-		    <div class="title">partial order</div>
-		    <div class="content">
-				<p>
-					a partial order is a binary relation on a set `X` such that for any `a, b, c in X` we have that:
-					<ul>
-						<li>`a le a`</li>
-						<li>if `a le b` and `b le a` then `a = b`</li>
-						<li>if `a le b` and `b le c` then `a le c`</li>
-					</ul>
-					And we say that `X` is a partially ordered set.
-				</p>
-				<p>
-					<i>
-						Note that the above three statements equivalently say that `le` is a reflexive, anti-symmetric and transitive relation.
-					</i>
-				</p>
-		    </div>
-		</div>
-
-		<div class="definition" id="definition-total-order">
-		    <div class="title">total order</div>
-		    <div class="content">
-				A total order is a <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-partial-order">partial order </span>
-		    </div>
-		</div>	
-
-				
-		<div class="definition" id="definition-well-order">
-		    <div class="title">well order</div>
-		    <div class="content">
-				A well order on a set `S` is a total order on `S` along with the property that every non-empty subset of `S` has a least element under this ordering
-		    </div>
-		</div>
-
-			
-		
-		<div id="theorem-well-ordering">
-			<div class="theorem">
-				<div class="title">well ordering</div>
-				<div class="content">
-					Every set `X` can be <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-well-order">well ordered</span>		
-				</div>
-			</div>
-		
-			<div class="proof">
-				<div class="title"></div>
-				<div class="content">
-					Proof uses axiom of choice (TODO: details)
-				</div>
-			</div>
-		</div>	
-
-		<div class="definition" id="definition-dom-f">
-			<div class="title">dom f</div>
-			<div class="content">
-				Given a function `f : X to Y`, then we denote `text(dom)(f) := X` which we is shorthand for the word domain
-			</div>
-		</div>
-
-		<div class="definition" id="definition-ran-f">
-			<div class="title">ran f</div>
-			<div class="content">
-				Given a function `f : X to Y`, then we denote `text(ran)(f) := Y` which we is shorthand for the word range
-			</div>
-		</div>
-
-		<div class="definition" id="definition-inverse-image-of-a-function">
-			<div class="title">inverse image of a function</div>
-			<div class="content">
-				Suppose that `U sube text(ran)(f)`, then `f^(-1)(U) := {x in text(dom)(f): x in U}` using <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-ran-f">`text(ran)`</span> and <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-dom-f">`text(dom)`</span>  respectively
-			</div>
-		</div>
 
 
     </div>

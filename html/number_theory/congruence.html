@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>congruence</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+		<div class="definition" id="definition-congruence">
+			<div class="title">congruence</div>
+			<div class="content">
+				Fix an integer `m` called the modulus, then say `a -= b (mod m)` if and only if `m | b - a`
+			</div>
+		</div>
+
+		<div id="corollary-congruence-iff-same-remainder">
+			<div class="corollary">
+				<div class="title">congruence iff same remainder</div>
+				<div class="content">
+					<div class="centered-content">
+						`a, b in ZZ` are congruent modulo `m` if and only if <span class="knowledge-link" data-href="/number_theory/division.html#definition-remainder-function">`a % m`</span> ` = b % m`
+        
+					</div>
+					<p>
+						note: <i>this means that `a` and `b` have the same remainder upon division by `m`</i>
+					</p>
+				</div>
+			</div>
+		
+			<div class="proof">
+				<div class="title"></div>
+				<div class="content">
+					<details>
+						<summary>show</summary>
+						<p>
+							Suppose that `a -= b (mod m)`, so we know `m | b - a`, then we can write `b = k_b m + r_b` and `a = k_a m + r_a` so that `b - a = m *(k_b + k_a) + k_b - k_a ` <span class="knowledge-link" data-href="/number_theory/division.html#proposition-forced-division-of-sum">thus</span> `m | k_b - k_a`, so that `k_b - k_a = m j` for some `j in ZZ`
+						</p>
+						<p>
+							Suppose that `k_a ne k_b` therefore `k_b - k_a ne 0`, thus `j ne 0` and thus `abs(j) ge 1`. Since `0 le k_a, k_b lt abs(m)`.   then `-abs(m) lt  k_b - k_a lt abs(m)` .
+						</p>
+						<p>
+							Since `abs(j) ge 1`, then `abs(m) le abs(mj)`, so we also know that `-abs(mj) lt k_b - k_a lt abs(mj)` and so `k_b - k_a ne mj` which is a contradiction therefore `k_b = k_a`
+						</p>
+						<p>
+							Now suppose that `r := a % m = b % m`, then `a = k_a m + r` and `b = k_b m + r` thus `b - a = m (k_b - k_a) + r - r` and thus `m | (b - a)`
+						</p>
+					</details>
+				</div>
+			</div>
+		</div>
+
+
+    </div>
+</body>

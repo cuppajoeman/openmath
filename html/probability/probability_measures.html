@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>probability</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles/styles.css">
+
+    <script src="../js/script.js" defer></script> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+			<div class="definition" id="definition-sample-space">
+				<div class="title">sample space</div>
+				<div class="content">
+					A sample space `Omega` is a non-empty set
+				</div>
+			</div>
+
+			<div class="definition" id="definition-event">
+				<div class="title">event</div>
+				<div class="content">
+					Given a sample space `Omega`, we say that any subset `E sube Omega` is an event
+				</div>
+			</div>
+
+			<div class="definition" id="definition-probability-measure">
+				<div class="title">probability measure</div>
+				<div class="content">
+					        
+					Given a <span class="knowledge-link" data-href="/probability/probability_measures.html#definition-sample-space">sample space</span> `Omega` and a function `P: Omega to [0, 1]` , then we say that `P` is a probability measure if the following holds
+					<ul>
+						<li>`P(Omega)` `= 1`</li>
+						<li>
+							`AA E_1, E_2, ... sube Omega` such that `E_1, E_2, ...` are all <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>
+							<div class="centered-content">
+								`P(bigcup_(i = 1)^oo E_i) = sum_(i = 1)^oo P(E_i) `
+							</div>
+						</li>
+					</ul>
+					<ul>
+					</ul>
+				</div>
+			</div>
+
+			<div id="proposition-finite-pairwise-disjoint-probability">
+				<div class="proposition">
+					<div class="title">finite pairwise disjoint probability</div>
+					<div class="content">
+						Suppose that `A_1, A_2, ..., A_n` are <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>, then `P(A_1 uu ... uu A_n) = sum_(i = 1)^n P(A_i)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						In the definition of a probability measure, for `i in {1, ..., n}` we set `E_i = A_i` and then for any `j > n` we set `E_j = O/`, then we can see that `E_1, E_2, ...` is pairwise disjoint, and thus 
+						
+					 <table class="align">
+					  <tr>
+						<td>`P(A_1 uu A_2 uu ... uu A_n)`</td>
+						<td>`=`</td>
+						<td>`P(A_1 uu A_2 uu ... uu A_n uu O/ uu O/ uu ...)`</td>
+					  </tr>
+					  <tr>
+						<td></td>
+						<td>`=`</td>
+						<td>`P(bigcup_(i = 1)^oo E_i)`</td>
+					  </tr>
+					  <tr>
+						<td></td>
+						<td>`=`</td>
+						<td>`sum_(i = 1)^oo P(E_i)`</td>
+					  </tr>
+					  <tr>
+						<td></td>
+						<td>`=`</td>
+						<td>`sum_(i = 1)^n P(E_i) + P(O/) + P(O/) + P(O/) + ... `</td>
+					  </tr>
+					  <tr>
+						<td></td>
+						<td>`=`</td>
+						<td>`sum_(i = 1)^n P(E_i) + 0 + 0 + 0 + ... `</td>
+					  </tr>
+						<td></td>
+						<td>`=`</td>
+						<td>`sum_(i = 1)^n P(A_i)`</td>
+					  </tr>
+					</table>  
+					</div>
+				</div>
+			</div>
+
+			<div id="proposition-probability-of-a-single-point-with-equally-likely-outcomes-is-zero">
+				<div class="proposition">
+					<div class="title">probability of a single point with equally likely outcomes is zero</div>
+					<div class="content">
+						Suppose that our sample space is `[0, 1]` and there is some `c in [0, 1]` such that for any `x in [0, 1]`, `P({x}) = c`, then `c = 0`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						Suppose that `c ne 0`, and note that `P(Omega) = P( [{:0, 1 :}] ) = sum_(x in [0, 1]) P(x) = sum_(x in [0, 1]) c`, but note that no matter how small the value of `c`, since we are summing it uncountably many times with itself the sum always goes to infinity, but at the same time, `P(Omega) = 1` and thus we have a contradiction, so `c = 0`.
+					</div>
+				</div>
+			</div>
+			
+			
+			
+
+			<div class="definition" id="definition-conditional-probability">
+				<div class="title">conditional probability</div>
+				<div class="content">
+					Suppose that `A, B sube Omega`, with `P(B) gt 0`, then we define the conditional probability of `A` given `B` as 
+					<div class="centered-content">
+						`P(A | B) = (P(A nn B)) / (P(B))`
+					</div>
+				</div>
+			</div>
+		
+
+    </div>
+</body>
