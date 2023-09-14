@@ -352,7 +352,7 @@
 			<div class="definition" id="definition-congruence-equivalence-classes-notation">
 				<div class="title">congruence equivalence classes notation</div>
 				<div class="content">
-				    Since <span class="knowledge-link" data-href="/fundamentals/relations.html#exercise-congruences-induce-a-equivalence-relation">congruences induce an equivalence relation</span>, then for each `a in ZZ`, we `bar a := [a]` to lighten the standard notation of equivalence classes
+				    With `n in NN_1` then the relation `a R b` defined as `a % n = b % n` <span class="knowledge-link" data-href="/fundamentals/relations.html#exercise-congruences-induce-a-equivalence-relation">induces an equivalence relation</span> therefore given any `a in ZZ` we get an equivalence class `[a]`, and we define `bar a := [a]` to lighten the standard notation of equivalence classes
 				</div>
 			</div>
 
@@ -363,6 +363,54 @@
 				</div>
 			</div>
 
+			<div class="definition" id="definition-addition-in-the-integers-modulo-n">
+				<div class="title">addition in `ZZ // n ZZ`</div>
+				<div class="content">
+					Suppose that `a, b in ZZ`, then we define `bar a + bar b = bar(a + b)` 
+				</div>
+			</div>
+
+			<div class="definition" id="definition-multiplication-in-the-integers-modulo-n">
+				<div class="title">multipliccation in `ZZ  // nZZ`</div>
+				<div class="content">
+					Suppose that `a, b in ZZ`, then we define `bar a * bar b = bar(a * b)`
+				</div>
+			</div>
+
+			<div id="proposition-choice-of-representative-doesn't-matter-for-addition">
+				<div class="proposition">
+					<div class="title">choice of representative doesn't matter for addition</div>
+					<div class="content">
+						Suppose that `a_1, a_2, b_1, b_2 in ZZ` and that `bar a_1 = bar b_1` and `bar a _2 = bar b _2`, then `bar(a_1 + a_2 ) = bar(b_1 + b_2)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						<p>
+							Consider the set `bar (a_1 + a_2)` which is defined as `{w in ZZ: w % n = (a_1 + a_2) % n}`, we'd like to show that it is equal to `{z in ZZ: z % n = (b_1 + b_2) % n}`
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="proposition-representiative-doesn't-matter-for-multiplication">
+				<div class="proposition">
+					<div class="title">representitive doens't matter for multiplication</div>
+					<div class="content">
+						Suppose that `a_1, a_2, b_1, b_2 in ZZ` and that `bar a_1 = bar b_1` and `a_2 = bar b_2` then `bar(a_1a_2) = bar(b_1b_2)`
+					</div>
+				</div>
+			
+				<div class="proof">
+					<div class="title"></div>
+					<div class="content">
+						TODO
+					</div>
+				</div>
+			</div>
+			
 
         </div>
         

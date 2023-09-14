@@ -41,7 +41,21 @@
 			<div class="proof">
 				<div class="title"></div>
 				<div class="content">
-					TODO
+					<details>
+						<summary>show</summary>
+						<p>
+							Suppose that `a -= b (mod m)`, so we know `m | b - a`, then we can write `b = k_b m + r_b` and `a = k_a m + r_a` so that `b - a = m *(k_b + k_a) + k_b - k_a ` <span class="knowledge-link" data-href="/number_theory/division.html#proposition-forced-division-of-sum">thus</span> `m | k_b - k_a`, so that `k_b - k_a = m j` for some `j in ZZ`
+						</p>
+						<p>
+							Suppose that `k_a ne k_b` therefore `k_b - k_a ne 0`, thus `j ne 0` and thus `abs(j) ge 1`. Since `0 le k_a, k_b lt abs(m)`.   then `-abs(m) lt  k_b - k_a lt abs(m)` .
+						</p>
+						<p>
+							Since `abs(j) ge 1`, then `abs(m) le abs(mj)`, so we also know that `-abs(mj) lt k_b - k_a lt abs(mj)` and so `k_b - k_a ne mj` which is a contradiction therefore `k_b = k_a`
+						</p>
+						<p>
+							Now suppose that `r := a % m = b % m`, then `a = k_a m + r` and `b = k_b m + r` thus `b - a = m (k_b - k_a) + r - r` and thus `m | (b - a)`
+						</p>
+					</details>
 				</div>
 			</div>
 		</div>
