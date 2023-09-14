@@ -31,10 +31,30 @@
 			</div>
 		</div>
 
+		
+
 		<div class="definition" id="definition-element-of">
 			<div class="title">element of</div>
 			<div class="content">
 				Suppose that `a` is an element of a set `S`, then we write `a in S`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-declaration-of-a-finite-set">
+			<div class="title">declaration of a finite set</div>
+			<div class="content">
+				We may declare a finite set by listing it's elements between curly braces like so `{a, b, c, d}` or `{1, 2, 3, 41}`
+				<p>
+				</p>
+			</div>
+		</div>
+
+		Suppose we wrote out the set `{a, b, c, d}` and then later on realized that `a = b = c = d`, then this set is simply `{a, a, a, a}`, which we define to just be `{a}`. Therefore we allow duplicates when declaring a set, but realize the set it generates has no such duplicate, so `{1, 1, 1} = {1, 1} = {1}`
+
+		<div class="definition" id="definition-set-builder-notation">
+			<div class="title">set builder notation</div>
+			<div class="content">
+				Suppose that `P(x)` represents a  statement which depends on the variable `x`, then we define `{x in S: P(x)}` to be the set of elements of `S` such that the statement `P` holds true.
 			</div>
 		</div>
 
@@ -55,23 +75,16 @@
 		<div class="definition" id="definition-disjoint-sets">
 			<div class="title">disjoint sets</div>
 			<div class="content">
-				Given two sets `A,B` we say that `A` and `B` are disjoint when `A nn B = O/`
+				
+				Given two sets `A,B` we say that `A` and `B` are disjoint when <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-intersection">`A nn B`</span> = <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-empty-set">`O/`</span>
+
 			</div>
 		</div>
 
 		<div class="definition" id="definition-pairwise-disjoint-sets">
 			<div class="title">pairwise disjoint sets</div>
 			<div class="content">
-				Suppose that `cc A` is a collection of sets, and `I` is an index aet for `A`, then for all `x, y in I` then if `x ne y`, then `A_x` and `A_y` are <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-disjoint-sets">disjoint</span>
-			</div>
-		</div>
-
-		<div class="definition" id="definition-declaration-of-a-finite-set">
-			<div class="title">declaration of a finite set</div>
-			<div class="content">
-				We may declare a finite set by listing it's elements between curly braces like so `{a, b, c, d}` or `{1, 2, 3, 41}`
-				<p>
-				</p>
+				Let `n in NN_1` and suppose that `S_1, S_2, S_3, ..., S_n` are sets, then these sets are pairwise disjoint if given `i, j in {1, 2, ..., n}` if `i ne j` then `S_i nn S_j = O/`
 			</div>
 		</div>
 
@@ -80,7 +93,7 @@
 			<div class="content">
 				The integers are the set `QQ := {p/q : p, q in ZZ, q ne 0}`
 				<p>
-					note: <i>Rationals are denoted as 'QQ' for quotient</i> 
+					note: <i>The symbol for rationals can be remebered as they are `QQ`uotients</i> 
 				</p>
 			</div>
 		</div>
@@ -90,17 +103,31 @@
 			<div class="content">
 				The integers are the set `ZZ := {..., -3, -2, -1, 0, 1, 2, 3, ...}`
 				<p>
-					note: <i>Integers are denoted as `ZZ` for the german word for numbers: Zahlen(</i> 
+					note: <i>The symbol for integers can be remembered as the word for number in German is `ZZ`ahlen</i> 
 				</p>
 			</div>
 		</div>
 
-		Suppose we wrote out the set `{a, b, c, d}` and then later on realized that `a = b = c = d`, then this set is simply `{a, a, a, a}`, which we define to just be `{a}`. Therefore we allow duplicates when declaring a set, but realize the set it generates has no such duplicate, so `{1, 1, 1} = {1, 1} = {1}`
+		<div class="definition" id="definition-natural-numbers-0">
+			<div class="title">natural numbers 0</div>
+			<div class="content">
+				We define `NN_0 := {0, 1, 2, 3, 4, ...}`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-natural-numbers-1">
+			<div class="title">natural numbers 1</div>
+			<div class="content">
+				We define `NN_1 := {1, 2, 3, 4, ...}`
+			</div>
+		</div>
+		
+
         
         <div class="definition" id="definition-subset">
             <div class="title">subset</div>
             <div class="content">
-                We say that `A` is a subset of `B` when for every `a in A`, `a` is also in `B`. When this is the case we write `A sube B`
+                Suppose that `A, B` are two <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">sets</span>, then we say that `A` is a subset of `B` when for every `a in A`, `a` is also in `B`. When this is the case we write `A sube B`
             </div>
         </div>
 
