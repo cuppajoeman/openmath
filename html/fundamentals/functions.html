@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>set theory</title>
+    <title>functions</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../styles/styles.css">
@@ -38,6 +38,14 @@
 			</div>
 		</div>
 
+		<div class="definition" id="definition-image-of-a-set">
+			<div class="title">image of a set</div>
+			<div class="content">
+				Let `f: X to Y` be a function and `S sube X`, then `f(S) := {y in Y: y = f(s), text( for some ) s in S}`
+			</div>
+		</div>
+		
+
 		<div class="definition" id="definition-inverse-image-of-a-function">
 			<div class="title">inverse image of a function</div>
 			<div class="content">
@@ -45,6 +53,60 @@
 			</div>
 		</div>
 
+		
+		<div class="definition" id="definition-injective-function">
+			<div class="title">injective function</div>
+			<div class="content">
+				a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> `f: X to Y` is injective iff `AA x, y in X, f(x) = f(y) implies x = y`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-surjective-function">
+			<div class="title">surjective function</div>
+			<div class="content">
+				a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> `f: X to Y` is surjective iff `AA y in Y, EE x in X text( such that ) f(x) = y`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-bijective-function">
+			<div class="title">bijective function</div>
+			<div class="content">
+				a function is bijective iff it is <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-surjective-function">surjective</span> and <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-injective-function">injective</span>
+			</div>
+		</div>
+
+		<div class="definition" id="definition-function-composition">
+			<div class="title">function composition</div>
+			<div class="content">
+				Suppose that `A, B, C` are sets, and that `f: A to B, g: B to C` are functions, then we define `g circ f (x) := g(f(x))` for any `x in A`, so that `g circ f: A to C`
+			</div>
+		</div>
+		
+
+		<div id="proposition-composition-of-two-bijective-funcitons-is-bijective">
+			<div class="proposition">
+				<div class="title">composition of two bijective functions is bijective</div>
+				<div class="content">
+					Suppose `A, B, C` are non-empty sets and `f: A to B, g: B to C` are functions, and that `g circ f : A to C` is a function. Then if `f` and `g` are <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-bijective-function">bijective</span> then `g circ f` is also bijective.
+				</div>
+			</div>
+		
+			<div class="proof">
+				<div class="title"></div>
+				<div class="content">
+					<details>
+						<summary>show</summary>
+						<p>
+							We'll show that `g circ f` is surjective first, so let `c in C`, since `g` is bijective we get some `b in B` such that `g (b) = c`, since `b in B`, then since `f` is surjective we get some `a in A` such that `f(a) = b`, thus `g circ f (a) = g(f(a)) = g(b) = c` so then `g circ f` is surjective
+						</p>
+						<p>
+							Now let's show that `g circ f`  is injective, so suppose that `a_1, a_2 in A` and assume that `g circ f (a_1) = g @ f (a_2)`, note that this means `g(f(a_1)) = g(f(a_2))`, therefore since `g` is injective we know that `f(a_1) = f(a_2)` and since `f` is injective then we know that `a_1 = a_2` as needed.
+						</p>
+					</details>
+				</div>
+			</div>
+		</div>
+		
 
     </div>
 </body>

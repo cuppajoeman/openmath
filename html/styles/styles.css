@@ -93,6 +93,10 @@ a {
     margin: 0 10%;
 }
 
+.align {
+	margin: 2em auto;
+}
+
 .centered-content {
   display: block;
   text-align: center;
