@@ -89,6 +89,10 @@ a {
 
 /* content formatting */
 
+.boxed {
+	border: 1px solid var(--main-text-color);
+}
+
 .thin-wrapper {
     margin: 0 10%;
 }
@@ -97,10 +101,14 @@ a {
 	margin: 2em auto;
 }
 
-.centered-content {
+.centered-content { /* used for centered equations */
   display: block;
   text-align: center;
-  margin: 1em;
+  margin: 2em;
+}
+
+.centered-content>div { /* used for centered equations */
+	margin: 1em;
 }
 
 .knowledge-link {

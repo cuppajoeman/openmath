@@ -217,20 +217,6 @@
                 </div>
             </div>
 
-            <div class="lemma" id="lemma-closed-form-of-a-geometric-series">
-                <div class="title">closed form of a geometric series</div>
-                <div class="content">
-                    `sum_{n = 0}^k x^n = (1 - x^(k+1)) / (1 - x)`
-                </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    Let `S = sum_{n = 0}^k x^n`, then `xS - S = x^(k+1) - x^0` therefore `S = (x^(k+1) - 1)/(x - 1)`, so also `S =(1 - x^(k+1))/(1 - x)` by factoring -1 from the numerator and the denominator, as needed
-                </div>
-            </div>
-
             <div class="lemma" id="lemma-exponent-limit">
                 <div class="title">exponent limit</div>
                 <div class="content">
@@ -259,23 +245,8 @@
                 </div>
             </div>
 
-            <div class="proposition" id="proposition-geometric-power-series">
-                <div class="title">geometric power series</div>
-                <div class="content">
-                    for `abs(x) < 1` we have `sum_{n = 0}^oo x^n = 1/(1 - x)`
-                </div>
-            </div>
 
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>details</summary>
-                        By definition we know that `sum_{n = 0}^oo x^n = lim_{k to oo} sum_{n = 0}^k x^n` and by the <a href="#lemma-closed-form-of-a-geometric-series"> closed form of the geometric series</a> we know that `lim_{k to oo} sum_{n = 0}^k x^n = lim_{k to oo}(1 - x^(k+1))/(1-x)` thus by the
-                        <a href="#lemma-exponent-limit">exponent limit lemma</a> if `abs(x) < 1` then `lim_{k to oo} x^(k+1)` becomes zero and we get `lim_{k to oo} (1 - x^(k+1))/(1-x) = 1/(1-x)`
-                    </details>
-                </div>
-            </div>
+			
 
             <div class="theorem">
                 <div class="title">symmetric integral of an even function</div>
