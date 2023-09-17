@@ -24,32 +24,18 @@
 			</div>
 		</div>
 
-		<div class="definition" id="definition-empty-set">
-			<div class="title">empty set</div>
-			<div class="content">
-				The set with no elements is called the empty set and is denoted by `O/`
-			</div>
-		</div>
-
-		
-
-		<div class="definition" id="definition-element-of">
-			<div class="title">element of</div>
-			<div class="content">
-				Suppose that `a` is an element of a set `S`, then we write `a in S`
-			</div>
-		</div>
-
 		<div class="definition" id="definition-declaration-of-a-finite-set">
 			<div class="title">declaration of a finite set</div>
 			<div class="content">
-				We may declare a finite set by listing it's elements between curly braces like so `{a, b, c, d}` or `{1, 2, 3, 41}`
+				We may declare a finite <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">set</span> by listing it's elements between curly braces like so `{a, b, c, d}` or `{1, 2, 3, 41}`
 				<p>
 				</p>
 			</div>
 		</div>
 
+
 		Suppose we wrote out the set `{a, b, c, d}` and then later on realized that `a = b = c = d`, then this set is simply `{a, a, a, a}`, which we define to just be `{a}`. Therefore we allow duplicates when declaring a set, but realize the set it generates has no such duplicate, so `{1, 1, 1} = {1, 1} = {1}`
+
 
 		<div class="definition" id="definition-set-builder-notation">
 			<div class="title">set builder notation</div>
@@ -58,17 +44,79 @@
 			</div>
 		</div>
 
+		<div class="definition" id="definition-empty-set">
+			<div class="title">empty set</div>
+			<div class="content">
+				The <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">set</span> with no elements is called the empty set and is denoted by `O/`
+			</div>
+		</div>
+
+		
+
+		<div class="definition" id="definition-element-of">
+			<div class="title">element of</div>
+			<div class="content">
+				Suppose that `a` is an element of a <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">set</span> `S`, then we write `a in S`
+			</div>
+		</div>
+
+        <div class="definition" id="definition-set-equality">
+            <div class="title">set equality</div>
+            <div class="content">
+                Given two sets `A, B`, we say that `A` and `B` are equal and write `A = B` when <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-element-of">`x in A`</span> if and only if `x in B`
+            </div>
+        </div>
+
+        <div class="definition" id="definition-subset">
+            <div class="title">subset</div>
+            <div class="content">
+                Given the sets `A, B`, we say that `A` is a subset of `B` when for every <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-element-of">`a in A`</span>, `a` is also in `B`. When this is the case we write `A sube B`
+            </div>
+        </div>
+
+        <div class="definition" id="definition-superset">
+            <div class="title">superset</div>
+            <div class="content">
+                Given the sets `A, B`, we say that `A` is a superset of `B` when for every <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-element-of">`b in B`</span>, `b` is also in `A`. When this is the case we write `A supe B`
+
+            </div>
+        </div>
+
+        <div id="proposition-set-equality-by-subsets">
+            <div class="proposition">
+                <div class="title">set equality by subsets</div>
+                <div class="content">
+                    Suppose that `A, B` are sets such that <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-subset">`A sube B`</span> and `B sube A`, then <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">`A = B`</span>
+                </div>
+            </div>
+
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    <details>
+                        <summary>show</summary>
+                        <p>
+                            We will show the sets are equal using the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">definition of set equality</span>.
+                        </p>
+                        <p>
+                            To show that a bi-implication is true, we have to prove both directions. So first suppose that `x in A`, then since `A sube B`, `x in B`. For the other direction suppose that `x in B`, then since `B sube A` then `x in A`. Therefore we know that `x in A` if and only if `x in B` as needed.
+                        </p>
+                    </details>
+                </div>
+            </div> 
+        </div>
+
 		<div class="definition" id="definition-union">
 			<div class="title">union</div>
 			<div class="content">
-				Given two sets `A, B sube X`, then the union of `A` and `B` is defined as the set `A uu B := {p in X: p in A text( or ) p in B }`
+				Given two <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">sets</span> `A, B sube X`, then the union of `A` and `B` is defined as the set `A uu B := {p in X: p in A text( or ) p in B }`
 			</div>
 		</div>
 
 		<div class="definition" id="definition-intersection">
 			<div class="title">intersection</div>
 			<div class="content">
-				Given two sets `A, B sube X`, then the intersection of `A` and `B` is defined as the set `A nn B := {p in X: p in A text( and ) p in B }`
+				Given two <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">sets</span> `A, B sube X`, then the intersection of `A` and `B` is defined as the set `A nn B := {p in X: p in A text( and ) p in B }`
 			</div>
 		</div>
 
@@ -91,7 +139,7 @@
 		<div class="definition" id="definition-rationals">
 			<div class="title">rationals</div>
 			<div class="content">
-				The integers are the set `QQ := {p/q : p, q in ZZ, q ne 0}`
+				The integers are the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">set</span> `QQ := {p/q : p, q in ZZ, q ne 0}`
 				<p>
 					note: <i>The symbol for rationals can be remebered as they are `QQ`uotients</i> 
 				</p>
@@ -101,7 +149,7 @@
 		<div class="definition" id="definition-integers">
 			<div class="title">integers</div>
 			<div class="content">
-				The integers are the set `ZZ := {..., -3, -2, -1, 0, 1, 2, 3, ...}`
+				The integers are the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">set</span> `ZZ := {..., -3, -2, -1, 0, 1, 2, 3, ...}`
 				<p>
 					note: <i>The symbol for integers can be remembered as the word for number in German is `ZZ`ahlen</i> 
 				</p>
@@ -123,51 +171,6 @@
 		</div>
 		
 
-        
-        <div class="definition" id="definition-subset">
-            <div class="title">subset</div>
-            <div class="content">
-                Suppose that `A, B` are two <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set">sets</span>, then we say that `A` is a subset of `B` when for every `a in A`, `a` is also in `B`. When this is the case we write `A sube B`
-            </div>
-        </div>
-
-        <div class="definition" id="definition-superset">
-            <div class="title">superset</div>
-            <div class="content">
-                We say that `A` is a superset of `B` when for every `b in B`, `b` is also in `A`. When this is the case we write `A supe B`
-            </div>
-        </div>
-
-        <div class="definition" id="definition-set-equality">
-            <div class="title">set equality</div>
-            <div class="content">
-                Given two sets `A, B`, we say that `A` and `B` are equal when `x in A` if and only if `x in B`
-            </div>
-        </div>
-        
-        <div id="proposition-set-equality-by-subsets">
-            <div class="proposition">
-                <div class="title">set equality by subsets</div>
-                <div class="content">
-                    Suppose that `A, B` are sets such that `A sube B` and `B sube A`, then `A = B`
-                </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>show</summary>
-                        <p>
-                            We will show the sets are equal using the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">definition of set equality</span>.
-                        </p>
-                        <p>
-                            To show that a bi-implication is true, we have to prove both directions. So first suppose that `x in A`, then since `A sube B`, `x in B`. For the other direction suppose that `x in B`, then since `B sube A` then `x in A`. Therefore we know that `x in A` if and only if `x in B` as needed.
-                        </p>
-                    </details>
-                </div>
-            </div> 
-        </div>
 
         <div id="proposition-union-of-subsets-is-still-a-subset">
             <div class="proposition">
@@ -261,6 +264,31 @@
             </div>
 
         </div>
+
+		<div id="proposition-cartesian-product-distributes-over-intersection">
+			<div class="proposition">
+				<div class="title">cartesian product distributes over intersection</div>
+				<div class="content">
+					Given sets `A, B, C`, then `(A nn B) xx C = (A xx C) nn (B xx C)`
+				</div>
+			</div>
+		
+			<div class="proof">
+				<div class="title"></div>
+				<div class="content">
+					<details>
+						<summary>show</summary>
+						We will show their equality <span class="knowledge-link" data-href="/fundamentals\sets.html#definition-set-equality">directly</span>
+						<p>
+							So suppose that `(x, y) in (A nn B) xx C`, which is true iff `x in A nn B` and `y in C`, which is true iff `(x, y) in A xx C` and `(x, y) in B xx C`, which is true iff `x in (A xx C) nn (B xx C)`.
+						</p>
+						<p>
+							Therefore `(x, y) in (A nn B) xx C` if and only if `x in (A xx C) nn (B xx C)`, so `(A nn B) xx C = (A xx C ) nn (B xx C)` as needed.
+						</p>
+					</details>
+				</div>
+			</div>
+		</div>
 
 
     </div>
