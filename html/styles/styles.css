@@ -119,6 +119,10 @@ a {
 
 /* custom content styling */
 
+fieldset>legend>h1 {
+    margin: 0 0.5em;
+}
+
 .definition, .lemma, .theorem, .corollary, .proposition, .exercise, .proof {
   display: block;
   /* font-style: italic; */
