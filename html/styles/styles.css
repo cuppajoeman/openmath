@@ -151,7 +151,7 @@ a {
 }
 
 .definition>.title::before {
-  content: "definition: "
+  content: "Definition: "
 }
 
 .definition>.title {
@@ -159,7 +159,7 @@ a {
 }
 
 .theorem>.title::before {
-  content: "theorem: "
+  content: "Theorem: "
 }
 
 .theorem>.title {
@@ -167,7 +167,7 @@ a {
 }
 
 .proposition>.title::before {
-  content: "proposition: "
+  content: "Proposition: "
 }
 
 .proposition>.title {
@@ -175,7 +175,7 @@ a {
 }
 
 .lemma>.title::before {
-  content: "lemma: "
+  content: "Lemma: "
 }
 
 .lemma>.title {
@@ -183,7 +183,7 @@ a {
 }
 
 .corollary>.title::before {
-  content: "corollary: "
+  content: "Corollary: "
 }
 
 .corollary>.title {
@@ -191,7 +191,7 @@ a {
 }
 
 .proof>.title::before {
-  content: "proof"
+  content: "Proof"
 }
 
 .proof>.title {
@@ -206,7 +206,7 @@ a {
 }
 
 .exercise>.title::before {
-  content: "exercise: "
+  content: "Exercise: "
 }
 
 .exercise>.title {
