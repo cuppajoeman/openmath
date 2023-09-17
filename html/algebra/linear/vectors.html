@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,10 +6,23 @@
         <title>linear algebra</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<link rel="stylesheet" href="/styles/styles.css">
         <script src="/js/script.js" defer></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
-    </head>
+		<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+
+		<script type="importmap">
+		  {
+			"imports": {
+			  "three": "https://unpkg.com/three@v0.156.1/build/three.module.js",
+			  "three/addons/": "https://unpkg.com/three@v0.156.1/examples/jsm/"
+			}
+		  }
+		</script>
+
+	</head>
     <body>
 
         <div class="thin-wrapper">
@@ -25,6 +34,27 @@
                     Given two sequences of numbers of the same length: `a = (a_1, ..., a_k)` and `b = (b_1, ..., b_k)`, their dot product denoted and defined by by `a * b = sum_{i = 1}^k a_i * b_i`. Note that `* : RR^k xx RR^k to RR`
                 </div>
             </div>
+
+			<div class="definition" id="definition-vector-form-of-a-line">
+				<div class="title">vector form of a line</div>
+				<div class="content">
+					Suppose that `d, p` are vectors, then we say that the set `l := {x : x = td + p, text( for some ) t in RR}` is a line and say that the vector equation for the line is 
+					<div class="centered-content">
+						`x = td + p`
+					</div>
+					We also say that `d` is the direction vector for `l`
+				</div>
+			</div>
+
+            <p>
+                An example of the vector form of a line in `RR^3` could be `x = t [[1], [2], [3]] + [[3], [2], [1]]`, where `[[3], [2], [1]]` (the red dot) is a part of the line when `t = 0`, and the line's direction follows the direction of the vector `[[1], [2], [3]]`
+            </p>
+
+            <div id="threejs-vector-line" style="width: 100vh; height: 50vh; margin: 0px auto; border-radius: 10%;"></div>
+
+
+        <script type="module" src="/js/plotting/mathematical_space_3d.js"></script>
+        <script type="module" src="vectors.js"></script>
 
     </body>
 </html>
