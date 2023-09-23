@@ -125,12 +125,48 @@
 			</div>
 		</div>
 
+		
+
 		<div class="definition" id="definition-remainder-function">
 		    <div class="title">remainder function</div>
 		    <div class="content">
-				Given two integers `a, b in ZZ` such that `b ne 0`, <span class="knowledge-link" data-href="/number_theory/division.html#theorem-quotient-remainder">then </span> we get some `q, r in ZZ` with `0 le r lt abs(b)` such that `a = b * q + r` and we define `a % b = r`
+				Given two integers `a, b in ZZ` such that `b ne 0`, <span class="knowledge-link" data-href="/number_theory/division.html#theorem-quotient-remainder">then </span> we get some `q, r in ZZ` with `0 le r lt abs(b)` such that `a = b * q + r` and we define `a % b := r`
 		    </div>
 		</div>	
+
+		<div class="definition" id="definition-divisor-function">
+			<div class="title">divisor function</div>
+			<div class="content">
+				Given two integers `a, b in ZZ` such that `b ne 0`, <span class="knowledge-link" data-href="/number_theory/division.html#theorem-quotient-remainder">then </span> we get some `q, r in ZZ` with `0 le r lt abs(b)` such that `a = b * q + r` and we define `a //// b := q`
+			</div>
+		</div>
+
+		<div id="corollary-quotient-remainder-on-positive-integer-has-positive-divisor">
+			<div class="corollary">
+				<div class="title">quotient remainder on positive integer has positive divisor</div>
+				<div class="content">
+					Suppose that `a, b in NN_1` such that `a ge b` then <span class="knowledge-link" data-href="/number_theory/division.html#definition-divisor-function"> `a //// b ge 1`</span>
+				</div>
+
+                <div class="new-proof">
+                    <div class="line-with-centered-text">
+						<button>show proof</button>
+					</div>
+                    <div class="content">
+						<p>
+							For brevity define `q = a //// b`, we know that `a = b * q + r` with `0 le r lt b`, thus far we know that `q in ZZ`, though if `q < 0`, then we know that `b * q < r * q le 0 `, therefore `a = b * q + r < r * q + r = r (q + 1)`
+						</p>
+						<p>
+							For a contradiction assume that `q lt 1 iff q le 0`, therefore `r (q + 1) le r (0 + 1) = r`, which shows that `a lt r`, since `0 le r lt b`, then we have `a lt b` which is a contradiction because we know that `a ge b`.
+						</p>
+						<p>
+							Since by assuming `q lt 1`, we have a contradiction, so therefore `q ge 1`, which is the same as `a //// b ge 1`.
+						</p>
+                    </div>
+                </div>
+			</div>
+		</div>
+		
 
 		<div id="theorem-every-integer-is-either-odd-or-even">
 			<div class="theorem">
@@ -165,6 +201,16 @@
             </div>
         </div>
 
+		<div id="corollary-same-divisors-implies-same-gcd">
+			<div class="corollary">
+				<div class="title">same divisors implies same gcd</div>
+				<div class="content">
+					Suppose that `a, b, p, q in ZZ` and that `D_(a,b) = {d in ZZ: d | a text( and ) d | b}` and `D_(p, q) = {d in ZZ: d | p text( and ) d | q}` are equal, then `gcd(a, b) = gcd(p, q)`
+				</div>
+			</div>
+		</div>
+		
+
 
         <div class="definition">
             <div class="title">coprime integers</div>
@@ -179,6 +225,100 @@
                 `a, b in ZZ` are coprime if and only if `gcd(a, b) = 1`
             </div>
         </div>
+
+		<div id="theorem-eucliden-algorithm">
+			<div class="theorem">
+				<div class="title">euclidean algorithm</div>
+				<div class="content">
+					Let `m, n in NN_1` such that `m > n`, if `m % n > 0`, then `gcd(m, n) = gcd(n, m % n)`. Otherwise if `m % n = 0`, then `n | m`  and `gcd(m, n) = n`
+				</div>
+                <div class="new-proof">
+                    <div class="line-with-centered-text">
+						<button>show proof</button>
+					</div>
+                    <div class="content">
+						<p>
+							If `m % n = 0`, then `m = (m //// n) * n`, therefore `gcd(m, n) = gcd((m //// n) * n, n) = n`, so now assume that `m % n > 0`
+						</p>
+						<p>
+							Recall that `m = (m //// n) * n + m % n `, therefore `m - (m ////n) * n = m % n`, so that if `d` divides both `m, n`, then it must divide `m % n` (and clearly `n`), and by the original equation if `d` is a divisor of both `n, m % n` then `d` divides `m` (and clearly `n`).
+						</p>
+						<p>
+							The above paragraph shows that a number is a divisor of `m, n` if and only if it is a divisor of `n, m % n`, which shows that their set of divisors are equal and thus `gcd(m, n) = gcd(n, m % n)`
+						</p>
+                    </div>
+                </div>
+			</div>
+		</div>
+
+		<div id="lemma-bounded-sum-implies-one-less-then-half">
+			<div class="lemma">
+				<div class="title">bounded sum implies one less then half</div>
+				<div class="content">
+					Suppose that `x, y, b in NN_1` and `x < y` with `x + y le b`, then `x < b/2`
+				</div>
+                <div class="new-proof">
+                    <div class="line-with-centered-text">
+						<button>show proof</button>
+					</div>
+                    <div class="content">
+						Suppose for the sake of contradiction that `x ge b/2`, then we know that `y > x ge b/2` so therefore `x + y gt b/2 + b/2 = b`, so we have `x + y > b` which is a contradiction so that `x < b/2`.
+					</div>
+			</div>
+		
+		</div>
+		
+
+		<div id="proposition-euclidean-algorithm-has-exponentially-decreasing-remainders">
+			<div class="proposition">
+				<div class="title">euclidean algorithm has exponentially decreasing remainders</div>
+				<div class="content">
+					Let `a, b in NN_1` with `a ge b` be two integers, and suppose we will preform the euclidean algorithm on them to compute `gcd(m, n)`, supposing that `r_k` represents the remainder after `k` (where `k in NN_1`) steps into the euclidean algorithm, then `r_(2n) lt b / (2^n)`
+				</div>
+                <div class="new-proof">
+                    <div class="line-with-centered-text">
+						<button>show proof</button>
+					</div>
+                    <div class="content">
+						<p>
+							For the base case, suppose that  `n = 1`, so we'd like to prove that `r_2 lt b / 2`. Firstly we know that `a = b q_0 + r_0` with `0 le r_0 lt b`, then applying the next iteration we have `b = r_0 q_1 + r_1` with `0 le r_1 lt r_0` and one more time, we get `r_0 = r_1 q_2 + r_2` with `0 le r_2 lt r_1`, this shows us that `b = (r_1 q_2 + r_2)q_1 + r_1`.
+						</p>
+						<p>
+						Since `a ge b`, `b gt r_0` and `r_0 gt r_1`, <span class="knowledge-link" data-href="/number_theory/division.html#corollary-quotient-remainder-on-positive-integer-has-positive-divisor">then</span> `q_0 ge 1`, `q_1 ge 1` and `q_2 ge 1`, therefore  `b = (r_1 q_2 + r_2)q_1 + r_1 ge (r _1 * 1 + r _2) * 1 + r _1 ge r1 + r2` <span class="knowledge-link" data-href="/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">therefore</span>  `r _2 < b/2` which concludes the base case
+						
+						</p>
+						<p>
+							Now let `k in NN_1` assuming that `r_(2k) le b / (2^k)`, we want to prove that `r_(2(k + 1)) = b / 2^(k + 1)`, noting that `2(k + 1) = 2k + 2`.
+						</p>
+						<p>
+						To start let's say we have an intance of the euclidean algorithm that lasts for at least `2k + 2` iterations, therefore we know that `r_(2k) le b / (2^k)` by our induction hypothesis, additionally at the `2k`-th iteration we would have an equation of the form `r_(2k) = r_(2k + 1) (q_(2k + 2)) + r_(2k + 2)`, since we know that `r_(2k + 1) > r_(2k + 2)`, <span class="knowledge-link" data-href="/number_theory/division.html#corollary-quotient-remainder-on-positive-integer-has-positive-divisor">then </span> `q_(2k + 2) ge 1`, which then shows that  `r_(2k) = r_(2k + 1) (q_(2k + 2)) + r_(2k + 2) ge r_(2k + 1) + r_(2k + 1)`, and since `b/2^k gt r_(2k)` , <span class="knowledge-link" data-href="/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">then we know that</span> `r_(2k + 2) lt 1/2 * b/2^k = b/2^(k + 1)` which is what we needed to show
+						</p>
+					</div>
+                </div>
+			</div>
+		</div>
+
+		<div id="corollary-upper-bound-on-euclidean-algorithm-iterations">
+			<div class="corollary">
+				<div class="title">upper bound on euclidean algorithm iterations</div>
+				<div class="content">
+					The euclidean algorithm terminates in at most `2 log_2(b)` iterations
+				</div>
+
+				<div class="new-proof">
+                    <div class="line-with-centered-text">
+						<button>show proof</button>
+					</div>
+					<div class="content">
+						The euclidean algorithm terminates in `k` iterations if and only if `r_k = 0`, we know that for all `n in NN_1` that `r_(2n) lt b / 2^n`, therefore when `n = log_2(b)`, then we have `r_(2log_2(b)) lt b / 2^(log_2(b)) = b/b = 1`, but if `r_(2 log_2(b)) lt 1`, then since the remainders are always elements of `NN_0`, then we know that `r_(2 log_2(b)) = 0`, thus we've shown after `2 log_2(b)` iterations the algorithm must terminate
+					</div>
+				</div>
+			</div>
+		
+		</div>
+		
+		
+
 
         <div class="definition">
             <div class="title">multiplicative function</div>

@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', preparePage, false);
 async function preparePage() {
 	// Due to this function you must defer this script so that the mathjax is loaded after everything is added to the dom
     await setUpAndAddHeader();
+    setUpProofToggleButtons();
 	addLinksToEveryPieceOfKnowledge();
     setUpKnowledgeLinks();
     createSystemColorModeListener();
@@ -49,6 +50,35 @@ async function setUpAndAddHeader() {
 }
 
 
+function setUpProofToggleButtons() {
+    /*
+    description:
+        this function makes sure that the show/hide proof button works correctly for each proof
+
+    note:
+        in the past proofs were in a seperate box which was disjoint from the statement, we are migrating this so that
+        proofs are included in the same box, therefore the usage of the class new-proof, is to help ease the migration
+        while not breaking pre-existing proofs.
+     */
+    const proofs = document.getElementsByClassName("new-proof");
+    for (let i = 0; i < proofs.length; i++) {
+        let proof = proofs[i];
+        let toggleButton = proof.querySelector(".line-with-centered-text>button");
+        let content = proof.querySelector(".content");
+        content.style.display = "none"; // initially hide the content
+        let contentHidden = content.style.display === "none";
+        toggleButton.onclick = function () {
+            if (contentHidden)  {
+                content.style.display = "block";
+                toggleButton.textContent = "hide proof"
+            } else {
+                content.style.display = "none";
+                toggleButton.textContent = "show proof"
+            }
+            contentHidden = !contentHidden;
+        }
+    }
+}
 
 
 function createCurrentPathNavigation() {

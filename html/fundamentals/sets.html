@@ -10,7 +10,9 @@
 
     <script src="../js/script.js" defer></script> 
 
+    <!--  asciimath import - will be removed later on -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+
 
 </head>
 
@@ -113,6 +115,34 @@
 			</div>
 		</div>
 
+        <div class="definition" id="definition-arbitrary-union">
+            <div class="title">arbitrary union</div>
+            <div class="content">
+                Suppose that `M` is a collection of sets, then `bigcup M` is defined so that `x in bigcup M iff EE A in M, x in A`
+            </div>
+        </div>
+
+        <div class="definition" id="definition-arbitrary-union-element-of-notation">
+            <div class="title">arbitrary union element of notation</div>
+            <div class="content">
+                We define `bigcup_(A in M) A :=` <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-arbitrary-union">`bigcup M`</span>
+            </div>
+        </div>
+
+        <div class="definition" id="definition-arbitrary-union-indexed-notation">
+            <div class="title">arbitrary union indexed notation</div>
+            <div class="content">
+                Suppose that `I` is an index set for the collection `cc A = {A_i : i in I}` where `A_i` is a set, then `bigcup_(i in I) A_i := ` <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-arbitrary-union">`bigcup cc A`</span>
+            </div>
+        </div>
+
+        <div class="definition" id="definition-arbitrary-union-counting-notation">
+            <div class="title">arbitrary union counting notation</div>
+            <div class="content">
+                Suppose that `a, b in ZZ`, with `a < b`, then `bigcup_(i = a)^b A_i = ` <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-arbitrary-union">`bigcup {A_i: i in ZZ, a le i le b}`</span>
+            </div>
+        </div>
+
 		<div class="definition" id="definition-intersection">
 			<div class="title">intersection</div>
 			<div class="content">
@@ -135,6 +165,13 @@
 				Let `n in NN_1` and suppose that `S_1, S_2, S_3, ..., S_n` are sets, then these sets are pairwise disjoint if given `i, j in {1, 2, ..., n}` if `i ne j` then `S_i nn S_j = O/`
 			</div>
 		</div>
+
+        <div class="definition" id="definition-disjoin-union-notation">
+            <div class="title">disjoint union notation</div>
+            <div class="content">
+
+            </div>
+        </div>
 
 		<div class="definition" id="definition-rationals">
 			<div class="title">rationals</div>

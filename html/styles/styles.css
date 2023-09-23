@@ -116,6 +116,35 @@ a {
   cursor: pointer;
 }
 
+/* a line with text in the middle */
+
+.line-with-centered-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: .5em 0;
+}
+
+.line-with-centered-text::before,
+.line-with-centered-text::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid white;
+}
+
+.line-with-centered-text:not(:empty)::before {
+    margin-right: .25em;
+}
+
+.line-with-centered-text:not(:empty)::after {
+    margin-left: .25em;
+}
+
+.line-with-centered-text button {
+    background-color: rgba(0,0,0,0);
+    color: white;
+}
+
 
 /* custom content styling */
 
@@ -139,19 +168,25 @@ fieldset>legend>h1 {
 
 
 .definition>.title, .lemma>.title, .theorem>.title, .corollary>.title, .proposition>.title, .exercise>.title, .proof>.title {
-  font-weight: bold;
-  font-style: normal;
-  display: inline-block;
-  width: -webkit-fill-available;
-  width: -moz-available;
-  width: stretch;
-  color: white;
-  border-radius: 10px 10px 0 0;
-  padding: 8px 15px 8px 15px;
+    font-style: normal;
+    display: inline-block;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: stretch;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    padding: 8px 15px 8px 15px;
+}
+
+.definition, .lemma, .theorem, .corollary, .proposition, .exercise, .proof {
 }
 
 .definition>.content, .lemma>.content, .theorem>.content, .corollary>.content, .proposition>.content, .exercise>.content, .proof>.content {
-  padding: 15px 15px 15px 15px;
+    padding: 15px 15px 15px 15px;
+}
+
+.new-proof>.content{
+    padding: 15px 15px 15px 15px;
 }
 
 .definition>.title::before {
