@@ -91,6 +91,10 @@ async function replaceStatementWithProofFromTemplate(statementWithProof, typeOfS
     let templateProofElement = statementWithProofTemplateCopy.querySelector(".new-proof");
     let templateProofContentElement = templateProofElement.querySelector(".content");
 
+    if (proofElement === null) {
+        console.log(statementWithProof, "is missing a proof");
+    }
+
     templateTitleElement.innerHTML = titleElement.innerHTML;
     templateContentElement.innerHTML = contentElement.innerHTML;
     templateProofContentElement.innerHTML = proofElement.innerHTML;
@@ -98,6 +102,8 @@ async function replaceStatementWithProofFromTemplate(statementWithProof, typeOfS
     statementWithProofTemplateCopy.id = statementWithProof.id;
 
     statementWithProof.replaceWith(statementWithProofTemplateCopy);
+
+    return statementWithProofTemplateCopy
 }
 
 
@@ -114,22 +120,27 @@ function setUpProofToggleButtons() {
     const proofs = document.getElementsByClassName("new-proof");
     for (let i = 0; i < proofs.length; i++) {
         let proof = proofs[i];
-        let toggleButton = proof.querySelector(".line-with-centered-text>button");
-        let content = proof.querySelector(".content");
-        content.style.display = "none"; // initially hide the content
-        let contentHidden = content.style.display === "none";
-        toggleButton.onclick = function () {
-            if (contentHidden)  {
-                content.style.display = "block";
-                toggleButton.textContent = "hide proof"
-            } else {
-                content.style.display = "none";
-                toggleButton.textContent = "show proof"
-            }
-            contentHidden = !contentHidden;
-        }
+        setUpProofToggleButton(proof);
     }
 }
+
+function setUpProofToggleButton(proof) {
+    let toggleButton = proof.querySelector(".line-with-centered-text>button");
+    let content = proof.querySelector(".content");
+    content.style.display = "none"; // initially hide the content
+    let contentHidden = content.style.display === "none";
+    toggleButton.onclick = function () {
+        if (contentHidden)  {
+            content.style.display = "block";
+            toggleButton.textContent = "hide proof"
+        } else {
+            content.style.display = "none";
+            toggleButton.textContent = "show proof"
+        }
+        contentHidden = !contentHidden;
+    }
+}
+
 
 
 function createCurrentPathNavigation() {
@@ -177,14 +188,14 @@ function createATag(content, link) {
 
 function addLinksToEveryPieceOfKnowledge() {
 	const definitions = document.getElementsByClassName("definition")
-	var currentHtmlFilePath = window.location.pathname;
+	let currentHtmlFilePath = window.location.pathname;
 
 	// TODO one day merge into one for loop when definitions have the same structure as swp
     for (let i = 0; i < definitions.length; i++) {
-		var definition = definitions[i];	
+		let definition = definitions[i];
 
-		var title = definition.querySelector(".title");
-		var linkToSelf = document.createElement("a");
+		let title = definition.querySelector(".title");
+		let linkToSelf = document.createElement("a");
 		linkToSelf.style.cssFloat ='right';
 		linkToSelf.textContent = copyLinkEmoji;
 		linkToSelf.href = currentHtmlFilePath + "#" + definition.id;
@@ -193,16 +204,16 @@ function addLinksToEveryPieceOfKnowledge() {
 		title.append(linkToSelf);
 	}
 
-	var statementsWithProof = document.querySelectorAll(".theorem,.lemma,.corollary,.proposition,.exercise");
+	let statementsWithProof = document.querySelectorAll(".theorem,.lemma,.corollary,.proposition,.exercise");
 
     for (let i = 0; i <statementsWithProof.length; i++) {
 
-		var statementWithProof = statementsWithProof[i];	
+		let statementWithProof = statementsWithProof[i];
 
-		var wrapper = statementWithProof.parentElement;
+		let wrapper = statementWithProof.parentElement;
 
-		var title = statementWithProof.querySelector(".title");
-		var linkToSelf = document.createElement("a");
+		let title = statementWithProof.querySelector(".title");
+		let linkToSelf = document.createElement("a");
 		linkToSelf.style.cssFloat ='right';
 		linkToSelf.textContent = copyLinkEmoji;
 		linkToSelf.onclick = copyURI;
@@ -299,8 +310,8 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
     const destinationId = "#"+ splitUrl[1] // add it back on
 
     if (destinationURL == "") {
-        var path = window.location.pathname;
-        var page = path.split("/").pop();
+        let path = window.location.pathname;
+        let page = path.split("/").pop();
         destinationURL = page;
     }
 
@@ -310,15 +321,27 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
 
         const firstTimeOpening = knowledgeLinkElement.dataset.openedAtLeastOnce == "false" && knowledgeLinkElement.dataset.currentlyOpened == "false"; // strings used since data-* attributes only pass through as string
         if (firstTimeOpening) { // create the element
-            const destinationElement = await fetchElementUsingSelector(destinationURL, destinationId);
+            let destinationElement = await fetchElementUsingSelector(destinationURL, destinationId);
+
+            const typeOfStatement = destinationElement.classList[0];
+
+            console.assert(typeOfStatement !== null , destinationElement, "is missing a the type class");
+
             //knowledgeLinkElement.appendChild(destinationElement)
             knowledgeLinkElement.after(destinationElement)
+
+            if (typeOfStatement !== "definition") {
+                destinationElement = await replaceStatementWithProofFromTemplate(destinationElement, typeOfStatement)
+                const destinationElementProof = destinationElement.querySelector(".new-proof");
+                setUpProofToggleButton(destinationElementProof);
+            }
+
             destinationElement.classList.add("expanded-knowledge");
 
 			const destinationTitle = destinationElement.querySelector(".title")
 
 			// add link for newly created element
-			var linkToSelf = document.createElement("a");
+			let linkToSelf = document.createElement("a");
 			linkToSelf.style.cssFloat ='right';
 			linkToSelf.textContent = copyLinkEmoji;
 			linkToSelf.href = fullDestinationUrl;
@@ -335,6 +358,7 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
                 setUpKnowledgeLink(destinationKnowledgeLink);
             }
 
+
         } else { // after created just toggle visibility
             console.assert(knowledgeLinkElement.nextSibling.classList.contains("expanded-knowledge") , "the expanded knowledge should have already been added as a sibiling");
             const expandedKnowledgeElement = knowledgeLinkElement.nextSibling
@@ -344,6 +368,7 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
                 expandedKnowledgeElement.style.display = "block";
             }
         }
+
         knowledgeLinkElement.dataset.currentlyOpened = knowledgeLinkElement.dataset.currentlyOpened == "true" ? "false" : "true";
         knowledgeLinkElement.dataset.openedAtLeastOnce = true;
     }

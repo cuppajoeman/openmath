@@ -84,28 +84,19 @@
             </div>
         </div>
 
-        <div id="proposition-set-equality-by-subsets">
-            <div class="proposition">
-                <div class="title">set equality by subsets</div>
-                <div class="content">
-                    Suppose that `A, B` are sets such that <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-subset">`A sube B`</span> and `B sube A`, then <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">`A = B`</span>
-                </div>
+        <div class="proposition" id="proposition-set-equality-by-subsets">
+            <div class="title">set equality by subsets</div>
+            <div class="content">
+                Suppose that `A, B` are sets such that <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-subset">`A sube B`</span> and `B sube A`, then <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">`A = B`</span>
             </div>
-
             <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>show</summary>
-                        <p>
-                            We will show the sets are equal using the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">definition of set equality</span>.
-                        </p>
-                        <p>
-                            To show that a bi-implication is true, we have to prove both directions. So first suppose that `x in A`, then since `A sube B`, `x in B`. For the other direction suppose that `x in B`, then since `B sube A` then `x in A`. Therefore we know that `x in A` if and only if `x in B` as needed.
-                        </p>
-                    </details>
-                </div>
-            </div> 
+                <p>
+                    We will show the sets are equal using the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">definition of set equality</span>.
+                </p>
+                <p>
+                    To show that a bi-implication is true, we have to prove both directions. So first suppose that `x in A`, then since `A sube B`, `x in B`. For the other direction suppose that `x in B`, then since `B sube A` then `x in A`. Therefore we know that `x in A` if and only if `x in B` as needed.
+                </p>
+            </div>
         </div>
 
 		<div class="definition" id="definition-union">
@@ -208,50 +199,30 @@
 		</div>
 		
 
-
-        <div id="proposition-union-of-subsets-is-still-a-subset">
-            <div class="proposition">
-                <div class="title">union of subsets is still a subset</div>
-                <div class="content">
-                    Suppose that `cc C` is a collection of subsets of `X`, then `bigcup_{C in cc C} C sube X`
-                </div>
+        <div class="proposition" id="proposition-union-of-subsets-is-still-a-subset">
+            <div class="title">union of subsets is still a subset</div>
+            <div class="content">
+                Suppose that `cc C` is a collection of subsets of `X`, then `bigcup_{C in cc C} C sube X`
             </div>
-
             <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>details</summary>
-                        Let `x in bigcup_{C in cc C} C`, then `x in U` for some `U in cc C`, since `U` must be a subset of `X` then x is also in `X`. As needed
-                    </details>
-                </div>
+                Let `x in bigcup_{C in cc C} C`, then `x in U` for some `U in cc C`, since `U` must be a subset of `X` then x is also in `X`. As needed
             </div>
         </div>
 
-        <div id="proposition-a-set-filled-with-subsets-is-a-union">
-            <div class="proposition" >
-                <div class="title">a set covered in subsets is a union</div>
-                <div class="content">
-                    Suppose `A` is a set and that for each `a in A`, there is a `B_a` such that `a in B_a sube A`, then `A = bigcup_{a in A} B_a`
-                </div>
+        <div class="proposition"  id="proposition-a-set-filled-with-subsets-is-a-union">
+            <div class="title">a set covered in subsets is a union</div>
+            <div class="content">
+                Suppose `A` is a set and that for each `a in A`, there is a `B_a` such that `a in B_a sube A`, then `A = bigcup_{a in A} B_a`
             </div>
-
             <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>show</summary>
-                        <p>
-                            We can see that `cc C = {B_a: a in A}` is a collection of subsets of `A`, so since <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-union-of-subsets-is-still-a-subset">a union of a subsets is still a subset</span> we have `bigcup_{a in A} B_a sube A`.
-                        </p>
-                        <p>
-                            But also given `p in A` we know that `p in B_p` so `p in bigcup_{a in A} B_a` which shows `A sube bigcup_{a in A} B_a`, so we can conclude `A = bigcup_{a in A} B_a`.
-                        </p>
-                    </details>
-                </div>
+                <p>
+                    We can see that `cc C = {B_a: a in A}` is a collection of subsets of `A`, so since <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-union-of-subsets-is-still-a-subset">a union of a subsets is still a subset</span> we have `bigcup_{a in A} B_a sube A`.
+                </p>
+                <p>
+                    But also given `p in A` we know that `p in B_p` so `p in bigcup_{a in A} B_a` which shows `A sube bigcup_{a in A} B_a`, so we can conclude `A = bigcup_{a in A} B_a`.
+                </p>
             </div>
         </div>
-
 
         <div class="definition">
             <div class="title">n tuple</div>
@@ -267,40 +238,30 @@
             </div>
         </div>
 
-        <div id="proposition-intersection-and-cartesian-product-commute">
-
-            <div class="proposition">
-                <div class="title">intersection and cartesian product commute</div>
-                <div class="content">
-                    Given sets `A,B,C,D`, then `(A xx B) nn (C xx D) = (A nn C) xx (B nn D)`
-                </div>
+        <div class="proposition" id="proposition-intersection-and-cartesian-product-commute">
+            <div class="title">intersection and cartesian product commute</div>
+            <div class="content">
+                Given sets `A,B,C,D`, then `(A xx B) nn (C xx D) = (A nn C) xx (B nn D)`
             </div>
-
             <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>show</summary>
-                        <p>
-                            We will prove this true by the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">definition of set equality.</span>
-                        </p>
-                        <p>
-                            Suppose that `(x,y) in (A xx B) nn (C xx D)`, which is true iff `(x,y) in (A xx B)`, so that `x in A` and `y in B`.
-                        </p>
-                        <p>
-                            We also know that `(x,y) in (C xx D)` which is equivalent to `x in C` and `y in D`
-                        </p>
-                        <p>
-                            We have `x in A nn C` and `y in B nn D` which is equivalent to `(x,y) in (A nn C) xx (B nn D)`.
-                        </p>
-                        <p>
-                            Thus we've proven that `(x,y) in (A xx B) nn (C xx D)` if and only if `(x, y) in (A xx B) nn (C xx D)` as needed.
-                        </p>
-                    </details>
-                </div>
+                <p>
+                    We will prove this true by the <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-set-equality">definition of set equality.</span>
+                </p>
+                <p>
+                    Suppose that `(x,y) in (A xx B) nn (C xx D)`, which is true iff `(x,y) in (A xx B)`, so that `x in A` and `y in B`.
+                </p>
+                <p>
+                    We also know that `(x,y) in (C xx D)` which is equivalent to `x in C` and `y in D`
+                </p>
+                <p>
+                    We have `x in A nn C` and `y in B nn D` which is equivalent to `(x,y) in (A nn C) xx (B nn D)`.
+                </p>
+                <p>
+                    Thus we've proven that `(x,y) in (A xx B) nn (C xx D)` if and only if `(x, y) in (A xx B) nn (C xx D)` as needed.
+                </p>
             </div>
-
         </div>
+
 
 		<div id="proposition-cartesian-product-distributes-over-intersection">
 			<div class="proposition">
