@@ -87,20 +87,14 @@
                         `MC = sum_{i = 1}^k c_i M_{|, i} in M_{n xx 1} (RR)`
                     </div>
                 </div>
+				<div class="proof">
+						<p>
+							By the definition of matrix multiplication the answer should be equal to
+						</p>
+						`[ [m_{1,1}, m_{1, 2}, ..., m_{1, k}], [m_{2,1}, m_{2, 2,}, ..., m_{2, k}], [vdots, vdots, ddots, vdots], [m_{j, 1}, m_{j, 2}, ..., m_{j, k}]]` `[[c_1], [c_2], [vdots], [c_k]]` `= [ [c_1 * m_{1,1} + c_2 * m_{1, 2} + ... + c_k * m_{1, k}], [c_1 * m_{2,1} + c_2 * m_{2, 2} + ... + c_k * m_{2, k}], [vdots], [ c_1 * m_{j, 1} + c_2 * m_{j, 2} + ... + c_k * m_{j, k}]]` ` = c_1 M_{|, 1} + c_2 M_{|, 2} + ... + c_k M_{|, k} in M_{n xx 1}(RR)`
+				</div>
             </div>
 
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>details</summary>
-                        <p>
-                            By the definition of matrix multiplication the answer should be equal to
-                        </p>
-                        `[ [m_{1,1}, m_{1, 2}, ..., m_{1, k}], [m_{2,1}, m_{2, 2,}, ..., m_{2, k}], [vdots, vdots, ddots, vdots], [m_{j, 1}, m_{j, 2}, ..., m_{j, k}]]` `[[c_1], [c_2], [vdots], [c_k]]` `= [ [c_1 * m_{1,1} + c_2 * m_{1, 2} + ... + c_k * m_{1, k}], [c_1 * m_{2,1} + c_2 * m_{2, 2} + ... + c_k * m_{2, k}], [vdots], [ c_1 * m_{j, 1} + c_2 * m_{j, 2} + ... + c_k * m_{j, k}]]` ` = c_1 M_{|, 1} + c_2 M_{|, 2} + ... + c_k M_{|, k} in M_{n xx 1}(RR)`
-                    </details>
-                </div>
-            </div>
 
             <div class="definition">
                 <div class="title">unit column matrix</div>
@@ -114,19 +108,13 @@
                 <div class="content">
                     suppose `M in M_{j xx k}` then the `n`-th column of `M` is given by `M` multiplied by `e_n` (where `1 <= n <= k`)
                 </div>
+				<div class="proof">
+					<p>
+						Due to the way that column matrix multiplication works, we can see that `M e_n = sum_{i = 0}^k(e_n)_i M_{|, i} = M_{|, n}` this is clear since only the `n`-th component of `e_n` is `1` and the rest are `0`.
+					</p>
+				</div>
             </div>
 
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>details</summary>
-                        <p>
-                            Due to the way that column matrix multiplication works, we can see that `M e_n = sum_{i = 0}^k(e_n)_i M_{|, i} = M_{|, n}` this is clear since only the `n`-th component of `e_n` is `1` and the rest are `0`.
-                        </p>
-                    </details>
-                </div>
-            </div>
             
             <div class="definition">
                 <div class="title">basis</div>
@@ -160,14 +148,11 @@
                 <div class="content">
                     Given a vector space `V` with basis `cc V = {v1, ..., v_k}`, then for each element `i in [k]`, `text(wam)(v_i, cc V) = e_i`
                 </div>
+				<div class="proof">
+					`v_i = 0 v_1 + ... + 1 v_i + ... + 0 v_k` therefore by the definition of `wam` we have `wam(v_i, cc V) = e_i`
+				</div>
             </div>
 
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    `v_i = 0 v_1 + ... + 1 v_i + ... + 0 v_k` therefore by the definition of `wam` we have `wam(v_i, cc V) = e_i`
-                </div>
-            </div>
 
             <div class="definition">
                 <div class="title">uniquely determined</div>
@@ -190,33 +175,25 @@
                 <div class="content">
                     Let `T: V to W` be a linear transformation between two vector spaces with `dim(V) = k` `dim(W) = l` with `k, l in ZZ^+`.  Supposing that `{v_1, ..., v_k}` and `{w_1, ..., w_l}` are the respective bases, then `T: V to W` is uniquely determined by the `l * k` scalars used to express `T(v_j)` for each `j in [k]` in terms of `{w_1, ... , w_l}`
                 </div>
+				<div class="proof">
+					<p>
+						To show that the linear transformation is uniquely determined by these scalars, we will try to use the fact that elements in each vector space are already uniquely determined by their own constants and go from there.
+					</p>
+
+					<p>
+						Let `v_j` be one of the basis vectors for `V`, then consider `T(v_j) in W` since it's a vector in `W` it can be written as a linear combination of the basis vectors in `W`, so that `T(v_j) = sum_{i = 1}^l a_i w_i`.
+					</p>
+
+					<p>
+						Now given a generic `x in V` which is not necessarily a basis vector, we can represent it as follows `T(x) = T(sum_{j = 1} ^ k c_j v_j) = sum_{j = 1}^k c_j T(v_j)` recalling from our previosu paragraph, we can see that `sum_{j = 1}^k (c_j sum_{i = 1}^l a_i w_i) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i`. 
+					</p>
+
+					<p>
+						The lets us conclude that `T(x) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i` and that `T` is uniquely determined by these `l * k` constants
+					</p>
+				</div>
             </div>
 
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>details</summary>
-
-                        <p>
-                            To show that the linear transformation is uniquely determined by these scalars, we will try to use the fact that elements in each vector space are already uniquely determined by their own constants and go from there.
-                        </p>
-
-                        <p>
-                            Let `v_j` be one of the basis vectors for `V`, then consider `T(v_j) in W` since it's a vector in `W` it can be written as a linear combination of the basis vectors in `W`, so that `T(v_j) = sum_{i = 1}^l a_i w_i`.
-                        </p>
-
-                        <p>
-                            Now given a generic `x in V` which is not necessarily a basis vector, we can represent it as follows `T(x) = T(sum_{j = 1} ^ k c_j v_j) = sum_{j = 1}^k c_j T(v_j)` recalling from our previosu paragraph, we can see that `sum_{j = 1}^k (c_j sum_{i = 1}^l a_i w_i) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i`. 
-                        </p>
-
-                        <p>
-                            The lets us conclude that `T(x) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i` and that `T` is uniquely determined by these `l * k` constants
-                        </p>
-                    </details>
-
-                </div>
-            </div>
 
             <div class="theorem">
                 <div class="title">matrix representation of a transformation</div>
@@ -227,30 +204,27 @@
                     </div>
                     for any `v in V`
                 </div>
-            </div>
+				<div class="proof">
+					<p>
+						To see what the matrix is, we can try to figure out what it's columns are.
+					</p>
+					<p>
+						Recall that we can extract the column of a matrix using the column extraction method discussed earlier 
+						
+						
+					</p>
+					<p>
+						To be successful at that we need to generate a unit column matrix. We can do so by plugging in `v_k in cc V` into the above equation which yields: `T v_k = text(wav)(M_T text(wam)(v_k, cc V)) = text(wav)(M_T e_k) = text(wav)((M_T)_{|, k}) ` 
+					</p>
+					<p>
+						Thus `text(wam)(Tv_k) = (M_T)_{|, k}`, so the columns of `M_T` are `T v_k` written as a column matrices. Graphically we have
+					</p>
+					<div class="centered-content">
+						`M_T = [ [uarr, uarr, uarr, uarr], [text(wam)(T v_1), text(wam)(T v_2), ..., text(wam)(T v_k)], [darr, darr, darr, darr] ]`
+					</div>
+				</div>
+			</div>
 
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <p>
-                        To see what the matrix is, we can try to figure out what it's columns are.
-                    </p>
-                    <p>
-                        Recall that we can extract the column of a matrix using the column extraction method discussed earlier 
-                        
-                        
-                    </p>
-                    <p>
-                        To be successful at that we need to generate a unit column matrix. We can do so by plugging in `v_k in cc V` into the above equation which yields: `T v_k = text(wav)(M_T text(wam)(v_k, cc V)) = text(wav)(M_T e_k) = text(wav)((M_T)_{|, k}) ` 
-                    </p>
-                    <p>
-                        Thus `text(wam)(Tv_k) = (M_T)_{|, k}`, so the columns of `M_T` are `T v_k` written as a column matrices. Graphically we have
-                    </p>
-                    <div class="centered-content">
-                        `M_T = [ [uarr, uarr, uarr, uarr], [text(wam)(T v_1), text(wam)(T v_2), ..., text(wam)(T v_k)], [darr, darr, darr, darr] ]`
-                    </div>
-                </div>
-            </div>
 
             <div class="definition">
                 <div class="title">change of basis matrix</div>
