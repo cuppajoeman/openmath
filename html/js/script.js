@@ -7,11 +7,18 @@ const copyLinkEmoji = "📋";
 
 const debugging = false;
 
-async function fetchElement(url, selector) {
+let statementWithProofTemplate;
+
+
+async function fetchElement(url) {
     const data = await fetch(url).then(res => res.text())
-    const parsed = new DOMParser().parseFromString(data, 'text/html')
+    return new DOMParser().parseFromString(data, 'text/html')
+}
+async function fetchElementUsingSelector(url, selector) {
+    const parsed = await fetchElement(url);
     return parsed.querySelector(selector)
 }
+
 
 // TODO was about to programatically add the button to the page and add another "reset" button that has the computer emoji
 
@@ -20,6 +27,7 @@ document.addEventListener('DOMContentLoaded', preparePage, false);
 async function preparePage() {
 	// Due to this function you must defer this script so that the mathjax is loaded after everything is added to the dom
     await setUpAndAddHeader();
+    await setUpStatementWithProofTemplates();
     setUpProofToggleButtons();
 	addLinksToEveryPieceOfKnowledge();
     setUpKnowledgeLinks();
@@ -47,6 +55,49 @@ async function setUpAndAddHeader() {
     }
 
 	createCurrentPathNavigation();
+}
+
+async function setUpStatementWithProofTemplates() {
+    statementWithProofTemplate = (await fetchElement("/includes/statement_with_proof.html")).body.firstChild;
+
+    const typesOfStatementsRequiringProof = ["theorem", "proposition", "lemma", "corollary", "exercise"];
+
+    for (let i = 0; i < typesOfStatementsRequiringProof.length; i++) {
+        let typeOfStatementRequiringProof = typesOfStatementsRequiringProof[i];
+        let statementsWithProof = document.getElementsByClassName(typeOfStatementRequiringProof);
+        for (let j = 0; j < statementsWithProof.length; j++) {
+            let statementWithProof = statementsWithProof[j];
+            await replaceStatementWithProofFromTemplate(statementWithProof,typeOfStatementRequiringProof);
+        }
+
+    }
+
+    // const statementWithProofTemplate = await fetchElement("../includes/statement_with_proof.html")
+}
+
+async function replaceStatementWithProofFromTemplate(statementWithProof, typeOfStatementRequiringProof) {
+
+    let titleElement = statementWithProof.querySelector(".title");
+    let contentElement = statementWithProof.querySelector(".content");
+    let proofElement = statementWithProof.querySelector(".proof");
+
+
+    let statementWithProofTemplateCopy = statementWithProofTemplate.cloneNode(true);
+
+    statementWithProofTemplateCopy.classList.add(typeOfStatementRequiringProof);
+
+    let templateTitleElement = statementWithProofTemplateCopy.querySelector(".title");
+    let templateContentElement = statementWithProofTemplateCopy.querySelector(".content");
+    let templateProofElement = statementWithProofTemplateCopy.querySelector(".new-proof");
+    let templateProofContentElement = templateProofElement.querySelector(".content");
+
+    templateTitleElement.innerHTML = titleElement.innerHTML;
+    templateContentElement.innerHTML = contentElement.innerHTML;
+    templateProofContentElement.innerHTML = proofElement.innerHTML;
+
+    statementWithProofTemplateCopy.id = statementWithProof.id;
+
+    statementWithProof.replaceWith(statementWithProofTemplateCopy);
 }
 
 
@@ -259,7 +310,7 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
 
         const firstTimeOpening = knowledgeLinkElement.dataset.openedAtLeastOnce == "false" && knowledgeLinkElement.dataset.currentlyOpened == "false"; // strings used since data-* attributes only pass through as string
         if (firstTimeOpening) { // create the element
-            const destinationElement = await fetchElement(destinationURL, destinationId);
+            const destinationElement = await fetchElementUsingSelector(destinationURL, destinationId);
             //knowledgeLinkElement.appendChild(destinationElement)
             knowledgeLinkElement.after(destinationElement)
             destinationElement.classList.add("expanded-knowledge");
@@ -327,7 +378,7 @@ function setCustomCursor() {
         cursor: ${normalCursorUrl} 
     }
     
-    a, label, .knowledge-link, #reset-darkmode  { 
+    a, label, .knowledge-link, #reset-darkmode, button { 
         cursor: ${activatedCursorUrl}
     }
     `
