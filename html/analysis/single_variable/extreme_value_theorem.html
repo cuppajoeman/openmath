@@ -64,112 +64,78 @@
 				</div>
 			</div>
 
-			<div id="corollary-greater-than-inf-implies-not-a-lower-bound">
-				<div class="corollary">
-					<div class="title">greater than inf implies not a lower bound</div>
-					<div class="content">
-						Suppose that `text(inf)(S) lt x`, then `x` is not an <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-lower-bound">lower bound</span> of `S`
-					</div>
+			<div class="corollary" id="corollary-greater-than-inf-implies-not-a-lower-bound">
+				<div class="title">greater than inf implies not a lower bound</div>
+				<div class="content">
+					Suppose that `text(inf)(S) lt x`, then `x` is not an <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-lower-bound">lower bound</span> of `S`
 				</div>
-			
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						<details>
-							<summary>show</summary>
-							<p>
-								Suppose that `text(inf)(S) lt x`, then for the sake of contradiction assume that `x` is a lower bound of `S`, <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-infimum">then</span> `text(inf)(S) ge x` which is a contradiction. 
-							</p>
-						</details>
-					</div>
+					<p>
+						Suppose that `text(inf)(S) lt x`, then for the sake of contradiction assume that `x` is a lower bound of `S`, <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-infimum">then</span> `text(inf)(S) ge x` which is a contradiction. 
+					</p>
 				</div>
 			</div>
-
-			<div id="corollary-less-than-sup-implies-not-an-upper-bound">
-				<div class="corollary">
-					<div class="title">less than sup implies not an upper bound</div>
-					<div class="content">
-						if  `x  lt text(sup)(S)`,  then `x` is not  a <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-upper-bound">upper bound</span> of `S`
-					</div>
-				</div>
 			
+
+			<div class="corollary" id="corollary-less-than-sup-implies-not-an-upper-bound">
+				<div class="title">less than sup implies not an upper bound</div>
+				<div class="content">
+					if  `x  lt text(sup)(S)`,  then `x` is not  a <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-upper-bound">upper bound</span> of `S`
+				</div>
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						<details>
-							<summary>show</summary>
-							<p>
-								Suppose that `text(sup)(S) gt x`, then for the sake of contradiction assume that `x` is a upper bound of `S`, <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-supremum">then</span> `text(sup)(S) le x` which is a contradiction. 
-							</p>
-						</details>
-					</div>
+					<p>
+						Suppose that `text(sup)(S) gt x`, then for the sake of contradiction assume that `x` is a upper bound of `S`, <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-supremum">then</span> `text(sup)(S) le x` which is a contradiction. 
+					</p>
 				</div>
 			</div>
-
-
-			<div id="proposition-least-upper-bound-property">
-				<div class="proposition">
-					<div class="title">least upper bound property</div>
-					<div class="content">
-						We say that a partially ordered set `X` has the least upper bound property if every non-empty subset of `X` that has an upper bound, has a least upper bound in `X`. Symbolically that is, if `S sube X` and `S ne O/`, if `S` has an upper bound, then `text(sup)(S) in S`
-					</div>
-				</div>
 			
+
+
+			<div class="proposition" id="proposition-least-upper-bound-property">
+				<div class="title">least upper bound property</div>
+				<div class="content">
+					We say that a partially ordered set `X` has the least upper bound property if every non-empty subset of `X` that has an upper bound, has a least upper bound in `X`. Symbolically that is, if `S sube X` and `S ne O/`, if `S` has an upper bound, then `text(sup)(S) in S`
+				</div>
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						TODO
-					</div>
+					TODO
 				</div>
 			</div>
-
-
-			<div id="proposition-infimum-or-supremum-of-a-set-may-not-be-part-of-itself">
-				<div class="proposition">
-				<div class="title">infimum or supremum of a set may not be part of itself</div>
-					<div class="content">
-						Given a set `S` it's possible that `text(inf)(S) notin S` or `text(sup)(S) notin S`
-					</div>
-				</div>
 			
+
+			<div class="proposition" id="proposition-infimum-or-supremum-of-a-set-may-not-be-part-of-itself">
+			<div class="title">infimum or supremum of a set may not be part of itself</div>
+				<div class="content">
+					Given a set `S` it's possible that `text(inf)(S) notin S` or `text(sup)(S) notin S`
+				</div>
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						Consider the set `S = (0, 1) sube RR`, then `text(sup)(S) = 1, text(inf)(S)=0` and `1 notin S, 0 notin S`
-					</div>
+					Consider the set `S = (0, 1) sube RR`, then `text(sup)(S) = 1, text(inf)(S)=0` and `1 notin S, 0 notin S`
 				</div>
 			</div>
 			
 			
-			<div id="proposition-continuous-implies-bounded">
-				<div class="proposition">
-					<div class="title">continuous implies bounded</div>
-					<div class="content">
-						if `f` is <span class="knowledge-link" data-href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</span> on `[a, b]`, then it is <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-bounded-function">bounded </span>on `[a, b]`
-					</div>
+			<div class="proposition" id="proposition-continuous-implies-bounded">
+				<div class="title">continuous implies bounded</div>
+				<div class="content">
+					if `f` is <span class="knowledge-link" data-href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</span> on `[a, b]`, then it is <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-bounded-function">bounded </span>on `[a, b]`
 				</div>
-			
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						Let `B = {p in [a, b]: f(x) text( is bounded on ) [a, p]}`, note that `a in B` since `f( [{:a,a:}] ) = {f(a)}` <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#proposition-finite-sets-are-bounded">therefore</span> `f([{:a, b:}])` is bounded.
-						<p>
-							Suppose that `e in B` and `e gt a`, then `f` is bounded on `[a,e]` by the definition of `B`, meaning that for any `a lt m lt e`, `f` is bounded on `[a,m]` so `m in B`, this shows that `B` is an interval of the form `[a, x]` for `x in [a, b]`.
-						</p>
-						<p>
-							`f` is continuous at `a`, then let `t in RR` be a throwaway value insofar as to obtain some `delta in RR^(gt 0)` so that for all `x in text(dom)(f) = [a, b]`, we have `abs(x - a) lt delta` implying `abs(f(x) - f(a)) lt t`. 
-						</p>
-						<p>
-							This shows us that `f` is bounded on `[a, a + delta]` using our throwaway value of `t`, therefore `a + delta in B` and as mentioned in the second paragraph, we know `[a, a + delta] sube B`, this means that `B` has at least two values, so we can find another element `y in B` such that `a lt y`.
-						</p>
-						<p>
-							Since `RR` has the least upper bound property then since `B` is bounded above by `b`, then we know that `s := text(sup)(B) in B`, from the existance of `y`, then by chaining inequalities we get `a lt s` (todo: define set builder notation) (anything amaller has a point greater def of sup)
-						</p>
-					</div>
+					Let `B = {p in [a, b]: f(x) text( is bounded on ) [a, p]}`, note that `a in B` since `f( [{:a,a:}] ) = {f(a)}` <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#proposition-finite-sets-are-bounded">therefore</span> `f([{:a, b:}])` is bounded.
+					<p>
+						Suppose that `e in B` and `e gt a`, then `f` is bounded on `[a,e]` by the definition of `B`, meaning that for any `a lt m lt e`, `f` is bounded on `[a,m]` so `m in B`, this shows that `B` is an interval of the form `[a, x]` for `x in [a, b]`.
+					</p>
+					<p>
+						`f` is continuous at `a`, then let `t in RR` be a throwaway value insofar as to obtain some `delta in RR^(gt 0)` so that for all `x in text(dom)(f) = [a, b]`, we have `abs(x - a) lt delta` implying `abs(f(x) - f(a)) lt t`. 
+					</p>
+					<p>
+						This shows us that `f` is bounded on `[a, a + delta]` using our throwaway value of `t`, therefore `a + delta in B` and as mentioned in the second paragraph, we know `[a, a + delta] sube B`, this means that `B` has at least two values, so we can find another element `y in B` such that `a lt y`.
+					</p>
+					<p>
+						Since `RR` has the least upper bound property then since `B` is bounded above by `b`, then we know that `s := text(sup)(B) in B`, from the existance of `y`, then by chaining inequalities we get `a lt s` (todo: define set builder notation) (anything amaller has a point greater def of sup)
+					</p>
 				</div>
 			</div>
+			
 
         </div>
-
     </body>
 </html>

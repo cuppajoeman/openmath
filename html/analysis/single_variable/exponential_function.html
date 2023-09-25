@@ -55,13 +55,10 @@
                 <div class="content">
                     Suppose that `n in NN_1` and `x in RR^(gt 0)`, then `x^n > 0`
                 </div>
-            </div>
+				<div class="proof">
+					(TODO: product of two numbers of the same sign is positive and induction.)
+				</div>
 
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    (TODO: product of two numbers of the same sign is positive and induction.)
-                </div>
             </div>
 
 
@@ -86,24 +83,18 @@
                 </div>
             </div>
 			
-			<div id="theorem-binomial">
-				<div class="theorem">
-					<div class="title">binomial</div>
-					<div class="content">
-						Suppose that `x, y in RR` such that `x + y >= 0` and that `n in NN_0`, then 
-						<div class="centered-content">
-							`(x + y)^n = sum_(k = 0)^n ( (n), (k) ) x ^ (n - k) y ^k  `
-						</div>
+			<div class="theorem" id="theorem-binomial">
+				<div class="title">binomial</div>
+				<div class="content">
+					Suppose that `x, y in RR` such that `x + y >= 0` and that `n in NN_0`, then 
+					<div class="centered-content">
+						`(x + y)^n = sum_(k = 0)^n ( (n), (k) ) x ^ (n - k) y ^k  `
 					</div>
 				</div>
-			
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						TODO
-					</div>
+					TODO
 				</div>
-			</div>		
+			</div>
 				
 
             <h1>exponential function</h1>
@@ -115,47 +106,40 @@
                 </div>
             </div>
 
-			<div id="theorem-TODO">
-				<div class="theorem">
-					<div class="title"></div>
-					<div class="content">
-						`e^x = lim_{n to oo} (1 + x/n)^n`
-					</div>
+			<div class="theorem" id="theorem-TODO">
+				<div class="title"></div>
+				<div class="content">
+					`e^x = lim_{n to oo} (1 + x/n)^n`
 				</div>
-			
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						TODO
-					</div>
+					TODO
 				</div>
 			</div>
-
-			<div id="theorem-TODO">
-				<div class="theorem">
-					<div class="title"></div>
-					<div class="content">
-						`d/(dx) [e^x] = e^x`	
-					</div>
-				</div>
 			
-				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						<p>
-							`d/ (dx) = lim _ (h to 0) (e ^ (x + h) - e ^x)/h = lim _ (h to oo) ( lim _ (n to oo) (1 + (x + h)/ n) ^ n - lim _ (n to oo) (1 + x/n)^n) / h = lim_ (h to 0) (lim_(n to oo) ((1 + (x + h)/n)^n-(1 + x / n)^n) / h)`
-						</p>
-						<p>
-							Therefore by the binomial theorem...
-						</p>
-					</div>
+			<div class="theorem" id="theorem-TODO">
+				<div class="title"></div>
+				<div class="content">
+					`d/(dx) [e^x] = e^x`	
 				</div>
+				<div class="proof">
+					<p>
+						`d/ (dx) = lim _ (h to 0) (e ^ (x + h) - e ^x)/h = lim _ (h to oo) ( lim _ (n to oo) (1 + (x + h)/ n) ^ n - lim _ (n to oo) (1 + x/n)^n) / h = lim_ (h to 0) (lim_(n to oo) ((1 + (x + h)/n)^n-(1 + x / n)^n) / h)`
+					</p>
+					<p>
+						Therefore by the binomial theorem...
+					</p>
+				</div>
+			</div>
+		
 
             <div class="theorem" id="theorem-exponential-sum-product-equality">
                 <div class="title">exponential sum product equality</div>
                 <div class="content">
                     Suppose `x, y in RR`, then `e^(x + y) = e^x * e^y`
                 </div>
+				<div class="proof">
+					TODO
+				</div>
             </div>
 
             <div class="corollary">
@@ -163,144 +147,112 @@
                 <div class="content">
                     `1/e^x = e^-x`
                 </div>
+				<div class="proof">
+					<p>
+						`e^0 = 1` as if we sub in `x = 0` `e^x = sum_{n = 0}^oo x^n/(n!)`, and we know that `0^0` is defined to be `0`, then `e^0 = 1`
+					</p>
+					<p>
+						But at the same time `e^0 = e^(x - x)` <span class="knowledge-link" data-href="/analysis/single_variable/exponential_function.html#theorem-exponential-sum-product-equality">which equals</span> `e^x * e^-x = 1`, so thus `1/e^x = e^(-x)` as needed.
+					</p>
+				</div>
             </div>
 
-	    <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <p>
-                        `e^0 = 1` as if we sub in `x = 0` `e^x = sum_{n = 0}^oo x^n/(n!)`, and we know that `0^0` is defined to be `0`, then `e^0 = 1`
-                    </p>
-                    <p>
-                        But at the same time `e^0 = e^(x - x)` <span class="knowledge-link" data-href="/analysis/single_variable/exponential_function.html#theorem-exponential-sum-product-equality">which equals</span> `e^x * e^-x = 1`, so thus `1/e^x = e^(-x)` as needed.
-                    </p>
-                </div>
-            </div>
 
-	    
+			<div class="proposition" id="proposition-TODO">
+				<div class="title"></div>
+				<div class="content">
+					`x < 0`,iff `e^x < 1`
+				</div>
+				<div class="proof">
+					since `e^x` is increasing it's fine (TODO finish)
+				</div>
+			</div>
+			
 
-	    <div id="proposition-TODO">
-	        <div class="proposition">
-	        <div class="title"></div>
-	        <div class="content">
-	            `x < 0`,iff `e^x < 1`
-	        </div>
-	        </div>
-	    
-	        <div class="proof">
-	        <div class="title"></div>
-	        <div class="content">
-		    since `e^x` is increasing it's fine
-	        </div>
-	        </div>
-	    </div>
+			<div class="proposition" id="proposition-TODO">
+				<div class="title"></div>
+				<div class="content">
+					 `0 < x < 1` iff `ln(x) < 0`
+				</div>
+				<div class="proof">
+						TODO
+				</div>
+			</div>
 
-	    <div id="proposition-TODO">
-	        <div class="proposition">
-	        <div class="title"></div>
-	        <div class="content">
-	             `0 < x < 1` iff `ln(x) < 0`
-	        </div>
-	        </div>
-	    
-	        <div class="proof">
-	        <div class="title"></div>
-	        <div class="content">
-	            TODO
-	        </div>
-	        </div>
-	    </div>
+				
 
-            
+			<div class="theorem">
+				<div class="title">exponential is always positive</div>
+				<div class="content">
+					`AA x in R, e^x > 0`
+				</div>
+				<div class="proof">
+					<p>
+						If `x > 0`, then by one of the unordered dependencies we have `x^n > 0`, then by one of the unorder dependencies about real numbes since `1/(n!) > 0` we have `x^n / (n!) > 0 / (n!) = 0` and using `x^n / (n!) = sum_{n = 0} ^oo a_n` with `a_i = 0` for `i in {0, ... , n - 1}` and `a_n = x^n / (n!)` and `b_i = x^i / (i!)` the comparison test tells us that `0 < e^x`
+					</p>
+					<p>
+						If `x < 0`, then `-x > 0`, and thus by the above argumnet `0 < e^(-x) = 1/e^x`, recall that `e^(-x) * e^x = 1`, and we know that `e^(-x)` and `1` are positive so therefore `e^x > 0` as well, as needed.
+					</p>
+					<p>
+						If `x = 0`, then `e^x = e^0 = 1`
+					</p>
+				</div>
+			</div>
 
-            <div class="theorem">
-                <div class="title">exponential is always positive</div>
-                <div class="content">
-                    `AA x in R, e^x > 0`
-                </div>
-            </div>
 
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <p>
-                        If `x > 0`, then by one of the unordered dependencies we have `x^n > 0`, then by one of the unorder dependencies about real numbes since `1/(n!) > 0` we have `x^n / (n!) > 0 / (n!) = 0` and using `x^n / (n!) = sum_{n = 0} ^oo a_n` with `a_i = 0` for `i in {0, ... , n - 1}` and `a_n = x^n / (n!)` and `b_i = x^i / (i!)` the comparison test tells us that `0 < e^x`
-                    </p>
-                    <p>
-                        If `x < 0`, then `-x > 0`, and thus by the above argumnet `0 < e^(-x) = 1/e^x`, recall that `e^(-x) * e^x = 1`, and we know that `e^(-x)` and `1` are positive so therefore `e^x > 0` as well, as needed.
-                    </p>
-                    <p>
-                        If `x = 0`, then `e^x = e^0 = 1`
-                    </p>
-                </div>
-            </div>
+			<div class="definition">
+				<div class="title">logarithm</div>
+				<div class="content">
+					Suppose that `a, b in RR`, then `m = log_b(a)` is a number such that `b^m = a`
+				</div>
+			</div>
 
-            <div class="definition">
-                <div class="title">logarithm</div>
-                <div class="content">
-                    Suppose that `a, b in RR`, then `m = log_b(a)` is a number such that `b^m = a`
-                </div>
-            </div>
+			<div class="definition">
+				<div class="title">natural logarithm</div>
+				<div class="content">
+					We define `ln(x) := log_e(x)` and call it the natural logarithm.
+				</div>
+			</div>
 
-            <div class="definition">
-                <div class="title">natural logarithm</div>
-                <div class="content">
-                    We define `ln(x) := log_e(x)` and call it the natural logarithm.
-                </div>
-            </div>
+			<div class="definition">
+				<div class="title"></div>
+				<div class="content">
+					`AA r in RR, r^x := e^(ln(r)*x)`
+				</div>
+			</div>
 
-            <div class="definition">
-                <div class="title"></div>
-                <div class="content">
-                    `AA r in RR, r^x := e^(ln(r)*x)`
-                </div>
-            </div>
+			<div class="proposition" id="proposition-exponentiation-inverse">
+				<div class="title">exponentiation inverse</div>
+				<div class="content">
+				given `r in RR`, then the multiplicative inverse of `r^x` is `r^(-x)`
+				</div>
+				<div class="proof">
+					TODO
+				</div>
+			</div>
+			
 
-	    <div id="proposition-exponentiation-inverse">
-	        <div class="proposition">
-		    <div class="title">exponentiation inverse</div>
-		    <div class="content">
-			given `r in RR`, then the multiplicative inverse of `r^x` is `r^(-x)`
-		    </div>
-	        </div>
-	    
-	        <div class="proof">
-		    <div class="title"></div>
-		    <div class="content">
-			TODO
-		    </div>
-	        </div>
-	    </div>
+			<div class="proposition" id="proposition-TODO">
+				<div class="title"></div>
+				<div class="content">
+					Suppose that `0 < r < 1` and `x in RR^(gt 0)`, then `0 < r^x < 1`
+				</div>
+				<div class="proof">
+					TODO
+				</div>
+			</div>
+			
 
-	    <div id="proposition-TODO">
-	        <div class="proposition">
-	        <div class="title"></div>
-	        <div class="content">
-	            Suppose that `0 < r < 1` and `x in RR^(gt 0)`, then `0 < r^x < 1`
-	        </div>
-	        </div>
-	    
-	        <div class="proof">
-	        <div class="title"></div>
-	        <div class="content">
-	            TODO
-	        </div>
-	        </div>
-	    </div>
+			<div class="proposition">
+				<div class="title"></div>
+				<div class="content">
+					Let `a, b in RR^(> 0)` and assume that `a < b`, then if `0 < r < 1`, then `r^a > r^b` 
+				</div>
+				<div class="proof">
+					Since `a < b`, then `0 < b - a`, and thus
+				</div>
+			</div>
 
-            <div class="proposition">
-                <div class="title"></div>
-                <div class="content">
-                    Let `a, b in RR^(> 0)` and assume that `a < b`, then if `0 < r < 1`, then `r^a > r^b` 
-                </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-		    Since `a < b`, then `0 < b - a`, and thus
-                </div>
-            </div>
 
         </div>
     </body>

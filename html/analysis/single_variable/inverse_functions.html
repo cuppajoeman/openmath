@@ -68,19 +68,20 @@
                 <div class="content">
                     a function is invertible iff it is <span class="knowledge-link" data-href="/analysis/single_variable/inverse_functions.html#definition-bijective-function">bijective</span>
                 </div>
+				<div class="proof">
+					TODO
+				</div>
             </div>
             
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                </div>
-            </div>
 
             <div class="proposition">
                 <div class="title"></div>
                 <div class="content">
                     If `f` is strictly monotone then it is invertible
                 </div>
+				<div class="proof">
+					TODO
+				</div>
             </div>
 
             <div class="proposition">
@@ -88,25 +89,22 @@
                 <div class="content">
                     Suppose that `f: X to Y` is strictly monotone, then `f^(-1): Y to X` is a continuous function
                 </div>
+				<div class="proof">
+					<p>
+						Suppose without loss of generality that `f` is strictly increasing on `I = (a, b)`. 
+					</p>
+					<p>
+						We'll show that the function is continuous, so let `p in I` and we'll show that `lim_{y to p} f^(-1)(x) = f^(-1)(p)` using the epsilon delta definition.
+					</p>
+					<p>
+						Let `epsilon in RR^(gt 0)`, let `x = f^(-1)(p)` and note that `x - epsilon < x + epsilon` and therefore since `f` is strictly increasing we know that `f(x - epsilon) < f(x + epsilon)`, in other words, there is some `delta_1, delta_2 in RR^(gt 0)` such that `f(x - epsilon) = p - delta_1` and `f(x + epsilon) = p + delta_2`, now take `delta = min(delta_1, delta_2)` and suppose `|y - p| lt delta`. 
+					</p>
+					<p>
+						if `|y - p| lt delta`, then `delta - p lt y lt delta + p`
+					</p>
+				</div>
             </div>
             
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <p>
-                        Suppose without loss of generality that `f` is strictly increasing on `I = (a, b)`. 
-                    </p>
-                    <p>
-                        We'll show that the function is continuous, so let `p in I` and we'll show that `lim_{y to p} f^(-1)(x) = f^(-1)(p)` using the epsilon delta definition.
-                    </p>
-                    <p>
-                        Let `epsilon in RR^(gt 0)`, let `x = f^(-1)(p)` and note that `x - epsilon < x + epsilon` and therefore since `f` is strictly increasing we know that `f(x - epsilon) < f(x + epsilon)`, in other words, there is some `delta_1, delta_2 in RR^(gt 0)` such that `f(x - epsilon) = p - delta_1` and `f(x + epsilon) = p + delta_2`, now take `delta = min(delta_1, delta_2)` and suppose `|y - p| lt delta`. 
-                    </p>
-                    <p>
-                        if `|y - p| lt delta`, then `delta - p lt y lt delta + p`
-                    </p>
-                </div>
-            </div>
 
         </div>
     </body>
