@@ -22,7 +22,7 @@
 			</p>
 
 			<p>
-				To deal with this github has something called a <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork</a> which allows you to take a github repository and make acopy under your ownership, this forked repository is editable by you in any way, but these changes do not affect the openmath repository. Assuming you've made non-malicious edits to your forked repository and you want to merge them into the openmath repository, you can create a pull request which is a request to merge in your changes.
+				To deal with this github has something called a <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork</a> which allows you to take a github repository and make a copy under your ownership, this forked repository is editable by you in any way, but these changes do not affect the openmath repository. Assuming you've made non-malicious edits to your forked repository and you want to merge them into the openmath repository, you can create a pull request which is a request to merge in your changes.
 			</p>
 
 			<p>
@@ -44,7 +44,7 @@
 
 			<h1>content editing</h1>
 
-			<h3>writing math</h3>
+			<h2>writing math</h2>
 
 			<p>
 			
@@ -116,22 +116,13 @@
 			
 			<code>
 				<pre>
-&ltdiv id="STATEMENT_TYPE-TODO"&gt
-	&ltdiv class="STATEMENT_TYPE" &gt
-		&ltdiv class="title"&gtTODO&lt/div&gt
-		&ltdiv class="content"&gt
-			TODO
-		&lt/div&gt
+&ltdiv class="STATEMENT_TYPE" id="STATEMENT_TYPE-TODO" &gt
+	&ltdiv class="title"&gtTODO&lt/div&gt
+	&ltdiv class="content"&gt
+		TODO
 	&lt/div&gt
-
 	&ltdiv class="proof"&gt
-		&ltdiv class="title"&gt&lt/div&gt
-		&ltdiv class="content"&gt
-			&ltdetails&gt
-				&ltsummary&gtshow&lt/summary&gt
-				TODO
-			&lt/details&gt
-		&lt/div&gt
+		TODO
 	&lt/div&gt
 &lt/div&gt
 				</pre>
@@ -140,8 +131,6 @@
 			<ul>
 				<li>STATEMENT_TYPE should be replaced by one of theorem, proposition, lemma, corollary or exercise</li>
 				<li>for the TODO in the id, follow the same procedure for the definition</li>
-				<li>the proof has a title element with no content inside, this automatically generates the black title with the text proof inside (see styles.css)</li>
-				<li>note that the proof is wrapped in a details element which allows the user to open or hide the proof, when developing feel free to remove this tag for easy debugging, but remember to re-add it before you push your code</li>
 				<li>note that the id is stored as a div containing both the statement and the proof, this is so that if it is dynamically loaded elsewhere the proof will be visible as well.</li>
 
 			</ul>
@@ -153,7 +142,7 @@
 			</p>
 			<code>
 				<pre>
-&ltspan class="knowledge-link" data-href="ABSOLUTE_PATH_TO_FILE_CONTAINING_KNOLWEDGE#KNOWLEDGE_ID"&gtTODO&lt/span&gt
+&lta class="knowledge-link" data-href="ABSOLUTE_PATH_TO_FILE_CONTAINING_KNOLWEDGE#KNOWLEDGE_ID"&gtTODO&lt/a&gt
 				</pre>
 			</code>
 			<p>
@@ -162,9 +151,11 @@
 
 			<code>
 				<pre>
-&ltspan class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides"&gtdivides&lt/span&gt
+&lta class="knowledge-link" data-href="/number_theory/division.html#definition-divides"&gtdivides&lt/a&gt
 				</pre>
 			</code>
+
+			Which generates this: <a class="knowledge-link" href="/number_theory/division.html#definition-divides">divides</a>
 
 			<h2>adding new files</h2>
 

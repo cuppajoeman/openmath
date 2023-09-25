@@ -301,7 +301,13 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
     knowledgeLinkElement.dataset.openedAtLeastOnce = false;
     knowledgeLinkElement.dataset.currentlyOpened = false;
 
-    const fullDestinationUrl = knowledgeLinkElement.dataset.href
+    let fullDestinationUrl;
+    if (knowledgeLinkElement.nodeName === "SPAN") { // old span syntax, moving to the new a tag syntax
+        fullDestinationUrl = knowledgeLinkElement.dataset.href;
+    } else if (knowledgeLinkElement.nodeName === "A") {
+        fullDestinationUrl = knowledgeLinkElement.href;
+    }
+
     const splitUrl = fullDestinationUrl.split("#") // also removes the #
 
     console.assert(splitUrl.length == 2, splitUrl);
@@ -318,6 +324,8 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
     console.assert(destinationURL != "")
 
     knowledgeLinkElement.onclick = async function(event) {
+
+        event.preventDefault(); // make sure we don't travel to the link
 
         const firstTimeOpening = knowledgeLinkElement.dataset.openedAtLeastOnce == "false" && knowledgeLinkElement.dataset.currentlyOpened == "false"; // strings used since data-* attributes only pass through as string
         if (firstTimeOpening) { // create the element
