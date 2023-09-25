@@ -263,30 +263,21 @@
         </div>
 
 
-		<div id="proposition-cartesian-product-distributes-over-intersection">
-			<div class="proposition">
+			<div class="proposition" id="proposition-cartesian-product-distributes-over-intersection">
 				<div class="title">cartesian product distributes over intersection</div>
 				<div class="content">
 					Given sets `A, B, C`, then `(A nn B) xx C = (A xx C) nn (B xx C)`
 				</div>
+                <div class="proof">
+                    We will show their equality <span class="knowledge-link" data-href="/fundamentals\sets.html#definition-set-equality">directly</span>
+                    <p>
+                        So suppose that `(x, y) in (A nn B) xx C`, which is true iff `x in A nn B` and `y in C`, which is true iff `(x, y) in A xx C` and `(x, y) in B xx C`, which is true iff `x in (A xx C) nn (B xx C)`.
+                    </p>
+                    <p>
+                        Therefore `(x, y) in (A nn B) xx C` if and only if `x in (A xx C) nn (B xx C)`, so `(A nn B) xx C = (A xx C ) nn (B xx C)` as needed.
+                    </p>
+                </div>
 			</div>
-		
-			<div class="proof">
-				<div class="title"></div>
-				<div class="content">
-					<details>
-						<summary>show</summary>
-						We will show their equality <span class="knowledge-link" data-href="/fundamentals\sets.html#definition-set-equality">directly</span>
-						<p>
-							So suppose that `(x, y) in (A nn B) xx C`, which is true iff `x in A nn B` and `y in C`, which is true iff `(x, y) in A xx C` and `(x, y) in B xx C`, which is true iff `x in (A xx C) nn (B xx C)`.
-						</p>
-						<p>
-							Therefore `(x, y) in (A nn B) xx C` if and only if `x in (A xx C) nn (B xx C)`, so `(A nn B) xx C = (A xx C ) nn (B xx C)` as needed.
-						</p>
-					</details>
-				</div>
-			</div>
-		</div>
 
 
     </div>
