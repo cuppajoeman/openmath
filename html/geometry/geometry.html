@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -19,7 +15,6 @@
                 "CommonHTML": { linebreaks: { automatic: true } }
             });
         </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
         <script src="../js/script.js" defer></script>
 		<link rel="icon" href="/Theta.svg">
     </head>
@@ -97,38 +92,29 @@
 				</div>
 			</div>
 
-			<div id="theorem-equilateral-triangle-construction">
-				<div class="theorem">
-					<div class="title">equilateral triangle construction</div>
-					<div class="content">
-						We can construct an equilateral triangle using a compass and straight edge
-					</div>
+			<div class="theorem" id="theorem-equilateral-triangle-construction">
+				<div class="title">equilateral triangle construction</div>
+				<div class="content">
+					We can construct an equilateral triangle using a compass and straight edge
 				</div>
-			
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						<details>
-							<summary>show</summary>
-							<p>
-								Let `A, B` be points on the plane, then we can construct the circle from `A` to `B`, `A o. B` and `B o. A`, from this we obtain two intersection points and pick one of them as `C`, and draw a third circle `C o. B`.
-							</p>
-							<div class="centered-content">
-								<img src="/geometry/graphics/equilateral-triangle-construction/1.svg" width="50%">
-								<img src="/geometry/graphics/equilateral-triangle-construction/2.svg" width="50%">
-								<img src="/geometry/graphics/equilateral-triangle-construction/3.svg" width="50%">
-							</div>
-							<p>
-								We know that `C in A o. B` so `text(dist)(A, B) = text(dist)(A, C)`, additionally `C in B o. A` so `text(dist)(B, C) = text(dist)(B, A)`, thus we have `text(dist)(A, B) = text(dist)(A, C) = text(dist)(B, C)` and so by drawing line segments between `A, B, C` we obtain a triangle all with equal side lengths
-							</p>
-							<div class="centered-content">
-								<img src="/geometry/graphics/equilateral-triangle-construction/4.svg" width="50%">
-							</div>
-							<p>
-								And thus the triangle `bar(A B), bar(B C), bar(C A)` is equilateral.
-							</p>
-						</details>
+					<p>
+						Let `A, B` be points on the plane, then we can construct the circle from `A` to `B`, `A o. B` and `B o. A`, from this we obtain two intersection points and pick one of them as `C`, and draw a third circle `C o. B`.
+					</p>
+					<div class="centered-content">
+						<img src="/geometry/graphics/equilateral-triangle-construction/1.svg" width="50%">
+						<img src="/geometry/graphics/equilateral-triangle-construction/2.svg" width="50%">
+						<img src="/geometry/graphics/equilateral-triangle-construction/3.svg" width="50%">
 					</div>
+					<p>
+						We know that `C in A o. B` so `text(dist)(A, B) = text(dist)(A, C)`, additionally `C in B o. A` so `text(dist)(B, C) = text(dist)(B, A)`, thus we have `text(dist)(A, B) = text(dist)(A, C) = text(dist)(B, C)` and so by drawing line segments between `A, B, C` we obtain a triangle all with equal side lengths
+					</p>
+					<div class="centered-content">
+						<img src="/geometry/graphics/equilateral-triangle-construction/4.svg" width="50%">
+					</div>
+					<p>
+						And thus the triangle `bar(A B), bar(B C), bar(C A)` is equilateral.
+					</p>
 				</div>
 			</div>
 
