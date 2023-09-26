@@ -10,10 +10,6 @@
 
     <script src="../js/script.js" defer></script> 
 
-    <!--  asciimath import - will be removed later on -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
-
-
 </head>
 
 <body>
@@ -195,6 +191,58 @@
 			<div class="title">natural numbers 1</div>
 			<div class="content">
 				We define `NN_1 := {1, 2, 3, 4, ...}`
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-a-set-intersected-with-a-superset-is-itself">
+			<div class="title">a set intersected with a superset is itself</div>
+			<div class="content">
+				Let `A, B` be sets such that `A sube B`, then `A nn B = A`
+			</div>
+			<div class="proof">
+				<p>
+				
+					<span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-set-equality-by-subsets">We start</span> by showing `A nn B sube A`, so consider `x in A nn B`, so we know that `x in A` and `x in B`, therefore we trivially know that `x in A`, as needed
+				</p>
+				<p>
+					Now consider the other direction, we need to show that `A sube A nn B`, so consider that `x in A`, then we want to show that `x in A` and `x in B`, which really just simplifies to showing `x in B`, but we know that `A sube B`, therefore since `x in A`, we know that `x in B` finishing the proof
+				</p>
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-intersection-factors-from-union">
+			<div class="title">intersection factors from union</div>
+			<div class="content">
+				Suppose that `U_alpha` is an indexed family of sets, and `Y` is any set, then 
+				<div class="centered-content">
+					`bigcup_(alpha in I)(U_alpha nn Y) = (bigcup_(alpha in I) U_alpha) nn Y`
+				</div>
+			</div>
+			<div class="proof">
+				<p>
+					Suppose that `x in bigcup_(alpha in I)(U_alpha nn Y)`, therefore there is some `beta in I`  such that `x in U_beta nn Y`, so that `x in U_beta` and `x in Y`. Since there is some `beta in I` such that `x in U_beta` then `x in bigcup_(alpha in I) U_alpha`, additionally we had that `x in Y` so that `x in (bigcup_(alpha in I) U_alpha) nn Y` as needed
+				</p>
+				<p>
+					Now suppose that `x in (bigcup_(alpha in I) U_alpha) nn Y`, therefore `x in (bigcup_(alpha in I) U_alpha)` and `x in Y`, due to this we have some `beta in I`, such that `x in U_beta` and thus `x in U_beta nn Y` which by definition shows that `x in bigcup_(alpha in I)(U_alpha nn Y)`
+				</p>
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-intersection-factors-from-intersection">
+			<div class="title">intersection factors from intersection</div>
+			<div class="content">
+				Suppose that `U_alpha` is an indexed family of sets, and `Y` is any set, then 
+				<div class="centered-content">
+					`bigcap_(alpha in I)(U_alpha nn Y) = (bigcap_(alpha in I) U_alpha) nn Y`
+				</div>
+			</div>
+			<div class="proof">
+				<p>
+					Suppose that `x in bigcap_(alpha in I)(U_alpha nn Y)`, therefore for every `alpha in I` we have: `x in U_alpha nn Y`, so that `x in U_alpha` and `x in Y`. Since it's true for every `alpha in I`  then `x in bigcap_(alpha in I) U_alpha`, additionally we had that `x in Y` so that `x in (bigcap_(alpha in I) U_alpha) nn Y` as needed
+				</p>
+				<p>
+					Now suppose that `x in (bigcap_(alpha in I) U_alpha) nn Y`, therefore `x in (bigcap_(alpha in I) U_alpha)` and `x in Y`, due to this, for every `alpha in I`, we know `x in U_alpha` and thus `x in U_alpha nn Y` which by definition shows that `x in bigcap_(alpha in I)(U_alpha nn Y)`
+				</p>
 			</div>
 		</div>
 		

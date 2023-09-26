@@ -34,6 +34,14 @@ async function preparePage() {
     createSystemColorModeListener();
     checkForSavedColorMode();
     setCustomCursor();
+    automaticallyAddMathJaxScript();
+}
+
+function automaticallyAddMathJaxScript() {
+    let tag = document.createElement('script');
+    tag.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML";
+    tag.defer = true;
+    document.body.appendChild(tag);
 }
 
 async function setUpAndAddHeader() {

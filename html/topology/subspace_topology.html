@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>subspace topology</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="../styles/styles.css">
+        <script src="../js/script.js" defer></script>
+    </head>
+    <body>
+
+        <div class="thin-wrapper">
+
+			<div class="definition" id="definition-intersected-topology">
+				<div class="title">intersected topology</div>
+				<div class="content">
+					
+					Let `X` be a <span class="knowledge-link" data-href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</span> with toplogy `cc T`. If `Y` is a subset of `X`, then we define the the toplogy `cc T` intersected with `Y` as the set
+					<div class="centered-content">
+						`cc T_(nn Y) := {Y nn U : U in cc T}`
+					</div>
+				</div>
+			</div>
+
+			<div class="proposition" id="proposition-intersected-topology-is-a-topology">
+				<div class="title">intersected topology is a topology</div>
+				<div class="content">
+						The set <span class="knowledge-link" data-href="/topology/subspace_topology.html#definition-intersected-topology">`cc T_(nn Y)`</span> is a topology on `Y`
+				</div>
+				<div class="proof">
+					<p>
+						We'll show that `O/` and `Y` are elements of `cc T_(nn Y)`, this can be seen as since `O/ in cc T`, then `Y nn O/ = O/ in cc T_(nn Y)` and also since `Y sube X`, <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-a-set-intersected-with-a-superset-is-itself">then</span> `Y nn X = Y` so `Y in cc T _ (nn Y)` 
+					</p>
+					<p>
+						Now we want to prove that `cc T _(nn Y)` is closed under abitrary unions, which we know <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-intersection-factors-from-intersection">because</span> `bigcup_(alpha in I) (U_alpha nn Y) = (bigcup_(alpha in I) U_alpha) nn Y`. Similarly we can see that it's closed under finite intersections <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-intersection-factors-from-intersection">as</span> `(U_1 nn Y) nn ... nn (U_n nn Y) = (U_1 nn ... nn U_n) nn Y`.
+					</p>
+					<p>
+						Therefore we know that `cc T_(nn Y)` is a topology.
+					</p>
+				</div>
+			</div>
+			
+
+
+			
+
+
+        </div>
+    </body>
+</html>
