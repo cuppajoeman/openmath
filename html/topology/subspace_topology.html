@@ -18,7 +18,7 @@
 				<div class="title">intersected topology</div>
 				<div class="content">
 					
-					Let `X` be a <span class="knowledge-link" data-href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</span> with toplogy `cc T`. If `Y` is a subset of `X`, then we define the the toplogy `cc T` intersected with `Y` as the set
+					Let `X` be a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a> with toplogy `cc T`. If `Y` is a subset of `X`, then we define the the toplogy `cc T` intersected with `Y` as the set
 					<div class="centered-content">
 						`cc T_(nn Y) := {Y nn U : U in cc T}`
 					</div>
@@ -45,8 +45,29 @@
 			
 
 
-			
+			<div class="definition" id="definition-subspace-topology">
+				<div class="title">subspace topology</div>
+				<div class="content">
+					Since `T_(nn Y)` forms a topology, we will denote it by `cc T_(nn Y)` and call it the subspace topology.
+				</div>
+			</div>	
 
+			<div class="proposition" id="proposition-basis-for-the-subspace-topology">
+				<div class="title">basis for the subspace topology</div>
+				<div class="content">
+					Suppose that `cc B` is a basis for the topology of `X`, then `M := {Y nn B : B in cc B}` is a basis and it generates `cc T _(nn Y)` 
+				</div>
+				<div class="proof">
+					<p>
+						First note that given any element `Y nn B in M`, we know that it is open with respect to `cc T_(nn Y)`, because `B` is open with respect to `X`
+					</p>
+					<p>
+						Now let `Y nn U` be an open set of `Y` which means that `U` is open in `X`. Let `p in Y nn U` , since `p in U` , `U` is open in `X` and `cc B` is a basis for `X` then we know there is some
+					</p>
+				</div>
+			</div>
+
+			
 
         </div>
     </body>
