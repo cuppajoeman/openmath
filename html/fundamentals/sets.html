@@ -179,6 +179,27 @@
 			</div>
 		</div>
 
+		<div id="exercise-partition-of-the-integers">
+			<div class="exercise">
+				<div class="title">partition of the integers</div>
+				<div class="content">
+					The family `{ {p in ZZ: p < 0}, {0}, {p in ZZ: p > 0}}` is a partition of `ZZ`
+				</div>
+				<div class="proof">
+					<p>
+						Note that the integers `-1, 0, 1` show that the empty set is not in this family. We'll now prove that it's union equals `ZZ`, so let `p in bigcup P`, therefore `p` is in at least one of the sets included in `P`, since each is a subset of `ZZ`, then we know `p in ZZ`, for the reverse direction, we can assume that `p in ZZ`, therefore we know that `p` is either positive, negative or zero, so that `p in bigcup P`, <a class="knowledge-link" href="/fundamentals/sets.html#proposition-set-equality-by-subsets">this shows </a> `bigcup P = ZZ`.
+					</p>
+					<p>
+						To show this family is pairwise disjoint, note that `0 notin {p in ZZ: p < 0}` and `0 notin {p in ZZ: p > 0}`, which shows us that `{0} nn {p in ZZ: p < 0} = O/` and `{0} nn {p in ZZ: p > 0} = O/`.
+					</p>
+					<p>
+						Given any positive integer, we know it cannot be a negative integer, therefore `{p in ZZ: p < 0} nn {p in ZZ: p> 0} = O/`, thus we know that `P` is pairwise disjoint, which concludes the proof.
+					</p>
+				</div>
+			</div>
+		
+		</div>
+
 		<div class="definition" id="definition-rationals">
 			<div class="title">rationals</div>
 			<div class="content">
