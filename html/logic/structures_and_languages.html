@@ -16,44 +16,143 @@
 <body>
     <div class="thin-wrapper">
 
-		<div class="definition" id="definition-TODO">
-			<div class="title">TODO</div>
+		<div class="definition" id="definition-first-order-language">
+			<div class="title">first order language</div>
 			<div class="content">
 				 A first order language `cc L` is an infinite collection of distinct symbols, no one of which is contained in another, separated into the following categories
 				 <ul>
 				 	<li>Parenthesis: `(, )`</li>
 				 	<li>Connectives: `vv, neg`</li>
 				 	<li>Quantifier: `AA`</li>
-				 	<li>Variables, one for each  `i in NN_1`: `v_i`, the collection of variables is denited by `text(vars)(cc L)`</li>
+				 	<li>Variables, one for each  `i in NN_1`: `v_i`
 				 	<li>Equality symbol: =</li>
 				 	<li>Constant symbols: A set of symbols</li>
 				 	<li>Function symbols, for each `n in NN_1`: A set of `n`-ary function symbols</li>
 				 	<li>Relation symbols, for each `n in NN_1`: A set of `n`-ary relation symbols</li>
 				 </ul>
 				 <p>
-				 	Since the only thibg differing from language to language are its constants, variables, functions and relations then we can denote the language `cc L` by `(C,V,F,R)`
+				 	Since the only thibg differing from language to language are its constants, variables, functions and relations then we can denote the language `cc L` by `(C_(cc L),F_(cc L),R_(cc L))`, we can denote the set of variables by `V_(cc L)`
 				 </p>
 			</div>
 		</div>
 
-		<div class="definition" id="definition-TODO">
-			<div class="title">TODO</div>
+		<div class="definition" id="definition-term">
+			<div class="title">term</div>
 			<div class="content">
-				If `cc L` is a language, a term of `cc L` is a nonempty finite string `t` of symbols from `cc L` such that
+				If `cc L` is a <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-first-order-language">language</a>, a term of `cc L` is a nonempty finite string `t` of symbols from `cc L` such that
 				<ul>
 					<li>`t` is a variable</li>
 					<li>`t` is a constant</li>
-					<li>`t -= f t_1 t_2 ... t_n)` is a constant where `f` is an `n`-ary function symbol if `cc L` and each `t_i` is a term of `cc L`</li>
+					<li>`t -= f t_1 t_2 ... t_n` is a constant where `f` is an `n`-ary function symbol if `cc L` and each `t_i` is a term of `cc L`</li>
 				</ul>
 			</div>
 		</div>
 
-		<div class="definition" id="definition-TODO">
-			<div class="title">TODO</div>
+		<div class="definition" id="definition-formula">
+			<div class="title">formula</div>
 			<div class="content">
-				If `cc L` is a first order language, then a formula of `cc L` is a non-empty finite set
+				If `cc L` is a first order <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-first-order-language">language</a>, then a formula of `cc L` is a non-empty finite string `phi` of symbols from `cc L` such that:
+				<ul>
+					<li>`phi :-= = t_1 t_2` where `t_1, t_2` are <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-term">terms</a> of `cc L`</li>
+					<li>`phi :-= Rt_1 t_2 ... t_n` where `R` is an `n`-ary relation symbol of `cc L` and `t_1, t_2` are terms of `cc L`</li>
+					<li>`phi :-= (neg alpha)` where `alpha` is a formula of `cc L`</li>
+					<li>`phi :-= (alpha vv beta)` where `alpha, beta` are formulas of `cc L`</li>
+					<li>`phi :-= (AA v) (alpha)` where `v` is a variable and `alpha` is a formula of `cc L`</li>
+				</ul>
 			</div>
 		</div>
+
+		<div class="definition" id="definition-language-of-number-theory">
+			<div class="title">language of number theory</div>
+			<div class="content">
+				We define the language `cc L_(NT) = ( {tt 0}, {tt S, tt +, tt *,tt E}, { tt lt })` as the language of number theory.
+			</div>
+		</div>
+
+		<div class="definition" id="definition-L-Structure">
+			<div class="title">`cc L`-Structure</div>
+			<div class="content">
+				Fix a <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-first-order-language">language `cc L`</a>. An `cc L`-structure `fr A` is a non-empty set `A`, called the universe of `fr A`, such that the following holds:
+				<ul>
+					<li>For each constant symbol `c` of `cc L`, we have an element `c^(fr A)` of `A`</li>
+					<li>For each `n`-ary function symbol `f` of `cc L`, we have a function `f^(fr A): A^n to A`</li>
+					<li>For each `n`-ary relation symbol `R` of `cc L`, we have an `n`-ary relation `R^(fr A)` on `A`</li>
+				</ul>
+				Similar to a language we may denote it by `( A, {c^(fr A): c in C_(cc L)}, {f^(fr A): f in F_(cc L)}, {R^(fr A): R in R_(cc L)})`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-standard-number-theory-structure">
+			<div class="title">standard number theory structure</div>
+			<div class="content">
+				Given `cc L_(NT)`, we define the structure `fr N := (NN_0, {0}, {S, +, *, E}, {lt})`, where the constant symbol `tt 0` maps to `0` (the element of `NN_0`),  `S` is the successor function `S(2) = 3`, `+` is usual addition `3 + 3 = 6`, `*` multiplication `2 * 4 = 8`, `E` for exponentiation `E(3, 2) = 9`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-variable-assigment-function">
+			<div class="title">variable assignment function</div>
+			<div class="content">
+				If `fr A` is an `cc L`-structure, a variable assignment function is any function of the form `s: V_(cc L) to A`
+			</div>
+		</div>
+
+		<div class="definition" id="definition-x-modification-of-an-assignment-function">
+			<div class="title">`x`-modification of an assignment function</div>
+			<div class="content">
+				If `s` is a variable assigment function into `fr A` and `x in V_(cc L)` and `a in A`, then `s[x | a]` is the variable assigment function defined as follows 
+				<div class="centered-content">
+					`s[x | a](v) := {(s(v), text(if ) v text( is a variable other than ) x),(a, text(if ) v text( is the variable ) x):}`
+				</div>
+				and we say that `s[x | a]` is an `x`-modification of the assigment function `s`
+			</div>
+		</div>
+
+		An `x`-modification of `s` is just like `s`, except we bind the variable `x` to the element `a` of `fr A`'s universe
+		
+		
+
+		<div class="definition" id="definition-term-assigment-function">
+			<div class="title">term assignment function</div>
+			<div class="content">
+				Suppose that `fr A` is an `L`-structure and `s` is a variable assigment function into `fr A`. The function `bar s`, called the term assigment function generated by `s`, is the function with domain consisting of the set of `cc L` terms and codomain `A` defined as follows
+				<ul>
+					<li>if `t` is a variable then `bar s (t) = s(t)`</li>
+					<li>if `t` is the constant `c` then `bar s (t) = c^(fr A)`</li>
+					<li>if `t :-= f t_1 t_2 ... t_n` then `bar s (t) = f^(fr A)(bar s (t_1), bar s (t_2), ..., bar s (t_n))`</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="definition" id="definition-interpretation-of-a-term">
+			<div class="title">interpretation of a term</div>
+			<div class="content">
+				Given an <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-L-Structure">`cc L`-structure `fr A`</a>, and a
+				<a class="knowledge-link" href="/logic/structures_and_languages.html#definition-term">term</a> `t` from `cc L`, we say that it's interpretation in `fr A` is `bar s (t)`
+			</div>
+		</div>
+		
+		
+		<div class="exercise" id="exercise-numbers-in-the-number-theory-structure">
+			<div class="title">numbers in the number theory structure</div>
+			<div class="content">
+				What is the <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-interpretation-of-a-term">interpretation</a> in `fr N` of the term `t` defined as `tt(E S S S 0 S S 0)`
+			</div>
+			<div class="proof">
+				<p>
+					The interpretation is `bar s (tt(E S S S 0 S S 0))` which is equal to `tt E ^(fr A) (bar s (tt(S S S 0)), bar s (tt(s s 0)))`, we know that `tt E ^(fr A) = E` (the exponentiation function).
+				</p>
+				<p>
+					Now considering `bar s (tt(S S 0))` it becomes `S ( bar s (tt (S 0)))` which becomes `S (S ( bar s (tt 0)))` and since `bar s (tt 0) = tt 0 ^(fr A) = 0` (the natural number 0), then `bar s (tt(S S 0)) = 0 + 1 + 1 = 2`, similarly we can find that `bar s (tt(S S S 0)) = 3`
+				</p>
+				<p>
+					From the above paragrpah we know that `E (bar s (tt(S S S 0)), bar s (tt(s s 0)))` becomes `E (3, 2)` which equals `9`, so therefore the interpretation of `tt(E S S S 0 S S 0)` in `fr N` is `9`.
+				</p>
+			</div>
+		</div>
+				
+		
+
+		
 
     </div>
 </body>
