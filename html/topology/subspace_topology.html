@@ -28,17 +28,17 @@
 			<div class="proposition" id="proposition-intersected-topology-is-a-topology">
 				<div class="title">intersected topology is a topology</div>
 				<div class="content">
-						The set <span class="knowledge-link" data-href="/topology/subspace_topology.html#definition-intersected-topology">`cc T_(nn Y)`</span> is a topology on `Y`
+						The set <span class="knowledge-link" data-href="/topology/subspace_topology.html#definition-intersected-topology">`T_(nn Y)`</span> is a topology on `Y`
 				</div>
 				<div class="proof">
 					<p>
-						We'll show that `O/` and `Y` are elements of `cc T_(nn Y)`, this can be seen as since `O/ in cc T`, then `Y nn O/ = O/ in cc T_(nn Y)` and also since `Y sube X`, <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-a-set-intersected-with-a-superset-is-itself">then</span> `Y nn X = Y` so `Y in cc T _ (nn Y)` 
+						We'll show that `O/` and `Y` are elements of `T_(nn Y)`, this can be seen as since `O/ in T`, then `Y nn O/ = O/ in T_(nn Y)` and also since `Y sube X`, <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-a-set-intersected-with-a-superset-is-itself">then</span> `Y nn X = Y` so `Y in T _ (nn Y)` 
 					</p>
 					<p>
-						Now we want to prove that `cc T _(nn Y)` is closed under abitrary unions, which we know <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-intersection-factors-from-intersection">because</span> `bigcup_(alpha in I) (U_alpha nn Y) = (bigcup_(alpha in I) U_alpha) nn Y`. Similarly we can see that it's closed under finite intersections <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-intersection-factors-from-intersection">as</span> `(U_1 nn Y) nn ... nn (U_n nn Y) = (U_1 nn ... nn U_n) nn Y`.
+						Now we want to prove that `T _(nn Y)` is closed under arbitrary unions, which we know <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-intersection-factors-from-intersection">because</span> `bigcup_(alpha in I) (U_alpha nn Y) = (bigcup_(alpha in I) U_alpha) nn Y`. Similarly we can see that it's closed under finite intersections <span class="knowledge-link" data-href="/fundamentals/sets.html#proposition-intersection-factors-from-intersection">as</span> `(U_1 nn Y) nn ... nn (U_n nn Y) = (U_1 nn ... nn U_n) nn Y`.
 					</p>
 					<p>
-						Therefore we know that `cc T_(nn Y)` is a topology.
+						Therefore we know that `T_(nn Y)` is a topology.
 					</p>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 			<div class="definition" id="definition-subspace-topology">
 				<div class="title">subspace topology</div>
 				<div class="content">
-					Since `T_(nn Y)` forms a topology, we will denote it by `cc T_(nn Y)` and call it the subspace topology.
+					Since `T_(nn Y)` forms a topology, we will denote it by `cc T_(nn Y)` and call it the subspace topology and that `Y` is a subspace of `X`
 				</div>
 			</div>	
 
@@ -59,13 +59,52 @@
 				</div>
 				<div class="proof">
 					<p>
-						First note that given any element `Y nn B in M`, we know that it is open with respect to `cc T_(nn Y)`, because `B` is open with respect to `X`
+					To prove this statement true, we'll use the handy <a class="knowledge-link" href="/topology/topological_spaces.html#theorem-basis-criterion">basis criterion</a>
 					</p>
 					<p>
-						Now let `Y nn U` be an open set of `Y` which means that `U` is open in `X`. Let `p in Y nn U` , since `p in U` , `U` is open in `X` and `cc B` is a basis for `X` then we know there is some
+					First note that given any element `Y nn B in M`, we know that it is open with respect to `cc T_(nn Y)`, <a class="knowledge-link" href="/topology/topological_spaces.html#corollary-basis-elements-are-open-in-a-generated-topology">because </a>`B` is open with respect to `X`
+					</p>
+					<p>
+						Now let `Y nn U` be an open set of `Y` which means that `U` is open in `X`. Let `p in Y nn U` , since `p in U` , `U` is open in `X` and `cc B` is a basis for `X` then we know there is some `B in cc B` such that `p in B sube U` if that's the case then we know that `p in Y nn B sube Y nn U`, noting that `Y nn B in M`, therefore we know that `M` is a basis and it is for `Y`
 					</p>
 				</div>
 			</div>
+			
+			<div class="lemma" id="lemma-open-in-a-subspace-implies-open">
+				<div class="title">open in a subspace implies open</div>
+				<div class="content">
+					Suppose that `Y` is a subspace of `X` and also that `Y` is open in `X`, then any set that's open in `Y` is also open in `X`
+				</div>
+				<div class="proof">
+					Suppose that `U` is open in `Y`, thus there is some `V` open in `X` such that `U = Y nn V`, but since `Y` is open in `X`, then as a finite intersection of open elements, then `U` is also open in `X`, as needed.
+				</div>
+			</div>
+
+			<div id="theorem-TODO">
+				<div class="theorem">
+					<div class="title">TODO</div>
+					<div class="content">
+						Suppose that `A` is a subspace of `X` and `B` is a subspace of `Y`, then the product topology on `A xx B` is the same as the topology `A xx B` has as a subspace of `X xx Y`
+					</div>
+					<div class="proof">
+						<p>
+							We will show that the two topologies are equal by showing that the basis that generate them are equal.
+						</p>
+						<p>
+							Given the subspace `A` of `X` and `B` of `Y`, then the product topology of `A xx B` has a basis of elements of the form `(A nn U) xx (B nn V)` where `U, V` are open in `X, Y` respectively.
+						</p>
+						<p>
+							On the other hand ,an open set in `X xx Y` is of the form `U xx V` where `U, V` are open in `X, Y` respectively, thus a basis element for `A xx B` (as a subspace of `X xx Y`)is a set of the form `(A xx B) nn (U xx V)`.
+						</p>
+						<p>
+							Now to connect the two recall thqt `(A nn U) xx (B nn V) = (A xx B) nn (U xx V)`. So given a set, it is in the first basis if and only if it is in the second basis, meaning that the two bases are equal, and thus they generate the same topology.
+						</p>
+				</div>
+			
+			</div>
+			
+			
+
 
 			
 
