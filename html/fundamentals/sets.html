@@ -65,6 +65,13 @@
             </div>
         </div>
 
+		<div class="definition" id="definition-family-of-sets">
+			<div class="title">family of sets</div>
+			<div class="content">
+				We denote a set whose elements are also sets by a family of sets to avoid saying a set of sets
+			</div>
+		</div>
+
         <div class="definition" id="definition-subset">
             <div class="title">subset</div>
             <div class="content">
@@ -105,7 +112,7 @@
         <div class="definition" id="definition-arbitrary-union">
             <div class="title">arbitrary union</div>
             <div class="content">
-                Suppose that `M` is a collection of sets, then `bigcup M` is defined so that `x in bigcup M iff EE A in M, x in A`
+                Suppose that `M` is a <a class="knowledge-link" href="/fundamentals/sets.html#definition-family-of-sets">family of sets</a>, then `bigcup M` is defined so that `X in bigcup M iff EE A in M, X in A`
             </div>
         </div>
 
@@ -149,7 +156,7 @@
 		<div class="definition" id="definition-pairwise-disjoint-sets">
 			<div class="title">pairwise disjoint sets</div>
 			<div class="content">
-				Let `n in NN_1` and suppose that `S_1, S_2, S_3, ..., S_n` are sets, then these sets are pairwise disjoint if given `i, j in {1, 2, ..., n}` if `i ne j` then `S_i nn S_j = O/`
+				Suppose that `M` is a <a class="knowledge-link" href="/fundamentals/sets.html#definition-family-of-sets">family of sets</a>, then we say these sets are pairwise disjoint when given `A, B in M` such that `A ne B`, then `A nn B = O/`
 			</div>
 		</div>
 
@@ -159,6 +166,39 @@
 
             </div>
         </div>
+		
+		<div class="definition" id="definition-partition">
+			<div class="title">partition</div>
+			<div class="content">
+				Suppose that `X` is a set, then we say that a set `P` is a partition of `X` if and only if the following are true
+				<ul>
+					<li>`O/ notin P`</li>
+					<li><a class="knowledge-link" href="/fundamentals/sets.html#definition-arbitrary-union">`bigcup P` </a>` = X`</li>
+					<li>P is <a class="knowledge-link" href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="exercise-partition-of-the-integers">
+			<div class="exercise">
+				<div class="title">partition of the integers</div>
+				<div class="content">
+					The family `{ {p in ZZ: p < 0}, {0}, {p in ZZ: p > 0}}` is a partition of `ZZ`
+				</div>
+				<div class="proof">
+					<p>
+						Note that the integers `-1, 0, 1` show that the empty set is not in this family. We'll now prove that it's union equals `ZZ`, so let `p in bigcup P`, therefore `p` is in at least one of the sets included in `P`, since each is a subset of `ZZ`, then we know `p in ZZ`, for the reverse direction, we can assume that `p in ZZ`, therefore we know that `p` is either positive, negative or zero, so that `p in bigcup P`, <a class="knowledge-link" href="/fundamentals/sets.html#proposition-set-equality-by-subsets">this shows </a> `bigcup P = ZZ`.
+					</p>
+					<p>
+						To show this family is pairwise disjoint, note that `0 notin {p in ZZ: p < 0}` and `0 notin {p in ZZ: p > 0}`, which shows us that `{0} nn {p in ZZ: p < 0} = O/` and `{0} nn {p in ZZ: p > 0} = O/`.
+					</p>
+					<p>
+						Given any positive integer, we know it cannot be a negative integer, therefore `{p in ZZ: p < 0} nn {p in ZZ: p> 0} = O/`, thus we know that `P` is pairwise disjoint, which concludes the proof.
+					</p>
+				</div>
+			</div>
+		
+		</div>
 
 		<div class="definition" id="definition-rationals">
 			<div class="title">rationals</div>
