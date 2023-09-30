@@ -144,6 +144,62 @@
 			</div>
 		</div>
 
+		<div class="proposition" id="proposition-TODO">
+			<div class="title">TODO</div>
+			<div class="content">
+				`x notin A nn B` if and only if `x in A oplus x in B`
+			</div>
+			<div class="proof">
+				TODO
+			</div>
+		</div>
+
+		<div id="proposition-TODO">
+			<div class="proposition">
+				<div class="title">union better</div>
+				<div class="content">
+					`x in A uu B` if and only if `x in A lor x in B`
+				</div>
+			</div>
+		
+			<div class="proof">
+				<div class="title"></div>
+				<div class="content">
+					TODO
+				</div>
+			</div>
+		</div>
+
+		<div id="proposition-TODO">
+			<div class="proposition">
+				<div class="title">TODO</div>
+				<div class="content">
+					`x in A oplus x in B` implies that `x in A uu B`
+				</div>
+				<div class="proof">
+					TODO
+				</div>
+			</div>
+		
+		</div>
+
+		<div id="proposition-TODO">
+			<div class="proposition">
+				<div class="title">TODO</div>
+				<div class="content">
+					`x notin A nn B` implies `x in A uu B`
+				</div>
+			</div>
+		
+			<div class="proof">
+				<div class="title"></div>
+				<div class="content">
+					TODO
+				</div>
+			</div>
+		</div>
+
+
 		<div class="definition" id="definition-disjoint-sets">
 			<div class="title">disjoint sets</div>
 			<div class="content">
@@ -311,6 +367,140 @@
                 </p>
             </div>
         </div>
+
+		<div class="definition" id="definition-set-difference">
+			<div class="title">set difference</div>
+			<div class="content">
+				Suppose that `A, B` are sets, then `A \\ B := {a in A: a notin B}` and call it the set difference of `A` and `B`
+			</div>
+		</div>
+
+		<div id="proposition-TODO">
+			<div class="proposition">
+				<div class="title">TODO</div>
+				<div class="content">
+					Suppose that `A, B` are sets such that `A sube B`, then (iff) `A \\ B = O/`
+				</div>
+			</div>
+		
+			<div class="proof">
+				<div class="title"></div>
+				<div class="content">
+					TODO
+				</div>
+			</div>
+		</div>
+
+		<div id="proposition-TODO">
+			<div class="proposition">
+				<div class="title">TODO</div>
+				<div class="content">
+					`X \\ X = O/` and `X \\ O/ = X`
+				</div>
+			</div>
+		
+			<div class="proof">
+				<div class="title"></div>
+				<div class="content">
+					TODO
+				</div>
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-intersection-distributes-through-intersection">
+			<div class="title">intersection distributes through intersection</div>
+			<div class="content">
+				Suppose that `A, B, X` are sets  then `(A \\ B) nn X = (A nn X) \\ (B nn X)`
+			</div>
+			<div class="proof">
+				<p>
+					
+					Suppose that `p in (A \\ B) nn X` so `p in A`, `p notin B` and `p in X`, this means that `p in A nn X` and `p notin B nn X`, this shows that `p in (A nn X) \\ (B nn X)` as needed  
+				</p>
+				<p>
+					Now suppose that `p in (A nn X) \\ (B nn X)` so `p in A`, `p in X` but `p notin B nn X`, since we know that `p in X`, to avoid contradiction we must have `p notin B` with this information, we can se that `p in (A \\ B) nn X`, as needed.
+				</p>
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-TODO">
+			<div class="title">TODO</div>
+			<div class="content">
+				Suppose that `A, B, C` are sets then `A \\ (B nn C) = A \\ B uu A \\ C`
+			</div>
+			<div class="proof">
+				<p>
+					We know that `x in A \\  (B nn C) ` is true iff `x in A` and `x notin (B nn C)`, equivalent to `x notin B` or `x notin C`, since `x in A`, we can biconditionally re-write this as `x in A \\ B` or `x in A \\ C` iff `x in (A \\ B) uu (A \\ C)`
+				</p>
+				<p>
+					Since all connectives in the above proof are bi-conditionals, then we know that `A \\ (B nn C) = (A \\ B) uu (A \\ C)`
+				</p>
+			</div>
+		</div>
+		
+		<div id="proposition-TODO">
+			<div class="proposition">
+				<div class="title">TODO</div>
+				<div class="content">
+					Suppose that `A, B, C` are sets such that `A sube B`, then `A \\ (B \\ C) = (A \\ B) nn C`
+				</div>
+				<div class="proof">
+					<p>
+						Suppose that `x in A \\ (B \\ C)` which is true iff `x in A` and `x notin (B \\ C)` which means that it's not true that `(x in B land x notin C)` so that `x notin B` or `x in C`, since `x in A` and we know that `A sube B` then `x in B`, which forcs `x in C` to avoid a contradiction, therefore ``
+					</p>
+					<p>
+						Suppose that `x in A nn B`, since `x in B`, then it's not true that `x notin B`, therefore `x notin (A \\ B)` since `x in A`, this shows that `x in A \\ (A \\ B)`
+					</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="proposition-TODO">
+			<div class="proposition">
+				<div class="title">TODO</div>
+				<div class="content">
+					Suppose that `A, B` are sets, then `A \\ (A \\ B) = A nn B`
+				</div>
+				<div class="proof">
+					<p>
+						Suppose that `x in A \\ (A \\ B)` which is true iff `x in A` and `x notin (A \\ B)` which means that it's not true that `(x in A land x notin B)` we already know that `x in A` holds, so we must have that `x notin B` to be false, which means that `x in B` so that `x in A nn B`
+					</p>
+					<p>
+						Suppose that `x in A nn B`, since `x in B`, then it's not true that `x notin B`, therefore `x notin (A \\ B)` since `x in A`, this shows that `x in A \\ (A \\ B)`
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="proposition-TODO">
+			<div class="proposition">
+				<div class="title">TODO</div>
+				<div class="content">
+					Suppose that `Y sube X` and  `Y \\ A = Y nn U`, then `A = Y nn (X \\ U)` solves the given equation
+				</div>
+				<div class="proof">
+					Suppose that `A = Y nn (X \\ U)`, then `Y \\ A = Y \\ (Y nn (X \\ U)) = (Y \\ Y) uu (Y \\ (X \\ U)) = O/ uu ` 
+				</div>
+			</div>
+		
+		</div>
+		
+		<div class="theorem" id="theorem-demorgans-laws">
+			<div class="title">DeMorgan's Laws</div>
+			<div class="content">
+				Suppose that `M` is a family of sets, then `X \\ (bigcup_(A in M) A) = bigcap_(A in M) (X \\ A)` and `X \\ (bigcap_(A in M) A) = bigcup_(A in M) (X \\ A)`
+			</div>
+			<div class="proof">
+				<p>
+					Note that, `p in X \\ (bigcup_(A in M) A)`, if and only if  `p in X` and `x notin bigcup_(A in M) A`, which is equivalent to: for all `A in M` `p notin A`, which is the same as `p in (X \\ A)` for each `A in M`, so by definition `p in bigcap_(A in M) (X \\ A)`. Since each connective in the previous paragraph was an iff, then this implies the two sets are equal
+				</p>
+				<p>
+					For the second proof, we'll follow a similar structure to the first. Note that, `p in X \\ (bigcap_(A in M) A)`, if and only if  `p in X` and `x notin bigcap_(A in M) A`, which is equivalent to: there is some `A in M` `p notin A`, which is the same as `p in (X \\ A)` for some `A in M`, so by definition `p in bigcup_(A in M) (X \\ A)`. Since each connective in the previous paragraph was an iff, then this implies the two sets are equal
+				</p>
+			</div>
+		</div>
+		
 
         <div class="definition">
             <div class="title">n tuple</div>
