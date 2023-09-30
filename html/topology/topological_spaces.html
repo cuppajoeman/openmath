@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>topology</title>
+        <title>Topology</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,38 +22,48 @@
 
         <div class="thin-wrapper">
 
-            <h1>topology</h1>
+            <h1>Topology</h1>
 
             <div class="definition" id="definition-topology-on-a-set">
-                <div class="title">topology on a set `X`</div>
+                <div class="title">Topology on a set `X`</div>
                 <div class="content">
                     <p>
-                        is a collection `cc T` of subset of `X` with the following properties
+                        A topology on `X` is a collection `cc T` of subsets of `X`, that is: it is a subset of the power set of `X`, with the following properties:
                     </p>
                     <ol>
-                        <li>`O/` and `X` are in `cc T`</li>
-                        <li>the union of the elements of any subcollection of `cc T` is in `cc T`</li>
-                        <li>the intersection of the elements of any finite subcollection of `cc T` is in `cc T`</li>
+                        <li>`O/, X \in cc T`</li>
+                        <li>Suppose `\{U_{\alpha}\}` is a family of sets in `cc T` then</li>
+                            <div class="centered-content">
+                                `\bigcup_{\alpha} U_{\alpha} \in cc T`
+                            </div>
+                        <li>Suppose `\{U_i\}_{i=1}^{n}` is a finite family of set in `cc T` then</li>
+                            <div class="centered-content">
+                                `\bigcap_{i=1}^{n} U_{i} \in cc T`
+                            </div>
                     </ol>
                     The set `X` along with `cc T` satsifying the above conditions is called a topological space and is denoted by `(X, cc T)`
                 </div>
             </div>
 
             <div class="definition" id="definition-open-set">
-                <div class="title">open set</div>
+                <div class="title">Open set</div>
                 <div class="content">
-                    Suppose `(X, cc T)` is a <span class="knowledge-link" data-href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</span>, if `U in cc T` then we say that `U` is open with respect to `X`.
+                    Suppose `(X, cc T)` is a <span class="knowledge-link" data-href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</span>, 
+                    if `U in cc T` then we say that `U` is open with respect to `X`.
                 </div>
             </div>
 
 			<div class="proposition" id="proposition-a-set-filled-with-open-sets-is-open">
 				<div class="title">a set filled with open sets is open</div>
 				<div class="content">
-					Let `X` be a <span class="knowledge-link" data-href="#definition-topology-on-a-set">topological space</span>, and `A sube X` . Suppose that for each `x in A` there is an <span class="knowledge-link" data-href="#definition-open-set">open set</span> `U` containing `x` such that `U sube A`. Show that `A` is open in `X`.
+					Let `X` be a <span class="knowledge-link" data-href="#definition-topology-on-a-set">topological space</span>, and `A sube X`. 
+                    Suppose that for each `x in A` there is an <span class="knowledge-link" data-href="#definition-open-set">open set</span> `U` containing `x` 
+                    such that `U sube A`. Show that `A` is open in `X`.
 				</div>
 				<div class="proof">
 					<p>
-						Since for each `x in A`, there is an open set `U_x` such that `x in U_x sube A`, then `A` is covered by subsets, <span class="knowledge-link" data-href="/fundamentals/set_theory.html#proposition-a-set-filled-with-subsets-is-a-union">therefore it is a union</span>, and we can write `A = bigcup_{x in A} U_x`
+						Since for each `x in A`, there is an open set `U_x` such that `x in U_x sube A`, then `A` is covered by subsets, 
+                        <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-union">therefore it is a union</span>, and we can write `A = bigcup_{x in A} U_x`
 					</p>
 					<p>
 						Since each `U_x` was assumed to be open with respect to `X`, then an arbitrary union of them is also open with respect to `X`, in other words `A` must be open.
