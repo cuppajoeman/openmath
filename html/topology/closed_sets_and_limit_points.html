@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+        <title>closed sets and limit points</title>
+		
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/styles/styles.css">
+        <script src="/js/script.js" defer></script>
+
+		<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+		
+    </head>
+    <body>
+
+        <div class="thin-wrapper">
+
+			<div class="definition" id="definition-closed-set">
+				<div class="title">closed set</div>
+				<div class="content">
+					A subset `A` of a topological space `X` is said to be closed if `X \\ A` is open
+				</div>
+			</div>
+
+			<div class="theorem" id="theorem-closed-topology">
+				<div class="title">closed topology</div>
+				<div class="content">
+					Suppose that `X` is a topological space, the the following conditions hold:
+					<ul>
+						<li>`O/` and `X` are closed</li>
+						<li>arbitrary intersections of closed sets are closed</li>
+						<li>finite unions of closed sets are closedj</li>
+					</ul>
+				</div>
+				<div class="proof">
+					<p>
+						The complement of `O/, X` in `X` are `X, O/` respectively, which are both open in `X`, making the original sets closed
+					</p>
+					<p>
+						Suppose that `{A_alpha}_(alpha in I)` is a collection of closed sets, then we know that `X \\ bigcap_(alpha in I) A_alpha = bigcup_(alpha in I) (X \\ A_alpha)`, and since each `A_beta` is closed then `X \\ A_beta` is open, making `bigcup_(alpha in I) (X \\ A_alpha)` an arbitrary union of open sets, and is thus open, making `X \\ bigcap_(alpha in I) A_alpha` open
+					</p>
+					<p>
+						Now suppose that `I` is finite, and we'll show that `X \\ bigcup_(alpha in I) A_alpha` is open, we know this set is equal to `bigcap_(alpha in I) (X \\ A _alpha)`, and as a finite intersection of open sets, we know it is open as well showing the original set is open
+					</p>
+				</div>
+			</div>
+
+			<div class="proposition" id="proposition-closed-in-a-subspace-iff-is-intersection">
+				<div class="title">closed in a subspace if and only iff it's intersection</div>
+				<div class="content">
+					Let `Y` be a subspace of `X`, then a set `A` is closed in `Y` if and only if it equals the intersection of a closed set of `X` with `Y`
+				</div>
+				<div class="proof">
+					<p>
+						Let's start by assuming that we have a set `A = C nn Y` where `C` is closed in `X`, therefore `X \\ C` is open in `X`, therefore `(X \\ C) nn Y` is open in `Y`, since `Y sube X`, then `(X \\ C) nn Y = (X nn Y) \\ (C nn Y) = Y \\ A` showing that `A` is closed as needed.
+					</p>
+					<p>
+						Now let's assume that `A` is closed in `Y`, therefore `Y \\ A` is open in `Y`, meaning that there is some set `U` open in `X` such that `Y \\ A = Y nn U` therefore `A = Y nn (X \\ U)`
+					</p>
+				</div>
+			</div>
+			
+
+        </div>
+    </body>
+</html>

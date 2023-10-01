@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>runtime</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+	<script src="/js/script.js" defer></script>
+
+	<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+       <div class="definition" id="definition-big-o">
+       	<div class="title">big-o</div>
+       	<div class="content">
+       		Suppose we have `f: NN_0 to RR^(gt 0)`, then we define 
+			<div class="centered-content">
+				`cc O (f) := { g: NN_0 to RR^(gt 0) | EE c, n_0 in RR^+, AA n in NN_0, n ge n_0 implies g(n) le c * f(n)}`
+			</div>
+       	</div>
+       </div>
+
+	   <div class="exercise" id="exercise-basic-polynomial">
+	   	<div class="title">basic polynomial</div>
+	   	<div class="content">
+			Suppose `f(n) = n^3` and `g(n) = n^3 + 100n + 5000`, show that `g in ccO (f)`
+	   	</div>
+	   	<div class="proof">
+	   		TODO
+	   	</div>
+	   </div>
+	   
+        
+
+    </div>
+</body>

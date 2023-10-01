@@ -35,13 +35,27 @@ async function preparePage() {
     checkForSavedColorMode();
     setCustomCursor();
     automaticallyAddMathJaxScript();
+    automaticallyAddIcon();
+}
+
+function automaticallyAddIcon() {
+    let iconTag = document.createElement('link');
+    iconTag.rel = "icon";
+    iconTag.href = "/Theta.svg";
+    document.head.appendChild(iconTag);
 }
 
 function automaticallyAddMathJaxScript() {
-    let tag = document.createElement('script');
-    tag.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML";
-    tag.defer = true;
-    document.body.appendChild(tag);
+
+    let mathJaxTag = document.createElement('script');
+    mathJaxTag.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+    mathJaxTag.defer = true;
+    document.head.appendChild(mathJaxTag);
+
+    // let asciimathTag = document.createElement('script');
+    // asciimathTag.src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML";
+    // asciimathTag.defer = true;
+    // document.head.appendChild(asciimathTag);
 }
 
 async function setUpAndAddHeader() {
