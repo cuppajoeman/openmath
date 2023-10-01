@@ -32,30 +32,58 @@
         </div>
 
         <div class="definition" id="definition-arbitrary-union">
-            <div class="title">arbitrary union</div>
+            <div class="title">Arbitrary Union</div>
             <div class="content">
                 Suppose that `M` is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then `bigcup M` is defined so that `X in bigcup M iff EE A in M, X in A`
             </div>
         </div>
 
+        <div class="definition" id="definition-arbitrary-intersection">
+            <div class="title">Arbitrary Intersection</div>
+            <div class="content">
+                Suppose that `M` is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then `bigcap M` is defined so that `X in bigcap M iff AA A in M, X in A`
+            </div>
+        </div>
+
         <div class="definition" id="definition-arbitrary-union-element-of-notation">
-            <div class="title">arbitrary union element of notation</div>
+            <div class="title">Arbitrary Union Element of Notation</div>
             <div class="content">
                 We define `bigcup_(A in M) A :=` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">`bigcup M`</span>
             </div>
         </div>
 
-        <div class="definition" id="definition-arbitrary-union-indexed-notation">
-            <div class="title">arbitrary union indexed notation</div>
+        <div class="definition" id="definition-arbitrary-intersection-element-of-notation">
+            <div class="title">Arbitrary Intersection Element of Notation</div>
             <div class="content">
-                Suppose that `I` is an index set for the collection `cc A = {A_i : i in I}` where `A_i` is a set, then `bigcup_(i in I) A_i := ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">`bigcup cc A`</span>
+                We define `bigcap_(A in M) A :=` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">`bigcap M`</span>
+            </div>
+        </div>
+
+        <div class="definition" id="definition-arbitrary-union-indexed-notation">
+            <div class="title">Arbitrary Union Indexed Notation</div>
+            <div class="content">
+                Suppose that `I` is an index set for the collection `cc A = {A_alpha : alpha in I}` where `A_alpha` is a set, then `bigcup_(alpha in I) A_alpha := ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">`bigcup cc A`</span>. If the index set is known by context, then we may use the shorthand `bigcup_alpha A_alpha`
+            </div>
+        </div>
+
+        <div class="definition" id="definition-arbitrary-intersection-indexed-notation">
+            <div class="title">Arbitrary Intersection Indexed Notation</div>
+            <div class="content">
+                Suppose that `I` is an index set for the collection `cc A = {A_alpha : alpha in I}` where `A_alpha` is a set, then `bigcap_(alpha in I) A_alpha := ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">`bigcap cc A`</span>. If the index set is known by context, then we may use the shorthand `bigcap_alpha A_alpha`
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-union-counting-notation">
-            <div class="title">arbitrary union counting notation</div>
+            <div class="title">Arbitrary Union Counting Notation</div>
             <div class="content">
-                Suppose that `a, b in ZZ`, with `a < b`, then `bigcup_(i = a)^b A_i = ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">`bigcup {A_i: i in ZZ, a le i le b}`</span>
+                Suppose that `a, b in ZZ`, with `a < b`, and `cc A := {A_i: i in ZZ, a le i le b}`, then  `bigcup_(i = a)^b A_i = ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">`bigcup cc A`</span>
+            </div>
+        </div>
+
+        <div class="definition" id="definition-arbitrary-intersection-counting-notation">
+            <div class="title">Arbitrary Intersection Counting Notation</div>
+            <div class="content">
+                Suppose that `a, b in ZZ`, with `a < b`, and `cc A := {A_i: i in ZZ, a le i le b}`, then `bigcap_(i = a)^b A_i = ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">`bigcap cc A`</span>
             </div>
         </div>
 
@@ -72,7 +100,7 @@
         <div class="definition" id="definition-pairwise-disjoint-sets">
             <div class="title">pairwise disjoint sets</div>
             <div class="content">
-                Suppose that `M` is a <a class="knowledge-link" href="/fundamentals/sets.html#definition-family-of-sets">family of sets</a>, then we say these sets are pairwise disjoint when given `A, B in M` such that `A ne B`, then `A nn B = O/`
+                Suppose that `M` is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then we say these sets are pairwise disjoint when given `A, B in M` such that `A ne B`, then `A nn B = O/`
             </div>
         </div>
 
