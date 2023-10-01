@@ -1,16 +1,13 @@
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>contributing</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="stylesheet" href="/styles/styles.css">
         <script src="/js/script.js" defer></script>
     </head>
@@ -23,11 +20,11 @@
 			<p>
 				openmath is a static html site that uses vanilla js and css. Mathjax is used to render mathematical equations.
 			</p>
-			
+
 			<p>
-				let's look at the basic form of a definition, for example division	
+				let's look at the basic form of a definition, for example division
 			</p>
-			
+
 			<code>
 				<pre>
 &ltdiv class="definition" id="definition-divides"&gt
@@ -38,17 +35,17 @@
 &lt/div&gt
 				</pre>
 			</code>
-			
+
 			<p>
 				breaking it down, we can see that there is a title, the content, mathematical equations written in <a href="http://asciimath.org/">asciimath</a> surrounded by backticks and the outer div is given a special id.
 			</p>
-			
+
 			<p>
 				Each of the classes used here are defined in <code>/styles/style.css</code> and gives it styling (similar to beamer)
 			</p>
 
 			<p>
-				Now let's look at a more complicated example	
+				Now let's look at a more complicated example
 			</p>
 
 			<code>
@@ -72,7 +69,7 @@
 			</code>
 
 			<p>
-				As you can see we've packaged both the statement and the proof into a div with it's own id. In the proof, we have something new: the knowledge link. 
+				As you can see we've packaged both the statement and the proof into a div with it's own id. In the proof, we have something new: the knowledge link.
 			</p>
 			<p>
 				A knowledge link is what allows for recursive learning, and is used when we are referencing a piece of information such as a definition, or proved statement, so that the reader knows how we deduce that the next statement is true via this knowledge.
@@ -83,7 +80,7 @@
 			</p>
 
 			<p>
-				Speaking of javascript, let's take a look at <code>/js/script.js</code> which contains all the main logic, specificially let's take a look at the function <code>setUpKnowledgeLink</code>. Feel free to open this code in your editor of choice. 
+				Speaking of javascript, let's take a look at <code>/js/script.js</code> which contains all the main logic, specificially let's take a look at the function <code>setUpKnowledgeLink</code>. Feel free to open this code in your editor of choice.
 			</p>
 
 			<p>

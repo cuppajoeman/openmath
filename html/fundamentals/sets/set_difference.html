@@ -8,7 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/styles.css">
 
+	<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+
     <script src="/js/script.js" defer></script>
+
 
 </head>
 
@@ -20,7 +24,7 @@
 		<div class="definition" id="definition-set-difference">
 			<div class="title">set difference</div>
 			<div class="content">
-				Suppose that `A, B` are sets, then `A \\ B := {a in A: a notin B}` and call it the set difference of `A` and `B`
+				Suppose that `A, B` are sets, then \(A \setminus B := \{a \in A: a \notin B \}\) and call it the set difference of `A` and `B`
 			</div>
 		</div>
 
@@ -138,6 +142,8 @@
 			</div>
 		</div>
 
+		When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+		\[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
 
     </div>
 </body>

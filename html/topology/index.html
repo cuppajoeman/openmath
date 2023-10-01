@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>topology</title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Topology</title>
+
 
         <link rel="stylesheet" href="../styles/styles.css">
         <script src="../js/script.js" defer></script>
@@ -30,713 +31,712 @@
             </fieldset>
 
 
-
-            <div class="definition" id="product-topology">
-                <div class="title">
-                    product topology
-                </div>                 
-                <div class="content">
-                     Let `X` and `Y` be topological spaces. The product topology on `X xx Y` is the topology having as basis the collection `B` of all sets of the form `U xx V`, where `U` is an open subset of `X` and `V` is an open subset of `Y`
-                </div>          
-            </div>
-
-
-
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                if B is a basis for the topology of X and C is a basis for the topology
-of Y , then the collection
-D = {B × C | B ∈ B and C ∈ C}
-is a basis for the topology of X × Y .
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    so D is a basis for X × Y .
-                </div>          
-            </div>
-            
-            <div class="definition" id="projection-function">
-                <div class="title">projection function
-                </div>
-                <div class="content">
-                    Let π1 : X × Y → X be defined by the equation π1(x, y) = x; let π2 : X × Y → Y be defined by the equation π2(x, y) = y.  The maps π1 and π2 are called the projections of X × Y onto its first and second factors, respectively.
-                </div>          
-            </div>
-
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                   The collection
-S
- = {π−1
-1 (U) | U open in X}∪{π−1
-2 (V) | V open in Y }
-is a subbasis for the product topology on X × Y .    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    Let X be a topological space with topology T . If Y is a subset of X, the
-collection TY = {Y ∩ U | U ∈ T }
-is a topology on Y , called the subspace topology. With this topology, Y is called a
-subspace of X; its open sets consist of all intersections of open sets of X with Y .   
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    If B is a basis for the topology of X then the collection
-BY = {B ∩ Y | B ∈ B}
-is a basis for the subspace topology on Y
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">
-                                  
-                </div>
-                <div class="content">
-                    Let Y be a subspace of X. If U is open in Y and Y is open in X, then
-U is open in X.   
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    f A is a subspace of X and B is a subspace of Y , then the product
-topology on A × B is the same as the topology A × B inherits as a subspace of X ×Y     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Let X be an ordered set in the order topology; let Y be a subset
-of X that is convex in X. Then the order topology on Y is the same as the topology Y
-inherits as a subspace of X.
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">  
-                    A subset A of a topological space X is said to be closed if the set X − A is open.   
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    Let X be a topological space. Then the following conditions hold:
-(1) ∅ and X are closed.
-(2) Arbitrary intersections of closed sets are closed.
-(3) Finite unions of closed sets are closed.    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Let Y be a subspace of X. Then a set A is closed in Y if and only if
-it equals the intersection of a closed set of X with Y .    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    Let Y be a subspace of X. If A is closed in Y and Y is closed in X,
-then A is closed in X.     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Given a subset A of a topological space X, the interior of A is defined as the union of
-all open sets contained in A,     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    the closure of A is defined as the intersection of all
-closed sets containing A     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Let Y be a subspace of X; let A be a subset of Y ; let A¯ denote the
-closure of A in X. Then the closure of A in Y equals A¯ ∩ Y .    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Let A be a subset of the topological space X.
-(a) Then x ∈ A¯ if and only if every open set U containing x intersects A.
-(b) Supposing the topology of X is given by a basis, then x ∈ A¯ if and only if every
-basis element B containing x intersects A.    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    Mathematicians often use some special terminology here. They shorten the state-
-ment “U is an open set containing x” to the phrase
-“U is a neighborhood of x.”     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    If A is a subset of the topological space X and if x is a point of X, we say that x is a
-limit point (or “cluster point,” or “point of accumulation”) of A if every neighborhood
-of x intersects A in some point other than x itself. Said differently, x is a limit point
-of A if it belongs to the closure of A − {x}. The point x may lie in A or not; for this
-definition it does not matt    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    Let A be a subset of the topological space X; let A be the set of all
-limit points of A. Then     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    A subset of a topological space is closed if and only if it contains all
-its limit points.     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">  
-                     In an
-arbitrary topological space, one says that a sequence x1, x2, ... of points of the space
-X converges to the point x of X provided that, corresponding to each neighborhood U
-of x, there is a positive integer N such that xn ∈ U for all n ≥ N.     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">  
-                    A topological space X is called a Hausdorff space if for each pair x1, x2
-of distinct points of X, there exist neighborhoods U1, and U2 of x1 and x2, respectively,
-that are disjoint.    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">   
-                    Every finite point set in a Hausdorff space X is closed   
-                </div>          
-            </div>
-            
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Let X be a space satisfying the T1 axiom; let A be a subset of X.
-Then the point x is a limit point of A if and only if every neighborhood of x contains
-infinitely many points of A.     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">   
-                    If X is a Hausdorff space, then a sequence of points of X converges
-to at most one point of X.   
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">  
-                    Every simply ordered set is a Hausdorff space in the order topology.
-The product of two Hausdorff spaces is a Hausdorff space. A subspace of a Hausdorff
-space is a Hausdorff space.    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">continuous function</div>
-                <div class="content"> 
-                    Let `X` and `Y` be topological spaces. A function `f : X -> Y` is said to be continuous if
-for each open subset `V` of `Y`, the set `f −1(V)` is an open subset of `X`.     
-                </div>          
-            </div>
-
-            <div class="exercise">
-                <div class="title"></div>
-                <div class="content">
-                    prove that this definition of continuity is equivalent to the <span class="knowledge-link" data-href="/analysis/single_variable.html#definition-limit-of-a-function-at-a-point">epsilon delta definition</span>
-                </div>
-            </div>
-            
-            <div class="definition" id="continuous-function-for-a-basis">
-                <div class="title">continous function for a basis</div>
-                <div class="content"> 
-                    given `f : X to Y` if the topology of the range space Y is given by a basis `cc B`, then to prove continuity of `f` it suffices to show that the inverse image of every basis element is open
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">
-                    Let X and Y be topological spaces; let f : X → Y . Then the
-following are equivalent:
-(1) f is continuous.
-(2) For every subset A of X, one has f (A¯) ⊂ f (A).
-(3) For every closed set B of Y , the set f −1(B) is closed in X.
-(4) For each x ∈ X and each neighborhood V of f (x), there is a neighborhood U
-of x such that f (U) ⊂ V.
-If the condition in (4) holds for the point x of X, we say that f is continuous at
-the point x.      
-                </div>          
-            </div>
-            
-            <div class="definition" id="homeomorphism">
-                <div class="title">homeomorphism</div>
-                <div class="content">
-                    Let `X` and `Y` be topological spaces; let `f : X -> Y` be a bijection. If both the function `f` and `f^{-1} : Y -> X` are continuous, then `f` is called a homeomorphism
-                </div>          
-            </div>
-            
-            <div class="definition" id="imbedding">
-                <div class="title">imbedding</div>
-                <div class="content"> 
-                    Now suppose that `f : X → Y` is an injective continuous map, where `X` and `Y` are topological spaces. Let `Z` be the image set `f(X)`, considered as a subspace of `Y` ; then the function `f|_Z : X → Z` obtained by restricting the range of `f` is bijective. If `f|_Z` happens to be a homeomorphism of `X` with `Z`, we say that the map `f : X → Y` is a topological imbedding, or simply an imbedding, of `X` in `Y` .     
-                </div>          
-            </div>
-            
-            
-            <div class="theorem" id="rules-for-constructing-continuous-functions">
-                <div class="title">             
-                    rules for constructing continuous functions
-                </div>
-                <div class="content"> 
-                     Let `X, Y` and `Z` be topological spaces, the the following statements all hold:
-                     <ol>
-                        <li>
-                            (Constant function) If `f : X → Y` maps all of `X` into the single point `y_0` of `Y` then `f` is continuous
-                        </li>
-                        <li>
-                            (Inclusion) If `A` is a subspace of `X`, the inclusion function `j : A → X` is continuous
-                        </li>
-                        <li>
-                            (Composites) If `f : X → Y` and `g : Y → Z` are continuous, then the map `g @ f : X → Z` is continuous.
-                        </li>
-                        <li>
-                            (Restricting the domain) If `f : X → Y` is continuous, and if `A` is a subspace of `X`, then the restricted function `f|_A : A → Y` is continuous.
-                        </li>
-                        <li>
-                            (Restricting or expanding the range) Let `f : X → Y` be continuous. If `Z` is a subspace of `Y` containing the image set `f(X)`, then the function `g : X -> Z` obtained by restricting the range of `f` is continuous. If `Z` is a space having `Y` as a subspace, then the function `h : X -> Z` obtained by expanding the range of `f` is continuous
-                        </li>
-                        <li>
-                            (Local formulation of continuity) The map `f : X -> Y` is continuous if `X` can be written as the union of open sets `uuu_alpha` such that `f|_{uuu_alpha}` is continuous for each `alpha`
-                        </li>
-                     </ol>
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Let X = A ∪ B, where A and B are closed
-in X. Let f : A → Y and g : B → Y be continuous. If f (x) = g(x) for every
-x ∈ A ∩ B, then f and g combine to give a continuous function h : X → Y , defined
-by setting h(x) = f (x) if x ∈ A, and h(x) = g(x) if x ∈ B.     
-                </div>          
-            </div>
-
-            <div class="lemma" id="projection-functions-are-continuous">
-                <div class="title">projection functions are continuous</div>
-                <div class="content">
-                    The <a href="#projection-function">projection functions</a> `pi_1 : X xx Y to X` and `pi_2 : X xx Y to Y` are continuous 
-                </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <p>
-                        We'll start by showing that `pi_1` is continuous, so let `U` be open in `X` and now we can note that `pi_1^{-1}(U) = U xx Y` since the second component never matters in the computation of `pi_1(x, y) = x`
-                    </p>
-                    <p>
-                        By the very definition of the <a href="#product-topology">product toplogy</a>, we can see it is generated by the basis consisting of `U xx V` open in `X` and `Y` respectively, we assumed `U` was open, `Y` is open in itself by the definition of toplogy, thus `U xx Y` is open in `X xx Y` since <a href="#basis-elements-are-open">every basis element is also in the toplogy</a>. 
-                    </p>
-                    <p>
-                        Thus we may conclude that `pi_1` is continuous, the proof for `pi_2` may be obtained symmetrically.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="theorem" id="product-functions-are-continuous">
-                <div class="title">                 
-                    product functions are continuous
-                </div>
-                <div class="content">  
-                    Let `f : A -> X xx Y` be given by the equation `f(a) = (f_1(a) , f_2(a))`. Then `f` is continuous if and only if the functions `f_1: A -> X` and `f_2: A -> Y` are continuous. The maps `f_1` and `f_2` are called the coordinate functions of `f`    
-                </div>          
-            </div>
-            
-
-
-            <div class="exercise">
-                <div class="title">winking functions are continuous</div>
-                <div class="content">
-                   Given `x_0 in X` and `y_0 in Y`, show that the maps `f: X -> X xx Y` and  `g: Y -> X xx Y` defined by
-                   <div class="centered-content">
-                        `f(x) = x xx y_0` and `g(y) = x_0 xx Y`
-                   </div>
-                   are <a href="#imbedding">imbeddings</a>.
-                </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>details</summary>
-
-                        <p>
-                            We'd like to show that `f` is an <a href="#imbedding">imbedding</a>, that is that both `f^'` and `(f^{'})^{-1}` are both continuous functions where `f'` is `f` with it's range restricted to `f(X)`.
-                        </p>
-
-                        <p>
-                            Starting with `f^'` and acutally looking at the original `f` we can see that it can be defined as `f(x) = (id(x), c(x))` with the identity and constant function respectively. Looking at the <a href="#rules-for-constructing-continuous-functions">rules for contructing continuous functions</a>, we can see that `id: X -> X` is simply an inclusion function from `X` into itself, and that `c: Y -> y_0` is a constant funciton, and thus are both continuous, also since <a href="#product-functions-are-continuous">product functions are continuous</a> we know that `f` is continuous, using rule 4, we can see that `f'` is also continuous.
-                        </p>
-
-                        <p>
-                            Looking at `(f^')^{-1}: X xx {y_0} -> X`, we can see that this function simply drops the second component and thus `(f^')^{-1} = pi_1` and since <a href="projection-functions-are-continuous">projection functions are continuous</a>, we've shown that the inverse function is continuous.
-                        </p>
-
-                        <p>
-                            With all that said, we now know that `f'` is a homeomorphism, which by definition means that `f` is an imbedding, which is what we needed to show.
-                        </p>
-                    </details>
+<!--            <div class="definition" id="product-topology">-->
+<!--                <div class="title">-->
+<!--                    product topology-->
+<!--                </div>                 -->
+<!--                <div class="content">-->
+<!--                     Let `X` and `Y` be topological spaces. The product topology on `X xx Y` is the topology having as basis the collection `B` of all sets of the form `U xx V`, where `U` is an open subset of `X` and `V` is an open subset of `Y`-->
+<!--                </div>          -->
+<!--            </div>-->
 
 
 
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                if B is a basis for the topology of X and C is a basis for the topology-->
+<!--of Y , then the collection-->
+<!--D = {B × C | B ∈ B and C ∈ C}-->
+<!--is a basis for the topology of X × Y .-->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    so D is a basis for X × Y .-->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition" id="projection-function">-->
+<!--                <div class="title">projection function-->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    Let π1 : X × Y → X be defined by the equation π1(x, y) = x; let π2 : X × Y → Y be defined by the equation π2(x, y) = y.  The maps π1 and π2 are called the projections of X × Y onto its first and second factors, respectively.-->
+<!--                </div>          -->
+<!--            </div>-->
 
-                </div>
-            </div>
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                   The collection-->
+<!--S-->
+<!-- = {π−1-->
+<!--1 (U) | U open in X}∪{π−1-->
+<!--2 (V) | V open in Y }-->
+<!--is a subbasis for the product topology on X × Y .    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    Let X be a topological space with topology T . If Y is a subset of X, the-->
+<!--collection TY = {Y ∩ U | U ∈ T }-->
+<!--is a topology on Y , called the subspace topology. With this topology, Y is called a-->
+<!--subspace of X; its open sets consist of all intersections of open sets of X with Y .   -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    If B is a basis for the topology of X then the collection-->
+<!--BY = {B ∩ Y | B ∈ B}-->
+<!--is a basis for the subspace topology on Y-->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">-->
+<!--                                  -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    Let Y be a subspace of X. If U is open in Y and Y is open in X, then-->
+<!--U is open in X.   -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    f A is a subspace of X and B is a subspace of Y , then the product-->
+<!--topology on A × B is the same as the topology A × B inherits as a subspace of X ×Y     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Let X be an ordered set in the order topology; let Y be a subset-->
+<!--of X that is convex in X. Then the order topology on Y is the same as the topology Y-->
+<!--inherits as a subspace of X.-->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                    A subset A of a topological space X is said to be closed if the set X − A is open.   -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    Let X be a topological space. Then the following conditions hold:-->
+<!--(1) ∅ and X are closed.-->
+<!--(2) Arbitrary intersections of closed sets are closed.-->
+<!--(3) Finite unions of closed sets are closed.    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Let Y be a subspace of X. Then a set A is closed in Y if and only if-->
+<!--it equals the intersection of a closed set of X with Y .    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    Let Y be a subspace of X. If A is closed in Y and Y is closed in X,-->
+<!--then A is closed in X.     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Given a subset A of a topological space X, the interior of A is defined as the union of-->
+<!--all open sets contained in A,     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    the closure of A is defined as the intersection of all-->
+<!--closed sets containing A     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Let Y be a subspace of X; let A be a subset of Y ; let A¯ denote the-->
+<!--closure of A in X. Then the closure of A in Y equals A¯ ∩ Y .    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Let A be a subset of the topological space X.-->
+<!--(a) Then x ∈ A¯ if and only if every open set U containing x intersects A.-->
+<!--(b) Supposing the topology of X is given by a basis, then x ∈ A¯ if and only if every-->
+<!--basis element B containing x intersects A.    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    Mathematicians often use some special terminology here. They shorten the state- -->
+<!--ment “U is an open set containing x” to the phrase-->
+<!--“U is a neighborhood of x.”     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    If A is a subset of the topological space X and if x is a point of X, we say that x is a-->
+<!--limit point (or “cluster point,” or “point of accumulation”) of A if every neighborhood-->
+<!--of x intersects A in some point other than x itself. Said differently, x is a limit point-->
+<!--of A if it belongs to the closure of A − {x}. The point x may lie in A or not; for this-->
+<!--definition it does not matt    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    Let A be a subset of the topological space X; let A be the set of all-->
+<!--limit points of A. Then     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    A subset of a topological space is closed if and only if it contains all-->
+<!--its limit points.     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                     In an-->
+<!--arbitrary topological space, one says that a sequence x1, x2, ... of points of the space-->
+<!--X converges to the point x of X provided that, corresponding to each neighborhood U-->
+<!--of x, there is a positive integer N such that xn ∈ U for all n ≥ N.     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                    A topological space X is called a Hausdorff space if for each pair x1, x2-->
+<!--of distinct points of X, there exist neighborhoods U1, and U2 of x1 and x2, respectively,-->
+<!--that are disjoint.    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">   -->
+<!--                    Every finite point set in a Hausdorff space X is closed   -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Let X be a space satisfying the T1 axiom; let A be a subset of X.-->
+<!--Then the point x is a limit point of A if and only if every neighborhood of x contains-->
+<!--infinitely many points of A.     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">   -->
+<!--                    If X is a Hausdorff space, then a sequence of points of X converges-->
+<!--to at most one point of X.   -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                    Every simply ordered set is a Hausdorff space in the order topology.-->
+<!--The product of two Hausdorff spaces is a Hausdorff space. A subspace of a Hausdorff-->
+<!--space is a Hausdorff space.    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">continuous function</div>-->
+<!--                <div class="content"> -->
+<!--                    Let `X` and `Y` be topological spaces. A function `f : X -> Y` is said to be continuous if-->
+<!--for each open subset `V` of `Y`, the set `f −1(V)` is an open subset of `X`.     -->
+<!--                </div>          -->
+<!--            </div>-->
 
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">  
-                    Let J be an index set. Given a set X, we define a J -tuple of elements
-of X to be a function x : J → X. If α is an element of J , we often denote the value
-of x at α by xα rather than x(α); we call it the αth coordinate of x. And we often
-denote the function x itself by the symbol
-(xα)α∈J ,
-which is as close as we can come to a “tuple notation” for an arbitrary index set J . We
-denote the set of all J -tuples of elements of X by X J .    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">  
-                    Let {Aα}α∈J be an indexed family of sets; let X = 
-α∈J Aα. The
-cartesian product of this indexed family, denoted by
-
-α∈J
-Aα,
-is defined to be the set of all J -tuples (xα)α∈J of elements of X such that xα ∈ Aα for
-each α ∈ J . That is, it is the set of all functions
-x : J → -
+<!--            <div class="exercise">-->
+<!--                <div class="title"></div>-->
+<!--                <div class="content">-->
+<!--                    prove that this definition of continuity is equivalent to the <span class="knowledge-link" data-href="/analysis/single_variable.html#definition-limit-of-a-function-at-a-point">epsilon delta definition</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition" id="continuous-function-for-a-basis">-->
+<!--                <div class="title">continous function for a basis</div>-->
+<!--                <div class="content"> -->
+<!--                    given `f : X to Y` if the topology of the range space Y is given by a basis `cc B`, then to prove continuity of `f` it suffices to show that the inverse image of every basis element is open-->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    Let X and Y be topological spaces; let f : X → Y . Then the-->
+<!--following are equivalent:-->
+<!--(1) f is continuous.-->
+<!--(2) For every subset A of X, one has f (A¯) ⊂ f (A).-->
+<!--(3) For every closed set B of Y , the set f −1(B) is closed in X.-->
+<!--(4) For each x ∈ X and each neighborhood V of f (x), there is a neighborhood U-->
+<!--of x such that f (U) ⊂ V.-->
+<!--If the condition in (4) holds for the point x of X, we say that f is continuous at-->
+<!--the point x.      -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition" id="homeomorphism">-->
+<!--                <div class="title">homeomorphism</div>-->
+<!--                <div class="content">-->
+<!--                    Let `X` and `Y` be topological spaces; let `f : X -> Y` be a bijection. If both the function `f` and `f^{-1} : Y -> X` are continuous, then `f` is called a homeomorphism-->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition" id="imbedding">-->
+<!--                <div class="title">imbedding</div>-->
+<!--                <div class="content"> -->
+<!--                    Now suppose that `f : X → Y` is an injective continuous map, where `X` and `Y` are topological spaces. Let `Z` be the image set `f(X)`, considered as a subspace of `Y` ; then the function `f|_Z : X → Z` obtained by restricting the range of `f` is bijective. If `f|_Z` happens to be a homeomorphism of `X` with `Z`, we say that the map `f : X → Y` is a topological imbedding, or simply an imbedding, of `X` in `Y` .     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            -->
+<!--            <div class="theorem" id="rules-for-constructing-continuous-functions">-->
+<!--                <div class="title">             -->
+<!--                    rules for constructing continuous functions-->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                     Let `X, Y` and `Z` be topological spaces, the the following statements all hold:-->
+<!--                     <ol>-->
+<!--                        <li>-->
+<!--                            (Constant function) If `f : X → Y` maps all of `X` into the single point `y_0` of `Y` then `f` is continuous-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            (Inclusion) If `A` is a subspace of `X`, the inclusion function `j : A → X` is continuous-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            (Composites) If `f : X → Y` and `g : Y → Z` are continuous, then the map `g @ f : X → Z` is continuous.-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            (Restricting the domain) If `f : X → Y` is continuous, and if `A` is a subspace of `X`, then the restricted function `f|_A : A → Y` is continuous.-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            (Restricting or expanding the range) Let `f : X → Y` be continuous. If `Z` is a subspace of `Y` containing the image set `f(X)`, then the function `g : X -> Z` obtained by restricting the range of `f` is continuous. If `Z` is a space having `Y` as a subspace, then the function `h : X -> Z` obtained by expanding the range of `f` is continuous-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            (Local formulation of continuity) The map `f : X -> Y` is continuous if `X` can be written as the union of open sets `uuu_alpha` such that `f|_{uuu_alpha}` is continuous for each `alpha`-->
+<!--                        </li>-->
+<!--                     </ol>-->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Let X = A ∪ B, where A and B are closed-->
+<!--in X. Let f : A → Y and g : B → Y be continuous. If f (x) = g(x) for every-->
+<!--x ∈ A ∩ B, then f and g combine to give a continuous function h : X → Y , defined-->
+<!--by setting h(x) = f (x) if x ∈ A, and h(x) = g(x) if x ∈ B.     -->
+<!--                </div>          -->
+<!--            </div>-->
 
-α∈J
-Aα
-such that x(α) ∈ Aα for each α ∈ J .    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">  
-                    Let {Xα}α∈J be an indexed family of topological spaces. Let us take as
-a basis for a topology on the product space
-
-α∈J
-Xα
-the collection of all sets of the form
-
-α∈J
-Uα,
-where Uα is open in Xα, for each α ∈ J . The topology generated by this basis is called
-the box topology.    
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                     Let
-πβ :
-
-α∈J
-Xα → Xβ
-be the function assigning to each element of the product space its βth coordinate,
-πβ((xα)α∈J ) = xβ;
-it is called the projection mapping associated with the index β.     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">  
-                    Let -
-β denote the collection
--
-β = {π−1
-β (Uβ) | Uβ open in Xβ},
-and let -
- denote the union of these collections,
--
- = -
+<!--            <div class="lemma" id="projection-functions-are-continuous">-->
+<!--                <div class="title">projection functions are continuous</div>-->
+<!--                <div class="content">-->
+<!--                    The <a href="#projection-function">projection functions</a> `pi_1 : X xx Y to X` and `pi_2 : X xx Y to Y` are continuous -->
+<!--                </div>-->
+<!--            </div>-->
 
-β∈J
--
-β.
-The topology generated by the subbasis -
- is called the product topology. In this topol-
-ogy 
+<!--            <div class="proof">-->
+<!--                <div class="title"></div>-->
+<!--                <div class="content">-->
+<!--                    <p>-->
+<!--                        We'll start by showing that `pi_1` is continuous, so let `U` be open in `X` and now we can note that `pi_1^{-1}(U) = U xx Y` since the second component never matters in the computation of `pi_1(x, y) = x`-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        By the very definition of the <a href="#product-topology">product toplogy</a>, we can see it is generated by the basis consisting of `U xx V` open in `X` and `Y` respectively, we assumed `U` was open, `Y` is open in itself by the definition of toplogy, thus `U xx Y` is open in `X xx Y` since <a href="#basis-elements-are-open">every basis element is also in the toplogy</a>. -->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        Thus we may conclude that `pi_1` is continuous, the proof for `pi_2` may be obtained symmetrically.-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="theorem" id="product-functions-are-continuous">-->
+<!--                <div class="title">                 -->
+<!--                    product functions are continuous-->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                    Let `f : A -> X xx Y` be given by the equation `f(a) = (f_1(a) , f_2(a))`. Then `f` is continuous if and only if the functions `f_1: A -> X` and `f_2: A -> Y` are continuous. The maps `f_1` and `f_2` are called the coordinate functions of `f`    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
 
-α∈J Xα is called a product space.    
-                </div>          
-            </div>
-            
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">   
-                    The box topol-
-ogy on 
- Xα has as basis all sets of the form 
-Uα, where Uα is open in Xα for
-each α. The product topology on
- Xα has as basis all sets of the form
-Uα, where
-Uα is open in Xα for each α and Uα equals Xα except for finitely many values of α   
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">   
-                    Suppose the topology on each space Xα is given by a basis Bα. The
-collection of all sets of the form
-
-α∈J
-Bα,
-where Bα ∈ Bα for each α, will serve as a basis for the box topology on
 
-α∈J Xα.
-The collection of all sets of the same form, where Bα ∈ Bα for finitely many
-indices α and Bα = Xα for all the remaining indices, will serve as a basis for the
-product topology
+<!--            <div class="exercise">-->
+<!--                <div class="title">winking functions are continuous</div>-->
+<!--                <div class="content">-->
+<!--                   Given `x_0 in X` and `y_0 in Y`, show that the maps `f: X -> X xx Y` and  `g: Y -> X xx Y` defined by-->
+<!--                   <div class="centered-content">-->
+<!--                        `f(x) = x xx y_0` and `g(y) = x_0 xx Y`-->
+<!--                   </div>-->
+<!--                   are <a href="#imbedding">imbeddings</a>.-->
+<!--                </div>-->
+<!--            </div>-->
 
-α∈J Xα.   
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">   
-                    Let Aα be a subspace of Xα, for each α ∈ J . Then 
- Aα is a
-subspace of
- Xα if both products are given the box topology, or if both products are
-given the product topology.   
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">   
-                     If each space Xα is Hausdorff space, then
- Xα is a Hausdorff space
-in both the box and product topologies.   
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Let {Xα} be an indexed family of spaces; let Aα ⊂ Xα for each α. If
-Xα is given either the product or the box topology, then
- A¯α =  Aα.     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Let f : A → 
+<!--            <div class="proof">-->
+<!--                <div class="title"></div>-->
+<!--                <div class="content">-->
+<!--                    <details>-->
+<!--                        <summary>details</summary>-->
 
-α∈J Xα be given by the equation
-f (a) = ( fα(a))α∈J ,
-where fα : A → Xα for each α. Let 
- Xα have the product topology. Then the
-function f is continuous if and only if each function fα is continuous     
-                </div>          
-            </div>
-            
-            <div class="definition" id="definition-metric-on-a-set">
-                <div class="title">metric on a set</div>
-                <div class="content">  
-                     A metric on a set `X` is a function `d : X xx X to RR` having the following properties:
-                     <ol>
-                        <li>`d(x, y) ge 0` for all `x, y in X`; equality holds if and only if `x = y`</li>
-                        <li>`d(x, y) = d(y, x)` for all `x, y in X`</li>
-                        <li>`d(x, y) + d(y,z) ge d(x,z)` for all `x, y, z in X`</li>
-                     </ol>
-                    Given a metric `d` on `X`, the number `d(x, y)` is often called the distance between `x` and `y`    
-                </div>          
-            </div>
+<!--                        <p>-->
+<!--                            We'd like to show that `f` is an <a href="#imbedding">imbedding</a>, that is that both `f^'` and `(f^{'})^{-1}` are both continuous functions where `f'` is `f` with it's range restricted to `f(X)`.-->
+<!--                        </p>-->
 
-            
-            <div class="definition" id="definition-metric-ball">
-                <div class="title">metric ball</div>
-                <div class="content">  
-                    Given `epsilon in RR^{gt 0}`, consider the set `B_d(x, epsilon) = {y : d(x, y) < epsilon}` of all points `y` whose distance from `x` is less than `epsilon`. It is called the `epsilon`-ball centered at `x`. Sometimes we omit the metric `d` from the notation and write this ball simply as `B(x, epsilon)`, when no confusion will arise.    
-                </div>          
-            </div>
-            
-            
-            <div class="definition" id="definition-toplogy-induced-by-a-metric">
-                <div class="title">topology induced by a metric</div>
-                <div class="content"> 
-                    If `d` is a <span class="knowledge-link" data-href="#definition-metric-on-a-set">metric</span> on the set `X`, then the collection of all `epsilon`-balls `B_d (x, epsilon)`, for `x in X` and `epsilon in RR^{gt 0}`, is a basis for a topology on `X`, called the metric topology induced by `d`
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">   
-                    If `X` is a topological space, `X` is said to be metrizable if there exists a metric `d` on the set `X` that induces the topology of `X`. A metric space is a metrizable space `X` together with a specific metric d that gives the topology of `X`   
-                </div>          
-            </div>
+<!--                        <p>-->
+<!--                            Starting with `f^'` and acutally looking at the original `f` we can see that it can be defined as `f(x) = (id(x), c(x))` with the identity and constant function respectively. Looking at the <a href="#rules-for-constructing-continuous-functions">rules for contructing continuous functions</a>, we can see that `id: X -> X` is simply an inclusion function from `X` into itself, and that `c: Y -> y_0` is a constant funciton, and thus are both continuous, also since <a href="#product-functions-are-continuous">product functions are continuous</a> we know that `f` is continuous, using rule 4, we can see that `f'` is also continuous.-->
+<!--                        </p>-->
 
-            <div class="exercise">
-                <div class="title"></div>
-                <div class="content">
-                    In `RR^n` define the metric `d^'(x, y) = abs(x_1 - y_1) + ... + abs(x_n - y_n)` show that `d^'` is a metric that induces the <span class="knowledge-link" data-href="#definition-standard-topology-on-Rn">standard topology of `RR^n`</span> 
-                </div>
-            </div>
+<!--                        <p>-->
+<!--                            Looking at `(f^')^{-1}: X xx {y_0} -> X`, we can see that this function simply drops the second component and thus `(f^')^{-1} = pi_1` and since <a href="projection-functions-are-continuous">projection functions are continuous</a>, we've shown that the inverse function is continuous.-->
+<!--                        </p>-->
 
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <p>
-                        (TODO: show that it's a metric first of all)
-                    </p>
-                    <p>
-                        Since we know that `d^'` is a metric, then now we can check to see if it induces the usual standard topology of `RR^n`. To show this we'll show that the toplogy induced is equal to the standard toplogy of `RR^n`
-                    </p>
-                    <p>
-                        One method to show that two topologies are equal is to satisfy the requirements of <span class="knowledge-link" data-href="#corollary-topology-equality-with-basis">topology equality for topologies generated by a basis</span> 
-                    </p>
-                    <p>
-                        Let `p in RR^n` and let `p in B_(d^')(x, epsilon)` for some `x in RR^n` and `epsilon in RR^(gt 0)` be a basis element for the  <span class="knowledge-link" data-href="#definition-toplogy-induced-by-a-metric">topology induced by `d^'`</span>
-                    </p>
-                    <p>
-                        Recall that `B_(d^') (x, epsilon)` is a <span class="knowledge-link" data-href="#definition-metric-ball">metric ball</span> and thus is equal to `{y in RR^n : d(x, y) = abs(x_1 - y_1) + ... + abs(x_n - y_n) < epsilon}`
-                    </p>
-                </div>
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content"> 
-                    Let X be a metric space with metric d. A subset A of X is said to be
-bounded if there is some number M such that
-d(a1, a2) ≤ M
-for every pair a1, a2 of points of A. If A is bounded and nonempty, the diameter of A
-is defined to be the number
-diam A = sup{d(a1, a2) | a1, a2 ∈ A}.     
-                </div>          
-            </div>
-            
-            <div class="definition">
-                <div class="title">                 
-                </div>
-                <div class="content">  
-                    Let X be a metric space with metric d. Define d¯ : X × X → R by
-the equation
-d¯(x, y) = min{d(x, y), 1}.
-Then d¯ is a metric that induces the same topology as d.
-The metric d¯ is called the standard bounded metric corresponding to d.    
-                </div>          
-            </div>
+<!--                        <p>-->
+<!--                            With all that said, we now know that `f'` is a homeomorphism, which by definition means that `f` is an imbedding, which is what we needed to show.-->
+<!--                        </p>-->
+<!--                    </details>-->
+
+
+
+
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                    Let J be an index set. Given a set X, we define a J -tuple of elements-->
+<!--of X to be a function x : J → X. If α is an element of J , we often denote the value-->
+<!--of x at α by xα rather than x(α); we call it the αth coordinate of x. And we often-->
+<!--denote the function x itself by the symbol-->
+<!--(xα)α∈J ,-->
+<!--which is as close as we can come to a “tuple notation” for an arbitrary index set J . We-->
+<!--denote the set of all J -tuples of elements of X by X J .    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                    Let {Aα}α∈J be an indexed family of sets; let X = -->
+<!--α∈J Aα. The-->
+<!--cartesian product of this indexed family, denoted by-->
+<!---->
+<!--α∈J-->
+<!--Aα,-->
+<!--is defined to be the set of all J -tuples (xα)α∈J of elements of X such that xα ∈ Aα for-->
+<!--each α ∈ J . That is, it is the set of all functions-->
+<!--x : J → - -->
+
+<!--α∈J-->
+<!--Aα-->
+<!--such that x(α) ∈ Aα for each α ∈ J .    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                    Let {Xα}α∈J be an indexed family of topological spaces. Let us take as-->
+<!--a basis for a topology on the product space-->
+<!---->
+<!--α∈J-->
+<!--Xα-->
+<!--the collection of all sets of the form-->
+<!---->
+<!--α∈J-->
+<!--Uα,-->
+<!--where Uα is open in Xα, for each α ∈ J . The topology generated by this basis is called-->
+<!--the box topology.    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                     Let-->
+<!--πβ :-->
+<!---->
+<!--α∈J-->
+<!--Xα → Xβ-->
+<!--be the function assigning to each element of the product space its βth coordinate,-->
+<!--πβ((xα)α∈J ) = xβ;-->
+<!--it is called the projection mapping associated with the index β.     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                    Let - -->
+<!--β denote the collection-->
+<!-- - -->
+<!--β = {π−1-->
+<!--β (Uβ) | Uβ open in Xβ},-->
+<!--and let - -->
+<!-- denote the union of these collections,-->
+<!-- - -->
+<!-- = - -->
+
+<!--β∈J-->
+<!-- - -->
+<!--β.-->
+<!--The topology generated by the subbasis - -->
+<!-- is called the product topology. In this topol- -->
+<!--ogy -->
+
+<!--α∈J Xα is called a product space.    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">   -->
+<!--                    The box topol- -->
+<!--ogy on -->
+<!-- Xα has as basis all sets of the form -->
+<!--Uα, where Uα is open in Xα for-->
+<!--each α. The product topology on-->
+<!-- Xα has as basis all sets of the form-->
+<!--Uα, where-->
+<!--Uα is open in Xα for each α and Uα equals Xα except for finitely many values of α   -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">   -->
+<!--                    Suppose the topology on each space Xα is given by a basis Bα. The-->
+<!--collection of all sets of the form-->
+<!---->
+<!--α∈J-->
+<!--Bα,-->
+<!--where Bα ∈ Bα for each α, will serve as a basis for the box topology on-->
+
+<!--α∈J Xα.-->
+<!--The collection of all sets of the same form, where Bα ∈ Bα for finitely many-->
+<!--indices α and Bα = Xα for all the remaining indices, will serve as a basis for the-->
+<!--product topology-->
+
+<!--α∈J Xα.   -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">   -->
+<!--                    Let Aα be a subspace of Xα, for each α ∈ J . Then -->
+<!-- Aα is a-->
+<!--subspace of-->
+<!-- Xα if both products are given the box topology, or if both products are-->
+<!--given the product topology.   -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">   -->
+<!--                     If each space Xα is Hausdorff space, then-->
+<!-- Xα is a Hausdorff space-->
+<!--in both the box and product topologies.   -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Let {Xα} be an indexed family of spaces; let Aα ⊂ Xα for each α. If-->
+<!--Xα is given either the product or the box topology, then-->
+<!-- A¯α =  Aα.     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Let f : A → -->
+
+<!--α∈J Xα be given by the equation-->
+<!--f (a) = ( fα(a))α∈J ,-->
+<!--where fα : A → Xα for each α. Let -->
+<!-- Xα have the product topology. Then the-->
+<!--function f is continuous if and only if each function fα is continuous     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition" id="definition-metric-on-a-set">-->
+<!--                <div class="title">metric on a set</div>-->
+<!--                <div class="content">  -->
+<!--                     A metric on a set `X` is a function `d : X xx X to RR` having the following properties:-->
+<!--                     <ol>-->
+<!--                        <li>`d(x, y) ge 0` for all `x, y in X`; equality holds if and only if `x = y`</li>-->
+<!--                        <li>`d(x, y) = d(y, x)` for all `x, y in X`</li>-->
+<!--                        <li>`d(x, y) + d(y,z) ge d(x,z)` for all `x, y, z in X`</li>-->
+<!--                     </ol>-->
+<!--                    Given a metric `d` on `X`, the number `d(x, y)` is often called the distance between `x` and `y`    -->
+<!--                </div>          -->
+<!--            </div>-->
+
+<!--            -->
+<!--            <div class="definition" id="definition-metric-ball">-->
+<!--                <div class="title">metric ball</div>-->
+<!--                <div class="content">  -->
+<!--                    Given `epsilon in RR^{gt 0}`, consider the set `B_d(x, epsilon) = {y : d(x, y) < epsilon}` of all points `y` whose distance from `x` is less than `epsilon`. It is called the `epsilon`-ball centered at `x`. Sometimes we omit the metric `d` from the notation and write this ball simply as `B(x, epsilon)`, when no confusion will arise.    -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            -->
+<!--            <div class="definition" id="definition-toplogy-induced-by-a-metric">-->
+<!--                <div class="title">topology induced by a metric</div>-->
+<!--                <div class="content"> -->
+<!--                    If `d` is a <span class="knowledge-link" data-href="#definition-metric-on-a-set">metric</span> on the set `X`, then the collection of all `epsilon`-balls `B_d (x, epsilon)`, for `x in X` and `epsilon in RR^{gt 0}`, is a basis for a topology on `X`, called the metric topology induced by `d`-->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">   -->
+<!--                    If `X` is a topological space, `X` is said to be metrizable if there exists a metric `d` on the set `X` that induces the topology of `X`. A metric space is a metrizable space `X` together with a specific metric d that gives the topology of `X`   -->
+<!--                </div>          -->
+<!--            </div>-->
+
+<!--            <div class="exercise">-->
+<!--                <div class="title"></div>-->
+<!--                <div class="content">-->
+<!--                    In `RR^n` define the metric `d^'(x, y) = abs(x_1 - y_1) + ... + abs(x_n - y_n)` show that `d^'` is a metric that induces the <span class="knowledge-link" data-href="#definition-standard-topology-on-Rn">standard topology of `RR^n`</span> -->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="proof">-->
+<!--                <div class="title"></div>-->
+<!--                <div class="content">-->
+<!--                    <p>-->
+<!--                        (TODO: show that it's a metric first of all)-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        Since we know that `d^'` is a metric, then now we can check to see if it induces the usual standard topology of `RR^n`. To show this we'll show that the toplogy induced is equal to the standard toplogy of `RR^n`-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        One method to show that two topologies are equal is to satisfy the requirements of <span class="knowledge-link" data-href="#corollary-topology-equality-with-basis">topology equality for topologies generated by a basis</span> -->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        Let `p in RR^n` and let `p in B_(d^')(x, epsilon)` for some `x in RR^n` and `epsilon in RR^(gt 0)` be a basis element for the  <span class="knowledge-link" data-href="#definition-toplogy-induced-by-a-metric">topology induced by `d^'`</span>-->
+<!--                    </p>-->
+<!--                    <p>-->
+<!--                        Recall that `B_(d^') (x, epsilon)` is a <span class="knowledge-link" data-href="#definition-metric-ball">metric ball</span> and thus is equal to `{y in RR^n : d(x, y) = abs(x_1 - y_1) + ... + abs(x_n - y_n) < epsilon}`-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content"> -->
+<!--                    Let X be a metric space with metric d. A subset A of X is said to be-->
+<!--bounded if there is some number M such that-->
+<!--d(a1, a2) ≤ M-->
+<!--for every pair a1, a2 of points of A. If A is bounded and nonempty, the diameter of A-->
+<!--is defined to be the number-->
+<!--diam A = sup{d(a1, a2) | a1, a2 ∈ A}.     -->
+<!--                </div>          -->
+<!--            </div>-->
+<!--            -->
+<!--            <div class="definition">-->
+<!--                <div class="title">                 -->
+<!--                </div>-->
+<!--                <div class="content">  -->
+<!--                    Let X be a metric space with metric d. Define d¯ : X × X → R by-->
+<!--the equation-->
+<!--d¯(x, y) = min{d(x, y), 1}.-->
+<!--Then d¯ is a metric that induces the same topology as d.-->
+<!--The metric d¯ is called the standard bounded metric corresponding to d.    -->
+<!--                </div>          -->
+<!--            </div>-->
         </div>
     </body>
 </html>
