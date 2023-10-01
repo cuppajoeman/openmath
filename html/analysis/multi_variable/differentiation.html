@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Multi Variable</title>
+        <script src="/js/script.js" defer></script>
+        <link rel="stylesheet" href="/styles/styles.css">
+
+        <!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+
+    </head>
+    <body>
+        <div class="thin-wrapper">
+
+            <div class="definition" id="definition-directional-derivative">
+                <div class="title">directional derivative</div>
+                <div class="content">
+                    Let `f: RR^n to R` and let `a, v in RR^n`, then the directional derivative of `f` at `a` along `v` is defined as
+                    <div class="centered-content">
+                        `grad_v f(a) := lim_(h to 0) (f(a + hv) - f(a)) / h`
+                    </div>
+                </div>
+            </div>
+
+            <div class="definition" id="definition-partial-derivative">
+                <div class="title">Partial Derivative</div>
+                <div class="content">
+                    Let `f: RR^n to R` then the partial derivative with respect to `x_i` is the <a href="/analysis/multi_variable/differentiation.html#definition-directional-derivative" class="knowledge-link">directional derivative of `f` at `a` along `e_i`</a>
+                    <div class="centered-content">
+                        `del/(del x_i) f(a) := grad_(e_i) f(a)`
+                    </div>
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">Frozen Function</div>
+                <div class="content">
+                    Suppose that `f: RR^n to RR` and `a in RR^n` then we can define a new function `f_(i, a): RR to RR` by `f_(i, a)(h) := f(a + he_i)`. This functin can be thought of looking the sample point `a` and then freezing in all directions except for along the `i`-th component of the input for `f`
+                </div>
+            </div>
+
+            <div class="proposition">
+                <div class="title">Partial Derivative becomes frozen function derivative</div>
+                <div class="content">
+                    `(del f) / (del x_i)(a) = d/(dh) [f_(i,a)(h)]`
+                </div>
+                <div class="proof">
+                    TODO
+                </div>
+            </div>
+
+
+            <div class="exercise">
+                <div class="title">Todo</div>
+                <div class="content">
+                    Consider the function `f(x,y,z) = x^2 + y^2 + z^2`, and the point `(a_1, a_2, a_3) in RR^3` then show that `f_(y, a)(h)` equals the function `g(x) = a_1^2 + (x)^2 + a_3^2`
+                </div>
+                <div class="proof">
+                    Let's start by looking at the definition of `f_(2, a)(h) = f(a + he_2)` now recall that `e_2 = (0, 1, 0)`, so that `f(a + he_2) = f( (a_1, a_2, a_3) + (0, h, 0)) = f(a_1, a_2 + h, a_3) = (a_1)^2 + (a_2 + h)^2 + (a_3)^2`
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="title">Todo</div>
+                <div class="content">
+                    compute the partial derivative with resepct to y of `f(x,y,z) = x^2 + y^2 + z^2`
+                </div>
+                <div class="proof">
+                    Leaving x and z as constants, and evaluating the derivative as `f(x,y,z) = C + y^2 + C`, using the sum rule and the power rule, the derivative becomes `del/(del y) f(x,y,z) = 2y`
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="title">Gradient</div>
+                <div class="content">
+                    The gradient of a function `f: RR^n to R` at the point `p` is defined as `grad f(p) := ((del f)/del(x_1) (p), (del f)/del(x_2) (p),..., (del f)/del(x_n) (p))`
+                </div>
+            </div>
+
+            <div class="exercise">
+                <div class="title">Todo</div>
+                <div class="content">
+                    Suppose we have the fnction `f(x,y) = sin(x)`, and `(p_1, p_2) in RR^2` show that `grad f(p) = (cos(p_1), 0)`
+                </div>
+                <div class="proof">
+                    By definition `grad f(p) = ( (del f )/ (del x_1)(p), (del f) / (del x_2) (p))`.  Since we know that `(del f) / (del x_1) = d/(dh)(f_(1, p)(h))`, and we know that `f_(1,p)(h) = f(p + he_1)` since `h e_1 = (h, 0)` so `p = (p_1, p_2)`  so `p + he_1 = (p_1 + h, p_2)` so then `f(p + he_1) = sin(p_1 + h)`, evaluating the limit from the directional derivative, it evaluates to `cos(p_1)`
+                    <p>
+                        we will show that `(del f) / (del x_2) (p) = 0`, we know that `f_(2, p)(h) = f(p + he_2) = cos(p_1)` and thus it is a constant funtion, this implies tha directional derivative is 0
+                    </p>
+                    <p>
+                        Therefore we can se that `grad f(p) = (cos(p_1), 0)`
+                    </p>
+                </div>
+            </div>
+
+            
+            <div class="definition" id="definition-differentiability">
+                <div class="title">differentaibility</div>
+                <div class="content">
+                    a function `f: A to RR^m` with `A sube RR^n` is differentiable at the point `a in RR^n` if there exists a linear transformation `T: RR^n to RR^m` such that 
+                    <div class="centered-content">
+                        `lim_{x to a} norm(f(x) - (f(a) + T(x - a)))/ norm(x - a) = 0`
+                    </div>
+                </div>
+            </div>
+
+            <div class="theorem" id="theorem-continuous-partials-implies-differentiabiity">
+                <div class="title">continuous partials implies differentiability</div>
+                <div class="content">
+                    If all the partial derivatives of a function exist in a neighborhood of a point `x_0` and are continuous at the point `x_0`, then the function is differentiable at that point `x_0`
+                </div>
+                <div class="proof">
+                    ToDo
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
