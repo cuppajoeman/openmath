@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer></script>
 
-	<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+	
 
 
 </head>
@@ -22,7 +21,7 @@
 		<div class="definition" id="definition-congruence">
 			<div class="title">congruence</div>
 			<div class="content">
-				Fix an integer `m` called the modulus, then say `a -= b (mod m)` if and only if `m | b - a`
+				Fix an integer \( m \) called the modulus, then say \( a \equiv b \left ( \operatorname{mod} m \right ) \) if and only if \( m | b - a \)
 			</div>
 		</div>
 
@@ -31,11 +30,11 @@
 				<div class="title">congruence iff same remainder</div>
 				<div class="content">
 					<div class="centered-content">
-						`a, b in ZZ` are congruent modulo `m` if and only if <span class="knowledge-link" data-href="/number_theory/division.html#definition-remainder-function">`a % m`</span> ` = b % m`
+						\( a , b \in \mathbb{Z} \) are congruent modulo \( m \) if and only if <span class="knowledge-link" data-href="/number_theory/division.html#definition-remainder-function">\( a \% m \)</span> \( = b \% m \)
         
 					</div>
 					<p>
-						note: <i>this means that `a` and `b` have the same remainder upon division by `m`</i>
+						note: <i>this means that \( a \) and \( b \) have the same remainder upon division by \( m \)</i>
 					</p>
 				</div>
 			</div>
@@ -44,12 +43,12 @@
 				<div class="title"></div>
 				<div class="content">
 					<p>
-						Suppose that `a -= b (mod m)`, so we know `m | b - a`, then we can write `b = k_b m + r_b` and `a = k_a m + r_a` so that `b - a = m *(k_b + k_a) + k_b - k_a ` <span class="knowledge-link" data-href="/number_theory/division.html#proposition-forced-division-of-sum">thus</span> `m | k_b - k_a`. 
+						Suppose that \( a \equiv b \left ( \operatorname{mod} m \right ) \), so we know \( m | b - a \), then we can write \( b = k_{b} m + r_{b} \) and \( a = k_{a} m + r_{a} \) so that \( b - a = m \cdot \left ( k_{b} + k_{a} \right ) + k_{b} - k_{a} \) <span class="knowledge-link" data-href="/number_theory/division.html#proposition-forced-division-of-sum">thus</span> \( m | k_{b} - k_{a} \). 
 					</p>
 					<p>
-						Notice that `0 le k_a, k_b lt abs(m)` also we know that `k_a ne k_b` therefore `k_b - k_a ne 0` 
+						Notice that \( 0 \le k_{a} , k_{b} \lt \left | m \right |  \) also we know that \( k_{a} \ne k_{b} \) therefore \( k_{b} - k_{a} \ne 0 \) 
 						
-						so then `-abs(m) lt  k_b - k_a lt abs(m)` 
+						so then \( - \left | m \right |  \lt k_{b} - k_{a} \lt \left | m \right |  \) 
 					</p>
 				</div>
 			</div>

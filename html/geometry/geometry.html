@@ -10,8 +10,7 @@
         <script src="../js/script.js" defer></script>
 
 
-		<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+		
 
 		<link rel="icon" href="/Theta.svg">
     </head>
@@ -57,21 +56,21 @@
 			<div class="definition" id="definition-line-segment">
 				<div class="title">line segment</div>
 				<div class="content">
-					Given two points the line segment is part of the line that connects `A` and `B` so that the line has `A` and `B` as endpoints. We denote this line by `bar(A B)`
+					Given two points the line segment is part of the line that connects \( A \) and \( B \) so that the line has \( A \) and \( B \) as endpoints. We denote this line by \( \overline{A B} \)
 				</div>
 			</div>
 
 			<div class="definition" id="definition-circle">
 				<div class="title">circle</div>
 				<div class="content">
-					A circle of radius `r` around a point `A` is the collection of points that are all distance `r` away from `A`
+					A circle of radius \( r \) around a point \( A \) is the collection of points that are all distance \( r \) away from \( A \)
 				</div>
 			</div>
 
 			<div class="definition" id="definition-circle-from-two-points">
 				<div class="title">circle from two points</div>
 				<div class="content">
-					Given two points `A, B` on the plane, then we define the circle from `A` to `B` as the circle centered at `A` with radius `text(dist)(A, B)` and notate it as `A o. B`
+					Given two points \( A , B \) on the plane, then we define the circle from \( A \) to \( B \) as the circle centered at \( A \) with radius \( \text{dist} \left ( A , B \right ) \) and notate it as \( A \odot B \)
 				</div>
 			</div>
 
@@ -96,7 +95,7 @@
 				</div>
 				<div class="proof">
 					<p>
-						Let `A, B` be points on the plane, then we can construct the circle from `A` to `B`, `A o. B` and `B o. A`, from this we obtain two intersection points and pick one of them as `C`, and draw a third circle `C o. B`.
+						Let \( A , B \) be points on the plane, then we can construct the circle from \( A \) to \( B \), \( A \odot B \) and \( B \odot A \), from this we obtain two intersection points and pick one of them as \( C \), and draw a third circle \( C \odot B \).
 					</p>
 					<div class="centered-content">
 						<img src="/geometry/graphics/equilateral-triangle-construction/1.svg" width="50%">
@@ -104,13 +103,13 @@
 						<img src="/geometry/graphics/equilateral-triangle-construction/3.svg" width="50%">
 					</div>
 					<p>
-						We know that `C in A o. B` so `text(dist)(A, B) = text(dist)(A, C)`, additionally `C in B o. A` so `text(dist)(B, C) = text(dist)(B, A)`, thus we have `text(dist)(A, B) = text(dist)(A, C) = text(dist)(B, C)` and so by drawing line segments between `A, B, C` we obtain a triangle all with equal side lengths
+						We know that \( C \in A \odot B \) so \( \text{dist} \left ( A , B \right ) = \text{dist} \left ( A , C \right ) \), additionally \( C \in B \odot A \) so \( \text{dist} \left ( B , C \right ) = \text{dist} \left ( B , A \right ) \), thus we have \( \text{dist} \left ( A , B \right ) = \text{dist} \left ( A , C \right ) = \text{dist} \left ( B , C \right ) \) and so by drawing line segments between \( A , B , C \) we obtain a triangle all with equal side lengths
 					</p>
 					<div class="centered-content">
 						<img src="/geometry/graphics/equilateral-triangle-construction/4.svg" width="50%">
 					</div>
 					<p>
-						And thus the triangle `bar(A B), bar(B C), bar(C A)` is equilateral.
+						And thus the triangle \( \overline{A B} , \overline{B C} , \overline{C A} \) is equilateral.
 					</p>
 				</div>
 			</div>

@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/styles.css">
 
-	<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+	
 
     <script src="/js/script.js" defer></script>
 
@@ -24,14 +23,14 @@
 		<div class="definition" id="definition-set-difference">
 			<div class="title">set difference</div>
 			<div class="content">
-				Suppose that `A, B` are sets, then \(A \setminus B := \{a \in A: a \notin B \}\) and call it the set difference of `A` and `B`
+				Suppose that \( A , B \) are sets, then \(A \setminus B := \{a \in A: a \notin B \}\) and call it the set difference of \( A \) and \( B \)
 			</div>
 		</div>
 
 		<div class="proposition" id="proposition-set-difference-is-empty-iff-one-is-a-superset-of-the-other">
 			<div class="title">set difference is empty iff one is a superset of the other</div>
 			<div class="content">
-				Suppose that `A, B` are sets, then `A \\ B = O/`, if and only if `A sube B`
+				Suppose that \( A , B \) are sets, then \( A \backslash B = \emptyset \), if and only if \( A \subseteq B \)
 			</div>
 			<div class="proof">
 				TODO
@@ -42,7 +41,7 @@
 		<div class="proposition" id="proposition-set-difference-with-itself-is-empty">
 			<div class="title">Set Difference with Itself is Empty</div>
 			<div class="content">
-				`X \\ X = O/`
+				\( X \backslash X = \emptyset \)
 			</div>
 			<div class="proof">
 				TODO
@@ -52,7 +51,7 @@
 		<div class="proposition" id="proposition-set-difference-with-the-empty-set-is-itself">
 			<div class="title">Set Difference with the Empty set is Itself</div>
 			<div class="content">
-				`X \\ O/ = X`
+				\( X \backslash \emptyset = X \)
 			</div>
 			<div class="proof">
 				TODO
@@ -62,15 +61,15 @@
 		<div class="proposition" id="proposition-intersection-distributes-through-intersection">
 			<div class="title">intersection distributes through intersection</div>
 			<div class="content">
-				Suppose that `A, B, X` are sets  then `(A \\ B) nn X = (A nn X) \\ B `
+				Suppose that \( A , B , X \) are sets  then \( \left ( A \backslash B \right ) \cap X = \left ( A \cap X \right ) \backslash B \)
 			</div>
 			<div class="proof">
 				<p>
 
-					Suppose that `p in (A \\ B) nn X` so `p in A`, `p notin B` and `p in X`, this means that `p in A nn X` and `p notin B`, this shows that `p in (A nn X) \\ B` as needed
+					Suppose that \( p \in \left ( A \backslash B \right ) \cap X \) so \( p \in A \), \( p \notin B \) and \( p \in X \), this means that \( p \in A \cap X \) and \( p \notin B \), this shows that \( p \in \left ( A \cap X \right ) \backslash B \) as needed
 				</p>
 				<p>
-					Now suppose that `p in (A nn X) \\ B` so `p in A`, `p in X` but `p notin B`, recombining this information we can see that `p in (A \\ B) nn X`, as needed.
+					Now suppose that \( p \in \left ( A \cap X \right ) \backslash B \) so \( p \in A \), \( p \in X \) but \( p \notin B \), recombining this information we can see that \( p \in \left ( A \backslash B \right ) \cap X \), as needed.
 				</p>
 			</div>
 		</div>
@@ -78,14 +77,14 @@
 		<div class="proposition" id="proposition-union-intersection-inversion-through-set-difference">
 			<div class="title">Union Intersection Inversion through set Difference</div>
 			<div class="content">
-				Suppose that `A, B, C` are sets then `A \\ (B nn C) = A \\ B uu A \\ C`
+				Suppose that \( A , B , C \) are sets then \( A \backslash \left ( B \cap C \right ) = A \backslash B \cup A \backslash C \)
 			</div>
 			<div class="proof">
 				<p>
-					We know that `x in A \\  (B nn C) ` is true iff `x in A` and `x notin (B nn C)`, equivalent to `x notin B` or `x notin C`, since `x in A`, we can biconditionally re-write this as `x in A \\ B` or `x in A \\ C` iff `x in (A \\ B) uu (A \\ C)`
+					We know that \( x \in A \backslash \left ( B \cap C \right ) \) is true iff \( x \in A \) and \( x \notin \left ( B \cap C \right ) \), equivalent to \( x \notin B \) or \( x \notin C \), since \( x \in A \), we can biconditionally re-write this as \( x \in A \backslash B \) or \( x \in A \backslash C \) iff \( x \in \left ( A \backslash B \right ) \cup \left ( A \backslash C \right ) \)
 				</p>
 				<p>
-					Since all connectives in the above proof are bi-conditionals, then we know that `A \\ (B nn C) = (A \\ B) uu (A \\ C)`
+					Since all connectives in the above proof are bi-conditionals, then we know that \( A \backslash \left ( B \cap C \right ) = \left ( A \backslash B \right ) \cup \left ( A \backslash C \right ) \)
 				</p>
 			</div>
 		</div>
@@ -93,14 +92,14 @@
 		<div class="proposition" id="proposition-double-difference-creates-intersection">
 			<div class="title">Double Difference creates Intersection</div>
 			<div class="content">
-				Suppose that `A, B, C` are sets such that `A sube B`, then `A \\ (B \\ C) = (A \\ B) nn C`
+				Suppose that \( A , B , C \) are sets such that \( A \subseteq B \), then \( A \backslash \left ( B \backslash C \right ) = \left ( A \backslash B \right ) \cap C \)
 			</div>
 			<div class="proof">
 				<p>
-					Suppose that `x in A \\ (B \\ C)` which is true iff `x in A` and `x notin (B \\ C)` which means that it's not true that `(x in B and x notin C)` so that `x notin B` or `x in C`, since `x in A` and we know that `A sube B` then `x in B`, which forcs `x in C` to avoid a contradiction, therefore ``
+					Suppose that \( x \in A \backslash \left ( B \backslash C \right ) \) which is true iff \( x \in A \) and \( x \notin \left ( B \backslash C \right ) \) which means that it's not true that \( \left ( x \in B \quad\text{and}\quad x \notin C \right ) \) so that \( x \notin B \) or \( x \in C \), since \( x \in A \) and we know that \( A \subseteq B \) then \( x \in B \), which forcs \( x \in C \) to avoid a contradiction, therefore \(  \)
 				</p>
 				<p>
-					Suppose that `x in A \\ B nn C`, therefore `x in A`, `x notin B` and `x in C`, thus we can see that `x notin B \\ C` thus `x in A \\ (B \\ C)`
+					Suppose that \( x \in A \backslash B \cap C \), therefore \( x \in A \), \( x \notin B \) and \( x \in C \), thus we can see that \( x \notin B \backslash C \) thus \( x \in A \backslash \left ( B \backslash C \right ) \)
 				</p>
 			</div>
 		</div>
@@ -110,14 +109,14 @@
 			<div class="proposition">
 				<div class="title">TODO</div>
 				<div class="content">
-					Suppose that `A, B` are sets, then `A \\ (A \\ B) = A nn B`
+					Suppose that \( A , B \) are sets, then \( A \backslash \left ( A \backslash B \right ) = A \cap B \)
 				</div>
 				<div class="proof">
 					<p>
-						Suppose that `x in A \\ (A \\ B)` which is true iff `x in A` and `x notin (A \\ B)` which means that it's not true that `(x in A land x notin B)` we already know that `x in A` holds, so we must have that `x notin B` to be false, which means that `x in B` so that `x in A nn B`
+						Suppose that \( x \in A \backslash \left ( A \backslash B \right ) \) which is true iff \( x \in A \) and \( x \notin \left ( A \backslash B \right ) \) which means that it's not true that \( \left ( x \in A l \quad\text{and}\quad x \notin B \right ) \) we already know that \( x \in A \) holds, so we must have that \( x \notin B \) to be false, which means that \( x \in B \) so that \( x \in A \cap B \)
 					</p>
 					<p>
-						Suppose that `x in A nn B`, since `x in B`, then it's not true that `x notin B`, therefore `x notin (A \\ B)` since `x in A`, this shows that `x in A \\ (A \\ B)`
+						Suppose that \( x \in A \cap B \), since \( x \in B \), then it's not true that \( x \notin B \), therefore \( x \notin \left ( A \backslash B \right ) \) since \( x \in A \), this shows that \( x \in A \backslash \left ( A \backslash B \right ) \)
 					</p>
 				</div>
 			</div>
@@ -127,10 +126,10 @@
 			<div class="proposition">
 				<div class="title">TODO</div>
 				<div class="content">
-					Suppose that `Y sube X` and  `Y \\ A = Y nn U`, then `A = Y nn (X \\ U)` solves the given equation
+					Suppose that \( Y \subseteq X \) and  \( Y \backslash A = Y \cap U \), then \( A = Y \cap \left ( X \backslash U \right ) \) solves the given equation
 				</div>
 				<div class="proof">
-					Suppose that `A = Y nn (X \\ U)`, then `Y \\ A = Y \\ (Y nn (X \\ U)) = (Y \\ Y) uu (Y \\ (X \\ U)) = O/ uu `
+					Suppose that \( A = Y \cap \left ( X \backslash U \right ) \), then \( Y \backslash A = Y \backslash \left ( Y \cap \left ( X \backslash U \right ) \right ) = \left ( Y \backslash Y \right ) \cup \left ( Y \backslash \left ( X \backslash U \right ) \right ) = \emptyset \cup \)
 				</div>
 			</div>
 
@@ -140,14 +139,14 @@
 		<div class="theorem" id="theorem-demorgans-laws">
 			<div class="title">DeMorgan's Laws</div>
 			<div class="content">
-				Suppose that `M` is a family of sets, then `X \\ (bigcup_(A in M) A) = bigcap_(A in M) (X \\ A)` and `X \\ (bigcap_(A in M) A) = bigcup_(A in M) (X \\ A)`
+				Suppose that \( M \) is a family of sets, then \( X \backslash \left ( \bigcup_{A \in M} A \right ) = \bigcap_{A \in M} \left ( X \backslash A \right ) \) and \( X \backslash \left ( \bigcap_{A \in M} A \right ) = \bigcup_{A \in M} \left ( X \backslash A \right ) \)
 			</div>
 			<div class="proof">
 				<p>
-					Note that, `p in X \\ (bigcup_(A in M) A)`, if and only if  `p in X` and `x notin bigcup_(A in M) A`, which is equivalent to: for all `A in M` `p notin A`, which is the same as `p in (X \\ A)` for each `A in M`, so by definition `p in bigcap_(A in M) (X \\ A)`. Since each connective in the previous paragraph was an iff, then this implies the two sets are equal
+					Note that, \( p \in X \backslash \left ( \bigcup_{A \in M} A \right ) \), if and only if  \( p \in X \) and \( x \notin \bigcup_{A \in M} A \), which is equivalent to: for all \( A \in M \) \( p \notin A \), which is the same as \( p \in \left ( X \backslash A \right ) \) for each \( A \in M \), so by definition \( p \in \bigcap_{A \in M} \left ( X \backslash A \right ) \). Since each connective in the previous paragraph was an iff, then this implies the two sets are equal
 				</p>
 				<p>
-					For the second proof, we'll follow a similar structure to the first. Note that, `p in X \\ (bigcap_(A in M) A)`, if and only if  `p in X` and `x notin bigcap_(A in M) A`, which is equivalent to: there is some `A in M` `p notin A`, which is the same as `p in (X \\ A)` for some `A in M`, so by definition `p in bigcup_(A in M) (X \\ A)`. Since each connective in the previous paragraph was an iff, then this implies the two sets are equal
+					For the second proof, we'll follow a similar structure to the first. Note that, \( p \in X \backslash \left ( \bigcap_{A \in M} A \right ) \), if and only if  \( p \in X \) and \( x \notin \bigcap_{A \in M} A \), which is equivalent to: there is some \( A \in M \) \( p \notin A \), which is the same as \( p \in \left ( X \backslash A \right ) \) for some \( A \in M \), so by definition \( p \in \bigcup_{A \in M} \left ( X \backslash A \right ) \). Since each connective in the previous paragraph was an iff, then this implies the two sets are equal
 				</p>
 			</div>
 		</div>
