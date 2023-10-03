@@ -28,10 +28,10 @@
 			</div>
 		</div>
 
-		<div class="proposition" id="proposition-TODO">
-			<div class="title">TODO</div>
+		<div class="proposition" id="proposition-set-difference-is-empty-iff-one-is-a-superset-of-the-other">
+			<div class="title">set difference is empty iff one is a superset of the other</div>
 			<div class="content">
-				Suppose that `A, B` are sets such that `A sube B`, then (iff) `A \\ B = O/`
+				Suppose that `A, B` are sets, then `A \\ B = O/`, if and only if `A sube B`
 			</div>
 			<div class="proof">
 				TODO
@@ -39,10 +39,20 @@
 		</div>
 
 
-		<div class="proposition" id="proposition-TODO">
-			<div class="title">TODO</div>
+		<div class="proposition" id="proposition-set-difference-with-itself-is-empty">
+			<div class="title">Set Difference with Itself is Empty</div>
 			<div class="content">
-				`X \\ X = O/` and `X \\ O/ = X`
+				`X \\ X = O/`
+			</div>
+			<div class="proof">
+				TODO
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-set-difference-with-the-empty-set-is-itself">
+			<div class="title">Set Difference with the Empty set is Itself</div>
+			<div class="content">
+				`X \\ O/ = X`
 			</div>
 			<div class="proof">
 				TODO
@@ -52,21 +62,21 @@
 		<div class="proposition" id="proposition-intersection-distributes-through-intersection">
 			<div class="title">intersection distributes through intersection</div>
 			<div class="content">
-				Suppose that `A, B, X` are sets  then `(A \\ B) nn X = (A nn X) \\ (B nn X)`
+				Suppose that `A, B, X` are sets  then `(A \\ B) nn X = (A nn X) \\ B `
 			</div>
 			<div class="proof">
 				<p>
 
-					Suppose that `p in (A \\ B) nn X` so `p in A`, `p notin B` and `p in X`, this means that `p in A nn X` and `p notin B nn X`, this shows that `p in (A nn X) \\ (B nn X)` as needed
+					Suppose that `p in (A \\ B) nn X` so `p in A`, `p notin B` and `p in X`, this means that `p in A nn X` and `p notin B`, this shows that `p in (A nn X) \\ B` as needed
 				</p>
 				<p>
-					Now suppose that `p in (A nn X) \\ (B nn X)` so `p in A`, `p in X` but `p notin B nn X`, since we know that `p in X`, to avoid contradiction we must have `p notin B` with this information, we can se that `p in (A \\ B) nn X`, as needed.
+					Now suppose that `p in (A nn X) \\ B` so `p in A`, `p in X` but `p notin B`, recombining this information we can see that `p in (A \\ B) nn X`, as needed.
 				</p>
 			</div>
 		</div>
 
-		<div class="proposition" id="proposition-TODO">
-			<div class="title">TODO</div>
+		<div class="proposition" id="proposition-union-intersection-inversion-through-set-difference">
+			<div class="title">Union Intersection Inversion through set Difference</div>
 			<div class="content">
 				Suppose that `A, B, C` are sets then `A \\ (B nn C) = A \\ B uu A \\ C`
 			</div>
@@ -80,17 +90,17 @@
 			</div>
 		</div>
 
-		<div class="proposition" id="proposition-TODO">
-			<div class="title">TODO</div>
+		<div class="proposition" id="proposition-double-difference-creates-intersection">
+			<div class="title">Double Difference creates Intersection</div>
 			<div class="content">
 				Suppose that `A, B, C` are sets such that `A sube B`, then `A \\ (B \\ C) = (A \\ B) nn C`
 			</div>
 			<div class="proof">
 				<p>
-					Suppose that `x in A \\ (B \\ C)` which is true iff `x in A` and `x notin (B \\ C)` which means that it's not true that `(x in B land x notin C)` so that `x notin B` or `x in C`, since `x in A` and we know that `A sube B` then `x in B`, which forcs `x in C` to avoid a contradiction, therefore ``
+					Suppose that `x in A \\ (B \\ C)` which is true iff `x in A` and `x notin (B \\ C)` which means that it's not true that `(x in B and x notin C)` so that `x notin B` or `x in C`, since `x in A` and we know that `A sube B` then `x in B`, which forcs `x in C` to avoid a contradiction, therefore ``
 				</p>
 				<p>
-					Suppose that `x in A nn B`, since `x in B`, then it's not true that `x notin B`, therefore `x notin (A \\ B)` since `x in A`, this shows that `x in A \\ (A \\ B)`
+					Suppose that `x in A \\ B nn C`, therefore `x in A`, `x notin B` and `x in C`, thus we can see that `x notin B \\ C` thus `x in A \\ (B \\ C)`
 				</p>
 			</div>
 		</div>
