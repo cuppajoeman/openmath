@@ -8,8 +8,7 @@
         <link rel="stylesheet" href="../../styles/styles.css">
         <script src="../../js/script.js" defer></script>
 
-		<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+		
 
     </head>
     <body>
@@ -20,7 +19,7 @@
             <div class="definition" id="definition-exponentiation">
                 <div class="title">exponentiation</div>
                 <div class="content">
-                    Suppose `b in RR`, and `n in NN_1`, then `b^n := ubrace(b * b * ... * b * b)_(n text( times ))`, note that `b^n : NN_1 to RR`
+                    Suppose \( b \in \mathbb{R} \), and \( n \in \mathbb{N}_{1} \), then \( b^{n} := \underbrace{b \cdot b \cdot \ldots \cdot b \cdot b}_{n \text{ times }} \), note that \( b^{n} : \mathbb{N}_{1} \to \mathbb{R} \)
                 </div>
             </div>
 
@@ -28,35 +27,35 @@
             <div class="proposition" id="proposition-exponentiation-of-a-positive-number-is-positive">
                 <div class="title">exponentiation of a positive number is positive</div>
                 <div class="content">
-                    Suppose that `x in RR^(>0)`, then `x^n in RR^(>0)`
+                    Suppose that \( x \in \mathbb{R}^{> 0} \), then \( x^{n} \in \mathbb{R}^{> 0} \)
                 </div>
             </div>
 
             <div class="proposition" id="proposition-product-of-two-reals-of-the-same-sign-is-positive">
                 <div class="title">product of two reals of the same sign is positive</div>
                 <div class="content">
-                    Given `x, y in RR`, if `x, y < 0` or `x, y > 0`, then `x * y = 0`
+                    Given \( x , y \in \mathbb{R} \), if \( x , y < 0 \) or \( x , y > 0 \), then \( x \cdot y = 0 \)
                 </div>
             </div>
 
             <div class="definition">
                 <div class="title">multiplicative inverse</div>
                 <div class="content">
-                    Suppose that `x in RR^(ne 0)`, then if `w in RR` satisfies `x * w = 1`, then it is said to be the reciprocal or multiplicative inverse of `x` and we write `w = 1/x`
+                    Suppose that \( x \in \mathbb{R}^{\ne 0} \), then if \( w \in \mathbb{R} \) satisfies \( x \cdot w = 1 \), then it is said to be the reciprocal or multiplicative inverse of \( x \) and we write \( w = \frac{1}{x} \)
                 </div>
             </div>
 
             <div class="theorem">
                 <div class="title"></div>
                 <div class="content">
-                    Suppose that `n in NN_1` and `f: RR^(gt 0) to RR` is defined as `f(x) = x^n`, then `f` is strictly increasing.
+                    Suppose that \( n \in \mathbb{N}_{1} \) and \( f{:} \mathbb{R}^{\gt 0} \to \mathbb{R} \) is defined as \( f{\left ( x \right )} = x^{n} \), then \( f \) is strictly increasing.
                 </div>
             </div>
 
             <div class="proposition">
                 <div class="title"></div>
                 <div class="content">
-                    Suppose that `n in NN_1` and `x in RR^(gt 0)`, then `x^n > 0`
+                    Suppose that \( n \in \mathbb{N}_{1} \) and \( x \in \mathbb{R}^{\gt 0} \), then \( x^{n} > 0 \)
                 </div>
 				<div class="proof">
 					(TODO: product of two numbers of the same sign is positive and induction.)
@@ -68,30 +67,30 @@
             <div class="theorem">
                 <div class="title"></div>
                 <div class="content">
-                    Suppose that `a, b, c in RR`, with `a < b` and `c > 0`, then `ac < bc`
+                    Suppose that \( a , b , c \in \mathbb{R} \), with \( a < b \) and \( c > 0 \), then \( a c < b c \)
                 </div>
             </div>
 
             <div class="theorem">
                 <div class="title"></div>
                 <div class="content">
-                    Suppose that `a_n, b_n` are two real sequences and that `sum_{n = 0}^oo a_n` and `sum_{n = 0}^oo b_n` are convergent series, if for each `n in NN, a_n < b_n`, then `sum_{n = 1}^oo`
+                    Suppose that \( a_{n} , b_{n} \) are two real sequences and that \( \sum_{n = 0}^{\infty} a_{n} \) and \( \sum_{n = 0}^{\infty} b_{n} \) are convergent series, if for each \( n \in \mathbb{N} , a_{n} < b_{n} \), then \( \sum_{n = 1}^{\infty} \)
                 </div>
             </div>
 
             <div class="theorem">
                 <div class="title"></div>
                 <div class="content">
-                    Suppose `x, y in RR` with the same sign. Then `x < y` if and only if `1/y le 1/x`
+                    Suppose \( x , y \in \mathbb{R} \) with the same sign. Then \( x < y \) if and only if \( \frac{1}{y} \le \frac{1}{x} \)
                 </div>
             </div>
 			
 			<div class="theorem" id="theorem-binomial">
 				<div class="title">binomial</div>
 				<div class="content">
-					Suppose that `x, y in RR` such that `x + y >= 0` and that `n in NN_0`, then 
+					Suppose that \( x , y \in \mathbb{R} \) such that \( x + y \ge 0 \) and that \( n \in \mathbb{N}_{0} \), then 
 					<div class="centered-content">
-						`(x + y)^n = sum_(k = 0)^n ( (n), (k) ) x ^ (n - k) y ^k  `
+						\( \left ( x + y \right )^{n} = \sum_{k = 0}^{n} \left ( \begin{matrix} n \\ k \end{matrix} \right ) x^{n - k} y^{k} \)
 					</div>
 				</div>
 				<div class="proof">
@@ -105,14 +104,14 @@
             <div class="definition">
                 <div class="title">exponential</div>
                 <div class="content">
-                    `e^x := sum_{k = 0}^oo x^k/(k!)`, note that `e^x : RR to RR` and that `x^k` is <span class="knowledge-link" data-href="/analysis/single_variable/exponential_function.html#definition-exponentiation">exponentiation</span>. We say that `e^x` is the exponential.
+                    \( e^{x} := \sum_{k = 0}^{\infty} \frac{x^{k}}{k !} \), note that \( e^{x} : \mathbb{R} \to \mathbb{R} \) and that \( x^{k} \) is <span class="knowledge-link" data-href="/analysis/single_variable/exponential_function.html#definition-exponentiation">exponentiation</span>. We say that \( e^{x} \) is the exponential.
                 </div>
             </div>
 
 			<div class="theorem" id="theorem-TODO">
 				<div class="title"></div>
 				<div class="content">
-					`e^x = lim_{n to oo} (1 + x/n)^n`
+					\( e^{x} = \lim_{n \to \infty} \left ( 1 + \frac{x}{n} \right )^{n} \)
 				</div>
 				<div class="proof">
 					TODO
@@ -122,11 +121,11 @@
 			<div class="theorem" id="theorem-TODO">
 				<div class="title"></div>
 				<div class="content">
-					`d/(dx) [e^x] = e^x`	
+					\( \frac{d}{dx} \left [ e^{x} \right ] = e^{x} \)	
 				</div>
 				<div class="proof">
 					<p>
-						`d/ (dx) = lim _ (h to 0) (e ^ (x + h) - e ^x)/h = lim _ (h to oo) ( lim _ (n to oo) (1 + (x + h)/ n) ^ n - lim _ (n to oo) (1 + x/n)^n) / h = lim_ (h to 0) (lim_(n to oo) ((1 + (x + h)/n)^n-(1 + x / n)^n) / h)`
+						\( \frac{d}{dx} = \lim_{h \to 0} \frac{e^{x + h} - e^{x}}{h} = \lim_{h \to \infty} \frac{\lim_{n \to \infty} \left ( 1 + \frac{x + h}{n} \right )^{n} - \lim_{n \to \infty} \left ( 1 + \frac{x}{n} \right )^{n}}{h} = \lim_{h \to 0} \left ( \lim_{n \to \infty} \frac{\left ( 1 + \frac{x + h}{n} \right )^{n} - \left ( 1 + \frac{x}{n} \right )^{n}}{h} \right ) \)
 					</p>
 					<p>
 						Therefore by the binomial theorem...
@@ -138,7 +137,7 @@
             <div class="theorem" id="theorem-exponential-sum-product-equality">
                 <div class="title">exponential sum product equality</div>
                 <div class="content">
-                    Suppose `x, y in RR`, then `e^(x + y) = e^x * e^y`
+                    Suppose \( x , y \in \mathbb{R} \), then \( e^{x + y} = e^{x} \cdot e^{y} \)
                 </div>
 				<div class="proof">
 					TODO
@@ -148,14 +147,14 @@
             <div class="corollary">
                 <div class="title">reciprocal of exponential</div>
                 <div class="content">
-                    `1/e^x = e^-x`
+                    \( \frac{1}{e^{x}} = e^{- x} \)
                 </div>
 				<div class="proof">
 					<p>
-						`e^0 = 1` as if we sub in `x = 0` `e^x = sum_{n = 0}^oo x^n/(n!)`, and we know that `0^0` is defined to be `0`, then `e^0 = 1`
+						\( e^{0} = 1 \) as if we sub in \( x = 0 \) \( e^{x} = \sum_{n = 0}^{\infty} \frac{x^{n}}{n !} \), and we know that \( 0^{0} \) is defined to be \( 0 \), then \( e^{0} = 1 \)
 					</p>
 					<p>
-						But at the same time `e^0 = e^(x - x)` <span class="knowledge-link" data-href="/analysis/single_variable/exponential_function.html#theorem-exponential-sum-product-equality">which equals</span> `e^x * e^-x = 1`, so thus `1/e^x = e^(-x)` as needed.
+						But at the same time \( e^{0} = e^{x - x} \) <span class="knowledge-link" data-href="/analysis/single_variable/exponential_function.html#theorem-exponential-sum-product-equality">which equals</span> \( e^{x} \cdot e^{- x} = 1 \), so thus \( \frac{1}{e^{x}} = e^{- x} \) as needed.
 					</p>
 				</div>
             </div>
@@ -164,10 +163,10 @@
 			<div class="proposition" id="proposition-TODO">
 				<div class="title"></div>
 				<div class="content">
-					`x < 0`,iff `e^x < 1`
+					\( x < 0 \),iff \( e^{x} < 1 \)
 				</div>
 				<div class="proof">
-					since `e^x` is increasing it's fine (TODO finish)
+					since \( e^{x} \) is increasing it's fine (TODO finish)
 				</div>
 			</div>
 			
@@ -175,7 +174,7 @@
 			<div class="proposition" id="proposition-TODO">
 				<div class="title"></div>
 				<div class="content">
-					 `0 < x < 1` iff `ln(x) < 0`
+					 \( 0 < x < 1 \) iff \( \ln{\left ( x \right )} < 0 \)
 				</div>
 				<div class="proof">
 						TODO
@@ -187,17 +186,17 @@
 			<div class="theorem">
 				<div class="title">exponential is always positive</div>
 				<div class="content">
-					`AA x in R, e^x > 0`
+					\( \forall x \in R , e^{x} > 0 \)
 				</div>
 				<div class="proof">
 					<p>
-						If `x > 0`, then by one of the unordered dependencies we have `x^n > 0`, then by one of the unorder dependencies about real numbes since `1/(n!) > 0` we have `x^n / (n!) > 0 / (n!) = 0` and using `x^n / (n!) = sum_{n = 0} ^oo a_n` with `a_i = 0` for `i in {0, ... , n - 1}` and `a_n = x^n / (n!)` and `b_i = x^i / (i!)` the comparison test tells us that `0 < e^x`
+						If \( x > 0 \), then by one of the unordered dependencies we have \( x^{n} > 0 \), then by one of the unorder dependencies about real numbes since \( \frac{1}{n !} > 0 \) we have \( \frac{x^{n}}{n !} > \frac{0}{n !} = 0 \) and using \( \frac{x^{n}}{n !} = \sum_{n = 0}^{\infty} a_{n} \) with \( a_{i} = 0 \) for \( i \in \left \lbrace 0 , \ldots , n - 1 \right \rbrace \) and \( a_{n} = \frac{x^{n}}{n !} \) and \( b_{i} = \frac{x^{i}}{i !} \) the comparison test tells us that \( 0 < e^{x} \)
 					</p>
 					<p>
-						If `x < 0`, then `-x > 0`, and thus by the above argumnet `0 < e^(-x) = 1/e^x`, recall that `e^(-x) * e^x = 1`, and we know that `e^(-x)` and `1` are positive so therefore `e^x > 0` as well, as needed.
+						If \( x < 0 \), then \( - x > 0 \), and thus by the above argumnet \( 0 < e^{- x} = \frac{1}{e^{x}} \), recall that \( e^{- x} \cdot e^{x} = 1 \), and we know that \( e^{- x} \) and \( 1 \) are positive so therefore \( e^{x} > 0 \) as well, as needed.
 					</p>
 					<p>
-						If `x = 0`, then `e^x = e^0 = 1`
+						If \( x = 0 \), then \( e^{x} = e^{0} = 1 \)
 					</p>
 				</div>
 			</div>
@@ -206,28 +205,28 @@
 			<div class="definition">
 				<div class="title">logarithm</div>
 				<div class="content">
-					Suppose that `a, b in RR`, then `m = log_b(a)` is a number such that `b^m = a`
+					Suppose that \( a , b \in \mathbb{R} \), then \( m = \log_{b}{\left ( a \right )} \) is a number such that \( b^{m} = a \)
 				</div>
 			</div>
 
 			<div class="definition">
 				<div class="title">natural logarithm</div>
 				<div class="content">
-					We define `ln(x) := log_e(x)` and call it the natural logarithm.
+					We define \( \ln{\left ( x \right )} := \log_{e}{\left ( x \right )} \) and call it the natural logarithm.
 				</div>
 			</div>
 
 			<div class="definition">
 				<div class="title"></div>
 				<div class="content">
-					`AA r in RR, r^x := e^(ln(r)*x)`
+					\( \forall r \in \mathbb{R} , r^{x} := e^{\ln{\left ( r \right )} \cdot x} \)
 				</div>
 			</div>
 
 			<div class="proposition" id="proposition-exponentiation-inverse">
 				<div class="title">exponentiation inverse</div>
 				<div class="content">
-				given `r in RR`, then the multiplicative inverse of `r^x` is `r^(-x)`
+				given \( r \in \mathbb{R} \), then the multiplicative inverse of \( r^{x} \) is \( r^{- x} \)
 				</div>
 				<div class="proof">
 					TODO
@@ -238,7 +237,7 @@
 			<div class="proposition" id="proposition-TODO">
 				<div class="title"></div>
 				<div class="content">
-					Suppose that `0 < r < 1` and `x in RR^(gt 0)`, then `0 < r^x < 1`
+					Suppose that \( 0 < r < 1 \) and \( x \in \mathbb{R}^{\gt 0} \), then \( 0 < r^{x} < 1 \)
 				</div>
 				<div class="proof">
 					TODO
@@ -249,10 +248,10 @@
 			<div class="proposition">
 				<div class="title"></div>
 				<div class="content">
-					Let `a, b in RR^(> 0)` and assume that `a < b`, then if `0 < r < 1`, then `r^a > r^b` 
+					Let \( a , b \in \mathbb{R}^{> 0} \) and assume that \( a < b \), then if \( 0 < r < 1 \), then \( r^{a} > r^{b} \) 
 				</div>
 				<div class="proof">
-					Since `a < b`, then `0 < b - a`, and thus
+					Since \( a < b \), then \( 0 < b - a \), and thus
 				</div>
 			</div>
 

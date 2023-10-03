@@ -11,8 +11,7 @@
 
     <script src="../js/script.js" defer></script>
 
-	<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+	
 
 </head>
 
@@ -24,30 +23,30 @@
 		<div class="definition" id="definition-base-representation">
 			<div class="title">base represenation</div>
 			<div class="content">
-				Suppose that `m, k  in NN_1` and `(a_(k - 1), a_(k - 2), ..., a_(0)) in {0, 1, 2, ..., m}^k`. Then we define `n := sum_(i = 0)^(k - 1) a_i m^i` and we say that `a_(k - 1)a_(k - 2) ... a_(1)` is the representation of `n` in the base `m`
+				Suppose that \( m , k \in \mathbb{N}_{1} \) and \( \left ( a_{k - 1} , a_{k - 2} , \ldots , a_{0} \right ) \in \left \lbrace 0 , 1 , 2 , \ldots , m \right \rbrace^{k} \). Then we define \( n := \sum_{i = 0}^{k - 1} a_{i} m^{i} \) and we say that \( a_{k - 1} a_{k - 2} \ldots a_{1} \) is the representation of \( n \) in the base \( m \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-decimal-representation">
 			<div class="title">decimal representation</div>
 			<div class="content">
-				The decimal representation of a number `n` is the <a href="/number_theory/number_bases.html#definition-base-representation" class="knowledge-link">represetnation of `n` in the base `10`</a>
+				The decimal representation of a number \( n \) is the <a href="/number_theory/number_bases.html#definition-base-representation" class="knowledge-link">represetnation of \( n \) in the base \( 10 \)</a>
 			</div>
 		</div>
 
-		The decimal representation of a number is the usual way you've most likely dealt with numbers so far, for example when you write `123` you are referring to the number `1 * 10^2 + 2* 10^1 + 3 * 10^0`
+		The decimal representation of a number is the usual way you've most likely dealt with numbers so far, for example when you write \( 123 \) you are referring to the number \( 1 \cdot 10^{2} + 2 \cdot 10^{1} + 3 \cdot 10^{0} \)
 
 		<div class="definition" id="definition-binary-representation">
 			<div class="title">binary representation</div>
 			<div class="content">
-				The binary representation of a number `n` is the <a href="/number_theory/number_bases.html#definition-base-representation" class="knowledge-link">represetnation of `n` in the base `2`</a>
+				The binary representation of a number \( n \) is the <a href="/number_theory/number_bases.html#definition-base-representation" class="knowledge-link">represetnation of \( n \) in the base \( 2 \)</a>
 			</div>
 		</div>
 
 		<div class="proposition" id="proposition-division-by-9-rule">
 			<div class="title">division by 9 rule</div>
 			<div class="content">
-				Suppose that `a_(k -1) a_(k -2) ... a_1` is the <a class="knowledge-link" href="/number_theory/number_bases.html#definition-decimal-representation">decimal representation</a> of `n`, then `9 | n` if and only if `9 | sum_(i = 0)^(k - 1) a_i`
+				Suppose that \( a_{k - 1} a_{k - 2} \ldots a_{1} \) is the <a class="knowledge-link" href="/number_theory/number_bases.html#definition-decimal-representation">decimal representation</a> of \( n \), then \( 9 | n \) if and only if \( 9 | \sum_{i = 0}^{k - 1} a_{i} \)
 			</div>
 			<div class="proof">
 				TODO

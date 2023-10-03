@@ -10,8 +10,7 @@
 		<link rel="stylesheet" href="/styles/styles.css">
         <script src="/js/script.js" defer></script>
 
-        <!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+        
 
 		<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 
@@ -33,23 +32,23 @@
             <div class="definition" id="definition-dot-product">
                 <div class="title">dot product</div>
                 <div class="content">
-                    Given two sequences of numbers of the same length: `a = (a_1, ..., a_k)` and `b = (b_1, ..., b_k)`, their dot product denoted and defined by by `a * b = sum_{i = 1}^k a_i * b_i`. Note that `* : RR^k xx RR^k to RR`
+                    Given two sequences of numbers of the same length: \( a = \left ( a_{1} , \ldots , a_{k} \right ) \) and \( b = \left ( b_{1} , \ldots , b_{k} \right ) \), their dot product denoted and defined by by \( a \cdot b = \sum_{i = 1}^{k} a_{i} \cdot b_{i} \). Note that \( \cdot : \mathbb{R}^{k} \times \mathbb{R}^{k} \to \mathbb{R} \)
                 </div>
             </div>
 
 			<div class="definition" id="definition-vector-form-of-a-line">
 				<div class="title">vector form of a line</div>
 				<div class="content">
-					Suppose that `d, p` are vectors, then we say that the set `l := {x : x = td + p, text( for some ) t in RR}` is a line and say that the vector equation for the line is 
+					Suppose that \( d , p \) are vectors, then we say that the set \( l := \left \lbrace x : x = t d + p , \text{ for some } t \in \mathbb{R} \right \rbrace \) is a line and say that the vector equation for the line is 
 					<div class="centered-content">
-						`x = td + p`
+						\( x = t d + p \)
 					</div>
-					We also say that `d` is the direction vector for `l`
+					We also say that \( d \) is the direction vector for \( l \)
 				</div>
 			</div>
 
             <p>
-                An example of the vector form of a line in `RR^3` could be `x = t [[1], [2], [3]] + [[3], [2], [1]]`, where `[[3], [2], [1]]` (the red dot) is a part of the line when `t = 0`, and the line's direction follows the direction of the vector `[[1], [2], [3]]`
+                An example of the vector form of a line in \( \mathbb{R}^{3} \) could be \( x = t \left [ \begin{matrix} 1 \\ 2 \\ 3 \end{matrix} \right ] + \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \), where \( \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \) (the red dot) is a part of the line when \( t = 0 \), and the line's direction follows the direction of the vector \( \left [ \begin{matrix} 1 \\ 2 \\ 3 \end{matrix} \right ] \)
             </p>
 
             <div id="threejs-vector-line" style="width: 100vh; height: 50vh; margin: 0px auto; border-radius: 10%;"></div>

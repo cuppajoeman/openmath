@@ -11,8 +11,7 @@
 
     <script src="/js/script.js" defer></script>
 
-	<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+	
 
 </head>
 
@@ -22,14 +21,14 @@
 			<div class="definition" id="definition-sample-space">
 				<div class="title">sample space</div>
 				<div class="content">
-					A sample space `Omega` is a non-empty set
+					A sample space \( \Omega \) is a non-empty set
 				</div>
 			</div>
 
 			<div class="definition" id="definition-event">
 				<div class="title">event</div>
 				<div class="content">
-					Given a sample space `Omega`, we say that any subset `E sube Omega` is an event
+					Given a sample space \( \Omega \), we say that any subset \( E \subseteq \Omega \) is an event
 				</div>
 			</div>
 
@@ -37,13 +36,13 @@
 				<div class="title">probability measure</div>
 				<div class="content">
 					        
-					Given a <span class="knowledge-link" data-href="/probability/probability_measures.html#definition-sample-space">sample space</span> `Omega` and a function `P: Omega to [0, 1]` , then we say that `P` is a probability measure if the following holds
+					Given a <span class="knowledge-link" data-href="/probability/probability_measures.html#definition-sample-space">sample space</span> \( \Omega \) and a function \( P : \Omega \to \left [ 0 , 1 \right ] \) , then we say that \( P \) is a probability measure if the following holds
 					<ul>
-						<li>`P(Omega)` `= 1`</li>
+						<li>\( P \left ( \Omega \right ) \) \( = 1 \)</li>
 						<li>
-							`AA E_1, E_2, ... sube Omega` such that `E_1, E_2, ...` are all <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>
+							\( \forall E_{1} , E_{2} , \ldots \subseteq \Omega \) such that \( E_{1} , E_{2} , \ldots \) are all <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>
 							<div class="centered-content">
-								`P(bigcup_(i = 1)^oo E_i) = sum_(i = 1)^oo P(E_i) `
+								\( P \left ( \bigcup_{i = 1}^{\infty} E_{i} \right ) = \sum_{i = 1}^{\infty} P \left ( E_{i} \right ) \)
 							</div>
 						</li>
 					</ul>
@@ -56,44 +55,44 @@
 				<div class="proposition">
 					<div class="title">finite pairwise disjoint probability</div>
 					<div class="content">
-						Suppose that `A_1, A_2, ..., A_n` are <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>, then `P(A_1 uu ... uu A_n) = sum_(i = 1)^n P(A_i)`
+						Suppose that \( A_{1} , A_{2} , \ldots , A_{n} \) are <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>, then \( P \left ( A_{1} \cup \ldots \cup A_{n} \right ) = \sum_{i = 1}^{n} P \left ( A_{i} \right ) \)
 					</div>
 				</div>
 			
 				<div class="proof">
 					<div class="title"></div>
 					<div class="content">
-						In the definition of a probability measure, for `i in {1, ..., n}` we set `E_i = A_i` and then for any `j > n` we set `E_j = O/`, then we can see that `E_1, E_2, ...` is pairwise disjoint, and thus 
+						In the definition of a probability measure, for \( i \in \left \lbrace 1 , \ldots , n \right \rbrace \) we set \( E_{i} = A_{i} \) and then for any \( j > n \) we set \( E_{j} = \emptyset \), then we can see that \( E_{1} , E_{2} , \ldots \) is pairwise disjoint, and thus 
 						
 					 <table class="align">
 					  <tr>
-						<td>`P(A_1 uu A_2 uu ... uu A_n)`</td>
-						<td>`=`</td>
-						<td>`P(A_1 uu A_2 uu ... uu A_n uu O/ uu O/ uu ...)`</td>
+						<td>\( P \left ( A_{1} \cup A_{2} \cup \ldots \cup A_{n} \right ) \)</td>
+						<td>\( = \)</td>
+						<td>\( P \left ( A_{1} \cup A_{2} \cup \ldots \cup A_{n} \cup \emptyset \cup \emptyset \cup \ldots \right ) \)</td>
 					  </tr>
 					  <tr>
 						<td></td>
-						<td>`=`</td>
-						<td>`P(bigcup_(i = 1)^oo E_i)`</td>
+						<td>\( = \)</td>
+						<td>\( P \left ( \bigcup_{i = 1}^{\infty} E_{i} \right ) \)</td>
 					  </tr>
 					  <tr>
 						<td></td>
-						<td>`=`</td>
-						<td>`sum_(i = 1)^oo P(E_i)`</td>
+						<td>\( = \)</td>
+						<td>\( \sum_{i = 1}^{\infty} P \left ( E_{i} \right ) \)</td>
 					  </tr>
 					  <tr>
 						<td></td>
-						<td>`=`</td>
-						<td>`sum_(i = 1)^n P(E_i) + P(O/) + P(O/) + P(O/) + ... `</td>
+						<td>\( = \)</td>
+						<td>\( \sum_{i = 1}^{n} P \left ( E_{i} \right ) + P \left ( \emptyset \right ) + P \left ( \emptyset \right ) + P \left ( \emptyset \right ) + \ldots \)</td>
 					  </tr>
 					  <tr>
 						<td></td>
-						<td>`=`</td>
-						<td>`sum_(i = 1)^n P(E_i) + 0 + 0 + 0 + ... `</td>
+						<td>\( = \)</td>
+						<td>\( \sum_{i = 1}^{n} P \left ( E_{i} \right ) + 0 + 0 + 0 + \ldots \)</td>
 					  </tr>
 						<td></td>
-						<td>`=`</td>
-						<td>`sum_(i = 1)^n P(A_i)`</td>
+						<td>\( = \)</td>
+						<td>\( \sum_{i = 1}^{n} P \left ( A_{i} \right ) \)</td>
 					  </tr>
 					</table>  
 					</div>
@@ -104,14 +103,14 @@
 				<div class="proposition">
 					<div class="title">probability of a single point with equally likely outcomes is zero</div>
 					<div class="content">
-						Suppose that our sample space is `[0, 1]` and there is some `c in [0, 1]` such that for any `x in [0, 1]`, `P({x}) = c`, then `c = 0`
+						Suppose that our sample space is \( \left [ 0 , 1 \right ] \) and there is some \( c \in \left [ 0 , 1 \right ] \) such that for any \( x \in \left [ 0 , 1 \right ] \), \( P \left ( \left \lbrace x \right \rbrace \right ) = c \), then \( c = 0 \)
 					</div>
 				</div>
 			
 				<div class="proof">
 					<div class="title"></div>
 					<div class="content">
-						Suppose that `c ne 0`, and note that `P(Omega) = P( [{:0, 1 :}] ) = sum_(x in [0, 1]) P(x) = sum_(x in [0, 1]) c`, but note that no matter how small the value of `c`, since we are summing it uncountably many times with itself the sum always goes to infinity, but at the same time, `P(Omega) = 1` and thus we have a contradiction, so `c = 0`.
+						Suppose that \( c \ne 0 \), and note that \( P \left ( \Omega \right ) = P \left ( \left [ \left . 0 , 1 \right . \right ] \right ) = \sum_{x \in \left [ 0 , 1 \right ]} P \left ( x \right ) = \sum_{x \in \left [ 0 , 1 \right ]} c \), but note that no matter how small the value of \( c \), since we are summing it uncountably many times with itself the sum always goes to infinity, but at the same time, \( P \left ( \Omega \right ) = 1 \) and thus we have a contradiction, so \( c = 0 \).
 					</div>
 				</div>
 			</div>
@@ -119,7 +118,7 @@
 			<div class="definition" id="definition-random-variable">
 				<div class="title">random variable</div>
 				<div class="content">
-					Suppose that `Omega` is a sample space. A random variable is a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> `X: Omega to RR`
+					Suppose that \( \Omega \) is a sample space. A random variable is a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( X : \Omega \to \mathbb{R} \)
 				</div>
 			</div>
 
@@ -127,16 +126,16 @@
 				<div class="title">inverse image notation</div>
 				<div class="content">
 					
-					Suppose that `X: Omega to RR ` is a random variable and that `y in RR`, then we define the string of characters `X = y` to be the set <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-inverse-image-of-a-function">`X^(-1)({y})`</span>
+					Suppose that \( X : \Omega \to \mathbb{R} \) is a random variable and that \( y \in \mathbb{R} \), then we define the string of characters \( X = y \) to be the set <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-inverse-image-of-a-function">\( X^{- 1} \left ( \left \lbrace y \right \rbrace \right ) \)</span>
 				</div>
 			</div>
 
 			<div class="definition" id="definition-conditional-probability">
 				<div class="title">conditional probability</div>
 				<div class="content">
-					Suppose that `A, B sube Omega`, with `P(B) gt 0`, then we define the conditional probability of `A` given `B` as 
+					Suppose that \( A , B \subseteq \Omega \), with \( P \left ( B \right ) \gt 0 \), then we define the conditional probability of \( A \) given \( B \) as 
 					<div class="centered-content">
-						`P(A | B) = (P(A nn B)) / (P(B))`
+						\( P \left ( A \mid B \right ) = \frac{P \left ( A \cap B \right )}{P \left ( B \right )} \)
 					</div>
 				</div>
 			</div>

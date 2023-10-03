@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/styles.css">
 
-	<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+	
 
     <script src="/js/script.js" defer></script>
 
@@ -24,30 +23,30 @@
 		<div class="definition" id="definition-cartesian-product">
 			<div class="title">cartesian product</div>
 			<div class="content">
-				Suppose that `A, B` are sets, then we define `A xx B := {(a, b): a in A, b in B}`
+				Suppose that \( A , B \) are sets, then we define \( A \times B := \left \lbrace \left ( a , b \right ) : a \in A , b \in B \right \rbrace \)
 			</div>
 		</div>
 
 		<div class="proposition" id="proposition-intersection-and-cartesian-product-commute">
 			<div class="title">intersection and cartesian product commute</div>
 			<div class="content">
-				Given sets `A,B,C,D`, then `(A xx B) nn (C xx D) = (A nn C) xx (B nn D)`
+				Given sets \( A , B , C , D \), then \( \left ( A \times B \right ) \cap \left ( C \times D \right ) = \left ( A \cap C \right ) \times \left ( B \cap D \right ) \)
 			</div>
 			<div class="proof">
 				<p>
 					We will prove this true by the <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set-equality">definition of set equality.</a>
 				</p>
 				<p>
-					Suppose that `(x,y) in (A xx B) nn (C xx D)`, which is true iff `(x,y) in (A xx B)`, so that `x in A` and `y in B`.
+					Suppose that \( \left ( x , y \right ) \in \left ( A \times B \right ) \cap \left ( C \times D \right ) \), which is true iff \( \left ( x , y \right ) \in \left ( A \times B \right ) \), so that \( x \in A \) and \( y \in B \).
 				</p>
 				<p>
-					We also know that `(x,y) in (C xx D)` which is equivalent to `x in C` and `y in D`
+					We also know that \( \left ( x , y \right ) \in \left ( C \times D \right ) \) which is equivalent to \( x \in C \) and \( y \in D \)
 				</p>
 				<p>
-					We have `x in A nn C` and `y in B nn D` which is equivalent to `(x,y) in (A nn C) xx (B nn D)`.
+					We have \( x \in A \cap C \) and \( y \in B \cap D \) which is equivalent to \( \left ( x , y \right ) \in \left ( A \cap C \right ) \times \left ( B \cap D \right ) \).
 				</p>
 				<p>
-					Thus we've proven that `(x,y) in (A xx B) nn (C xx D)` if and only if `(x, y) in (A xx B) nn (C xx D)` as needed.
+					Thus we've proven that \( \left ( x , y \right ) \in \left ( A \times B \right ) \cap \left ( C \times D \right ) \) if and only if \( \left ( x , y \right ) \in \left ( A \times B \right ) \cap \left ( C \times D \right ) \) as needed.
 				</p>
 			</div>
 		</div>
@@ -56,15 +55,15 @@
 		<div class="proposition" id="proposition-cartesian-product-distributes-over-intersection">
 			<div class="title">cartesian product distributes over intersection</div>
 			<div class="content">
-				Given sets `A, B, C`, then `(A nn B) xx C = (A xx C) nn (B xx C)`
+				Given sets \( A , B , C \), then \( \left ( A \cap B \right ) \times C = \left ( A \times C \right ) \cap \left ( B \times C \right ) \)
 			</div>
 			<div class="proof">
 				We will show their equality <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set-equality">directly</a>
 				<p>
-					So suppose that `(x, y) in (A nn B) xx C`, which is true iff `x in A nn B` and `y in C`, which is true iff `(x, y) in A xx C` and `(x, y) in B xx C`, which is true iff `x in (A xx C) nn (B xx C)`.
+					So suppose that \( \left ( x , y \right ) \in \left ( A \cap B \right ) \times C \), which is true iff \( x \in A \cap B \) and \( y \in C \), which is true iff \( \left ( x , y \right ) \in A \times C \) and \( \left ( x , y \right ) \in B \times C \), which is true iff \( x \in \left ( A \times C \right ) \cap \left ( B \times C \right ) \).
 				</p>
 				<p>
-					Therefore `(x, y) in (A nn B) xx C` if and only if `x in (A xx C) nn (B xx C)`, so `(A nn B) xx C = (A xx C ) nn (B xx C)` as needed.
+					Therefore \( \left ( x , y \right ) \in \left ( A \cap B \right ) \times C \) if and only if \( x \in \left ( A \times C \right ) \cap \left ( B \times C \right ) \), so \( \left ( A \cap B \right ) \times C = \left ( A \times C \right ) \cap \left ( B \times C \right ) \) as needed.
 				</p>
 			</div>
 		</div>

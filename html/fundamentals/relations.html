@@ -11,8 +11,7 @@
 
     <script src="/js/script.js" defer></script>
 
-	<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+	
 
 </head>
 
@@ -20,18 +19,18 @@
     <div class="thin-wrapper">
 
 		<div class="definition" id="definition-nary-relation">
-		    <div class="title">`n`-ary relation</div>
+		    <div class="title">\( n \)-ary relation</div>
 		    <div class="content">
 				        
 
-				An `n`-ary relation on the sets `X_1, X_2, ..., X_n` is a subset `R` of their <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-cartesian-product">cartesian product</span>, where we say that the relation holds between `x_1, x_2, ..., x_n`  when `(x_1, x_2, ..., x_n) in R`
+				An \( n \)-ary relation on the sets \( X_{1} , X_{2} , \ldots , X_{n} \) is a subset \( R \) of their <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-cartesian-product">cartesian product</span>, where we say that the relation holds between \( x_{1} , x_{2} , \ldots , x_{n} \)  when \( \left ( x_{1} , x_{2} , \ldots , x_{n} \right ) \in R \)
 		    </div>
 		</div>
 
 		<div class="definition" id="definition-unary-relation">
 			<div class="title">unary relation</div>
 			<div class="content">
-				A unary relation `R` on X is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-nary-relation">`1`-ary relation</span> 
+				A unary relation \( R \) on X is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-nary-relation">\( 1 \)-ary relation</span> 
 			</div>
 		</div>
 
@@ -39,10 +38,10 @@
 			<div class="title">binary relation</div>
 			<div class="content">
 				<p>
-					A binary relation `R` is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-nary-relation">`2`-ary relation</span>, when `(x, y) in R`, then we write `x R y` to say that `x` is related to `y`.
+					A binary relation \( R \) is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-nary-relation">\( 2 \)-ary relation</span>, when \( \left ( x , y \right ) \in R \), then we write \( x R y \) to say that \( x \) is related to \( y \).
 				</p>
 				<p>
-					Note: <i>A binary relation on `X xx X` is stated simply as a relation on `X`</i>
+					Note: <i>A binary relation on \( X \times X \) is stated simply as a relation on \( X \)</i>
 				</p>
 			</div>
 		</div>
@@ -50,35 +49,35 @@
 		<div class="definition" id="definition-set-filtered-by-a-relation">
 			<div class="title">set filtered by a relation</div>
 			<div class="content">
-				Suppose that `X` is a set, and that `R` is a unary relation on `X`, then we define `X^R := {a in X: a in R}`
+				Suppose that \( X \) is a set, and that \( R \) is a unary relation on \( X \), then we define \( X^{R} := \left \lbrace a \in X : a \in R \right \rbrace \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-reflexive-relation">
 			<div class="title">reflexive relation</div>
 			<div class="content">
-                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> `R` on `X`, we say it is reflexive when every element of `X` is related to itself. Symbolically `AA x in X, x R x`
+                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \), we say it is reflexive when every element of \( X \) is related to itself. Symbolically \( \forall x \in X , x R x \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-symmetric-relation">
 			<div class="title">symmetric relation</div>
 			<div class="content">
-                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> `R` on `X`, we say it is symmetric if the relation goes both ways, that is for any `x , y in X` if `x R y` then `y R x`
+                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \), we say it is symmetric if the relation goes both ways, that is for any \( x , y \in X \) if \( x R y \) then \( y R x \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-anti-symmetric-relation">
 			<div class="title">anti-symmetric relation</div>
 			<div class="content">
-                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> `R` on `X`, we say it is anti-symmetric when for any `x, y in X`, if `x R y` and `y R x` we have that `x = y`
+                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \), we say it is anti-symmetric when for any \( x , y \in X \), if \( x R y \) and \( y R x \) we have that \( x = y \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-transitive-relation">
 			<div class="title">transitive relation</div>
 			<div class="content">
-                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> `R` on `X`, we say it is transitive if for any `x , y, z in X` if `x R y` and `y R z` then `y R x`
+                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \), we say it is transitive if for any \( x , y , z \in X \) if \( x R y \) and \( y R z \) then \( y R x \)
 			</div>
 		</div>
 
@@ -89,7 +88,7 @@
 					An equivalence relation is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-reflexive-relation">reflexive</span>, <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-symmetric-relation">symmetric</span> and <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-transitive-relation">transitive</span> relation
 				</p>
 				<p>
-					when `R` is an equivalence relation, we denote it by `~` instead of `R`
+					when \( R \) is an equivalence relation, we denote it by \( ~ \) instead of \( R \)
 				</p>
 			</div>
 		</div>
@@ -97,19 +96,19 @@
 		<div class="definition" id="definition-equivalence-class">
 			<div class="title">equivalence class</div>
 			<div class="content">
-				Given an <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</span> `~` an equivalence class is a complete set of equivalent elements, which we denote by `[x]` which is defined to be the set `{y in X: y ~ x}`
+				Given an <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</span> \( ~ \) an equivalence class is a complete set of equivalent elements, which we denote by \( \left [ x \right ] \) which is defined to be the set \( \left \lbrace y \in X : y ~ x \right \rbrace \)
 			</div>
 		</div>
 
 		<div class="exercise" id="exercise-congruences-induce-a-equivalence-relation">
 			<div class="title">congruences induce a equivalence relation</div>
 			<div class="content">
-				Fix `n in NN_1`, then relation on `ZZ` by `a R b` if and only if `a % n = b % n` defines an <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation </span>				
+				Fix \( n \in \mathbb{N}_{1} \), then relation on \( \mathbb{Z} \) by \( a R b \) if and only if \( a \% n = b \% n \) defines an <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation </span>				
 			</div> 
 
 			<div class="proof">
 				<p>
-					Given any `a in G`, then clearly `a % n = a % n` so that `a R a`,  if `a R b`, then `a % n = b % n` and then `b % n = a % n`, finally if `a % n = b % n` and `b % n = c % n`  therefore `a % n = c % n`
+					Given any \( a \in G \), then clearly \( a \% n = a \% n \) so that \( a R a \),  if \( a R b \), then \( a \% n = b \% n \) and then \( b \% n = a \% n \), finally if \( a \% n = b \% n \) and \( b \% n = c \% n \)  therefore \( a \% n = c \% n \)
 				</p>
 			</div>
 		</div>
@@ -118,17 +117,17 @@
 		    <div class="title">partial order</div>
 		    <div class="content">
 				<p>
-					a partial order is a binary relation `R` on a set `X` such that for any `a, b, c in X` we have that:
+					a partial order is a binary relation \( R \) on a set \( X \) such that for any \( a , b , c \in X \) we have that:
 					<ul>
-						<li>`a R a`</li>
-						<li>if `a R b` and `b R a` then `a = b`</li>
-						<li>if `a R b` and `b R c` then `a R c`</li>
+						<li>\( a R a \)</li>
+						<li>if \( a R b \) and \( b R a \) then \( a = b \)</li>
+						<li>if \( a R b \) and \( b R c \) then \( a R c \)</li>
 					</ul>
-					And we say that `X` is a partially ordered set.
+					And we say that \( X \) is a partially ordered set.
 				</p>
 				<p>
 					<i>
-						Note that the above three statements equivalently say that `le` is a reflexive, anti-symmetric and transitive relation.
+						Note that the above three statements equivalently say that \( \le \) is a reflexive, anti-symmetric and transitive relation.
 					</i>
 				</p>
 		    </div>
@@ -145,14 +144,14 @@
 		<div class="definition" id="definition-well-order">
 		    <div class="title">well order</div>
 		    <div class="content">
-				A well order on a set `S` is a total order on `S` along with the property that every non-empty subset of `S` has a least element under this ordering
+				A well order on a set \( S \) is a total order on \( S \) along with the property that every non-empty subset of \( S \) has a least element under this ordering
 		    </div>
 		</div>
 
 		<div class="theorem" id="theorem-well-ordering">
 			<div class="title">well ordering</div>
 			<div class="content">
-				Every set `X` can be <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-well-order">well ordered</span>		
+				Every set \( X \) can be <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-well-order">well ordered</span>		
 			</div>
 			<div class="proof">
 				TODO

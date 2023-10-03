@@ -36,7 +36,7 @@
 <!--                    product topology-->
 <!--                </div>                 -->
 <!--                <div class="content">-->
-<!--                     Let `X` and `Y` be topological spaces. The product topology on `X xx Y` is the topology having as basis the collection `B` of all sets of the form `U xx V`, where `U` is an open subset of `X` and `V` is an open subset of `Y`-->
+<!--                     Let \( X \) and \( Y \) be topological spaces. The product topology on \( X \times Y \) is the topology having as basis the collection \( B \) of all sets of the form \( U \times V \), where \( U \) is an open subset of \( X \) and \( V \) is an open subset of \( Y \)-->
 <!--                </div>          -->
 <!--            </div>-->
 
@@ -310,8 +310,8 @@
 <!--            <div class="definition">-->
 <!--                <div class="title">continuous function</div>-->
 <!--                <div class="content"> -->
-<!--                    Let `X` and `Y` be topological spaces. A function `f : X -> Y` is said to be continuous if-->
-<!--for each open subset `V` of `Y`, the set `f −1(V)` is an open subset of `X`.     -->
+<!--                    Let \( X \) and \( Y \) be topological spaces. A function \( f{:} X \to Y \) is said to be continuous if-->
+<!--for each open subset \( V \) of \( Y \), the set \( f{−} 1 \left ( V \right ) \) is an open subset of \( X \).     -->
 <!--                </div>          -->
 <!--            </div>-->
 
@@ -325,7 +325,7 @@
 <!--            <div class="definition" id="continuous-function-for-a-basis">-->
 <!--                <div class="title">continous function for a basis</div>-->
 <!--                <div class="content"> -->
-<!--                    given `f : X to Y` if the topology of the range space Y is given by a basis `cc B`, then to prove continuity of `f` it suffices to show that the inverse image of every basis element is open-->
+<!--                    given \( f{:} X \to Y \) if the topology of the range space Y is given by a basis \( \mathcal{B} \), then to prove continuity of \( f \) it suffices to show that the inverse image of every basis element is open-->
 <!--                </div>          -->
 <!--            </div>-->
 <!--            -->
@@ -348,14 +348,14 @@
 <!--            <div class="definition" id="homeomorphism">-->
 <!--                <div class="title">homeomorphism</div>-->
 <!--                <div class="content">-->
-<!--                    Let `X` and `Y` be topological spaces; let `f : X -> Y` be a bijection. If both the function `f` and `f^{-1} : Y -> X` are continuous, then `f` is called a homeomorphism-->
+<!--                    Let \( X \) and \( Y \) be topological spaces; let \( f{:} X \to Y \) be a bijection. If both the function \( f \) and \( f^{- 1}{:} Y \to X \) are continuous, then \( f \) is called a homeomorphism-->
 <!--                </div>          -->
 <!--            </div>-->
 <!--            -->
 <!--            <div class="definition" id="imbedding">-->
 <!--                <div class="title">imbedding</div>-->
 <!--                <div class="content"> -->
-<!--                    Now suppose that `f : X → Y` is an injective continuous map, where `X` and `Y` are topological spaces. Let `Z` be the image set `f(X)`, considered as a subspace of `Y` ; then the function `f|_Z : X → Z` obtained by restricting the range of `f` is bijective. If `f|_Z` happens to be a homeomorphism of `X` with `Z`, we say that the map `f : X → Y` is a topological imbedding, or simply an imbedding, of `X` in `Y` .     -->
+<!--                    Now suppose that \( f{:} X → Y \) is an injective continuous map, where \( X \) and \( Y \) are topological spaces. Let \( Z \) be the image set \( f{\left ( X \right )} \), considered as a subspace of \( Y \) ; then the function \( f |_{Z} : X → Z \) obtained by restricting the range of \( f \) is bijective. If \( f |_{Z} \) happens to be a homeomorphism of \( X \) with \( Z \), we say that the map \( f{:} X → Y \) is a topological imbedding, or simply an imbedding, of \( X \) in \( Y \) .     -->
 <!--                </div>          -->
 <!--            </div>-->
 <!--            -->
@@ -365,25 +365,25 @@
 <!--                    rules for constructing continuous functions-->
 <!--                </div>-->
 <!--                <div class="content"> -->
-<!--                     Let `X, Y` and `Z` be topological spaces, the the following statements all hold:-->
+<!--                     Let \( X , Y \) and \( Z \) be topological spaces, the the following statements all hold:-->
 <!--                     <ol>-->
 <!--                        <li>-->
-<!--                            (Constant function) If `f : X → Y` maps all of `X` into the single point `y_0` of `Y` then `f` is continuous-->
+<!--                            (Constant function) If \( f{:} X → Y \) maps all of \( X \) into the single point \( y_{0} \) of \( Y \) then \( f \) is continuous-->
 <!--                        </li>-->
 <!--                        <li>-->
-<!--                            (Inclusion) If `A` is a subspace of `X`, the inclusion function `j : A → X` is continuous-->
+<!--                            (Inclusion) If \( A \) is a subspace of \( X \), the inclusion function \( j : A → X \) is continuous-->
 <!--                        </li>-->
 <!--                        <li>-->
-<!--                            (Composites) If `f : X → Y` and `g : Y → Z` are continuous, then the map `g @ f : X → Z` is continuous.-->
+<!--                            (Composites) If \( f{:} X → Y \) and \( g{:} Y → Z \) are continuous, then the map \( g{\circ} f{:} X → Z \) is continuous.-->
 <!--                        </li>-->
 <!--                        <li>-->
-<!--                            (Restricting the domain) If `f : X → Y` is continuous, and if `A` is a subspace of `X`, then the restricted function `f|_A : A → Y` is continuous.-->
+<!--                            (Restricting the domain) If \( f{:} X → Y \) is continuous, and if \( A \) is a subspace of \( X \), then the restricted function \( f |_{A} : A → Y \) is continuous.-->
 <!--                        </li>-->
 <!--                        <li>-->
-<!--                            (Restricting or expanding the range) Let `f : X → Y` be continuous. If `Z` is a subspace of `Y` containing the image set `f(X)`, then the function `g : X -> Z` obtained by restricting the range of `f` is continuous. If `Z` is a space having `Y` as a subspace, then the function `h : X -> Z` obtained by expanding the range of `f` is continuous-->
+<!--                            (Restricting or expanding the range) Let \( f{:} X → Y \) be continuous. If \( Z \) is a subspace of \( Y \) containing the image set \( f{\left ( X \right )} \), then the function \( g{:} X \to Z \) obtained by restricting the range of \( f \) is continuous. If \( Z \) is a space having \( Y \) as a subspace, then the function \( h : X \to Z \) obtained by expanding the range of \( f \) is continuous-->
 <!--                        </li>-->
 <!--                        <li>-->
-<!--                            (Local formulation of continuity) The map `f : X -> Y` is continuous if `X` can be written as the union of open sets `uuu_alpha` such that `f|_{uuu_alpha}` is continuous for each `alpha`-->
+<!--                            (Local formulation of continuity) The map \( f{:} X \to Y \) is continuous if \( X \) can be written as the union of open sets \( \bigcup_{\alpha} \) such that \( f |_{\bigcup_{\alpha}} \) is continuous for each \( \alpha \)-->
 <!--                        </li>-->
 <!--                     </ol>-->
 <!--                </div>          -->
@@ -403,7 +403,7 @@
 <!--            <div class="lemma" id="projection-functions-are-continuous">-->
 <!--                <div class="title">projection functions are continuous</div>-->
 <!--                <div class="content">-->
-<!--                    The <a href="#projection-function">projection functions</a> `pi_1 : X xx Y to X` and `pi_2 : X xx Y to Y` are continuous -->
+<!--                    The <a href="#projection-function">projection functions</a> \( \pi_{1} : X \times Y \to X \) and \( \pi_{2} : X \times Y \to Y \) are continuous -->
 <!--                </div>-->
 <!--            </div>-->
 
@@ -411,13 +411,13 @@
 <!--                <div class="title"></div>-->
 <!--                <div class="content">-->
 <!--                    <p>-->
-<!--                        We'll start by showing that `pi_1` is continuous, so let `U` be open in `X` and now we can note that `pi_1^{-1}(U) = U xx Y` since the second component never matters in the computation of `pi_1(x, y) = x`-->
+<!--                        We'll start by showing that \( \pi_{1} \) is continuous, so let \( U \) be open in \( X \) and now we can note that \( \pi_{1}^{- 1} \left ( U \right ) = U \times Y \) since the second component never matters in the computation of \( \pi_{1} \left ( x , y \right ) = x \)-->
 <!--                    </p>-->
 <!--                    <p>-->
-<!--                        By the very definition of the <a href="#product-topology">product toplogy</a>, we can see it is generated by the basis consisting of `U xx V` open in `X` and `Y` respectively, we assumed `U` was open, `Y` is open in itself by the definition of toplogy, thus `U xx Y` is open in `X xx Y` since <a href="#basis-elements-are-open">every basis element is also in the toplogy</a>. -->
+<!--                        By the very definition of the <a href="#product-topology">product toplogy</a>, we can see it is generated by the basis consisting of \( U \times V \) open in \( X \) and \( Y \) respectively, we assumed \( U \) was open, \( Y \) is open in itself by the definition of toplogy, thus \( U \times Y \) is open in \( X \times Y \) since <a href="#basis-elements-are-open">every basis element is also in the toplogy</a>. -->
 <!--                    </p>-->
 <!--                    <p>-->
-<!--                        Thus we may conclude that `pi_1` is continuous, the proof for `pi_2` may be obtained symmetrically.-->
+<!--                        Thus we may conclude that \( \pi_{1} \) is continuous, the proof for \( \pi_{2} \) may be obtained symmetrically.-->
 <!--                    </p>-->
 <!--                </div>-->
 <!--            </div>-->
@@ -427,7 +427,7 @@
 <!--                    product functions are continuous-->
 <!--                </div>-->
 <!--                <div class="content">  -->
-<!--                    Let `f : A -> X xx Y` be given by the equation `f(a) = (f_1(a) , f_2(a))`. Then `f` is continuous if and only if the functions `f_1: A -> X` and `f_2: A -> Y` are continuous. The maps `f_1` and `f_2` are called the coordinate functions of `f`    -->
+<!--                    Let \( f{:} A \to X \times Y \) be given by the equation \( f{\left ( a \right )} = \left ( f_{1}{\left ( a \right )} , f_{2}{\left ( a \right )} \right ) \). Then \( f \) is continuous if and only if the functions \( f_{1}{:} A \to X \) and \( f_{2}{:} A \to Y \) are continuous. The maps \( f_{1} \) and \( f_{2} \) are called the coordinate functions of \( f \)    -->
 <!--                </div>          -->
 <!--            </div>-->
 <!--            -->
@@ -436,9 +436,9 @@
 <!--            <div class="exercise">-->
 <!--                <div class="title">winking functions are continuous</div>-->
 <!--                <div class="content">-->
-<!--                   Given `x_0 in X` and `y_0 in Y`, show that the maps `f: X -> X xx Y` and  `g: Y -> X xx Y` defined by-->
+<!--                   Given \( x_{0} \in X \) and \( y_{0} \in Y \), show that the maps \( f{:} X \to X \times Y \) and  \( g{:} Y \to X \times Y \) defined by-->
 <!--                   <div class="centered-content">-->
-<!--                        `f(x) = x xx y_0` and `g(y) = x_0 xx Y`-->
+<!--                        \( f{\left ( x \right )} = x \times y_{0} \) and \( g{\left ( y \right )} = x_{0} \times Y \)-->
 <!--                   </div>-->
 <!--                   are <a href="#imbedding">imbeddings</a>.-->
 <!--                </div>-->
@@ -451,19 +451,19 @@
 <!--                        <summary>details</summary>-->
 
 <!--                        <p>-->
-<!--                            We'd like to show that `f` is an <a href="#imbedding">imbedding</a>, that is that both `f^'` and `(f^{'})^{-1}` are both continuous functions where `f'` is `f` with it's range restricted to `f(X)`.-->
+<!--                            We'd like to show that \( f \) is an <a href="#imbedding">imbedding</a>, that is that both \( f^{'} \) and \( \left ( f^{'} \right )^{- 1} \) are both continuous functions where \( f{'} \) is \( f \) with it's range restricted to \( f{\left ( X \right )} \).-->
 <!--                        </p>-->
 
 <!--                        <p>-->
-<!--                            Starting with `f^'` and acutally looking at the original `f` we can see that it can be defined as `f(x) = (id(x), c(x))` with the identity and constant function respectively. Looking at the <a href="#rules-for-constructing-continuous-functions">rules for contructing continuous functions</a>, we can see that `id: X -> X` is simply an inclusion function from `X` into itself, and that `c: Y -> y_0` is a constant funciton, and thus are both continuous, also since <a href="#product-functions-are-continuous">product functions are continuous</a> we know that `f` is continuous, using rule 4, we can see that `f'` is also continuous.-->
+<!--                            Starting with \( f^{'} \) and acutally looking at the original \( f \) we can see that it can be defined as \( f{\left ( x \right )} = \left ( i d \left ( x \right ) , c \left ( x \right ) \right ) \) with the identity and constant function respectively. Looking at the <a href="#rules-for-constructing-continuous-functions">rules for contructing continuous functions</a>, we can see that \( i d : X \to X \) is simply an inclusion function from \( X \) into itself, and that \( c : Y \to y_{0} \) is a constant funciton, and thus are both continuous, also since <a href="#product-functions-are-continuous">product functions are continuous</a> we know that \( f \) is continuous, using rule 4, we can see that \( f{'} \) is also continuous.-->
 <!--                        </p>-->
 
 <!--                        <p>-->
-<!--                            Looking at `(f^')^{-1}: X xx {y_0} -> X`, we can see that this function simply drops the second component and thus `(f^')^{-1} = pi_1` and since <a href="projection-functions-are-continuous">projection functions are continuous</a>, we've shown that the inverse function is continuous.-->
+<!--                            Looking at \( \left ( f^{'} \right )^{- 1} : X \times \left \lbrace y_{0} \right \rbrace \to X \), we can see that this function simply drops the second component and thus \( \left ( f^{'} \right )^{- 1} = \pi_{1} \) and since <a href="projection-functions-are-continuous">projection functions are continuous</a>, we've shown that the inverse function is continuous.-->
 <!--                        </p>-->
 
 <!--                        <p>-->
-<!--                            With all that said, we now know that `f'` is a homeomorphism, which by definition means that `f` is an imbedding, which is what we needed to show.-->
+<!--                            With all that said, we now know that \( f{'} \) is a homeomorphism, which by definition means that \( f \) is an imbedding, which is what we needed to show.-->
 <!--                        </p>-->
 <!--                    </details>-->
 
@@ -651,13 +651,13 @@
 <!--            <div class="definition" id="definition-metric-on-a-set">-->
 <!--                <div class="title">metric on a set</div>-->
 <!--                <div class="content">  -->
-<!--                     A metric on a set `X` is a function `d : X xx X to RR` having the following properties:-->
+<!--                     A metric on a set \( X \) is a function \( d : X \times X \to \mathbb{R} \) having the following properties:-->
 <!--                     <ol>-->
-<!--                        <li>`d(x, y) ge 0` for all `x, y in X`; equality holds if and only if `x = y`</li>-->
-<!--                        <li>`d(x, y) = d(y, x)` for all `x, y in X`</li>-->
-<!--                        <li>`d(x, y) + d(y,z) ge d(x,z)` for all `x, y, z in X`</li>-->
+<!--                        <li>\( d \left ( x , y \right ) \ge 0 \) for all \( x , y \in X \); equality holds if and only if \( x = y \)</li>-->
+<!--                        <li>\( d \left ( x , y \right ) = d \left ( y , x \right ) \) for all \( x , y \in X \)</li>-->
+<!--                        <li>\( d \left ( x , y \right ) + d \left ( y , z \right ) \ge d \left ( x , z \right ) \) for all \( x , y , z \in X \)</li>-->
 <!--                     </ol>-->
-<!--                    Given a metric `d` on `X`, the number `d(x, y)` is often called the distance between `x` and `y`    -->
+<!--                    Given a metric \( d \) on \( X \), the number \( d \left ( x , y \right ) \) is often called the distance between \( x \) and \( y \)    -->
 <!--                </div>          -->
 <!--            </div>-->
 
@@ -665,7 +665,7 @@
 <!--            <div class="definition" id="definition-metric-ball">-->
 <!--                <div class="title">metric ball</div>-->
 <!--                <div class="content">  -->
-<!--                    Given `epsilon in RR^{gt 0}`, consider the set `B_d(x, epsilon) = {y : d(x, y) < epsilon}` of all points `y` whose distance from `x` is less than `epsilon`. It is called the `epsilon`-ball centered at `x`. Sometimes we omit the metric `d` from the notation and write this ball simply as `B(x, epsilon)`, when no confusion will arise.    -->
+<!--                    Given \( \epsilon \in \mathbb{R}^{\gt 0} \), consider the set \( B_{d} \left ( x , \epsilon \right ) = \left \lbrace y : d \left ( x , y \right ) < \epsilon \right \rbrace \) of all points \( y \) whose distance from \( x \) is less than \( \epsilon \). It is called the \( \epsilon \)-ball centered at \( x \). Sometimes we omit the metric \( d \) from the notation and write this ball simply as \( B \left ( x , \epsilon \right ) \), when no confusion will arise.    -->
 <!--                </div>          -->
 <!--            </div>-->
 <!--            -->
@@ -673,7 +673,7 @@
 <!--            <div class="definition" id="definition-toplogy-induced-by-a-metric">-->
 <!--                <div class="title">topology induced by a metric</div>-->
 <!--                <div class="content"> -->
-<!--                    If `d` is a <span class="knowledge-link" data-href="#definition-metric-on-a-set">metric</span> on the set `X`, then the collection of all `epsilon`-balls `B_d (x, epsilon)`, for `x in X` and `epsilon in RR^{gt 0}`, is a basis for a topology on `X`, called the metric topology induced by `d`-->
+<!--                    If \( d \) is a <span class="knowledge-link" data-href="#definition-metric-on-a-set">metric</span> on the set \( X \), then the collection of all \( \epsilon \)-balls \( B_{d} \left ( x , \epsilon \right ) \), for \( x \in X \) and \( \epsilon \in \mathbb{R}^{\gt 0} \), is a basis for a topology on \( X \), called the metric topology induced by \( d \)-->
 <!--                </div>          -->
 <!--            </div>-->
 <!--            -->
@@ -681,14 +681,14 @@
 <!--                <div class="title">                 -->
 <!--                </div>-->
 <!--                <div class="content">   -->
-<!--                    If `X` is a topological space, `X` is said to be metrizable if there exists a metric `d` on the set `X` that induces the topology of `X`. A metric space is a metrizable space `X` together with a specific metric d that gives the topology of `X`   -->
+<!--                    If \( X \) is a topological space, \( X \) is said to be metrizable if there exists a metric \( d \) on the set \( X \) that induces the topology of \( X \). A metric space is a metrizable space \( X \) together with a specific metric d that gives the topology of \( X \)   -->
 <!--                </div>          -->
 <!--            </div>-->
 
 <!--            <div class="exercise">-->
 <!--                <div class="title"></div>-->
 <!--                <div class="content">-->
-<!--                    In `RR^n` define the metric `d^'(x, y) = abs(x_1 - y_1) + ... + abs(x_n - y_n)` show that `d^'` is a metric that induces the <span class="knowledge-link" data-href="#definition-standard-topology-on-Rn">standard topology of `RR^n`</span> -->
+<!--                    In \( \mathbb{R}^{n} \) define the metric \( d^{'} \left ( x , y \right ) = \left | x_{1} - y_{1} \right |  + \ldots + \left | x_{n} - y_{n} \right |  \) show that \( d^{'} \) is a metric that induces the <span class="knowledge-link" data-href="#definition-standard-topology-on-Rn">standard topology of \( \mathbb{R}^{n} \)</span> -->
 <!--                </div>-->
 <!--            </div>-->
 
@@ -699,16 +699,16 @@
 <!--                        (TODO: show that it's a metric first of all)-->
 <!--                    </p>-->
 <!--                    <p>-->
-<!--                        Since we know that `d^'` is a metric, then now we can check to see if it induces the usual standard topology of `RR^n`. To show this we'll show that the toplogy induced is equal to the standard toplogy of `RR^n`-->
+<!--                        Since we know that \( d^{'} \) is a metric, then now we can check to see if it induces the usual standard topology of \( \mathbb{R}^{n} \). To show this we'll show that the toplogy induced is equal to the standard toplogy of \( \mathbb{R}^{n} \)-->
 <!--                    </p>-->
 <!--                    <p>-->
 <!--                        One method to show that two topologies are equal is to satisfy the requirements of <span class="knowledge-link" data-href="#corollary-topology-equality-with-basis">topology equality for topologies generated by a basis</span> -->
 <!--                    </p>-->
 <!--                    <p>-->
-<!--                        Let `p in RR^n` and let `p in B_(d^')(x, epsilon)` for some `x in RR^n` and `epsilon in RR^(gt 0)` be a basis element for the  <span class="knowledge-link" data-href="#definition-toplogy-induced-by-a-metric">topology induced by `d^'`</span>-->
+<!--                        Let \( p \in \mathbb{R}^{n} \) and let \( p \in B_{d^{'}} \left ( x , \epsilon \right ) \) for some \( x \in \mathbb{R}^{n} \) and \( \epsilon \in \mathbb{R}^{\gt 0} \) be a basis element for the  <span class="knowledge-link" data-href="#definition-toplogy-induced-by-a-metric">topology induced by \( d^{'} \)</span>-->
 <!--                    </p>-->
 <!--                    <p>-->
-<!--                        Recall that `B_(d^') (x, epsilon)` is a <span class="knowledge-link" data-href="#definition-metric-ball">metric ball</span> and thus is equal to `{y in RR^n : d(x, y) = abs(x_1 - y_1) + ... + abs(x_n - y_n) < epsilon}`-->
+<!--                        Recall that \( B_{d^{'}} \left ( x , \epsilon \right ) \) is a <span class="knowledge-link" data-href="#definition-metric-ball">metric ball</span> and thus is equal to \( \left \lbrace y \in \mathbb{R}^{n} : d \left ( x , y \right ) = \left | x_{1} - y_{1} \right |  + \ldots + \left | x_{n} - y_{n} \right |  < \epsilon \right \rbrace \)-->
 <!--                    </p>-->
 <!--                </div>-->
 <!--            </div>-->
