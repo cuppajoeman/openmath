@@ -407,7 +407,7 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
 
 function typesetNewMathJax() {
         console.assert(typeof MathJax !== 'undefined', "You need to load MathJax before you set up knowledge links")
-        MathJax.Hub.Typeset() 
+        MathJax.typeset() 
 }
 
 function elementIsMathJax(element) {

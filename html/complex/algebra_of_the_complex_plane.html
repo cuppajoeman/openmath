@@ -27,16 +27,16 @@
         <div class="definition" id="definition-addition">
             <div class="title">addition</div>
             <div class="content">
-                Given `a + bi, c + di in CC`, we define `(a + bi) + (c + di) = (a + c) + (b + d) i`
+                Given \( a + b i , c + d i \in \mathbb{C} \), we define \( \left ( a + b i \right ) + \left ( c + d i \right ) = \left ( a + c \right ) + \left ( b + d \right ) i \)
             </div>
         </div>
 
         <div class="definition">
             <div class="title">complex multiplication</div>
             <div class="content">
-                given `a + bi, c + di in CC`, then: 
+                given \( a + b i , c + d i \in \mathbb{C} \), then: 
                 <div class="centered-content">
-                    `(a + bi) * (c + di) = ab + i (ad + bc) - db = (ad - bd) + i (ad + bc)`
+                    \( \left ( a + b i \right ) \cdot \left ( c + d i \right ) = a b + i \left ( a d + b c \right ) - d b = \left ( a d - b d \right ) + i \left ( a d + b c \right ) \)
                 </div>
             </div>
         </div>
@@ -44,16 +44,16 @@
         <div class="definition" id="definition-equality">
             <div class="title">equality</div>
             <div class="content">
-                Given `a + bi, c + di in CC`, they are equal when `a = c` and `b = d`
+                Given \( a + b i , c + d i \in \mathbb{C} \), they are equal when \( a = c \) and \( b = d \)
             </div>
         </div>
 
         <div class="definition">
             <div class="title">conjugate</div>
             <div class="content">
-                suppose `z = x + iy`, then the conjugate is denoted by
+                suppose \( z = x + i y \), then the conjugate is denoted by
                 <div class="centered-content">
-                    `bar z := x - iy`
+                    \( \overline{z} := x - i y \)
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
             <div class="proposition">
                 <div class="title">conjugate cancels</div>
                 <div class="content">
-                    `bar bar z = z`
+                    \( \overline{\overline{z}} = z \)
                 </div>
             </div>
 
@@ -71,7 +71,7 @@
                 <div class="content">
                     <details>
                         <summary>show</summary>
-                        Let `z = x + iy`, then `bar z = x - iy = x + i (-y)` then `bar bar z = x - i (-y) = x + iy = z` as needed.
+                        Let \( z = x + i y \), then \( \overline{z} = x - i y = x + i \left ( - y \right ) \) then \( \overline{\overline{z}} = x - i \left ( - y \right ) = x + i y = z \) as needed.
                     </details>
                 </div>
             </div>
@@ -82,9 +82,9 @@
         <div class="definition">
             <div class="title">modulus</div>
             <div class="content">
-                for any `z = x + iy in CC`, we define
+                for any \( z = x + i y \in \mathbb{C} \), we define
                 <div class="centered-content">
-                    `abs(z) := sqrt(x^2 + y^2)`
+                    \( \left | z \right |  := \sqrt{x^{2} + y^{2}} \)
                 </div>
             </div>
         </div>
@@ -94,7 +94,7 @@
             <div class="corollary">
                 <div class="title">modulus ignores conjugates</div>
                 <div class="content">
-                    `abs(bar(z)) = abs(z)`
+                    \( \left | \overline{z} \right |  = \left | z \right |  \)
                 </div>
             </div>
 
@@ -103,7 +103,7 @@
                 <div class="content">
                     <details>
                         <summary>show</summary>
-                        Suppose that `z = x + iy`, then `abs(bar(z)) = abs(x - iy) = sqrt(x^2 + (-y)^2) = sqrt(x^2 + y^2) = abs(z)` 
+                        Suppose that \( z = x + i y \), then \( \left | \overline{z} \right |  = \left | x - i y \right |  = \sqrt{x^{2} + \left ( - y \right )^{2}} = \sqrt{x^{2} + y^{2}} = \left | z \right |  \) 
                     </details>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                 <div class="title">complex number times it's conjugate equals the modulus squared</div>
                 <div class="content">
                     <div class="centered-content">
-                        `z * bar z = |z|^2`
+                        \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \)
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                 <div class="content">
                     <details>
                         <summary>show</summary>
-                        suppose that `z = x + iy`, then `z * bar z = (x + iy) * (x - iy) = x^2 + y^2 + xyi - xyi = x^2 + y^2`, but then again `abs(z) = abs(x + iy) = sqrt(x^2 + y^2)` thus `z * bar z = abs(z)^2`
+                        suppose that \( z = x + i y \), then \( z \cdot \overline{z} = \left ( x + i y \right ) \cdot \left ( x - i y \right ) = x^{2} + y^{2} + x y i - x y i = x^{2} + y^{2} \), but then again \( \left | z \right |  = \left | x + i y \right |  = \sqrt{x^{2} + y^{2}} \) thus \( z \cdot \overline{z} = \left | z \right | ^{2} \)
                     </details>
                 </div>
             </div>
@@ -137,7 +137,7 @@
         <div class="definition" id="definition-inverse">
             <div class="title">inverse</div>
             <div class="content">
-                the inverse of a complex number `z in CC` is another `w in CC` such that `z * w = 1`, we denote `w` by `z^(-1)` or `1/z`
+                the inverse of a complex number \( z \in \mathbb{C} \) is another \( w \in \mathbb{C} \) such that \( z \cdot w = 1 \), we denote \( w \) by \( z^{- 1} \) or \( \frac{1}{z} \)
             </div>
         </div>
 
@@ -145,7 +145,7 @@
             <div class="theorem">
                 <div class="title">value of the inverse</div>
                 <div class="content">
-                    Given `z in CC` we have `z^(-1) = bar(z) / |z|^2`
+                    Given \( z \in \mathbb{C} \) we have \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \)
                 </div>
             </div>
 
@@ -154,7 +154,7 @@
                 <div class="content">
                     <details>
                         <summary>show</summary>
-                        We <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">know</span> that `z * bar z = |z|^2`, therefore `z * bar(z) / |z|^2 = 1`, so by the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#definition-inverse">definition of inverse</span> `z^(-1) = bar(z) / |z|^2` as needed.
+                        We <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">know</span> that \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \), therefore \( z \cdot \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} = 1 \), so by the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#definition-inverse">definition of inverse</span> \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \) as needed.
                     </details>
                 </div>
             </div>
@@ -165,7 +165,7 @@
         <div class="exercise">
             <div class="title"></div>
             <div class="content">
-                For any `z in CC, | z / bar(z) | = 1`
+                For any \( z \in \mathbb{C} , \left \lvert \frac{z}{\overline{z}} \right \rvert = 1 \)
             </div>
         </div>
 
@@ -175,10 +175,10 @@
                 <details>
                     <summary>show</summary>
                     <p>
-                        By the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#theorem-value-of-the-inverse">value of the inverse</span> we have: `1/bar(z) = bar(bar(z)) / |bar(z)|^2` since we know that <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-conjugate-cancels">two complex conjugates cancel</span> and <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#corollary-modulus-ignores-conjugates">modulus ignores conjugates</span>, then `bar(bar(z)) / |bar(z)|^2 = z / |z|^2`
+                        By the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#theorem-value-of-the-inverse">value of the inverse</span> we have: \( \frac{1}{\overline{z}} = \frac{\overline{\overline{z}}}{\left \lvert \overline{z} \right \rvert^{2}} \) since we know that <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-conjugate-cancels">two complex conjugates cancel</span> and <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#corollary-modulus-ignores-conjugates">modulus ignores conjugates</span>, then \( \frac{\overline{\overline{z}}}{\left \lvert \overline{z} \right \rvert^{2}} = \frac{z}{\left \lvert z \right \rvert^{2}} \)
                     </p>
                     <p>
-                        Now `abs(z / bar z) = abs(z (z / abs(z)^2)) = abs((z/abs(z))^2) = abs(z/abs(z)) * abs(z/abs(z)) = 1 * 1 = 1` as needed
+                        Now \( \left | \frac{z}{\overline{z}} \right |  = \left | z \left ( \frac{z}{\left | z \right | ^{2}} \right ) \right |  = \left | \left ( \frac{z}{\left | z \right | } \right )^{2} \right |  = \left | \frac{z}{\left | z \right | } \right |  \cdot \left | \frac{z}{\left | z \right | } \right |  = 1 \cdot 1 = 1 \) as needed
                     </p>
                 </details>
             </div>
@@ -189,9 +189,9 @@
         <div class="definition">
             <div class="title">real part of a complex number</div>
             <div class="content">
-                given `z = x + iy in CC` we say that `x` is the real part of `z` and define the function
+                given \( z = x + i y \in \mathbb{C} \) we say that \( x \) is the real part of \( z \) and define the function
                 <div class="centered-content">
-                    `cc R(z) = x`
+                    \( \mathcal{R} \left ( z \right ) = x \)
                 </div>
             </div>
         </div>
@@ -199,9 +199,9 @@
         <div class="definition">
             <div class="title">imaginary part of a complex number</div>
             <div class="content">
-                given `z = x + iy in CC` we say that `y` is the imaginary part of `z` and define the function
+                given \( z = x + i y \in \mathbb{C} \) we say that \( y \) is the imaginary part of \( z \) and define the function
                 <div class="centered-content">
-                    `cc I(z) = y`
+                    \( \mathcal{I} \left ( z \right ) = y \)
                 </div>
             </div>
         </div>
@@ -209,7 +209,7 @@
         <div class="proposition">
             <div class="title">extracting the real part of a complex number</div>
             <div class="content">
-                suppose `z in CC`, then `fr R(z) = (z + bar(z))/2`
+                suppose \( z \in \mathbb{C} \), then \( \mathfrak{R} \left ( z \right ) = \frac{z + \overline{z}}{2} \)
             </div>
         </div>
 
@@ -217,10 +217,10 @@
         <div class="proposition" id="proposition-modulus-is-greater-than-it's-components">
             <div class="title">modulus is greater than it's components</div>
             <div class="content">
-                for any `z in CC` we have both
+                for any \( z \in \mathbb{C} \) we have both
                 <ul>
-                    <li>`abs(fr R (z)) le abs(z)`</li>
-                    <li>`abs(fr I (z)) le abs(z)`</li>
+                    <li>\( \left | \mathfrak{R} \left ( z \right ) \right |  \le \left | z \right |  \)</li>
+                    <li>\( \left | \mathfrak{I} \left ( z \right ) \right |  \le \left | z \right |  \)</li>
                 </ul>
             </div>
         </div>
@@ -229,16 +229,16 @@
         <div class="proposition" id="proposition-imaginary-part-distributes">
             <div class="title">imaginary part distributes</div>
             <div class="content">
-                `fr I(z + w) = fr I(z) + fr I(w)`
+                \( \mathfrak{I} \left ( z + w \right ) = \mathfrak{I} \left ( z \right ) + \mathfrak{I} \left ( w \right ) \)
             </div>
         </div>
 
         <div class="proposition" id="modulus-plus-one-of-it's-components-is-positive">
             <div class="title">modulus plus one of it's components is positive</div>
             <div class="content">
-                Suppose that `f in {cc R, cc I}`, then
+                Suppose that \( f{\in} \left \lbrace \mathcal{R} , \mathcal{I} \right \rbrace \), then
                 <div class="centered-content">
-                    `abs(z) + f(z) ge 0`
+                    \( \left | z \right |  + f{\left ( z \right )} \ge 0 \)
                 </div>
             </div>
         </div>
@@ -246,18 +246,18 @@
         <div class="proof">
             <div class="title"></div>
             <div class="content">
-                Let `z = x + iy in CC` then suppose without loss of generality that `f = cc R`, then
+                Let \( z = x + i y \in \mathbb{C} \) then suppose without loss of generality that \( f{=} \mathcal{R} \), then
                 <div class="centered-content">
-                    `-x le abs(x) = sqrt(x^2) le sqrt(x^2 + y^2) = abs(x + iy)`
+                    \( - x \le \left | x \right |  = \sqrt{x^{2}} \le \sqrt{x^{2} + y^{2}} = \left | x + i y \right |  \)
                 </div>
-                therefore `0 le x + abs(x+ iy)` which means `0 le cc R(z) + abs(z)`
+                therefore \( 0 \le x + \left | x + i y \right |  \) which means \( 0 \le \mathcal{R} \left ( z \right ) + \left | z \right |  \)
             </div>
         </div>
 
         <div class="exercise">
             <div class="title">creating squares</div>
             <div class="content">
-                without use of the triangle inequality prove that `abs(z - 1)^2 = abs(z)^2 + 1 - 2 cc R(z)`, then conclude that `abs(z - 1) le abs(z) + 1`
+                without use of the triangle inequality prove that \( \left | z - 1 \right | ^{2} = \left | z \right | ^{2} + 1 - 2 \mathcal{R} \left ( z \right ) \), then conclude that \( \left | z - 1 \right |  \le \left | z \right |  + 1 \)
             </div>
         </div>
 
@@ -265,11 +265,11 @@
             <div class="title"></div>
             <div class="content">
                 <p>
-                    `abs(z - 1)^2` <a href="#a-complex-number-times-it's-conjugate-equals-the-modulus-squared">=</a> `(z - 1) * bar(z - 1) = (z - 1) * (bar z - 1) = z * bar z - z - bar(z) + 1`, now recall that `cc R(z) = (z + bar(z)) / 2` so we can continue the equality with `abs(z)^2 - 2 cc R(z) + 1`, showing the first part
+                    \( \left | z - 1 \right | ^{2} \) <a href="#a-complex-number-times-it's-conjugate-equals-the-modulus-squared">=</a> \( \left ( z - 1 \right ) \cdot \overline{z - 1} = \left ( z - 1 \right ) \cdot \left ( \overline{z} - 1 \right ) = z \cdot \overline{z} - z - \overline{z} + 1 \), now recall that \( \mathcal{R} \left ( z \right ) = \frac{z + \overline{z}}{2} \) so we can continue the equality with \( \left | z \right | ^{2} - 2 \mathcal{R} \left ( z \right ) + 1 \), showing the first part
                 </p>
                 <p>
-                    for the second part, we can notice that `(abs(z) + 1)^2 = abs(z)^2 + 2abs(z) + 1`, so then `abs(z - 1)^2 = abs(z)^2 + 1 - 2 cc R(z) = abs(z)^2 + 2 abs(z) - 2 abs(z) + 1 - 2 cc R(z) = (abs(z) + 1)^2 - 2 ( abs(z) + cc R(z))`, then by
-                    <a href="#modulus-plus-one-of-it's-components-is-positive">this</a> proposition we can see that the last term in the previous equality chain is less than or equal to `(abs(z) + 1)^2` allowing us to conclude that `abs(z - 1)^2 le (abs(z) + 1)^2` which implies that `abs(z - 1) le abs(z) + 1`
+                    for the second part, we can notice that \( \left ( \left | z \right |  + 1 \right )^{2} = \left | z \right | ^{2} + 2 \left | z \right |  + 1 \), so then \( \left | z - 1 \right | ^{2} = \left | z \right | ^{2} + 1 - 2 \mathcal{R} \left ( z \right ) = \left | z \right | ^{2} + 2 \left | z \right |  - 2 \left | z \right |  + 1 - 2 \mathcal{R} \left ( z \right ) = \left ( \left | z \right |  + 1 \right )^{2} - 2 \left ( \left | z \right |  + \mathcal{R} \left ( z \right ) \right ) \), then by
+                    <a href="#modulus-plus-one-of-it's-components-is-positive">this</a> proposition we can see that the last term in the previous equality chain is less than or equal to \( \left ( \left | z \right |  + 1 \right )^{2} \) allowing us to conclude that \( \left | z - 1 \right | ^{2} \le \left ( \left | z \right |  + 1 \right )^{2} \) which implies that \( \left | z - 1 \right |  \le \left | z \right |  + 1 \)
                 </p>
             </div>
         </div>

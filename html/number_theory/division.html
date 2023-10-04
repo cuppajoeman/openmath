@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer></script>
 
-	<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+	
 
 </head>
 
@@ -21,17 +20,17 @@
         <div class="definition" id="definition-divides">
             <div class="title">divides</div>
             <div class="content">
-                an integer `n` is divisible by a non-zero integer `m` if there exists an integer `k` such that `n = k * m`. If this is all true we write `m | n`.
+                an integer \( n \) is divisible by a non-zero integer \( m \) if there exists an integer \( k \) such that \( n = k \cdot m \). If this is all true we write \( m | n \).
             </div>
         </div>
 
         <div class="proposition">
             <div class="title">1 divides everything</div>
             <div class="content">
-                Suppose that `j in ZZ`, then `1 | j`
+                Suppose that \( j \in \mathbb{Z} \), then \( 1 | j \)
             </div>
 			<div class="proof">
-				In the <a class="knowledge-link" href="/number_theory/division.html#definition-divides">definition of divides</a> take `k = j`, then we can see that `j = j * 1` thus we can say that `1 | j`
+				In the <a class="knowledge-link" href="/number_theory/division.html#definition-divides">definition of divides</a> take \( k = j \), then we can see that \( j = j \cdot 1 \) thus we can say that \( 1 | j \)
 			</div>
         </div>
         
@@ -39,10 +38,10 @@
         <div class="proposition">
             <div class="title">0 is divisible by everything</div>
             <div class="content">
-                for any `d in ZZ^{ne 0}, d | 0`
+                for any \( d \in \mathbb{Z}^{\ne 0} , d | 0 \)
             </div>
 			<div class="proof">
-				In the <span class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides">definition of divides</span> take `k = 0`, then we can see that `0 = 0 * d` thus we can say that `d | 0`
+				In the <span class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides">definition of divides</span> take \( k = 0 \), then we can see that \( 0 = 0 \cdot d \) thus we can say that \( d | 0 \)
 			</div>
         </div>
 
@@ -50,10 +49,10 @@
 		<div class="proposition" id="proposition-any-integer-cannot-divide-something-smaller-than-itself">
 			<div class="title">any integer cannot divide something smaller than itself</div>
 			<div class="content">
-				Suppose that `m in ZZ`, then for any `a in ZZ^(ne 0)` such that `-abs(m) < a < abs(m)`, then `m` does not divide `a`
+				Suppose that \( m \in \mathbb{Z} \), then for any \( a \in \mathbb{Z}^{\ne 0} \) such that \( - \left | m \right |  < a < \left | m \right |  \), then \( m \) does not divide \( a \)
 			</div>
 			<div class="proof">
-				Suppose that for the sake of contradiciton that `m | a`	, then there is some `k in ZZ` such that `a = mk`
+				Suppose that for the sake of contradiciton that \( m | a \)	, then there is some \( k \in \mathbb{Z} \) such that \( a = m k \)
 			</div>
 		</div>
 
@@ -61,7 +60,7 @@
 		<div class="proposition" id="proposition-forced-division-of-sum">
 			<div class="title">forced division of sum</div>
 			<div class="content">
-				Suppose that `m | a` and that `m | (a + b)` then `m | b`
+				Suppose that \( m | a \) and that \( m | \left ( a + b \right ) \) then \( m | b \)
 			</div>
 			<div class="proof">
 				TODO
@@ -71,36 +70,36 @@
 		<div class="definition" id="definition-divides">
             <div class="title">even number</div>
             <div class="content">
-				Given an integer `a`, we say that it is even when  <a class="knowledge-link" href="/number_theory/division.html#definition-divides">`2 | a`</a>
+				Given an integer \( a \), we say that it is even when  <a class="knowledge-link" href="/number_theory/division.html#definition-divides">\( 2 | a \)</a>
             </div>
         </div>
 
 		<div class="theorem" id="theorem-quotient-remainder">
 				<div class="title">quotient remainder</div>
 				<div class="content">
-					Suppose that `a, b in ZZ`, but that `b ne 0`, then there exists unique integers `q, r` such that `a = b * q + r` where `0 le r lt abs(b)`
+					Suppose that \( a , b \in \mathbb{Z} \), but that \( b \ne 0 \), then there exists unique integers \( q , r \) such that \( a = b \cdot q + r \) where \( 0 \le r \lt \left | b \right |  \)
 				</div>
 				<div class="proof">
 					<p>
-						Let `a, b in ZZ` and assume `b ne 0`. Define `S = {x in ZZ : x ge 0 text( and ) x = a + abs(b) * k text( where ) k in ZZ} supe NN_0`, we'll show that `S` is non-empty. We can think of `S` as taking `a` and then either adding muliples of `abs(b)` or subtracting them to `a`, each time leaving some remainder, thinking ahead we can guess that the smallest value of this set should be the smallest remainder and possibly the `r` we are looking for.
+						Let \( a , b \in \mathbb{Z} \) and assume \( b \ne 0 \). Define \( S = \left \lbrace x \in \mathbb{Z} : x \ge 0 \text{ and } x = a + \left | b \right |  \cdot k \text{ where } k \in \mathbb{Z} \right \rbrace \supseteq \mathbb{N}_{0} \), we'll show that \( S \) is non-empty. We can think of \( S \) as taking \( a \) and then either adding muliples of \( \left | b \right |  \) or subtracting them to \( a \), each time leaving some remainder, thinking ahead we can guess that the smallest value of this set should be the smallest remainder and possibly the \( r \) we are looking for.
 					</p>
 					<p>
-						If `a ge 0` then when `k = 0` we have `a + abs(b)*k = a ge 0` thus `a in S`, on the other hand if `a lt 0`, then observe that since `0 le r lt abs(b)`, then `1 le abs(b) iff 0 le abs(b) - 1` and also `-a gt 0`, then we have `0 le (abs(b) - 1)*(-a)`. But also we can see that `(abs(b) - 1) * (-a) = abs(b) * (-a) + a` so it's of the form of an element in `S` and since it's non-negative, it must be an element of `S`. Therefore this paragraph shows us that `S` has at least one element, no matter the value of `a`.
+						If \( a \ge 0 \) then when \( k = 0 \) we have \( a + \left | b \right |  \cdot k = a \ge 0 \) thus \( a \in S \), on the other hand if \( a \lt 0 \), then observe that since \( 0 \le r \lt \left | b \right |  \), then \( 1 \le \left | b \right |  \iff 0 \le \left | b \right |  - 1 \) and also \( - a \gt 0 \), then we have \( 0 \le \left ( \left | b \right |  - 1 \right ) \cdot \left ( - a \right ) \). But also we can see that \( \left ( \left | b \right |  - 1 \right ) \cdot \left ( - a \right ) = \left | b \right |  \cdot \left ( - a \right ) + a \) so it's of the form of an element in \( S \) and since it's non-negative, it must be an element of \( S \). Therefore this paragraph shows us that \( S \) has at least one element, no matter the value of \( a \).
 					</p>
 					<p>
-						Due to this and since `S sube NN_0`, then by the well ordering principle there is some smallest element `s in S`, we know that this value satisfies `s = a - abs(b) * k`. Now we will show that `0 le s lt abs(b)`.
+						Due to this and since \( S \subseteq \mathbb{N}_{0} \), then by the well ordering principle there is some smallest element \( s \in S \), we know that this value satisfies \( s = a - \left | b \right |  \cdot k \). Now we will show that \( 0 \le s \lt \left | b \right |  \).
 					</p>
 					<p>
-						`s in S` so therefore `s ge 0`, if we were to assume that `s ge abs(b)` then `s - abs(b) ge 0`. By recalling the equality that `s` satisifies we can write `s - abs(b) = (a - abs (b) * k) - abs(b) = a - abs(b) (k + 1)`, therefore `s - abs(b) in S` but since `abs(b) gt 1` then `s - abs(b) lt s` which is a contradiction because we assumed that `s` was the smallest element in `S`, thus we must have that `s < abs(b)`
+						\( s \in S \) so therefore \( s \ge 0 \), if we were to assume that \( s \ge \left | b \right |  \) then \( s - \left | b \right |  \ge 0 \). By recalling the equality that \( s \) satisifies we can write \( s - \left | b \right |  = \left ( a - \left | b \right |  \cdot k \right ) - \left | b \right |  = a - \left | b \right |  \left ( k + 1 \right ) \), therefore \( s - \left | b \right |  \in S \) but since \( \left | b \right |  \gt 1 \) then \( s - \left | b \right |  \lt s \) which is a contradiction because we assumed that \( s \) was the smallest element in \( S \), thus we must have that \( s < \left | b \right |  \)
 					</p>
 					<p>
-						At this point we have `a = abs(b) * k + s` where `0 le s lt abs(b)` so take `q = text(sgn)(b) * k` and `r = s`. If `b ge 0`, then `abs(b) = b` and `text(sgn)(b) = 1`, so we obtain `a = b * k + s`, if ` b < 0`, then `abs(b) = - b` and `text(sgn)(b)=-1` so again we have `a = (- b) * (-1)k + s`. We'll finish the proof by showing that these values are unique.
+						At this point we have \( a = \left | b \right |  \cdot k + s \) where \( 0 \le s \lt \left | b \right |  \) so take \( q = \text{sgn} \left ( b \right ) \cdot k \) and \( r = s \). If \( b \ge 0 \), then \( \left | b \right |  = b \) and \( \text{sgn} \left ( b \right ) = 1 \), so we obtain \( a = b \cdot k + s \), if \( b < 0 \), then \( \left | b \right |  = - b \) and \( \text{sgn} \left ( b \right ) = - 1 \) so again we have \( a = \left ( - b \right ) \cdot \left ( - 1 \right ) k + s \). We'll finish the proof by showing that these values are unique.
 					</p>
 					<p>
-						Assume we have another pair `bar q, bar r` satisfying `a = b * bar q + bar r` with `0 le bar r le abs b` but `bar q ne q` and `bar r ne r`, therefore we have `b * q + r = b bar q + bar r iff bar r - r = b * (bar q - q)`.
+						Assume we have another pair \( \overline{q} , \overline{r} \) satisfying \( a = b \cdot \overline{q} + \overline{r} \) with \( 0 \le \overline{r} \le \left | b \right |  \) but \( \overline{q} \ne q \) and \( \overline{r} \ne r \), therefore we have \( b \cdot q + r = b \overline{q} + \overline{r} \iff \overline{r} - r = b \cdot \left ( \overline{q} - q \right ) \).
 					</p>
 					<p>
-						Without loss of generality assume `bar r gt  r`, then ` bar r - r gt 0` and since `0 le r lt abs(b) ` then ` 0 le bar r - r le bar r lt abs(b)`, recalling that ` bar r - r = abs(b) * (bar q - q)`, we can re-write our last inequality as ` 0 le abs(b) * (bar q - q) lt abs(b)` and since `b ne 0` we can divide by `abs(b)` to get ` 0 lt bar q - q lt 1` but since `q, bar q in ZZ` this force `q = bar q`, which then shows `r = bar r` by previous equalities, therefore assuming we have another solution, it turns out it must be our original one, and thus our solution is unique.
+						Without loss of generality assume \( \overline{r} \gt r \), then \( \overline{r} - r \gt 0 \) and since \( 0 \le r \lt \left | b \right |  \) then \( 0 \le \overline{r} - r \le \overline{r} \lt \left | b \right |  \), recalling that \( \overline{r} - r = \left | b \right |  \cdot \left ( \overline{q} - q \right ) \), we can re-write our last inequality as \( 0 \le \left | b \right |  \cdot \left ( \overline{q} - q \right ) \lt \left | b \right |  \) and since \( b \ne 0 \) we can divide by \( \left | b \right |  \) to get \( 0 \lt \overline{q} - q \lt 1 \) but since \( q , \overline{q} \in \mathbb{Z} \) this force \( q = \overline{q} \), which then shows \( r = \overline{r} \) by previous equalities, therefore assuming we have another solution, it turns out it must be our original one, and thus our solution is unique.
 					</p>
 				</div>
 			</div>
@@ -109,32 +108,32 @@
 		<div class="definition" id="definition-remainder-function">
 		    <div class="title">remainder function</div>
 		    <div class="content">
-				Given two integers `a, b in ZZ` such that `b ne 0`, <span class="knowledge-link" data-href="/number_theory/division.html#theorem-quotient-remainder">then </span> we get some `q, r in ZZ` with `0 le r lt abs(b)` such that `a = b * q + r` and we define `a % b := r`
+				Given two integers \( a , b \in \mathbb{Z} \) such that \( b \ne 0 \), <span class="knowledge-link" data-href="/number_theory/division.html#theorem-quotient-remainder">then </span> we get some \( q , r \in \mathbb{Z} \) with \( 0 \le r \lt \left | b \right |  \) such that \( a = b \cdot q + r \) and we define \( a \% b := r \)
 		    </div>
 		</div>	
 
 		<div class="definition" id="definition-divisor-function">
 			<div class="title">divisor function</div>
 			<div class="content">
-				Given two integers `a, b in ZZ` such that `b ne 0`, <span class="knowledge-link" data-href="/number_theory/division.html#theorem-quotient-remainder">then </span> we get some `q, r in ZZ` with `0 le r lt abs(b)` such that `a = b * q + r` and we define `a //// b := q`
+				Given two integers \( a , b \in \mathbb{Z} \) such that \( b \ne 0 \), <span class="knowledge-link" data-href="/number_theory/division.html#theorem-quotient-remainder">then </span> we get some \( q , r \in \mathbb{Z} \) with \( 0 \le r \lt \left | b \right |  \) such that \( a = b \cdot q + r \) and we define \( a / / b := q \)
 			</div>
 		</div>
 
 		<div class="corollary" id="corollary-quotient-remainder-on-positive-integer-has-positive-divisor">
 			<div class="title">quotient remainder on positive integer has positive divisor</div>
 			<div class="content">
-				Suppose that `a, b in NN_1` such that `a ge b` then <span class="knowledge-link" data-href="/number_theory/division.html#definition-divisor-function"> `a //// b ge 1`</span>
+				Suppose that \( a , b \in \mathbb{N}_{1} \) such that \( a \ge b \) then <span class="knowledge-link" data-href="/number_theory/division.html#definition-divisor-function"> \( a / / b \ge 1 \)</span>
 			</div>
 
 			<div class="proof">
 				<p>
-					For brevity define `q = a //// b`, we know that `a = b * q + r` with `0 le r lt b`, thus far we know that `q in ZZ`, though if `q < 0`, then we know that `b * q < r * q le 0 `, therefore `a = b * q + r < r * q + r = r (q + 1)`
+					For brevity define \( q = a / / b \), we know that \( a = b \cdot q + r \) with \( 0 \le r \lt b \), thus far we know that \( q \in \mathbb{Z} \), though if \( q < 0 \), then we know that \( b \cdot q < r \cdot q \le 0 \), therefore \( a = b \cdot q + r < r \cdot q + r = r \left ( q + 1 \right ) \)
 				</p>
 				<p>
-					For a contradiction assume that `q lt 1 iff q le 0`, therefore `r (q + 1) le r (0 + 1) = r`, which shows that `a lt r`, since `0 le r lt b`, then we have `a lt b` which is a contradiction because we know that `a ge b`.
+					For a contradiction assume that \( q \lt 1 \iff q \le 0 \), therefore \( r \left ( q + 1 \right ) \le r \left ( 0 + 1 \right ) = r \), which shows that \( a \lt r \), since \( 0 \le r \lt b \), then we have \( a \lt b \) which is a contradiction because we know that \( a \ge b \).
 				</p>
 				<p>
-					Since by assuming `q lt 1`, we have a contradiction, so therefore `q ge 1`, which is the same as `a //// b ge 1`.
+					Since by assuming \( q \lt 1 \), we have a contradiction, so therefore \( q \ge 1 \), which is the same as \( a / / b \ge 1 \).
 				</p>
 			</div>
 		</div>
@@ -144,10 +143,10 @@
 			<div class="theorem">
 				<div class="title">every integer is either odd or even</div>
 				<div class="content">
-					For any `z in ZZ`, it is even or it is odd
+					For any \( z \in \mathbb{Z} \), it is even or it is odd
 				</div>
 				<div class="proof">
-					Let `z in ZZ` and then we know that `z % 2 in {0, 1}`, if `z % 2 = 1` then there is some `q in ZZ` such that `z = q * 2 + 1`, and thus odd, if `z % 2 = 0`, then we have some `q in ZZ` such that `z = q * 2 + 0` and is thus even.
+					Let \( z \in \mathbb{Z} \) and then we know that \( z \% 2 \in \left \lbrace 0 , 1 \right \rbrace \), if \( z \% 2 = 1 \) then there is some \( q \in \mathbb{Z} \) such that \( z = q \cdot 2 + 1 \), and thus odd, if \( z \% 2 = 0 \), then we have some \( q \in \mathbb{Z} \) such that \( z = q \cdot 2 + 0 \) and is thus even.
 				</div>
 			</div>
 		</div>
@@ -155,28 +154,28 @@
 		<div class="definition" id="definition-composite-number">
 			<div class="title">composite number</div>
 			<div class="content">
-				A number `n in NN_1` is said to be composite, when it has a positive <a class="knowledge-link" href="/number_theory/division.html#definition-divides">divisor</a> other than `1` and itself
+				A number \( n \in \mathbb{N}_{1} \) is said to be composite, when it has a positive <a class="knowledge-link" href="/number_theory/division.html#definition-divides">divisor</a> other than \( 1 \) and itself
 			</div>
 		</div>
 
 		<div class="definition" id="definition-prime">
 			<div class="title">prime</div>
 			<div class="content">
-				A number `p in NN_1` is said to be prime if it's only divisors are `1` and `p`
+				A number \( p \in \mathbb{N}_{1} \) is said to be prime if it's only divisors are \( 1 \) and \( p \)
 			</div>
 		</div>
 
         <div class="definition" id="definition-greatest-common-divisor">
             <div class="title">greatest common divisor</div>
             <div class="content">
-                suppose that `a, b in ZZ` then the greatest common divsor of `a` and `b` notated as `gcd(a,b)` is the largest positive integer that <span class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides">divides</span> each of `a, b`
+                suppose that \( a , b \in \mathbb{Z} \) then the greatest common divsor of \( a \) and \( b \) notated as \( \gcd{\left ( a , b \right )} \) is the largest positive integer that <span class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides">divides</span> each of \( a , b \)
             </div>
         </div>
 
 		<div class="corollary" id="corollary-same-divisors-implies-same-gcd">
 			<div class="title">same divisors implies same gcd</div>
 			<div class="content">
-				Suppose that `a, b, p, q in ZZ` and that `D_(a,b) = {d in ZZ: d | a text( and ) d | b}` and `D_(p, q) = {d in ZZ: d | p text( and ) d | q}` are equal, then `gcd(a, b) = gcd(p, q)`
+				Suppose that \( a , b , p , q \in \mathbb{Z} \) and that \( D_{a , b} = \left \lbrace d \in \mathbb{Z} : d \left \lvert a \text{ and } d \mid b \right \rbrace \right. \) and \( D_{p , q} = \left \lbrace d \in \mathbb{Z} : d \left \lvert p \text{ and } d \mid q \right \rbrace \right. \) are equal, then \( \gcd{\left ( a , b \right )} = \gcd{\left ( p , q \right )} \)
 			</div>
 			<div class="proof">
 				TODO
@@ -187,14 +186,14 @@
         <div class="definition">
             <div class="title">coprime integers</div>
             <div class="content">
-                `a,b in ZZ` are said to be coprime if the only positive integer that divides them is `1`.
+                \( a , b \in \mathbb{Z} \) are said to be coprime if the only positive integer that divides them is \( 1 \).
             </div>
         </div>
 
         <div class="corollary">
             <div class="title"></div>
             <div class="content">
-                `a, b in ZZ` are coprime if and only if `gcd(a, b) = 1`
+                \( a , b \in \mathbb{Z} \) are coprime if and only if \( \gcd{\left ( a , b \right )} = 1 \)
             </div>
 			<div class="proof">
 				TODO
@@ -204,17 +203,17 @@
 		<div class="theorem" id="theorem-eucliden-algorithm">
 			<div class="title">euclidean algorithm</div>
 			<div class="content">
-				Let `m, n in NN_1` such that `m > n`, if `m % n > 0`, then `gcd(m, n) = gcd(n, m % n)`. Otherwise if `m % n = 0`, then `n | m`  and `gcd(m, n) = n`
+				Let \( m , n \in \mathbb{N}_{1} \) such that \( m > n \), if \( m \% n > 0 \), then \( \gcd{\left ( m , n \right )} = \gcd{\left ( n , m \% n \right )} \). Otherwise if \( m \% n = 0 \), then \( n | m \)  and \( \gcd{\left ( m , n \right )} = n \)
 			</div>
 			<div class="proof">
 				<p>
-					If `m % n = 0`, then `m = (m //// n) * n`, therefore `gcd(m, n) = gcd((m //// n) * n, n) = n`, so now assume that `m % n > 0`
+					If \( m \% n = 0 \), then \( m = \left ( m / / n \right ) \cdot n \), therefore \( \gcd{\left ( m , n \right )} = \gcd{\left ( \left ( m / / n \right ) \cdot n , n \right )} = n \), so now assume that \( m \% n > 0 \)
 				</p>
 				<p>
-					Recall that `m = (m //// n) * n + m % n `, therefore `m - (m ////n) * n = m % n`, so that if `d` divides both `m, n`, then it must divide `m % n` (and clearly `n`), and by the original equation if `d` is a divisor of both `n, m % n` then `d` divides `m` (and clearly `n`).
+					Recall that \( m = \left ( m / / n \right ) \cdot n + m \% n \), therefore \( m - \left ( m / / n \right ) \cdot n = m \% n \), so that if \( d \) divides both \( m , n \), then it must divide \( m \% n \) (and clearly \( n \)), and by the original equation if \( d \) is a divisor of both \( n , m \% n \) then \( d \) divides \( m \) (and clearly \( n \)).
 				</p>
 				<p>
-					The above paragraph shows that a number is a divisor of `m, n` if and only if it is a divisor of `n, m % n`, which shows that their set of divisors are equal and thus `gcd(m, n) = gcd(n, m % n)`
+					The above paragraph shows that a number is a divisor of \( m , n \) if and only if it is a divisor of \( n , m \% n \), which shows that their set of divisors are equal and thus \( \gcd{\left ( m , n \right )} = \gcd{\left ( n , m \% n \right )} \)
 				</p>
 			</div>
 		</div>
@@ -222,10 +221,10 @@
 		<div class="lemma" id="lemma-bounded-sum-implies-one-less-then-half">
 			<div class="title">bounded sum implies one less then half</div>
 			<div class="content">
-				Suppose that `x, y, b in NN_1` and `x < y` with `x + y le b`, then `x < b/2`
+				Suppose that \( x , y , b \in \mathbb{N}_{1} \) and \( x < y \) with \( x + y \le b \), then \( x < \frac{b}{2} \)
 			</div>
 			<div class="proof">
-				Suppose for the sake of contradiction that `x ge b/2`, then we know that `y > x ge b/2` so therefore `x + y gt b/2 + b/2 = b`, so we have `x + y > b` which is a contradiction so that `x < b/2`.
+				Suppose for the sake of contradiction that \( x \ge \frac{b}{2} \), then we know that \( y > x \ge \frac{b}{2} \) so therefore \( x + y \gt \frac{b}{2} + \frac{b}{2} = b \), so we have \( x + y > b \) which is a contradiction so that \( x < \frac{b}{2} \).
 			</div>
 		</div>
 		
@@ -234,21 +233,21 @@
 		<div class="proposition" id="proposition-euclidean-algorithm-has-exponentially-decreasing-remainders">
 			<div class="title">euclidean algorithm has exponentially decreasing remainders</div>
 			<div class="content">
-				Let `a, b in NN_1` with `a ge b` be two integers, and suppose we will preform the euclidean algorithm on them to compute `gcd(m, n)`, supposing that `r_k` represents the remainder after `k` (where `k in NN_1`) steps into the euclidean algorithm, then `r_(2n) lt b / (2^n)`
+				Let \( a , b \in \mathbb{N}_{1} \) with \( a \ge b \) be two integers, and suppose we will preform the euclidean algorithm on them to compute \( \gcd{\left ( m , n \right )} \), supposing that \( r_{k} \) represents the remainder after \( k \) (where \( k \in \mathbb{N}_{1} \)) steps into the euclidean algorithm, then \( r_{2 n} \lt \frac{b}{2^{n}} \)
 			</div>
 			<div class="proof">
 				<p>
-					For the base case, suppose that  `n = 1`, so we'd like to prove that `r_2 lt b / 2`. Firstly we know that `a = b q_0 + r_0` with `0 le r_0 lt b`, then applying the next iteration we have `b = r_0 q_1 + r_1` with `0 le r_1 lt r_0` and one more time, we get `r_0 = r_1 q_2 + r_2` with `0 le r_2 lt r_1`, this shows us that `b = (r_1 q_2 + r_2)q_1 + r_1`.
+					For the base case, suppose that  \( n = 1 \), so we'd like to prove that \( r_{2} \lt \frac{b}{2} \). Firstly we know that \( a = b q_{0} + r_{0} \) with \( 0 \le r_{0} \lt b \), then applying the next iteration we have \( b = r_{0} q_{1} + r_{1} \) with \( 0 \le r_{1} \lt r_{0} \) and one more time, we get \( r_{0} = r_{1} q_{2} + r_{2} \) with \( 0 \le r_{2} \lt r_{1} \), this shows us that \( b = \left ( r_{1} q_{2} + r_{2} \right ) q_{1} + r_{1} \).
 				</p>
 				<p>
-				Since `a ge b`, `b gt r_0` and `r_0 gt r_1`, <span class="knowledge-link" data-href="/number_theory/division.html#corollary-quotient-remainder-on-positive-integer-has-positive-divisor">then</span> `q_0 ge 1`, `q_1 ge 1` and `q_2 ge 1`, therefore  `b = (r_1 q_2 + r_2)q_1 + r_1 ge (r _1 * 1 + r _2) * 1 + r _1 ge r1 + r2` <span class="knowledge-link" data-href="/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">therefore</span>  `r _2 < b/2` which concludes the base case
+				Since \( a \ge b \), \( b \gt r_{0} \) and \( r_{0} \gt r_{1} \), <span class="knowledge-link" data-href="/number_theory/division.html#corollary-quotient-remainder-on-positive-integer-has-positive-divisor">then</span> \( q_{0} \ge 1 \), \( q_{1} \ge 1 \) and \( q_{2} \ge 1 \), therefore  \( b = \left ( r_{1} q_{2} + r_{2} \right ) q_{1} + r_{1} \ge \left ( r_{1} \cdot 1 + r_{2} \right ) \cdot 1 + r_{1} \ge r 1 + r 2 \) <span class="knowledge-link" data-href="/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">therefore</span>  \( r_{2} < \frac{b}{2} \) which concludes the base case
 
 				</p>
 				<p>
-					Now let `k in NN_1` assuming that `r_(2k) le b / (2^k)`, we want to prove that `r_(2(k + 1)) = b / 2^(k + 1)`, noting that `2(k + 1) = 2k + 2`.
+					Now let \( k \in \mathbb{N}_{1} \) assuming that \( r_{2 k} \le \frac{b}{2^{k}} \), we want to prove that \( r_{2 \left ( k + 1 \right )} = \frac{b}{2^{k + 1}} \), noting that \( 2 \left ( k + 1 \right ) = 2 k + 2 \).
 				</p>
 				<p>
-				To start let's say we have an intance of the euclidean algorithm that lasts for at least `2k + 2` iterations, therefore we know that `r_(2k) le b / (2^k)` by our induction hypothesis, additionally at the `2k`-th iteration we would have an equation of the form `r_(2k) = r_(2k + 1) (q_(2k + 2)) + r_(2k + 2)`, since we know that `r_(2k + 1) > r_(2k + 2)`, <span class="knowledge-link" data-href="/number_theory/division.html#corollary-quotient-remainder-on-positive-integer-has-positive-divisor">then </span> `q_(2k + 2) ge 1`, which then shows that  `r_(2k) = r_(2k + 1) (q_(2k + 2)) + r_(2k + 2) ge r_(2k + 1) + r_(2k + 1)`, and since `b/2^k gt r_(2k)` , <span class="knowledge-link" data-href="/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">then we know that</span> `r_(2k + 2) lt 1/2 * b/2^k = b/2^(k + 1)` which is what we needed to show
+				To start let's say we have an intance of the euclidean algorithm that lasts for at least \( 2 k + 2 \) iterations, therefore we know that \( r_{2 k} \le \frac{b}{2^{k}} \) by our induction hypothesis, additionally at the \( 2 k \)-th iteration we would have an equation of the form \( r_{2 k} = r_{2 k + 1} \left ( q_{2 k + 2} \right ) + r_{2 k + 2} \), since we know that \( r_{2 k + 1} > r_{2 k + 2} \), <span class="knowledge-link" data-href="/number_theory/division.html#corollary-quotient-remainder-on-positive-integer-has-positive-divisor">then </span> \( q_{2 k + 2} \ge 1 \), which then shows that  \( r_{2 k} = r_{2 k + 1} \left ( q_{2 k + 2} \right ) + r_{2 k + 2} \ge r_{2 k + 1} + r_{2 k + 1} \), and since \( \frac{b}{2^{k}} \gt r_{2 k} \) , <span class="knowledge-link" data-href="/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">then we know that</span> \( r_{2 k + 2} \lt \frac{1}{2} \cdot \frac{b}{2^{k}} = \frac{b}{2^{k + 1}} \) which is what we needed to show
 				</p>
 			</div>
 		</div>
@@ -256,10 +255,10 @@
 		<div class="corollary" id="corollary-upper-bound-on-euclidean-algorithm-iterations">
 			<div class="title">upper bound on euclidean algorithm iterations</div>
 			<div class="content">
-				The euclidean algorithm terminates in at most `2 log_2(b)` iterations
+				The euclidean algorithm terminates in at most \( 2 \log_{2}{\left ( b \right )} \) iterations
 			</div>
 			<div class="proof">
-				The euclidean algorithm terminates in `k` iterations if and only if `r_k = 0`, we know that for all `n in NN_1` that `r_(2n) lt b / 2^n`, therefore when `n = log_2(b)`, then we have `r_(2log_2(b)) lt b / 2^(log_2(b)) = b/b = 1`, but if `r_(2 log_2(b)) lt 1`, then since the remainders are always elements of `NN_0`, then we know that `r_(2 log_2(b)) = 0`, thus we've shown after `2 log_2(b)` iterations the algorithm must terminate
+				The euclidean algorithm terminates in \( k \) iterations if and only if \( r_{k} = 0 \), we know that for all \( n \in \mathbb{N}_{1} \) that \( r_{2 n} \lt \frac{b}{2^{n}} \), therefore when \( n = \log_{2}{\left ( b \right )} \), then we have \( r_{2 \log_{2}{\left ( b \right )}} \lt \frac{b}{2^{\log_{2}{\left ( b \right )}}} = \frac{b}{b} = 1 \), but if \( r_{2 \log_{2}{\left ( b \right )}} \lt 1 \), then since the remainders are always elements of \( \mathbb{N}_{0} \), then we know that \( r_{2 \log_{2}{\left ( b \right )}} = 0 \), thus we've shown after \( 2 \log_{2}{\left ( b \right )} \) iterations the algorithm must terminate
 			</div>
 		</div>
 		
@@ -270,26 +269,26 @@
             <div class="content">
                 an <span class="knowledge-link" data-href="/fundamentals/set_theory.html#definition-arithmetic-function">arithmetic function</span> is said to be multiplicative when 
                 <div class="centered-content">
-                    `f(m) * f(n) = f(m * n)`
+                    \( f{\left ( m \right )} \cdot f{\left ( n \right )} = f{\left ( m \cdot n \right )} \)
                 </div>
-                for all coprime positive integers `m, n`
+                for all coprime positive integers \( m , n \)
             </div>
         </div>
 
         <div class="proposition">
             <div class="title"></div>
             <div class="content">
-                Suppose that `d(n)` is the number of divisors of `n`, then `d` is a multiplicative function.
+                Suppose that \( d \left ( n \right ) \) is the number of divisors of \( n \), then \( d \) is a multiplicative function.
             </div>
 			<div class="proof">
 				<p>
-					Let `m, n in ZZ^+` and assume that `gcd(m, n) = 1`, we'd like to prove that `d(m) * d(n) = d(m * n)`   
+					Let \( m , n \in \mathbb{Z}^{+} \) and assume that \( \gcd{\left ( m , n \right )} = 1 \), we'd like to prove that \( d \left ( m \right ) \cdot d \left ( n \right ) = d \left ( m \cdot n \right ) \)   
 				</p>
 				<p>
-					Suppose that the divisors of `m` are `P = {p_1, ..., p_j}` and the divisors of `n` are `Q = {q_1, ..., q_k}`
+					Suppose that the divisors of \( m \) are \( P = \left \lbrace p_{1} , \ldots , p_{j} \right \rbrace \) and the divisors of \( n \) are \( Q = \left \lbrace q_{1} , \ldots , q_{k} \right \rbrace \)
 				</p>
 				<p>
-					Claim that the set `P*Q = {p_x * q_y : x in [j], y in [k]}` is exactly equal to the divisors of `m * n`
+					Claim that the set \( P \cdot Q = \left \lbrace p_{x} \cdot q_{y} : x \in \left [ j \right ] , y \in \left [ k \right ] \right \rbrace \) is exactly equal to the divisors of \( m \cdot n \)
 				</p>
 			</div>
         </div>

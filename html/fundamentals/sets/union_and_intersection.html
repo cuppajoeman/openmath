@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/styles.css">
 
-    <!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+    
 
     <script src="/js/script.js" defer></script>
 
@@ -23,70 +22,70 @@
         <div class="definition" id="definition-union">
             <div class="title">union</div>
             <div class="content">
-                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> `A, B sube X`, then the union of `A` and `B` is defined as the set `A uu B := {p in X: p in A text( or ) p in B }`
+                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the union of \( A \) and \( B \) is defined as the set \( A \cup B := \left \lbrace p \in X : p \in A \text{ or } p \in B \right \rbrace \)
             </div>
         </div>
 
         <div class="definition" id="definition-intersection">
             <div class="title">intersection</div>
             <div class="content">
-                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> `A, B sube X`, then the intersection of `A` and `B` is defined as the set `A nn B := {p in X: p in A text( and ) p in B }`
+                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the intersection of \( A \) and \( B \) is defined as the set \( A \cap B := \left \lbrace p \in X : p \in A \text{ and } p \in B \right \rbrace \)
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-union">
             <div class="title">Arbitrary Union</div>
             <div class="content">
-                Suppose that `M` is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then `bigcup M` is defined so that `x in bigcup M iff EE A in M, x in A`
+                Suppose that \( M \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then \( \bigcup M \) is defined so that \( x \in \bigcup M \iff \exists A \in M , x \in A \)
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-intersection">
             <div class="title">Arbitrary Intersection</div>
             <div class="content">
-                Suppose that `M` is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then `bigcap M` is defined so that `x in bigcap M iff AA A in M, x in A`
+                Suppose that \( M \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then \( \bigcap M \) is defined so that \( x \in \bigcap M \iff \forall A \in M , x \in A \)
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-union-element-of-notation">
             <div class="title">Arbitrary Union Element of Notation</div>
             <div class="content">
-                We define `bigcup_(A in M) A :=` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">`bigcup M`</span>
+                We define \( \bigcup_{A \in M} A := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup M \)</span>
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-intersection-element-of-notation">
             <div class="title">Arbitrary Intersection Element of Notation</div>
             <div class="content">
-                We define `bigcap_(A in M) A :=` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">`bigcap M`</span>
+                We define \( \bigcap_{A \in M} A := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap M \)</span>
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-union-indexed-notation">
             <div class="title">Arbitrary Union Indexed Notation</div>
             <div class="content">
-                Suppose that `I` is an index set for the collection `cc A = {A_alpha : alpha in I}` where `A_alpha` is a set, then `bigcup_(alpha in I) A_alpha := ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">`bigcup cc A`</span>. If the index set is known by context, then we may use the shorthand `bigcup_alpha A_alpha`
+                Suppose that \( I \) is an index set for the collection \( \mathcal{A} = \left \lbrace A_{\alpha} : \alpha \in I \right \rbrace \) where \( A_{\alpha} \) is a set, then \( \bigcup_{\alpha \in I} A_{\alpha} := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup \mathcal{A} \)</span>. If the index set is known by context, then we may use the shorthand \( \bigcup_{\alpha} A_{\alpha} \)
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-intersection-indexed-notation">
             <div class="title">Arbitrary Intersection Indexed Notation</div>
             <div class="content">
-                Suppose that `I` is an index set for the collection `cc A = {A_alpha : alpha in I}` where `A_alpha` is a set, then `bigcap_(alpha in I) A_alpha := ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">`bigcap cc A`</span>. If the index set is known by context, then we may use the shorthand `bigcap_alpha A_alpha`
+                Suppose that \( I \) is an index set for the collection \( \mathcal{A} = \left \lbrace A_{\alpha} : \alpha \in I \right \rbrace \) where \( A_{\alpha} \) is a set, then \( \bigcap_{\alpha \in I} A_{\alpha} := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap \mathcal{A} \)</span>. If the index set is known by context, then we may use the shorthand \( \bigcap_{\alpha} A_{\alpha} \)
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-union-counting-notation">
             <div class="title">Arbitrary Union Counting Notation</div>
             <div class="content">
-                Suppose that `a, b in ZZ`, with `a < b`, and `cc A := {A_i: i in ZZ, a le i le b}`, then  `bigcup_(i = a)^b A_i = ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">`bigcup cc A`</span>
+                Suppose that \( a , b \in \mathbb{Z} \), with \( a < b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then  \( \bigcup_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup \mathcal{A} \)</span>
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-intersection-counting-notation">
             <div class="title">Arbitrary Intersection Counting Notation</div>
             <div class="content">
-                Suppose that `a, b in ZZ`, with `a < b`, and `cc A := {A_i: i in ZZ, a le i le b}`, then `bigcap_(i = a)^b A_i = ` <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">`bigcap cc A`</span>
+                Suppose that \( a , b \in \mathbb{Z} \), with \( a < b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then \( \bigcap_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap \mathcal{A} \)</span>
             </div>
         </div>
 
@@ -95,7 +94,7 @@
             <div class="title">disjoint sets</div>
             <div class="content">
 
-                Given two sets `A,B` we say that `A` and `B` are disjoint when <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-intersection">`A nn B`</span> = <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-empty-set">`O/`</span>
+                Given two sets \( A , B \) we say that \( A \) and \( B \) are disjoint when <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-intersection">\( A \cap B \)</span> = <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-empty-set">\( \emptyset \)</span>
 
             </div>
         </div>
@@ -103,7 +102,7 @@
         <div class="definition" id="definition-pairwise-disjoint-sets">
             <div class="title">pairwise disjoint sets</div>
             <div class="content">
-                Suppose that `M` is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then we say these sets are pairwise disjoint when given `A, B in M` such that `A ne B`, then `A nn B = O/`
+                Suppose that \( M \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then we say these sets are pairwise disjoint when given \( A , B \in M \) such that \( A \ne B \), then \( A \cap B = \emptyset \)
             </div>
         </div>
 
@@ -111,10 +110,10 @@
         <div class="definition" id="definition-partition">
             <div class="title">partition</div>
             <div class="content">
-                Suppose that `X` is a set, then we say that a set `P` is a partition of `X` if and only if the following are true
+                Suppose that \( X \) is a set, then we say that a set \( P \) is a partition of \( X \) if and only if the following are true
                 <ul>
-                    <li>`O/ notin P`</li>
-                    <li><a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">`bigcup P` </a>` = X`</li>
+                    <li>\( \emptyset \notin P \)</li>
+                    <li><a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup P \) </a>\( = X \)</li>
                     <li>P is <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-pairwise-disjoint-sets">pairwise disjoint</a></li>
                 </ul>
             </div>
@@ -124,17 +123,17 @@
             <div class="exercise">
                 <div class="title">partition of the integers</div>
                 <div class="content">
-                    The family `{ {p in ZZ: p < 0}, {0}, {p in ZZ: p > 0}}` is a partition of `ZZ`
+                    The family \( \left \lbrace \left \lbrace p \in \mathbb{Z} : p < 0 \right \rbrace , \left \lbrace 0 \right \rbrace , \left \lbrace p \in \mathbb{Z} : p > 0 \right \rbrace \right \rbrace \) is a partition of \( \mathbb{Z} \)
                 </div>
                 <div class="proof">
                     <p>
-                        Note that the integers `-1, 0, 1` show that the empty set is not in this family. We'll now prove that it's union equals `ZZ`, so let `p in bigcup P`, therefore `p` is in at least one of the sets included in `P`, since each is a subset of `ZZ`, then we know `p in ZZ`, for the reverse direction, we can assume that `p in ZZ`, therefore we know that `p` is either positive, negative or zero, so that `p in bigcup P`, <a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">this shows </a> `bigcup P = ZZ`.
+                        Note that the integers \( - 1 , 0 , 1 \) show that the empty set is not in this family. We'll now prove that it's union equals \( \mathbb{Z} \), so let \( p \in \bigcup P \), therefore \( p \) is in at least one of the sets included in \( P \), since each is a subset of \( \mathbb{Z} \), then we know \( p \in \mathbb{Z} \), for the reverse direction, we can assume that \( p \in \mathbb{Z} \), therefore we know that \( p \) is either positive, negative or zero, so that \( p \in \bigcup P \), <a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">this shows </a> \( \bigcup P = \mathbb{Z} \).
                     </p>
                     <p>
-                        To show this family is pairwise disjoint, note that `0 notin {p in ZZ: p < 0}` and `0 notin {p in ZZ: p > 0}`, which shows us that `{0} nn {p in ZZ: p < 0} = O/` and `{0} nn {p in ZZ: p > 0} = O/`.
+                        To show this family is pairwise disjoint, note that \( 0 \notin \left \lbrace p \in \mathbb{Z} : p < 0 \right \rbrace \) and \( 0 \notin \left \lbrace p \in \mathbb{Z} : p > 0 \right \rbrace \), which shows us that \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p < 0 \right \rbrace = \emptyset \) and \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p > 0 \right \rbrace = \emptyset \).
                     </p>
                     <p>
-                        Given any positive integer, we know it cannot be a negative integer, therefore `{p in ZZ: p < 0} nn {p in ZZ: p> 0} = O/`, thus we know that `P` is pairwise disjoint, which concludes the proof.
+                        Given any positive integer, we know it cannot be a negative integer, therefore \( \left \lbrace p \in \mathbb{Z} : p < 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p > 0 \right \rbrace = \emptyset \), thus we know that \( P \) is pairwise disjoint, which concludes the proof.
                     </p>
                 </div>
             </div>
@@ -144,15 +143,15 @@
         <div class="proposition" id="proposition-a-set-intersected-with-a-superset-is-itself">
             <div class="title">a set intersected with a superset is itself</div>
             <div class="content">
-                Let `A, B` be sets such that `A sube B`, then `A nn B = A`
+                Let \( A , B \) be sets such that \( A \subseteq B \), then \( A \cap B = A \)
             </div>
             <div class="proof">
                 <p>
 
-                    <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">We start</span> by showing `A nn B sube A`, so consider `x in A nn B`, so we know that `x in A` and `x in B`, therefore we trivially know that `x in A`, as needed
+                    <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">We start</span> by showing \( A \cap B \subseteq A \), so consider \( x \in A \cap B \), so we know that \( x \in A \) and \( x \in B \), therefore we trivially know that \( x \in A \), as needed
                 </p>
                 <p>
-                    Now consider the other direction, we need to show that `A sube A nn B`, so consider that `x in A`, then we want to show that `x in A` and `x in B`, which really just simplifies to showing `x in B`, but we know that `A sube B`, therefore since `x in A`, we know that `x in B` finishing the proof
+                    Now consider the other direction, we need to show that \( A \subseteq A \cap B \), so consider that \( x \in A \), then we want to show that \( x \in A \) and \( x \in B \), which really just simplifies to showing \( x \in B \), but we know that \( A \subseteq B \), therefore since \( x \in A \), we know that \( x \in B \) finishing the proof
                 </p>
             </div>
         </div>
@@ -160,17 +159,17 @@
         <div class="proposition" id="proposition-intersection-factors-from-union">
             <div class="title">intersection factors from union</div>
             <div class="content">
-                Suppose that `U_alpha` is an indexed family of sets, and `Y` is any set, then
+                Suppose that \( U_{\alpha} \) is an indexed family of sets, and \( Y \) is any set, then
                 <div class="centered-content">
-                    `bigcup_(alpha in I)(U_alpha nn Y) = (bigcup_(alpha in I) U_alpha) nn Y`
+                    \( \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) = \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \)
                 </div>
             </div>
             <div class="proof">
                 <p>
-                    Suppose that `x in bigcup_(alpha in I)(U_alpha nn Y)`, therefore there is some `beta in I`  such that `x in U_beta nn Y`, so that `x in U_beta` and `x in Y`. Since there is some `beta in I` such that `x in U_beta` then `x in bigcup_(alpha in I) U_alpha`, additionally we had that `x in Y` so that `x in (bigcup_(alpha in I) U_alpha) nn Y` as needed
+                    Suppose that \( x \in \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \), therefore there is some \( \beta \in I \)  such that \( x \in U_{\beta} \cap Y \), so that \( x \in U_{\beta} \) and \( x \in Y \). Since there is some \( \beta \in I \) such that \( x \in U_{\beta} \) then \( x \in \bigcup_{\alpha \in I} U_{\alpha} \), additionally we had that \( x \in Y \) so that \( x \in \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \) as needed
                 </p>
                 <p>
-                    Now suppose that `x in (bigcup_(alpha in I) U_alpha) nn Y`, therefore `x in (bigcup_(alpha in I) U_alpha)` and `x in Y`, due to this we have some `beta in I`, such that `x in U_beta` and thus `x in U_beta nn Y` which by definition shows that `x in bigcup_(alpha in I)(U_alpha nn Y)`
+                    Now suppose that \( x \in \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \), therefore \( x \in \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \) and \( x \in Y \), due to this we have some \( \beta \in I \), such that \( x \in U_{\beta} \) and thus \( x \in U_{\beta} \cap Y \) which by definition shows that \( x \in \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \)
                 </p>
             </div>
         </div>
@@ -178,17 +177,17 @@
         <div class="proposition" id="proposition-intersection-factors-from-intersection">
             <div class="title">intersection factors from intersection</div>
             <div class="content">
-                Suppose that `U_alpha` is an indexed family of sets, and `Y` is any set, then
+                Suppose that \( U_{\alpha} \) is an indexed family of sets, and \( Y \) is any set, then
                 <div class="centered-content">
-                    `bigcap_(alpha in I)(U_alpha nn Y) = (bigcap_(alpha in I) U_alpha) nn Y`
+                    \( \bigcap_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) = \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \cap Y \)
                 </div>
             </div>
             <div class="proof">
                 <p>
-                    Suppose that `x in bigcap_(alpha in I)(U_alpha nn Y)`, therefore for every `alpha in I` we have: `x in U_alpha nn Y`, so that `x in U_alpha` and `x in Y`. Since it's true for every `alpha in I`  then `x in bigcap_(alpha in I) U_alpha`, additionally we had that `x in Y` so that `x in (bigcap_(alpha in I) U_alpha) nn Y` as needed
+                    Suppose that \( x \in \bigcap_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \), therefore for every \( \alpha \in I \) we have: \( x \in U_{\alpha} \cap Y \), so that \( x \in U_{\alpha} \) and \( x \in Y \). Since it's true for every \( \alpha \in I \)  then \( x \in \bigcap_{\alpha \in I} U_{\alpha} \), additionally we had that \( x \in Y \) so that \( x \in \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \cap Y \) as needed
                 </p>
                 <p>
-                    Now suppose that `x in (bigcap_(alpha in I) U_alpha) nn Y`, therefore `x in (bigcap_(alpha in I) U_alpha)` and `x in Y`, due to this, for every `alpha in I`, we know `x in U_alpha` and thus `x in U_alpha nn Y` which by definition shows that `x in bigcap_(alpha in I)(U_alpha nn Y)`
+                    Now suppose that \( x \in \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \cap Y \), therefore \( x \in \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \) and \( x \in Y \), due to this, for every \( \alpha \in I \), we know \( x \in U_{\alpha} \) and thus \( x \in U_{\alpha} \cap Y \) which by definition shows that \( x \in \bigcap_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \)
                 </p>
             </div>
         </div>
@@ -197,24 +196,24 @@
         <div class="proposition" id="proposition-union-of-subsets-is-still-a-subset">
             <div class="title">union of subsets is still a subset</div>
             <div class="content">
-                Suppose that `cc C` is a collection of subsets of `X`, then `bigcup_{C in cc C} C sube X`
+                Suppose that \( \mathcal{C} \) is a collection of subsets of \( X \), then \( \bigcup_{C \in \mathcal{C}} C \subseteq X \)
             </div>
             <div class="proof">
-                Let `x in bigcup_{C in cc C} C`, then `x in U` for some `U in cc C`, since `U` must be a subset of `X` then x is also in `X`. As needed
+                Let \( x \in \bigcup_{C \in \mathcal{C}} C \), then \( x \in U \) for some \( U \in \mathcal{C} \), since \( U \) must be a subset of \( X \) then x is also in \( X \). As needed
             </div>
         </div>
 
         <div class="proposition"  id="proposition-a-set-filled-with-subsets-is-a-union">
             <div class="title">a set covered in subsets is a union</div>
             <div class="content">
-                Suppose `A` is a set and that for each `a in A`, there is a `B_a` such that `a in B_a sube A`, then `A = bigcup_{a in A} B_a`
+                Suppose \( A \) is a set and that for each \( a \in A \), there is a \( B_{a} \) such that \( a \in B_{a} \subseteq A \), then \( A = \bigcup_{a \in A} B_{a} \)
             </div>
             <div class="proof">
                 <p>
-                    We can see that `cc C = {B_a: a in A}` is a collection of subsets of `A`, so since <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#proposition-union-of-subsets-is-still-a-subset">a union of a subsets is still a subset</span> we have `bigcup_{a in A} B_a sube A`.
+                    We can see that \( \mathcal{C} = \left \lbrace B_{a} : a \in A \right \rbrace \) is a collection of subsets of \( A \), so since <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#proposition-union-of-subsets-is-still-a-subset">a union of a subsets is still a subset</span> we have \( \bigcup_{a \in A} B_{a} \subseteq A \).
                 </p>
                 <p>
-                    But also given `p in A` we know that `p in B_p` so `p in bigcup_{a in A} B_a` which shows `A sube bigcup_{a in A} B_a`, so we can conclude `A = bigcup_{a in A} B_a`.
+                    But also given \( p \in A \) we know that \( p \in B_{p} \) so \( p \in \bigcup_{a \in A} B_{a} \) which shows \( A \subseteq \bigcup_{a \in A} B_{a} \), so we can conclude \( A = \bigcup_{a \in A} B_{a} \).
                 </p>
             </div>
         </div>

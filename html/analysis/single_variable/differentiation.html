@@ -8,8 +8,7 @@
         <link rel="stylesheet" href="/styles/styles.css">
         <script src="/js/script.js" defer></script>
 
-        <!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+        
 
     </head>
     <body>
@@ -17,14 +16,14 @@
             <div class="definition" id="definition-derivative">
                 <div class="title">derivative</div>
                 <div class="content">
-                    Let `f` be a function and let `a` be a point in its domain, then the derivative of f at a is defined as: `lim_(h->0)(f(a+h)-f(a))/(h)`, when it exists and is denoted by `f^'(a)` or `(d)/(dx)f(a)`
+                    Let \( f \) be a function and let \( a \) be a point in its domain, then the derivative of f at a is defined as: \( \lim_{h \to 0} \frac{f{\left ( a + h \right )} - f{\left ( a \right )}}{h} \), when it exists and is denoted by \( f^{'}{\left ( a \right )} \) or \( \frac{d}{dx} f{\left ( a \right )} \)
                 </div>
             </div>
 
             <div class="definition" id="definition-derivative">
                 <div class="title">partial derivative</div>
                 <div class="content">
-                    Let `U` be an open subset of `RR^n`, and let `f:U -> RR` be a function, then the partial derivative with respect to the `i`-th variable, `x_i`, of `f` at `a=(a_1,...,a_n) in U` is defined as: `lim_(h->0)(f(a_1,...,a_i + h,...,a_n)-f(a_1,...,a_i,...,a_n))/(h)` when it exists, and is denoted by `(del)/(del x_i) f(a)`
+                    Let \( U \) be an open subset of \( \mathbb{R}^{n} \), and let \( f{:} U \to \mathbb{R} \) be a function, then the partial derivative with respect to the \( i \)-th variable, \( x_{i} \), of \( f \) at \( a = \left ( a_{1} , \ldots , a_{n} \right ) \in U \) is defined as: \( \lim_{h \to 0} \frac{f{\left ( a_{1} , \ldots , a_{i} + h , \ldots , a_{n} \right )} - f{\left ( a_{1} , \ldots , a_{i} , \ldots , a_{n} \right )}}{h} \) when it exists, and is denoted by \( \frac{\partial}{\partial x_{i}} f{\left ( a \right )} \)
                 </div>
             </div>
         </div>

@@ -10,8 +10,7 @@
 		<link rel="stylesheet" href="/styles/styles.css">
 		<script src="/js/script.js" defer></script>
 
-		<!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+		
 
     </head>
     <body>
@@ -21,9 +20,9 @@
 			<div class="definition" id="definition-left-hand-limit">
 				<div class="title">left hand limit</div>
 				<div class="content">
-					We say that the limit of `f(x)` as `x` approaches `c` from the left equals `L` when
+					We say that the limit of \( f{\left ( x \right )} \) as \( x \) approaches \( c \) from the left equals \( L \) when
 					<div class="centered-content">
-						`AA epsilon in RR^(gt 0), EE delta in RR^(gt 0) text( such that ) AA x in text(dom)(f), c - epsilon lt x lt c => abs(f(x) - f(c)) lt epsilon`
+						\( \forall \epsilon \in \mathbb{R}^{\gt 0} , \exists \delta \in \mathbb{R}^{\gt 0} \text{ such that } \forall x \in \text{dom} \left ( f \right ) , c - \epsilon \lt x \lt c \Rightarrow \left | f{\left ( x \right )} - f{\left ( c \right )} \right |  \lt \epsilon \)
 					</div>
 				</div>
 			</div>
@@ -31,9 +30,9 @@
 			<div class="definition" id="definition-right-hand-limit">
 				<div class="title">right hand limit</div>
 				<div class="content">
-					We say that the limit of `f(x)` as `x` approaches `c` from the right equals `L` when
+					We say that the limit of \( f{\left ( x \right )} \) as \( x \) approaches \( c \) from the right equals \( L \) when
 					<div class="centered-content">
-						`AA epsilon in RR^(gt 0), EE delta in RR^(gt 0) text( such that ) AA x in text(dom)(f), c lt x lt c + epsilon => abs(f(x) - f(c)) lt epsilon`
+						\( \forall \epsilon \in \mathbb{R}^{\gt 0} , \exists \delta \in \mathbb{R}^{\gt 0} \text{ such that } \forall x \in \text{dom} \left ( f \right ) , c \lt x \lt c + \epsilon \Rightarrow \left | f{\left ( x \right )} - f{\left ( c \right )} \right |  \lt \epsilon \)
 					</div>
 				</div>
 			</div>
@@ -41,7 +40,7 @@
 			<div class="theorem" id="theorem-TODO">
 				<div class="title"></div>
 				<div class="content">
-					Suppose that `f(x)` is defined on an open interval containing `c`, then `lim_(x to c) f(x)` is defined if and only if `lim_(x to c^+) f(x)` and `lim_(x to c^-) f(x)` are both defined and equal.
+					Suppose that \( f{\left ( x \right )} \) is defined on an open interval containing \( c \), then \( \lim_{x \to c} f{\left ( x \right )} \) is defined if and only if \( \lim_{x \to c^{+}} f{\left ( x \right )} \) and \( \lim_{x \to c^{-}} f{\left ( x \right )} \) are both defined and equal.
 				</div>
 				<div class="proof">
 					TODO
@@ -52,38 +51,38 @@
 			<div class="definition" id="definition-local-maximum">
 				<div class="title">local maximum</div>
 				<div class="content">
-					Let `f: I to RR` where `I` is some interval and let `c in I`, we say that `f` has a local maximum at `c`, when there exists some `delta in RR^(>0)` such that for all `x in dom(f)`, if  `abs(x - c) < delta` then `f(x) le f(c)`.
+					Let \( f{:} I \to \mathbb{R} \) where \( I \) is some interval and let \( c \in I \), we say that \( f \) has a local maximum at \( c \), when there exists some \( \delta \in \mathbb{R}^{> 0} \) such that for all \( x \in d o m \left ( f \right ) \), if  \( \left | x - c \right |  < \delta \) then \( f{\left ( x \right )} \le f{\left ( c \right )} \).
 				</div>
 			</div>
 
 			<div class="definition" id="definition-local-minimum">
 				<div class="title">local minimum</div>
 				<div class="content">
-					Let `f: I to RR` where `I` is some interval and let `c in I` we say that `f` has a local maximum at `c`, when there exists some `delta in RR^(>)..` such that for all `x in dom(f)`if `abs(x - c` then `f.j`
+					Let \( f{:} I \to \mathbb{R} \) where \( I \) is some interval and let \( c \in I \) we say that \( f \) has a local maximum at \( c \), when there exists some \( \delta \in \mathbb{R}^{>} . . \) such that for all \( x \in d o m \left ( f \right ) \)if \( \left | \left ( x - c \right. \right |  \) then \( f{.} j \)
 				</div>
 			</div>
 
 			<div class="definition" id="definition-local-extremum">
 				<div class="title">local extremum</div>
 				<div class="content">
-					If `c` is a local minimum or maximum of `f` then it's said to be a local extremum
+					If \( c \) is a local minimum or maximum of \( f \) then it's said to be a local extremum
 				</div>
 			</div>
 
 			<div class="theorem" id="theorem-TODO">
 				<div class="title">local extreme value</div>
 				<div class="content">
-					suppose that `f` has a local extremum at `c` and `c` is an interior point of `i`, then `f^'(c) = 0` or does not exist
+					suppose that \( f \) has a local extremum at \( c \) and \( c \) is an interior point of \( i \), then \( f^{'}{\left ( c \right )} = 0 \) or does not exist
 				</div>
 				<div class="proof">
 					<p>
-						Without loss of generality assume that `f` has a local maximum at `c`, we want to show that the limit `f^'(c) = lim _(x to c) (f(x) - f(c))/(x - c)` exists and is `0`, or doesn't exist.
+						Without loss of generality assume that \( f \) has a local maximum at \( c \), we want to show that the limit \( f^{'}{\left ( c \right )} = \lim_{x \to c} \frac{f{\left ( x \right )} - f{\left ( c \right )}}{x - c} \) exists and is \( 0 \), or doesn't exist.
 					</p>
 					<p>
-						Given a limit it either exists or it doesn't, assuming this limit exists, we need to show that it equals zero. So let's assume that the limit `f^'(c)` exists.
+						Given a limit it either exists or it doesn't, assuming this limit exists, we need to show that it equals zero. So let's assume that the limit \( f^{'}{\left ( c \right )} \) exists.
 					</p>
 					<p>
-						Since it exists the we can consider `x to c^+`, in this case `x  - c gt 0`, since we know that `f` has a local maximum at `c` then there exists some `delta in RR^(gt 0)` such that for all `p in text(dom)(f)`, if `abs(p - c) lt delta` then `f(p) le f(c)`
+						Since it exists the we can consider \( x \to c^{+} \), in this case \( x - c \gt 0 \), since we know that \( f \) has a local maximum at \( c \) then there exists some \( \delta \in \mathbb{R}^{\gt 0} \) such that for all \( p \in \text{dom} \left ( f \right ) \), if \( \left | p - c \right |  \lt \delta \) then \( f{\left ( p \right )} \le f{\left ( c \right )} \)
 					</p>
 				</div>
 			</div>
@@ -92,7 +91,7 @@
 			<div class="corollary" id="corollary-TODO">
 				<div class="title"></div>
 				<div class="content">
-					if `c` is a local extrema of `f : I to RR` then `c` is not an endpoint of the interval `I`
+					if \( c \) is a local extrema of \( f{:} I \to \mathbb{R} \) then \( c \) is not an endpoint of the interval \( I \)
 				</div>
 				<div class="proof">
 					TODO
@@ -104,9 +103,9 @@
 			<div class="theorem" id="theorem-mean-value">
 				<div class="title">mean value</div>
 				<div class="content">
-					Suppose that `a, b in RR`, `a < b` and suppose `f : [a, b] to RR`, if `f` is continuous on `[a,b]` and differentiable on `(a, b)`, then there is some `c in (a, b)` such that 
+					Suppose that \( a , b \in \mathbb{R} \), \( a < b \) and suppose \( f{:} \left [ a , b \right ] \to \mathbb{R} \), if \( f \) is continuous on \( \left [ a , b \right ] \) and differentiable on \( \left ( a , b \right ) \), then there is some \( c \in \left ( a , b \right ) \) such that 
 					<div class="centered-content">
-						`f^'(c) = (f(b) - f(a)) / (b - a)`
+						\( f^{'}{\left ( c \right )} = \frac{f{\left ( b \right )} - f{\left ( a \right )}}{b - a} \)
 					</div>
 				</div>
 				<div class="proof">

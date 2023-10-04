@@ -10,8 +10,7 @@
 		<link rel="stylesheet" href="/styles/styles.css">
         <script src="/js/script.js" defer></script>
 
-        <!-- TODO remove asciimath dependency once everything has been converted to Mathjax 3 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+        
     </head>
     <body>
 
@@ -22,19 +21,19 @@
                 <div class="title">matrix</div>
                 <div class="content">
                     <p>
-                        A matrix is a rectangular array of objects arranged in rows and columns. We say the dimensions of a matrix are `m xx n` when it has `m` rows and `n` columns.
+                        A matrix is a rectangular array of objects arranged in rows and columns. We say the dimensions of a matrix are \( m \times n \) when it has \( m \) rows and \( n \) columns.
                     </p>
                     <p>
-                        Usually matrices are denoted by capital letters such as `A, B, M, N`, we can get the value at the `i`-th row and `j`-th column by writing `A_{i, j}` 
+                        Usually matrices are denoted by capital letters such as \( A , B , M , N \), we can get the value at the \( i \)-th row and \( j \)-th column by writing \( A_{i , j} \) 
                     </p>
                     <p>
                         If we were to write the matrix graphically we would introduce coefficients that represent each value inside the matrix like so
                     </p>
                     <div class="centered-content">
-                        `A = [ [a_{1,1}, a_{1, 2}, ..., a_{1, n}], [a_{2,1}, a_{2, 2,}, ..., a_{2, n}], [vdots, vdots, ddots, vdots], [a_{m, 1}, a_{m, 2}, ..., a_{m, n}]]`
+                        \( A = \left [ \begin{matrix} a_{1 , 1} & a_{1 , 2} & \ldots & a_{1 , n} \\ a_{2 , 1} & a_{2 , 2 ,} & \ldots & a_{2 , n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m , 1} & a_{m , 2} & \ldots & a_{m , n} \end{matrix} \right ] \)
                     </div>
                     <p>
-                        If we want to talk about a certain row of `A` we can write `A_{i, -}` for a column of `A` we may write `A_{|, j}`. The `-` represents that we may vary the column variable horizontally, and the `|` denotes that the row variable may be varied vertically. 
+                        If we want to talk about a certain row of \( A \) we can write \( A_{i , -} \) for a column of \( A \) we may write \( A_{\left .  \right |} , j \rbrace \). The \( - \) represents that we may vary the column variable horizontally, and the \( | \) denotes that the row variable may be varied vertically. 
                     </p>
 
                     <p>
@@ -42,7 +41,7 @@
                     </p>
 
                     <div class="centered-content">
-                        `A = [[larr, A_{1, -}, rarr], [larr, A_{2, -}, rarr], [larr, vdots, rarr], [larr, A_{m, -}, rarr] ]`
+                        \( A = \left [ \begin{matrix} \leftarrow & A_{1 , -} & \rightarrow \\ \leftarrow & A_{2 , -} & \rightarrow \\ \leftarrow & \vdots & \rightarrow \\ \leftarrow & A_{m , -} & \rightarrow \end{matrix} \right ] \)
                     </div>
 
                     <p>
@@ -50,7 +49,7 @@
                     </p>
 
                     <div class="centered-content">
-                        `A = [ [uarr, uarr, uarr, uarr], [A_{|, 1}, A_{|, 2}, ..., A_{|, n}], [darr, darr, darr, darr] ]`
+                        \( A = \left [ \left [ \uparrow , \uparrow , \uparrow , \uparrow \right ] , \left [ A_{\left .  \right |} , 1 \right \rbrace , A_{\left .  \right |} , 2 \right \rbrace , \ldots , A_{\left .  \right |} , n \rbrace ], \left [ \downarrow , \downarrow , \downarrow , \downarrow \right ] ] \)
                     </div>
                 </div>
             </div>
@@ -60,14 +59,14 @@
                 <div class="title">matrix multiplication</div>
                 <div class="content">
                     <p>
-                        Given two matrices `A in M_{a xx b}(RR) B in M_{c xx d}(RR)` we define their multiplication as a new matrix `C in M_{a, d} (RR)` such that 
+                        Given two matrices \( A \in M_{a \times b} \left ( \mathbb{R} \right ) B \in M_{c \times d} \left ( \mathbb{R} \right ) \) we define their multiplication as a new matrix \( C \in M_{a , d} \left ( \mathbb{R} \right ) \) such that 
                     </p>
 
                     <div class="centered-content">
-                        `C = [ [A_{1,-} * B_{|, 1}, A_{1, -} * B_{|, 2}, ..., A_{1, -} * B_{|, d}], [A_{2,-} * B_{|, 1}, A_{2, -} * B_{|, 2}, ..., A_{2, -} * B_{|, d}], [vdots, vdots, ddots, vdots], [A_{a, -} * B_{|, 1}, A_{a, -} * B_{|, 2}, ..., A_{a, -} * B_{|, d}]]`
+                        \( C = \left [ \left [ A_{1 , -} \cdot B_{\left .  \right |} , 1 \right \rbrace , A_{1 , -} \cdot B_{\left .  \right |} , 2 \right \rbrace , \ldots , A_{1 , -} \cdot B_{\left .  \right |} , d \rbrace ], \left [ A_{2 , -} \cdot B_{\left .  \right |} , 1 \right \rbrace , A_{2 , -} \cdot B_{\left .  \right |} , 2 \rbrace, \ldots , A_{2 , -} \cdot B_{\left .  \right |} , d \rbrace ], \left [ \vdots , \vdots , \ddots , \vdots \right ] , \left [ A_{a , -} \cdot B_{\left .  \right |} , 1 \right \rbrace , A_{a , -} \cdot B_{\left .  \right |} , 2 \rbrace, \ldots , A_{a , -} \cdot B_{\left .  \right |} , d \rbrace ] ] \)
                     </div>
                     <p>
-                        Where `A_{i, -} * B_{|, j}` represents the <span class="knowledge-link" data-href="/algebra/linear/vectors.html#definition-dot-product">dot product</span> of the `i`-th row of `A` with the `j`-th column of `B`
+                        Where \( A_{i , -} \cdot B_{\left .  \right |} , j \rbrace \) represents the <span class="knowledge-link" data-href="/algebra/linear/vectors.html#definition-dot-product">dot product</span> of the \( i \)-th row of \( A \) with the \( j \)-th column of \( B \)
                     </p>
                 </div>
             </div>
@@ -75,23 +74,23 @@
             <div class="definition">
                 <div class="title">column matrix</div>
                 <div class="content">
-                    a column matrix is any element `C in M_{k xx 1}` for `k in ZZ^+`
+                    a column matrix is any element \( C \in M_{k \times 1} \) for \( k \in \mathbb{Z}^{+} \)
                 </div>
             </div>
 
             <div class="corollary">
                 <div class="title">column matrix multiplication</div>
                 <div class="content">
-                    suppose that `C = [[c_1], [c_2], [vdots], [c_k]]` is a column matrix and `M in M_{n xx k}(RR)`, then
+                    suppose that \( C = \left [ \begin{matrix} c_{1} \\ c_{2} \\ \vdots \\ c_{k} \end{matrix} \right ] \) is a column matrix and \( M \in M_{n \times k} \left ( \mathbb{R} \right ) \), then
                     <div class="centered-content">
-                        `MC = sum_{i = 1}^k c_i M_{|, i} in M_{n xx 1} (RR)`
+                        \( M C = \sum_{i = 1}^{k} c_{i} M_{\left .  \right |} , i \rbrace \in M_{n \times 1} \left ( \mathbb{R} \right ) \)
                     </div>
                 </div>
 				<div class="proof">
 						<p>
 							By the definition of matrix multiplication the answer should be equal to
 						</p>
-						`[ [m_{1,1}, m_{1, 2}, ..., m_{1, k}], [m_{2,1}, m_{2, 2,}, ..., m_{2, k}], [vdots, vdots, ddots, vdots], [m_{j, 1}, m_{j, 2}, ..., m_{j, k}]]` `[[c_1], [c_2], [vdots], [c_k]]` `= [ [c_1 * m_{1,1} + c_2 * m_{1, 2} + ... + c_k * m_{1, k}], [c_1 * m_{2,1} + c_2 * m_{2, 2} + ... + c_k * m_{2, k}], [vdots], [ c_1 * m_{j, 1} + c_2 * m_{j, 2} + ... + c_k * m_{j, k}]]` ` = c_1 M_{|, 1} + c_2 M_{|, 2} + ... + c_k M_{|, k} in M_{n xx 1}(RR)`
+						\( \left [ \begin{matrix} m_{1 , 1} & m_{1 , 2} & \ldots & m_{1 , k} \\ m_{2 , 1} & m_{2 , 2 ,} & \ldots & m_{2 , k} \\ \vdots & \vdots & \ddots & \vdots \\ m_{j , 1} & m_{j , 2} & \ldots & m_{j , k} \end{matrix} \right ] \) \( \left [ \begin{matrix} c_{1} \\ c_{2} \\ \vdots \\ c_{k} \end{matrix} \right ] \) \( = \left [ \begin{matrix} c_{1} \cdot m_{1 , 1} + c_{2} \cdot m_{1 , 2} + \ldots + c_{k} \cdot m_{1 , k} \\ c_{1} \cdot m_{2 , 1} + c_{2} \cdot m_{2 , 2} + \ldots + c_{k} \cdot m_{2 , k} \\ \vdots \\ c_{1} \cdot m_{j , 1} + c_{2} \cdot m_{j , 2} + \ldots + c_{k} \cdot m_{j , k} \end{matrix} \right ] \) \( = c_{1} M_{\left .  \right |} , 1 \rbrace + c_{2} M_{\left .  \right |} , 2 \rbrace + \ldots + c_{k} M_{\left .  \right |} , k \rbrace \in M_{n \times 1} \left ( \mathbb{R} \right ) \)
 				</div>
             </div>
 
@@ -99,18 +98,18 @@
             <div class="definition">
                 <div class="title">unit column matrix</div>
                 <div class="content">
-                   `e_i` is a column matrix who's i-th row is `1` and the rest are `0`
+                   \( e_{i} \) is a column matrix who's i-th row is \( 1 \) and the rest are \( 0 \)
                 </div>
             </div>
 
             <div class="corollary">
                 <div class="title">column extraction</div>
                 <div class="content">
-                    suppose `M in M_{j xx k}` then the `n`-th column of `M` is given by `M` multiplied by `e_n` (where `1 <= n <= k`)
+                    suppose \( M \in M_{j \times k} \) then the \( n \)-th column of \( M \) is given by \( M \) multiplied by \( e_{n} \) (where \( 1 \le n \le k \))
                 </div>
 				<div class="proof">
 					<p>
-						Due to the way that column matrix multiplication works, we can see that `M e_n = sum_{i = 0}^k(e_n)_i M_{|, i} = M_{|, n}` this is clear since only the `n`-th component of `e_n` is `1` and the rest are `0`.
+						Due to the way that column matrix multiplication works, we can see that \( M e_{n} = \sum_{i = 0}^{k} \left ( e_{n} \right )_{i} M_{\left .  \right |} , i \rbrace = M_{\left .  \right |} , n \rbrace \) this is clear since only the \( n \)-th component of \( e_{n} \) is \( 1 \) and the rest are \( 0 \).
 					</p>
 				</div>
             </div>
@@ -119,7 +118,7 @@
             <div class="definition">
                 <div class="title">basis</div>
                 <div class="content">
-                    if the vector space is denoted by `X`, then for ease we will denote the basis by a calligraphic version of that character `cc X`
+                    if the vector space is denoted by \( X \), then for ease we will denote the basis by a calligraphic version of that character \( \mathcal{X} \)
                 </div>
             </div>
 
@@ -127,17 +126,17 @@
                 <div class="title">representation in a basis</div>
                 <div class="content">
                     <p>
-                        Let `cc B = {b_1, ..., b_n}` be a basis for a subspace `V` and let `v in V`. The representation of `v` in the basis notated by `text(wam)(v,cc B)` is the matrix:
+                        Let \( \mathcal{B} = \left \lbrace b_{1} , \ldots , b_{n} \right \rbrace \) be a basis for a subspace \( V \) and let \( v \in V \). The representation of \( v \) in the basis notated by \( \text{wam} \left ( v , \mathcal{B} \right ) \) is the matrix:
                     </p>
                     <div class="centered-content">
-                       `text(wam)(v, cc B) = [[a_1], [vdots], [a_k]]`
+                       \( \text{wam} \left ( v , \mathcal{B} \right ) = \left [ \begin{matrix} a_{1} \\ \vdots \\ a_{k} \end{matrix} \right ] \)
                     </div>
                     <p>
-                        where `v = sum_{i = 1}^k a_i b_i`, note that `text(wam)( *, cc B) : V  to M_{k xx 1}(RR)` and wam is an acronym for "written as matrix".  We can also define the inverse function `text(wav)( * , cc B) : M_{k xx 1} (RR) -> V`. Which stands for "written as vector"
+                        where \( v = \sum_{i = 1}^{k} a_{i} b_{i} \), note that \( \text{wam} \left ( \cdot , \mathcal{B} \right ) : V \to M_{k \times 1} \left ( \mathbb{R} \right ) \) and wam is an acronym for "written as matrix".  We can also define the inverse function \( \text{wav} \left ( \cdot , \mathcal{B} \right ) : M_{k \times 1} \left ( \mathbb{R} \right ) \to V \). Which stands for "written as vector"
                     </p>
 
                     <p>
-                        If a basis is clear by context, then we may omit it and write `text(wam)(v)` or `text(wav)(v)`.
+                        If a basis is clear by context, then we may omit it and write \( \text{wam} \left ( v \right ) \) or \( \text{wav} \left ( v \right ) \).
                     </p>
 
                 </div>
@@ -146,10 +145,10 @@
             <div class="corollary">
                 <div class="title">generating a unit column matrix</div>
                 <div class="content">
-                    Given a vector space `V` with basis `cc V = {v1, ..., v_k}`, then for each element `i in [k]`, `text(wam)(v_i, cc V) = e_i`
+                    Given a vector space \( V \) with basis \( \mathcal{V} = \left \lbrace v 1 , \ldots , v_{k} \right \rbrace \), then for each element \( i \in \left [ k \right ] \), \( \text{wam} \left ( v_{i} , \mathcal{V} \right ) = e_{i} \)
                 </div>
 				<div class="proof">
-					`v_i = 0 v_1 + ... + 1 v_i + ... + 0 v_k` therefore by the definition of `wam` we have `wam(v_i, cc V) = e_i`
+					\( v_{i} = 0 v_{1} + \ldots + 1 v_{i} + \ldots + 0 v_{k} \) therefore by the definition of \( w a m \) we have \( w a m \left ( v_{i} , \mathcal{V} \right ) = e_{i} \)
 				</div>
             </div>
 
@@ -157,14 +156,14 @@
             <div class="definition">
                 <div class="title">uniquely determined</div>
                 <div class="content">
-                    Given a vector space `V` of dimension `k` we say that a vector `x` is uniquely determined, when there exists only one collection of constants `c_1, ..., c_k` such that `x = sum_{i = 1}^k c_i * v_i` where each `v_i` is a basis element for the basis of `V`
+                    Given a vector space \( V \) of dimension \( k \) we say that a vector \( x \) is uniquely determined, when there exists only one collection of constants \( c_{1} , \ldots , c_{k} \) such that \( x = \sum_{i = 1}^{k} c_{i} \cdot v_{i} \) where each \( v_{i} \) is a basis element for the basis of \( V \)
                 </div>
             </div>
 
             <div class="theorem" id="basis-implies-unique-representation">
                 <div class="title">basis implies unique representation</div>
                 <div class="content">
-                    suppose that `V` is a vector space and let `S` be a non-empty subset of `V`. Then `S` is a basis of `V` if and only if every vector `x in V` can be represented uniquely as a linear combination of the vectors in `S`
+                    suppose that \( V \) is a vector space and let \( S \) be a non-empty subset of \( V \). Then \( S \) is a basis of \( V \) if and only if every vector \( x \in V \) can be represented uniquely as a linear combination of the vectors in \( S \)
                 </div>
             </div>
             
@@ -173,7 +172,7 @@
                     something
                 </div>
                 <div class="content">
-                    Let `T: V to W` be a linear transformation between two vector spaces with `dim(V) = k` `dim(W) = l` with `k, l in ZZ^+`.  Supposing that `{v_1, ..., v_k}` and `{w_1, ..., w_l}` are the respective bases, then `T: V to W` is uniquely determined by the `l * k` scalars used to express `T(v_j)` for each `j in [k]` in terms of `{w_1, ... , w_l}`
+                    Let \( T : V \to W \) be a linear transformation between two vector spaces with \( \dim \left ( V \right ) = k \) \( \dim \left ( W \right ) = l \) with \( k , l \in \mathbb{Z}^{+} \).  Supposing that \( \left \lbrace v_{1} , \ldots , v_{k} \right \rbrace \) and \( \left \lbrace w_{1} , \ldots , w_{l} \right \rbrace \) are the respective bases, then \( T : V \to W \) is uniquely determined by the \( l \cdot k \) scalars used to express \( T \left ( v_{j} \right ) \) for each \( j \in \left [ k \right ] \) in terms of \( \left \lbrace w_{1} , \ldots , w_{l} \right \rbrace \)
                 </div>
 				<div class="proof">
 					<p>
@@ -181,15 +180,15 @@
 					</p>
 
 					<p>
-						Let `v_j` be one of the basis vectors for `V`, then consider `T(v_j) in W` since it's a vector in `W` it can be written as a linear combination of the basis vectors in `W`, so that `T(v_j) = sum_{i = 1}^l a_i w_i`.
+						Let \( v_{j} \) be one of the basis vectors for \( V \), then consider \( T \left ( v_{j} \right ) \in W \) since it's a vector in \( W \) it can be written as a linear combination of the basis vectors in \( W \), so that \( T \left ( v_{j} \right ) = \sum_{i = 1}^{l} a_{i} w_{i} \).
 					</p>
 
 					<p>
-						Now given a generic `x in V` which is not necessarily a basis vector, we can represent it as follows `T(x) = T(sum_{j = 1} ^ k c_j v_j) = sum_{j = 1}^k c_j T(v_j)` recalling from our previosu paragraph, we can see that `sum_{j = 1}^k (c_j sum_{i = 1}^l a_i w_i) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i`. 
+						Now given a generic \( x \in V \) which is not necessarily a basis vector, we can represent it as follows \( T \left ( x \right ) = T \left ( \sum_{j = 1}^{k} c_{j} v_{j} \right ) = \sum_{j = 1}^{k} c_{j} T \left ( v_{j} \right ) \) recalling from our previosu paragraph, we can see that \( \sum_{j = 1}^{k} \left ( c_{j} \sum_{i = 1}^{l} a_{i} w_{i} \right ) = \sum_{j = 1}^{k} \sum_{i = 1}^{l} c_{j} a_{i} w_{i} \). 
 					</p>
 
 					<p>
-						The lets us conclude that `T(x) = sum_{j = 1}^k sum_{i = 1}^l c_j a_i w_i` and that `T` is uniquely determined by these `l * k` constants
+						The lets us conclude that \( T \left ( x \right ) = \sum_{j = 1}^{k} \sum_{i = 1}^{l} c_{j} a_{i} w_{i} \) and that \( T \) is uniquely determined by these \( l \cdot k \) constants
 					</p>
 				</div>
             </div>
@@ -198,11 +197,11 @@
             <div class="theorem">
                 <div class="title">matrix representation of a transformation</div>
                 <div class="content">
-                    Let `T : V to W` be a linear transformation, then there exists a matrix `M_T` such that 
+                    Let \( T : V \to W \) be a linear transformation, then there exists a matrix \( M_{T} \) such that 
                     <div class="centered-content">
-                        `text(wav)(M_T text(wam)(v)) = Tv`
+                        \( \text{wav} \left ( M_{T} \text{wam} \left ( v \right ) \right ) = T v \)
                     </div>
-                    for any `v in V`
+                    for any \( v \in V \)
                 </div>
 				<div class="proof">
 					<p>
@@ -214,13 +213,13 @@
 						
 					</p>
 					<p>
-						To be successful at that we need to generate a unit column matrix. We can do so by plugging in `v_k in cc V` into the above equation which yields: `T v_k = text(wav)(M_T text(wam)(v_k, cc V)) = text(wav)(M_T e_k) = text(wav)((M_T)_{|, k}) ` 
+						To be successful at that we need to generate a unit column matrix. We can do so by plugging in \( v_{k} \in \mathcal{V} \) into the above equation which yields: \( T v_{k} = \text{wav} \left ( M_{T} \text{wam} \left ( v_{k} , \mathcal{V} \right ) \right ) = \text{wav} \left ( M_{T} e_{k} \right ) = \text{wav} \left ( \left ( M_{T} \right )_{\left .  \right |} , k \right \rbrace ) \) 
 					</p>
 					<p>
-						Thus `text(wam)(Tv_k) = (M_T)_{|, k}`, so the columns of `M_T` are `T v_k` written as a column matrices. Graphically we have
+						Thus \( \text{wam} \left ( T v_{k} \right ) = \left ( M_{T} \right )_{\left .  \right |} , k \rbrace \), so the columns of \( M_{T} \) are \( T v_{k} \) written as a column matrices. Graphically we have
 					</p>
 					<div class="centered-content">
-						`M_T = [ [uarr, uarr, uarr, uarr], [text(wam)(T v_1), text(wam)(T v_2), ..., text(wam)(T v_k)], [darr, darr, darr, darr] ]`
+						\( M_{T} = \left [ \begin{matrix} \uparrow & \uparrow & \uparrow & \uparrow \\ \text{wam} \left ( T v_{1} \right ) & \text{wam} \left ( T v_{2} \right ) & \ldots & \text{wam} \left ( T v_{k} \right ) \\ \downarrow & \downarrow & \downarrow & \downarrow \end{matrix} \right ] \)
 					</div>
 				</div>
 			</div>
@@ -229,11 +228,11 @@
             <div class="definition">
                 <div class="title">change of basis matrix</div>
                 <div class="content">
-                    let `cc V = {v_1, ..., v_k}` and `cc W = {w_1, ..., w_1}` be bases for a vector space `V` and `v` be an arbitrary element of `V`.  Then the matrix `M_{cc V to cc W}` such that :
+                    let \( \mathcal{V} = \left \lbrace v_{1} , \ldots , v_{k} \right \rbrace \) and \( \mathcal{W} = \left \lbrace w_{1} , \ldots , w_{1} \right \rbrace \) be bases for a vector space \( V \) and \( v \) be an arbitrary element of \( V \).  Then the matrix \( M_{\mathcal{V} \to \mathcal{W}} \) such that :
                     <div class="centered-content">
-                        `M_{cc V to cc W} text(wam)(v, cc V) = text(wam)(v, cc W)`
+                        \( M_{\mathcal{V} \to \mathcal{W}} \text{wam} \left ( v , \mathcal{V} \right ) = \text{wam} \left ( v , \mathcal{W} \right ) \)
                     </div>
-                    is called the change of basis matrix from `cc V` to `cc W` 
+                    is called the change of basis matrix from \( \mathcal{V} \) to \( \mathcal{W} \) 
                 </div>
             </div>
 
