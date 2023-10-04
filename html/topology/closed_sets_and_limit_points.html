@@ -10,7 +10,6 @@
 
         <link rel="stylesheet" href="/styles/styles.css">
         <script src="/js/script.js" defer></script>
-
 		
 		
     </head>
@@ -19,20 +18,23 @@
         <div class="thin-wrapper">
 
 			<div class="definition" id="definition-closed-set">
-				<div class="title">closed set</div>
+				<div class="title">Closed Set</div>
 				<div class="content">
-					A subset \( A \) of a topological space \( X \) is said to be closed if \( X \backslash A \) is open
+					A subset \( A \) of a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a> \( X \) is said to be closed in \( X \) if <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#definition-set-difference">\( X \backslash A \)</a> is open in \( X \)
+					<p>
+						Note: When \( X \) is known by context then we may say \( A \) is closed to mean that \( A \) is closed in \( X \)
+					</p>
 				</div>
 			</div>
 
 			<div class="theorem" id="theorem-closed-topology">
-				<div class="title">closed topology</div>
+				<div class="title">Closed Topology</div>
 				<div class="content">
-					Suppose that \( X \) is a topological space, the the following conditions hold:
+					Suppose that \( X \) is a topological space, then the following conditions hold:
 					<ul>
 						<li>\( \emptyset \) and \( X \) are closed</li>
 						<li>arbitrary intersections of closed sets are closed</li>
-						<li>finite unions of closed sets are closedj</li>
+						<li>finite unions of closed sets are closed</li>
 					</ul>
 				</div>
 				<div class="proof">
@@ -51,14 +53,34 @@
 			<div class="proposition" id="proposition-closed-in-a-subspace-iff-is-intersection">
 				<div class="title">closed in a subspace if and only iff it's intersection</div>
 				<div class="content">
-					Let \( Y \) be a subspace of \( X \), then a set \( A \) is closed in \( Y \) if and only if it equals the intersection of a closed set of \( X \) with \( Y \)
+					Let \( Y \) be a <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace</a> of \( X \), then a set \( A \) is closed in \( Y \) if and only if it equals the intersection of a closed set of \( X \) with \( Y \)
 				</div>
 				<div class="proof">
 					<p>
-						Let's start by assuming that we have a set \( A = C \cap Y \) where \( C \) is closed in \( X \), therefore \( X \backslash C \) is open in \( X \), therefore \( \left ( X \backslash C \right ) \cap Y \) is open in \( Y \), since \( Y \subseteq X \), then \( \left ( X \backslash C \right ) \cap Y = \left ( X \cap Y \right ) \backslash \left ( C \cap Y \right ) = Y \backslash A \) showing that \( A \) is closed as needed.
+						Let's start by assuming that we have a set \( A = C \cap Y \) where \( C \) is closed in \( X \), therefore \( X \backslash C \) is open in \( X \), therefore \( Y \cap \left ( X \backslash C \right ) \) <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">is open</a> in \( Y \)
 					</p>
 					<p>
-						Now let's assume that \( A \) is closed in \( Y \), therefore \( Y \backslash A \) is open in \( Y \), meaning that there is some set \( U \) open in \( X \) such that \( Y \backslash A = Y \cap U \) therefore \( A = Y \cap \left ( X \backslash U \right ) \)
+						Note that \( Y \cap \left ( X \backslash C \right ) \) <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-intersection-distributes-through-intersection">\( = \)</a> \( \left ( X \cap Y \right ) \backslash C \) <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-redundant-intersection-in-difference">\( = \)</a>  \( \left ( X \cap Y \right ) \backslash \left ( C \cap Y \right ) \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">\( = \)</a> \( Y \backslash A \) (where the last step is justified since we know \( Y \subseteq X \) ), this shows that \( Y \setminus A \) is open, meaning that \( A \) is closed in \( Y \)
+					</p>
+					<p>
+						Now let's assume that \( A \) is closed in \( Y \), therefore \( A \subseteq Y \) and \( Y \backslash A \) is open in \( Y \), meaning that there is some set \( U \) open in \( X \) such that \( Y \backslash A = Y \cap U \) 
+					</p>
+					<p>
+						Let's note that \( Y \setminus \left ( Y \setminus A \right ) \) <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-triple-difference-equality">\( = \)</a> \( \left ( Y \cap A \right ) \cup \left ( Y \setminus Y \right ) = A \cup \emptyset = A\) so that 
+					</p>
+					<!-- https://groups.google.com/g/mathjax-users/c/2KjQgbjmMkI/m/vo_vOFpmgJIJ  -->
+					\[
+					\begin{align*}
+						A &= Y \setminus \left ( Y \setminus A \right ) \\
+						&= Y \setminus \left ( Y \cap U \right ) \\ 
+						&= \left ( Y \setminus Y \right ) \cup \left ( Y \setminus U\right ) \\
+						&= Y \setminus U \\ 
+						&= \left ( X \cap Y \right ) \setminus U \\
+						&= Y \cap \left ( X \setminus U \right)
+					\end{align*}
+					\]
+					<p>
+						Since \( X \setminus U \) is closed in \( X \) this shows that \( A \)` equals the intersection of a closed set with \( Y \) as needed.
 					</p>
 				</div>
 			</div>

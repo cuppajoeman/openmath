@@ -58,8 +58,24 @@
 			</div>
 		</div>
 
+		<div class="proposition" id="proposition-redundant-intersection-in-difference">
+			<div class="title">Redundant Intersection in Difference</div>
+			<div class="content">
+				Suppose that \( A , B , X \) are sets  then \(  \left ( A \cap X \right ) \backslash B = \left ( A \cap X \right ) \backslash \left ( B \cap X \right ) \)
+			</div>
+			<div class="proof">
+				<p>
+					 Suppose that \( p \in \left ( A \cap X \right ) \backslash B \) therefore \( p \in A \), \( p \in X \) but \( p \notin B \), we can see that  \( p \in \left ( A \cap X \right ) \)  and since \(p \notin B \), then \( p \notin \left (B \cap X \right ) \), therefore \( p \in \left ( A \cap X \right ) \backslash \left ( B \cap X \right ) \)
+				</p>
+				<p>
+					Now suppose that \( p \in \left ( A \cap X \right ) \backslash \left ( B \cap X \right ) \), so that \( p \in A \cap X \) and \(p \notin B \cap X \), from this we deduct that \( p \in X \), so to avoid contradiction, we must have \( p \notin B \), since we also know \( p \in A \), we can say that \( p \in \left ( A \cap X \right ) \setminus B \)
+				</p>
+			</div>
+		</div>
+
+
 		<div class="proposition" id="proposition-intersection-distributes-through-intersection">
-			<div class="title">intersection distributes through intersection</div>
+			<div class="title">Intersection Distributes through Set Difference</div>
 			<div class="content">
 				Suppose that \( A , B , X \) are sets  then \( \left ( A \backslash B \right ) \cap X = \left ( A \cap X \right ) \backslash B \)
 			</div>
@@ -100,6 +116,21 @@
 				</p>
 				<p>
 					Suppose that \( x \in A \backslash B \cap C \), therefore \( x \in A \), \( x \notin B \) and \( x \in C \), thus we can see that \( x \notin B \backslash C \) thus \( x \in A \backslash \left ( B \backslash C \right ) \)
+				</p>
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-triple-difference-equality">
+			<div class="title">Triple Difference Equality</div>
+			<div class="content">
+				Suppose that \( A , B , C \) are sets such that \( A \subseteq B \), then \( A \backslash \left ( B \backslash C \right ) = \left ( A \cap C \right ) \cup \left ( A \setminus B \right)  \)
+			</div>
+			<div class="proof">
+				<p>
+					\( x \in A \backslash \left ( B \backslash C \right ) \) iff \( x \in A \) and \( x \notin \left ( B \backslash C \right ) \) equivalent to the following statement not being true: \( \left ( x \in B \land x \notin C \right ) \) which is \( x \notin B \) or \( x \in C \), therefore \( x \in A \cap C \) or \( x \in A \setminus B \) so  that \( x \in \left ( A \cap C \right ) \cup \left ( A \setminus B \right) \)
+				</p>
+				<p>
+					The above chain of steps can be traversed forwards or backwards since each connective is an iff, therefore the proof is complete
 				</p>
 			</div>
 		</div>
