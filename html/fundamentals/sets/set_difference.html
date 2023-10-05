@@ -37,6 +37,25 @@
 			</div>
 		</div>
 
+		<div class="proposition" id="proposition-difference-of-a-superset-is-empty">
+			<div class="title">Difference of a Superset is Empty</div>
+			<div class="content">
+				Suppose that \( A, B \subseteq X \) are sets such that  \( A \subseteq B \), then \( \left( X \setminus B \right) \cap A = \emptyset  \) 
+			</div>
+			<div class="proof">
+				Let \( p \in \left( X \setminus B \right) \cap A \), therefore \( p \in X \), \( p \notin B \)  and \( p \in A \), this is impossible since if \( p \in A \) then \( p \in B \)  as \( A \subseteq B \), therefore no such \( p \) is an element of this set, so that \( \left( X \setminus B \right) \cap A = \emptyset \) 
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-empty-intersection-implies-superset-difference">
+			<div class="title">Empty Intersection implies Superset Difference</div>
+			<div class="content">
+				Suppose that \( A, B \subseteq X \) are sets, assuming \( A \cap B = \emptyset \) , then \( X \setminus A \supseteq B \) 
+			</div>
+			<div class="proof">
+				Taking an element \( p \in B \) we'd like to show that \( p \in X \setminus A \), we can see \( p \in X \) because \( B \subseteq X \), it's also clear that \( p \notin A \) since if it were then \( A \cap B \neq \emptyset \) which would be a contradiction. Combining this, we have that \( p \in X \setminus A \) as needed.
+			</div>
+		</div>
 
 		<div class="proposition" id="proposition-set-difference-with-itself-is-empty">
 			<div class="title">Set Difference with Itself is Empty</div>
