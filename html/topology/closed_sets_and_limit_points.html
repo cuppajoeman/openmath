@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="proposition" id="proposition-closed-in-a-subspace-iff-is-intersection">
-				<div class="title">closed in a subspace if and only iff it's intersection</div>
+				<div class="title">Closed in a Subspace if and only if it's an Intersection</div>
 				<div class="content">
 					Let \( Y \) be a <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace</a> of \( X \), then a set \( A \) is closed in \( Y \) if and only if it equals the intersection of a closed set of \( X \) with \( Y \)
 				</div>
@@ -85,21 +85,93 @@
 				</div>
 			</div>
 
-			<div class="proposition" id="proposition-TODO">
-				<div class="title">TODO</div>
+			<div class="definition" id="definition-interior">
+				<div class="title">Interior</div>
 				<div class="content">
-					Let /( Y /) be a subspace of /( X /) and /( A \subseteq A /), then suppose that /( \bar{A} /) is the closure of /( A /)  in /( X /), then the closure of /( A /) in /( Y /) equals /( \bar{A} \cap Y /) 
+					Suppose that \( A \)  is a subset of a topological space, then the interior of \( A \) is defined to as the union of all open sets contained in \( A \) and is denoted by \( \operatorname{Int}\left( A \right) \) 
+				</div>
+			</div>
+
+			<div class="definition" id="definition-closure">
+				<div class="title">Closure</div>
+				<div class="content">
+					Suppose that \( A \)  is a subset of a topological space, then the closure of \( A \) is defined to as the intersection of all closed sets containing \( A \) and is denoted by \( \bar{A} \) 
+				</div>
+			</div>
+
+			<div class="corollary" id="corollary-closure-is-closed">
+				<div class="title">The Closure is Closed</div>
+				<div class="content">
+					\( \operatorname{Int}\left( A \right) \) is closed
 				</div>
 				<div class="proof">
-					<p>
-						Set /( B /) equal to thee closure of /( A /) in /( Y /), since /( \bar{A} /) is closeed in /( Y /), then we know that /( \bar{A} \cap Y /) is closed in /( Y /), since /( B /) equals the intersection of all closed subsets of /( Y /) containing /( A /), and /( \bar{A} \cap Y /) is closed and contains /( A /) and thus /( B \subseteq /left( \\bar{A} \cap Y  /right) /) 
-					</p>
-					<p>
-						On the other hand, we know that /( B /) is closed in /( Y /), thus /( B = C \cap Y /) for some set /( C /) closed in /( X /)  
-					</p>
+					TODO
+				</div>
+			</div>
+
+			<div class="corollary" id="corollary-interior-is-open">
+				<div class="title">The Interior is Open</div>
+				<div class="content">
+					\( \bar{A} \) is open
+				</div>
+				<div class="proof">
+					TODO
+				</div>
+			</div>
+
+			<div class="proposition" id="proposition-closed-supersets-are-supersets-of-the-interior">
+				<div class="title">Closed Supersets are Supersets of the Closure</div>
+				<div class="content">
+					Suppose that \( \bar{A} \) is the closure of \( A \) in a topological space, then given an closed set \( A \subseteq U \) we have \( \bar{A} \subseteq U \) 
+				</div>
+				<div class="proof">
+					TODO
+				</div>
+			</div>
+
+			<div class="proposition" id="proposition-open-subsets-are-subsets-of-the-interior">
+				<div class="title">Open Subsets are Subsets of the Interior</div>
+				<div class="content">
+					Suppose that \( \operatorname{Int}\left( A \right) \) is the interior of \( A \) in a topological space, then given an open set \( U \subseteq A \) we have \( U \subseteq \operatorname{Int}\left( A \right) \) 
+				</div>
+				<div class="proof">
+					TODO
 				</div>
 			</div>
 			
+			
+			
+
+			<div class="proposition" id="proposition-interior-is-smaller-closure-is-bigger">
+				<div class="title">Interior is Smaller, Closure is Bigger</div>
+				<div class="content">
+					Suppose that \( A \) is a subset of a topological space, then we have
+					\[
+						\operatorname{Int}\left( A \right) \subseteq A \subseteq \bar{A}
+					\]
+				</div>
+				<div class="proof">
+					TODO
+				</div>
+			</div>
+			
+			
+			
+			<div class="proposition" id="proposition-closure-in-a-subspace-is-an-intersection">
+				<div class="title">Closure in a Subspace is an Intersection</div>
+				<div class="content">
+					Let \( Y \) be a subspace of \( X \) and \( A \subseteq Y \), then suppose that \( \bar{A} \) is the <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#definition-closure">closure</a> of \( A \)  in \( X \), then the closure of \( A \) in \( Y \) equals \( \bar{A} \cap Y \) 
+				</div>
+				<div class="proof">
+					<p>
+						Set \( B \) equal to the closure of \( A \) in \( Y \), since \( \bar{A} \) is closed in \( X \), then <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-closed-in-a-subspace-iff-is-intersection">we know</a> that \( \bar{A} \cap Y \) is closed in \( Y \), also note that \( A \subseteq \bar{A} \cap Y \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-subset-of-an-intersection">because</a> we know <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-interior-is-smaller-closure-is-bigger">\( A \subseteq \bar{A} \)</a> and \( A \subseteq Y \)   <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-closed-supersets-are-supersets-of-the-interior">so we can conclude</a> \( B \subseteq \left( \bar{A} \cap Y  \right) \) 
+					</p>
+					<p>
+						On the other hand, <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#corollary-closure-is-closed">we know that</a> \( B \) is closed in \( Y \), <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-closed-in-a-subspace-iff-is-intersection">thus</a> \( B = C \cap Y \) for some set \( C \) closed in \( X \), we recall that \( A \subseteq B \) so that \( A \subseteq \left( C \cap Y \right) \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-subset-of-an-intersection">therefore </a> \( A \subseteq C \) showing that \( C \) is a closed set containing \( A \), <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-closed-supersets-are-supersets-of-the-interior">thus</a> \( \bar{A} \subseteq C \) so that \( \left( \bar{A} \cap Y \right) \subseteq \left( C \cap Y \right) = B \), as needed.
+					</p>
+				</div>
+			</div>
+
 			
 
         </div>

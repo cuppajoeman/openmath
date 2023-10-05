@@ -256,8 +256,7 @@ snippet bar "TODO" iA
 endsnippet
 
 
-
-
+# HTML
 
 snippet el "html element"
 <$1>$2</$1>
@@ -276,39 +275,47 @@ snippet p "paragraph"
 endsnippet
 
 snippet def "definition"
-<div class="definition" id="definition-${3:TODO}">
-	<div class="title">${2:TODO}</div>
+<div class="definition" id="definition-${2:TODO}">
+	<div class="title">${1:TODO}</div>
 	<div class="content">
-		$1
+		$3
 	</div>
 </div>
+$0
 endsnippet
 
 snippet swp "template for statement with proof" 
-<div id="${1:statement type}-${3:TODO}">
-	<div class="$1">
-		<div class="title">$3</div>
-		<div class="content">
-			$2
-		</div>
+<div class="$1" id="${1:statement type}-${3:TODO}">
+	<div class="title">$2</div>
+	<div class="content">
+		$4
 	</div>
-
 	<div class="proof">
-		<div class="title"></div>
-		<div class="content">
-			${4:TODO}
-		</div>
+		${5:TODO}
 	</div>
 </div>
+$0
 endsnippet
 
 
 snippet k-l "knowledge link"
-<span class="knowledge-link" data-href="$1">$2</span>
+<a class="knowledge-link" data-href="$1">$2</a>
 endsnippet
 
 snippet c-c "centered-content"
 <div class="centered-content">
 	$1
 </div>
+endsnippet
+
+snippet align "html version of align env"
+<table class="align">
+	$1
+</table>
+endsnippet
+
+snippet tr "table row"
+<tr>
+	<td>$1</td>
+</tr>
 endsnippet
