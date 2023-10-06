@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+        <title>Limit Points</title>
+		
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/styles/styles.css">
+        <script src="/js/script.js" defer></script>
+		
+		
+    </head>
+    <body>
+        <div class="thin-wrapper">
+
+			<div class="definition" id="definition-limit-point">
+				<div class="title">Limit Point</div>
+				<div class="content">
+					Suppose that \( A \) is a subset of a topological space \( X \), then a point \( x \in X \) is called a <b>limit point of \( A \)</b> when every neighborhood of \( x \) intersects \( A \) in some point other than \( x \) itself
+				</div>
+			</div>
+			
+			<div class="corollary" id="corollary-limit-point-iff-element-of-closure-minus-a-point">
+				<div class="title">Limit Point iff element of Closure minus a Point</div>
+				<div class="content">
+					\( x \) is a limit point iff \( x \in \overline { A \setminus \left\{ x \right\}  }  \)
+				</div>
+				<div class="proof">
+					\( x \) is a limit point <a class="knowledge-link" href="/topology/limit_points.html#definition-limit-point">iff</a> every neighborhood of \( x \) intersects \( A \) in some point other than \( x \) itself, which is equivalent to every neighborhood intersecting \( A \setminus \left\{ x \right\} \) <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">iff</a> \( x \in \overline { A \\ \left\{ x \right\} }  \).
+				</div>
+			</div>
+			
+			<div class="proposition" id="proposition-limit-points-are-a-subset-of-closure">
+				<div class="title">Limit Points are a Subset of Closure</div>
+				<div class="content">
+					Suppose that \( A \) is a subset of a topological space \( X \), if \( A ^ \prime \) is the set of limit points of \( A \), then \( A ^ \prime \subseteq \overline{ A } \)
+				</div>
+				<div class="proof">
+					Suppose that \( x in A ^ \prime \), then every neighborhood of \( x \) intersects \( A \) therefore \( x in \overline{ A } \) as needed.
+				</div>
+			</div>
+			
+
+			<div class="proposition" id="proposition-closure-equals-limit-points-union-itself">
+				<div class="title">Closure Equals Limit Points Union Itself</div>
+				<div class="content">
+					Let \( A \) be a subset of a topological space \( X \). If \( A ^\prime \) is the set of all limit points of \( A \), then \( \overline{ A } = A^\prime \cup A \)
+				</div>
+				<div class="proof">
+					
+				</div>
+			</div>
+			
+			
+			
+
+        </div>
+    </body>
+</html>

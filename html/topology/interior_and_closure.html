@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		
-        <title>closed sets and limit points</title>
+        <title>interior and closure</title>
 		
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -160,14 +160,14 @@
 			<div class="proposition" id="proposition-closure-in-a-subspace-is-an-intersection">
 				<div class="title">Closure in a Subspace is an Intersection</div>
 				<div class="content">
-					Let \( Y \) be a subspace of \( X \) and \( A \subseteq Y \), then suppose that \( \bar{A} \) is the <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#definition-closure">closure</a> of \( A \)  in \( X \), then the closure of \( A \) in \( Y \) equals \( \bar{A} \cap Y \) 
+					Let \( Y \) be a subspace of \( X \) and \( A \subseteq Y \), then suppose that \( \bar{A} \) is the <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-closure">closure</a> of \( A \)  in \( X \), then the closure of \( A \) in \( Y \) equals \( \bar{A} \cap Y \)
 				</div>
 				<div class="proof">
 					<p>
-						Set \( B \) equal to the closure of \( A \) in \( Y \), since \( \bar{A} \) is closed in \( X \), then <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-closed-in-a-subspace-iff-is-intersection">we know</a> that \( \bar{A} \cap Y \) is closed in \( Y \), also note that \( A \subseteq \bar{A} \cap Y \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-subset-of-an-intersection">because</a> we know <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-interior-is-smaller-closure-is-bigger">\( A \subseteq \bar{A} \)</a> and \( A \subseteq Y \)   <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-closed-supersets-are-supersets-of-the-interior">so we can conclude</a> \( B \subseteq \left( \bar{A} \cap Y  \right) \) 
+						Set \( B \) equal to the closure of \( A \) in \( Y \), since \( \bar{A} \) is closed in \( X \), then <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-in-a-subspace-iff-is-intersection">we know</a> that \( \bar{A} \cap Y \) is closed in \( Y \), also note that \( A \subseteq \bar{A} \cap Y \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-subset-of-an-intersection">because</a> we know <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-interior-is-smaller-closure-is-bigger">\( A \subseteq \bar{A} \)</a> and \( A \subseteq Y \)   <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-supersets-are-supersets-of-the-interior">so we can conclude</a> \( B \subseteq \left( \bar{A} \cap Y  \right) \)
 					</p>
 					<p>
-						On the other hand, <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#corollary-closure-is-closed">we know that</a> \( B \) is closed in \( Y \), <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-closed-in-a-subspace-iff-is-intersection">thus</a> \( B = C \cap Y \) for some set \( C \) closed in \( X \), we recall that \( A \subseteq B \) so that \( A \subseteq \left( C \cap Y \right) \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-subset-of-an-intersection">therefore </a> \( A \subseteq C \) showing that \( C \) is a closed set containing \( A \), <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-closed-supersets-are-supersets-of-the-interior">thus</a> \( \bar{A} \subseteq C \) so that \( \left( \bar{A} \cap Y \right) \subseteq \left( C \cap Y \right) = B \), as needed.
+						On the other hand, <a class="knowledge-link" href="/topology/interior_and_closure.html#corollary-closure-is-closed">we know that</a> \( B \) is closed in \( Y \), <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-in-a-subspace-iff-is-intersection">thus</a> \( B = C \cap Y \) for some set \( C \) closed in \( X \), we recall that \( A \subseteq B \) so that \( A \subseteq \left( C \cap Y \right) \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-subset-of-an-intersection">therefore </a> \( A \subseteq C \) showing that \( C \) is a closed set containing \( A \), <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-supersets-are-supersets-of-the-interior">thus</a> \( \bar{A} \subseteq C \) so that \( \left( \bar{A} \cap Y \right) \subseteq \left( C \cap Y \right) = B \), as needed.
 					</p>
 				</div>
 			</div>
@@ -187,10 +187,35 @@
 						Suppose that \( x \notin \bar{A} \), since \( \bar{A} \) is closed, then \( U = X \setminus \bar{A} \) must be open and containing \( x \) and since \( A \subseteq \bar{A} \), <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-difference-of-a-superset-is-empty">we know</a> \( U \) doesn't intersect \( A \), as needed.
 					</p>
 					<p>
-						Now the reverse direction: assuming that we have some open set \( U \) containing \( x \) that doesn't intersect \( A \), <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-empty-intersection-implies-superset-difference">we have</a> \( A \subseteq X \setminus U \) and \( X \setminus U \) is closed <a class="knowledge-link" href="/topology/closed_sets_and_limit_points.html#proposition-closed-supersets-are-supersets-of-the-interior">therefore </a> \( \bar{A} \subseteq X \setminus U \), so that \( \bar{A} \cap U = \emptyset \), since we know \( x \in U \) we know that \( x \notin \bar{A} \) as needed.
+						Now the reverse direction: assuming that we have some open set \( U \) containing \( x \) that doesn't intersect \( A \), <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-empty-intersection-implies-superset-difference">we have</a> \( A \subseteq X \setminus U \) and \( X \setminus U \) is closed <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-supersets-are-supersets-of-the-interior">therefore </a> \( \bar{A} \subseteq X \setminus U \), so that \( \bar{A} \cap U = \emptyset \), since we know \( x \in U \) we know that \( x \notin \bar{A} \) as needed.
 					</p>
 				</div>
 			</div>
+
+			<div class="corollary" id="corollary-closure-basis-intersection-equivalence">
+				<div class="title">Closure Basis Intersection Equivalence</div>
+				<div class="content">
+					Suppose that a basis \( \mathcal{B} \) generates a topology \( \mathcal{T} \), then \( x \in \bar{A} \) if and only if every basis element \( B \) containing \( x \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-a-set-intersects-another">intersects </a>\( A \) 
+				</div>
+				<div class="proof">
+					<p>
+						Suppose that \( x \in \bar{A} \), <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">therefore</a> every open set containing \( x \) intersects \( A \), now suppose that \( B \in \mathcal{B} \), since it is open, then we know that \( B \) intersects \( A \)
+					</p>
+					<p>
+						Now suppose that every basis element containing \( x \) intersects \( A \), and we'd like to show that \( x \in \bar{A} \) which is equivalent to every open set containing \( x \) intersecting \( A \), so suppose that \( U \in \mathcal{T} \) since \( \mathcal{B} \) <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-generated-by-a-basis">generates</a> \( \mathcal{T} \), then there is some \( B \in \mathcal{B} \) such that \( x \in B \subseteq U \) since \( A \) intersects \( B \) then it also intersects \( U \)  as needed.
+					</p>
+				</div>
+			</div>
+			
+			<div class="definition" id="definition-neighborhood">
+				<div class="title">Neighborhood</div>
+				<div class="content">
+					In a topological space \( X \) and a point \( x \in X \) then if \( U \) is an open set containing \( x \) then we say that \( U \) is a neighborhood of \( x \)
+				</div>
+			</div>
+			
+
+
 			
 
         </div>
