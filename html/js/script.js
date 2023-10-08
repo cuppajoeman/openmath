@@ -28,13 +28,13 @@ async function preparePage() {
 	// Due to this function you must defer this script so that the mathjax is loaded after everything is added to the dom
     await setUpAndAddHeader();
     await setUpStatementWithProofTemplates();
+    automaticallyAddMathJaxScript();
     setUpProofToggleButtons();
 	addLinksToEveryPieceOfKnowledge();
     setUpKnowledgeLinks();
     createSystemColorModeListener();
     checkForSavedColorMode();
     setCustomCursor();
-    automaticallyAddMathJaxScript();
     automaticallyAddIcon();
 }
 
