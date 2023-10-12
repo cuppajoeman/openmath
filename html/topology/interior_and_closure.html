@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		
-        <title>interior and closure</title>
+        <title>Interior and Closure</title>
 		
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -105,7 +105,7 @@
 					\( \operatorname{Int}\left( A \right) \) is closed
 				</div>
 				<div class="proof">
-					TODO
+					The closure of \( A \) is defined as \( \bigcap _ { S \supseteq A } S  \) where each \( S \) is a closed set, to show it's closed, we must show that \( X \setminus \bigcap _ { S \supseteq A } S  \) is open which we can see since <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#theorem-demorgans-laws">it equals</a> \( \bigcap _ { S \supseteq A } \left( X \setminus S \right)  \) and thus is an arbitrary union of open sets so it is open.
 				</div>
 			</div>
 
@@ -115,7 +115,7 @@
 					\( \bar{A} \) is open
 				</div>
 				<div class="proof">
-					TODO
+					The interior is an arbitrary union of open sets, and is thus open.
 				</div>
 			</div>
 
@@ -158,12 +158,33 @@
 			<div class="proposition" id="proposition-open-sets-equal-their-interior">
 				<div class="title">Open Sets Equal their Interior</div>
 				<div class="content">
-					Suppose that \( A \) is an open subset of a topological space \( X \), then \( A = \operatorname{ Int } \left( A \right)  \)
+					Suppose that \( A \) is a subset of a topological space \( X \), then \( A \) is open if and only if \( A = \operatorname{ Int } \left( A \right)  \)
 				</div>
 				<div class="proof">
-					Since \( A \) is an open set and \( A \subseteq A \), then we know \( A \subseteq \operatorname{ Int } \left( A \right)  \), now suppose that \( x \in A \)
+					<p>
+						Suppose that \( \mathcal { A }  \) is the collection of open sets which are also subsets of \( A \), since \( A \) is open then \( A \in \mathcal { A }  \), then \( \overline{ A } = \bigcup \mathcal{ A } = \bigcup \left( \mathcal{ A } \setminus \left\{ A \right\} \right) \cup A  \), since each element in \( \mathcal{ A } \setminus \left\{ A \right\} \) is a subset of \( A \), then <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-union-of-subsets-is-still-a-subset">so is</a> the union, <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-union-a-subset-is-itself">thus</a> \( \bigcup \left( \mathcal{ A } \setminus \left\{ A \right\} \right) \cup A = A \) as needed.
+					</p>
+					<p>
+						The other direction is easier, suppose that \( A = \operatorname{ Int } \left( A \right)  \), then <a class="knowledge-link" href="/topology/interior_and_closure.html#corollary-interior-is-open"></a> \( \operatorname{ Int } \left( A \right)  \) is open, then so is \( A \) as needed.
+					</p>
 				</div>
 			</div>
+			
+			<div class="proposition" id="proposition-closed-sets-equal-their-closure">
+				<div class="title">Closed Sets Equal their Closure</div>
+				<div class="content">
+					If \( A \) is a subset of a topological space \( X \), then \( A \) is closed if and only if \( A = \overline{ A }  \)
+				</div>
+				<div class="proof">
+					<p>
+						Suppose that \( \mathcal{ A } \) is the collection of closed sets which are also supersets of \( A \), then \( \overline{ A } = \bigcap \mathcal{ A } = \bigcap \left( \mathcal{ A } \setminus \left\{ A \right\} \right) \cap A  \), and since each element in \( \mathcal{ A } \setminus \left\{ A \right\} \) is a superset of \( A \), then so is it's intersection, <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">therefore</a> \( \bigcap \left( \mathcal{ A } \setminus \left\{ A \right\} \right) \cap A = A  \)
+					</p>
+					<p>
+						Now suppose that \( A = \overline{ A } \), since \( \overline{ A } \) <a class="knowledge-link" href="/topology/interior_and_closure.html#corollary-closure-is-closed">is closed</a> then we know \( A \) is closed
+					</p>
+				</div>
+			</div>
+			
 
 			
 			
@@ -183,11 +204,17 @@
 				</div>
 			</div>
 
+			<div class="definition" id="definition-neighborhood">
+				<div class="title">Neighborhood</div>
+				<div class="content">
+					In a topological space \( X \) and a point \( x \in X \) then if \( U \) is an open set containing \( x \) then we say that \( U \) is a neighborhood of \( x \)
+				</div>
+			</div>
 				
 			<div class="theorem" id="theorem-closure-intersection-equivalence">
 				<div class="title">Closure Intersection Equivalence</div>
 				<div class="content">
-					\( x \in \bar{A} \) if and only if every open set \( U \) containing \( x \) intersects \( A \) 
+					\( x \in \bar{A} \) if and only if <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-neighborhood">neighborhood of \( x \)</a> intersects \( A \)
 				</div>
 				<div class="proof">
 					<p>
@@ -218,12 +245,6 @@
 				</div>
 			</div>
 			
-			<div class="definition" id="definition-neighborhood">
-				<div class="title">Neighborhood</div>
-				<div class="content">
-					In a topological space \( X \) and a point \( x \in X \) then if \( U \) is an open set containing \( x \) then we say that \( U \) is a neighborhood of \( x \)
-				</div>
-			</div>
 			
 
 

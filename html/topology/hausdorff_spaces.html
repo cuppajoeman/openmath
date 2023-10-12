@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+        <title>Hausdorff Spaces</title>
+		
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/styles/styles.css">
+        <script src="/js/script.js" defer></script>
+		
+		
+    </head>
+    <body>
+        <div class="thin-wrapper">
+
+			<div class="definition" id="definition-convergence">
+				<div class="title">Convergence</div>
+				<div class="content">
+					Suppose that \( \left( \mathcal{ T }, X \right)  \)	is a topological space, then a sequence of points \( \left( x_n \right) \) in \( X \) is said to converge to the point \( c \in X \) provided that for each <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-neighborhood">neighborhood</a> of \( c \), there exists some \( N \in \mathbb { N }_1 \) such that for all \( n \ge N \), we have \( x_n \in U \)
+				</div>
+			</div>
+			
+			<div class="definition" id="definition-hausdorff-space">
+				<div class="title">Hausdorff Space</div>
+				<div class="content">
+					A topological space \( X \) is called a Hausdorff space if for each pair of points \( x_1, x_2 \) of distinct points of \( X \), there exist neighborhoods \( U_1, U_2 \) of \( x_1, x_2 \) respectively that are <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-disjoint-sets">disjoint</a>
+				</div>
+			</div>
+			
+			<div class="proposition" id="proposition-every-one-point-set-is-closed-in-a-hausdorff-space">
+				<div class="title">Every one point set is Closed in a Hausdorff Space</div>
+				<div class="content">
+					Suppose that \( p \in X \) where \( X \) is a <a class="knowledge-link" href="/topology/hausdorff_spaces.html#definition-hausdorff-space">Hausdorff space</a>, then \( \left\{ p \right\} \) is closed
+				</div>
+				<div class="proof">
+					<p>
+						We will show that \( \left\{ p \right\} \) is closed <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-sets-equal-their-closure">by showing</a> \( \left\{ p \right\} = \overline{ \left\{ p \right\} } \)
+					</p>
+					<p>
+						Suppose that \( y \in X \) and \( y \neq p \), since \( X \) was Hausdorff, we get \( U_p, U_y \) disjoint neighborhoods. Since \( U_y \cap U_p = \emptyset \) , since \( U_p \supseteq \left\{ p \right\} \), then \( U_y \cap \left\{ p \right\} = \emptyset \) <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">therefore</a> \( y \notin \overline{ \left\{ p \right\} } \).
+					</p>
+					<p>
+						Since \( \left\{ p \right\} \subseteq \overline{ \left\{ p \right\} } \), then we know \( p \in \overline{ \left\{ p \right\} } \), so therefore \( \overline{ \left\{ p \right\} } = \left\{ p \right\} \) as needed.
+					</p>
+				</div>
+			</div>
+
+			<div class="corollary" id="corollary-finite-sets-are-closed-in-a-hausdorff-space">
+				<div class="title">Every Finite Set is Closed in a Hausdorff Space</div>
+				<div class="content">
+
+				</div>
+				<div class="proof">
+
+				</div>
+			</div>
+
+
+
+        </div>
+    </body>
+</html>

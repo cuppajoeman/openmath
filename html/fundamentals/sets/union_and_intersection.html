@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>union and intersection</title>
+    <title>Union and Intersection</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/styles.css">
@@ -17,19 +17,17 @@
 <body>
     <div class="thin-wrapper">
 
-        <h1>Union and Intersection</h1>
-
         <div class="definition" id="definition-union">
-            <div class="title">union</div>
+            <div class="title">Union</div>
             <div class="content">
-                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the union of \( A \) and \( B \) is defined as the set \( A \cup B := \left \lbrace p \in X : p \in A \text{ or } p \in B \right \rbrace \)
+                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the union of \( A \) and \( B \) is defined as the set \( A \cup B := \left \lbrace p \in X : p \in A \lor p \in B \right \rbrace \)
             </div>
         </div>
 
         <div class="definition" id="definition-intersection">
-            <div class="title">intersection</div>
+            <div class="title">Intersection</div>
             <div class="content">
-                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the intersection of \( A \) and \( B \) is defined as the set \( A \cap B := \left \lbrace p \in X : p \in A \text{ and } p \in B \right \rbrace \)
+                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the intersection of \( A \) and \( B \) is defined as the set \( A \cap B := \left \lbrace p \in X : p \in A \land p \in B \right \rbrace \)
             </div>
         </div>
 
@@ -164,6 +162,21 @@
             </div>
         </div>
 
+        <div class="proposition" id="proposition-a-set-union-a-subset-is-itself">
+            <div class="title">A Set Union a Subset is Itself</div>
+            <div class="content">
+                Let \( A , B \) be sets such that \( B \subseteq A \), then \( A \cup B = A \)
+            </div>
+            <div class="proof">
+                <p>
+                    <a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">We start</a> by showing \( A \cup B \subseteq A \), so consider \( x \in A \cup B \), so we know that \( x \in A \) or \( x \in B \), if \( x \in A \) we are done, on the other hand if \( x \in B \), then since \( B \subseteq A \), then \( x \in A \) as needed.
+                </p>
+                <p>
+                    Supposing that \( x \in A \), then we know that \( x \in A \cup B \) is true.
+                </p>
+            </div>
+        </div>
+
 		<div class="proposition" id="proposition-subset-of-an-intersection">
 			<div class="title">Subset of an Intersection</div>
 			<div class="content">
@@ -222,11 +235,24 @@
             <div class="content">
                 Suppose that \( \mathcal{C} \) is a collection of subsets of \( X \), then
                 \[
-                    \class{knowledge-link}{\href{/fundamentals/sets/union_and_intersection.html#proposition-union-of-subsets-is-still-a-subset}{\bigcup_{C \in \mathcal{C}} C}} \subseteq X
+                    \bigcup \mathcal{ C } \subseteq X
                 \]
             </div>
             <div class="proof">
                 Let \( x \in \bigcup_{C \in \mathcal{C}} C \), then \( x \in U \) for some \( U \in \mathcal{C} \), since \( U \) must be a subset of \( X \) then x is also in \( X \). As needed
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-intersection-of-supersets-is-still-a-superset">
+            <div class="title">An Intersection of Supersets is still a Superset</div>
+            <div class="content">
+                Suppose that \( \mathcal{C} \) is a collection of supersets of \( X \), then
+                \[
+                    \bigcap \mathcal{ C } \supseteq X
+                \]
+            </div>
+            <div class="proof">
+                Let \( x \in X \), suppose that \( C \in \mathcal{ C } \), thus by definition \( C \supseteq X  \), and since \( x \in X \) we must deduce \( x \in C \), therefore \( x \in \bigcap \mathcal{ C } \) as needed.
             </div>
         </div>
 
