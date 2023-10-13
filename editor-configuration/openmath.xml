@@ -1,0 +1,297 @@
+<templateSet group="openmath">
+  <template name="mm" value="\( $in$ \)" shortcut="TAB" description="opens mathjax delimiters" toReformat="false" toShortenFQNames="true">
+    <variable name="in" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="jj" value="\left( $in$ \right) " shortcut="TAB" description="round parenthesis" toReformat="false" toShortenFQNames="true">
+    <variable name="in" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="kk" value="{ $in$ } " shortcut="TAB" description="curly parenthesis" toReformat="false" toShortenFQNames="true">
+    <variable name="in" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ll" value="[ $in$ ] " shortcut="TAB" description="square parenthesis" toReformat="false" toShortenFQNames="true">
+    <variable name="in" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="aa" value="+" shortcut="TAB" description="addition" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ss" value="-" shortcut="TAB" description="subtraction" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="dd" value="*" shortcut="TAB" description="multiplication" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ff" value="/" shortcut="TAB" description="division" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="gg" value="^" shortcut="TAB" description="exponent" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="hh" value="_" shortcut="TAB" description="subscript" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="hg" value="_$1^$2" shortcut="TAB" description="subscript superscript" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ee" value="=" shortcut="TAB" description="equality" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="tt" value="text" shortcut="TAB" description="text mode" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="*" value="\cdot" shortcut="TAB" description="multiplicaiton" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="***" value="\star" shortcut="TAB" description="star" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="\\" value="\setminus" shortcut="TAB" description="setminus" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="xx" value="\times" shortcut="TAB" description="cartesian product" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="@" value="\circ" shortcut="TAB" description="circ" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="o+" value="\oplus" shortcut="TAB" description="oplus" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="O/" value="\emptyset" shortcut="TAB" description="empty set" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="sum" value="\sum" shortcut="TAB" description="summation" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="prod" value="\prod" shortcut="TAB" description="product" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="^^" value="\land" shortcut="TAB" description="logical and" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="vv" value="\lor" shortcut="TAB" description="logical or" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="nn" value="\cap" shortcut="TAB" description="intersection" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="Bn" value="\bigcap" shortcut="TAB" description="big intersection" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="uu" value="\cup" shortcut="TAB" description="union" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="Bu" value="\bigcup" shortcut="TAB" description="big union" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="fr" value="\frac{$numer$}{$denom$}" shortcut="TAB" description="fraction" toReformat="false" toShortenFQNames="true">
+    <variable name="numer" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="denom" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="..." value="\ldots" shortcut="TAB" description="dots" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ne" value="\neq" shortcut="TAB" description="not equal to" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="lt" value="\lt" shortcut="TAB" description="less than" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="le" value="\le" shortcut="TAB" description="less than or equal to" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="gt" value="\gt" shortcut="TAB" description="greater than" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="ge" value="\ge" shortcut="TAB" description="greater than or equal to" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="in" value="\in" shortcut="TAB" description="element of" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="notin" value="\notin" shortcut="TAB" description="not an element of" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="sube" value="\subseteq" shortcut="TAB" description="subset" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="supe" value="\supseteq" shortcut="TAB" description="superset" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="eq" value="\equiv" shortcut="TAB" description="equivalent" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="EE" value="\exists" shortcut="TAB" description="there exists" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="AA" value="\forall" shortcut="TAB" description="for all" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="bar" value="\bar" shortcut="TAB" description="bar above" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="cal" value="\mathcal{ $in$ }" shortcut="TAB" description="mathcal" toReformat="false" toShortenFQNames="true">
+    <variable name="in" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="bb" value="\mathbb" shortcut="TAB" description="mathbb" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="def" value="&lt;div class=&quot;definition&quot; id=&quot;definition-$id$&quot;&gt;&#10;&#9;&lt;div class=&quot;title&quot;&gt;$title$&lt;/div&gt;&#10;&#9;&lt;div class=&quot;content&quot;&gt;&#10;&#9;&#9;$content$&#10;&#9;&lt;/div&gt;&#10;&lt;/div&gt;&#10;" description="template for openmath definition" toReformat="false" toShortenFQNames="true">
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="title" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="swp" value="&lt;div class=&quot;$type$&quot; id=&quot;$type$-$id$&quot;&gt;&#10;&#9;&lt;div class=&quot;title&quot;&gt;$title$&lt;/div&gt;&#10;&#9;&lt;div class=&quot;content&quot;&gt;&#10;&#9;&#9;$content$&#10;&#9;&lt;/div&gt;&#10;&#9;&lt;div class=&quot;proof&quot;&gt;&#10;&#9;&#9;$proof$&#10;&#9;&lt;/div&gt;&#10;&lt;/div&gt;&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="type" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="title" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="id" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="proof" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="k-l" value="&lt;a class=&quot;knowledge-link&quot; href=&quot;$link$&quot;&gt;$content$&lt;/a&gt;" description="knowledge link" toReformat="false" toShortenFQNames="true">
+    <variable name="link" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="set" value="\left\{ $in$ \right\}" description="set brackets" toReformat="false" toShortenFQNames="true">
+    <variable name="in" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="oline" value="\overline{ $in$ }" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="in" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="oname" value="\operatorname{ $in$ } " description="operatorname" toReformat="false" toShortenFQNames="true">
+    <variable name="in" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="'" value="\prime" description="prime" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="to" value="\rightarrow" description="rightarrow" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="and" value="\land" description="logical and" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="or" value="\lor" description="logical or" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+</templateSet>

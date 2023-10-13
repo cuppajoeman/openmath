@@ -7,3 +7,5 @@ visualizers later on.
 this requires a version of vim that has python built in to support ultisnips, you also need to install vim-plug
 
 on mac you can use brew install vim
+
+webstorm: use the openmath.xml file for live templates
