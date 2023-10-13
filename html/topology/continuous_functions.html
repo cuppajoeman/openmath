@@ -26,10 +26,15 @@
             <div class="proposition" id="proposition-continuous-iff-every-basis-element-is-open">
             	<div class="title">Continuous iff Every Basis Element is Open</div>
             	<div class="content">
-            		Suppose that \( f : X \rightarrow Y \) is a function and \( \mathcal{ T }_Y \) is <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-generated-by-a-basis">generated</a> by a basis \( \mathcal{ B } \), then \( f \) is continuous iff every basis element is open in \( Y \)
+            		Suppose that \( f : X \rightarrow Y \) is a function and \( \mathcal{ T }_Y \) is <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-generated-by-a-basis">generated</a> by a basis \( \mathcal{ B } \), then \( f \) is continuous if every basis element \( f ^ { -1 } \left( B \right)  \) is open in \( Y \)
             	</div>
             	<div class="proof">
-
+                    <p>
+                        Let \( U \) be open in \( Y \), we want to prove that \( f ^ { -1 } \left( U \right)  \) is an open set. Since \( U \) is open then <a class="knowledge-link" href="/topology/topological_spaces.html#theorem-topology-generated-by-a-basis-consists-of-unions">we know that</a> \( U = \bigcup \mathcal{ C } \) where \( \mathcal{ C } \subseteq \mathcal{ B } \).
+                    </p>
+                    <p>
+                        By noting that \( f ^ { -1 } \left( U \right) = f ^ { -1 } \left( \bigcup \mathcal{ C } \right)  \) <a class="knowledge-link" href="/fundamentals/functions.html#proposition-union-factors-through-inverse-image">\( = \)</a> \( \bigcup \left\{ f ^ { -1 } \left( C \right) : C \in \mathcal{ C } \right\} \), since \( \mathcal{ C } \subseteq \mathcal{ B } \), then every element \( C \) is a basis element, and thus \( f ^ { -1 } \left( C \right)  \) is an open set by our assumption, therefore as it is an arbitrary union of open sets, <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">we can see that</a> \( f ^ { -1 } \left( U \right)  \) is an open set, as needed
+                    </p>
             	</div>
             </div>
             

@@ -53,6 +53,22 @@
 				Suppose \( f{:} X \to Y \) and \( U \subseteq Y \), then \( f^{- 1}{\left ( U \right )} := \left \lbrace x \in X : f{\left ( x \right )} \in U \right \rbrace \) 
 			</div>
 		</div>
+		
+		<div class="proposition" id="proposition-union-factors-through-inverse-image">
+			<div class="title">Union Factors through Inverse Image</div>
+			<div class="content">
+				\( f ^ { -1 } \left( \bigcup \mathcal{ M } \right) = \bigcup \left\{ f ^ { -1 } \left( M \right): M \in \mathcal{ M }  \right\}  \)
+			</div>
+			<div class="proof">
+				<p>
+					We can observe that \( p \in f ^ { -1 } \left( \bigcup \mathcal{ M } \right)  \), <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">if and only if</a> \( f \left( p \right) \in \bigcup \mathcal{ M }  \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">iff</a> there exists some \( M \in \mathcal{ M } \) such that \( f \left( p \right) \in M \) iff \( p \in f ^ { -1 } \left( M \right)  \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">so that</a> \( p \in \bigcup \left\{ f ^ { -1 } \left( M \right) : M \in \mathcal{ M } \right\}\) as needed.
+				</p>
+				<p>
+					Since all the logical connectives in the above proof are iff's then <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set-equality">this shows</a> the two sets equal
+				</p>
+			</div>
+		</div>
+		
 
 		
 		<div class="definition" id="definition-injective-function">
