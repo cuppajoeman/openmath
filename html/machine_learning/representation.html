@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Representation</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+</head>
+
+<body>
+<div class="thin-wrapper">
+    <h1>Representation</h1>
+
+    <p>
+        The algorithms we are going to create need to be able to handle lots of different data, the problems we can now solve with machine learning are usually relating image, text or audio inputs.
+    </p>
+
+    <p>
+        To handle these types of data, we try and convert them into formats that we can easily manipulate using mathematics and computers, a common strategy we'll see is to turn our input data into a <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vector</a>.
+    </p>
+
+    <div class="definition" id="definition-vectorization">
+    	<div class="title">Vectorization</div>
+    	<div class="content">
+    	    The process of converting data into vectors
+    	</div>
+    </div>
+
+
+    <p>
+        For example given a black and white image that is \( n \) pixels wide and \( m \) pixels tall, we can turn it into a vector in <a class="knowledge-link" href="/fundamentals/sets/cartesian_product.html#definition-set-power">\( [0,1]^{n \cdot m} \)</a> by mapping the pixel's value in the \( i \)-th row and \( j \)-th column to \( i \cdot n + j \)-th position in the vector, we can already start doing meaningful things with this image, because we already know that the 0 vector is an image that is completely black, and the vector with every entry equal to one would be a pure white image, we can use this as a measure of how bright an image is.
+    </p>
+
+    <p>
+        Thus we could write a very simple function to compute the brightness of an image by using the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-length">length</a> of the input vector. Alternatively given two images (vectors), we could measure the length of their difference, if 0 the images are the same and the larger the the length of the difference the more the two images must differ
+    </p>
+
+    <p>
+        When we're dealing with <a class="knowledge-link" href="/machine_learning/intro.html#definition-supervised-learning">supervised learning</a> we are trying to predict properties about new data after it's seen lots of data with their true properties. The example we spoke of previous was doing object categorization
+    </p>
+
+    <p>
+        We know that our algorithm has access to a <a class="knowledge-link" href="/machine_learning/intro.html#definition-training-set">training set</a> before hand, and now that we're equipped with knowledge of vectorization, we could first have a finite set of categories \( C \subseteq \mathbb{N}_0 \), where each number corresponds to a specific object category, and perhaps, we've mapped \( 3 \) to the category of fruit, now suppose that given a 1280x720 image of an apple \( a \in \mathbb{R}^{1280 \cdot 720} \), then one of our labeled data points in our training set would be \( (a, 3) \).
+    </p>
+
+    <p>
+        Thus given this object categorizaiton problem we have a concrete way to represent what kind of data we'll be working with while creating our learning algorithms.
+    </p>
+
+
+</div>
+</body>
+</html>

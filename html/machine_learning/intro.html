@@ -113,10 +113,21 @@
     <p>There are a few main learning methods we've come up with so far:</p>
 
     <div class="definition" id="definition-supervised-learning">
-        <div class="title"></div>
+        <div class="title">Supervised Learning</div>
         <div class="content">
-            A program which can give predictions about new data after having access to labelled examples of the correct data
+            A program which takes in a certain type of data and can predict properties of new data. It has access to a large quantity of data that has it's true properties labelled.
         </div>
+    </div>
+
+    <p>
+        With supervised learning, if our task is to do object categorization given one image, where perhaps we are given an image of an apple and we want our program to output fruit, then our supervised learning algorithm would have access to a large quantity of images, along with what category the main object in frame falls under.
+    </p>
+
+    <div class="definition" id="definition-training-set">
+    	<div class="title">Training Set</div>
+    	<div class="content">
+    	    Given a machine learning algorithm for a certain task, accepting a datatype \( D \) as input and an expected output type \( E \), then it's training set is a set \( \left\{ (d, l):  d \in D, l \in E \right\} \), where each \( (d, l) \) is known as a labelled data point.
+    	</div>
     </div>
 
 
