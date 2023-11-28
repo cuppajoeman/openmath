@@ -9,7 +9,6 @@
         <script src="/js/script.js" defer></script>
         <link rel="stylesheet" href="/styles/styles.css">
 
-        
 
     </head>
     <body>
@@ -18,7 +17,7 @@
             <div class="definition" id="definition-directional-derivative">
                 <div class="title">directional derivative</div>
                 <div class="content">
-                    Let \( f{:} \mathbb{R}^{n} \to R \) and let \( a , v \in \mathbb{R}^{n} \), then the directional derivative of \( f \) at \( a \) along \( v \) is defined as
+                    Let \( f{:} \mathbb{R}^{n} \to \mathbb{R} \) and let \( a , v \in \mathbb{R}^{n} \), then the directional derivative of \( f \) at \( a \) along \( v \) is defined as
                     <div class="centered-content">
                         \( \nabla_{v} f{\left ( a \right )} := \lim_{h \to 0} \frac{f{\left ( a + h v \right )} - f{\left ( a \right )}}{h} \)
                     </div>
@@ -38,9 +37,13 @@
             <div class="definition">
                 <div class="title">Frozen Function</div>
                 <div class="content">
-                    Suppose that \( f{:} \mathbb{R}^{n} \to \mathbb{R} \) and \( a \in \mathbb{R}^{n} \) then we can define a new function \( f_{i , a}{:} \mathbb{R} \to \mathbb{R} \) by \( f_{i , a}{\left ( h \right )} := f{\left ( a + h e_{i} \right )} \). This functin can be thought of looking the sample point \( a \) and then freezing in all directions except for along the \( i \)-th component of the input for \( f \)
+                    Suppose that \( f{:} \mathbb{R}^{n} \to \mathbb{R} \) and \( a \in \mathbb{R}^{n} \) then we can define a new function \( f_{i , a}{:} \mathbb{R} \to \mathbb{R} \) by \( f_{i , a}{\left ( h \right )} := f{\left ( a + h e_{i} \right )} \).
                 </div>
             </div>
+
+            <p>
+                The frozen function get's it's name because it can be thought of by taking the sample point \( a \) and then freezing in all directions except for along the \( i \)-th component of the input for \( f \)
+            </p>
 
             <div class="proposition">
                 <div class="title">Partial Derivative becomes frozen function derivative</div>
