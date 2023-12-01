@@ -14,12 +14,98 @@
 
 <body>
 <div class="thin-wrapper">
-    <fieldset>
-        <legend><h1>Machine Learning</h1></legend>
-        <ul>
-            <li><a href="electrical_components.html">Electrical Components</a></li>
-        </ul>
-    </fieldset>
+    <h1>Neural Networks</h1>
+
+    <h2>Introduction</h2>
+    
+    <!-- TODO: need the definition of a tensor -->
+    <!-- universal function approximator theorem: states that you can perfectly approximate any function given an a neural network of infinite size -->
+    <p>
+        A neural network is an universal <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> approximator, usually differentiable, that maps a space to another one.
+    </p>
+    
+    <p>
+        A very well known example is a neural network that classifies images into n classes. 
+        The input in this case will be a 3 dimensional <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-tensor">tensor</a> represents the pixel value of an RGB image.
+        The output would be a n-dimensional <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vector</a>, where the i-th entry of that vector represents the probabil
+ty of the i-th predicted class. 
+    </p>
+        
+
+        The input and output can literally be any real numbers.c neural network is a multi-layer perceptron.     
+    
+ neural network, but threy aey are usually differen
+        
+        tialbfully differentialble so tahat a neural netowwork can be trained,.
+ via backpropagation.            
+            
+        
+    <h2>Structure</h2>
+    <p>
+        The structure of a neural network is a sequence of layers, an example of a small multi-layer perceptron could look like this. The structure is meant to mimic how the human brain works in terms of having neurons (individual nodes in the diagram) that are connected by synapses, which are represented by the arrows.
+    </p>
+
+    <div class="centered-content">
+        <img src="graphics/mlp_diagram.jpg" alt="" style="width: 500px">
+    </div>
+
+    <p>
+        Inside of each neuron, we have a weight, which simulates how axons in the brain have some resistance, causing some impulses to fire based on one input and not on other inputs.
+    </p>
+
+    <p>
+        Additionally we have a method to connect previous neurons between layers of the network. Each unit of the input layer, in top-to-bottom order, passes its assigned value to each neuron of the first hidden layer. Then, each hidden layer neuron multiplies each of these values (x1, x2, x3) with its weight vector (w1, w2, w3), sums the multiplied values \( x1 \cdot w1 + x2 \cdot w2 + x_3 \cdot w3 \), applies its activation function to this sum (logistic, tanh, identity function) and returns the value computed by the activation function to the next layer.
+    </p>
+
+    <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-gradient">gradient</a>
+
+
+    <h2>Measuring Success</h2>
+
+    <p>
+        With our previous example of image recognition we started with an image, and then the output was what category the image falls under, for example of we had an image of an apple, then the output from the neural network would be fruit. 
+    </p>
+
+    <p>
+        The goal of
+    </p>
+
+    neurons?
+    activation ffunctions?
+    gradient descent?
+    backpropagation?
+
+    <h2>Formally</h2>
+
+    <p>
+        So far we've loosely considered how a neural network functions in terms of thinking of the input as concrete data such as an image, and then it passing through the neural network and getting an output which we consider a prediction. While this is a good way of looking at things, it will be beneficial to represent this with mathematical objects.
+    </p>
+
+    <p>
+        Considering a very basic neural network, we can see that the input becomes an output by applying matrix multiplication, or a linear projection mapping an input space to an output space. 
+    </p>
+
+    <p>
+        Let the projection matrix be M, then the numbers within the projection matrix are defined as the weights of the neural network. In machine learning, the type of problem we face is that given we have many input/output space vector pairs (called training data), how do we find the best projection weights, such that when a new vector is sampled from the input space, it can be best mapped to the output space, just like those training data.
+    </p>
+    
+    <p>
+        In the case of this linear projection, one can stack all the input vectors into a matrix A and the output vectors into a matrix B, and find the best projection matrix, M*, such that the error (|B-MA|^2) is minimized. One way of finding M* is through matrix inverse. Assuming the problem is invertible, then we can set |B-MA|^2 = 0 and find M* using matrix inverse. 
+    </p>
+
+    <p>
+        In reality, the problem we solve with neural networks is much more complex and the neural network required is not linear (we will come to this later). As a result, we use numerical methods, such as gradient descent with backpropagation, to find the best weights.
+    </p>
+    If the neural network is only a linear projection, then its expressive power is limited as linear projection can only approximate linear functions (can show this with the xor example). A more powerful neural network is a Multi-Layer Perceptron (MLP), which is just a linear projection with a twist. Instead of having a single projection matrix M, MLP has 2 or more projection matrices. For example, a two layer MLP with 2 projection matrices M1 and M2 is shown below:
+
+
+    Let input be X
+        
+    f(X) = M2g(M1(X))
+    
+    In this example, g(.) is a non-linear activation function that applies element-wise to the output of layer 1 – M1(X). Why is this non-linear activation function needed? Suppose g(x) = x, a identity function, then f(X) = M2g(M1(X)) = (M2M1)X. M1M2 is just another linear projection matrix! Our MLP becomes a linear regression. It turns out that the simple two-layer MLP, according to the universal function approximation theorem, can approximate any continuous function from R^n to R^M.
+    
+
 </div>
 </body>
 </html>
