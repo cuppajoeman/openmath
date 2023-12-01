@@ -20,6 +20,126 @@
     
     <!-- TODO: need the definition of a tensor -->
     <!-- universal function approximator theorem: states that you can perfectly approximate any function given an a neural network of infinite size -->
+
+    <h3>The Human Brain</h3>
+
+    <p>
+        The human brain is made up of 80-100 billion nerve cells that are called neurons, each neuron is connected to more than 1000 other neurons, which brings the number of connections more than 80-100 trillion, neurons are organized into patterns and networks within the brain and are able to communicate at great speeds.
+    </p>
+
+    <p>
+        Every neuron is made up of 3 parts: the cell body (soma), the axon, and the dendrites. Neurons communciate with eachother using electrochemical signals. In other words, certain chemicals in the body (ions) have an electrical charge. Ions move in and out of the neuron through the cell membrane and effect the electrical charge of the neuron.
+    </p>
+
+    <p>
+        At rest the the soma of the neuron is negatively charged relative to the outside of the neuron, this charge is approximately -70millivolts (mV) of electricity. When a stimulus occurs, like reading these words right now or from any of your senses, it causes the neuron to take in more positive ions making it more positively charged, once the neuron reaches a certain threshold of approximately -55mV, the action potention occurs and it causes the neuron to "fire".
+    </p>
+
+    <p>
+        When a neuron fires, a chemical signal the action potential travels down the axon where it reaches the axon terminal, the terminal then converts the electrical signals into a chemical signals that travel a small distance known as the synapse between the axon terminal and the receptors located on neighboring dendrites. A dendrite is a branch like structure that carry impulses emitted from neighboring into the soma of it's own neuron.
+    </p>
+
+    <h3>Motivation</h3>
+    <p>
+        Now that we know how the brain functions, we can look at things from a functional point of view. Firstly we know that us as humans have the ability to learn new things through our brain, and that our brain sort of calibrates itself when we're growing up to become an adult, for example as a child, when you first see an animal, you're brain wouldn't know what it was, but as time progresses and you see the properties that the animal has you gain an understanding of what it is.
+    </p>
+
+    <p>
+        Another example of this is you just looking around your current room, by looking around you're able to understand what each object is in your room and what purpose it serves, you have this understanding by a certain collection of neurons firing which eventually ends in a certain output, telling you the purpose of any given object. Additionally you can look at handwriting and determine what characters have been written, this is also a result of the neurons in your brain.
+    </p>
+
+    <p>
+       The key reason how you can recognize things so quickly is due to neural pathways that you've built up over the years. Neural pathways are the connections between neurons that light up when you think of something for the first time, which allow your brain to attach meaning to that specific thing. An example of this may be first encountering an apple as a child, and then seeing an apple on digital screen and realizing that they both represent the same thing (because the neural pathway that was lit up by that input in your visual cortex was quite similar)
+    </p>
+
+    <p>
+        Thus if we can build an algorithm that can implement a very basic neural network, then we would have an algorithm that could solve many different recognition problems without having to explicitly teach it how to.
+    </p>
+
+    <h2>Structure</h2>
+    <p>
+         We know that when any of our senses our stimulated an initial set of neurons are activated, for example if the senses were from our eyes, then the first activated neurons would be in the visual cortex, once activated, they will in-turn activate another collection of neurons and in-turn activate another collection of neurons until some final collection is activated, at which point our mind has been able to perceive that input.
+    </p>
+
+    <p>
+        From this discussion, we can come up with a simplistic structure to model this idea, a <b>multi layer perceptron</b>, a very simplistic one could take the following form
+    </p>
+
+    <div class="centered-content">
+        <img src="graphics/mlp_base.jpg" alt="" style="width: 500px">
+    </div>
+
+    <p>
+        The key things to note in this diagram is that considering any neuron in any non-input layer, every neuron from the previous layer is connected to it.
+    </p>
+
+    <p>
+        Slowly formalizing this idea, we'll consider <a class="knowledge-link" href="/machine_learning/intro.html#definition-vectorized">vectorized</a> inputs for this simplistic multi layer perceptron, which makes the input to our multi-layer perceptron a vector in \( \mathbb{R}^3 \).
+    </p>
+
+    <p>
+        As we mentioned the input to one of the non-input neurons should be information from all of the other neurons in one layer back, and so a naive approach we could take would be to simply add up the output from the previous neurons connecting into this neuron. If we want to this to happen this implictly means that every neuron must only output a scalar value in \( \mathbb{R} \).
+    </p>
+
+    <p>
+        If we were to use this method there would be an issue though, because if we considered the input \( \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} \), then we would have \( n_{2,1} = n_{2,2} = n_{2, 3} = 6 \) and then \( n_{3, 1} = 12 \) and \( n_{3, 2} = 12 \). Additionally our system would react to all permutations of the input vector in the same way, e.g. the output of \( \begin{bmatrix} 3 \\ 2 \\ 1 \end{bmatrix} \) would be the same, and if the input represented an image, flipping the order would make our minds perceive an inverted image, but this system would not be able to tell.
+    </p>
+
+    <p>
+        To account for these issues, we'll assign a weight to each neuron in our network, this weight signifies that every neuron in the brain is unique in a sense that it will react to an input in a different way than any other neuron, this is due to the fact that the brain is not a perfect object and there would be imperfections, as well as the ideas mentioned in the
+        <a href="#learning">learning</a> section
+    </p>
+
+    <p>
+        With weights in place for every neuron, we can use the weighted sum of the previous neurons to compute the value for a given neuron located in a non-input layer, if we set \(w_{1, 1} = 0.75 \), \(w_{1, 2} = 0.5 \), \(w_{1, 3} = 0.25 \) and \(w_{2, 1} = 0.4 \), \(w_{2, 2} = 0.3 \), \(w_{2, 3} = 0.2\), then each neuron is unique, and passing in permutations of our original vector will yield different outputs, which as at least one better than without weights.
+    </p>
+
+    <p>
+        TODO write the actual computations here
+    </p>
+
+    <p>
+        TODO add a description of why we need activation functions, do this and rework the below paragraph
+    </p>
+
+    <p>
+        Additionally we have a method to connect previous neurons between layers of the network. Each unit of the input layer, in top-to-bottom order, passes its assigned value to each neuron of the first hidden layer. Then, each hidden layer neuron multiplies each of these values (x1, x2, x3) with its weight vector (w1, w2, w3), sums the multiplied values \( x1 \cdot w1 + x2 \cdot w2 + x_3 \cdot w3 \), applies its activation function to this sum (logistic, tanh, identity function) and returns the value computed by the activation function to the next layer.
+    </p>
+
+
+    <h2 id="learning">Learning</h2>
+
+    <p>
+        We've specified the general structure of our neural network by using a multi layer perceptron. This structure can be thought of what a baby has when it's initially born, since the neurons in the brain have not really been used yet, and you're not acclimated to how the world works.
+    </p>
+
+    <p>
+        Considering that a human gains the ability to understand and perceive the world around them through building up neural pathways, we will also need a method to get our neural network to be able to learn over time.
+    </p>
+
+    <p>
+        One method to be able to build up neural pathways in our system would be the ability to vary our weights assigned to each neuron over time. Our bodies do this automatically for us while we're learning, but since we're writing an algorithm, we'll have to figure out the best way to change our weights so that we can perform the task at hand as well as possible.
+    </p>
+
+    <p>
+        The process of a human building neural pathways is a long one and comes about after years of living on this planet. Our programs don't have this luxury, so we'll need to get it up to speed with the task we want it to do.
+    </p>
+
+    <p>
+        The way we do this is by having a training set, which consists of various data points that have been labelled with the ground truth, what that means is that if we're doing object categorization, we'd have various images along with a category that the object in the image belongs to so a basketball image could have the category "sport".
+    </p>
+
+    <p>
+        The goal is to come up with a method to optimize our weight values for each neuron in the network in a way such that given this training set, our system is able to maximize the number of correct answers it has for every data point. One method of doing this is by minimizing errors/losses by using a technique called mean squared error, which we will get to in a later page.
+    </p>
+
+
+    <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-gradient">gradient</a>
+
+    <p>
+        A neural network is a machine learning algorithm that replicates a very simple representation of the human brain.
+    </p>
+
     <p>
         A neural network is an universal <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> approximator, usually differentiable, that maps a space to another one.
     </p>
@@ -40,24 +160,6 @@ ty of the i-th predicted class.
  via backpropagation.            
             
         
-    <h2>Structure</h2>
-    <p>
-        The structure of a neural network is a sequence of layers, an example of a small multi-layer perceptron could look like this. The structure is meant to mimic how the human brain works in terms of having neurons (individual nodes in the diagram) that are connected by synapses, which are represented by the arrows.
-    </p>
-
-    <div class="centered-content">
-        <img src="graphics/mlp_diagram.jpg" alt="" style="width: 500px">
-    </div>
-
-    <p>
-        Inside of each neuron, we have a weight, which simulates how axons in the brain have some resistance, causing some impulses to fire based on one input and not on other inputs.
-    </p>
-
-    <p>
-        Additionally we have a method to connect previous neurons between layers of the network. Each unit of the input layer, in top-to-bottom order, passes its assigned value to each neuron of the first hidden layer. Then, each hidden layer neuron multiplies each of these values (x1, x2, x3) with its weight vector (w1, w2, w3), sums the multiplied values \( x1 \cdot w1 + x2 \cdot w2 + x_3 \cdot w3 \), applies its activation function to this sum (logistic, tanh, identity function) and returns the value computed by the activation function to the next layer.
-    </p>
-
-    <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-gradient">gradient</a>
 
 
     <h2>Measuring Success</h2>
@@ -78,7 +180,7 @@ ty of the i-th predicted class.
     <h2>Formally</h2>
 
     <p>
-        So far we've loosely considered how a neural network functions in terms of thinking of the input as concrete data such as an image, and then it passing through the neural network and getting an output which we consider a prediction. While this is a good way of looking at things, it will be beneficial to represent this with mathematical objects.
+        Now that we're aware of the structure of our multi layer perceptron, we can see that mathematically this structure is just a mapping from our input space to our output space.
     </p>
 
     <p>
