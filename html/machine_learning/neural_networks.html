@@ -206,6 +206,8 @@ ty of the i-th predicted class.
     f(X) = M2g(M1(X))
     
     In this example, g(.) is a non-linear activation function that applies element-wise to the output of layer 1 – M1(X). Why is this non-linear activation function needed? Suppose g(x) = x, a identity function, then f(X) = M2g(M1(X)) = (M2M1)X. M1M2 is just another linear projection matrix! Our MLP becomes a linear regression. It turns out that the simple two-layer MLP, according to the universal function approximation theorem, can approximate any continuous function from R^n to R^M.
+
+    https://en.wikipedia.org/wiki/Universal_approximation_theorem
     
 
 </div>
