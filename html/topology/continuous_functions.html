@@ -63,9 +63,14 @@
             	</div>
             	<div class="proof">
                     <p>
-                        Suppose that \( f \) is continuous, and suppose that \( A \subseteq X \), we want to show that \( f \left( \overline{ A } \right) \subseteq \overline{ f \left( A \right)  }  \), we start by assuming that \( p \in f \left( \overline{ A } \right)  \), which means that \( p = f \left( a \right)  \) where \( a \in A \), we now want to prove that \( p \in \overline{ f \left( A \right)  } \), one way of going about this <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">would be to show </a>that every <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-neighborhood">neighborhood</a> of \( p \) intersections, which we will do.
+                        Suppose that \( f \) is continuous, and suppose that \( A \subseteq X \), we want to show that \( f \left( \overline{ A } \right) \subseteq \overline{ f \left( A \right)  }  \), we start by assuming that \( p \in f \left( \overline{ A } \right)  \), which means that \( p = f \left( a \right)  \) where \( a \in \overline{ A } \), we now want to prove that \( p \in \overline{ f \left( A \right)  } \), one way of going about this <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">would be to show </a>that every <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-neighborhood">neighborhood</a> of \( p \) intersects \( f \left( A \right)  \), which we will do.
                     </p>
-                    
+                    <p>
+                        So let \( V \) be a neighborhood of \( p \), by definition we know \( V \subseteq Y \), then we know that \( f ^ { -1 } \left( V \right)  \) is an open set since \( f \) is continuous, since \(p = f \left( a \right)  \), then \( V \) is also a neighborhood of \( f \left( a \right)  \), therefore clearly \( f \left( a \right) \in V  \), that is \( a \in f ^ { -1 } \left( V \right)  \).
+                    </p>
+                    <p>
+                        We assumed that \( a \in \overline{ A } \), which is equivalent to every neighborhood of \( a \) intersecting \( A \), we know that \( f ^ { -1 } \left( V \right)  \) is an open set containing \( a \), which makes it a neighborhood of \( a \), and thus it must intersect with \( A \) at some point \( b \), then \( f \left( b \right) \in V \), at the same time we know that \( b \in A \) as well, so that \( f \left( b \right) \in f \left( A \right)   \), thus \( f \left( b \right) \in V \cap f \left( A \right)  \) showing that the neighborhood intersects \( f \left( A \right)  \), therefore this shows that \( p \in \overline{ f \left( A \right)  } \), as needed.
+                    </p>
             	</div>
             </div>
             
