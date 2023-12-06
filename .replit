@@ -1,4 +1,5 @@
 hidden=[".config"]
+modules = ["python-3.10:v25-20230920-d4ad2e4"]
 
 # hosting is currently hardcoded for this language
 # [hosting]

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Linear Regression</title>
+
+  <link rel="stylesheet" href="/styles/styles.css">
+  <script src="/js/script.js" defer></script>
+
+</head>
+
+<body>
+  <div class="thin-wrapper">
+
+    <!-- 
+  Write what you did for the night here, and I'll commit with this message when I get back:
+
+  
+  ccn: added link to linear regression page, created graphic, helped write example, figrued out connections between 1x1 matrices and real numbers (check whiteboard for that)
+  
+  jy: formally defined linear regression model, motivated loss/cost functions, defined optimal w and b
+  
+  nk: Made an example for linear regression, drew out proof for chain rule using binomial theorem on white board... next time will continue chain rule definition
+  -->
+
+    <h1>Linear Regression</h1>
+
+    <h2>Introduction</h2>
+
+    \(
+    \def\R{{\mathbb{R}}}
+    \def\N{{\mathbb{N}}}
+    \def\bold#1{{\bf #1}}
+    \)
+
+    <p>
+      Before getting started with linear regression, let's brings things down to a simpler level, let's say you had some
+      graph paper and and a bunch of dots on it, if you wanted to draw a line that best approximates the location of all
+      the points, mentally you could probably do this by seeing which areas
+    </p>
+
+    <div class="centered-content">
+      <img src="graphics/line_of_best_fit.jpg" alt="Line of best fit" width="500">
+    </div>
+
+    <p>
+      Line of best fit is a function which is plotted to minimize a distance between data points, with the aim of
+      closely approximating the data set.
+      It is often used to show a trend / correlation between a dependant variable and an independant variable.
+      In terms of linear regression, when working in \( \R^2 \), it is in the form: \(y = mx + b \)
+    </p>
+
+    <h2>Generalized</h2>
+
+    <div>
+      <p>
+        Suppose that \( N, D \in \N \), where \(D \) is used to represent the dimension of our input of and \( N \) is
+        the number of data points in the dataset. Then given a dataset \( \mathcal{D} = \{(\textbf{x}^{(1)}, y^{(1)}),
+        \ldots, (\textbf{x}^{(N)}, y^{(N)})\} \subseteq \R^D \times \R \) <b>the goal of linear regression</b> is to
+        find a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f :
+        \R^D \rightarrow \R \) of the form \( f(\textbf{x}) = \textbf{w}\cdot\textbf{x} + b \),
+        where \( \textbf{w} \in \R^D \) and \( b \in \R \) (note that here we're combining the two vectors using the <a
+          class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">dot product</a>) that best
+        represents our dataset (we will get to that soon).
+      </p>
+      <p>
+        <!-- Each \( (\textbf{x}^{(i)}, y^{(i)}) \) represents a data point, where \( \textbf{x}^{(i)} \) contains the <i>features</i> describing that data point and \( y^{(i)} \) is the <i>label</i> we want to predict. -->
+
+      <details>
+        <summary>Example</summary>
+        <fieldset>
+          <legend>Apple Growing</legend>
+          <p>
+            <b>Example:</b> Suppose that \( D = 2 \), and that \( N = 5 \), and that we're modelling the situation where
+            a point \( (x, y) \in \R^2 \) is composed of \(x \), which represents the number of years since 2005, and
+            the \( y \) represents the average temperature (in celcius) of your local city, then the 3rd component is
+            the number of apples that you grown that year. The plane of best fit would show a trend if there is a
+            correlation between the number of years since 2005, the average temperature, and the number of apples grown.
+          </p>
+
+          <p>
+            In this situation our dataset could look like : \( \mathcal{D} = \{((1,20),7), ((3,18),3), ((2,25),8),
+            ((5,19),12), ((7,24),15)\} \subset \R^2 \times \R \)
+          </p>
+          Our goal is to write a function \(f(x) = w \cdot x + b\) (by picking values for \(w \in \R^D \) and \( b \in
+          \R \)) where this function takes in a a year since 2005, the average temperature in the local city, and
+          predicts the number of apples that should be grown that year.
+          <p>
+        </fieldset>
+
+      </details>
+
+      <p>
+        Here \( f \) is parameterized by \( \textbf{w} \) and \( b \), where \( \textbf{w} \) is called the
+        <i>weights</i> of \( f \), and \( b \) is called the <i>bias</i> of \( f \). Different \( \textbf{w} \) and \( b
+        \) will lead to different \( f \), so we want to find \( \textbf{w} \) and \( b \) that will lead to \( f \)
+        representing the dataset in the "best" way possible. To quantify how well \( f \) represents the dataset, we can
+        define a <i>loss function</i> \( \mathcal{L} : \R \times \R \rightarrow \R \).
+      </p>
+
+      <p>
+        In the case of linear regression, a common loss function is the <i>squared error</i>, which is defined as:
+        \[ \mathcal{L}(\hat{y}, y) = \frac{1}{2}(\hat{y} - y)^2 \]
+        Intuitively, the squared error measures the difference between the predicted label, denoted \( \hat{y} \), where
+        \( \hat{y} = f(\textbf{x}) \), and the actual label, denoted \( y \), which is then squared and halved for the
+        sake of computational convenience during differentiation. If \( \hat{y} \) is close to \( y \), then the squared
+        error is small, and if \( \hat{y} \) is far from \( y \), then the squared error is large. So, the squared error
+        can be interpreted as a measure of how poorly \( f \) predicted \( y \). Furthermore, because of the exponent,
+        the squared error exaggerates how poorly \( f \) predicted \( y \) when the difference between them is large. We
+        can calculate the <i>mean squared error</i> over all data points in the dataset to measure how poorly \( f \)
+        predicted all \( y \).
+      </p>
+      <p>
+        Naturally, the best \( \textbf{w} \) and \( b \) will be the ones that yield the smallest mean squared error.
+        Although not always possible, we can analytically compute the optimal \( \textbf{w} \) and \( b \) when using
+        the mean squared error.
+      </p>
+
+      <p>
+        For convenience, we can represent \( \mathcal{D} \) as a <i>design matrix</i>, denoted \( \textbf{X} \), defined
+        as follows.
+        \begin{bmatrix}
+        x_1^{(1)} & x_2^{(1)} & \cdots & x_D^{(1)} \\
+        x_1^{(2)} & x_2^{(2)} & \cdots & x_D^{(2)} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        x_1^{(N)} & x_2^{(N)} & \cdots & x_D^{(N)}
+        \end{bmatrix}
+
+      </p>
+
+      <!-- TODO: insert derivation -->
+      \begin{align}
+      A & = B \\
+      & = C
+      \end{align}
+
+      <p>
+        If an analytical solution is not available, then we can use iterative techniques like gradient descent to
+        compute the best \( \textbf{w} \) and \( b \).
+        <!-- TODO: link to gradient descent -->
+      </p>
+
+      </p>
+
+
+
+    </div>
+
+
+  </div>
+</body>
+
+</html>
