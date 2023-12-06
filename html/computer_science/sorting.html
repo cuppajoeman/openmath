@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>computer science</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+</head>
+
+<body>
+<div class="thin-wrapper">
+    <h1>Sorting</h1>
+
+    <fieldset>
+        <legend>insertion_sort(A)</legend>
+        <ul>
+            <li>for fpi in (2 .. A.length) // fpi: fixed pivot index</li>
+            <ul>
+                <li>fp &larr; A[fpi]</li>
+                <li>mci &larr; fp_index - 1 // mci: moving comparison index</li>
+                <li>mciir &larr; mci > 0 // mciir: mci in range</li>
+                <li>cnib &larr; A[mci] > fp // cnib: compared number is bigger</li>
+                <li>while mciir and cnib</li>
+                <ul>
+                    <li>A[mci + 1] &larr; A[mci]</li>
+                    <li>mci &larr; mci - 1</li>
+                    <li>mciir &larr; mci > 0</li>
+                    <li>cnib &larr; A[mci] > fp</li>
+                </ul>
+                <li>A[mci + 1] &larr; fp</li>
+            </ul>
+        </ul>
+    </fieldset>
+
+    <h2>Objects</h2>
+    <p>
+        An object can be represented in mathematics as a function, for example in programming we could call a function like this <code>name_string.to_uppercase()</code>, which returns the string in uppercase, we also know that <code>name_string.to_uppercase</code> refers to a function to be called, so we can represent this by the function call \( f \left( \mathtt{name\_string}, \mathtt{to\_uppercase} \right)  \), which then returns the function that makes it uppercase. Additionally we can consider \( f \) as a binary operation and use the \( . \) symbol in place for it, which yields \( \mathtt{name\_string.to\_uppercase} \)
+    </p>
+
+    <p>
+        That is to say, when an object is instantiated, are given a variable name, then we have a list of attributes \( A \) and we have. No no no, instead of doing it this way go from the code to the math.
+    </p>
+
+    <ol>
+        <li>fpi = 2</li>
+        <li>mci = 1</li>
+        <li>mciir = true</li>
+        <li>while true</li>
+    </ol>
+
+    <p>
+        Along with an execution point,
+    </p>
+
+    <p>
+        Suppose that \( ct \) represents the time at the current line, if the content of the line is "x &larr; y", then this means \( x ~@~ ct = y ~@~ ct \)
+    </p>
+    
+    <div class="definition" id="definition-tuple-replacement-at-index">
+    	<div class="title">Tuple Replacement at Index</div>
+    	<div class="content">
+    		The tuple replacement at index function is a system of functions as follows. Suppose that \( T \) is a set, and then we have \( T ^ n \), then the tuple replacement at index function is a function of the form \( \operatorname{ replace } \left( \mathrm{ tuple }  , \mathrm{ index }  , \mathrm{ replacement\_value }   \right) : ( T ^ n \times [n] \times  T ) \rightarrow T ^ n \), defined as follows
+            \[
+                \operatorname{ replace } \left( \mathrm{ tuple }, \right)
+            \]
+    	</div>
+    </div>
+    
+
+    <p>
+        Suppose that \( A \) is an \( n \)-tuple and that the content of the current line is \( A [ i ] = x \), where \(  i \in [n] \) then this is interpreted as \( A_{ct} \) 
+    </p>
+
+    For completion's sake we
+
+    At the start of each iteration of the for loop of lines 1 to 8, the subarray A[1 .. j - 1] consists of the elements originally in A[1 .. j - 1], but in sorted order
+
+    Let \( T = \operatorname{ line\_num } ^ { -1 }  \left( \left\{ 1 \right\} \right)  \) be the collection of times that the current line to be executed is equal to line 1. Let \( t \in  T \)  then we claim \( A[1 \ldots  j - 1] \) is sorted at time \( t \)
+
+
+</div>
+</body>

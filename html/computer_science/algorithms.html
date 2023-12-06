@@ -8,10 +8,132 @@
     <title>Algorithms</title>
     <link rel="stylesheet" href="../styles/styles.css">
     <script src="/js/script.js" defer></script>
+
 </head>
 
 <body>
 <div class="thin-wrapper">
+
+    <h1>Algorithms</h1>
+
+    <h2>What are they?</h2>
+
+    <p>
+        An algorithm is a procedure/method of doing something.
+    </p>
+
+    <p>
+        An example of an algorithm could be the procedure of following the rules of a game like monopoly, how to engage the back window shield wiper of your car, how to perform long division, baking a cake or the original euclidean algorithm. All the algorithms we just mentioned are designed so that a human can perform it.
+    </p>
+
+    <h2>Computer Algorithm</h2>
+
+    <p>
+        A computer algorithm, which we will now refer to as a program, is an algorithm, that directly has no effect on the physical world. For example a few human algorithms have this property, such as performing long division or the euclidean algorithm indeed performing this algorithms will not have a direct effect on the physical world, but it may have applications to the real world or effect it indirectly such as using long division to figure out quantities while baking your cake.
+    </p>
+
+    <p>
+        Also when we speak of computer algorithms we are also specifying complexity. To understand what I mean here consider the algorithm of sorting a list and then consider a game engine, while these two objects may seem different the game engine simply follows a series of steps over and over just like the sorting algorithm, in a way they are both algorithms.
+    </p>
+
+    <p>
+         But for some reason we called it a game engine... not a game algorithm. The reason why we've done this is that as humans we like to organize complexity or we get overwhelmed, and the word we've ended up associating with small easily understandable procedures is the word "Algorithm", when the procedure get's large enough and is solving a complicated enough problem it then usually becomes known as a system/engine/library/framework/experiences etc...
+    </p>
+
+    <h2>Computers</h2>
+
+    <p>
+        Additionally a computer algorithm is run on a computer, if we compare a computer to a human we can see that it is a very handy side kick, as it is able to store information over long periods of time (similar to long term memory), it can store smaller quantities of information which can be retrieved quickly (short term memory), and can perform arithmetic operations, in each one of these areas the computer can do the tasks way faster than a human could.
+    </p>
+
+    <p>
+        One way we can see this in action is through the euclidean algorithm, which is an algorithm and at the time it was created in a way such that a human could perform it to get an answer, the requirement of being able to do this algorithm was that you could hold previous answers in your head for some time so that you can use them in later steps, or if you have trouble with memory you could use a medium to transfer information to and then it could be looked back up at a later time in the algorithm such as pencil and paper.
+    </p>
+
+    <p>
+        A computer can do this too, using its RAM for quick memory storage, and the ALU on it's CPU to do arithmetic operations, since it can do these operations quickly it is able to do the euclidean algorithm on numbers that would take years for humans to do.
+    </p>
+
+    <p>
+        The fact that computers have this speed advantage of humans is why these algorithms are so important. The speed difference between the brain and the computer opens up many new problems and situations to be solved that were computationally infeasible for humans to do.
+    </p>
+
+    <h2>Why</h2>
+
+    <p>
+        We mentioned previously that computer algorithms have no effect on the real world directly, but can do so indirectly. The reason that is true is because they solve small problems which are usually not of interest of most humans, but when applied to information that they are interested in it suddenly can have a real world effect.
+    </p>
+
+    <p>
+        Additionally our world is a complex system and so some algorithms pale in comparison and don't seem worth our time, but larger and more complex computer systems are composed up of small algorithms and thus they are the building blocks to systems that do impressive things and capture our attention.
+    </p>
+
+    <h2>Programming</h2>
+
+    <p>
+        While programming, you'll be working at a certain level, the base level is the computer's hardware, and the next level above that is machine code, then we have assembly, C, Java/C++/Python etc... At each level what you consider an algorithm may be different, perhaps while writing assembly simply adding two numbers could be an algorithm as you have to interact with the computers registers directly.
+    </p>
+
+    <p>
+        Now working with C, you want to concatenate two strings together, in order to do this you have to understand what pointers are and at least have some understanding that your computer has memory and then you might use the built in <code>strcat</code> function. This shows us that there is an algorithm already built into the language that allows us to concatenate two strings, and so we don't have to write that algorithm ourself, but that it does exists somewhere.
+    </p>
+
+    <p>
+        Through these examples notice that what constitutes an algorithm is complexity at a certain <i>level</i>, so in order to recognize something as an algorithm you'll have to first know what level you're working at, which should be clear based on what language you're using.
+    </p>
+
+    <fieldset>
+        <legend>insertion_sort(A)</legend>
+        <ul>
+            <li>for fpi in (2 .. A.length) // fpi: fixed pivot index</li>
+            <ul>
+                <li>fp = A[fpi]</li>
+                <li>mci = fp_index - 1 // mci: moving comparison index</li>
+                <li>mciir = mci > 0 // mciir: mci in range</li>
+                <li>cnib = A[mci] > fp // cnib: compared number is bigger</li>
+                <li>while mciir and cnib</li>
+                <ul>
+                    <li>A[mci + 1] = A[mci]</li>
+                    <li>mci = mci - 1</li>
+                </ul>
+                <li>A[mci + 1] = fp</li>
+            </ul>
+        </ul>
+    </fieldset>
+
+    <p>
+        The first thing to notice is that a program is similar to the definition of a proof, it is a finite sequence of lines that produce something of interest. It also looks similar to a function as it has an input.
+    </p>
+
+    <p>
+        Another thing it has in common with proofs are that it uses the concept of time, as we read the program from top to bottom it goes through different states.
+    </p>
+
+    <h2>Proofs</h2>
+
+    <p>
+        The world of proofs is quite different from reality, this can first be noticed when you find out about proof by contradiction, for example suppose we assumed that \( x = 3 \), and then later on the proof we find out that \( x = 4 \), then we would exclaim this situation is impossible because we cannot have \( x = 3 \)  and \( x = 4 \) at the same time because then \( 3 = 4 \), which is false.
+    </p>
+
+    <p>
+        Now consider you have a piggy bank in your house with some money, and it initially contained 3 dollars at the start of the day and at the end of the day it contains 4 dollars, you might be confused (and maybe even a little happy) but this is certainly not an impossible situation, as during the time you were out maybe someone was feeling a little generous snuck in and put a dollar in the bank.
+    </p>
+
+    <p>
+        The reason why the proof situation and the real life situation differ, is through the concept of time, in the proof example time seems to be frozen in a current moment, where no information is able to change, if we apply this freeze to real life, then indeed looking in your piggy bank and simultaneously seeing 3 coins and 4 coins in the bank would be an impossible situation.
+    </p>
+
+    <p>
+        Though in a way a proof is not frozen in time, as we follow a proof over time, reading it sequentially line by line. It's just that whenever new information is derived, it stays true for all time, so that when we assume that \( x = 3 \) it stays true from now on out until the end of this proof.
+    </p>
+
+    <div class="definition" id="definition-finite-storage-medium">
+    	<div class="title">Finite Storage Medium</div>
+    	<div class="content">
+    		A finite storage medium of size \( n \) is a an element
+    	</div>
+    </div>
+
 
     <div class="definition" id="definition-array">
     	<div class="title">Array</div>
@@ -27,7 +149,13 @@
     	</div>
     </div>
 
-
+    <div class="definition" id="definition-algorithm">
+    	<div class="title">Algorithm</div>
+    	<div class="content">
+    		An algorithm is a finite ordered set of strings denoted as lines, along with a function \( \operatorname{ line\_num } : \mathbb{ N } \rightarrow \mathbb{ N } \)
+    	</div>
+    </div>
+    
 
 </div>
 </body>
