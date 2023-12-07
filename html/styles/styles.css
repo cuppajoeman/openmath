@@ -238,6 +238,7 @@ fieldset>legend>h1 {
 }
 
 /* add a tombstone to the end of every opened proof */
+/* TODO this no longer works, so figure out a way we can re-do this functionality */
 .proof details[open]::after {
     content: "□";
     text-align: right;

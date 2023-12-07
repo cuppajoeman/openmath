@@ -40,19 +40,34 @@
 		</div>
 
 		<div class="definition" id="definition-image-of-a-set">
-			<div class="title">image of a set</div>
+			<div class="title">Image of a Set</div>
 			<div class="content">
 				Let \( f: X \to Y \) be a function and \( S \subseteq X \), then \( f{\left ( S \right )} := \left \lbrace y \in Y : y = f{\left ( s \right )} , \text{ for some } s \in S \right \rbrace \)
 			</div>
 		</div>
 		
-
 		<div class="definition" id="definition-inverse-image-of-a-function">
 			<div class="title">Inverse Image of a Function</div>
 			<div class="content">
 				Suppose \( f{:} X \to Y \) and \( U \subseteq Y \), then \( f^{- 1}{\left ( U \right )} := \left \lbrace x \in X : f{\left ( x \right )} \in U \right \rbrace \) 
 			</div>
 		</div>
+		
+		<div class="proposition" id="proposition-inverse-image-of-the-range-is-the-domain">
+			<div class="title">Inverse Image of The Range is The Domain</div>
+			<div class="content">
+				Suppose that \( f \) is a function, then
+				\[
+					f ^ { -1 } \left( \operatorname{ ran } \left( f \right)  \right) = \operatorname{ dom } \left( f \right)
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					\( x \in f ^ { -1 } \left( \operatorname{ ran } \left( f \right) \right)\) iff \( f \left( x \right) \in \operatorname{ ran } \left( f \right) \) iff  \( x \in \operatorname{ dom } \left( f \right)  \) <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">by definition</a>
+				</p>
+			</div>
+		</div>
+		
 		
 		<div class="proposition" id="proposition-union-factors-through-inverse-image">
 			<div class="title">Union Factors through Inverse Image</div>
@@ -68,25 +83,117 @@
 				</p>
 			</div>
 		</div>
+
+		<div class="proposition" id="proposition-set-difference-factors-through-inverse-image">
+			<div class="title">Set Difference Factors through Inverse Image</div>
+			<div class="content">
+				Suppose that \( f: X \rightarrow Y \), and that \( A, B \subseteq Y \), then 
+				\[
+				    f ^ { -1 } \left( A \setminus B \right) = f ^ { -1 } \left( A \right) \setminus f ^ { -1 } \left( B \right)
+				\]
+			</div>
+			<div class="proof">
+				\( x \in f ^ { -1 } \left( A \setminus B \right) \) iff \( f \left( x \right)  \in A \setminus B \) iff \( f \left( x \right) \in A \) and \( f \left( x \right) \notin B \), iff \( x \in f ^ { -1 } \left( A \right)  \) and \( x \notin f ^ { -1 } \left( B \right)  \), iff \( x \in f ^ { -1 } \left( A \right) \setminus f ^ { -1 } \left( B \right)  \), as needed.
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-intersection-factors-through-inverse-image">
+			<div class="title">Intersection Factors through Inverse Image</div>
+			<div class="content">
+				\( f ^ { -1 } \left( \bigcap \mathcal{ M } \right) = \bigcap \left\{ f ^ { -1 } \left( M \right): M \in \mathcal{ M }  \right\}  \)
+			</div>
+			<div class="proof">
+				<p>
+					We can observe that \( p \in f ^ { -1 } \left( \bigcap \mathcal{ M } \right)  \), <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">if and only if</a> \( f \left( p \right) \in \bigcap \mathcal{ M }  \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">iff</a> for every \( M \in \mathcal{ M } \) we have \( f \left( p \right) \in M \) iff \( p \in f ^ { -1 } \left( M \right)  \) (still for each \( M \in \mathcal{ M } \) ) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">so that</a> \( p \in \bigcap \left\{ f ^ { -1 } \left( M \right) : M \in \mathcal{ M } \right\}\) as needed.
+				</p>
+				<p>
+					Since all the logical connectives in the above proof are iff's then <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set-equality">this shows</a> the two sets equal
+				</p>
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-image-of-the-inverse-image">
+			<div class="title">Image of the Inverse Image</div>
+			<div class="content">
+				Suppose that \( f: X \rightarrow Y \) is a function, and that \( S \subseteq Y \), then
+				\[
+				f \left( f ^ { -1 } \left( S \right)  \right) \subseteq S
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					Let \( p \in f \left( f ^ { -1 } \left( S \right)  \right) \), therefore \( p = f \left( x \right)  \) where \( x \in f ^ { -1 } \left( S \right)  \), therefore \( f \left( x \right) \in S \) as needed.
+				</p>
+			</div>
+		</div>
+
+		<p>
+			Note that the above proposition is not equality, consider the function \( f: X \rightarrow \left\{ 0, 1 \right\} \) defined as \( f \left( x \right) = 0  \) for every \( x \in X \), then \( f \left( f ^ { -1 } \left( \left\{ 0, 1 \right\} \right)  \right) = \left\{ 0 \right\}  \).
+		</p>
+		
+		<div class="definition" id="definition-invertible">
+			<div class="title">Invertible Function</div>
+			<div class="content">
+				Let \( f: X \rightarrow Y \) be a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a>, then \( f \) is said to be <b>invertible</b> if there exists a function \( g: Y \rightarrow X \) such that \( g \left( f \left( x \right)  \right) = x  \) for every \( x \in X \) and \( f \left( g \left( y \right)  \right) = y \) for every \( y \in Y \)
+			</div>
+		</div>
+
+		<div class="definition" id="definition-inverse-function">
+			<div class="title">Inverse Function</div>
+			<div class="content">
+				Suppose that \( f \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">invertible</a>, then there is a function \( g \) satifying said properties, then we define the notation \( f ^ { -1 } := g \) and say that \( f ^ { -1 } \) is the inverse function of \( f \)
+			</div>
+		</div>
+
+
+		<p>
+			Note that this seems quite similar to the <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">inverse image notation</a>, which looks like \( f ^ { -1 } \left( S \right)  \) where \( S \subseteq Y \), note that they differ as the inverse image is a function from <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-power-set">\( P \left( Y \right)  \)</a> to \( P \left( X \right)  \), so it is a function that maps sets to sets.
+		</p>
+
+		<p>
+			This differs from the inverse of a function because it operates on individual elements of \( Y \), so we may write things like \( f ^ { -1 } \left( s \right)  \) where \( s \in Y \), noting that \( f ^ { -1 } : Y \rightarrow X \).This idea of using the same notation for a function, but having the type of it's parameters be different is usually known as <i>overloading</i> in the world of programming.
+		</p>
+
+		<p>
+			If this is your first brush with notation overloading, then know that it can be confusing, but all confusion can be cleared by inspecting what the inputs are to the function. This should remind you that a function is not just a name, it's signature is given by it's name, input types and return type. To see if you really understand this, answer the following exercise.
+		</p>
+		
+		<div class="exercise" id="exercise-inverse-image-of-the-inverse-function-is-the-image">
+			<div class="title">Inverse Image of the Inverse Function is the Image</div>
+			<div class="content">
+				Let \( f: X \rightarrow Y \) and assume that it's inverse exists \( f ^ { -1 } : Y \rightarrow X \) and let \( S \subseteq Y \)  show that:
+				\[
+				    \left( f ^ { -1 } \right) ^ { -1 } \left( S \right) = f \left( S \right) 
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					Suppose that \( p \in \left( f ^ { -1 } \right) ^ { -1 } \left( S \right) \), by definition this is only true when \( f ^ { -1 } \left( p \right) \in S \), so \( f ^ { -1 } \left( p \right) = s \) for some \( s \in S \), <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">equivalent</a> to \( p = f \left( s \right)  \), which is true if and only if \( p \in f \left( S \right)  \).
+				</p>
+				<p>
+					All logical connectives in the above proof are iff's therefore <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set-equality">we've shown</a> the two sets equal.
+				</p>
+			</div>
+		</div>
 		
 
-		
 		<div class="definition" id="definition-injective-function">
-			<div class="title">injective function</div>
+			<div class="title">Injective Function</div>
 			<div class="content">
 				a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( f{:} X \to Y \) is injective iff \( \forall x , y \in X , f{\left ( x \right )} = f{\left ( y \right )} \implies x = y \)
 			</div>
 		</div>
 
+
 		<div class="definition" id="definition-surjective-function">
-			<div class="title">surjective function</div>
+			<div class="title">Surjective Function</div>
 			<div class="content">
 				a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( f{:} X \to Y \) is surjective iff \( \forall y \in Y , \exists x \in X \text{ such that } f{\left ( x \right )} = y \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-bijective-function">
-			<div class="title">bijective function</div>
+			<div class="title">Bijective function</div>
 			<div class="content">
 				a function is bijective iff it is <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-surjective-function">surjective</span> and <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-injective-function">injective</span>
 			</div>
@@ -98,9 +205,8 @@
 				Suppose that \( A , B , C \) are sets, and that \( f{:} A \to B , g{:} B \to C \) are functions, then we define \( g \circ f{\left ( x \right )} := g{\left ( f{\left ( x \right )} \right )} \) for any \( x \in A \), so that \( g \circ f : A \to C \)
 			</div>
 		</div>
-		
 
-		<div class="proposition" id="proposition-composition-of-two-bijective-funcitons-is-bijective">
+		<div class="proposition" id="proposition-composition-of-two-bijective-functions-is-bijective">
 			<div class="title">composition of two bijective functions is bijective</div>
 			<div class="content">
 				Suppose \( A , B , C \) are non-empty sets and \( f{:} A \to B , g{:} B \to C \) are functions, and that \( g{\circ} f{:} A \to C \) is a function. Then if \( f \) and \( g \) are <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-bijective-function">bijective</span> then \( g{\circ} f \) is also bijective.
