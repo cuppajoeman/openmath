@@ -9,72 +9,174 @@
 
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer></script>
-
     
 
 </head>
 
 <body>
     <div class="thin-wrapper">
-        <div class="exercise">
-            <div class="title">painting</div>
-            <div class="content">
-                Color each natural number \( \mathbb{N}^{> 1} \) one of two colors. Show that, for each \( n \in \mathbb{N} \), there are natural numbers \( a , b > n \) such that \( a \), \( b \), \( a + b \) are all the same color.
-            </div>
-        </div>
 
+      <h1>Combinatorics</h1>
+
+       <div class="definition" id="definition-cardinality-of-a-finite-set">
+         <div class="title">Cardinality of a Finite Set</div>
+         <div class="content">
+           Whenever a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> \( S \) has \( k \in \mathbb{N}_0 \) elements, then we write \( | S | = k \), and say that's \( S \)'s cardinality is \( k \)
+         </div>
+       </div>
+      
+      
+      <div class="proposition" id="proposition-cardinality-of-the-cartesian-product" >
+        <div class="title">Cardinality of the Cartesian Product</div>
+        <div class="content">
+          When you have a set \( X \) where we know that <a class="knowledge-link" href="/combinatorics/combinatorics.html#definition-cardinality-of-a-finite-set"> \( | X | = k \)</a>, then 
+          \[
+          | X ^ n | = k ^ n
+          \]
+
+          Note that \( X^n \) is the <a class="knowledge-link" href="/fundamentals/sets/cartesian_product.html#definition-cartesian-product">cartesian product</a> of \( X \) with itself \( n \) times
+        </div>
         <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                <details>
-                    <summary>details</summary>
-                    <p>
-                        The exercise claims that given any painting of \( \mathbb{N} \) the statement holds. We will continue with a proof by contradiction, first assuming that there is a specific painting of \( \mathbb{N} \) where the rest of the statement does not hold
-                    </p>
-                    <p>
-                        If the rest of the statement doesn't hold, then that means that there is some integer \( n \in N \) such that given any \( a , b \) greater than \( n \), then \( a , b , a + b \) are not all the same color \( \left ( \alpha \right ) \).
-                    </p>
-                    <hr>
-                    <p>
-                        Before we continue, let's think about how \( \mathbb{N}^{\gt n} \) is forced to be painted, for our example, let's consider the two colors being white and black.
-                    </p>
-                    <p>
-                        Given two numbers \( x < y \in \mathbb{N}^{\gt n} \), if they are both black, then we know that \( x + y \) must be white, or else we would have a contradiction with \( \left ( \alpha \right ) \). Additionally suppose all numbers between them are white and that \( y - x \ge 3 \) and , then if that's the case we would also get a contradiction as then \( \left ( x + 1 \right ) , \left ( y - 1 \right ) \) would both be white, forcing \( x + 1 + y - 1 = x + y \) to be black by \( \left ( \alpha \right ) \), but x + y is either black or white not both, this is a contradiction, so assuming still that all numbers between \( x , y \) are white, then we must know that \( y - x \le 2 \) \( \left ( \beta \right ) \) by that very contradiction
-                    </p>
-                    <p>
-                        This means given any two \( x < y \in \mathbb{N}^{\gt n} \) that are black, if all numbers between the two are white, then \( y - x \le 2 \) meaning that there is at most one other white number between the two of them. We could also redo the above argument exchanging the words white and black, which would convince you that between any two white numbers, there is at most one black number.
-                    </p>
-                    <p>
-                        Therefore due to this, we can see that there are 3 possible situations, paintings of \( \mathbb{N}^{\gt n} \) either it eventually is all black, all white, or it is alternating white and black. We can see this is true as follows, suppose at some \( k \ge n \) we know that \( k \) is white \( \left ( \gamma \right ) \)
-                        <ol>
-                            <li>if for all \( l > k \) \( l \) is white, then it is eventually all white</li>
-                            <li>
-                                if there is a point at which we can find a black number, then consider \( p \) to be the first black number after \( k \)
-                                <ol>
-                                    <li>
-                                        if \( p + 1 \) is also black, then \( p + 2 \) cannot be white because then \( k \) and \( p + 2 \) would both be white and \( \left ( p + 2 - k \right ) \ge 3 \) which would contradict \( \left ( \beta \right ) \), by iterating this argument we can see the the rest of the numbers would be black or we would get the same contradiction
-                                    </li>
-                                    <li>
-                                        if \( p + 1 \) is white, then go back to \( \left ( \gamma \right ) \) and repeat the argument with \( k = p + 1 \)
-                                    </li>
-                                </ol>
-                            </li>
-                        </ol>
-                        Thus we can see the that eventually the above argument hits (1) or (2.2) in which we can determine the eventually it is all black or all white, otherwise the argument repeats forever hitting (2.1) which implies that the sequence eventually alternates. 
-                    </p>
-                    <p>
-                        Let \( c \) be the point at which it becomes all white, all black, or alternates forever.
-                    </p>
-                    <hr>
-                    <p>
-                        If \( \mathbb{N}^{\gt c} \) is eventually all white, then we'd have a contradiction since for any \( a , b \in \mathbb{N}^{\gt c} \), then \( a , b , a + b \in \mathbb{N}^{\gt c} \) are all white, which contradicts \( \left ( \alpha \right ) \), the same argument shows it cannot be all black either.
-                    </p>
-                    <p>
-                        Suppose that \( \mathbb{N}^{\gt c} \) is alternating white and black, then let \( a \in \mathbb{N}^{\gt c} \) and let \( b = a + 4 \) be two black numbers. By \( \left ( \alpha \right ) \) we know that a + b cannot be black, so it must be white. But then \( a + 1 , b - 1 \) are both white, so by \( \left ( \alpha \right ) \) \( a + 1 + b - 1 = a + b \) must be black, which is a contradiction.
-                    </p>
-                </details>
-            </div>
+          
         </div>
+      </div>
 
+      <p>
+        Consider the case when we are working with the set \( \{x, y \} \), then \( | \{x, y \} ^ n| =  2^n\) as the set has a cardinality of 2
+      </p>
+      
+       <div class="definition" id="definition-n-tuple-product">
+         <div class="title">n Tuple Product</div>
+         <div class="content">
+           Let \(n \in \mathbb{N} \) suppose that \( (t_1, t_2, \ldots, t_n) \in \mathbb{R} ^ n \), then we define \( \mathrm{tup\_prod} : \mathbb{R}^n \to \mathbb{R} \) as
+           \[
+             \prod _ { i = 1} ^ n t_i
+           \]
+         </div>
+       </div>
+      
+      <div class="theorem" id="theorem-" >
+        <div class="title">The Power of the Sum of Two Numbers is the Sum of all Combinations</div>
+        <div class="content">
+          We assert that 
+          \[ 
+            (x + y)^n = \sum _ {a \in \{x, y \} ^ n} \mathrm{tup\_prod} (a)
+          \]
+          here we've used the <a class="knowledge-link" href="/combinatorics/combinatorics.html#definition-n-tuple-product">definition of \( \mathrm{tup\_prod} \)</a>
+        </div>
+        <div class="proof">
+        </div>
+      </div>
+
+      <!-- TODO add definition of factorial  -->
+       <div class="definition" id="definition-factorial">
+         <div class="title">Factorial</div>
+         <div class="content">
+           The factorial function a unary function \( ! : \mathbb{ N } _0  \rightarrow \mathbb{ N } _0 \). We define it as follows by define \( 0! = 1\) and for any \( n \in \mathbb{ N } _ 1 \), we define 
+           \[ 
+             n! = n \cdot (n-1)! 
+           \]
+           By expanding this recursive definition, you can get back that \( n! = n \cdot (n - 1) \cdot \cdots 1 \) 
+         </div>
+       </div>
+
+      <div class="definition" id="definition-n-choose-k">
+        <div class="title">n Choose k</div>
+        <div class="content">
+           Given \( n, k \in \mathbb{N} \), then we define
+          \[
+            { n \choose k } := \frac{n!}{k!(n-k)!}  
+          \]
+
+          Note: This formula calculates the number of possible arrangements of n items among k items, where order does not matter.
+        </div>
+      </div>
+
+      <div class="theorem" id="theorem-binomial-theorem" >
+        <div class="title">Binomial Theorem</div>
+        <div class="content">
+          When you have \( (a+b)^n \), it can be written as 
+          \[
+            \sum_{i = 0}^n {n \choose i } \cdot a^{n-i} \cdot b^i
+          \]
+        </div>
+        <div class="proof">
+          <p>
+            An easy way to see this formula's truth is through the following example \( (x + y)^3 = (x+y)(x+y)(x+y)\). Expanding out, through the distributive property, we get 
+            \[
+              xxx + xxy + xyx + xyy + yxx + yxy + yyx + yyy
+            \]
+            Collecting like terms, this simplifies to: \(x^3 + 3x^2y +3xy^2 + y^3\). 
+          </p>
+          <ul> 
+            <li>The coefficient on the \(x^3\) terms is the number of ways 0 \(y\)'s can be arranged in 3 variables</li>
+            <li>the coefficient on the \(x^2y\) terms is the number of ways 1 \(y\) can be arranged in 3 variables</li>
+            <li>the coefficient on the \(xy^2\) terms is he number of ways 2 \(y\)'s can be arranged in 3 variables</li>
+            <li>the coefficient on the \(y^3\) terms is the number of ways 3 \(y\)'s can be arranged in 3 variables</li>
+          </ul>
+          <p>
+             If we have \( n \) variables, and \( k \) choices, then the number of possible arrangments is given by \( n \choose k \) therefore we can write this summation as
+          </p>
+          \[ 
+            {3 \choose 0} x^3 + {3 \choose 1} x^2 y + {3 \choose 2} x y^2 + {3 \choose 3} y^3
+          \]
+        </div>
+      </div>
+      
+      <div class="exercise" id="exercise-painting">
+          <div class="title">painting</div>
+          <div class="content">
+              Color each natural number \( \mathbb{N}^{> 1} \) one of two colors. Show that, for each \( n \in \mathbb{N} \), there are natural numbers \( a , b > n \) such that \( a \), \( b \), \( a + b \) are all the same color.
+          </div>
+          <div class="proof">
+                      <p>
+                          The exercise claims that given any painting of \( \mathbb{N} \) the statement holds. We will continue with a proof by contradiction, first assuming that there is a specific painting of \( \mathbb{N} \) where the rest of the statement does not hold
+                      </p>
+                      <p>
+                          If the rest of the statement doesn't hold, then that means that there is some integer \( n \in N \) such that given any \( a , b \) greater than \( n \), then \( a , b , a + b \) are not all the same color \( \left ( \alpha \right ) \).
+                      </p>
+                      <hr>
+                      <p>
+                          Before we continue, let's think about how \( \mathbb{N}^{\gt n} \) is forced to be painted, for our example, let's consider the two colors being white and black.
+                      </p>
+                      <p>
+                          Given two numbers \( x < y \in \mathbb{N}^{\gt n} \), if they are both black, then we know that \( x + y \) must be white, or else we would have a contradiction with \( \left ( \alpha \right ) \). Additionally suppose all numbers between them are white and that \( y - x \ge 3 \) and , then if that's the case we would also get a contradiction as then \( \left ( x + 1 \right ) , \left ( y - 1 \right ) \) would both be white, forcing \( x + 1 + y - 1 = x + y \) to be black by \( \left ( \alpha \right ) \), but x + y is either black or white not both, this is a contradiction, so assuming still that all numbers between \( x , y \) are white, then we must know that \( y - x \le 2 \) \( \left ( \beta \right ) \) by that very contradiction
+                      </p>
+                      <p>
+                          This means given any two \( x < y \in \mathbb{N}^{\gt n} \) that are black, if all numbers between the two are white, then \( y - x \le 2 \) meaning that there is at most one other white number between the two of them. We could also redo the above argument exchanging the words white and black, which would convince you that between any two white numbers, there is at most one black number.
+                      </p>
+                      <p>
+                          Therefore due to this, we can see that there are 3 possible situations, paintings of \( \mathbb{N}^{\gt n} \) either it eventually is all black, all white, or it is alternating white and black. We can see this is true as follows, suppose at some \( k \ge n \) we know that \( k \) is white \( \left ( \gamma \right ) \)
+                          <ol>
+                              <li>if for all \( l > k \) \( l \) is white, then it is eventually all white</li>
+                              <li>
+                                  if there is a point at which we can find a black number, then consider \( p \) to be the first black number after \( k \)
+                                  <ol>
+                                      <li>
+                                          if \( p + 1 \) is also black, then \( p + 2 \) cannot be white because then \( k \) and \( p + 2 \) would both be white and \( \left ( p + 2 - k \right ) \ge 3 \) which would contradict \( \left ( \beta \right ) \), by iterating this argument we can see the the rest of the numbers would be black or we would get the same contradiction
+                                      </li>
+                                      <li>
+                                          if \( p + 1 \) is white, then go back to \( \left ( \gamma \right ) \) and repeat the argument with \( k = p + 1 \)
+                                      </li>
+                                  </ol>
+                              </li>
+                          </ol>
+                          Thus we can see the that eventually the above argument hits (1) or (2.2) in which we can determine the eventually it is all black or all white, otherwise the argument repeats forever hitting (2.1) which implies that the sequence eventually alternates. 
+                      </p>
+                      <p>
+                          Let \( c \) be the point at which it becomes all white, all black, or alternates forever.
+                      </p>
+                      <hr>
+                      <p>
+                          If \( \mathbb{N}^{\gt c} \) is eventually all white, then we'd have a contradiction since for any \( a , b \in \mathbb{N}^{\gt c} \), then \( a , b , a + b \in \mathbb{N}^{\gt c} \) are all white, which contradicts \( \left ( \alpha \right ) \), the same argument shows it cannot be all black either.
+                      </p>
+                      <p>
+                          Suppose that \( \mathbb{N}^{\gt c} \) is alternating white and black, then let \( a \in \mathbb{N}^{\gt c} \) and let \( b = a + 4 \) be two black numbers. By \( \left ( \alpha \right ) \) we know that a + b cannot be black, so it must be white. But then \( a + 1 , b - 1 \) are both white, so by \( \left ( \alpha \right ) \) \( a + 1 + b - 1 = a + b \) must be black, which is a contradiction.
+                      </p>
+          </div>
+      </div>
+
+      
+      
     </div>
 </body>
