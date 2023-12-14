@@ -165,21 +165,31 @@
             <div class="definition" id="definition-homeomorphism">
             	<div class="title">Homeomorphism</div>
             	<div class="content">
-            		Let \( X, Y \) be topological spaces, and let \( f: X \rightarrow Y \) be a bijection. If the function \( f \) and it's inverse function \( f ^ { -1 } : Y \rightarrow X \) are <a class="knowledge-link" href="/topology/continuous_functions.html#definition-continuous-function">continuous</a>, then \( f \) is called a <b>homeomorphism</b>
+            		Let \( X, Y \) be topological spaces, and let \( f: X \rightarrow Y \) be an <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">invertible</a> function. If \( f \) and it's inverse function \( f ^ { -1 } : Y \rightarrow X \) are <a class="knowledge-link" href="/topology/continuous_functions.html#definition-continuous-function">continuous</a>, then \( f \) is called a <b>homeomorphism</b>
             	</div>
             </div>
             
             <div class="proposition" id="proposition-homeomorphism-bijective-equivalence">
             	<div class="title">Homeomorphism Bijective Equivalence</div>
             	<div class="content">
-            	    \( f \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> iff it is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijection</a> such that \( f \left( U \right)  \) is open iff \( U \) is open
+            	    \( f \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> implies the following statement holds: \( f \left( U \right)  \) is open iff \( U \) is open
             	</div>
             	<div class="proof">
-                    \( \implies  \) Assume that \( f \) is a homeomorphism, 
+                    <p>
+                        Assume that \( f \) is a homeomorphism.
+                    </p>
+                    <p>
+                        If \( U \) is an open set of \( X \) , then since \( f ^ { -1 } : Y \rightarrow X \) is continuous then we know that \( \left( f ^ { -1 } \right) ^ { -1 } \left( U \right) \) is an open set of \( Y \), but <a class="knowledge-link" href="/fundamentals/functions.html#exercise-inverse-image-of-the-inverse-function-is-the-image">we also know that</a> \( \left( f ^ { -1 }  \right) ^ { -1 } \left( U \right) = f \left( U \right) \)
+                    </p>
+                    <p>
+                        Now suppose that \( f \left( U \right) \subseteq Y \) is an open set, since \( f: X \rightarrow Y  \) is a continuous function, then we know that \( f ^ { -1 } \left( f \left( U \right)  \right)  \) is open in \( X \), since \( f \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">invertible</a>, <a class="knowledge-link" href="/fundamentals/functions.html#theorem-bijective-iff-invertible">then it is</a> a bijection,  <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">so it is</a> injective and <a class="knowledge-link" href="/fundamentals/functions.html#corollary-inverse-image-of-the-image-cancels-if-injective">therefore</a> \( f ^ { - 1 } \left( f \left( U \right) \right) =  U   \) which shows that \( U \) is open, as needed.
+                    </p>
+                    <p>
+                        Since we've proven both directions this completes the proof.
+                    </p>
             	</div>
             </div>
-            
-            
+
             
         </div>
     </body>
