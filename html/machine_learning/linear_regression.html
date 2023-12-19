@@ -112,45 +112,105 @@
         can be interpreted as a measure of how poorly \( f \) predicted \( y \). Furthermore, because of the exponent,
         the squared error exaggerates how poorly \( f \) predicted \( y \) when the difference between them is large. We
         can calculate the <i>mean squared error</i> over all data points in the dataset to measure how poorly \( f \)
-        predicted all \( y \).
-      </p>
-      <p>
-        Naturally, the best \( \textbf{w} \) and \( b \) will be the ones that yield the smallest mean squared error.
-        Although not always possible, we can analytically compute the optimal \( \textbf{w} \) and \( b \) when using
-        the mean squared error.
+        predicted all \( y \), which is defined as:
+
+        \[\frac{1}{2N}\sum_{i=1}^N \left(\hat{y}^{(i)} - y^{(i)}\right)^2\]
       </p>
 
       <p>
-        For convenience, we can represent \( \mathcal{D} \) as a <i>design matrix</i>, denoted \( \textbf{X} \), defined
+        Naturally, the best \( \textbf{w} \) and \( b \) will be the ones that yield the smallest mean squared error. This is essentially an optimization problem, where we want to find the values of \( \textbf{w} \) and \( b \) that minimize the mean squared error. The mean squared error is commonly referred to as the <i>objective function</i>, since as the name suggests, it is the objective we want to minimize.
+      </p>
+
+      <p>
+        For convenience, we can redefine \( \textbf{x} \) as \( (1, x_1, \dots, x_n) \) and \( \textbf{w} \) as \( (b, w_1, \dots, w_D) \) so that our linear regression model can be written as simply \( f(\textbf{x}) = \textbf{w} \cdot \textbf{x} \). Now, we only have to find the best \( \textbf{w} \). Formally, we are interested in finding:
+        \[ \underset{\textbf{w}}{\text{argmin}} \frac{1}{2N}\sum_{i=1}^N \left(\hat{y}^{(i)} - y^{(i)}\right)^2\ \]
+      </p>
+      
+      <p>
+        For computational efficiency, we can represent \( \mathcal{D} \) as a <i>design matrix</i>, denoted \( \textbf{X} \), defined
         as follows.
         \begin{bmatrix}
-        x_1^{(1)} & x_2^{(1)} & \cdots & x_D^{(1)} \\
-        x_1^{(2)} & x_2^{(2)} & \cdots & x_D^{(2)} \\
-        \vdots & \vdots & \ddots & \vdots \\
-        x_1^{(N)} & x_2^{(N)} & \cdots & x_D^{(N)}
+        1 & x_1^{(1)} & x_2^{(1)} & \cdots & x_D^{(1)} \\
+        1 & x_1^{(2)} & x_2^{(2)} & \cdots & x_D^{(2)} \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        1 & x_1^{(N)} & x_2^{(N)} & \cdots & x_D^{(N)}
         \end{bmatrix}
 
+        By organizing \( \mathcal{D} \) as a matrix, we can express our computations in terms of matrix operations. This is particularly useful since computers are able to perform matrix operations in parallel, which significantly speeds up computations.
       </p>
-
-      <!-- TODO: insert derivation -->
-      \begin{align}
-      A & = B \\
-      & = C
-      \end{align}
 
       <p>
-        If an analytical solution is not available, then we can use iterative techniques like gradient descent to
-        compute the best \( \textbf{w} \) and \( b \).
-        <!-- TODO: link to gradient descent -->
+        <!-- TODO: move gradient descent to bottom -->
+        If an analytical solution is not available, we can use iterative techniques like <i>gradient descent</i> to compute an approximation for the best \( \textbf{w} \). The basic idea of gradient descent is to initialize \( \textbf{w} \) to some element in \( \R^{D + 1} \) and iteratively adjust \( \textbf{w} \) in the direction opposite to the gradient of the objective function at the current \( \textbf{w} \). 
+
+        \[ \textbf{w}_t \gets \textbf{w}_{t-1} - \alpha \nabla \mathcal{J}(\textbf{w}_{t-1}) \text{, where } \alpha \in \R \]
+
+        The gradient points in the direction of steepest ascent (TODO: PROVE WHY), so the direction opposite to the gradient is the direction of steepest descent. Following the direction of steepest descent will eventually lead to a local minimum. If the objective function is <i>convex</i>, then that local minima will also be the global minimum (TODO: PROVE WHY). 
+      </p>
+      <p>
+        The <i>learning rate</i> \( \alpha \) controls how much we adjust \( \textbf{w}_t \) during each iteration. Large values of \( \alpha \) means we take large "steps" down the objective function landscape, leading to potentially fast but coarse searches. In contrast, small values of \( \alpha \) means we take small "steps" instead, leading to slow but fine searches.
       </p>
 
+      --- Redefined weights to include bias term, defined modified design matrix using this definition of weights, started section on gradient descent
+
       </p>
-
-
-
     </div>
 
+    <h2>Finding Our Weights</h2>
 
+    <p>
+      Now we'll focus our attention on how to actually find these weights. Up until now, we've mainly just considered things from a purely mathematical standpoint. But process of determining these weights is a perfect one for a computer to solve
+    </p>
+
+    <p>
+      Even now we can already come up with a brute force algorithm which would be to iterate through a large finite set of weight options and just pick the weights that result in a small mean squared error. This process is already to computationally heavy for a human to perform.
+    </p>
+
+    <p>
+      Even though our brute force solution will eventually provide us a good set of weights. If we want a more optimized set of weights we'll have to increase the resolution of our weight space which will have huge impacts on the computational time taken and will probably bring our program to a grinding halt.
+    </p>
+
+    <p>
+      Instead of coming up with a method and seeing if it will work well with our computer, let's flip the problem. We know computers are good at simple arithmetic and iterating quickly this makes them perfect to perform operations involving matrices. With this in mind we'll jump into two methods to solve for our weights.
+    </p>
+
+    <h3>The Ad Hoc Method</h3>
+
+    <p>
+      Sometimes when you see a question or a math problem you see something and you try it, sometimes this will work and sometimes not, this is why it's ad hoc, when trying to minimize our weights we can come up with such a method.
+    </p>
+
+    <p>
+      If you recall our goal is to find for what values \( w \) we have \( \nabla \mathcal{J} \left( w \right) = 0 \)
+    </p>
+
+    <p>
+      Before we jump into these calculations, recall the definition of \( \operatorname{pack} \left( x \right) : \mathbb{R} \rightarrow M_{1 \times 1} \left( \mathbb{R} \right) \) and that \( \operatorname{pack} \left( a \right) = \operatorname{pack} \left( b \right) \iff a = b\) for all \( a, b \in \mathbb{R} \). In general the \( \operatorname{pack} \left( x \right) \) function is useful because it can allow us to take a mathematical equation and turn it into a question about matrices, which our computer will thank us for.
+    </p>
+
+    \[
+      \begin{aligned}
+        \operatorname{pack} \left( \mathcal{J} \left( w \right) \right) &= \operatorname{pack} \left( \frac{1}{2N}\sum_{i=1}^N \left(\hat{y}^{(i)} - y^{(i)}\right)^2 \right) \\
+        &= \frac{1}{2N} \operatorname{pack} \left( \sum_{i=1}^N \left(  \mathbf{w} \cdot \mathbf{x}^{(i)} - y ^{(i)} \right)^2 \right) \\
+        &= \frac{1}{2N} 
+        \begin{bmatrix}
+          \mathbf{x}^{(1)} \cdot \mathbf{w} - y^{(1)} \\
+          \mathbf{x}^{(2)} \cdot \mathbf{w} - y^{(2)} \\
+          \vdots \\
+          \mathbf{x}^{(N)} \cdot \mathbf{w} - y^{(N)} \\
+        \end{bmatrix}^\mathsf{T}
+        \begin{bmatrix}
+          \mathbf{x}^{(1)} \cdot \mathbf{w} - y^{(1)} \\
+          \mathbf{x}^{(2)} \cdot \mathbf{w} - y^{(2)} \\
+          \vdots \\
+          \mathbf{x}^{(N)} \cdot \mathbf{w} - y^{(N)} \\
+        \end{bmatrix} \\
+        &= \frac{1}{2N} \left( \mathbf{X} \mathbf{w} - \mathbf{y} \right)^\mathsf{T} \left( \mathbf{X} \mathbf{w} - \mathbf{y} \right) \\
+        &= \frac{1}{2N} \left( \left( \mathbf{X} \mathbf{w} \right)^\mathsf{T} - \mathbf{y}^\mathsf{T} \right) \left( \mathbf{X} \mathbf{w} - \mathbf{y} \right) \\
+        &= \frac{1}{2N} \left( \left( \mathbf{X} \mathbf{w} \right)^\mathsf{T} \mathbf{X} \mathbf{w} - \left( \mathbf{X} \mathbf{w} \right)^\mathsf{T} \mathbf{y}  - \mathbf{y}^\mathsf{T} \mathbf{X}\mathbf{w} + \mathbf{y}^\mathsf{T} \mathbf{y}\right) \\
+        &= \frac{1}{2N} \left( \mathbf{w}^\mathsf{T} \mathbf{X}^\mathsf{T} \mathbf{X} \mathbf{w} - 2 \mathbf{w}^\mathsf{T} \mathbf{X}^\mathsf{T} \mathbf{y} + \mathbf{y}^\mathsf{T} \mathbf{y}\right)
+      \end{aligned}
+    \]
   </div>
 </body>
 
