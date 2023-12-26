@@ -128,9 +128,23 @@
 		</div>
 
 		<p>
-			Note that the above proposition is not equality, consider the function \( f: X \rightarrow \left\{ 0, 1 \right\} \) defined as \( f \left( x \right) = 0  \) for every \( x \in X \), then \( f \left( f ^ { -1 } \left( \left\{ 0, 1 \right\} \right)  \right) = \left\{ 0 \right\}  \).
+			Note that the above proposition is not equality, consider the function \( f: X \rightarrow \left\{ 0, 1 \right\} \) defined as \( f \left( x \right) = 0  \) for every \( x \in X \), then \( f \left( f ^ { -1 } \left( \left\{ 0, 1 \right\} \right)  \right) = \left\{ 0 \right\}  \). This hints at how we can force equality
 		</p>
-		
+
+		<div class="proposition" id="proposition-inverse-image-of-the-image">
+			<div class="title">Inverse Image of the Image</div>
+			<div class="content">
+				Suppose that \( S \subseteq X \), then \( f ^ { -1 } \left( f \left( S \right)  \right) \supseteq S   \)
+			</div>
+			<div class="proof">
+				Let \( s \in S \), we wish to prove that \( s \in f ^ { -1 } \left( f \left( S \right)  \right) \), which means that we must show \( f \left( s \right) \in f \left( S \right)    \), clearly this is true since \( s \in S \)
+			</div>
+		</div>
+
+		<p>
+			This proposition is not equality if we consider the function \( f : \left\{ 1, 2, 3, 4 \right\} \rightarrow \left\{ 1, 2, 3, 4 \right\}  \) and define \( f \left( 1 \right) = 1 , f \left( 2 \right) = 2 , f \left( 3 \right) = 2, f \left( 4 \right) = 1\), then if we consider \( f ^ { -1 } \left( f \left( \left\{ 1, 2 \right\}  \right)  \right)    \) we see it equals \( \left\{ 1, 2, 3, 4 \right\}  \) which is clearly a superset.
+		</p>
+
 		<div class="definition" id="definition-invertible">
 			<div class="title">Invertible Function</div>
 			<div class="content">
@@ -184,6 +198,25 @@
 			</div>
 		</div>
 
+		<div class="proposition" id="proposition-inverse-image-of-image-equality">
+			<div class="title">Inverse Image of Image Equality</div>
+			<div class="content">
+				Suppose that \( f: X \rightarrow Y \) and that \( S \subseteq X \), if \( f \) is injective then
+				\[
+				f ^ { -1 } \left( f  \left( S \right) \right) = S
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					We've already proven that \( f ^ { -1 } \left( f \left( S \right) \right) \supseteq S  \), so we just need to prove that \( f ^ { -1 } \left( f \left( S \right) \right) \subseteq  S  \).
+				</p>
+				<p>
+					Suppose that \( p \in f ^ { -1 } \left( f \left( S \right)  \right)  \), therefore \( f \left( p \right) \in f \left( S \right)  \), which means that there is some \( s \in S \) such that \( f \left( p \right) = f \left( s \right)  \), since we assumed that \( f \) was injective this implies that \( p = s \), which concludes by showing \( p \in S \).
+				</p>
+			</div>
+		</div>
+
+
 
 		<div class="definition" id="definition-surjective-function">
 			<div class="title">Surjective Function</div>
@@ -191,6 +224,29 @@
 				a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( f{:} X \to Y \) is surjective iff \( \forall y \in Y , \exists x \in X \text{ such that } f{\left ( x \right )} = y \)
 			</div>
 		</div>
+		
+		<div class="proposition" id="proposition-image-of-inverse-image-equality">
+			<div class="title">Image of Inverse Image Equality</div>
+			<div class="content">
+				Suppose that \( f: X \rightarrow Y \) and that \( S \subseteq Y \), if \( f \) is surjective then 
+				\[
+				    f \left( f ^ { -1 } \left( S \right)  \right) = S
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					We're already aware that <a class="knowledge-link" href="/fundamentals/functions.html#proposition-image-of-the-inverse-image">\( f \left( f ^ { -1 } \left( S \right)  \right) \subseteq  S \) </a>, so we must just show that \( f \left( f ^ { -1 } \left( S \right)  \right) \supseteq   S  \).
+				</p>
+				<p>
+					So we start by assuming \( s \in S \), and now we must show that \( s \in f \left( f ^ { -1 } \left( S \right)  \right)  \), this is only true if \( s = f \left( x \right)  \) for some \( x \in \left( f ^ { -1 } \left( S \right)  \right)  \), which in turn means that \( x \) also has to satisfy:  \( f \left( x \right) \in S \).
+				</p>
+				<p>
+					We start with \( s \in S \subseteq Y \), thus since \( s \in Y \) and \( f \) is surjective we get some \( a \in X \) such that \( f \left( a \right) = s \), since \( s \in S \) , then also \( a \in f \left( S \right)  \) as needed.
+				</p>
+			</div>
+		</div>
+		
+
 
 		<div class="definition" id="definition-bijective-function">
 			<div class="title">Bijective function</div>

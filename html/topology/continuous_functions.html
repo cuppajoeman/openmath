@@ -169,18 +169,30 @@
             	</div>
             </div>
             
-            <div class="proposition" id="proposition-homeomorphism-bijective-equivalence">
-            	<div class="title">Homeomorphism Bijective Equivalence</div>
+            <div class="proposition" id="proposition-homeomorphism-set-and-its-image-are-open-equivalence">
+            	<div class="title">Homeomorphism Set and it's Image are Open Equivalence</div>
             	<div class="content">
-            	    \( f \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> iff it is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijection</a> such that \( f \left( U \right)  \) is open iff \( U \) is open
+            	    Suppose that \( f \) is a bijection, then \( f \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> iff the following is true: \( f \left( U \right)  \) is open in \( Y \)  iff \( U \) is open in \( X \)
             	</div>
             	<div class="proof">
-                    \( \implies  \) Assume that \( f \) is a homeomorphism, 
+                    <p>
+                        Suppose that \( f \) is a homeomorphism, and that \( U \) is a subset of \( X \), assume \( f \left( U \right)  \) is open in \( Y \) , we'll prove that \( U \) is open in \( X \), since \( f \) is continuous, then we know that \( f ^ { -1 } \left( f \left( U \right)  \right)   \) is an open set of \( X \), since \( f \) is a bijection, this means it's injective and thus \( f ^ { -1 } \left( f \left( U \right)  \right) = U \) as needed.
+                    </p>
+                    <p>
+                        Now suppose that \( U \) is open in \( X \), since we know that \( f ^ { -1 }  \) is continuous this means that \( \left( f ^ { -1 }  \right) ^ { -1 } \left( U \right)   \) is an open set of \( Y \), <a class="knowledge-link" href="/fundamentals/functions.html#exercise-inverse-image-of-the-inverse-function-is-the-image">we've shown</a> that \( \left( f ^ { -1 }  \right) ^ { -1 } \left( U \right) = f \left( U \right)   \), thus, we've just shown that \( f \left( U \right)  \) is an open set of \( Y \), this concludes
+                    </p>
+                    <p>
+                        At this point we've proven the main rightward implication. The other direction is quite a lot easier. We have to show that both \( f \)  and \( f ^ { -1 }  \) are continuous. 
+                    </p>
+                    <p>
+                        Suppose that \( V \) is an open set of \( Y \), we want to show that \( f ^ { -1 } \left( V \right)  \) is an open set of \( X \), which is true iff \( f \left( f ^ { -1 } \left( V \right)  \right)  \) is an open set of \( Y \), since \( f \) is surjective, then \( f \left( f ^ { -1 } \left( V \right)  \right) = V   \) making it an open set of \( Y \), which shows that \( f ^ { -1 } \left( V \right)  \) is an open set of \( X \) 
+                    </p>
+                    <p>
+                        Now suppose that \( U \) is an open set of \( X \) , our goal will be to show that \( \left( f ^ { -1 } \right) ^ { -1 } \left( U \right)    \) is an open set of \( Y \), as seen previously \( \left( f ^ { -1 } \right) ^ { -1 } \left( U \right) = f \left( U \right)  \), and since \( U \) was open in \( X \), by our assmption we know that \( f \left( U \right)  \) is open in \( Y \), this concludes the proof.
+                    </p>
             	</div>
             </div>
-            
-            
-            
+
         </div>
     </body>
 </html>
