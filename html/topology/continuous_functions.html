@@ -19,7 +19,7 @@
 			<div class="definition" id="definition-continuous-function">
 				<div class="title">Continuous Function</div>
 				<div class="content">
-					Let \( X, Y \) be topological spaces, a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f: X \rightarrow Y \) is said to be continuous iff for each open subset \( V  \) of \( Y \), <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">\( f ^{ -1 } \left( V \right)  \)</a> is an open set of \( X \)
+					Let \( X, Y \) be <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological spaces</a>, a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f: X \rightarrow Y \) is said to be continuous iff for each open subset \( V  \) of \( Y \), <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">\( f ^{ -1 } \left( V \right)  \)</a> is an open set of \( X \)
 				</div>
 			</div>
             
@@ -192,7 +192,59 @@
                     </p>
             	</div>
             </div>
+            
+            <div class="definition" id="definition-imbedding">
+            	<div class="title">Imbedding</div>
+            	<div class="content">
+            		Suppose that \( f: X \rightarrow Y \) is an <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a> <a class="knowledge-link" href="/topology/continuous_functions.html#definition-continuous-function">continuous</a> function, with \( X \) and \( Y \) topological spaces. By setting \( Z = f \left( X \right)  \) as a <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace</a> of \( Y \), if \( f ^ \prime : X \rightarrow Z \) obtained by restricting the range of \( f \)  is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a>, then we say that the original \( f \) is an <b>imbedding</b> of \( X \) in \( Y \) 
+            	</div>
+            </div>
 
+            <div class="proposition" id="proposition-constant-functions-are-continuous">
+            	<div class="title">Constant Functions are Continuous</div>
+            	<div class="content">
+                    Let \( X, Y \) be topological spaces and suppose that \( p \in Y \), if \( f: X \rightarrow Y \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-constant-function">constant</a> with value \( p \), then \( f \) is continuous
+            	</div>
+            	<div class="proof">
+            	    Suppose that \( V \subseteq Y \), if \( p \in V \), then \( f ^ { -1 } \left( V \right) = X   \), otherwise \( p \notin V \) so \( f ^ { -1 } \left( V \right) = \emptyset   \), in either case we have an open set of \( X \).
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-inclusion-is-continuous">
+            	<div class="title">Inclusion is Continuous</div>
+            	<div class="content">
+            		Suppose that \( A \) is a <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace</a> of \( X \), then the <a class="knowledge-link" href="/fundamentals/functions.html#definition-inclusion-function">inclusion function</a> \( \iota: A \rightarrow X \) is continuous.
+            	</div>
+            	<div class="proof">
+            	    Let \( U \) be an open set of \( X \), then \( \iota ^ { -1 }  \left( U \right) = U \cap A   \), which by definition is open in the subspace topology of \( A \) as needed.
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-compositions-of-continuous-functions-are-continuous">
+            	<div class="title">Compositions of Continuous Functions are Continuous</div>
+            	<div class="content">
+                    Suppose that \( f : X \rightarrow Y \) and \( g: Y \rightarrow Z \) are continuous then the map \( g \circ f : X \to Z \) is continuous
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Let \( U  \) be open in \( Z \), we want to prove that \( \left( g \circ f \right) ^ { -1 } \left( U \right) \) is an open set of \( X \).
+                    </p>
+                    <p>
+                        To start if we look at \( \left( g \circ f \right) ^ { -1 } \left( U \right)  \), we know this is equal to \( f ^ { -1 } \left( g ^ { -1 } \left( U \right)  \right)  \), thus since \( g \) is continuous we know that \( S := g ^ { -1 } \left( U \right)  \) is an open set of \( Y \) and then \( f ^ { -1 } \left( S \right)  \) is open in \( X \) since \( f \) was continuous, this shows that \( g \circ f \) is continuous
+                    </p>
+            	</div>
+            </div>
+            
+            <div class="proposition" id="proposition-domain-restriction-is-continuous">
+            	<div class="title">Domain Restriction is Continuous</div>
+            	<div class="content">
+            		If \( f : X \to Y \) is continuous and if \( A \) is a subspace of \( X \), then the restricted function \( f \restriction A : A \to Y \) is continuous
+            	</div>
+            	<div class="proof">
+                    <a class="knowledge-link" href="/fundamentals/functions.html#proposition-restriction-equals-inclusion-composed-with-original">We note that</a> \( f \restriction A = f \circ \iota \), therefore as the composition of two continuous functions, <a class="knowledge-link" href="/topology/continuous_functions.html#proposition-compositions-of-continuous-functions-are-continuous">we know that</a> \( f \restriction A \)  is continuous
+            	</div>
+            </div>
+            
         </div>
     </body>
 </html>

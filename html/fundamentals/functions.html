@@ -24,6 +24,18 @@
 				A function from \( X \) to \( Y \) denoted by \( f: X \to Y \) is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \times Y \) such that if \( \left ( x , y \right ) , \left ( x , z \right ) \in R \), then \( z = y \), which says given an element \( x \in X \) it is only ever related to a single \( y \in Y \).
 			</div>
 		</div>
+
+		<div class="definition" id="definition-function-equality">
+			<div class="title">Function Equality</div>
+			<div class="content">
+				Suppose that \( f : X \to Y \)  and \( g : X \to Y \) are two functions, then we say that they are equal and write \( f = g \) when
+				\[
+				    f \left( x \right) = g \left( x \right)
+				\]
+				for every \( x \in X \)
+			</div>
+		</div>
+
         
 		<div class="definition" id="definition-dom-f">
 			<div class="title">dom f</div>
@@ -36,6 +48,64 @@
 			<div class="title">ran f</div>
 			<div class="content">
 				Given a function \( f{:} X \to Y \), then we denote \( \text{ran} \left ( f \right ) := Y \) which we is shorthand for the word range
+			</div>
+		</div>
+		
+		<div class="definition" id="definition-constant-function">
+			<div class="title">Constant Function</div>
+			<div class="content">
+				Suppose that we have a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f: X \rightarrow Y \) such that there is a value \( c \in Y \) such that for every \( x \in X \), we have \( f \left( x \right) = c  \), then we say that \( f \) is <b>constant</b> with value \( c \) 
+			</div>
+		</div>
+
+		<div class="definition" id="definition-domain-restricted-function">
+			<div class="title">Domain Restricted Function</div>
+			<div class="content">
+				Let \( f: E \to F \) let \( A \subseteq E \), then the <b>restriction</b> of \( f \) to \( A \) is the function \( f \restriction _ A : A \to F \) defined by:
+				\[
+				    f \restriction _ A \left( x \right) := f \left( x \right)
+				\]
+				for each \( x \in A \)
+			</div>
+		</div>
+
+		<p>
+			The restriction of a function is thought of as the same function but with elements from it's domain removed, or restricted to a smaller set.
+		</p>
+
+		<div class="definition" id="definition-inclusion-function">
+			<div class="title">Inclusion Function</div>
+			<div class="content">
+				Suppose that \( A \subseteq B \), the inclusion function \( \iota : A \rightarrow B \) is defined by:
+				\[
+				    \iota \left( x \right) = x
+				\]
+				where the output of \( \iota \) is considered as an element from \( B \)
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-restriction-equals-inclusion-composed-with-original">
+			<div class="title">Restriction Equals Inclusion Composed with Original</div>
+			<div class="content">
+				let \( f : E \to F \) and suppose \( A \subseteq E \), and let \( \iota: A \to E \) be the <a class="knowledge-link" href="/fundamentals/functions.html#definition-inclusion-function">inclusion function</a>, then we have
+				\[
+				    f \restriction A = f \circ \iota
+				\]
+			</div>
+			<div class="proof">
+				Let \( x \in A \), then \( f \restriction A \left( x \right) = f \left( x \right)   \), and \( \left( f \circ \iota \right) \left( x \right) = f \left( \iota \left( x \right)  \right) = f \left( x \right) \) <a class="knowledge-link" href="/fundamentals/functions.html#definition-function-equality">thus</a> the two functions are equal.
+			</div>
+		</div>
+
+
+		<div class="definition" id="definition-function-composition">
+			<div class="title">Function Composition</div>
+			<div class="content">
+				Suppose that \( A , B , C \) are sets, and that \( f: A \to B , g: B \to C \) are functions, then we define
+				\[
+				g \circ f \left( x \right) := g \left( f\left ( x \right ) \right )
+				\]
+				for any \( x \in A \), so that \( g \circ f : A \to C \)
 			</div>
 		</div>
 
@@ -67,8 +137,20 @@
 				</p>
 			</div>
 		</div>
-		
-		
+
+		<div class="proposition" id="proposition-inverse-image-of-a-composition">
+			<div class="title">Inverse Image of a Composition</div>
+			<div class="content">
+				Suppose that we have two functions \( f : X \to Y \) and \( g: Y \to Z \) and suppose that \( S \subseteq Z \), then
+				\[
+				    \left( g \circ f \right) ^ { -1 } \left( S \right) = f ^ { -1 } \left( g ^ { -1 } \left( S \right)  \right)
+				\]
+			</div>
+			<div class="proof">
+				A point \( p \) is an element of \( \left( g \circ f \right) ^ { -1 } \left( S \right) \)  iff	\( \left( g \circ f \right)  \left( p \right) \in S  \) by definition this means that \( g \left( f \left( p \right)  \right) \in S  \) iff \( f \left( p \right) \in g ^ { -1 }  \left( S \right)   \)  iff \( p \in f ^ { -1 } \left( g ^ { -1 } \left( S \right)  \right)   \) as needed.
+			</div>
+		</div>
+
 		<div class="proposition" id="proposition-union-factors-through-inverse-image">
 			<div class="title">Union Factors through Inverse Image</div>
 			<div class="content">
@@ -255,12 +337,6 @@
 			</div>
 		</div>
 
-		<div class="definition" id="definition-function-composition">
-			<div class="title">function composition</div>
-			<div class="content">
-				Suppose that \( A , B , C \) are sets, and that \( f{:} A \to B , g{:} B \to C \) are functions, then we define \( g \circ f{\left ( x \right )} := g{\left ( f{\left ( x \right )} \right )} \) for any \( x \in A \), so that \( g \circ f : A \to C \)
-			</div>
-		</div>
 
 		<div class="proposition" id="proposition-composition-of-two-bijective-functions-is-bijective">
 			<div class="title">composition of two bijective functions is bijective</div>
