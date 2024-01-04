@@ -24,6 +24,18 @@
 				A function from \( X \) to \( Y \) denoted by \( f: X \to Y \) is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \times Y \) such that if \( \left ( x , y \right ) , \left ( x , z \right ) \in R \), then \( z = y \), which says given an element \( x \in X \) it is only ever related to a single \( y \in Y \).
 			</div>
 		</div>
+
+		<div class="definition" id="definition-function-equality">
+			<div class="title">Function Equality</div>
+			<div class="content">
+				Suppose that \( f : X \to Y \)  and \( g : X \to Y \) are two functions, then we say that they are equal and write \( f = g \) when
+				\[
+				    f \left( x \right) = g \left( x \right)
+				\]
+				for every \( x \in X \)
+			</div>
+		</div>
+
         
 		<div class="definition" id="definition-dom-f">
 			<div class="title">dom f</div>
@@ -36,6 +48,64 @@
 			<div class="title">ran f</div>
 			<div class="content">
 				Given a function \( f{:} X \to Y \), then we denote \( \text{ran} \left ( f \right ) := Y \) which we is shorthand for the word range
+			</div>
+		</div>
+		
+		<div class="definition" id="definition-constant-function">
+			<div class="title">Constant Function</div>
+			<div class="content">
+				Suppose that we have a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f: X \rightarrow Y \) such that there is a value \( c \in Y \) such that for every \( x \in X \), we have \( f \left( x \right) = c  \), then we say that \( f \) is <b>constant</b> with value \( c \) 
+			</div>
+		</div>
+
+		<div class="definition" id="definition-domain-restricted-function">
+			<div class="title">Domain Restricted Function</div>
+			<div class="content">
+				Let \( f: E \to F \) let \( A \subseteq E \), then the <b>restriction</b> of \( f \) to \( A \) is the function \( f \restriction _ A : A \to F \) defined by:
+				\[
+				    f \restriction _ A \left( x \right) := f \left( x \right)
+				\]
+				for each \( x \in A \)
+			</div>
+		</div>
+
+		<p>
+			The restriction of a function is thought of as the same function but with elements from it's domain removed, or restricted to a smaller set.
+		</p>
+
+		<div class="definition" id="definition-inclusion-function">
+			<div class="title">Inclusion Function</div>
+			<div class="content">
+				Suppose that \( A \subseteq B \), the inclusion function \( \iota : A \rightarrow B \) is defined by:
+				\[
+				    \iota \left( x \right) = x
+				\]
+				where the output of \( \iota \) is considered as an element from \( B \)
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-restriction-equals-inclusion-composed-with-original">
+			<div class="title">Restriction Equals Inclusion Composed with Original</div>
+			<div class="content">
+				let \( f : E \to F \) and suppose \( A \subseteq E \), and let \( \iota: A \to E \) be the <a class="knowledge-link" href="/fundamentals/functions.html#definition-inclusion-function">inclusion function</a>, then we have
+				\[
+				    f \restriction A = f \circ \iota
+				\]
+			</div>
+			<div class="proof">
+				Let \( x \in A \), then \( f \restriction A \left( x \right) = f \left( x \right)   \), and \( \left( f \circ \iota \right) \left( x \right) = f \left( \iota \left( x \right)  \right) = f \left( x \right) \) <a class="knowledge-link" href="/fundamentals/functions.html#definition-function-equality">thus</a> the two functions are equal.
+			</div>
+		</div>
+
+
+		<div class="definition" id="definition-function-composition">
+			<div class="title">Function Composition</div>
+			<div class="content">
+				Suppose that \( A , B , C \) are sets, and that \( f: A \to B , g: B \to C \) are functions, then we define
+				\[
+				g \circ f \left( x \right) := g \left( f\left ( x \right ) \right )
+				\]
+				for any \( x \in A \), so that \( g \circ f : A \to C \)
 			</div>
 		</div>
 
@@ -67,8 +137,20 @@
 				</p>
 			</div>
 		</div>
-		
-		
+
+		<div class="proposition" id="proposition-inverse-image-of-a-composition">
+			<div class="title">Inverse Image of a Composition</div>
+			<div class="content">
+				Suppose that we have two functions \( f : X \to Y \) and \( g: Y \to Z \) and suppose that \( S \subseteq Z \), then
+				\[
+				    \left( g \circ f \right) ^ { -1 } \left( S \right) = f ^ { -1 } \left( g ^ { -1 } \left( S \right)  \right)
+				\]
+			</div>
+			<div class="proof">
+				A point \( p \) is an element of \( \left( g \circ f \right) ^ { -1 } \left( S \right) \)  iff	\( \left( g \circ f \right)  \left( p \right) \in S  \) by definition this means that \( g \left( f \left( p \right)  \right) \in S  \) iff \( f \left( p \right) \in g ^ { -1 }  \left( S \right)   \)  iff \( p \in f ^ { -1 } \left( g ^ { -1 } \left( S \right)  \right)   \) as needed.
+			</div>
+		</div>
+
 		<div class="proposition" id="proposition-union-factors-through-inverse-image">
 			<div class="title">Union Factors through Inverse Image</div>
 			<div class="content">
@@ -128,9 +210,23 @@
 		</div>
 
 		<p>
-			Note that the above proposition is not equality, consider the function \( f: X \rightarrow \left\{ 0, 1 \right\} \) defined as \( f \left( x \right) = 0  \) for every \( x \in X \), then \( f \left( f ^ { -1 } \left( \left\{ 0, 1 \right\} \right)  \right) = \left\{ 0 \right\}  \).
+			Note that the above proposition is not equality, consider the function \( f: X \rightarrow \left\{ 0, 1 \right\} \) defined as \( f \left( x \right) = 0  \) for every \( x \in X \), then \( f \left( f ^ { -1 } \left( \left\{ 0, 1 \right\} \right)  \right) = \left\{ 0 \right\}  \). This hints at how we can force equality
 		</p>
-		
+
+		<div class="proposition" id="proposition-inverse-image-of-the-image">
+			<div class="title">Inverse Image of the Image</div>
+			<div class="content">
+				Suppose that \( S \subseteq X \), then \( f ^ { -1 } \left( f \left( S \right)  \right) \supseteq S   \)
+			</div>
+			<div class="proof">
+				Let \( s \in S \), we wish to prove that \( s \in f ^ { -1 } \left( f \left( S \right)  \right) \), which means that we must show \( f \left( s \right) \in f \left( S \right)    \), clearly this is true since \( s \in S \)
+			</div>
+		</div>
+
+		<p>
+			This proposition is not equality if we consider the function \( f : \left\{ 1, 2, 3, 4 \right\} \rightarrow \left\{ 1, 2, 3, 4 \right\}  \) and define \( f \left( 1 \right) = 1 , f \left( 2 \right) = 2 , f \left( 3 \right) = 2, f \left( 4 \right) = 1\), then if we consider \( f ^ { -1 } \left( f \left( \left\{ 1, 2 \right\}  \right)  \right)    \) we see it equals \( \left\{ 1, 2, 3, 4 \right\}  \) which is clearly a superset.
+		</p>
+
 		<div class="definition" id="definition-invertible">
 			<div class="title">Invertible Function</div>
 			<div class="content">
@@ -183,6 +279,25 @@
 			</div>
 		</div>
 
+		<div class="proposition" id="proposition-inverse-image-of-image-equality">
+			<div class="title">Inverse Image of Image Equality</div>
+			<div class="content">
+				Suppose that \( f: X \rightarrow Y \) and that \( S \subseteq X \), if \( f \) is injective then
+				\[
+				f ^ { -1 } \left( f  \left( S \right) \right) = S
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					We've already proven that \( f ^ { -1 } \left( f \left( S \right) \right) \supseteq S  \), so we just need to prove that \( f ^ { -1 } \left( f \left( S \right) \right) \subseteq  S  \).
+				</p>
+				<p>
+					Suppose that \( p \in f ^ { -1 } \left( f \left( S \right)  \right)  \), therefore \( f \left( p \right) \in f \left( S \right)  \), which means that there is some \( s \in S \) such that \( f \left( p \right) = f \left( s \right)  \), since we assumed that \( f \) was injective this implies that \( p = s \), which concludes by showing \( p \in S \).
+				</p>
+			</div>
+		</div>
+
+
 
 		<div class="definition" id="definition-surjective-function">
 			<div class="title">Surjective Function</div>
@@ -190,6 +305,29 @@
 				a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( f{:} X \to Y \) is surjective iff \( \forall y \in Y , \exists x \in X \text{ such that } f{\left ( x \right )} = y \)
 			</div>
 		</div>
+		
+		<div class="proposition" id="proposition-image-of-inverse-image-equality">
+			<div class="title">Image of Inverse Image Equality</div>
+			<div class="content">
+				Suppose that \( f: X \rightarrow Y \) and that \( S \subseteq Y \), if \( f \) is surjective then 
+				\[
+				    f \left( f ^ { -1 } \left( S \right)  \right) = S
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					We're already aware that <a class="knowledge-link" href="/fundamentals/functions.html#proposition-image-of-the-inverse-image">\( f \left( f ^ { -1 } \left( S \right)  \right) \subseteq  S \) </a>, so we must just show that \( f \left( f ^ { -1 } \left( S \right)  \right) \supseteq   S  \).
+				</p>
+				<p>
+					So we start by assuming \( s \in S \), and now we must show that \( s \in f \left( f ^ { -1 } \left( S \right)  \right)  \), this is only true if \( s = f \left( x \right)  \) for some \( x \in \left( f ^ { -1 } \left( S \right)  \right)  \), which in turn means that \( x \) also has to satisfy:  \( f \left( x \right) \in S \).
+				</p>
+				<p>
+					We start with \( s \in S \subseteq Y \), thus since \( s \in Y \) and \( f \) is surjective we get some \( a \in X \) such that \( f \left( a \right) = s \), since \( s \in S \) , then also \( a \in f \left( S \right)  \) as needed.
+				</p>
+			</div>
+		</div>
+		
+
 
 		<div class="definition" id="definition-bijective-function">
 			<div class="title">Bijective function</div>
@@ -198,12 +336,6 @@
 			</div>
 		</div>
 
-		<div class="definition" id="definition-function-composition">
-			<div class="title">function composition</div>
-			<div class="content">
-				Suppose that \( A , B , C \) are sets, and that \( f{:} A \to B , g{:} B \to C \) are functions, then we define \( g \circ f{\left ( x \right )} := g{\left ( f{\left ( x \right )} \right )} \) for any \( x \in A \), so that \( g \circ f : A \to C \)
-			</div>
-		</div>
 
 		<div class="proposition" id="proposition-composition-of-two-bijective-functions-is-bijective">
 			<div class="title">composition of two bijective functions is bijective</div>
@@ -219,7 +351,5 @@
 				</p>
 			</div>
 		</div>
-		
-
     </div>
 </body>

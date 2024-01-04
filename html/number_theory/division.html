@@ -10,22 +10,20 @@
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer></script>
 
-	
-
 </head>
 
 <body>
     <div class="thin-wrapper">
 
         <div class="definition" id="definition-divides">
-            <div class="title">divides</div>
+            <div class="title">Divides</div>
             <div class="content">
                 an integer \( n \) is divisible by a non-zero integer \( m \) if there exists an integer \( k \) such that \( n = k \cdot m \). If this is all true we write \( m | n \).
             </div>
         </div>
 
-        <div class="proposition">
-            <div class="title">1 divides everything</div>
+        <div class="proposition" id="proposition-one-divides-everything">
+            <div class="title">1 Divides Everything</div>
             <div class="content">
                 Suppose that \( j \in \mathbb{Z} \), then \( 1 | j \)
             </div>
@@ -35,8 +33,8 @@
         </div>
         
 
-        <div class="proposition">
-            <div class="title">0 is divisible by everything</div>
+        <div class="proposition" id="proposition-zero-is-divisible-by-everything">
+            <div class="title">0 is Divisible by Everything</div>
             <div class="content">
                 for any \( d \in \mathbb{Z}^{\ne 0} , d | 0 \)
             </div>
@@ -45,9 +43,20 @@
 			</div>
         </div>
 
+		<div class="proposition" id="proposition-if-it-divides-it's-less-than-or-equal">
+			<div class="title">If it Divides it's Less than or Equal</div>
+			<div class="content">
+				Suppose that \( n \in \mathbb{ N } _ 1 \), then if \( d \in \mathbb{ Z }  \) <a class="knowledge-link" href="/number_theory/division.html#definition-divides">divides </a> \( n \), then \( d \le n \)
+			</div>
+			<div class="proof">
+
+			</div>
+		</div>
+
+
 
 		<div class="proposition" id="proposition-any-integer-cannot-divide-something-smaller-than-itself">
-			<div class="title">any integer cannot divide something smaller than itself</div>
+			<div class="title">Any Integer cannot Divide Something Smaller than Itself</div>
 			<div class="content">
 				Suppose that \( m \in \mathbb{Z} \), then for any \( a \in \mathbb{Z}^{\ne 0} \) such that \( - \left | m \right |  < a < \left | m \right |  \), then \( m \) does not divide \( a \)
 			</div>
@@ -166,11 +175,77 @@
 		</div>
 
         <div class="definition" id="definition-greatest-common-divisor">
-            <div class="title">greatest common divisor</div>
+            <div class="title">Greatest Common Divisor</div>
             <div class="content">
                 suppose that \( a , b \in \mathbb{Z} \) then the greatest common divsor of \( a \) and \( b \) notated as \( \gcd{\left ( a , b \right )} \) is the largest positive integer that <span class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides">divides</span> each of \( a , b \)
             </div>
         </div>
+
+		<div class="proposition" id="proposition-gcd-is-a-linear-combination">
+			<div class="title">GCD is a Linear Combination</div>
+			<div class="content">
+				For any \( a, b \in \mathbb{ Z } ^ { \neq 0 } \), there exist integers \( s, t \in \mathbb{ Z }  \) such that \( \gcd \left( a, b \right) = as + bt \), moreover \( \gcd \left( a, b \right)  \) is the smallest such positive integer of the form \( as + bt  \)
+			</div>
+			<div class="proof">
+				<p>
+					Define \( S := \left\{ am + bn: m, n \in \mathbb{ Z }  \text{ and } am + bn > 0\right\}  \), we first note that \( S \) cannot be empty. The only way it could be empty would be if that given any choice of \( m, n \)  we have \( am + bn < 0 \), but if that's the case we can always see that \( - \left( am + bn  \right) > 0  \) and note that \( - \left( am + bn \right) = a \left( -m \right) + b \left( -n \right)  \), which shows that there is an element in \( S \).
+				</p>
+				<p>
+					Since \( S \subseteq \mathbb{ N } _ 0 \), the well ordering principle tells us that there is some smallest element of \( S \), say \( d = a j + b k  \). We will prove that \( \gcd \left( a, b \right) = d  \).
+				</p>
+				<p>
+					By the <a class="knowledge-link" href="/number_theory/division.html#theorem-quotient-remainder">quotient remainder theorem</a>, we have some \( q, r  \) such that \( a = qd + r \) where \( 0 \le r < d \), from here we can see that
+					\[
+					    \begin{aligned}
+							r &= a - qd  \\
+							&= a - q \left( aj + bk \right) \\
+							&= a \left( 1 - qj \right) + b \left( qk \right) 
+						\end{aligned}
+					\]
+					at this point in time if \( r > 0 \), then we would have a contradiction because \( r \) would be a value smaller than \( d \) that is an element of \( S \), but we assumed that \( d \) was the smallest such element. Therefore, the only way forward is that \( r = 0 \)
+				</p>
+				<p>
+					If \( r = 0 \), then \( a = qd  \) meaning that \( d \) divides \( a \), by copying the above text and replacing the variable \( a \) with \( b \) we obtain a proof that \( d \) divides \( b \) as well. To complete showing that \( d = \gcd \left( a, b \right)  \) we need to prove that \( d \) is the smallest divisor.
+				</p>
+				<p>
+					Suppose that \( m \) is another common divisor of \( a, b \), then we have \( k_a, k_b \in \mathbb{ Z }  \), such that \( a = k_a m \) and \( b = k_b m \), from \( d \)'s definition we see \( d = a j + bk = \left( k_a m \right) j + \left( k_b m \right) k = m \left( k_a j + k_b k \right) \), this shows that \( m \mid d \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-it's-less-than-or-equal">so that</a> \( m \le d \) showing that \( d \) is the largest divisor and we conclude \( d = \gcd \left( a, b \right)  \) 
+				</p>
+			</div>
+		</div>
+		
+		<div class="corollary" id="corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">
+			<div class="title">Relatively Prime implies there is a Linear Combination of One</div>
+			<div class="content">
+				If \( a, b \) are relatively prime, then there exists \( s, t \in \mathbb{ Z }   \) such that \( 1 = as + bt\)
+			</div>
+			<div class="proof">
+				By the definition of \( a, b \) being reliatively prime, we know that \( \gcd \left( a, b \right) = 1 \), <a class="knowledge-link" href="/number_theory/division.html#proposition-gcd-is-a-linear-combination">then we know that</a> there are integers \( s, t \) such that \( \gcd \left( a, b \right) = as + bt  \)
+			</div>
+		</div>
+		
+		<div class="lemma" id="lemma-a-prime-is-relatively-prime-to-anything-else">
+			<div class="title">A Prime is Relatively Prime to Anything Else</div>
+			<div class="content">
+				Suppose that \( p \) is <a class="knowledge-link" href="/number_theory/division.html#definition-prime">prime</a> and \( n \in \mathbb{ Z }  \) such that \( p \nmid n \), then \( \gcd \left( p, n \right) = 1  \)
+			</div>
+			<div class="proof">
+
+			</div>
+		</div>
+		
+		
+
+		<div class="proposition" id="proposition-a-prime-divisor-of-a-product-divides-at-least-one">
+			<div class="title">A Prime Divisor of a Product Divides at Least One</div>
+			<div class="content">
+				If \( p, a, b \in \mathbb{ Z }  \) and we know <a class="knowledge-link" href="/number_theory/division.html#definition-prime">prime</a> and \( p \mid ab \) then \( p \mid a \) or \( p \mid b \).
+			</div>
+			<div class="proof">
+				If \( p \) were to divide \( a \), the proof is over so we assume that it does not. <a class="knowledge-link" href="/number_theory/division.html#lemma-a-prime-is-relatively-prime-to-anything-else">therefore</a> \( \gcd \left( p, a \right) = 1  \) <a class="knowledge-link" href="/number_theory/division.html#corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">and then </a> \( 1 = as + pt \), then \( b = \left( ab \right) s + pt \), so then \( p \) divides the right hand side, therefore \( p \mid b \), as needed.
+			</div>
+		</div>
+		
+		
 
 		<div class="corollary" id="corollary-same-divisors-implies-same-gcd">
 			<div class="title">same divisors implies same gcd</div>

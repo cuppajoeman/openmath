@@ -19,7 +19,7 @@
 			<div class="definition" id="definition-continuous-function">
 				<div class="title">Continuous Function</div>
 				<div class="content">
-					Let \( X, Y \) be topological spaces, a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f: X \rightarrow Y \) is said to be continuous iff for each open subset \( V  \) of \( Y \), <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">\( f ^{ -1 } \left( V \right)  \)</a> is an open set of \( X \)
+					Let \( X, Y \) be <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological spaces</a>, a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f: X \rightarrow Y \) is said to be continuous iff for each open subset \( V  \) of \( Y \), <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">\( f ^{ -1 } \left( V \right)  \)</a> is an open set of \( X \)
 				</div>
 			</div>
             
@@ -169,18 +169,93 @@
             	</div>
             </div>
             
-            <div class="proposition" id="proposition-homeomorphism-bijective-equivalence">
-            	<div class="title">Homeomorphism Bijective Equivalence</div>
+            <div class="proposition" id="proposition-homeomorphism-set-and-its-image-are-open-equivalence">
+            	<div class="title">Homeomorphism Set and it's Image are Open Equivalence</div>
             	<div class="content">
-            	    \( f \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> iff it is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijection</a> such that \( f \left( U \right)  \) is open iff \( U \) is open
+            	    Suppose that \( f \) is a bijection, then \( f \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> iff the following is true: \( f \left( U \right)  \) is open in \( Y \)  iff \( U \) is open in \( X \)
             	</div>
             	<div class="proof">
-                    \( \implies  \) Assume that \( f \) is a homeomorphism, 
+                    <p>
+                        Suppose that \( f \) is a homeomorphism, and that \( U \) is a subset of \( X \), assume \( f \left( U \right)  \) is open in \( Y \) , we'll prove that \( U \) is open in \( X \), since \( f \) is continuous, then we know that \( f ^ { -1 } \left( f \left( U \right)  \right)   \) is an open set of \( X \), since \( f \) is a bijection, this means it's injective and thus \( f ^ { -1 } \left( f \left( U \right)  \right) = U \) as needed.
+                    </p>
+                    <p>
+                        Now suppose that \( U \) is open in \( X \), since we know that \( f ^ { -1 }  \) is continuous this means that \( \left( f ^ { -1 }  \right) ^ { -1 } \left( U \right)   \) is an open set of \( Y \), <a class="knowledge-link" href="/fundamentals/functions.html#exercise-inverse-image-of-the-inverse-function-is-the-image">we've shown</a> that \( \left( f ^ { -1 }  \right) ^ { -1 } \left( U \right) = f \left( U \right)   \), thus, we've just shown that \( f \left( U \right)  \) is an open set of \( Y \), this concludes
+                    </p>
+                    <p>
+                        At this point we've proven the main rightward implication. The other direction is quite a lot easier. We have to show that both \( f \)  and \( f ^ { -1 }  \) are continuous. 
+                    </p>
+                    <p>
+                        Suppose that \( V \) is an open set of \( Y \), we want to show that \( f ^ { -1 } \left( V \right)  \) is an open set of \( X \), which is true iff \( f \left( f ^ { -1 } \left( V \right)  \right)  \) is an open set of \( Y \), since \( f \) is surjective, then \( f \left( f ^ { -1 } \left( V \right)  \right) = V   \) making it an open set of \( Y \), which shows that \( f ^ { -1 } \left( V \right)  \) is an open set of \( X \) 
+                    </p>
+                    <p>
+                        Now suppose that \( U \) is an open set of \( X \) , our goal will be to show that \( \left( f ^ { -1 } \right) ^ { -1 } \left( U \right)    \) is an open set of \( Y \), as seen previously \( \left( f ^ { -1 } \right) ^ { -1 } \left( U \right) = f \left( U \right)  \), and since \( U \) was open in \( X \), by our assmption we know that \( f \left( U \right)  \) is open in \( Y \), this concludes the proof.
+                    </p>
             	</div>
             </div>
             
+            <div class="definition" id="definition-imbedding">
+            	<div class="title">Imbedding</div>
+            	<div class="content">
+            		Suppose that \( f: X \rightarrow Y \) is an <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a> <a class="knowledge-link" href="/topology/continuous_functions.html#definition-continuous-function">continuous</a> function, with \( X \) and \( Y \) topological spaces. By setting \( Z = f \left( X \right)  \) as a <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace</a> of \( Y \), if \( f ^ \prime : X \rightarrow Z \) obtained by restricting the range of \( f \)  is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a>, then we say that the original \( f \) is an <b>imbedding</b> of \( X \) in \( Y \) 
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-constant-functions-are-continuous">
+            	<div class="title">Constant Functions are Continuous</div>
+            	<div class="content">
+                    Let \( X, Y \) be topological spaces and suppose that \( p \in Y \), if \( f: X \rightarrow Y \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-constant-function">constant</a> with value \( p \), then \( f \) is continuous
+            	</div>
+            	<div class="proof">
+            	    Suppose that \( V \subseteq Y \), if \( p \in V \), then \( f ^ { -1 } \left( V \right) = X   \), otherwise \( p \notin V \) so \( f ^ { -1 } \left( V \right) = \emptyset   \), in either case we have an open set of \( X \).
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-inclusion-is-continuous">
+            	<div class="title">Inclusion is Continuous</div>
+            	<div class="content">
+            		Suppose that \( A \) is a <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace</a> of \( X \), then the <a class="knowledge-link" href="/fundamentals/functions.html#definition-inclusion-function">inclusion function</a> \( \iota: A \rightarrow X \) is continuous.
+            	</div>
+            	<div class="proof">
+            	    Let \( U \) be an open set of \( X \), then \( \iota ^ { -1 }  \left( U \right) = U \cap A   \), which by definition is open in the subspace topology of \( A \) as needed.
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-compositions-of-continuous-functions-are-continuous">
+            	<div class="title">Compositions of Continuous Functions are Continuous</div>
+            	<div class="content">
+                    Suppose that \( f : X \rightarrow Y \) and \( g: Y \rightarrow Z \) are continuous then the map \( g \circ f : X \to Z \) is continuous
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Let \( U  \) be open in \( Z \), we want to prove that \( \left( g \circ f \right) ^ { -1 } \left( U \right) \) is an open set of \( X \).
+                    </p>
+                    <p>
+                        To start if we look at \( \left( g \circ f \right) ^ { -1 } \left( U \right)  \), we know this is equal to \( f ^ { -1 } \left( g ^ { -1 } \left( U \right)  \right)  \), thus since \( g \) is continuous we know that \( S := g ^ { -1 } \left( U \right)  \) is an open set of \( Y \) and then \( f ^ { -1 } \left( S \right)  \) is open in \( X \) since \( f \) was continuous, this shows that \( g \circ f \) is continuous
+                    </p>
+            	</div>
+            </div>
             
-            
+            <div class="proposition" id="proposition-domain-restriction-is-continuous">
+            	<div class="title">Domain Restriction is Continuous</div>
+            	<div class="content">
+            		If \( f : X \to Y \) is continuous and if \( A \) is a subspace of \( X \), then the restricted function \( f \restriction A : A \to Y \) is continuous
+            	</div>
+            	<div class="proof">
+                    <a class="knowledge-link" href="/fundamentals/functions.html#proposition-restriction-equals-inclusion-composed-with-original">We note that</a> \( f \restriction A = f \circ \iota \), therefore as the composition of two continuous functions, <a class="knowledge-link" href="/topology/continuous_functions.html#proposition-compositions-of-continuous-functions-are-continuous">we know that</a> \( f \restriction A \)  is continuous
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-restricting-range-maintains-continuity">
+            	<div class="title">Restricting the Range maintains Continuity</div>
+            	<div class="content">
+            	    Suppose that \( f : X \to Y \) is continuous. If \( Z \) is a subspace of \( Y \) containing \( f \left( X \right)  \), then the function \( g: X \to Z \) obtained by restricting the range is continuous
+            	</div>
+            	<div class="proof">
+                    To show continuity we start by assuming that \( B \) is open in \( Z \), therefore \( B = Z \cap U \) where \( U \) is open in \( Y \) 
+            	</div>
+            </div>
+
+
         </div>
     </body>
 </html>
