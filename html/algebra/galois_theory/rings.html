@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rings</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+</head>
+<body>
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-commutative-ring-with-one">
+    	<div class="title">Commutative Ring with 1</div>
+    	<div class="content">
+    		A <b>commutative ring with 1</b> is a set \( R \) equipped with two <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operations</span> addition \( \left( a, b \right) \to a + b \) and multiplication: \( \left( a, b \right) \to ab \) such that
+            <ol>
+                <li>R is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-abelian">abelian group</span> under addition</li>
+                <li>
+                    Multiplication is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-relation">commutative</a> and <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative</a>
+                </li>
+                <li>
+                    There is an element \( 1 \in R \) such that \( 1 \neq 0 \) and 
+                    \[
+                        1 r = r
+                    \]
+                    for every \( r \in R \)
+                </li>
+                <li>
+                    The distributive law holds true for any \( r, s, t \in R \)
+                    \[
+                        r \left( s + t \right) = rs + rt
+                    \]
+                    for all \( r, s, t \in R \)
+                </li>
+            </ol>
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-the-integers-form-a-ring">
+    	<div class="title">The Integers form a Ring</div>
+    	<div class="content">
+            \( \mathbb{ Z }  \) forms a ring
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+    
+    <div class="corollary" id="corollary-every-field-is-a-ring">
+    	<div class="title">Every Field is a Ring</div>
+    	<div class="content">
+
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-the-integers-modulo-n-are-a-ring">
+    	<div class="title">The Integers Modulo N are a Ring</div>
+    	<div class="content">
+
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-polynomials-form-a-ring-with-ring-coefficients">
+    	<div class="title">Polynomials Form a Ring with Ring Coefficients</div>
+    	<div class="content">
+            Suppose that \( R \) is a ring and that the set
+            \[
+                R [ x ] =  \left\{ r_n x ^ n + r_ { n - 1 } x ^ { n - 1 }  + \ldots + r _ 1 x ^ 1 + r ^ 0 : n \in \mathbb{ N } _ 0, r _ i \in R \right\}
+            \]
+            Along with addition, defined such that for any \( m \le n \in \mathbb{ N } _ 0 \), we have:
+            \[
+                \sum _ { i = 0 }  ^  n r _ i x ^ i + \sum _ { i = 0 }  ^  m s _ i x ^ i := \sum _ { i = 0 }  ^  n r _ i x ^ i + \sum _ { i = 0 }  ^  n s _ i x ^ i := \sum _ { i = 0 }  ^ n \left( r _ i + s _ i \right) x ^ i
+            \]
+            Where for every \(  m < k \le n \) we've set \( s _ k = 0 \), thus artifically padding the polynomial without changing it.
+            As for multiplication, we define
+            \[
+                \left( \sum _ { i = 0 }  ^ n r _ i x ^ i  \right) \left( \sum _ { j = 0 } ^ m s _ i x ^ i \right) := \sum _ { k = 0 }  ^  { n + m } t _ k x ^ k
+            \]
+            Wherein \( t _ k = \sum _ { i + j = k } r _ i s _ j \)
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <p>
+        Note that the definition of \( t _ k \) describes how many ways to get the same degree after the generalized expansion rule has been applied to the two. Additionally these objects are not yet functions, they are simply symbolic formal expressions.
+    </p>
+
+    <div class="exercise" id="exercise-square-matricies-form-a-non-commutative-ring">
+    	<div class="title">Square Matrices form a Non-Commutative Ring</div>
+    	<div class="content">
+    	    Let \( R \) be a ring and then \( M _ { n \times n } \left( R \right)   \) form a non-commutative ring
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <p>
+        Note that a vector space forms an abelian group under addition, but there  is no clear multiplication, using the cross product doesn't work.
+    </p>
+
+    <div class="proposition" id="proposition-zero-multiplication-in-a-ring">
+    	<div class="title">Zero Multiplication in a Ring</div>
+    	<div class="content">
+    		Let \( R \) be a ring, then for any \( r \in R \)
+            \[
+                0 r = 0
+            \]
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-additive-inverse-equals-multiplication-by-ones-additive-inverse">
+    	<div class="title">Additive Inverse equals Multiplication by One's Additive Inverse</div>
+    	<div class="content">
+            \( -r = \left( -1 \right) r  \)
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-additive-inverse-times-additive-inverse-of-one-yields-original">
+    	<div class="title">Additive Inverse times Additive Inverse of One Yields Original</div>
+    	<div class="content">
+            \( \left( -1 \right) \left( -r \right) = r \)
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-the-set-of-one-element-forms-a-ring">
+    	<div class="title">The set of One Element Forms a Ring</div>
+    	<div class="content">
+    		Suppose that \( R = \left\{ r \right\}  \), with addition and multiplication defined in the only way it can be, then \( R \) forms a ring, which is called the zero ring
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-domain">
+    	<div class="title">Domain</div>
+    	<div class="content">
+    		A ring \( R \) is a domain if the product of any two nonzero elements in \( R \) is itself non-zero
+    	</div>
+    </div>
+
+
+</div>
+</body>
+</html>
