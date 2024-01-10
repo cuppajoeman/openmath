@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Basics</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <div class="proposition" id="proposition-you-can-add-to-get-to-any-number">
+    	<div class="title">You can add to get to any Number</div>
+    	<div class="content">
+    		Let \( a, b \in \mathbb{ Z }  \), then there exists some \( k \in \mathbb{ Z }  \) such that \( a + k = b \)
+    	</div>
+    	<div class="proof">
+            If we want the equation to hold true, we require some \( k \in \mathbb{ Z }  \) such that \( k = b - a \), since the integers are closed under subtraction, this value works as verfied by the fact that \( a + \left( b - a \right) = b  \)
+    	</div>
+    </div>
+
+
+    <div class="proposition" id="proposition-numbers-from-zero-to-k">
+    	<div class="title">Numbers from Zero to K</div>
+    	<div class="content">
+    		Let \( k \in \mathbb{ N } _ 0 \) and define the set \( X _ k := \left\{ x \in \mathbb{ N } _ 0 : 0 \le x \le k \right\}  \), then \( |X _ k| = k + 1 \)
+    	</div>
+    	<div class="proof">
+            <p>
+                We prove the claim by induction, for the base case if \( k = 0 \), then \( X _ k = \left\{ 0 \right\}  \) thus \( |X _ k| = 1 = 0 + 1 = k + 1 \)  as needed.
+            </p>
+            <p>
+                Let \( n \in \mathbb{ N } _ 1 \), and assume the claim holds for this value, now we want to prove it holds true for \( n + 1 \). We can see that \( X _ (n + 1) = \left\{ x \in \mathbb{ N } ^ 0 : 0 \le x \le n + 1 \right\} = X _ n \cup \left\{ n + 1 \right\}   \), thus \( |X _ (n + 1)| = |X_n| + 1  = n + 1 \) as needed.
+            </p>
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-the-number-of-integers-between-two-integers">
+    	<div class="title">The Number of Integers between Two Integers</div>
+    	<div class="content">
+    		Let \( a, b \in \mathbb{ Z }  \) such that \( a \le b \) , then \( |\left\{ x \in \mathbb{ Z } : a \le x \le b \right\}| = b - a + 1  \)
+    	</div>
+    	<div class="proof">
+            <p>
+                We know that there is some \( k \in \mathbb{ Z }  \) such that \( b = a + k \), therefore we're looking at the set \( \left\{ x \in \mathbb{ Z } : a \le x \le a + k \right\}  \), this set is in clear <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijection</a> with the set \( \left\{ x \in \mathbb{ Z } : 0 \le x \le k \right\}  \) through the function \( f \left( x \right) = x - a \), <a class="knowledge-link" href="/combinatorics/basics.html#proposition-numbers-from-zero-to-k">therefore</a> our original set has \( k + 1 \), elements. Moreover \( k = b - a \) which completes the proof.
+            </p>
+    	</div>
+    </div>
+
+
+
+    <div class="proposition" id="proposition-pigeon-hole-principle">
+    	<div class="title">Pigeon Hole Principle</div>
+    	<div class="content">
+    		Suppose that \( f : X \to Y \) is between two finite sets and that \( |X| > |Y| \), then there exists some \( y \in Y \) and \( a \neq b \in X \) such that \( f \left( a \right) = f \left( b \right) = y \)
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+
+
+</div>
+</body>
