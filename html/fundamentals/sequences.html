@@ -3,14 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>set theory</title>
+    <title>Sequences</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer></script>
-
-    
 
 </head>
 
@@ -18,11 +16,63 @@
     <div class="thin-wrapper">
 
 		<div class="definition" id="definition-sequence">
-			<div class="title">sequence</div>
+			<div class="title">Sequence</div>
 			<div class="content">
-				A sequence is a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function </span>is any function \( f \) such that \( \text{dom} \left ( f \right ) = \mathbb{N}_{1} \). With this in place, we can consider the \( n \)-th element by \( f{\left ( n \right )} \). Since we can think of the sequence as being enumerated, the notation \( a_{n} \) is employed for \( f{\left ( n \right )} \) where \( a \) is usually any choice of lower case alphabet characters like \( a , b , c , d , \ldots \). That said, we can notate the entire sequence by \( \left ( a_{n} \right ) \)
+				A sequence is a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function </span>is any function \( f \) such that \( \text{dom} \left ( f \right ) = \mathbb{N}_{1} \).
 			</div>
 		</div>
 
+        <p>
+            With this in place, we can consider the \( n \)-th element by \( f{\left ( n \right )} \). Since we can think of the sequence as being enumerated, the notation \( a_{n} \) is employed for \( f{\left ( n \right )} \) where \( a \) is usually any choice of lower case alphabet characters like \( a , b , c , d , \ldots \). That said, we can notate the entire sequence by \( \left ( a_{n} \right ) \)
+        </p>
+        
+        <div class="definition" id="definition-sequence-convergence">
+        	<div class="title">Sequence Convergence</div>
+        	<div class="content">
+        		Let \( \left( x_n \right) : \mathbb{R} \to \mathbb{R} \) be a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> and let \( x \in \mathbb{ R }  \), then we say that \( \left( x _ n \right)  \) converges to \( x \) and write \( \left( x _ n \right) \to x  \) when the following holds true
+                \[
+                    \forall \epsilon \in \mathbb{ R }^+, \exists n \in \mathbb{ N } _ 0 \text{ such that } \forall n \in \mathbb{ N } _ 0, n \ge N \implies | x _ n - x | < \epsilon
+                \]
+        	</div>
+        </div>
+
+        <p>
+            Note that you may come across various other notations for this definition in other resources, the main ones to note will be: \( x _ n \to x \) as \( n \to \infty \), or even more shortened as \( x _ n \to x \), sometimes limit notation will be used: \( \lim _ { n \to \infty } x _ n = x \) or just \( \lim x _ n = x \)
+        </p>
+        
+        <div class="definition" id="definition-sequence-goes-to-positive-infinity">
+        	<div class="title">Sequence Goes to Positive Infinity</div>
+        	<div class="content">
+        		We say that a sequence \( \left( x _ n \right)  \) <b>goes to positive infinity</b> and notate it as \( \left( x _ n \right) \to \infty \) when
+                \[
+                    \forall M \in \mathbb{ R } ^ +, \exists N \in \mathbb{ N } _ 0 \text{ such that } \forall n \in \mathbb{ N } _ 0, n \ge N \implies x _ n \ge M
+                \]
+        	</div>
+        </div>
+
+        <p>
+            You can probably guess the next definition.
+        </p>
+
+        <div class="definition" id="definition-sequence-goes-to-negative-infinity">
+            <div class="title">Sequence Goes to Negative Infinity</div>
+            <div class="content">
+                We say that a sequence \( \left( x _ n \right)  \) <b>goes to negative infinity</b> and notate it as \( \left( x _ n \right) \to -\infty \) when
+                \[
+                \forall M \in \mathbb{ R } ^ -, \exists N \in \mathbb{ N } _ 0 \text{ such that } \forall n \in \mathbb{ N } _ 0, n \ge N \implies x _ n \le M
+                \]
+            </div>
+        </div>
+
+        <p>
+            Note that these definitions formalize our idea that if something approaches infinity, namely that this object is greater (or smaller) than every possible other object.
+        </p>
+        
+        <div class="definition" id="definition-sequence-goes-to-infinity">
+        	<div class="title">Sequence Goes to Infinity</div>
+        	<div class="content">
+        		We say that a sequence goes to infinity if it <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence-goes-to-positive-infinity">goes to positive infinity</a> or <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence-goes-to-negative-infinity">negative infinity</a>, and write \( \left( x _ n \right) \to  \pm \infty  \)
+        	</div>
+        </div>
     </div>
 </body>

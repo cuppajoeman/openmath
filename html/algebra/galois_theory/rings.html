@@ -162,6 +162,43 @@
     	</div>
     </div>
 
+    <div class="corollary" id="corollary-product-zero-implies-factor-zero-domain-equivalence">
+    	<div class="title">Product Zero Implies Factor Zero Domain Equivalence</div>
+    	<div class="content">
+    		\( R \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-domain">domain</a> if and only if  for every \( a, b \in D \),  \( ab = 0 \) implies \( a = 0 \) or that \( b = 0 \)
+    	</div>
+    	<div class="proof">
+            Since \( R \) is a domain if and only if for any \( x \neq 0 \) and \( y \neq 0 \) it implies that \( x y \neq 0 \), this statement is equivalent to it's contrapositive: \( xy = 0 \) implies that \( x = 0 \) or \( y = 0 \) as needed.
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-domain-iff-cancellation">
+    	<div class="title">Domain iff Cancellation</div>
+    	<div class="content">
+            Let \( R \) be a ring. \( R \) is a domain if and only if given \( r, a, b \in R \) we have \( ra = rb \land r \neq 0 \implies a = b\)
+    	</div>
+    	<div class="proof">
+            <p>
+                For the rightward implication we can use properties of a ring to see the following
+                \[
+                    \begin{gather}
+                        ra &= rb \iff \\
+                        ra - rb &= 0 \iff \\
+                        r \left( a - b \right) &= 0 \iff \\
+                    \end{gather}
+                \]
+            </p>
+            <p>
+                <a class="knowledge-link" href="/algebra/galois_theory/rings.html#corollary-product-zero-implies-factor-zero-domain-equivalence">Therefore</a> we conclude that either \( a - b = 0 \) or \( r = 0 \), the latter of which is impossible through our assumption that \( r \neq 0 \), therefore \( a = b \).
+            </p>
+            <p>
+                We move on to the leftward implication where our goal is to show that \( R \) is a domain, we do so by chasing it's <a class="knowledge-link" href="/algebra/galois_theory/rings.html#corollary-product-zero-implies-factor-zero-domain-equivalence">corollary</a>. So let \( a, b \in R \) and assume that \( ab = 0 \), note that at this point if \( a = 0 \), our proof is over, therefore we assume that \( a \neq 0 \), note that we can rewrite \( ab = 0 \)  <a class="knowledge-link" href="/algebra/galois_theory/rings.html#proposition-zero-multiplication-in-a-ring">to</a> \( ab = a0 \), then by our assumption we can conclude that \( b = 0 \), which proves it.
+            </p>
+    	</div>
+
+    </div>
+
+
 
 </div>
 </body>
