@@ -13,6 +13,10 @@
 <body>
 <div class="thin-wrapper">
 
+    <p>
+        For these discussions we will be using racket so that we can put these ideas into practice
+    </p>
+
     <div class="definition" id="definition-expression">
         <div class="title">Expression</div>
         <div class="content">
@@ -28,6 +32,50 @@
     <p>
         In practice this means that if we see \( \left( \lambda x . x \right) 5 \) it can be evaluated to \( 5 \) .
     </p>
+    
+    <div class="definition" id="definition-function-side-effects">
+    	<div class="title">Function Side Effects</div>
+    	<div class="content">
+    		We say that a programming function has side effects when, it has any observable effect other than returning a value.
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-syntactic-sugar">
+    	<div class="title">Syntactic Sugar</div>
+    	<div class="content">
+    		<b>Syntactic sugar</b> is the part of a programs syntax that doesn't introduce new functionality but provides a simpler way to utilize existing functionality.
+    	</div>
+    </div>
+    
+    
+
+    <div class="definition" id="definition-function-purity">
+    	<div class="title">Function Purity</div>
+    	<div class="content">
+    		We say that a programming function is pure when:
+            <ul>
+                <li>The function's behavior is exactly determined by the value of it's inputs </li>
+                <li>The function has no <a class="knowledge-link" href="/computer_science/programming_languages/functional_programming.html#definition-function-side-effects">side effects</a></li>
+            </ul>
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-referentially-transparent">
+    	<div class="title">Referentially Transparent</div>
+    	<div class="content">
+    		We say that an identifier is <b>referentially transparent</b> if it can be substituted with it's value in the source code without changing the meaning of the program.
+    	</div>
+    </div>
+
+    <p>
+        Note that in most imperative programming languages, you can rebind variables, which means that if we were to replace that variable with it's initial value everywhere in the code, then for every line in the code that uses the variable after it's rebound, then the meaning of the program would change.
+    </p>
+
+    <p>
+        If a programming languages is referentially transparent this is beneficial if we want to reason about our code, because whenever we see a symbol, we know what it's value is immediately.
+    </p>
+    
+    
 
 </div>
 </body>

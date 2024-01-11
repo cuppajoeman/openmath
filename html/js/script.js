@@ -9,7 +9,6 @@ const debugging = false;
 
 let statementWithProofTemplate;
 
-
 async function fetchElement(url) {
     const data = await fetch(url).then(res => res.text())
     return new DOMParser().parseFromString(data, 'text/html')
