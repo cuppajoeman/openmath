@@ -13,6 +13,66 @@
 </head>
 <body>
 <div class="thin-wrapper">
+    
+    <div class="definition" id="definition-magma">
+    	<div class="title">Magma</div>
+    	<div class="content">
+    		A <b>magma</b> is a set \( M \) with a binary operation \( \star \) defined on \( M \)
+    	</div>
+    </div>
+    
+    
+    <div class="definition" id="definition-monoid">
+    	<div class="title">Monoid</div>
+    	<div class="content">
+    		A <b>monoid</b> is a set \( X \)  with a binary operation \( \star \) on \( X \) such that \( \star \) is associative and it has an identity
+    	</div>
+    </div>
+    
+    
+    <div class="definition" id="definition-field">
+    	<div class="title">Field</div>
+    	<div class="content">
+    		
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-ring">
+    	<div class="title">Ring</div>
+    	<div class="content">
+    		A <b>ring</b> is a non-empty set \( R \) equipped with two binary operations \( \oplus, \otimes \) such that
+            <ul>
+                <li>\( R, \oplus \) form an abelian group (We denote it's inverse as \( 0 _ R \))</li>
+                <li>
+                    \( \otimes \) is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative</a>
+                </li>
+                <li>
+                    For any \( a, b, c \in R \)  satisfies:
+                    \[
+                    a \otimes \left( b \oplus c \right) = \left( a \otimes b \right) \oplus \left( b \otimes c \right)
+                    \]
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+    <p>
+        Note that we used the symbols \( \oplus, \otimes \) because this definition generalizes some of the properties that we know true for \( +, \cdot  \)  when working with numbers. Note that on paper, you will usually see \( +, \cdot \) instead of the circled operations. They are used here to emphasize that these are generic operations.
+    </p>
+    
+    <div class="definition" id="definition-commutative-ring">
+    	<div class="title">Commutative Ring</div>
+    	<div class="content">
+    		A <b>commutative ring</b> is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-commutative-ring">ring</a> \( R \) such that \( \otimes \) is commutative.
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-ring-with-identity">
+    	<div class="title">Ring with Identity</div>
+    	<div class="content">
+    		A <b>ring with identity</b> is a ring \( R \) that contains an identity element, which we denote by \( 1 _ R \)
+    	</div>
+    </div>
 
     <div class="definition" id="definition-commutative-ring-with-one">
     	<div class="title">Commutative Ring with 1</div>
@@ -98,6 +158,38 @@
         Note that the definition of \( t _ k \) describes how many ways to get the same degree after the generalized expansion rule has been applied to the two. Additionally these objects are not yet functions, they are simply symbolic formal expressions.
     </p>
 
+
+    <div class="definition" id="definition-leading-coefficient">
+    	<div class="title">Leading Coefficient</div>
+    	<div class="content">
+    		Let \( R \) be a ring and \( p = \sum _ { i = 0 }  ^ n r_i x^i \) be a polynomial in \( R [ x ] \) such that \( r _ n \neq 0 \), then \( r _ i \) is called the leading coefficient of \( p \)
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-zero-polynomial">
+    	<div class="title">Zero Polynomial</div>
+    	<div class="content">
+            Let \( R \) be a ring and \( p = \sum _ { i = 0 }  ^ n r_i x^i \) be a polynomial such that for every \(  i \in { 0, ..., n }   \) we have \( r _ i = 0 \), then we say that \( p \) is the zero polynomial.
+    	</div>
+    </div>
+
+
+
+    <div class="definition" id="definition-monic">
+        <div class="title">Monic</div>
+        <div class="content">
+            Let \( R \) be a ring and \( p \in R [ x ] \) such that \( r _ n = 1 \), then \( p \) is said to be <b>monic</b>.
+        </div>
+    </div>
+
+    <div class="definition" id="definition-degree">
+    	<div class="title">Degree</div>
+    	<div class="content">
+            Let \( R \) be a ring and \( p = \sum _ { i = 0 }  ^ n r_i x^i \) be a polynomial in \( R [ x ] \) such that \( r _ n \neq 0 \), then we say that the <b>degree</b> of \( p \) is \( n \), and it is denoted by \( \operatorname{ deg } \left( p \right)  \) 
+    	</div>
+    </div>
+
+
     <div class="exercise" id="exercise-square-matricies-form-a-non-commutative-ring">
     	<div class="title">Square Matrices form a Non-Commutative Ring</div>
     	<div class="content">
@@ -162,6 +254,10 @@
     	</div>
     </div>
 
+    <p>
+        Note that in other places they may call this an integral domain
+    </p>
+
     <div class="corollary" id="corollary-product-zero-implies-factor-zero-domain-equivalence">
     	<div class="title">Product Zero Implies Factor Zero Domain Equivalence</div>
     	<div class="content">
@@ -195,9 +291,49 @@
                 We move on to the leftward implication where our goal is to show that \( R \) is a domain, we do so by chasing it's <a class="knowledge-link" href="/algebra/galois_theory/rings.html#corollary-product-zero-implies-factor-zero-domain-equivalence">corollary</a>. So let \( a, b \in R \) and assume that \( ab = 0 \), note that at this point if \( a = 0 \), our proof is over, therefore we assume that \( a \neq 0 \), note that we can rewrite \( ab = 0 \)  <a class="knowledge-link" href="/algebra/galois_theory/rings.html#proposition-zero-multiplication-in-a-ring">to</a> \( ab = a0 \), then by our assumption we can conclude that \( b = 0 \), which proves it.
             </p>
     	</div>
-
     </div>
 
+    <p>
+        Since \( \mathbb{ Z } _ 4 \) forms a ring then we can then notice the following:
+        \[
+        \begin{align}
+        \left( [ 2 ] x + [ 1 ]  \right) ^ 2 &= [ 2 ] [ 2 ] x ^ 2 + [ 2 ] [ 1 ] x + [ 1 ] [ 2 ] x + [ 1 ] [ 1 ] \\
+        &= [ 4 ] x ^ 2 + [ 4 ] x + [ 1 ] \\
+        &= [ 0 ] x ^ 2 +  [ 0 ] x + [ 1 ]  \\
+        &= [ 1 ]
+        \end{align}
+        \]
+        Where we're noticing that the degree of the product has decreased, this is occuring because in \( \mathbb{ Z } _ 4 \) there are non-zero elements which have a product of \( 0 \). 
+    </p>
+    
+    <div class="proposition" id="proposition-degree-of-product-equals-sum-of-degrees">
+    	<div class="title">Degree of Product equals Sum of Degrees</div>
+    	<div class="content">
+            Suppose that \( R \) is a domain and \( f, g \) are non-zero polynomials in \( R [ x ]  \), then 
+            \[
+                \operatorname{ deg } \left( f g \right) = \operatorname{ deg } \left( f \right) + \operatorname{ deg } \left( g \right) 
+            \]
+    	</div>
+    	<div class="proof">
+            <p>
+                We first start by setting \( n := \operatorname{ deg } \left( f \right)  \) and \( m = \operatorname{ deg } \left( g \right)  \). Note that the highest power that could be produced by this product would be \( x ^ { n + m } \).
+            </p>
+            <p>
+                Suppose that \( f = \sum _ { i = 0  } ^ {n}  r _ i x ^ i  \) and \( g = \sum _ { i = 0  } ^ {m}  s _ i x ^ i  \), by the definition of \(  \operatorname{ deg } \left(  \cdot \right)  \) we know \( r _ n , s _ m \) are non-zero, therefore since \( R \) is a domain we know \( r _ n s _ n \neq 0 _ R \), which shows that the coefficient on \( x ^ { n + m }  \) is non zero, thus we can conclude that \( \operatorname{ deg } \left( fg \right) = \operatorname{ deg } \left( f  \right) + \operatorname{ g } \) as needed.
+            </p>
+    	</div>
+    </div>
+    
+    <div class="corollary" id="corollary-">
+    	<div class="title">Polynomials Formed from a Domain Form a Domain</div>
+    	<div class="content">
+            Suppose that \( R \) is a domain, then so is \( R [ x ] \)
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
 
 
 </div>
