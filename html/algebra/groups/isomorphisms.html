@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Isomorphisms</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+</head>
+<body>
+<div class="thin-wrapper">
+    
+    <div class="definition" id="definition-group-isomorphism">
+    	<div class="title">Group Isomorphism</div>
+    	<div class="content">
+    		An <b>isomorphism</b> from a group \( \left( G, \star \right)  \) to a group \( \left( H, \cdot \right) \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijective</a> function \( \phi : G \to H \) such that for any \( a, b \in G \) :
+            \[
+                \phi \left( a \star b \right) = \phi \left( a \right) \cdot \phi \left( b \right)
+            \]
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-isomorphic-groups">
+    	<div class="title">Isomorphic Groups</div>
+    	<div class="content">
+    	    If there is an <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#definition-group-isomorphism">isomorphism</a> from \( G \) to \( H \) we say that \( G \) and \( H \) are <b>isomorphic</b> and write \( G \cong H \)
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-identities-are-carried">
+    	<div class="title">Identities are Carried</div>
+    	<div class="content">
+    		Let \( e _ G \) be the identity of \( G \) and \( e _ H \)  of \( H \), then for any <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#definition-group-isomorphism">isomorphism</a> from \( G \) to \( H \), we have
+            \[
+                \phi \left( e _ G  \right) = e _ H
+            \]
+    	</div>
+    	<div class="proof">
+    	    <p>
+                We know \( e _ G = e _ G e _ G \), therefore \( \phi \left( e _ H  \right) = \phi \left( e _ H e _ H \right) = \phi \left( e _ H \right) \phi \left( e _ H \right) \), but also \( \phi \left( e _ H  \right) = e _ G \phi \left( e _ H \right)   \) since \( e _ G \) is the identity, by right cancellation this yields \( e _ G = \phi \left( e _ G \right)  \) as needed.
+            </p>
+    	</div>
+    </div>
+    
+
+    
+
+
+</div>
+</body>
+</html>

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>binary operations and groups</title>
+        <title>Binary Operations and Groups</title>
 
 		<link rel="stylesheet" href="/styles/styles.css">
         <script src="/js/script.js" defer></script>
@@ -36,9 +36,20 @@
 					A <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</span> on a set \( S \) such that for any \( a , b , c \in S \), then \( \left ( a \star b \right ) \star c = a \star \left ( b \star c \right ) \) is called associative
 				</div>
 			</div>
+			
+			<div class="definition" id="definition-distributivity">
+				<div class="title">Distributivity</div>
+				<div class="content">
+					Let \( \otimes, \oplus \) be binary operations on a set \( S \), then we say that <b>\( \otimes \) distributes into \( \oplus \) </b> whenever we have for any \( a, b, c \in S \) 
+					\[
+						c \otimes \left( a \oplus b \right) = \left( c \otimes a \right) \oplus \left( c \otimes b \right) 
+					\]
+				</div>
+			</div>
+			
 
 			<div class="theorem" id="theorem-bracket-placement-doesn't-matter-for-associative-binary-operations">
-				<div class="title">bracket placement doesn't matter for associative binary operations</div>
+				<div class="title">Bracket Placement Doesn't Matter for Associative Binary Operations</div>
 				<div class="content">
 					Suppose that \( \star \) is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</span>, then for any \( n \in \mathbb{Z}^{\ge 3} \), then no matter how one places the brackets in the product \( x_{1} \star x_{2} \star \ldots \star x_{n} \) it always evaluates to the same value
 				</div>
@@ -82,6 +93,21 @@
 					A trivial group is a group that has one element
 				</div>
 			</div>
+
+			<div class="proposition" id="proposition-integers-are-a-group">
+				<div class="title">The Integers are a Group</div>
+				<div class="content">
+					\( \mathbb{ Z } , + \) 	form a group
+				</div>
+				<div class="proof">
+
+				</div>
+			</div>
+
+			<p>
+				Note that at this point in time we can write things like \( a + b \) and that makes sense, if we were to write something like \( x a + b \) this should not make sense because at this point we only have one operator, and not a multiplication operator yet, but we can think of \( x a \) as "syntactic sugar" for \( a + a + \ldots + a \) (with \( x \) repetitions) and it's alright.
+			</p>
+			
 			
 			<div class="proposition" id="proposition-one-point-sets-form-trivial-groups">
 				<div class="title">One Point sets are Form Trivial Groups</div>
@@ -186,6 +212,35 @@
 					Given a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-group">group</a>, if it's <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition law</span> is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-relation">commutative</a>, then we say that the group is <b>abelian</b>
 				</div>
 			</div>
+			
+			<div class="proposition" id="proposition-integers-with-addition-are-abelian">
+				<div class="title">The Integers with Addition are Abelian</div>
+				<div class="content">
+					\( \mathbb{ Z } , + \) where \( + \) is defined in the usual sense form an abelian group
+				</div>
+				<div class="proof">
+					
+				</div>
+			</div>
+
+			<div class="proposition" id="proposition-cartesian-product-of-abelian-groups-is-abelian">
+				<div class="title">Cartesian Product of Abelian Groups is Abelian</div>
+				<div class="content">
+					Let \( \left( G, \star \right)  \) 	be an abelian group, then \( G ^ n \) forms an abelian group with the operation \( \oplus \) defined for \( a, b \in G ^ n \) as
+					\[
+					    a \oplus b := \left( a _ 1 \star b _ 1, \ldots , a _ n \star b _ n \right)
+					\]
+				</div>
+				<div class="proof">
+
+				</div>
+			</div>
+
+			<p>
+				Can the above be generalized for any extra group properties?
+			</p>
+
+
 
 			<div class="definition" id="definition-multiplicative-notation">
 				<div class="title">Multiplicative Notation</div>

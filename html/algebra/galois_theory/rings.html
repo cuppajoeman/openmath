@@ -67,39 +67,16 @@
     	</div>
     </div>
 
-    <div class="definition" id="definition-ring-with-identity">
-    	<div class="title">Ring with Identity</div>
+    <div class="definition" id="definition-ring-with-unity">
+    	<div class="title">Ring with Unity</div>
     	<div class="content">
-    		A <b>ring with identity</b> is a ring \( R \) that contains an identity element, which we denote by \( 1 _ R \)
+    		A <b>ring with unity</b> is a ring \( R \) that contains an identity element relative to \( \otimes \) , which we denote by \( 1 _ R \)
     	</div>
     </div>
 
-    <div class="definition" id="definition-commutative-ring-with-one">
-    	<div class="title">Commutative Ring with 1</div>
-    	<div class="content">
-    		A <b>commutative ring with 1</b> is a set \( R \) equipped with two <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operations</span> addition \( \left( a, b \right) \to a + b \) and multiplication: \( \left( a, b \right) \to ab \) such that
-            <ol>
-                <li>R is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-abelian">abelian group</span> under addition</li>
-                <li>
-                    Multiplication is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-relation">commutative</a> and <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative</a>
-                </li>
-                <li>
-                    There is an element \( 1 \in R \) such that \( 1 \neq 0 \) and 
-                    \[
-                        1 r = r
-                    \]
-                    for every \( r \in R \)
-                </li>
-                <li>
-                    The distributive law holds true for any \( r, s, t \in R \)
-                    \[
-                        r \left( s + t \right) = rs + rt
-                    \]
-                    for all \( r, s, t \in R \)
-                </li>
-            </ol>
-    	</div>
-    </div>
+    <p>
+        In writing sometimes the original definition of <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring">ring</a> is written as rng (without the i) to denote that there is no assumption on it having a multiplicative identity, and the above definition is just identified by ring (with the character i, representing that we assume there is an multiplicative identity. In speaking we cannot distinguish "rng" and "ring", so we prefer the names listed here.
+    </p>
 
     <div class="exercise" id="exercise-the-integers-form-a-ring">
     	<div class="title">The Integers form a Ring</div>
@@ -333,8 +310,62 @@
     		
     	</div>
     </div>
-    
 
+
+
+    a direct sum of infinitely many nonzero rings has no unity
+
+    I'm implicitly using the trivial fact that in any ring R with 1:   R = {0}  iff  1 = 0
+
+    (in fact, 0*x = x*0 = 0   in all rings, even those lacking 1)
+
+    (since  1*x = x  for all x,  and  0*x = 0  for all x,  in any ring with 1)
+
+    Did you know that in any ring with 1, the axiom that addition is commutative is redundant with the rest of the axioms? That is, you can prove it, assuming only the other axioms.
+
+    <div class="definition" id="definition-ring-homomorphism">
+    	<div class="title">Ring Homomorphism</div>
+    	<div class="content">
+    		Suppose that \( \left( R, \oplus, \otimes \right)  \) and \( \left( S, \boxplus, \boxtimes \right)  \) are <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring">rings</a>, and \( \phi: R \to S \) is a function, then \( \phi  \) is a <b>ring homomorphism</b> if for any \( a, b \in R \)
+            <ul>
+                <li>\( \phi \left( a \oplus b \right) = \phi \left( a \right) \boxplus \phi \left( b \right) \) </li> 
+                <li>
+                    \( \phi \left( a \otimes b \right) = \phi \left( a \right) \boxtimes \phi \left( b \right)  \) 
+                </li>
+            </ul>
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-ring-with-unity-homomorphism">
+    	<div class="title">Ring with Unity Homomorphism</div>
+    	<div class="content">
+    		Suppose that \( R, S \) are <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring-with-unity">rings with unity</a>, then we say that \( \phi  \) is a homomorphism between \( R \) and \( S \) when \( \phi  \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring-homomorphism">ring homomorphism</a> and we have \( \phi \left( 1 _ R \right) = 1 _ S  \)
+    	</div>
+    </div>
+
+    <p>
+        We may also say that \( \phi  \) is a homomorphism from \( R \) to \( S \), or that \( \phi  \) is a homomorphism of rings
+    </p>
+
+    <div class="definition" id="definition-ring-isomorphism">
+    	<div class="title">Ring Isomorphism</div>
+    	<div class="content">
+    		Suppose that \( \phi  \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring-homomorphism">ring homomorphism</a> and is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijection</a>, then we say that \( \phi  \) is a <b>ring isomorphism</b>
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-homomorphisms-carry-zero-to-zero">
+    	<div class="title">Homomorphisms carry Zero to Zero</div>
+    	<div class="content">
+    	    Suppose that \( \phi : R \to S \) is a homomorphism of rings, then \( \phi \left( 0 _ R \right) = 0 _ S  \)
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+    
+    
+    
 
 </div>
 </body>

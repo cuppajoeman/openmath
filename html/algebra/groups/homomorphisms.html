@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Homomorphisms</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+</head>
+<body>
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-group-homomorphism">
+    	<div class="title">Group Homomorphism</div>
+    	<div class="content">
+    		Suppose that \( \left( G, \star \right)  \)  and \( \left( H, \cdot \right)  \) are <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-group">groups</a>, then we say that a <b>group homomorphism from \( \left( G, \star \right)  \) to \( \left( H, \cdot \right)  \)</b> is a function \( \phi: G \to H \) such that for any \( u, v \in G \)
+            \[
+                \phi \left( u \star v \right) = \phi \left( u \right) \cdot \phi \left( v \right)
+            \]
+    	</div>
+    </div>
+
+    <p>
+        Note that a homomorphism is an isomorphism without the bijective requirement.
+    </p>
+
+    <div class="definition" id="definition-kernel-of-a-homomorphism">
+    	<div class="title">Kernel of a Homomorphism</div>
+    	<div class="content">
+    	    The <b>kernel</b> of a <a class="knowledge-link" href="/algebra/groups/homomorphisms.html#definition-group-homomorphism">homomorphism</a> from the group \( G \) to the identity \( e _ H \)  of \( H \) is the set 
+            \[
+                \left\{ g \in G: \phi \left( g \right) = e_H  \right\} = \phi ^ { -1 } \left( \left\{ e _ H \right\}  \right)
+            \]
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-right-iterated-binary-operation">
+        <div class="title">Right Iterated Binary Operation</div>
+        <div class="content">
+            Suppose that \( \left( \star, G, \star \right)  \) is a group, then we define
+            \[
+                \operatorname{ right\_iter } \left( \star, g, n \right) =
+                \begin{cases}
+                    g & \text{ if } n = 0 \\
+                    \star \left( g, \operatorname{ right\_iter }  \left( \star, g, n - 1 \right)  \right)  &\text{ if } n \in \mathbb{ N } _ 1
+                \end{cases}
+            \]
+        </div>
+    </div>
+
+    <div class="definition" id="definition-left-iterated-binary-operation">
+        <div class="title">Left Iterated Binary Operation</div>
+        <div class="content">
+            Suppose that \( \left( G, \star \right)  \) is a group, then we define
+            \[
+            \operatorname{ left\_iter } \left( \star, g, n \right) =
+            \begin{cases}
+            g & \text{ if } n = 0 \\
+            \star \left( \operatorname{ left\_iter }  \left( \star, g, n - 1 \right), g  \right)  &\text{ if } n \in \mathbb{ N } _ 1
+            \end{cases}
+            \]
+        </div>
+    </div>
+
+    <p>
+        The above can be generalized to operate on sequences of elements of \( g \).
+    </p>
+
+    <div class="proposition" id="proposition-associative-implies-left-equals-right-iteration">
+    	<div class="title">Associative Implies Left Equals Right Iteration</div>
+    	<div class="content">
+            Suppose that \( \star \) is associative, then for any \( g \in G \) we have
+            \[
+                \operatorname{ left\_iter } \left( \star, g, n \right) = \operatorname{ right\_iter } \left( \star, g, n \right)
+            \]
+    	</div>
+    	<div class="proof">
+            Induction using the fact that bracket placement doesn't matter with associative operations
+    	</div>
+    </div>
+
+
+    <div class="definition" id="definition-binary-iteration">
+        <div class="title">Binary Iteration</div>
+        <div class="content">
+            Let \( \star \) be a binary operation such that \( \operatorname{ right\_iter } \left( \star, g, n \right) = \operatorname{ left\_iter } \left( \star, g, n \right)  \) then we define \( \operatorname{ iter } \left( \star, g, n \right) = \operatorname{ right\_iter } \left( \star, g, n \right)  \)
+        </div>
+    </div>
+
+
+    <div class="proposition" id="proposition-left-tuples-as-iteration">
+    	<div class="title">Left Tuples as Iteration</div>
+    	<div class="content">
+    	    Let \( + \) be the standard addition on \( \mathbb{ Z } \times \mathbb{ Z }    \), then
+            \[
+                \left( m, 0 \right) = \operatorname{ iter } \left( +,  \left( 1, 0 \right), m \right)
+            \]
+    	</div>
+    	<div class="proof">
+            By induction
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-right-tuples-as-iteration">
+        <div class="title">Right Tuples as Iteration</div>
+        <div class="content">
+            Let \( + \) be the standard addition on \( \mathbb{ Z } \times \mathbb{ Z }    \), then
+            \[
+            \left( 0, m \right) = \operatorname{ iter } \left( +,  \left( 0, 1 \right), m \right)
+            \]
+        </div>
+        <div class="proof">
+            By induction
+        </div>
+    </div>
+
+
+    <div class="theorem" id="theorem-iterated-homomorphism">
+    	<div class="title">Iterated Homomorphism</div>
+    	<div class="content">
+            Let \( \phi  \) be a homomorphism between \( \left( G, \star \right)  \) and \( \left( H, \cdot \right) \)
+            \[
+                \phi \left( \operatorname{ right\_iter } \left( \star, g, n \right)  \right) = \operatorname{ right\_iter } \left( \cdot, \phi \left( g \right), n  \right)
+            \]
+    	</div>
+    	<div class="proof">
+            By induction, each step using the property of a homomorphism
+    	</div>
+    </div>
+    
+    <div class="exercise" id="">
+    	<div class="title">Addition Factors Through Homomorphism on Cartesian Product of The Integers</div>
+    	<div class="content">
+
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+    
+
+    <div class="exercise" id="exercise-addition-factors-through-homomorphism-on-cartesian-product-of-the-integers">
+    	<div class="title">Homomorphism Between a Group and it's Cartesian Product</div>
+    	<div class="content">
+    		Let 
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-">
+    	<div class="title"></div>
+    	<div class="content">
+    		Suppose that \( \phi : \mathbb{ Z } \times \mathbb{ Z } \to \mathbb{ Z }  \) is a homomorphism between \( \left( \mathbb{ Z } \times \mathbb{ Z }, \oplus  \right)  \) and \( \left( \mathbb{ Z } , + \right)  \)   then for any \( m , n \in \mathbb{ Z }  \) we have
+            \[
+                \phi \left( \left( m, n \right) \right) = m \phi \left( \left( 1, 0 \right)  \right) + n \phi \left( \left( 0, 1 \right)  \right)
+            \]
+    	</div>
+    	<div class="proof">
+
+            \[
+                \begin{align}
+                    \phi \left( \left( m, n \right)  \right) &= \phi \left( \left( m, 0 \right) \oplus \left( 0, n \right)  \right) \\
+                    &= \phi \left( \left( m, 0 \right)  \right) + \phi \left( \left( 0, n \right)  \right) 
+                \end{align}
+            \]
+            <p>
+                Then we note that \( \left( m, 0 \right) = \operatorname{ iter } \left( \oplus, \left( 1, 0 \right) , m \right)  \), <a class="knowledge-link" href="/algebra/groups/homomorphisms.html#theorem-iterated-homomorphism">therefore</a> \( \phi \left( \left( m, 0 \right)  \right) = \phi \left( \operatorname{ iter } \left( \oplus, \left( 1, 0 \right) , m \right)  \right) = \operatorname{ iter } \left( +, \phi \left( 1, 0 \right) , m \right) \), note that \( Z, + \) is a group with a single operation so that \( m \phi \left( \left( 1, 0 \right)  \right)  \) is technically not defined (we don't have a multiplication operator yet), but is syntactic sugar for \( \phi \left( \left( 1, 0 \right) \right)  \) added to itself \( m \) times, which is clearly equal to \( \operatorname{ iter } \left( +, \phi \left( \left( 1, 0 \right)  \right), n \right) \)
+            </p>
+            <p>
+                In the same vein we have \( \phi \left( \left( 0, n \right)  \right) = n \phi \left( \left( 0, 1 \right)  \right)  \), thus we conclude that \( \phi \left( \left( m, n \right)  \right) = m \phi \left( \left( 1, 0 \right)  \right) + n \phi \left( \left( 0, 1 \right)  \right)    \) as needed.
+            </p>
+    	</div>
+    </div>
+
+</div>
+</body>
+</html>

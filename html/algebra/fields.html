@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fields</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
 </head>
 <body>
+<div class="thin-wrapper">
 
+    <div class="definition" id="definition-field">
+    	<div class="title">Field</div>
+    	<div class="content">
+            A <b>field</b> is a set \( F \) with two binary operations \( \oplus, \otimes \) such that for any \( a, b, c \in F \) we have
+            <ol>
+                <li>\( \oplus, \otimes \) are both associative and commutative</li>
+                <li>Identities: There exist identity elements \( 0 _ F \neq 1 _ F \in F\) for \( \oplus \) and \( \otimes \) respectively</li>
+                <li>Additive Inverses: There exists an \( -a \in F \) such that \( a \oplus -a = 0 _ F \) </li>
+                <li>Multiplicative Inverses: If \( a \neq 0 \) there exists an \( a ^ { -1 } \in F \) such that \( a \otimes a ^ { -1 } = 1 _ F  \)  </li>
+                <li>Distributivity: \( \otimes \) <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-distributivity">distributes into</a> \( \oplus \)  </li>
+            </ol>
+    	</div>
+    </div>
+</div>
 </body>
 </html>

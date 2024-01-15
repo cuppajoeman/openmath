@@ -57,6 +57,18 @@
 			</div>
 		</div>
 
+		<div class="definition" id="definition-identity-functio">
+			<div class="title">Identity Function</div>
+			<div class="content">
+				Let \( X \) be a set, the we define the following function \( \operatorname{ id } _ X : X \to X \), such that for any \( a \in X \)
+				\[
+				    \operatorname{ id } _ X \left( a \right) = a
+				\]
+				and call it the <b>identity function on \( X \)</b>.
+			</div>
+		</div>
+
+
 		<div class="definition" id="definition-domain-restricted-function">
 			<div class="title">Domain Restricted Function</div>
 			<div class="content">
@@ -364,8 +376,31 @@
 				A permutation is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijective</a> <a class="knowledge-link" href="/fundamentals/functions.html#definition-self-map">self map</a>
 			</div>
 		</div>
+
+		<div class="definition" id="definition-function-iteration">
+			<div class="title">Function Iteration</div>
+			<div class="content">
+				Given a function \( f: X \to X \), then we define
+				\[
+				    f ^ { \circ 0 } := \operatorname{ id } _ X
+				\]
+				and then for any \( n \in \mathbb{ N } _ 1 \) we define via <a class="knowledge-link" href="/fundamentals/functions.html#definition-function-composition">composition</a>:
+				\[
+				    f ^ { \circ n } = f \circ  f ^ { \circ n - 1 }
+				\]
+			</div>
+		</div>
 		
-		
+		<p>
+			So for example \( f ^ { \circ 3 } \left( x \right) = f \left( f \left( f \left( \operatorname{ id } \left( x \right)  \right)  \right)  \right)    \) which is what we expect.
+		</p>
+
+		<p>
+			For binary operations we need some more machinery
+		</p>
+
+
+
 
     </div>
 </body>
