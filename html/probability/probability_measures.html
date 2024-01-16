@@ -51,84 +51,94 @@
 				</div>
 			</div>
 
-			<div id="proposition-finite-pairwise-disjoint-probability">
-				<div class="proposition">
-					<div class="title">finite pairwise disjoint probability</div>
-					<div class="content">
-						Suppose that \( A_{1} , A_{2} , \ldots , A_{n} \) are <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>, then \( P \left ( A_{1} \cup \ldots \cup A_{n} \right ) = \sum_{i = 1}^{n} P \left ( A_{i} \right ) \)
-					</div>
+
+			<div class="proposition" id="proposition-finite-pairwise-disjoint-probability">
+				<div class="title">finite pairwise disjoint probability</div>
+				<div class="content">
+					Suppose that \( A_{1} , A_{2} , \ldots , A_{n} \) are <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>, then \( P \left ( A_{1} \cup \ldots \cup A_{n} \right ) = \sum_{i = 1}^{n} P \left ( A_{i} \right ) \)
 				</div>
-			
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						In the definition of a probability measure, for \( i \in \left \lbrace 1 , \ldots , n \right \rbrace \) we set \( E_{i} = A_{i} \) and then for any \( j > n \) we set \( E_{j} = \emptyset \), then we can see that \( E_{1} , E_{2} , \ldots \) is pairwise disjoint, and thus 
-						
-					 <table class="align">
-					  <tr>
-						<td>\( P \left ( A_{1} \cup A_{2} \cup \ldots \cup A_{n} \right ) \)</td>
-						<td>\( = \)</td>
-						<td>\( P \left ( A_{1} \cup A_{2} \cup \ldots \cup A_{n} \cup \emptyset \cup \emptyset \cup \ldots \right ) \)</td>
-					  </tr>
-					  <tr>
-						<td></td>
-						<td>\( = \)</td>
-						<td>\( P \left ( \bigcup_{i = 1}^{\infty} E_{i} \right ) \)</td>
-					  </tr>
-					  <tr>
-						<td></td>
-						<td>\( = \)</td>
-						<td>\( \sum_{i = 1}^{\infty} P \left ( E_{i} \right ) \)</td>
-					  </tr>
-					  <tr>
-						<td></td>
-						<td>\( = \)</td>
-						<td>\( \sum_{i = 1}^{n} P \left ( E_{i} \right ) + P \left ( \emptyset \right ) + P \left ( \emptyset \right ) + P \left ( \emptyset \right ) + \ldots \)</td>
-					  </tr>
-					  <tr>
-						<td></td>
-						<td>\( = \)</td>
-						<td>\( \sum_{i = 1}^{n} P \left ( E_{i} \right ) + 0 + 0 + 0 + \ldots \)</td>
-					  </tr>
+					In the definition of a probability measure, for \( i \in \left \lbrace 1 , \ldots , n \right \rbrace \) we set \( E_{i} = A_{i} \) and then for any \( j > n \) we set \( E_{j} = \emptyset \), then we can see that \( E_{1} , E_{2} , \ldots \) is pairwise disjoint, and thus
+					<table class="align">
+						<tr>
+							<td>\( P \left ( A_{1} \cup A_{2} \cup \ldots \cup A_{n} \right ) \)</td>
+							<td>\( = \)</td>
+							<td>\( P \left ( A_{1} \cup A_{2} \cup \ldots \cup A_{n} \cup \emptyset \cup \emptyset \cup \ldots \right ) \)</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>\( = \)</td>
+							<td>\( P \left ( \bigcup_{i = 1}^{\infty} E_{i} \right ) \)</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>\( = \)</td>
+							<td>\( \sum_{i = 1}^{\infty} P \left ( E_{i} \right ) \)</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>\( = \)</td>
+							<td>\( \sum_{i = 1}^{n} P \left ( E_{i} \right ) + P \left ( \emptyset \right ) + P \left ( \emptyset \right ) + P \left ( \emptyset \right ) + \ldots \)</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>\( = \)</td>
+							<td>\( \sum_{i = 1}^{n} P \left ( E_{i} \right ) + 0 + 0 + 0 + \ldots \)</td>
+						</tr>
 						<td></td>
 						<td>\( = \)</td>
 						<td>\( \sum_{i = 1}^{n} P \left ( A_{i} \right ) \)</td>
-					  </tr>
-					</table>  
-					</div>
+						</tr>
+					</table>
 				</div>
 			</div>
 
-			<div id="proposition-probability-of-a-single-point-with-equally-likely-outcomes-is-zero">
-				<div class="proposition">
-					<div class="title">probability of a single point with equally likely outcomes is zero</div>
-					<div class="content">
-						Suppose that our sample space is \( \left [ 0 , 1 \right ] \) and there is some \( c \in \left [ 0 , 1 \right ] \) such that for any \( x \in \left [ 0 , 1 \right ] \), \( P \left ( \left \lbrace x \right \rbrace \right ) = c \), then \( c = 0 \)
-					</div>
+			<div class="proposition" id="proposition-probability-of-a-single-point-with-equally-likely-outcomes-is-zero">
+				<div class="title">probability of a single point with equally likely outcomes is zero</div>
+				<div class="content">
+					Suppose that our sample space is \( \left [ 0 , 1 \right ] \) and there is some \( c \in \left [ 0 , 1 \right ] \) such that for any \( x \in \left [ 0 , 1 \right ] \), \( P \left ( \left \lbrace x \right \rbrace \right ) = c \), then \( c = 0 \)
 				</div>
-			
 				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						Suppose that \( c \ne 0 \), and note that \( P \left ( \Omega \right ) = P \left ( \left [ \left . 0 , 1 \right . \right ] \right ) = \sum_{x \in \left [ 0 , 1 \right ]} P \left ( x \right ) = \sum_{x \in \left [ 0 , 1 \right ]} c \), but note that no matter how small the value of \( c \), since we are summing it uncountably many times with itself the sum always goes to infinity, but at the same time, \( P \left ( \Omega \right ) = 1 \) and thus we have a contradiction, so \( c = 0 \).
-					</div>
+					Suppose that \( c \ne 0 \), and note that \( P \left ( \Omega \right ) = P \left ( \left [ \left . 0 , 1 \right . \right ] \right ) = \sum_{x \in \left [ 0 , 1 \right ]} P \left ( x \right ) = \sum_{x \in \left [ 0 , 1 \right ]} c \), but note that no matter how small the value of \( c \), since we are summing it uncountably many times with itself the sum always goes to infinity, but at the same time, \( P \left ( \Omega \right ) = 1 \) and thus we have a contradiction, so \( c = 0 \).
 				</div>
 			</div>
 
 			<div class="definition" id="definition-random-variable">
-				<div class="title">random variable</div>
+				<div class="title">Random Variable</div>
 				<div class="content">
 					Suppose that \( \Omega \) is a sample space. A random variable is a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( X : \Omega \to \mathbb{R} \)
 				</div>
 			</div>
 
-			<div class="definition" id="definition-inverse-image-notation">
-				<div class="title">inverse image notation</div>
-				<div class="content">
-					
-					Suppose that \( X : \Omega \to \mathbb{R} \) is a random variable and that \( y \in \mathbb{R} \), then we define the string of characters \( X = y \) to be the set <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-inverse-image-of-a-function">\( X^{- 1} \left ( \left \lbrace y \right \rbrace \right ) \)</span>
-				</div>
+		<div class="definition" id="definition-probability-of-a-random-variable-being-an-element-of-a-set">
+			<div class="title">Probability of a Random Variable being an Element of a Set</div>
+			<div class="content">
+				Suppose that \( X \) is a random variable and \( E \) some event , then we define 
+				\[
+				P \left( X \in E \right) := P \left( \left\{ a \in \Omega : X \left( a \right) \in E  \right\}  \right) 
+				\]
 			</div>
+		</div>
+		
+		<div class="corollary" id="corollary-probability-of-a-random-variable-being-an-element-of-a-set-using-inverse-image">
+			<div class="title">Probability of a Random Variable being an Element of a Set using Inverse Image</div>
+			<div class="content">
+				\[
+				    P \left( X \in E \right) = P \left( X ^ { -1 } \left( E \right)   \right) 
+				\]
+				where we're using the <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-inverse-image-of-a-function">inverse image of \( X \) </span>
+			</div>
+			<div class="proof">
+				
+			</div>
+		</div>
+
+		<div class="definition" id="definition-probability-of-a-random-variable-being-equal-to-an-element">
+			<div class="title">Probability of a Random Variable being equal to An Element</div>
+			<div class="content">
+				Let \( y \in \mathbb{ R }  \), then we define \( P \left( X = y \right)  \) as \( P \left( X \in \left\{ y \right\} \right)  \)
+			</div>
+		</div>
 
 			<div class="definition" id="definition-conditional-probability">
 				<div class="title">conditional probability</div>
@@ -139,6 +149,37 @@
 					</div>
 				</div>
 			</div>
+		
+		<div class="definition" id="definition-uniform-probability-measure">
+			<div class="title">Uniform Probability Measure</div>
+			<div class="content">
+				Let \( \Omega \) be a finite sample space, then we define the <b>uniform probabilty measure</b> as a probability measure such that given any event \( A \) we have
+				\[
+				    P \left( A \right) = \frac{\lvert A \rvert}{ \lvert \Omega  \rvert  }
+				\]
+			</div>
+		</div>
+
+		<p>
+			Note the division in the above always works since \( \Omega  \) is assumed non-empty
+		</p>
+
+		<div class="definition" id="definition-increasing-sequence-of-sets">
+			<div class="title">Increasing Sequence of Sets</div>
+			<div class="content">
+				Let \( \left( A _ n \right)  \) be a sequence of sets, then we say that it's <b>increasing</b> when \( A _ 0 \subseteq A _ 1 \subseteq A _ 2 \subseteq  ... \)
+			</div>
+		</div>
+
+
+		<div class="definition" id="definition-sequence-of-sets-increase-to-another">
+			<div class="title">A Sequence of Sets Increase to Another</div>
+			<div class="content">
+				Suppose that \( \left( A _ n \right)  \) is an <a class="knowledge-link" href="/probability/probability_measures.html#definition-increasing-sequence-of-sets">increasing sequence of sets</a>, then we say it <b>increases to</b> \( A \) when \( \bigcup _ { n = 1 }  ^ \infty  A _ n = A \), and write \( \left( A _ n \right) \nearrow A \)
+			</div>
+		</div>
+			
+		
 		
 
     </div>

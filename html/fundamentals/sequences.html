@@ -74,5 +74,35 @@
         		We say that a sequence goes to infinity if it <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence-goes-to-positive-infinity">goes to positive infinity</a> or <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence-goes-to-negative-infinity">negative infinity</a>, and write \( \left( x _ n \right) \to  \pm \infty  \)
         	</div>
         </div>
+
+        
+        <div class="definition" id="definition-bounded-sequence">
+        	<div class="title">Bounded Sequence</div>
+        	<div class="content">
+        		Suppose that \( \left( x _ n \right) : \mathbb{ N } _ 0 \to \mathbb{ R } \), is a sequence, then we say that it is <b>bounded</b> when there exists some \( M \in \mathbb{ R } ^ + \) such that for any \( i \in \mathbb{ N } _ 0 \) we have \( |x _ i| \le M \)
+        	</div>
+        </div>
+        
+
+        <div class="proposition" id="proposition-sequence-convergence-implies-bounded">
+        	<div class="title">If a Sequence Converges it is Bounded</div>
+        	<div class="content">
+        		Suppose that \( \left( x _ n \right) \to x  \) then \( \left( x _ n \right)  \) is bounded
+        	</div>
+        	<div class="proof">
+                <p>
+                    Let \( a \in \mathbb{ R }  \) since \( \left( x _ n  \right)  \) converges then we know that there is some \( N \) such that for all \( n \ge N \) we have \( | x _ n - x | \le a \), <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-isolate-absolute-value-inequality">therefore</a> \( \lvert x _ n \rvert \le a + \lvert x \rvert   \)
+                </p>
+                <p>
+                    Set \( I := \left\{ 0, ..., N - 1 \right\} \) and we define \( L := \max \left( \left\{ \lvert x _ i \rvert  : i \in I  \right\}  \right) \), then it should be clear that for any \( k \in I \) we have \( \lvert x _ k \rvert  \le L \)
+                </p>
+                <p>
+                    Finally, we can see that the value \( M := \max \left( L, a + \lvert x \rvert  \right)  \) has the property so that for any \( j \in \mathbb{ N } _ 0 \) \( \lvert x _ j \rvert \le M \) so that \( \left( x _ n \right)  \) is bounded.
+                </p>
+        	</div>
+        </div>
+        
+
+
     </div>
 </body>
