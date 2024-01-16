@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Finite Tuples</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <script src="/js/script.js" defer></script>
+
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-finite-tuple">
+        <div class="title">Finite Tuple</div>
+        <div class="content">
+            Suppose \( n \in \mathbb{N}_0 \), then an \( n \) tuple is an ordered list of \( n \) elements
+        </div>
+    </div>
+
+    <div class="definition" id="definition-n-tuple-equality">
+        <div class="title">Finite Tuple Equality</div>
+        <div class="content">
+            We define two \( n \) tuples \( (x_1, x_2, ..., x_n) \) and \( (y_1, y_1, ..., y_n) \) to be equal when
+            \[
+            \forall i \in [1 \ldots n], x_i = y_i
+            \]
+        </div>
+    </div>
+
+    <p>
+        Note that finite tuples tuples are indexed starting from 1
+    </p>
+    
+    <div class="definition" id="definition-reverse-of-a-finite-tuple">
+    	<div class="title">Reverse of a Finite Tuple</div>
+    	<div class="content">
+            Suppose that \(a =  \left( a _ 1, a _ 2, \ldots , a _ n \right) \), is an \( n \) tuple, then we define
+            \[
+                \operatorname{rev} \left( a \right) := \left( a _ n, \ldots , a _ 1 \right)
+            \]
+    	</div>
+    </div>
+
+
+
+    <div class="proposition" id="proposition-reverse-cancels">
+    	<div class="title">Reverse Cancels</div>
+    	<div class="content">
+            For any \( n \) tuple \( a \)
+            \[
+                \operatorname{ rev } \left( \operatorname{ rev } \left( a \right)  \right) = a
+            \]
+
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-concatenation">
+        <div class="title">Concatenation</div>
+        <div class="content">
+            Suppose that \( a = \left( a _ 1, \ldots , a _ n \right)  \) and \( b = \left( b _ 1, \ldots , b _ m \right)  \) are finite tuples, then
+            \[
+                \operatorname{ concat } \left( a, b \right) = \left( a _ 1, \ldots a _ n, b _ 1, \ldots , b _ m \right)
+            \]
+        </div>
+    </div>
+     
+
+    <div class="definition" id="definition-sorted-in-ascending-order">
+    	<div class="title">Sorted in Ascending Order</div>
+    	<div class="content">
+            Suppose that \(a =  \left( a _ 1, a _ 2, \ldots , a _ n \right) \in \mathbb{ R } ^ n  \), then we say that \( a \) is <b>sorted in ascending order</b> when for any \( i \in [ 1 \ldots n - 1 ]  \) \( a _ i \le a _ { i + 1 }  \)
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-ascending-n-tuple">
+        <div class="title">Ascending Tuple</div>
+        <div class="content">
+            Show that \( \left( 1, 2, 3, 4, 100 \right)  \) is an ascending \( n \) tuple
+        </div>
+        <div class="proof">
+
+        </div>
+    </div>
+
+    <div class="definition" id="definition-sorted-in-descending-order">
+        <div class="title">Sorted in Descending Order</div>
+        <div class="content">
+            Suppose that \(a =  \left( a _ 1, a _ 2, \ldots , a _ n \right) \in \mathbb{ R } ^ n  \), then we say that \( a \) is <b>sorted in descending order</b> when for any \( i \in [ 1 \ldots n - 1 ]  \) \( a _ i \ge a _ { i + 1 }  \)
+        </div>
+    </div>
+
+    <div class="exercise" id="exercise-descending-tuple">
+    	<div class="title">Descending Tuple</div>
+    	<div class="content">
+    	    Show that \( \left( 8, 5, 3, 1, 0 \right)  \) is a descending \( n \) tuple
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-reverse-of-ascending-is-descending">
+    	<div class="title">The reverse of Ascending is Descending</div>
+    	<div class="content">
+            Suppose that \( a \) is a finite tuple sorted in ascending order, then \( \operatorname{ rev } \left( a \right)  \) is sorted in descending order.
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    
+    <div class="definition" id="definition-inversion">
+    	<div class="title">Inversion</div>
+    	<div class="content">
+    		Suppose that \( \left( a _ 1, a _ 2, \ldots , a _ n \right) \in \mathbb{ R } ^ n  \), then an inversion is a tuple \( i , j \in [ 1 \ldots n ] \times [ 1 \ldots  n ]  \) such that \( i \lt j \) but \( a _ i \gt  a _ j \)
+    	</div>
+    </div>
+
+
+    <p>
+        Given the tuple \( a := \left( 8, 9, 10, 11, 3 \right)  \) then we can see that \( \left( 1, 5 \right)  \) is an inversion because \( 1 \lt 5 \) but \( 8 \gt 3 \)
+    </p>
+
+
+
+
+    
+
+</div>
+</body>

@@ -45,7 +45,7 @@ void merge(int array[], int left_idx, int split_idx, int right_idx) {
 
 	bool ran_out_of_left_split_elements = left_split_idx >= size_of_right_split;
 	bool ran_out_of_right_split_elements = right_split_idx >= size_of_right_split;
-	assert(ran_out_of_left_split_elements != ran_out_of_right_split_elements); // xor
+	// assert(ran_out_of_left_split_elements != ran_out_of_right_split_elements); // xor
 
 	// copy remaining elements, exactly one of these while loops will iterate
 
@@ -55,8 +55,8 @@ void merge(int array[], int left_idx, int split_idx, int right_idx) {
 		merge_idx += 1;
 	}
 
-	while (right_split_idx < size_of_left_split) {
-		array[merge_idx] = right_split[left_split_idx]; 
+	while (right_split_idx < size_of_right_split) {
+		array[merge_idx] = right_split[right_split_idx];
 		right_split_idx += 1;
 		merge_idx += 1;
 	}

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>runtime</title>
+    <title>Runtime</title>
     <link rel="stylesheet" href="../styles/styles.css">
 	<script src="/js/script.js" defer></script>
 
@@ -16,27 +16,119 @@
 <body>
     <div class="thin-wrapper">
 
-       <div class="definition" id="definition-big-o">
-       	<div class="title">big-o</div>
-       	<div class="content">
-       		Suppose we have \( f{:} \mathbb{N}_{0} \to \mathbb{R}^{\gt 0} \), then we define 
-			<div class="centered-content">
-				\( \mathcal{O} \left ( f \right ) := \left \lbrace g{:} \mathbb{N}_{0} \to \mathbb{R}^{\gt 0} \mid \exists c n_{0} \in \mathbb{R}^{+} \forall n \in \mathbb{N}_{0} n \ge n_{0} \implies g{\left ( n \right )} \le c \cdot f{\left ( n \right )} \right \rbrace \)
+		<div class="definition" id="definition-absolutely-dominated">
+			<div class="title">Absolutely Dominated</div>
+			<div class="content">
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>absolutely dominated</b> by \( f \) iff for all \( n \in \mathbb{ N } _ 0, g \left( n \right) \le f \left( n \right)  \)
 			</div>
-       	</div>
-       </div>
+		</div>
+		
+		<div class="exercise" id="exercise-squared-dominates-linear">
+			<div class="title">Squared Dominates Linear</div>
+			<div class="content">
+				Let \( f \left( n \right) = n ^ 2 \) and \( g \left( n \right) = n\) show that \( g \) is <a class="knowledge-link" href="/computer_science/runtime.html#definition-absolutely-dominated">absolutely dominated</a> by \( f \) 
+			</div>
+			<div class="proof">
+				
+			</div>
+		</div>
+		
+		<div class="definition" id="definition-absolutely-dominated-up-to-a-constant-factor">
+			<div class="title">Absolutely Dominated up to a Constant Factor</div>
+			<div class="content">
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>absolutely dominated up to a constant factor</b> by \( f \) iff there exists \( c \in \mathbb{ R } ^ + \) such that \( g \) is <a class="knowledge-link" href="/computer_science/runtime.html#definition-absolutely-dominated">absolutely dominated</a> by \( c f \) 
+			</div>
+		</div>
 
-	   <div class="exercise" id="exercise-basic-polynomial">
-	   	<div class="title">basic polynomial</div>
-	   	<div class="content">
-			Suppose \( f{\left ( n \right )} = n^{3} \) and \( g{\left ( n \right )} = n^{3} + 100 n + 5000 \), show that \( g{\in} \mathcal{O} \left ( f \right ) \)
-	   	</div>
-	   	<div class="proof">
-	   		TODO
-	   	</div>
-	   </div>
-	   
-        
+		<div class="definition" id="definition-eventually-dominated">
+			<div class="title">Eventually Dominated</div>
+			<div class="content">
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>eventually dominated</b> by \( f \) iff there exists some \( n _ 0 \in \mathbb{ R } ^ + \) such that \( \forall n \in \mathbb{ N } ^ +, n \ge n _ 0 \) then we know \( g \left( n \right) \le f \left( n \right)  \) 
+			</div>
+		</div>
+
+		<div class="exercise" id="exercise-lower-degree-polynomial-plus-constant-is-eventually-dominated-by-higher-degree">
+			<div class="title">Lower Degree Polynomial plus Constant is Eventually Dominated by Higher Degree</div>
+			<div class="content">
+				Let \( f \left( n \right) =  n ^ 2 \) and \( g \left( n \right) = n + 90  \)
+			</div>
+			<div class="proof">
+				
+			</div>
+		</div>
+
+		<div class="definition" id="definition-eventually-dominated-up-to-a-constant-factor">
+			<div class="title">Eventually Dominated up to a Constant Factor</div>
+			<div class="content">
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>eventually dominated</b> by \( f \) iff there exists some \( c \in \mathbb{ R } ^ + \) such that \( g \) is <a class="knowledge-link" href="/computer_science/runtime.html#definition-eventually-dominated">eventually dominated</a> by \( c f \) 
+			</div>
+		</div>
+
+		<div class="definition" id="definition-big-o">
+			<div class="title">Big-O</div>
+			<div class="content">
+				Suppose we have \( f: \mathbb{N}_{0} \to \mathbb{R}^{\ge 0} \), then we define the set \( \mathcal{ O } \left( f \right)   \) as all functions that are <a class="knowledge-link" href="/computer_science/runtime.html#definition-eventually-dominated-up-to-a-constant-factor">eventually dominated up to a constant factor</a> by \( f \)
+			</div>
+		</div>
+
+		<div class="definition" id="definition-big-o-of">
+			<div class="title">Big-O of</div>
+			<div class="content">
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>big-o of</b> \( f \) iff <a class="knowledge-link" href="/computer_science/runtime.html#definition-big-o">\( g \in \mathcal{ O } \left( f \right)  \) </a>
+			</div>
+		</div>
+		
+		<p>
+			Note that if \( g \) is big-o of \( f \), then we know that \( f \) is an asymptotic upper bound for \( g \)
+		</p>
+
+
+		<div class="exercise" id="exercise-basic-polynomial">
+			<div class="title">Basic Polynomial</div>
+			<div class="content">
+				Suppose \( f\left ( n \right ) = n^3 \) and \( g\left ( n \right ) = n^3 + 100 n + 5000 \), show that \( g\in \mathcal{O} \left ( f \right ) \)
+			</div>
+			<div class="proof">
+				TODO
+			</div>
+		</div>
+
+		<div class="definition" id="definition-omega">
+			<div class="title">Omega</div>
+			<div class="content">
+				Suppose we have \( f: \mathbb{N}_{0} \to \mathbb{R}^{\ge 0} \), then we define the set \( \Omega \left( f \right)   \) as the set of all functions \( g : \mathbb{N}_{0} \to \mathbb{R}^{\ge 0} \) such that 
+				\[
+				    \exists c, n _ 0 \in \mathbb{ R } ^ + \text{ s.t. } \forall n \in \mathbb{ N } _ 0, n \ge n _ 0 \implies g \left( n \right) \ge c \cdot f \left( n \right) 
+				\]
+			</div>
+		</div>
+
+		<div class="definition" id="definition-omega-of">
+			<div class="title">Omega of</div>
+			<div class="content">
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>omega of</b> \( f \) iff <a class="knowledge-link" href="/computer_science/runtime.html#definition-omega">\( g \in \Omega  \left( f \right)  \) </a>
+			</div>
+		</div>
+
+		
+		<p>
+			Here we can think of \( \Omega  \) as being \( \mathcal{ O }  \)'s counter part, so that when \( g \) is omega of \( f \), then \( f \) is a lower bound on \( g \)'s eventual growth rate.
+		</p>
+
+		<div class="definition" id="definition-theta">
+			<div class="title">Theta</div>
+			<div class="content">
+				Suppose we have \( f: \mathbb{N}_{0} \to \mathbb{R}^{\ge 0} \), then we define the set \( \Theta \left( f \right)   \) as the set of all functions \( g : \mathbb{N}_{0} \to \mathbb{R}^{\ge 0} \) such that 
+				\[
+				    g \in \mathcal{ O } \left( f \right) \cap \Omega \left( f \right) 
+				\]
+			</div>
+		</div>
+
+		<p>
+			The point of theta is to say that \( g \) is both eventually upper and lower bounded by \( f \) which means that \( g \) should grow asymptotically the same as \( f \)
+		</p>
+
 
     </div>
 </body>
