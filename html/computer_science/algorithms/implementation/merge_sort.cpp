@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <iostream>
+#include "helpers.hpp"
 
 /**
  * \brief Given an array, this function sorts the sub-array from left to right inclusive
@@ -12,10 +13,9 @@ void merge(int array[], int left_idx, int split_idx, int right_idx) {
 
 	// We start by splitting the subarray into two parts labelled left and right
 	// left contains indices left_idx ... split_idx right contains split_idx + 1 ... right
-	// Therefore left has size split_idx - left_idx + 1 and right has size right_idx - (split_idx + 1) + 1
 	
-	int size_of_left_split = split_idx - left_idx + 1; 
-	int size_of_right_split = right_idx - split_idx;
+	int size_of_left_split = number_of_integers_between_two_integers_inclusive(left_idx, split_idx);
+	int size_of_right_split = number_of_integers_between_two_integers_inclusive(split_idx + 1, right_idx);
 
 	// create temporary arrays containing the data
 	int left_split[size_of_left_split];
@@ -76,11 +76,6 @@ void merge_sort(int array[], int begin_idx, int end_idx) {
 	merge(array, begin_idx, split_idx, end_idx);
 }
 
-void print_array(int array[], int size) {
-	for (int i = 0; i < size; i++) {
-		std::cout << array[i] << "\n";
-	}
-}
 
 int main() {
 
