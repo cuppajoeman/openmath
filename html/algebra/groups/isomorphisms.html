@@ -46,8 +46,53 @@
     	</div>
     </div>
     
+    <div class="proposition" id="proposition-powers-pass-through-a-homomorphism">
+    	<div class="title">Powers Pass Through a Homomorphism</div>
+    	<div class="content">
+    		Let \( \left( G, \star _ G \right)  \) and \( \left( H, \star _ H \right)  \) be two groups and \( \phi  \) a homomorphism between them. Let \( n \in \mathbb{ Z } \) and let \( g \in G \) be any group element, then we have
+            \[
+                \phi \left( g ^ n  \right) = \phi \left( g \right) ^ n
+            \]
+    	</div>
+    	<div class="proof">
+            <p>
+                We first show it for all \( n \in \mathbb{ N } _ 1 \) via induction. For \( n = 1 \) we can see that \( \phi \left( g ^ 1 \right) = \phi \left( g \right) ^ 1  \) trivially holds.
+            </p>
+            <p>
+                Ho we let \( k \in \mathbb{ N } _ 1 \) and assume that the statement holds for \( k \) we'll now show it must hold for \( k + 1 \), to do this we note the following :
+                \[
+                    \begin{align}
+                        \phi \left( g ^ { k + 1 }  \right) &= \phi \left( g ^ k \star _ G g \right) \\
+                        &= \phi \left( g ^ k \right) \star _ H  \phi \left( g \right) \\
+                        &= \phi \left( g \right) ^ k  \star _ H \phi \left( g \right) \\
+                        & = \phi \left( g \right) ^ { k + 1 }
+                    \end{align}
+                \]
+                Where we've used our induction hypothesis going from the 2nd to the 3rd line.
+            </p>
+            <p>
+                The above holds us over for \( \mathbb{ N } _ 1 \), but it turns out we can now extend this to \( \mathbb{ Z } ^ -  \) quite easily, given some \( z \in \mathbb{ Z } ^ - \) we first note that  \(  e _ H = \phi \left( e _ G \right) = \phi \left( g ^ z \star _ G g ^ { -z }  \right) = \phi \left( g ^ z \right) \star _ H \phi \left( g  \right) ^ { -z }  \), note that we justify the last equality because \( -z \in \mathbb{ N } _ 1 \) and then use our previous paragraph's proof. Finally by multiplying on the right by \( \phi \left( g \right) ^ z  \) then we obtain \( \phi  \left( g \right) ^ z = \phi \left( g ^ z \right)   \) as needed.
+            </p>
+            <p>
+                We could stop there and we've left nothing out. Well indeed we have left nothing out, that is we've left \( 0 \) out, well if \( \phi \left( g ^ 0 \right) = \phi \left( e _ G \right) = e _ H = \phi \left( g \right) ^ 0    \) as needed.
+            </p>
+    	</div>
+    </div>
 
-    
+    <div class="corollary" id="corollary-powers-pass-through-an-isomorphism">
+    	<div class="title">Powers pass through an Isomorphism</div>
+    	<div class="content">
+            Let \( \left( G, \star _ G \right)  \) and \( \left( H, \star _ H \right)  \) be two groups and \( \phi  \) a isomorphism between them. Let \( n \in \mathbb{ Z } \) and let \( g \in G \) be any group element, then we have
+            \[
+            \phi \left( g ^ n  \right) = \phi \left( g \right) ^ n
+            \]
+    	</div>
+    	<div class="proof">
+            We know that an isomorphism is a homomorphism, therefore <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#proposition-powers-pass-through-a-homomorphism">powers pass through it</a>
+    	</div>
+    </div>
+
+
 
 
 </div>

@@ -36,11 +36,12 @@
 					A <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</span> on a set \( S \) such that for any \( a , b , c \in S \), then \( \left ( a \star b \right ) \star c = a \star \left ( b \star c \right ) \) is called associative
 				</div>
 			</div>
-			
+
+<!--			TODO: rename distributes right into  and make distributes left into-->
 			<div class="definition" id="definition-distributivity">
 				<div class="title">Distributivity</div>
 				<div class="content">
-					Let \( \otimes, \oplus \) be binary operations on a set \( S \), then we say that <b>\( \otimes \) distributes into \( \oplus \) </b> whenever we have for any \( a, b, c \in S \) 
+					Let \( \oplus \) be a binary operation on a set \( S \), and let \( \otimes : X \times S \to S \) be a binary function for some set \( X \) then we say that <b>\( \otimes \) distributes into \( \oplus \) </b> whenever we have for any \( a, b  \in S \) and \( c \in X \)
 					\[
 						c \otimes \left( a \oplus b \right) = \left( c \otimes a \right) \oplus \left( c \otimes b \right) 
 					\]
@@ -72,6 +73,18 @@
 					Given a set \( S \) and a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( \star \), we say that an element \( e \in S \) is an identity element on \( S \)  when for every \( s \in S, e \star s = s \star e = s\)
 				</div>
 			</div>
+
+			<div class="definition" id="definition-binary-operation-has-inverses-for-an-identity">
+				<div class="title">Binary Operation has Inverses For an Identity</div>
+				<div class="content">
+					Given a set \( S \) and a binary operation \( \star \) on \( S \), that has an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity element</a> \( e \),
+					 then we say that <b>\( \star \)  has inverses for \( e \)</b> if for every \( s \in S \), there exists some \( r \in S \) such that
+					\[
+					    s \star r = e
+					\]
+				</div>
+			</div>
+
 
 			<div class="definition" id="definition-group">
 				<div class="title">Group</div>
@@ -345,12 +358,14 @@
 			</div>
 			
 
-			<div class="definition" id="definition-TODO">
-				<div class="title">TODO</div>
+			<div class="definition" id="definition-generator">
+				<div class="title">Generator</div>
 				<div class="content">
 					The notation \( \left \langle a \right \rangle \) denotes the set \( \left \lbrace a^{n} : n \in \mathbb{Z} \right \rbrace \). Then \( a \in G \) is said to be a generator of \( g \) if and only if \( G = \left \langle a \right \rangle \)
 				</div>
 			</div>
+
+			For a positive integer n, all groups of order n are cyclic  iff   GCD(n, phi(n)) = 1
 
 			<div class="definition" id="definition-cyclic-group">
 				<div class="title">cyclic group</div>

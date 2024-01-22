@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>number theory</title>
+    <title>Division</title>
 
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer></script>
@@ -31,7 +31,6 @@
 				In the <a class="knowledge-link" href="/number_theory/division.html#definition-divides">definition of divides</a> take \( k = j \), then we can see that \( j = j \cdot 1 \) thus we can say that \( 1 | j \)
 			</div>
         </div>
-        
 
         <div class="proposition" id="proposition-zero-is-divisible-by-everything">
             <div class="title">0 is Divisible by Everything</div>
@@ -42,6 +41,17 @@
 				In the <span class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides">definition of divides</span> take \( k = 0 \), then we can see that \( 0 = 0 \cdot d \) thus we can say that \( d | 0 \)
 			</div>
         </div>
+		
+		<div class="proposition" id="proposition-everything-divides-itself">
+			<div class="title">Everything Divides Itself</div>
+			<div class="content">
+				Let \( a \in \mathbb{ Z }  \) then \( a \mid a \) 
+			</div>
+			<div class="proof">
+				Clearly \( 1 \cdot a = a \) therefore \( a \mid a \) 
+			</div>
+		</div>
+		
 
 		<div class="proposition" id="proposition-if-it-divides-it's-less-than-or-equal">
 			<div class="title">If it Divides it's Less than or Equal</div>
@@ -76,15 +86,15 @@
 			</div>
 		</div>
 		
-		<div class="definition" id="definition-divides">
-            <div class="title">even number</div>
+		<div class="definition" id="definition-even">
+            <div class="title">Even Number</div>
             <div class="content">
 				Given an integer \( a \), we say that it is even when  <a class="knowledge-link" href="/number_theory/division.html#definition-divides">\( 2 | a \)</a>
             </div>
         </div>
 
 		<div class="theorem" id="theorem-quotient-remainder">
-				<div class="title">quotient remainder</div>
+				<div class="title">Quotient Remainder</div>
 				<div class="content">
 					Suppose that \( a , b \in \mathbb{Z} \), but that \( b \ne 0 \), then there exists unique integers \( q , r \) such that \( a = b \cdot q + r \) where \( 0 \le r \lt \left | b \right |  \)
 				</div>
@@ -173,6 +183,17 @@
 				A number \( p \in \mathbb{N}_{1} \) is said to be prime if it's only divisors are \( 1 \) and \( p \)
 			</div>
 		</div>
+
+		<div class="corollary" id="corollary-composite-iff-not-prime">
+			<div class="title">Composite iff Not Prime</div>
+			<div class="content">
+				Let \( a \in \mathbb{ N } _ 1 \) then \( a \) is composite iff \( a \) is not prime
+			</div>
+			<div class="proof">
+				We know that it's always true that \( a \mid a \) and \( 1 \mid a \) therefore if \( a \) is not prime iff it has some other divisor other than \( 1 \) or \( a \) iff \( a \) is composite
+			</div>
+		</div>
+
 
         <div class="definition" id="definition-greatest-common-divisor">
             <div class="title">Greatest Common Divisor</div>

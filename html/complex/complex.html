@@ -15,10 +15,6 @@
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
 
     <div class="thin-wrapper">
 
@@ -50,23 +46,15 @@
                         \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \)
                     </div>
                 </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>show</summary>
-                        suppose that \( z = x + i y \), then \( z \cdot \overline{z} = \left ( x + i y \right ) \cdot \left ( x - i y \right ) = x^{2} + y^{2} + x y i - x y i = x^{2} + y^{2} \), but then again \( \left | z \right |  = \left | x + i y \right |  = \sqrt{x^{2} + y^{2}} \) thus \( z \cdot \overline{z} = \left | z \right | ^{2} \)
-                    </details>
+                <div class="proof">
+                    suppose that \( z = x + i y \), then \( z \cdot \overline{z} = \left ( x + i y \right ) \cdot \left ( x - i y \right ) = x^{2} + y^{2} + x y i - x y i = x^{2} + y^{2} \), but then again \( \left | z \right |  = \left | x + i y \right |  = \sqrt{x^{2} + y^{2}} \) thus \( z \cdot \overline{z} = \left | z \right | ^{2} \)
                 </div>
             </div>
-
         </div>
 
 
         <div class="definition" id="definition-inverse">
-            <div class="title">inverse</div>
+            <div class="title">Inverse</div>
             <div class="content">
                 the inverse of a complex number \( z \in \mathbb{C} \) is another \( w \in \mathbb{C} \) such that \( z \cdot w = 1 \), we denote \( w \) by \( z^{- 1} \) or \( \frac{1}{z} \)
             </div>
@@ -77,33 +65,24 @@
             <div class="content">
                 Given \( z \in \mathbb{C} \) we have \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                <details>
-                    <summary>show</summary>
-                    We <span class="knowledge-link" data-href="/complex/complex.html#proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">know</span> that \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \), therefore \( z \cdot \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} = 1 \), so by the <span class="knowledge-link" data-href="/complex/complex.html#definition-inverse">definition of inverse</span> \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \) as needed.
-                </details>
+            <div class="proof">
+                We <span class="knowledge-link" data-href="/complex/complex.html#proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">know</span> that \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \), therefore \( z \cdot \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} = 1 \), so by the <span class="knowledge-link" data-href="/complex/complex.html#definition-inverse">definition of inverse</span> \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \) as needed.
             </div>
         </div>
+
 
         <div class="exercise">
             <div class="title"></div>
             <div class="content">
                 For any \( z \in \mathbb{C} , \left \lvert \frac{z}{\overline{z}} \right \rvert = 1 \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 <p>
                     \( \frac{1}{\overline{z}} = \frac{\overline{\overline{z}}}{\left \lvert \overline{z} \right \rvert} \)
                 </p>
             </div>
         </div>
+
 
 
 
@@ -132,6 +111,9 @@
             <div class="content">
                 suppose \( z \in \mathbb{C} \), then \( \mathfrak{R} \left ( z \right ) = \frac{z + \overline{z}}{2} \)
             </div>
+            <div class="proof">
+
+            </div>
         </div>
 
         <div class="definition">
@@ -149,6 +131,9 @@
             <div class="content">
                 \( \left | \overline{z} \right |  = \left | z \right |  \)
             </div>
+            <div class="proof">
+
+            </div>
         </div>
 
         <div class="proposition" id="proposition-modulus-is-greater-than-it's-components">
@@ -160,6 +145,9 @@
                     <li>\( \left | \mathfrak{I} \left ( z \right ) \right |  \le \left | z \right |  \)</li>
                 </ul>
             </div>
+            <div class="proof">
+
+            </div>
         </div>
 
 
@@ -168,25 +156,22 @@
             <div class="content">
                 \( \mathfrak{I} \left ( z + w \right ) = \mathfrak{I} \left ( z \right ) + \mathfrak{I} \left ( w \right ) \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="proposition" id="modulus-plus-one-of-it's-components-is-positive">
-            <div class="title">modulus plus one of it's components is positive</div>
+            <div class="title">Modulus plus One of it's Components is Positive</div>
             <div class="content">
-                Suppose that \( f{\in} \left \lbrace \mathcal{R} , \mathcal{I} \right \rbrace \), then
+                Suppose that \( f \in \left \lbrace \mathcal{R} , \mathcal{I} \right \rbrace \), then
                 <div class="centered-content">
-                    \( \left | z \right |  + f{\left ( z \right )} \ge 0 \)
+                    \( \left | z \right |  + f\left ( z \right ) \ge 0 \)
                 </div>
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 Let \( z = x + i y \in \mathbb{C} \) then suppose without loss of generality that \( f{=} \mathcal{R} \), then
-                <div class="centered-content">
-                    \( - x \le \left | x \right |  = \sqrt{x^{2}} \le \sqrt{x^{2} + y^{2}} = \left | x + i y \right |  \)
-                </div>
+                \[
+                - x \le \left | x \right |  = \sqrt{x^{2}} \le \sqrt{x^{2} + y^{2}} = \left | x + i y \right |
+                \]
                 therefore \( 0 \le x + \left | x + i y \right |  \) which means \( 0 \le \mathcal{R} \left ( z \right ) + \left | z \right |  \)
             </div>
         </div>
@@ -196,11 +181,7 @@
             <div class="content">
                 without use of the triangle inequality prove that \( \left | z - 1 \right | ^{2} = \left | z \right | ^{2} + 1 - 2 \mathcal{R} \left ( z \right ) \), then conclude that \( \left | z - 1 \right |  \le \left | z \right |  + 1 \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 <p>
                     \( \left | z - 1 \right | ^{2} \) <a href="#a-complex-number-times-it's-conjugate-equals-the-modulus-squared">=</a> \( \left ( z - 1 \right ) \cdot \overline{z - 1} = \left ( z - 1 \right ) \cdot \left ( \overline{z} - 1 \right ) = z \cdot \overline{z} - z - \overline{z} + 1 \), now recall that \( \mathcal{R} \left ( z \right ) = \frac{z + \overline{z}}{2} \) so we can continue the equality with \( \left | z \right | ^{2} - 2 \mathcal{R} \left ( z \right ) + 1 \), showing the first part
                 </p>
@@ -210,6 +191,7 @@
                 </p>
             </div>
         </div>
+
 
         <div class="definition">
             <div class="title">complex multiplication</div>
@@ -233,14 +215,15 @@
             <div class="content">
                 find a linear fractional transformation which maps the upper half plane to the unit disk and sends \( 1 \) to \( 1 \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
             <div class="title">complex sin</div>
             <div class="content">
-                \( \sin{:} \mathbb{C} \to \mathbb{C} \)
+                \( \sin: \mathbb{C} \to \mathbb{C} \)
                 <div class="centered-content">
-                    \( \sin{\left ( z \right )} := \frac{e^{i z} - e^{- i z}}{2} i \)
+                    \( \sin\left ( z \right ) := \frac{e^{i z} - e^{- i z}}{2} i \)
                 </div>
             </div>
         </div>
@@ -248,9 +231,9 @@
         <div class="definition">
             <div class="title">complex cos</div>
             <div class="content">
-                \( \cos{:} \mathbb{C} \to \mathbb{C} \)
+                \( \cos: \mathbb{C} \to \mathbb{C} \)
                 <div class="centered-content">
-                    \( \cos{\left ( z \right )} := \frac{e^{i z} + e^{- i z}}{2} \)
+                    \( \cos\left ( z \right ) := \frac{e^{i z} + e^{- i z}}{2} \)
                 </div>
             </div>
         </div>
@@ -260,20 +243,18 @@
             <div class="content">
                 prove the following is true or false \( - 1 \le \left | \cos{\left ( z \right )} \right |  \le 1 \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 consider \( \left | \cos{\left ( z \right )} \right |  = \left | \frac{e^{i z} + e^{- i z}}{2} \right |  = \frac{1}{2} \cdot \left | e^{i z} + e^{- i z} \right |  \le \frac{1}{2} \cdot \left ( \left | e^{i z} \right |  + \left | e^{- i z} \right |  \right ) \), since \( z = x + i y \) then we know \( \left | e^{i z} \right |  = \left | e^{- y} \cdot e^{i x} \right |  = e^{- y} \) and \( \left | e^{- i z} \right |  = e^{y} \cdot e^{- i x} \) thus by we have \( \left | \cos{\left ( z \right )} \right |  \le e^{- y} + e^{y} \), this might cause an issue as when \( y = 0 \) we only get the bound \( \left | \cos{\left ( z \right )} \right |  \le 2 \). If we consider \( z = \ln{\left ( 4 \right )} i \) then \( \left | \cos{\left ( \ln{\left ( 4 \right )} i \right )} \right |  = \frac{1}{2} \cdot \left | e^{- \ln{\left ( 4 \right )}} + e^{\ln{\left ( 4 \right )}} \right |  = \frac{1}{2} \left ( \frac{1}{4} + 4 \right ) = 2 + \frac{1}{8} \gt 1 \) thus the original statement is proven false
             </div>
         </div>
+
 
         <div class="theorem">
             <div class="title">polar form</div>
             <div class="content">
                 given any \( z \in \mathbb{C} \) there are unique \( r , \theta \) such that \( z = r \left ( \cos{\left ( \theta \right )} + i \sin{\left ( \theta \right )} \right ) \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -302,17 +283,15 @@
             <div class="content">
                 compute \( i^{i} \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 \( i^{i} = e^{\Log{\left ( i \right )} \cdot i} = e^{i \frac{\pi}{2} \cdot i} = \frac{1}{e^{\frac{\pi}{2}}} \)
             </div>
         </div>
 
+
         <div class="definition">
             <div class="title">multivalued function</div>
+            <div class="content"></div>
         </div>
 
         <div class="definition">
@@ -334,6 +313,7 @@
             <div class="content">
                 \( \Log{\left ( 4 + 4 i \right )} = \Log{\left ( 4 \cdot \left ( 1 + i \right ) \right )} = \log{\left ( 4 \right )} + \Log{\left ( 1 + i \right )} = \log{\left ( 4 \right )} + \log{\left ( \sqrt{2} \right )} + i \frac{\pi}{4} = \log{\left ( 4 \cdot \sqrt{2} \right )} + i \frac{\pi}{4} \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -352,6 +332,7 @@
             <div class="content">
                 \( \rho \left ( r , \alpha \right ) = \rho \left ( r , \beta \right ) \) if and only if \( \alpha = \beta + 2 \pi \cdot k \) for some \( k \in \mathbb{Z} \)
             </div>
+            <div class="proof"></div>
         </div>
 
 
@@ -363,6 +344,7 @@
                     \( z w = r_{z} \cdot r_{w} \left ( \cos{\left ( \theta_{z} + \theta_{w} \right )} + i \sin{\left ( \theta_{z} + \theta_{w} \right )} \right ) \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition" id="definition-open-set">
@@ -377,11 +359,7 @@
             <div class="content">
                 Show that \( \Omega := \left \lbrace z \in \mathbb{C} : \mathfrak{I} \left ( z \right ) > 1 \right \rbrace \) is an open set
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 <p>
                     Let \( z_{\Omega} \in \Omega \), then take \( B \left ( z_{\Omega} , \mathfrak{I} \left ( z_{\omega} \right ) - 1 \right ) \), let \( z \in B \left ( z_{\Omega} , \mathfrak{I} \left ( z_{\omega} \right ) - 1 \right ) \), now we want to prove that \( z \in \Omega \), that is that \( \mathfrak{I} \left ( z \right ) > 1 \)
                 </p>
@@ -397,6 +375,7 @@
             </div>
         </div>
 
+
         <div class="definition">
             <div class="title">closed</div>
             <div class="content">
@@ -409,11 +388,7 @@
             <div class="content">
                 is the image of the strip \( S = \left \lbrace z \in \mathbb{C} : - \frac{\pi}{2} < \mathcal{I} \left ( z \right ) < \frac{\pi}{2} \right \rbrace \) under \( f{\left ( z \right )} = e^{z} \) an open set?
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 <p>
                     first of all, there is no theorem which says the image of an open set is open <a href="https://math.stackexchange.com/a/1279640/571643">counter example</a>, thus we must actually compute the image which isn't too hard.
                 </p>
@@ -423,6 +398,7 @@
             </div>
         </div>
 
+
         <div class="theorem">
             <div class="title">demoivre's</div>
             <div class="content">
@@ -431,6 +407,7 @@
                     \( z^{n} = r^{n} \left ( \cos{\left ( n \theta \right )} + i \sin{\left ( n \theta \right )} \right ) \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -441,32 +418,27 @@
                     \( r^{\frac{1}{n}} \left ( \cos{\left ( \frac{\theta}{n} + 2 \frac{\pi}{n} \right )} \right ) \)
                 </div>
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                <details>
-                    <summary>details</summary>
-                    <p>
-                        We can easily verify that \( s = r^{\frac{1}{n}} \left ( \cos{\left ( \frac{\theta}{n} \right )} + i \sin{\left ( \frac{\theta}{n} \right )} \right ) \) is a solution as by demoivre's theorem we can see that \( s^{n} = r \left ( \cos{\left ( \theta \right )} + i \sin{\left ( \theta \right )} \right ) \), although we know that \( \rho \left ( r , \theta + 2 \pi \cdot k \right ) = \rho \left ( r , \theta \right ) \), so there may be more solutions for when we consider \( r^{\frac{1}{n}} \left ( \cos{\left ( \frac{\theta + 2 \pi k}{n} \right )} + i \sin{\left ( \frac{\theta + 2 \pi k}{n} \right )} \right ) \), so long as none of these angles are full rotations of eachother, they are <a href="#polar-uniqueness-upto-a-rotation">unique</a> solutions. 
-                    </p>
-                    <p>
-                        for \( k \in \left \lbrace 0 , \ldots , n - 1 \right \rbrace \) we can see that \( \frac{\theta}{n} + 2 \pi \cdot \frac{k}{n} \) all differ by angles smaller than \( 2 \pi \) and thus produce unique complex numbers, considering any integer \( k \ge n \) will produce the same solutions, just rotated around (TODO: rigor) therefore the solutions are given by 
-                    </p>
-                    <div class="centered-content">
-                        \( r^{\frac{1}{n}} \left ( \cos{\left ( \frac{\theta}{n} + 2 \pi \cdot \frac{k}{n} \right )} + i \sin{\left ( \frac{\theta}{n} + 2 \pi \cdot \frac{k}{n} \right )} \right ) \)
-                    </div>
-                    for \( k \in \left \lbrace 0 , \ldots , n - 1 \right \rbrace \)
-                </details>
+            <div class="proof">
+                <p>
+                    We can easily verify that \( s = r^{\frac{1}{n}} \left ( \cos{\left ( \frac{\theta}{n} \right )} + i \sin{\left ( \frac{\theta}{n} \right )} \right ) \) is a solution as by demoivre's theorem we can see that \( s^{n} = r \left ( \cos{\left ( \theta \right )} + i \sin{\left ( \theta \right )} \right ) \), although we know that \( \rho \left ( r , \theta + 2 \pi \cdot k \right ) = \rho \left ( r , \theta \right ) \), so there may be more solutions for when we consider \( r^{\frac{1}{n}} \left ( \cos{\left ( \frac{\theta + 2 \pi k}{n} \right )} + i \sin{\left ( \frac{\theta + 2 \pi k}{n} \right )} \right ) \), so long as none of these angles are full rotations of eachother, they are <a href="#polar-uniqueness-upto-a-rotation">unique</a> solutions.
+                </p>
+                <p>
+                    for \( k \in \left \lbrace 0 , \ldots , n - 1 \right \rbrace \) we can see that \( \frac{\theta}{n} + 2 \pi \cdot \frac{k}{n} \) all differ by angles smaller than \( 2 \pi \) and thus produce unique complex numbers, considering any integer \( k \ge n \) will produce the same solutions, just rotated around (TODO: rigor) therefore the solutions are given by
+                </p>
+                <div class="centered-content">
+                    \( r^{\frac{1}{n}} \left ( \cos{\left ( \frac{\theta}{n} + 2 \pi \cdot \frac{k}{n} \right )} + i \sin{\left ( \frac{\theta}{n} + 2 \pi \cdot \frac{k}{n} \right )} \right ) \)
+                </div>
+                for \( k \in \left \lbrace 0 , \ldots , n - 1 \right \rbrace \)
             </div>
         </div>
+
 
         <div class="corollary">
             <div class="title">roots of unity</div>
             <div class="content">
                 the \( n \)-th roots of \( 1 \) are given by \( n \) equally spaced points around the unit circle with \( 1 \) being one of them.
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -485,15 +457,10 @@
             <div class="content">
                 if \( f{:} A \to \mathbb{C} \) is differentiable at \( z_{0} \) then it is continuous at \( z_{0} \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                We know that \( f \) is continuous at \( f{\left ( z_{0} \right )} \) if \( \lim_{z \to z_{0}} f{\left ( z \right )} = f{\left ( z_{0} \right )} \) TODO, re-write as subtraction equals zero using division idea
+            <div class="proof">
+                    We know that \( f \) is continuous at \( f{\left ( z_{0} \right )} \) if \( \lim_{z \to z_{0}} f{\left ( z \right )} = f{\left ( z_{0} \right )} \) TODO, re-write as subtraction equals zero using division idea
             </div>
         </div>
-
 
         <div class="definition">
             <div class="title">conformal map</div>
@@ -527,10 +494,11 @@
             <div class="content">
                 if \( f{:} A \to \mathbb{C} \) is holomorphic on \( A \) and \( f{'} \left ( z_{0} \right ) \ne 0 \), then \( f \) is conformal at \( z_{0} \) with \( \theta = \text{arg} \left ( f{'} \left ( z_{0} \right ) \right ) \) and \( r = \left | f{'} \left ( z_{0} \right ) \right |  \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
-            <div class="title">holomorphic</div>
+            <div class="title">Holomorphic</div>
             <div class="content">
                 a function \( f{:} A \to \mathbb{C} \) with \( A \) open is said to be holomorphic on \( A \) if is differentiable at every point in \( A \)
             </div>
@@ -541,6 +509,7 @@
             <div class="content">
                 if \( f , g \) are holomorphic functions then so is \( g{\circ} f \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -566,10 +535,7 @@
                     \( \frac{\partial u}{\partial x} \left ( z_{0} \right ) = \frac{\partial v}{\partial y} \left ( z_{0} \right ) \) and \( \frac{\partial u}{\partial y} \left ( z_{0} \right ) = - \frac{\partial v}{\partial x} \left ( z_{0} \right ) \)
                 </div>
             </div>
-        </div>
-
-        <div class="exercise">
-
+            <div class="proof"></div>
         </div>
 
         <div class="exercise">
@@ -577,19 +543,16 @@
             <div class="content">
                 Suppose that \( f{\left ( x + i y \right )} = u \left ( x , y \right ) + i v \left ( x , y \right ) \) is holomorphic and that \( u \left ( x , y \right ) = x^{2} - y^{2} \) derive a formula for \( v \left ( x , y \right ) \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 since \( f \) is holomorphic, that means that the derivative exists at every point in it's domain, thus the cauchy riemann equations hold at every point in it's domain, and so \( \frac{\partial}{\partial x} u = 2 x = \frac{\partial}{\partial y} v \), and we also have \( \frac{\partial}{\partial y} u = - 2 y = \frac{\partial}{\partial x} v \)
             </div>
         </div>
 
+
         <div class="definition">
             <div class="title">harmonic function</div>
             <div class="content">
-                a function \( g{:} \mathbb{R}^{2} \to \mathbb{R} \) is called harmonic if 
+                a function \( g: \mathbb{R}^{2} \to \mathbb{R} \) is called harmonic if
                 <div class="centered-content">
                     \( \frac{\partial^{2}}{\partial x^{2}} g{+} \frac{\partial^{2}}{\partial y^{2}} g{=} 0 \)
                 </div>
@@ -601,6 +564,7 @@
             <div class="content">
                 \( f{:} A \to C \) is holomorphic on \( A \) implies that \( \mathfrak{I} \left ( f{\left ( z \right )} \right ) \) and \( \mathfrak{R} \left ( f{\left ( z \right )} \right ) \) are harmonic
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -615,11 +579,7 @@
             <div class="content">
                 find a harmonic conjugate for \( e^{x} \cos{\left ( y \right )} \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 <p>
                     \( e^{x} \cos{\left ( y \right )} \) satisfies the <a href="#theorem-cauchy-riemann-equations">CRE's</a> so it's harmonic, to find the harmonic conjugate we need \( v \left ( x , y \right ) \) such that \( f{\left ( x + i y \right )} = e^{x} \cos{\left ( y \right )} + i v \left ( x , y \right ) \) is holomorphic. Thus we require it to also satisfy the CRE's
                 </p>
@@ -629,9 +589,8 @@
             </div>
         </div>
 
-
         <div class="definition">
-            <div class="title">complex integral</div>
+            <div class="title">Complex Integral</div>
             <div class="content">
                 Let \( h : \left [ a , b \right ] \subseteq R \to \mathbb{C} \), and then there are two functions \( u \) and \( v \) such that \( h \left ( t \right ) = u \left ( t \right ) + i v \left ( t \right ) \), with \( u , v \) continuous, then the integral of \( h \) is defined as follows:
                 <div class="centered-content">
@@ -641,7 +600,7 @@
         </div>
 
         <div class="definition">
-            <div class="title">contour</div>
+            <div class="title">Contour</div>
             <div class="content">
                 a contour in \( \mathbb{C} \) is a continuous function \( \gamma : \left [ a , b \right ] \to \mathbb{C} \)
             </div>
@@ -686,6 +645,7 @@
                     </li>
                 </ol>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -703,6 +663,7 @@
                     \( \int_{\gamma} f{=} \int_{\overline{\gamma}} f \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
         
         <div class="definition">
@@ -725,13 +686,7 @@
                 </div>
                 in particular \( M = \text{sup}_{z \in \Gamma} \left | f{\left ( z \right )} \right |  \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                TODO
-            </div>
+            <div class="proof"></div>
         </div>
 
         <div class="proposition">
@@ -739,6 +694,7 @@
             <div class="content">
                 \( g{:} \left [ a , b \right ] \to \mathbb{R} \), then \( \mathfrak{R} \left ( \int_{a}^{b} g{\left ( t \right )} dt \right ) = \int_{a}^{b} \mathfrak{R} \left ( g{\left ( t \right )} \right ) \) 
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="lemma">
@@ -746,6 +702,7 @@
             <div class="content">
                 \( \left | \int_{a}^{b} g{\left ( t \right )} dt \right |  = \int_{a}^{b} \left | g{\left ( t \right )} \right |  dt \) 
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -756,6 +713,8 @@
                     \( \int_{\gamma} F ' = F \left ( \gamma \left ( b \right ) \right ) - F \left ( \gamma \left ( a \right ) \right ) \)
                 </div>
             </div>
+
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -788,6 +747,7 @@
             <div class="content">
                 \( f \) holomorphic on \( G \subseteq \mathbb{C} \) open and connected with \( f{'} \left ( z \right ) = 0 \) for every \( z \in G \), then \( f \) is a constant function
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -809,6 +769,7 @@
                     </li>
                 </ol>
              </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -847,6 +808,7 @@
             <div class="content">
                 Suppose that \( f \) is holomorphic on a simply connected region \( G \), if \( \gamma \) is a closed curve in \( G \) then \( \int_{\gamma} f{=} 0 \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -854,6 +816,7 @@
             <div class="content">
                 suppose that \( f \) is holomorphic on a simply connected region \( A \), then there exists a holomorphic function \( F \) on \( A \) up to a unique additive constant such that \( F ' \left ( z \right ) = f{\left ( z \right )} \) for every \( z \in A \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -861,6 +824,7 @@
             <div class="content">
                 let \( A \) be a simply connected region and assume that \( 0 \notin A \). Then there is a holomorphic function \( F \left ( z \right ) \) up to a unique up to the addition of multiples of \( 2 \pi \) such that \( e^{F} \left ( z \right ) = z \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -868,6 +832,7 @@
             <div class="content">
                 Let \( R \) be a rectanglular path with sides parallel to the axes. Then if \( f \) is holomorphic on a region \( G \supseteq R \), then \( \int_{R} f{=} 0 \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -875,6 +840,7 @@
             <div class="content">
                 Supose that \( f{:} G \to \mathbb{C} \) is holomorphic with \( G \) open. Let \( T \) be a triangle contained in \( G \), then \( \int_{T} f{=} 0 \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -882,6 +848,7 @@
             <div class="content">
                 suppose \( D \) is an open disk and \( f{:} D \to \mathbb{C} \) is holomorphic on \( D \), then if \( \gamma \) is a closed curve contained in \( D \) then \( \int_{\gamma} f{=} 0 \) and \( f \) has an antiderivative on \( D \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -889,6 +856,7 @@
             <div class="content">
                 assume that \( f \) is continuous on \( D \), and that \( \gamma \) is closed and holomorphic on \( D \backslash \left \lbrace z_{0} \right \rbrace \), then \( \int_{\gamma} f{=} 0 \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -896,6 +864,7 @@
             <div class="content">
                 given a holomorphic function \( f{:} G \to \mathbb{C} \) for \( G \) open and \( \gamma_{0} , \gamma_{1} \) piecewise \( C^{1} \) on \( G \), then if \( \gamma_{0} \) is homotopic to \( \gamma_{1} \), then \( \int_{\gamma_{0}} f{=} \int_{\gamma_{1}} f \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -903,6 +872,7 @@
             <div class="content">
                 Let \( f \) be holomorphic on a region \( G \), and let \( \gamma \) be a closed curve in \( G \) homotopic to a point in \( G \), then \( \int_{\gamma} f{=} 0 \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -914,6 +884,7 @@
                 </div>
                 and we say that \( \gamma \) winds around \( z_{0} \) \( I \left ( \gamma , z_{0} \right ) \) times
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="corollary">
@@ -924,6 +895,7 @@
                     \( I \left ( \gamma_{1} , z_{0} \right ) = I \left ( \gamma_{2} , z_{0} \right ) \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -931,6 +903,7 @@
             <div class="content">
                 let \( \gamma : \left [ a , b \right ] \to \mathbb{C} \) be a piecewise \( C^{1} \) closed curve and \( z_{0} \) a point not on \( \gamma \), then \( I \left ( \gamma , z_{0} \right ) \) is an integer
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -942,6 +915,7 @@
                 </div>
                 This formula is often applied when \( \gamma \) is a simple closed curve and \( z_{0} \) is inside \( \gamma \) which simplifies \( I \left ( \gamma , z_{0} \right ) = 1 \). It is also used to compute integrals easily
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="exercise">
@@ -949,12 +923,9 @@
             <div class="content">
                 evaluate the integral \( \int_{\gamma} \frac{e^{z}}{z} \) where \( \gamma \) is the rotated square with vertices \( \pm i , \pm 1 \)
             </div>
+            <div class="proof"></div>
         </div>
 
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content"></div>
-        </div>
 
 
         <div class="theorem">
@@ -969,6 +940,10 @@
                     \( \frac{k !}{2 \pi i} \int_{\gamma} \frac{g{\left ( \zeta \right )}}{\left ( \zeta - z \right )^{k + 1}} d \zeta \)
                 </div>
             </div>
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content"></div>
+            </div>
         </div>
 
         <div class="theorem">
@@ -979,6 +954,7 @@
                     \( f^{\left ( k \right )}{\left ( z_{0} \right )} \cdot I \left ( \gamma , z_{0} \right ) = \frac{k !}{2 \pi i} \int_{\gamma} \frac{f{\left ( \zeta \right )}}{\left ( \zeta - z_{0} \right )^{k + 1}} d \zeta \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -999,6 +975,7 @@
                     \( \left | f^{\left ( k \right )}{\left ( z_{0} \right )} \right |  \le \frac{k !}{R^{k}} \cdot M \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition" id="definition-entire-function">
@@ -1013,11 +990,7 @@
             <div class="content">
                 is \( f{\left ( x + i y \right )} = 3 x^{2} - y + i \left ( e^{x} - 2 \sin{\left ( y \right )} \right ) \) an entire function?
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 <p>
                     if \( f \) is an entire function, then we know that it's holomorphic on all of \( \mathbb{C} \), that would require that the <a href="#theorem-cauchy-riemann-equations">cauchy riemann equations</a> be satisfied at every point in \( \mathbb{C} \)
                 </p>
@@ -1027,11 +1000,13 @@
             </div>
         </div>
 
+
         <div class="theorem">
             <div class="title">liouville's</div>
             <div class="content">
                 if \( f \) is entire and there is a constant \( M \) such that \( \left | f{\left ( z \right )} \right |  \le M \) for all \( z \in \mathbb{C} \) then \( f \) is constant
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -1039,6 +1014,7 @@
             <div class="content">
                 Let \( a_{0} , a_{1} , \ldots , a_{n} \) be a collection of \( n + 1 \) complex numbers with \( n \ge 1 \) and \( a_{n} \ne 0 \), let \( p \left ( z \right ) = a_{0} + a_{1} z + \ldots + a_{n} z^{n} \), then there exists a point \( z_{0} \in \mathbb{C} \) such that \( p \left ( z_{0} \right ) = 0 \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="proposition">
@@ -1046,20 +1022,18 @@
             <div class="content">
                 is \( p \left ( x \right ) \) is a non-constant complex polynomial, then the range of \( p \) is \( \mathbb{C} \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 Let \( w \in \mathbb{C} \), then \( p \left ( x \right ) - w \) is a non constant polynomial thus by the FTA there is some \( z_{0} \in \mathbb{C} \) such that \( p \left ( z_{0} \right ) - w = 0 \) thus we have \( p \left ( z_{0} \right ) = w \) so it's range is \( \mathbb{C} \)
             </div>
         </div>
+
 
         <div class="theorem">
             <div class="title">morera's</div>
             <div class="content">
                 Let \( f \) be continuous on a region \( A \) and suppose that \( \int_{\gamma} f{=} 0 \) for every closed curve in \( A \). Then \( f \) is holomorphic on \( A \) and \( f{=} F ' \) for some analytic function \( F \) on \( A \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -1067,6 +1041,7 @@
             <div class="content">
                 Let \( f \) be holomorphic on a region \( A \) if \( \left | f \right |  \) has a local maximum at \( z_{0} \in A \) then \( f \) is constant in some neighborhood of \( z_{0} \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -1077,6 +1052,7 @@
                     \( f{\left ( z_{0} \right )} = \frac{1}{2 \pi} \int_{0}^{2 \pi} f{\left ( z_{0} + r e^{i \theta} \right )} d \theta \) 
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -1084,6 +1060,7 @@
             <div class="content">
                 Given a subset \( A \subseteq C \), then the closure of \( A \) denoted by \( \overline{A} \) is the intersection of all closed supersets of \( A \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem" id="global-maximum-modulus">
@@ -1091,6 +1068,7 @@
             <div class="content">
                 Let \( A \) be open, connected and bounded as a subset of \( \mathbb{C} \) and suppose that \( f{:} \overline{A} \to \mathbb{C} \) is holomorphic on \( A \) and continuous on \( \overline{A} \). Then \( \left | f \right |  \) has a finite maximum value on \( \overline{A} \) which is attained at some point on the boundary of \( A \). If it is also attained in the interior of \( A \), then \( A \) must be constant on \( \overline{A} \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="exercise">
@@ -1106,22 +1084,19 @@
                     </li>
                 </ol>
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                <ol>
-                    <li>
-                        Since \( g \) is non-vanishing we know that for all \( z \in \partial D , \left | \frac{f{\left ( z \right )}}{f{\left ( g \right )}} \right |  \le 1 \), thus by the
-                        <a href="#global-maximum-modulus">global maximum modulus</a> theorem we can say that \( \left | \frac{f{\left ( z \right )}}{g{\left ( z \right )}} \right |  \le 1 \) on \( \overline{D} \) and so \( \left | f{\left ( z \right )} \right |  \le \left | g{\left ( z \right )} \right |  \) on \( \overline{D} \)
-                    </li>
-                    <li>
-                        This also implies that \( \left | \frac{1}{f{\left ( z \right )}} \right |  = \frac{1}{10} \) on \( \partial D \), which tells that on \( \overline{D} \) \( \left | \frac{1}{f{\left ( z \right )}} \right |  \le \frac{1}{10} \iff \left | f{\left ( z \right )} \right |  \ge 10 \), but then again on \( \partial D \)  \( \left | f{\left ( z \right )} \right |  = 10 \) and so on \( \overline{D} \) \( \left | f{\left ( z \right )} \right |  \le 10 \) which together implies that \( \left | f{\left ( z \right )} \right |  = 10 \) on \( \overline{D} \), so that it attains a maximum on \( \text{int} \left ( D \right ) \) and thus by the <a href="#global-maximum-modulus">global maximum modulus</a> we can see that \( f \) must be constant
-                    </li>
-                </ol>
+            <div class="proof">
+                    <ol>
+                        <li>
+                            Since \( g \) is non-vanishing we know that for all \( z \in \partial D , \left | \frac{f{\left ( z \right )}}{f{\left ( g \right )}} \right |  \le 1 \), thus by the
+                            <a href="#global-maximum-modulus">global maximum modulus</a> theorem we can say that \( \left | \frac{f{\left ( z \right )}}{g{\left ( z \right )}} \right |  \le 1 \) on \( \overline{D} \) and so \( \left | f{\left ( z \right )} \right |  \le \left | g{\left ( z \right )} \right |  \) on \( \overline{D} \)
+                        </li>
+                        <li>
+                            This also implies that \( \left | \frac{1}{f{\left ( z \right )}} \right |  = \frac{1}{10} \) on \( \partial D \), which tells that on \( \overline{D} \) \( \left | \frac{1}{f{\left ( z \right )}} \right |  \le \frac{1}{10} \iff \left | f{\left ( z \right )} \right |  \ge 10 \), but then again on \( \partial D \)  \( \left | f{\left ( z \right )} \right |  = 10 \) and so on \( \overline{D} \) \( \left | f{\left ( z \right )} \right |  \le 10 \) which together implies that \( \left | f{\left ( z \right )} \right |  = 10 \) on \( \overline{D} \), so that it attains a maximum on \( \text{int} \left ( D \right ) \) and thus by the <a href="#global-maximum-modulus">global maximum modulus</a> we can see that \( f \) must be constant
+                        </li>
+                    </ol>
             </div>
         </div>
+
 
         <div class="lemma" id="schwarz">
             <div class="title">schwarz</div>
@@ -1133,6 +1108,7 @@
                    moreover if \( \left | f^{'}{\left ( 0 \right )} \right |  = 1 \) or if there is a point \( z_{0} \) other than \( 0 \) in \( A \) with \( \left | f{\left ( z_{0} \right )} \right |  = \left | z_{0} \right |  \), then there is a constant \( c \in \mathbb{C} \) where \( \left | c \right |  = 1 \) and \( f{\left ( z \right )} = c z \) for all \( z \in A \)
                 </p>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="exercise">
@@ -1140,11 +1116,7 @@
             <div class="content">
                 Suppose, \( f{\left ( z \right )} \) is an analytic function which maps the unit disk bijectively onto itself, and \( f{\left ( 0 \right )} = 0 \). Prove that \( f{\left ( z \right )} = λ z \) where \( \left \lvert λ \right \rvert = 1 \).
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 <p>
                     since \( f \) maps into the unit circle then clearly \( \forall z \in \text{dom} \left ( f \right ) , \left | f{\left ( z \right )} \right |  \le 1 \), then by <a href="#schwarz">schwarz</a> we can see that \( \left | f^{'}{\left ( 0 \right )} \right |  \le 1 \) and \( \left | f{\left ( z \right )} \right |  \le \left | z \right |  \)
                 </p>
@@ -1156,6 +1128,7 @@
                 </p>
             </div>
         </div>
+
 
         <div class="definition">
             <div class="title">series</div>
@@ -1175,6 +1148,7 @@
                 </div>
                 for every \( p \in \mathbb{N}_{1} \)
             </div>
+            <div class="proof"></div>
         </div>
         
         <div class="definition">
@@ -1194,6 +1168,7 @@
                 </ul>
                 then \( \sum_{n = 1}^{\infty} g_{n} \) converges absolutely and uniformly on \( A \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition">
@@ -1219,6 +1194,7 @@
                     <li>if \( \left \lvert z - z_{0} \right \rvert > r \) then the power series diverges</li>
                 </ul>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="exercise">
@@ -1226,20 +1202,18 @@
             <div class="content">
                 If \( f{\left ( z \right )} = \sum_{n = 0}^{\infty} a_{n} \left ( z − z 0 \right )^{n} \) has radius of convergence \( R \), then \( f{\left ( z \right )} \) is analytic on \( B \left ( z 0 , R \right ) \).
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 Let \( z_{1} \in B \left ( z_{0} , R \right ) \) since any open ball is open, there is another ball \( B \subseteq B \left ( z_{0} , R \right ) \) centered around \( z_{1} \) since it's entirely contained within \( B \left ( z_{0} , R \right ) \) then for any \( z \in B \) we know that \( f{\left ( z \right )} \) equals the power series, thus it it's analytic
             </div>
         </div>
+
 
         <div class="lemma">
             <div class="title">abel-weierstrass</div>
             <div class="content">
                 Suppose that \( r_{0} > 0 \) and that \( \left | a_{n} \right |  r_{0}^{n} \le M \) holds for all \( n \in \mathbb{N}_{0} \), for some constant \( M \). Then for any \( r < r_{0} \), the series \( \sum_{n = 0}^{\infty} a_{n} \left ( z - z_{0} \right )^{n} \) uniformly and absolutely on the closed disk \( A_{r} = \left \lbrace z \in \mathbb{C} : \left | z - z_{0} \right |  \le r \right \rbrace \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem"> 
@@ -1247,6 +1221,7 @@
             <div class="content">
                 a power series is an analytic function on the inside of it's circle of convergence
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -1254,6 +1229,8 @@
             <div class="content">
                 Let \( f{\left ( z \right )} = \sum_{n = 0}^{\infty} a_{n} \cdot \left ( z - z_{0} \right )^{n} \) be the analytic function defined on the inside of the circle of convergence of the given power series. Then \( f{'} \left ( x \right ) = \sum_{n = 1}^{\infty} n \cdot a_{n} \left ( z - z_{0} \right )^{n - 1} \) and this series has the same circle of convergence as \( \sum a_{n} \left ( z - z_{0} \right )^{n} \), moreover the cofficents \( a_{n} \) are given by \( a_{n} = \frac{f^{\left ( n \right )}{\left ( z_{0} \right )}}{n !} \)
             </div>
+           <div class="proof"></div>
+
         </div>
 
         <div class="theorem">
@@ -1261,6 +1238,7 @@
             <div class="content">
                 if they are equal, then their coefficients must be equal.
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -1268,6 +1246,7 @@
             <div class="content">
                 let \( \sum_{n = 1}^{\infty} a_{n} \left ( z - z_{0} \right )^{n} \) be a power series, if \( \lim_{n \to \infty} \frac{\left | a_{n} \right | }{\left | a_{n + 1} \right | } \) exists then it equals the radius of convergence of the series
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -1275,6 +1254,7 @@
             <div class="content">
                 let \( \sum_{n = 1}^{\infty} a_{n} \left ( z - z_{0} \right )^{n} \) be a power series, if \( \rho = \lim_{n \to \infty} \left | a_{n} \right | ^{\frac{1}{n}} \) exists, then  \( R = \frac{1}{\rho} \) is the radius of convergence, if \( \rho \) happens to be \( 0 \) then \( R = \infty \)
             </div>
+            <div class="proof"></div>
         </div>
 
 
@@ -1290,6 +1270,7 @@
                     \( f{\left ( z \right )} = \sum_{n = 0}^{\infty} \frac{f^{\left ( n \right )}{\left ( z_{0} \right )}}{n !} \cdot \left ( z - z_{0} \right )^{n} \)
                 </p>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -1297,6 +1278,7 @@
             <div class="content">
                 a complex function is holomorphic if and only if it is analytic
             </div>
+            <div class="proof"></div>
         </div>
         
         <div class="corollary">
@@ -1306,6 +1288,7 @@
             <div class="content">
                 Let \( A \) be a region in \( \mathbb{C} \) and let \( f \) be a complex valued function defined on \( A \). Then \( f \) is analytic on \( A \) iff for each \( z_{0} \) in \( A \) there is a number \( r > 0 \) such that the disk \( D \left ( z_{0} , r \right ) \subseteq A \) and \( f \) equals a convergent power series on \( D \left ( z_{0} , r \right ) \)
             </div>
+            <div class="proof"></div>
         </div>
 
 
@@ -1331,6 +1314,7 @@
                     </li>
                 </ul>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="corollary">
@@ -1338,6 +1322,7 @@
             <div class="content">
                 looking at the factorization in the last theorem, we can see that \( \phi \left ( z \right ) \) is analytic and so is continuous on \( D \left ( c , r \right ) \), since \( \phi \left ( c \right ) \ne 0 \), there is a radius \( p \) with \( 0 < p < r \) such that \( \phi \left ( z \right ) \) is never 0 for \( \left \lvert z - c \right \rvert < p \). Since \( f{\left ( z \right )} = \left ( z - c \right )^{n} \phi \left ( z \right ) \) for all \( z \in D \left ( c , p \right ) \) we conclude that \( f \) has no zeros other than \( c \) in that disk, in this sense the zeros of \( f \) are isolated.
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem">
@@ -1349,6 +1334,7 @@
                 </p>
                 where both series on the right side of the equation converge absolutely on \( A \) and uniformly in the sets of the form \( B_{p_{1} , p_{2}} = \left \lbrace z \in \mathbb{C} : p_{1} \le \right \rvert z - z_{0} \left \lvert \le p_{2} \right \rbrace \) where \( r_{1} < p_{1} < p_{2} < r_{2} \)
             </div>
+            <div class="proof"></div>
         </div>
 
 
@@ -1376,6 +1362,7 @@
                     \( f{\left ( z \right )} = \sum_{n = 0}^{\infty} a_{n} \left ( z - z_{0} \right )^{n} + \sum_{n = 1}^{\infty} \frac{b_{n}}{\left ( z - z_{0} \right )^{n}} \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="definition" id="pole">
@@ -1431,6 +1418,7 @@
             <div class="content">
                 if \( f \) has a removable singularity, then we know that \( f{\left ( z \right )} = \sum_{n = 0}^{\infty} a_{n} \left ( z - z_{0} \right )^{n} \) is a convergent power series. We can then extend \( f \) to be defined on \( z_{0} \) creating a new function \( \overline{f} \) which is the same as \( f \) except that \( \overline{f{\left ( z_{0} \right )}} = a_{0} \), then \( \overline{f} \) is holomorphic.
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="proposition">
@@ -1441,6 +1429,7 @@
                     \( \int_{\gamma} f{\left ( z \right )} dz = b_{1} \cdot 2 \pi i \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="proposition">
@@ -1484,6 +1473,7 @@
                     </li>
                 </ol>
             </div>
+            <div class="proof"></div>
         </div>
 
 
@@ -1503,19 +1493,16 @@
             <div class="content">
                 for any \( c \in \mathbb{C} \) the function \( f{\left ( z \right )} = \left ( z - c \right )^{k} \) for some \( k \in \mathbb{N}_{1} \) has a zero of order \( k - 1 \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                <p>
-                    for any \( m \in \left [ k - 1 \right ] \) we have\( f^{\left ( m \right )}{\left ( z \right )} = \left [ \left ( k \right ) \cdot \left ( k - 1 \right ) \cdot \ldots \cdot \left ( k - \left ( m - 1 \right ) \right ) \right ] \left ( z - c \right )^{k - m} \), which when evaluated at \( c \) yields zero, note that this holds up to \( m = k - 1 \) which at that point we have \( f^{\left ( k - 1 \right )}{\left ( z \right )} = \left [ \left ( k \right ) \cdot \left ( k - 1 \right ) \cdot \ldots \cdot \left ( k - \left ( \left ( k - 1 \right ) - 1 \right ) \right ) \right ] \left ( z - c \right )^{k - \left ( k - 1 \right )} = \left [ \left ( k \right ) \cdot \left ( k - 1 \right ) \cdot \ldots \cdot 2 \right ] \left ( z - c \right )^{1} = k ! \left ( z - c \right ) \)
-                </p>
-                <p>
-                    additionally \( f^{\left ( k \right )}{\left ( z \right )} = k ! \) which when evaluated at \( c \) is not zero, so we can conclude that \( f{\left ( z \right )} \) has a zero of order \( k - 1 \) at \( c \)
-                </p>
+            <div class="proof">
+                    <p>
+                        for any \( m \in \left [ k - 1 \right ] \) we have\( f^{\left ( m \right )}{\left ( z \right )} = \left [ \left ( k \right ) \cdot \left ( k - 1 \right ) \cdot \ldots \cdot \left ( k - \left ( m - 1 \right ) \right ) \right ] \left ( z - c \right )^{k - m} \), which when evaluated at \( c \) yields zero, note that this holds up to \( m = k - 1 \) which at that point we have \( f^{\left ( k - 1 \right )}{\left ( z \right )} = \left [ \left ( k \right ) \cdot \left ( k - 1 \right ) \cdot \ldots \cdot \left ( k - \left ( \left ( k - 1 \right ) - 1 \right ) \right ) \right ] \left ( z - c \right )^{k - \left ( k - 1 \right )} = \left [ \left ( k \right ) \cdot \left ( k - 1 \right ) \cdot \ldots \cdot 2 \right ] \left ( z - c \right )^{1} = k ! \left ( z - c \right ) \)
+                    </p>
+                    <p>
+                        additionally \( f^{\left ( k \right )}{\left ( z \right )} = k ! \) which when evaluated at \( c \) is not zero, so we can conclude that \( f{\left ( z \right )} \) has a zero of order \( k - 1 \) at \( c \)
+                    </p>
             </div>
         </div>
+
 
         <div class="proposition" id="connection-between-zeros-and-poles">
             <div class="title">connection between zeros and poles</div>
@@ -1527,6 +1514,7 @@
                     <li>if \( k < n \), then \( h \) has a removable singularity at \( z_{0} \), and setting \( h \left ( z_{0} \right ) = 0 \) produces an analytic function with a zero of order \( n - k \) at \( z_{0} \)</li>
                 </ol>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="exercise">
@@ -1534,28 +1522,20 @@
             <div class="content">
                 show that \( \frac{1}{\left ( z - c \right )^{k}} \) has a pole of order \( k \)
             </div>
+            <div class="proof"></div>
         </div>
 
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                \(  \)
-            </div>
-        </div>
 
         <div class="exercise">
             <div class="title"></div>
             <div class="content">
                 prove true or false, that if \( p \left ( z \right ) , q \left ( z \right ) \) are non-constant polynomials then \( \frac{p \left ( z \right )}{q \left ( z \right )} \) has at least one pole, but since they both have zeros of order 1, at \( 0 \) then the quotient of the two functions has a removable singularity at \( 0 \) meaning that all \( b_{k} \) in it's laurent expansion are zero, and thus there is no pole
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                consider \( p \left ( z \right ) = z \) and \( q \left ( z \right ) = z \) which are non-constant polynomials, then \( \frac{p \left ( z \right )}{q \left ( z \right )} = \frac{z}{z} \) which is defined on \( \mathbb{C} \backslash \left \lbrace 0 \right \rbrace \)
+            <div class="proof">
+                    consider \( p \left ( z \right ) = z \) and \( q \left ( z \right ) = z \) which are non-constant polynomials, then \( \frac{p \left ( z \right )}{q \left ( z \right )} = \frac{z}{z} \) which is defined on \( \mathbb{C} \backslash \left \lbrace 0 \right \rbrace \)
             </div>
         </div>
+
 
         <div class="proposition" id="residue-formula-for-simple-poles">
             <div class="title">residue formula for simple poles</div>
@@ -1565,25 +1545,23 @@
                     \( \text{res} \left ( f , z_{0} \right ) = \frac{g{\left ( z_{0} \right )}}{h^{'} \left ( z_{0} \right )} \)
                 </div>
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                <p>
-                    we can see that \( z_{0} \) is a zero of order \( 1 \) of \( h \) and \( z_{0} \) is a zero of order 0 of \( g \) therefore by the <a href="#connection-between-zeros-and-poles">connection between zeros and poles</a> we can see that \( f{\left ( z \right )} \) has a pole of order \( 1 \), that is, it has a simple pole
-                </p>
-                <p>
-                    since \( z_{0} \) is a simple pole, then we know \( \lim_{z \to z_{0}} \left ( z - z_{0} \right ) f{\left ( z \right )} \) exists and is not zero, by the definition of \( f \) and the fact that \( h \left ( z_{0} \right ) = 0 \) we obtain the following \( \lim_{z \to z_{0}} \left ( z - z_{0} \right ) f{\left ( z \right )} = \lim_{z \to z_{0}} \left ( z - z_{0} \right ) \frac{g{\left ( z \right )}}{h \left ( z \right )} = \lim_{z \to z_{0}} \frac{g{\left ( z \right )}}{\frac{h \left ( z \right )}{z - z_{0}}} = \lim_{z \to z_{0}} \frac{g{\left ( z \right )}}{\frac{h \left ( z \right ) - h \left ( z_{0} \right )}{z - z_{0}}} = \frac{g{\left ( z_{0} \right )}}{\lim_{z \to z_{0}} \frac{h \left ( z \right ) - h \left ( z_{0} \right )}{z - z_{0}}} = \frac{g{\left ( z_{0} \right )}}{h ' \left ( z_{0} \right )} \)
-                </p>
+            <div class="proof">
+                    <p>
+                        we can see that \( z_{0} \) is a zero of order \( 1 \) of \( h \) and \( z_{0} \) is a zero of order 0 of \( g \) therefore by the <a href="#connection-between-zeros-and-poles">connection between zeros and poles</a> we can see that \( f{\left ( z \right )} \) has a pole of order \( 1 \), that is, it has a simple pole
+                    </p>
+                    <p>
+                        since \( z_{0} \) is a simple pole, then we know \( \lim_{z \to z_{0}} \left ( z - z_{0} \right ) f{\left ( z \right )} \) exists and is not zero, by the definition of \( f \) and the fact that \( h \left ( z_{0} \right ) = 0 \) we obtain the following \( \lim_{z \to z_{0}} \left ( z - z_{0} \right ) f{\left ( z \right )} = \lim_{z \to z_{0}} \left ( z - z_{0} \right ) \frac{g{\left ( z \right )}}{h \left ( z \right )} = \lim_{z \to z_{0}} \frac{g{\left ( z \right )}}{\frac{h \left ( z \right )}{z - z_{0}}} = \lim_{z \to z_{0}} \frac{g{\left ( z \right )}}{\frac{h \left ( z \right ) - h \left ( z_{0} \right )}{z - z_{0}}} = \frac{g{\left ( z_{0} \right )}}{\lim_{z \to z_{0}} \frac{h \left ( z \right ) - h \left ( z_{0} \right )}{z - z_{0}}} = \frac{g{\left ( z_{0} \right )}}{h ' \left ( z_{0} \right )} \)
+                    </p>
             </div>
         </div>
+
 
         <div class="theorem">
             <div class="title">casorati-wieierstrass</div>
             <div class="content">
                 Let \( f \) have an isolated singularity at \( z_{0} \) and \( w \in \mathbb{C} \). Then there is a sequence \( z_{1} , z_{2} , z_{3} , \ldots \) in \( C \) such that \( z_{n} \to z_{0} \) and \( f{\left ( z_{n} \right )} \to w \)
             </div>
+            <div class="proof"></div>
         </div>
 
 
@@ -1595,6 +1573,7 @@
                     \( \text{res} \left ( \frac{g}{h} , z_{0} \right ) = \left ( k + 1 \right ) \frac{g^{\left ( k \right )}{\left ( z_{0} \right )}}{h^{\left ( k + 1 \right )}} \left ( z_{0} \right ) \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="proposition">
@@ -1605,6 +1584,7 @@
                     \( \text{res} \left ( f , z_{0} \right ) = \frac{\phi \left ( k - 1 \right ) \left ( z_{0} \right )}{k - 1} ! \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="theorem" id="theorem-residue">
@@ -1615,6 +1595,7 @@
                     \( \int_{\gamma} f{\left ( z \right )} dz = 2 \pi i \cdot \sum_{i = 1}^{n} \left ( \text{res} \left ( f , z_{i} \right ) \cdot I \left ( \gamma , z_{i} \right ) \right. \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="exercise">
@@ -1625,28 +1606,22 @@
                     \( \int_{\left | z \right |  = r} f{\left ( z \right )} dz = 2 \pi i \text{res} \left ( f , 0 \right ) \)
                 </div>
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                the definition of \( \text{res} \left ( f , 0 \right ) \) recall the <a href="#residue-definition">definition of residue</a>, then we require that \( f \) have an <a href="#definition-isolated-singularity">isolated singularity</a> at \( 0 \)
+            <div class="proof">
+                    the definition of \( \text{res} \left ( f , 0 \right ) \) recall the <a href="#residue-definition">definition of residue</a>, then we require that \( f \) have an <a href="#definition-isolated-singularity">isolated singularity</a> at \( 0 \)
             </div>
         </div>
+
 
         <div class="exercise">
             <div class="title"></div>
             <div class="content">
                 compute \( \int_{\left | z \right |  = 2} e^{\frac{1}{z}} dz \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                we know that \( e^{\frac{1}{z}} \) has an isolated singularity at \( z = 0 \), but we already know the expansion of \( e^{\frac{1}{z}} = \sum_{k = 0}^{\infty} \frac{\left ( \frac{1}{z} \right )^{k}}{k !} \) and thus is already a laurent expansion with \( b_{1} = 0 \), thus \( \text{res} \left ( e^{\frac{1}{z}} , 0 \right ) = 1 \) and so by the residue theorem \( \int_{\left | z \right |  = 2} e^{\frac{1}{z}} dz = 2 \pi i \cdot 1 \)
+            <div class="proof">
+                    we know that \( e^{\frac{1}{z}} \) has an isolated singularity at \( z = 0 \), but we already know the expansion of \( e^{\frac{1}{z}} = \sum_{k = 0}^{\infty} \frac{\left ( \frac{1}{z} \right )^{k}}{k !} \) and thus is already a laurent expansion with \( b_{1} = 0 \), thus \( \text{res} \left ( e^{\frac{1}{z}} , 0 \right ) = 1 \) and so by the residue theorem \( \int_{\left | z \right |  = 2} e^{\frac{1}{z}} dz = 2 \pi i \cdot 1 \)
             </div>
         </div>
+
 
         <div class="definition">
             <div class="title">pole at infinity</div>
@@ -1674,6 +1649,7 @@
             <div class="content">
                 Suppose there is an \( R_{0} > 0 \) such that \( f \) is analytic \( \hat{} \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <h2>1</h2>
@@ -1733,6 +1709,7 @@
                 </p>
                 where \( \lim_{x \to a} h_{k} \left ( x \right ) = 0 \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <p>
@@ -1881,6 +1858,7 @@
                     \( \int_{\gamma} f{=} 0 \)
                 </div>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="exercise">
@@ -1930,6 +1908,7 @@
 
                 </ol>
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="exercise">

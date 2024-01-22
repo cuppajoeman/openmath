@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/styles.css">
 
-    
-
     <script src="/js/script.js" defer></script>
 
 </head>
@@ -255,6 +253,20 @@
                 Let \( x \in X \), suppose that \( C \in \mathcal{ C } \), thus by definition \( C \supseteq X  \), and since \( x \in X \) we must deduce \( x \in C \), therefore \( x \in \bigcap \mathcal{ C } \) as needed.
             </div>
         </div>
+
+        <div class="proposition" id="proposition-intersection-decreases-as-it-intersects-more-things">
+        	<div class="title">Intersection Decreases as It Intersects More Things</div>
+        	<div class="content">
+        		Suppose that \( N, M \) are families of sets such that \( N \subseteq M \), then
+                \[
+                    \bigcap M \subseteq \bigcap N
+                \]
+        	</div>
+        	<div class="proof">
+                Let \( x \in \bigcap M \), then for every \( S \in M, x \in S \). Now consider any \( K \in N \), then \( K \in M \) therefore \( x \in K \) which shows that \( x \in \bigcap N \) as needed.
+        	</div>
+        </div>
+
 
         <div class="proposition"  id="proposition-a-set-covered-in-subsets-is-a-union">
             <div class="title">A set Covered in Subsets is a Union</div>

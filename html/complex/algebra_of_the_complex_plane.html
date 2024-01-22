@@ -10,19 +10,10 @@
 
     <script src="../js/script.js" defer></script> 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
-
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-
     <div class="thin-wrapper">
-
-        <h1>complex</h1>
 
         <div class="definition" id="definition-addition">
             <div class="title">addition</div>
@@ -58,25 +49,17 @@
             </div>
         </div>
 
-        <div id="proposition-conjugate-cancels">
-            <div class="proposition">
+            <div class="proposition" id="proposition-conjugate-cancels">
                 <div class="title">conjugate cancels</div>
                 <div class="content">
                     \( \overline{\overline{z}} = z \)
                 </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>show</summary>
-                        Let \( z = x + i y \), then \( \overline{z} = x - i y = x + i \left ( - y \right ) \) then \( \overline{\overline{z}} = x - i \left ( - y \right ) = x + i y = z \) as needed.
-                    </details>
+                <div class="proof">
+                            <summary>show</summary>
+                            Let \( z = x + i y \), then \( \overline{z} = x - i y = x + i \left ( - y \right ) \) then \( \overline{\overline{z}} = x - i \left ( - y \right ) = x + i y = z \) as needed.
                 </div>
             </div>
 
-        </div>
 
 
         <div class="definition">
@@ -89,49 +72,32 @@
             </div>
         </div>
 
-        <div id="corollary-modulus-ignores-conjugates">
 
-            <div class="corollary">
+            <div class="corollary" id="corollary-modulus-ignores-conjugates">
                 <div class="title">modulus ignores conjugates</div>
                 <div class="content">
                     \( \left | \overline{z} \right |  = \left | z \right |  \)
                 </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>show</summary>
-                        Suppose that \( z = x + i y \), then \( \left | \overline{z} \right |  = \left | x - i y \right |  = \sqrt{x^{2} + \left ( - y \right )^{2}} = \sqrt{x^{2} + y^{2}} = \left | z \right |  \) 
-                    </details>
+                <div class="proof">
+                            Suppose that \( z = x + i y \), then \( \left | \overline{z} \right |  = \left | x - i y \right |  = \sqrt{x^{2} + \left ( - y \right )^{2}} = \sqrt{x^{2} + y^{2}} = \left | z \right |  \)
                 </div>
             </div>
 
-        </div>
 
-        <div id="proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">
 
-            <div class="proposition">
+
+            <div class="proposition" id="proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">
                 <div class="title">complex number times it's conjugate equals the modulus squared</div>
                 <div class="content">
                     <div class="centered-content">
                         \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \)
                     </div>
                 </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>show</summary>
-                        suppose that \( z = x + i y \), then \( z \cdot \overline{z} = \left ( x + i y \right ) \cdot \left ( x - i y \right ) = x^{2} + y^{2} + x y i - x y i = x^{2} + y^{2} \), but then again \( \left | z \right |  = \left | x + i y \right |  = \sqrt{x^{2} + y^{2}} \) thus \( z \cdot \overline{z} = \left | z \right | ^{2} \)
-                    </details>
+                <div class="proof">
+                    suppose that \( z = x + i y \), then \( z \cdot \overline{z} = \left ( x + i y \right ) \cdot \left ( x - i y \right ) = x^{2} + y^{2} + x y i - x y i = x^{2} + y^{2} \), but then again \( \left | z \right |  = \left | x + i y \right |  = \sqrt{x^{2} + y^{2}} \) thus \( z \cdot \overline{z} = \left | z \right | ^{2} \)
                 </div>
             </div>
 
-        </div>
 
 
         <div class="definition" id="definition-inverse">
@@ -141,25 +107,16 @@
             </div>
         </div>
 
-        <div id="theorem-value-of-the-inverse">
-            <div class="theorem">
+            <div class="theorem" id="theorem-value-of-the-inverse">
                 <div class="title">value of the inverse</div>
                 <div class="content">
                     Given \( z \in \mathbb{C} \) we have \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \)
                 </div>
-            </div>
-
-            <div class="proof">
-                <div class="title"></div>
-                <div class="content">
-                    <details>
-                        <summary>show</summary>
-                        We <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">know</span> that \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \), therefore \( z \cdot \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} = 1 \), so by the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#definition-inverse">definition of inverse</span> \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \) as needed.
-                    </details>
+                <div class="proof">
+                            We <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">know</span> that \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \), therefore \( z \cdot \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} = 1 \), so by the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#definition-inverse">definition of inverse</span> \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \) as needed.
                 </div>
             </div>
 
-        </div>
 
 
         <div class="exercise">
@@ -167,22 +124,16 @@
             <div class="content">
                 For any \( z \in \mathbb{C} , \left \lvert \frac{z}{\overline{z}} \right \rvert = 1 \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                <details>
-                    <summary>show</summary>
-                    <p>
-                        By the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#theorem-value-of-the-inverse">value of the inverse</span> we have: \( \frac{1}{\overline{z}} = \frac{\overline{\overline{z}}}{\left \lvert \overline{z} \right \rvert^{2}} \) since we know that <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-conjugate-cancels">two complex conjugates cancel</span> and <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#corollary-modulus-ignores-conjugates">modulus ignores conjugates</span>, then \( \frac{\overline{\overline{z}}}{\left \lvert \overline{z} \right \rvert^{2}} = \frac{z}{\left \lvert z \right \rvert^{2}} \)
-                    </p>
-                    <p>
-                        Now \( \left | \frac{z}{\overline{z}} \right |  = \left | z \left ( \frac{z}{\left | z \right | ^{2}} \right ) \right |  = \left | \left ( \frac{z}{\left | z \right | } \right )^{2} \right |  = \left | \frac{z}{\left | z \right | } \right |  \cdot \left | \frac{z}{\left | z \right | } \right |  = 1 \cdot 1 = 1 \) as needed
-                    </p>
-                </details>
+            <div class="proof">
+                <p>
+                    By the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#theorem-value-of-the-inverse">value of the inverse</span> we have: \( \frac{1}{\overline{z}} = \frac{\overline{\overline{z}}}{\left \lvert \overline{z} \right \rvert^{2}} \) since we know that <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-conjugate-cancels">two complex conjugates cancel</span> and <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#corollary-modulus-ignores-conjugates">modulus ignores conjugates</span>, then \( \frac{\overline{\overline{z}}}{\left \lvert \overline{z} \right \rvert^{2}} = \frac{z}{\left \lvert z \right \rvert^{2}} \)
+                </p>
+                <p>
+                    Now \( \left | \frac{z}{\overline{z}} \right |  = \left | z \left ( \frac{z}{\left | z \right | ^{2}} \right ) \right |  = \left | \left ( \frac{z}{\left | z \right | } \right )^{2} \right |  = \left | \frac{z}{\left | z \right | } \right |  \cdot \left | \frac{z}{\left | z \right | } \right |  = 1 \cdot 1 = 1 \) as needed
+                </p>
             </div>
         </div>
+
 
 
 
@@ -211,6 +162,7 @@
             <div class="content">
                 suppose \( z \in \mathbb{C} \), then \( \mathfrak{R} \left ( z \right ) = \frac{z + \overline{z}}{2} \)
             </div>
+            <div class="proof"></div>
         </div>
 
 
@@ -223,6 +175,7 @@
                     <li>\( \left | \mathfrak{I} \left ( z \right ) \right |  \le \left | z \right |  \)</li>
                 </ul>
             </div>
+            <div class="proof"></div>
         </div>
 
 
@@ -231,6 +184,7 @@
             <div class="content">
                 \( \mathfrak{I} \left ( z + w \right ) = \mathfrak{I} \left ( z \right ) + \mathfrak{I} \left ( w \right ) \)
             </div>
+            <div class="proof"></div>
         </div>
 
         <div class="proposition" id="modulus-plus-one-of-it's-components-is-positive">
@@ -241,29 +195,22 @@
                     \( \left | z \right |  + f{\left ( z \right )} \ge 0 \)
                 </div>
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
-                Let \( z = x + i y \in \mathbb{C} \) then suppose without loss of generality that \( f{=} \mathcal{R} \), then
-                <div class="centered-content">
-                    \( - x \le \left | x \right |  = \sqrt{x^{2}} \le \sqrt{x^{2} + y^{2}} = \left | x + i y \right |  \)
-                </div>
-                therefore \( 0 \le x + \left | x + i y \right |  \) which means \( 0 \le \mathcal{R} \left ( z \right ) + \left | z \right |  \)
+            <div class="proof">
+                    Let \( z = x + i y \in \mathbb{C} \) then suppose without loss of generality that \( f{=} \mathcal{R} \), then
+                    <div class="centered-content">
+                        \( - x \le \left | x \right |  = \sqrt{x^{2}} \le \sqrt{x^{2} + y^{2}} = \left | x + i y \right |  \)
+                    </div>
+                    therefore \( 0 \le x + \left | x + i y \right |  \) which means \( 0 \le \mathcal{R} \left ( z \right ) + \left | z \right |  \)
             </div>
         </div>
+
 
         <div class="exercise">
             <div class="title">creating squares</div>
             <div class="content">
                 without use of the triangle inequality prove that \( \left | z - 1 \right | ^{2} = \left | z \right | ^{2} + 1 - 2 \mathcal{R} \left ( z \right ) \), then conclude that \( \left | z - 1 \right |  \le \left | z \right |  + 1 \)
             </div>
-        </div>
-
-        <div class="proof">
-            <div class="title"></div>
-            <div class="content">
+            <div class="proof">
                 <p>
                     \( \left | z - 1 \right | ^{2} \) <a href="#a-complex-number-times-it's-conjugate-equals-the-modulus-squared">=</a> \( \left ( z - 1 \right ) \cdot \overline{z - 1} = \left ( z - 1 \right ) \cdot \left ( \overline{z} - 1 \right ) = z \cdot \overline{z} - z - \overline{z} + 1 \), now recall that \( \mathcal{R} \left ( z \right ) = \frac{z + \overline{z}}{2} \) so we can continue the equality with \( \left | z \right | ^{2} - 2 \mathcal{R} \left ( z \right ) + 1 \), showing the first part
                 </p>
@@ -271,8 +218,8 @@
                     for the second part, we can notice that \( \left ( \left | z \right |  + 1 \right )^{2} = \left | z \right | ^{2} + 2 \left | z \right |  + 1 \), so then \( \left | z - 1 \right | ^{2} = \left | z \right | ^{2} + 1 - 2 \mathcal{R} \left ( z \right ) = \left | z \right | ^{2} + 2 \left | z \right |  - 2 \left | z \right |  + 1 - 2 \mathcal{R} \left ( z \right ) = \left ( \left | z \right |  + 1 \right )^{2} - 2 \left ( \left | z \right |  + \mathcal{R} \left ( z \right ) \right ) \), then by
                     <a href="#modulus-plus-one-of-it's-components-is-positive">this</a> proposition we can see that the last term in the previous equality chain is less than or equal to \( \left ( \left | z \right |  + 1 \right )^{2} \) allowing us to conclude that \( \left | z - 1 \right | ^{2} \le \left ( \left | z \right |  + 1 \right )^{2} \) which implies that \( \left | z - 1 \right |  \le \left | z \right |  + 1 \)
                 </p>
-            </div>
         </div>
+
 
 
     </div>
