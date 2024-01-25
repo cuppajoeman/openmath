@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Master Theorem</title>
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <div class="theorem" id="theorem-master">
+    	<div class="title">Master</div>
+    	<div class="content">
+    		Let \( a, b \in \mathbb{ R }  \) such that \( a \ge 1 \) and \( b \gt 1 \) and let \( T, f : \mathbb{ N } ^ 0 \to \mathbb{ R } ^ { \ge 0 }  \) be defined such that 
+            \[
+                T \left( n \right) := a T \left( \frac{n}{b}  \right) + f \left( n \right)
+            \]
+            Then the following statements are true
+            <ul>
+                <li>If \( f \in \mathcal{ O } \left( n ^ { \log _ b a - \epsilon  }  \right)   \) for some \( \epsilon \in \mathbb{ R } ^ { \gt 0 }  \), then \( T \left( n \right) \in \Theta \left( n ^ { \log _ b a }  \right)  \)   </li>
+                <li>If \( f \in \Theta \left( n ^ { \log b a  }  \right)  \) then \( T \left( n \right) \in \Theta \left( n ^ { \log b a } \ln \left( n \right)   \right)  \)  </li>
+                <li>If \( f \in \Theta \left( n ^ { \log _ b \left( a \right) + \epsilon  }  \right)  \) for some constant \( \epsilon \in \mathbb{ R } ^ { \gt 0 }  \) and the function \( f ^ \prime \left( n \right) := a f \left( \frac{n}{b}  \right)  \) is eventually dominated up to a constant \( c \in \mathbb{ R }  \) by \( c f \) where \( c < 1 \), then \( T \left( n \right) \in \Theta \left( f \right)  \)      </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+
+
+</div>
+</body>

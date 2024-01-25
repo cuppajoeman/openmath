@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Algorithms</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+    <script src="/js/insert_file_contents.js"></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-open-set">
+        <div class="title">Open Set</div>
+        <div class="content">
+            In breadth first the open set is a collection of nodes stored in some, nodes are removed and added to the open set over time, and it is used to move through the graph.
+        </div>
+    </div>
+
+
+    <div class="definition" id="definition-explored">
+        <div class="title">Explored</div>
+        <div class="content">
+            Suppose that \( n \) is a node in the graph, we say that \( n \) is explored, if it's been removed from the open set and it's successors have been added to the open set
+        </div>
+    </div>
+
+
+    <div class="definition" id="definition-complete">
+        <div class="title">Complete</div>
+        <div class="content">
+            We say that a search algorithm is complete if whenever a solution exists, it is able to find the solution
+        </div>
+    </div>
+
+
+    <div class="theorem" id="theorem-breadth-first-search-is-complete">
+        <div class="title">Breadth First Search is Complete</div>
+        <div class="content">
+            Breadth first search is complete
+        </div>
+        <div class="proof">
+            Suppose that there is at least one goal state in the graph , therefore it has some depth with respect to the starting state say \( d \), since we've shown that for any depth \( k \), bfs will search all nodes at this depth, therefore specifically it will find the goal state at depth \( d \).
+        </div>
+    </div>
+
+    <div class="proposition" id="proposition-breadth-first-search-is-length-optimal">
+        <div class="title">Breadth First Search is Length Optimal</div>
+        <div class="content">
+            Breadth first search returns the goal state with the shortest path
+        </div>
+        <div class="proof">
+            suppose that bfs has just explored an element \( d \),
+        </div>
+    </div>
+
+    <p>
+        Note that bfs doesn't account for weights on the graph and may not return a weight optimal solution if it's run on a weighted graph anyways.
+    </p>
+
+    <div class="definition" id="definition-maximum-branching-factor">
+        <div class="title">Maximum Branching Factor</div>
+        <div class="content">
+            The maximum number of successors of any node
+        </div>
+    </div>
+
+    <div class="proposition" id="proposition-time-complexity-of-bfs">
+        <div class="title">Time Complexity of BFS</div>
+        <div class="content">
+            Suppose that BFS is run on a graph with a goal state at depth \( d \), and maximum branching factor \( b \)  then \( \mathrm{ RT_bfs } \in \mathcal{ O } \left( b ^ { d + 1 }  \right)  \) 
+        </div>
+        <div class="proof">
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+

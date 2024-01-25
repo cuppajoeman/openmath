@@ -33,29 +33,34 @@
 			</div>
 
 			<div class="definition" id="definition-probability-measure">
-				<div class="title">probability measure</div>
+				<div class="title">Probability Measure</div>
 				<div class="content">
 					        
 					Given a <span class="knowledge-link" data-href="/probability/probability_measures.html#definition-sample-space">sample space</span> \( \Omega \) and a function \( P : \Omega \to \left [ 0 , 1 \right ] \) , then we say that \( P \) is a probability measure if the following holds
 					<ul>
+						<li>\( \forall E \subseteq \Omega, 0 \le P \left( E \right) \le 1 \) </li>
 						<li>\( P \left ( \Omega \right ) \) \( = 1 \)</li>
 						<li>
 							\( \forall E_{1} , E_{2} , \ldots \subseteq \Omega \) such that \( E_{1} , E_{2} , \ldots \) are all <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>
-							<div class="centered-content">
-								\( P \left ( \bigcup_{i = 1}^{\infty} E_{i} \right ) = \sum_{i = 1}^{\infty} P \left ( E_{i} \right ) \)
-							</div>
+							\[
+								 P \left ( \bigcup_{i = 1}^{\infty} E_{i} \right ) = \sum_{i = 1}^{\infty} P \left ( E_{i} \right )
+							\]
 						</li>
-					</ul>
-					<ul>
 					</ul>
 				</div>
 			</div>
 
 
 			<div class="proposition" id="proposition-finite-pairwise-disjoint-probability">
-				<div class="title">finite pairwise disjoint probability</div>
+				<div class="title">Finite Pairwise Disjoint Probability</div>
+				<ul>
+				</ul>
 				<div class="content">
-					Suppose that \( A_{1} , A_{2} , \ldots , A_{n} \) are <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>, then \( P \left ( A_{1} \cup \ldots \cup A_{n} \right ) = \sum_{i = 1}^{n} P \left ( A_{i} \right ) \)
+					Suppose that \( A_{1} , A_{2} , \ldots , A_{n} \) are <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-pairwise-disjoint-sets">pairwise disjoint</span>, then
+					\[
+						P \left ( A_{1} \cup \ldots \cup A_{n} \right ) = \sum_{i = 1}^{n} P \left ( A_{i} \right )
+					\]
+
 				</div>
 				<div class="proof">
 					In the definition of a probability measure, for \( i \in \left \lbrace 1 , \ldots , n \right \rbrace \) we set \( E_{i} = A_{i} \) and then for any \( j > n \) we set \( E_{j} = \emptyset \), then we can see that \( E_{1} , E_{2} , \ldots \) is pairwise disjoint, and thus
@@ -93,6 +98,7 @@
 				</div>
 			</div>
 
+
 			<div class="proposition" id="proposition-probability-of-a-single-point-with-equally-likely-outcomes-is-zero">
 				<div class="title">probability of a single point with equally likely outcomes is zero</div>
 				<div class="content">
@@ -100,6 +106,36 @@
 				</div>
 				<div class="proof">
 					Suppose that \( c \ne 0 \), and note that \( P \left ( \Omega \right ) = P \left ( \left [ \left . 0 , 1 \right . \right ] \right ) = \sum_{x \in \left [ 0 , 1 \right ]} P \left ( x \right ) = \sum_{x \in \left [ 0 , 1 \right ]} c \), but note that no matter how small the value of \( c \), since we are summing it uncountably many times with itself the sum always goes to infinity, but at the same time, \( P \left ( \Omega \right ) = 1 \) and thus we have a contradiction, so \( c = 0 \).
+				</div>
+			</div>
+
+			<div class="proposition" id="proposition-union-superset-yields-sum-inequality">
+				<div class="title">Union Superset yields Sum Inequality</div>
+				<div class="content">
+					Suppose that \( \left( E _ n \right)  \) is a sequence of sets and that \( E \subseteq \bigcup _ { i = 1 } ^ \infty \), then 
+					\[
+					    P \left( E \right) \le \sum _ { i = 1 }  ^  \infty  P \left( E _ i \right) 
+					\]
+				</div>
+				<div class="proof">
+					<p>
+						Define \( F _ i = E _ i \cap E \), we claim that \( E = \bigcup _ { i = 1 } ^ \infty F _ i  \). Let \( x \in E \), then there is some \( i \in \mathbb{ N } ^ 1 \) such that \( x \in E _ i \), therefore \( x \in E _ i \cap E := F _ i \), on the contrary suppose that \(  a \in F _ i \) for some \( i \in \mathbb{ N } _ 1 \), therefore \( a \in E _ i \cap E  \), so clearly \(  a \in E \), therefore \( E = \bigcap _ { i = 1 }  ^ \infty F _ i   \)
+					</p>
+					<p>
+						Define \( G _ 1 := F _ 1 \) and set \( G _ k := F _ k \cap \left( \bigcap _ { n = 1 }  ^ { k - 1 }  F _ i  \right) ^ C  \) for \( k \ge 2 \). Firstly note that the \( G \)'s are pairwise disjoint, suppose that we have \( G _ i, G _ j\) where without loss of generatlity \( i < j \), then we know that \( G _ i \subseteq F _ i \), but at the same time we know that \( G _ j  \subseteq \left( \bigcap _ { n = 1 }  ^ { j } F \right) ^ C   \), since \( F _ i \) is part of that union, then when we take it's complement, clearly \( G _ j \) cannot intersect with \(  F _ i  \)  and since \( F _ i \supseteq G _ i \) it cannot intersect with \( G _ i \) as well.
+					</p>
+					<p>
+						Additionally we claim \( \bigcup _ { i = 1 }  ^ \infty G _ i = \bigcup F _ { i = 1 }  ^ \infty \). Let \(  x \in \bigcup _ { i = 1 }  ^ \infty G _ i \), so there exists some \( k \in \mathbb{ N } _ 1 \) such that \(  x \in G _ k \), since \( G _ k \subseteq  F _ k \)  then we know \( x \in F _ k \) that is there is some \( k \) such that \( x \in  F _ k \) so by definition \( x \in \bigcup _ { i = 1 }  ^  \infty F _ i  \). Moving the other way suppose that \( p \in \bigcup _ { i = 1 }  ^ \infty F _ i   \) in that case there is some \( m \in \mathbb{ N } _ 1 \) so that \( p \in F _ m \), let \( I \subseteq \mathbb{ N } _ 1\) be the collection of indices such that for every \( j \in I  \), \( p \in F _ j \), clearly \( I \) is non-empty since at least \( k \in I \), therefore by the well ordering principle it has some least element \( l \in I \), note that this means for any \( c \in [ 1 \ldots l - 1 ]  \) we have that \( p \notin F _ c \), so by definition \( p \in G _ l \), so that we've shown \( p \in \bigcup _ { i = 1 }  ^  \infty G _ i  \) as needed. We conclude that \( \bigcup _ { i = 1 }  ^ \infty G _ i = \bigcup _ { i = 1 }  ^ \infty F _ i = E \)
+					</p>
+					\[
+					    \begin{align}
+					        P \left( E \right) &= P \left( \bigcup _ { i = 1 }  ^ \infty G _ i   \right) \\
+							&= \sum _ { i = 1 }  ^ \infty P \left( G _ i \right) \\
+							&\le \sum _ { i = 1 }  ^ \infty P \left( F _ i \right) \\
+							&\le \sum _ { i = 1 }  ^ \infty P \left( E _ i \right) \\
+					    \end{align}
+					\]
+					The first line is justified by the paragraph above, the second by the fact that the \( G _ i \)'s are disjoint, the third by the fact that \( G _ i \subseteq F _ i \) and the last because \( F _ i \subseteq E _ i \).
 				</div>
 			</div>
 

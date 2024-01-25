@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Divide and Conquer</title>
-    <link rel="stylesheet" href="../../styles/styles.css">
+    <title>Interval Partitioning</title>
+    <link rel="stylesheet" href="../../../styles/styles.css">
     <script src="/js/script.js" defer></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
@@ -19,41 +19,6 @@
 
 <body>
 <div class="thin-wrapper">
-
-    <p>
-        Many useful algorithms have a recursive structure. A common pattern that comes up is solving a problem by first breaking down the initial problem into two or more sub-problems which can be solved recursively, and then finally combining the two sub-problems together. Note that not all problems can be solved in this way
-    </p>
-
-    <div class="definition" id="definition-divide-and-conquer">
-    	<div class="title">Divide and Conquer</div>
-    	<div class="content">
-    		An algorithm that solves a problem by recursively solving subproblems and then re-combining them is said to be a <b>divide and conquer</b> algorithm.
-    	</div>
-    </div>
-
-    <div class="code-file" data-file-name="implementation/merge_sort.cpp"></div>
-    
-    <div class="lemma" id="lemma-merge-is-correct">
-    	<div class="title">\( \texttt{merge} \)  is Correct</div>
-    	<div class="content">
-            Given an array \( A \) and indices \( \textrm{left_idx}, \textrm{split_idx}, \textrm{right_idx} \) such that the subarrays \( A [ \textrm{left_idx}, ..., \textrm{split_idx} ], A [ \textrm{split_idx + 1}, ..., \textrm{right_idx} ]  \) are already sorted in ascending order then after merge sort has terminated, then the subarray \( A[ \textrm{left_idx}, ...,  \textrm{right_idx} ] \) is sorted in ascending order
-    	</div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-    
-
-    <div class="theorem" id="theorem-merge-sort-is-correct">
-    	<div class="title">\( \texttt{merge_sort} \)  is Correct</div>
-    	<div class="content">
-    	    Given any list, merge sort correctly sorts it in place
-    	</div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-
 
     <div class="code-file" data-file-name="implementation/counting_inversions.cpp"></div>
 
@@ -84,15 +49,15 @@
     </div>
 
     <div class="proposition" id="proposition-counting-inversions-is-correct">
-    	<div class="title">\( \texttt{counting_inversions} \) is Correct</div>
-    	<div class="content">
-    	    Given any list \( A \)  \( \texttt{counting_inversions} \) returns the number of <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-inversion">inversions</a> in \( A \)
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
+        <div class="title">\( \texttt{counting_inversions} \) is Correct</div>
+        <div class="content">
+            Given any list \( A \)  \( \texttt{counting_inversions} \) returns the number of <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-inversion">inversions</a> in \( A \)
+        </div>
+        <div class="proof">
+
+        </div>
     </div>
-    
+
 
 
 </div>

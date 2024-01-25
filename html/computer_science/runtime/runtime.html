@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Runtime</title>
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../../styles/styles.css">
 	<script src="/js/script.js" defer></script>
 
 	
@@ -26,7 +26,7 @@
 		<div class="exercise" id="exercise-squared-dominates-linear">
 			<div class="title">Squared Dominates Linear</div>
 			<div class="content">
-				Let \( f \left( n \right) = n ^ 2 \) and \( g \left( n \right) = n\) show that \( g \) is <a class="knowledge-link" href="/computer_science/runtime.html#definition-absolutely-dominated">absolutely dominated</a> by \( f \) 
+				Let \( f \left( n \right) = n ^ 2 \) and \( g \left( n \right) = n\) show that \( g \) is <a class="knowledge-link" href="/computer_science/runtime/runtime.html#definition-absolutely-dominated">absolutely dominated</a> by \( f \)
 			</div>
 			<div class="proof">
 				
@@ -36,7 +36,7 @@
 		<div class="definition" id="definition-absolutely-dominated-up-to-a-constant-factor">
 			<div class="title">Absolutely Dominated up to a Constant Factor</div>
 			<div class="content">
-				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>absolutely dominated up to a constant factor</b> by \( f \) iff there exists \( c \in \mathbb{ R } ^ + \) such that \( g \) is <a class="knowledge-link" href="/computer_science/runtime.html#definition-absolutely-dominated">absolutely dominated</a> by \( c f \) 
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>absolutely dominated up to a constant factor</b> by \( f \) iff there exists \( c \in \mathbb{ R } ^ + \) such that \( g \) is <a class="knowledge-link" href="/computer_science/runtime/runtime.html#definition-absolutely-dominated">absolutely dominated</a> by \( c f \)
 			</div>
 		</div>
 
@@ -60,21 +60,21 @@
 		<div class="definition" id="definition-eventually-dominated-up-to-a-constant-factor">
 			<div class="title">Eventually Dominated up to a Constant Factor</div>
 			<div class="content">
-				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>eventually dominated</b> by \( f \) iff there exists some \( c \in \mathbb{ R } ^ + \) such that \( g \) is <a class="knowledge-link" href="/computer_science/runtime.html#definition-eventually-dominated">eventually dominated</a> by \( c f \) 
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>eventually dominated</b> by \( f \) iff there exists some \( c \in \mathbb{ R } ^ + \) such that \( g \) is <a class="knowledge-link" href="/computer_science/runtime/runtime.html#definition-eventually-dominated">eventually dominated</a> by \( c f \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-big-o">
 			<div class="title">Big-O</div>
 			<div class="content">
-				Suppose we have \( f: \mathbb{N}_{0} \to \mathbb{R}^{\ge 0} \), then we define the set \( \mathcal{ O } \left( f \right)   \) as all functions that are <a class="knowledge-link" href="/computer_science/runtime.html#definition-eventually-dominated-up-to-a-constant-factor">eventually dominated up to a constant factor</a> by \( f \)
+				Suppose we have \( f: \mathbb{N}_{0} \to \mathbb{R}^{\ge 0} \), then we define the set \( \mathcal{ O } \left( f \right)   \) as all functions that are <a class="knowledge-link" href="/computer_science/runtime/runtime.html#definition-eventually-dominated-up-to-a-constant-factor">eventually dominated up to a constant factor</a> by \( f \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-big-o-of">
 			<div class="title">Big-O of</div>
 			<div class="content">
-				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>big-o of</b> \( f \) iff <a class="knowledge-link" href="/computer_science/runtime.html#definition-big-o">\( g \in \mathcal{ O } \left( f \right)  \) </a>
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>big-o of</b> \( f \) iff <a class="knowledge-link" href="/computer_science/runtime/runtime.html#definition-big-o">\( g \in \mathcal{ O } \left( f \right)  \) </a>
 			</div>
 		</div>
 		
@@ -106,7 +106,7 @@
 		<div class="definition" id="definition-omega-of">
 			<div class="title">Omega of</div>
 			<div class="content">
-				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>omega of</b> \( f \) iff <a class="knowledge-link" href="/computer_science/runtime.html#definition-omega">\( g \in \Omega  \left( f \right)  \) </a>
+				Let \( f, g : \mathbb{ N } _ 0 \to \mathbb{ R } ^ { \ge 0 }  \), we say that \( g \) is <b>omega of</b> \( f \) iff <a class="knowledge-link" href="/computer_science/runtime/runtime.html#definition-omega">\( g \in \Omega  \left( f \right)  \) </a>
 			</div>
 		</div>
 
@@ -122,6 +122,7 @@
 				\[
 				    g \in \mathcal{ O } \left( f \right) \cap \Omega \left( f \right) 
 				\]
+				where we are using <a class="knowledge-link" href="/computer_science/runtime/runtime.html#definition-big-o">big-o</a> and <a class="knowledge-link" href="/computer_science/runtime/runtime.html#definition-theta">theta</a>
 			</div>
 		</div>
 

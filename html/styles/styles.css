@@ -80,7 +80,6 @@ a {
 	text-decoration: none;
 }
 
-
 /* top bar */
 
 #topbar {
@@ -164,8 +163,6 @@ fieldset>legend>h1 {
   margin: 4em 0 4em 0;
   border: 2px solid var(--knowledge-content-border-color);
 }
-
-
 
 .definition>.title, .lemma>.title, .theorem>.title, .corollary>.title, .proposition>.title, .exercise>.title, .proof>.title {
     font-style: normal;
