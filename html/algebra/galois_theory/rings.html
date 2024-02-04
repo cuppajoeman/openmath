@@ -78,9 +78,26 @@
     	</div>
     </div>
 
+
     <p>
         The above word is derived from <b>C</b>ommutative <b>R</b>ing with <b>ONE</b>
     </p>
+
+
+    <div class="exercise" id="exercise-two-by-two-matrices-with-0-in-bottom-left-form-a-crone">
+        <div class="title">Two by Two Matrices with 0 In Bottom Left Form a Crone</div>
+        <div class="content">
+            Let \( R := \left\{
+            \begin{pmatrix}
+            a & b \\
+            0 & a
+            \end{pmatrix} : a, b \in \mathbb{ Z }
+            \right\}  \) along with the usual definition for matrix addition and matrix multiplication, show that this forms a crone.
+        </div>
+        <div class="proof">
+
+        </div>
+    </div>
 
     <p>
         In writing sometimes the original definition of <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring">ring</a> is written as rng (without the i) to denote that there is no assumption on it having a multiplicative identity, and the above definition is just identified by ring (with the character i, representing that we assume there is an multiplicative identity. In speaking we cannot distinguish "rng" and "ring", so we prefer the names listed here.
@@ -362,9 +379,150 @@
     	</div>
     </div>
 
+    <div class="definition" id="definition-crone-homomorphism">
+    	<div class="title">Crone Homomorphism</div>
+    	<div class="content">
+    		Suppose that \( R, S \) are crones, then if \( \phi \) is a ring with unit homomorphism, then we say that \( \phi  \) is a <b>crone homomorphism</b>
+    	</div>
+    </div>
+
     <p>
         We may also say that \( \phi  \) is a homomorphism from \( R \) to \( S \), or that \( \phi  \) is a homomorphism of rings
     </p>
+    
+    <div class="exercise" id="exercise-crone-homomorphism-between-two-by-two-matrices-with-0-in-bottom-left-and-integers">
+    	<div class="title">Crone Homomorphism Between Two by Two Matices with 0 in Bottom Left and Integers</div>
+    	<div class="content">
+            Let \( R := \left\{
+            \begin{pmatrix}
+            a & b \\
+            0 & a
+            \end{pmatrix} : a, b \in \mathbb{ Z }
+            \right\}  \) along with the usual definition for matrix addition and matrix multiplication, and define \( \phi : R \to \mathbb{ Z }  \) be defined such that
+            \[
+                \phi \left(
+                \begin{pmatrix}
+                a & b \\
+                0 & a
+                \end{pmatrix}
+            \right) = a
+            \]
+            Show the following
+            <ul>
+                <li>\( \phi \) is a crone homomorphism</li>
+                <li>Find \( \operatorname{ ker } \left( \phi  \right)  \) </li>
+                <li>Show \( R / \operatorname{ ker } \left( \phi \right)  \) is ismorphic to \( \mathbb{ Z }  \)  </li>
+                <li>is \( \operatorname{ ker } \left( \phi  \right)   \) a prime ideal? </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+            <p>
+                We start by showing \( \phi  \) is a crone homomorphism, note that we already know that \( R \) and \( \mathbb{ Z }  \) are crones, now note the following:
+                \[
+
+                \phi \left(
+                \begin{pmatrix}
+                a & b \\
+                0 & a
+                \end{pmatrix}
+                \begin{pmatrix}
+                c & d \\
+                0 & c
+                \end{pmatrix}
+                \right) =
+                \phi \left(
+                \begin{pmatrix}
+                ac & ac + bd \\
+                0 & ac
+                \end{pmatrix}
+                \right) = ac =
+                \phi \left(
+                    \begin{pmatrix}
+                    a & b \\
+                    0 & a
+                    \end{pmatrix}
+                \right) \phi \left(
+                    \begin{pmatrix}
+                    c & d \\
+                    0 & c
+                    \end{pmatrix}
+                \right)
+                \] and that
+                \[
+                \phi \left(
+                \begin{pmatrix}
+                a & b \\
+                0 & a
+                \end{pmatrix} +
+                \begin{pmatrix}
+                c & d \\
+                0 & c
+                \end{pmatrix}
+                \right) =
+                \phi \left(
+                \begin{pmatrix}
+                a + c & b + d \\
+                0 & a + c
+                \end{pmatrix}
+                \right) = a + c =
+                \phi \left(
+                \begin{pmatrix}
+                a & b \\
+                0 & a
+                \end{pmatrix}
+                \right) + \phi \left(
+                \begin{pmatrix}
+                c & d \\
+                0 & c
+                \end{pmatrix}
+                \right)
+                \]
+            </p>
+            <p>
+                We recognize that the \( 2 \times 2 \) identity is the identity in this ring as well, therefore we confirm that
+                \[
+                    \phi \left(
+                        \begin{pmatrix}
+                            1 & 0 \\
+                            0 & 1
+                        \end{pmatrix}
+                    \right) = 1
+                \]
+                Thus \( \phi  \) is indeed a crone homomorphism
+            </p>
+            <p>
+                From the definition of \( \phi  \) we can conclude that \( \phi \left( \begin{pmatrix} a & b \\ 0 & a \end{pmatrix} \right) = 0  \) iff  \( a = 0 \), therefore the kernel is all matrices of this form
+                \[
+                    \operatorname{ ker } \left( \phi \right) = \left\{ \begin{pmatrix} 0 & b \\ 0 & 0 \end{pmatrix}: b \in \mathbb{ Z }   \right\}
+                \]
+            </p>
+            <p>
+                Recall the definition of \( R / \operatorname{ ker } \left( \phi \right)  \), it is 
+                \[
+                    \begin{align}
+                        \left\{ M + \operatorname{ ker } \left( \phi  \right) : M \in R  \right\} &= \left\{ \left\{ M + N : N \in \operatorname{ ker } \left( \phi \right) \right\} : M \in R \right\} \\
+                        &= \left\{ \left\{
+                        \begin{pmatrix} a & b \\ 0 & a \end{pmatrix}  + \begin{pmatrix} 0 & c \\ 0 & 0 \end{pmatrix} : c \in \mathbb{ Z }
+                        \right\}  : a, b \in \mathbb{ Z }
+                        \right\} \\
+                        &= \left\{ \left\{ \begin{pmatrix} a & b + c \\  0 & a \end{pmatrix} :  c \in \mathbb{ Z }  \right\}  : a, b \in \mathbb{ Z }    \right\} \\
+                        & = \left\{ \left\{ \begin{pmatrix} a & d \\ 0 & a \end{pmatrix} : d \in \mathbb{ Z }   \right\} : a \in \mathbb{ Z }   \right\} 
+                    \end{align}
+                \]
+                Let \( \operatorname{ tl } \left( M \right)  \) be defined as the top left coefficent in \( M \), then for two matrices \( M, N \) it should be clear that if \( \operatorname{ tl } \left( N \right) = \operatorname{ tl } \left( M \right)   \), then they generate the same coset, also that if \( \operatorname{ tl } \left( M \right) \neq \operatorname{ tl } \left( N \right)  \), then they generate different cosets. Also note that \( \operatorname{ tl } \left( M N \right)  = \operatorname{ tl } \left( M \right) \cdot \operatorname{ tl } \left( N \right)  \) and that \( \operatorname{ tl } \left( M + N \right) = \operatorname{ tl } \left( M \right) + \operatorname{ tl } \left( N \right)   \). Finally given any coset, since we know that \( \operatorname{ tl }  \left( X \right)  \) agrees for every \( X \) in the coset, we can justify the construction of \( \overline{ \operatorname{ tl }  } \left( N + \operatorname{ ker } \left( \phi  \right)  \right) = \operatorname{ tl } \left( N \right)    \) 
+            </p>
+            <p>
+                We claim that \( R / \operatorname{ ker } \left( \phi  \right)  \) is an crone isomorphism to \( \mathbb{ Z }  \) using \( \overline{ \operatorname{ tl } }  \). We've actually already verified the that it respects addition and multiplication because of our discussion in the previous paragraph and also just note that if \( I \) is the the identity then we know it's top left element is \( 1 \in \mathbb{ Z }  \) so that \( \overline{ \operatorname{ tl } } \left( I \right) = \operatorname{ tl } \left( I \right) = 1  \) .
+            </p>
+            <p>
+                At this point we know that it's a homomorphism. So we just have to show it's a bijection to have an isomorphism so suppose that \( M + \operatorname{ ker } \left( \phi \right)  \neq N + \operatorname{ ker } \left( \phi  \right)  \) by the contrapositive of what we noted earlier since they generate different cosets, then \( \operatorname{ tl } \left( N \right) \neq \operatorname{ tl } \left( M \right)  \), therefoer \( \overline{ \operatorname{ tl }  } \left( N + \operatorname{ ker } \left( \phi \right)  \right) \neq \overline{ \operatorname{ tl }  } \left( M + \operatorname{ ker } \left( \phi  \right)   \right)     \) , which shows that \( \operatorname{ tl }  \) is injective, it is clearly also surjective because since \( R \) ranges over all matrices with integer coefficients, then if we pick a particular integer \( k \in \mathbb{ Z }  \) then there is always a matrix with that specific integer in it's top left component, say that matrix is \( X \), then \( \overline{ \operatorname{ tl }  } \left( X \right) = \operatorname{ tl } \left( X \right) = k    \) as needed, so \( \overline{ \operatorname{ tl }  }  \) is an isomorphism.
+            </p>
+            <p>
+                Now we verify that \( \operatorname{ ker } \left( \phi  \right)  \) is a prime ideal, so suppose that \( MN \in \operatorname{ ker } \left( \phi  \right)  \), this means that \( \operatorname{ tl } \left( MN \right) = 0  \), but as noted earlier \( \operatorname{ tl } \left( M N  \right) = \operatorname{ tl } \left( M \right) \operatorname{ tl } \left( N \right)   \), but we know that \( \mathbb{ Z }  \) so in this context we have \( \operatorname{ tl } \left( M \right) \operatorname{ tl } \left( N \right) = 0  \), but \( \mathbb{ Z }  \) is a domain therefore we must have wlog \( \operatorname{ tl } \left( M \right) = 0   \), but that implies that \( M \in \operatorname{ ker } \left( \phi \right)  \) which shows that \( \operatorname{ ker } \left( \phi  \right)  \) is a prime ideal as neeeded.
+            </p>
+    	</div>
+    </div>
+    
 
     <div class="definition" id="definition-ring-isomorphism">
     	<div class="title">Ring Isomorphism</div>
@@ -534,6 +692,219 @@
             </p>
     	</div>
     </div>
+
+    <div class="definition" id="definition-subring">
+        <div class="title">Subring</div>
+        <div class="content">
+            Suppose that \( \left( R, \oplus, \otimes \right)  \) is a ring, and that \( S \subseteq R \), if \( \left( S, \oplus, \otimes \right)  \) is a ring, then we say that \( S \) is a subring
+        </div>
+    </div>
+
+    <div class="proposition" id="proposition-subring-criterion">
+        <div class="title">Subring Criterion</div>
+        <div class="content">
+            Suppose \( \left( R, \oplus, \otimes \right)  \) is a ring and that \( S \subseteq R \), if
+            <ul>
+                <li>\( S \) is closed under \( \oplus \) and \( \otimes \)</li>
+                <li>\( S \) has inverses with respect to \( \oplus \) </li>
+                <li>\( 1 _ R \in S \)</li>
+            </ul>
+            then \( S \) is a subring
+        </div>
+        <div class="proof">
+
+        </div>
+    </div>
+
+    <div class="definition" id="definition-subfield">
+        <div class="title">Subfield</div>
+        <div class="content">
+            Suppose that \( S \) is a subcrone of \( R  \), then if \( S \) is a field, then we say that \( S \) is a subfield.
+        </div>
+    </div>
+
+    <div class="definition" id="definition-fraction-equilvalence-class">
+    	<div class="title">Fraction Equivalence Class</div>
+    	<div class="content">
+    		Suppose that \( R \) is a domain, now consider the relation defined \( R \times R \) where we say that \( \left( r, s \right)  \) is related to \( \left( u, v \right)  \) iff \( r \otimes v = s \otimes u \). We will notate an element \( \left( x, y \right) \in R \times R \) as \( \frac{x}{y}  \), thus we have equivalence classes which we will denote by \( [ \frac{x}{y} ]  \), where we note that \( \frac{a}{b} \in [ \frac{x}{y}  ]  \) iff \( a \otimes y = x \otimes b \)
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-domain-fractions">
+    	<div class="title">Domain Fractions</div>
+    	<div class="content">
+    		Suppose that \( R \) is a domain, then we define
+            \[
+                \operatorname{ frac } \left( R \right) := \left\{ \left[ \frac{r}{s}  \right] : r, s \in R, s \neq 0 _ R  \right\}
+            \]
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-domain-fractions-can-be-extended-to-a-crone">
+    	<div class="title">The Domain Fractions Can be Extended to a Crone</div>
+    	<div class="content">
+    	    We define \( \oplus \) 	as follows:
+            \[
+                \left[ \frac{r}{s}  \right] \oplus \left[ \frac{u}{v}  \right] := \left[ \frac{rv + us}{sv}  \right]
+            \]
+            And for \( \otimes \) we define
+            \[
+                \left[ \frac{r}{s}  \right] \otimes \left[ \frac{u}{v}  \right] := \left[ \frac{ru}{sv}  \right]
+            \]
+            Then we claim that \( \left( \operatorname{ frac } \left( R \right)  , \oplus, \otimes \right)  \) is a crone and we call it the <b>fraction crone</b>
+    	</div>
+    	<div class="proof">
+            In the definition of \( \otimes \) note that we require the product of \( s v \) to be non-zero for if it was zero then clearly \( \frac{ru}{sv} \notin \operatorname{ frac } \left( R \right)  \) (meaning it's not closed under \( \otimes \), this is where the assumption that \( R \) was a domain is being used.
+    	</div>
+    </div>
+
+    
+    <div class="proposition" id="proposition-the-fraction-field-is-a-field">
+    	<div class="title">The Fraction Crone is a Field</div>
+    	<div class="content">
+            Suppose that \( \operatorname{ frac } \left( R \right)   \) is the fraction crone, then it is also a field
+    	</div>
+    	<div class="proof">
+    	    Because we can explicitly construct multiplicative inverses.
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-field-extension">
+    	<div class="title">Field Extension</div>
+    	<div class="content">
+    		Suppose that \( F \) is a subfield of some field \( E \), then we say that \( E \) is a field extension of \( F \) 
+    	</div>
+    </div>
+    
+    <div class="exercise" id="exercise-the-complex-numbers-are-a-field-extension-of-the-reals">
+    	<div class="title">The complex numbers are a field extension of the reals</div>
+    	<div class="content">
+    		\( \mathbb{ C }  \) is a field extension of \( \mathbb{ R }  \) 
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-field-extension-yields-a-vector-space">
+    	<div class="title">Field Extension Yields a Vector Space</div>
+    	<div class="content">
+    		Suppose that \( E \) is a field extension of \( F \) then \( E \) forms a vector space over \( F \) 
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-degree-of-a-field-extension">
+    	<div class="title"></div>
+    	<div class="content">
+    		Suppose that \( E \) is a field extension of \( F \), and let \( V _ E \) be the vector space over \( F \), then if this vector space is finite dimension, we say call it's dimension the <b>degree of \( E \) over \( F \) </b> and denote it as \( \left[ E : F \right]  \) 
+    	</div>
+    </div>
+    
+    <div class="exercise" id="exercise-">
+    	<div class="title">Degree of \( \mathbb{ C }  \) over \( \mathbb{ R }  \) </div>
+    	<div class="content">
+    	    Prove that \( \left[ \mathbb{ C } : \mathbb{ R }  \right] = 2  \)
+    	</div>
+    	<div class="proof">
+    	    We can prove it by showing that the basis \( \mathcal{ B } := \left( 1, i \right)  \) works
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-the-kernel-of-a-ring-homomorphism-is-a-proper-ideal">
+    	<div class="title">The Kernel of a Ring Homomorphism is a Proper Ideal</div>
+    	<div class="content">
+    		Suppose that \( \phi : R \to S \) is a ring homomorphism, then \( \operatorname{ ker } \left( \phi  \right)  \) is a proper ideal of \( R \)
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-a-ring-homomorphism-is-an-injection-iff-its-kernel-is-zero">
+    	<div class="title">A Ring Homomorphism is an Injection iff It's Kernel is Zero</div>
+    	<div class="content">
+            Suppose that \( \phi : R \to S \) is a ring homomorphism, then \( \phi  \) is injective iff \( \operatorname{ ker } \left( \phi  \right) = \left\{ 0 _ R \right\}   \)
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-field-to-ring-homomorphism-implies-injective">
+    	<div class="title">Field to Ring Homomorphism Implies Injective</div>
+    	<div class="content">
+                Suppose that \( F \) is a field and that \( S \) is a crone, then if \( \phi : F \to S \) is a crone homomorphism, then it is also injective
+    	</div>
+    	<div class="proof">
+            <p>
+                If \( S \) is the zero crone, then this trivially holds. So now we assume not the trivial crone
+            </p>
+            <p>
+                Since \( \phi  \) is a crone homomorphism, then we know that \( \phi \left( 1 _ F \right) = 1 _ S  \), now suppose that \( x \in F \setminus \left\{ 0 _ F \right\}  \), then we have some \( x ^ { -1 }  \) such that \( x x ^ { -1 } = 1 _ F  \), so that \( 1 _ S = \phi \left( 1 _ F \right) = \phi \left( x x ^ { -1 }  \right)   \) but \( \phi  \) is a crone homomorphism, so that \( \phi \left( x x ^ { -1 }  \right) = \phi \left( x \right) \phi \left( x ^ { -1 }  \right)  = \phi \left( x \right) \left[ \phi \left( x \right)  \right] ^ { -1 } \).
+            </p>
+            <p>
+                If \( \phi \left( x \right) = 0 _ S  \), then we obtain that \( 1 _ S = 0 _ S  \), which is a contradiction becaues \( S \) was not trivial. Therefore for any \( x \neq 0  \) we know that \( \phi \left( x  \right) \neq 0  \), which says that \( \operatorname{ ker } \left( \phi  \right) = \left\{ 0 _ F \right\}   \), therefore we obtain that \( \phi  \) is an isomorphism.
+            </p>
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-field-to-crone-homomorphism-implies-the-image-of-the-field-is-a-sublifield-isomorphic-to-the-original-field">
+    	<div class="title">Field to Crone Homomorphism Implies the Image of the Field Is a Subfield Isomorphic to the Original Field</div>
+    	<div class="content">
+            Suppose that \( F \) is a field and that \( S \) is a crone, then if \( \phi : F \to S \) is a crone homomorphism, then \( \operatorname{ im } \left( \phi  \right)  \) is a subfield of \( S \) and is isomorphic to \( F \) 
+    	</div>
+    	<div class="proof">
+            <p>
+                To show that \( \operatorname{ im } \left( \phi  \right)  \) is a subfield of the crone \( S \) we must show that it is also a crone under \( S \)'s operations \( \oplus, \otimes \). So suppose that \( x, y \in \operatorname{ im } \left( \phi  \right)  \), by definition this means that there is some \( a, b \in F \) such that \( \phi \left( a \right) = x \) and \( \phi \left( b \right) = y \), we want to now show that \( x \oplus y \in \operatorname{ im }  \left( \phi  \right)  \), but note that \( \phi \left( a + b \right) = \phi \left( a  \right) \oplus \phi \left( b \right) = x \oplus y   \) therefore \( a + b \) maps to it under \( \phi  \) so we know that \( x \oplus y \in \operatorname{ im }  \left( \phi  \right) \), similarly we can see that \( \phi \left( a \cdot b \right) = \phi \left( a  \right) \otimes \phi \left( b \right) = x \otimes y   \) so that also \( x \otimes y \in \operatorname{ im } \left( \phi  \right)  \), where we've used the fact that \( \phi  \) is a homomorphism a few times.
+            </p>
+            <p>
+                We'll now show that \( \operatorname{ im } \left( \phi \right)  \) has inverses with respect to \( \oplus \), so let \( x \in \operatorname{ im } \left( \phi  \right)  \) so we have some \( a \in F  \) such that \( \phi \left( a \right) = x \), consider the element \( \phi \left( -a \right) \in \operatorname{ im } \left( \phi  \right)   \), we can see that \( \phi \left( a \right) \oplus \phi \left( -a \right) = \phi \left( a + -a \right) = \phi \left( 0 _ F \right) = 0 _ S   \), thus \( \operatorname{ im } \left( \phi  \right)  \) has inverses with respect to \( \oplus \), finally note that since \( \phi  \) was a crone homomorphism, we also know that \( \phi \left( 1 _ F \right) = 1 _ S  \) which shows that \( 1 _ S \in \operatorname{ im } \left( \phi  \right)  \). So we concluded that \( \operatorname{ im } \left( \phi  \right)  \) is a subcrone.
+            </p>
+            <p>
+                To show it's a subfield, we must now show that \( \operatorname{ im } \left( \phi  \right)  \) is a field, so we must prove that it has multiplicative inverses, thus let \( x \in \operatorname{ im } \left( \phi \right)  \) where \( x \neq O _ S \), we want to prove that it has a multiplicative inverse, but first we know that there is some \( a \in F \) such that \( \phi \left( a \right) = x \), also note that \( a \neq 0 \) or else we have a contradiction, therefore since \( F \) was a field, there is some \( a ^ { -1 } \in F  \) such that \( a a ^ { -1 } = 1 _ F  \), now we note that \( x \phi \left( a ^ { -1 }  \right) = \phi \left( a \right) \phi \left( a \right) ^ { -1 } = \phi \left( a a ^ { -1 }  \right) = \phi \left( 1 _ F \right) = 1 _ S  \). In other words \( \phi \left( a ^ { -1 }  \right) \in \operatorname{ im } \left( \phi  \right)   \) is an inverse for \( x \), now we conclude that \( \operatorname{ im } \left( \phi  \right)  \) is a subfield of \( S \).
+            </p>
+            <p>
+                We will now show that \( \operatorname{ im } \left( \phi  \right)  \) is isomorphic to \( F \) through \( \phi \), we have to show that it's a homomorphism, but we already know it is because of the fact that \( \phi  \) is a ring homomorphism, so we just have to show it's a bijection, but every function is in bijection to it's own image, therefore it's an isomorphism.
+            </p>
+    	</div>
+    </div>
+    
+    
+    <div class="exercise" id="exercise-gcd-of-two-polynomials">
+    	<div class="title">GCD of two Polynomials</div>
+    	<div class="content">
+    		Find the gcd of \( p \left( x \right) =  x ^ 3 - 2 x ^ 2 + 1 \) and \( j \left( x \right) =  x ^ 2 - x - 3 \) in \( \mathbb{ Q } \left[ x \right]  \) and express it as a linear combination
+    	</div>
+    	<div class="proof">
+    	    We employ the euclidean algorithm:
+            <div class="centered-content">
+                <img src="polynomial_euclidean_algorithm.png" alt="">
+            </div>
+            <p>
+                From our first pass of division we conclude that \( p \left( x \right) = \left( x - 1 \right) j \left( x \right)  + \left( 2x - 2 \right) \). Denote \( q _ 1 \left( x \right) = x - 1 \) and \( r _ 1 \left( x \right) = 2x - 2 \). From the second iteration we conclude that \( j \left( x \right)  = \frac{1}{2} x r _ 1 \left( x \right)  - 3 \) and denote \( q _ 2 \left( x \right) = \frac{1}{2} x \) we can see that \( -3 \) is going to be our last non-zero remainder, therefore we know that their gcd will be one. We will find \( -3 \) as a linear combination of the others and then normalize it.
+            </p>
+            <p>
+                We do it all symbolically:
+                \[
+                    \begin{align}
+                        -3 &= j \left( x \right) - q _ 2 \left( x \right) r _ 1  \left( x \right) \\
+                        &= j \left( x \right) - q _ 2   \left( x \right) \left[ p \left( x \right) - q _ 1  \left( x \right)  j \left( x \right)  \right] \\
+                        &= j \left( x \right) - q _ 2 \left( x \right) p \left( x \right) - q _ 2 \left( x \right) q _ 1  \left( x \right) j \left( x \right) \\
+                        &= j \left( x \right) \left[ 1 - q _ 2 \left( x \right) q _ 1 \left( x \right)  \right] - q _ 2 \left( x \right) p \left( x \right)  
+                    \end{align}
+                \]
+                Therefore \( 1 = j \left( x \right) \left[ \frac{-1}{3} \left( 1 - q _ 2 \left( x \right) q _ 1 \left( x \right) \right)  \right] +  p \left( x \right)  \frac{q _ 2    \left( x \right)}{3}    \), note that it can be expanded explicitly from this point.
+            </p>
+    	</div>
+    </div>
+    
+    
+    
+    
+
 
 
 </div>

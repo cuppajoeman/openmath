@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Missing Number</title>
+    <link rel="stylesheet" href="../../../styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+    <script src="/js/insert_file_contents.js"></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <h1>Motviation</h1>
+
+    <div class="proposition" id="proposition-a-sorted-tuple-missing-an-element-has-a-change-point">
+    	<div class="title">A Sorted Tuple Missing an Element Has a Change Point</div>
+    	<div class="content">
+    	    Suppose that \( a \in \left[ 1 \ldots n \right] ^ { n - 1 }   \) and that \( \operatorname{ set } \left( a \right)  = \left[ 1 \ldots n \right] \setminus \left\{ x \right\}    \) for some \( x \in \left[ 1 \ldots n \right]  \), and that \( a \) is sorted in ascending order. Then there exists some \( i \in \left[ 1 \ldots n \right]  \) such that \( \forall j \in \left[ n \right]  \) if \( j \le i \) then \( a \left[ j \right] = j  \) and if \( i \lt j \) then \( a \left[ j \right] = j + 1  \)
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <p>
+        The above proposition says in plain english that if we have a sorted tuple that is missing one element, then there is some index \( i \) such that the index equals the value at that position up to or equal to index \( i \) and after that the value is the index plus one. Note that the above talks about numbers \( \left[ 1 \ldots n \right]  \), in our problem we use numbers from the set \( \left\{  0 , \ldots , m  \right\}   \), the situation is analogous.
+    </p>
+
+    <p>
+        The idea is that we need to find the "change point", it can be seen that if \( a \left[ j \right] = j  \) then the change point can only be to the right, otherwise it must be to the left, this in conjuction with the fact that \( a \) is sorted allows us to employ binary search to find the specific element. We've proven in the past that this algorithm is correct, therefore it will correctly identify the change point.
+    </p>
+
+    <h1>Pseudocode</h1>
+
+    <pre>
+        def find_missing_rec(arr, start_idx, end_idx):
+
+            if start_idx == end_idx:
+                return arr[start_idx] - 1
+
+            mid_idx = (start_idx + end_idx) / 2
+
+            if arr(mid_idx) == mid_idx:
+                find_missing_rec(arr, mid_point + 1, end_idx)
+            else:
+                find_missing_rec(arr, start_idx, mid_idx)
+
+        def find_missing(arr):
+            sort(arr)
+            find_missing_rec(arr, 0, len(arr) - 1)
+    </pre>
+
+    <h1>Runtime</h1>
+
+    <p>
+        Note that <code>find_missing_rec</code> operates the same way that binary search does, note that binary seach has \( \mathcal{ O } \left( \log _ 2 n \right)  \) runtime. But we also must sort the array before passing it to <code>find_missing_rec</code> this makes the runtime \( \mathcal{ O } \left( n \log _ 2 n \right)  \)
+    </p>
+
+
+    <h1>Motivation and Corretness</h1>
+
+    <div class="proposition" id="proposition-equal-number-of-ones-and-zeros">
+    	<div class="title">Equal Number of Ones and Zeros</div>
+    	<div class="content">
+    		Suppose that \( X := \operatorname{ base\_repr } \left( [0 \ldots 2 ^ l - 1], 2 \right) \subseteq \mathbb{ B } \) where we are taking the image of the <a class="knowledge-link" href="/number_theory/number_bases.html#definition-base-representation">base representation</a> function. Then we claim that for any \( i \in [1 \ldots l] \) we have
+            \[
+                \lvert  \left\{ x \in X: x[i] = 0 \right\} \rvert = \lvert  \left\{ x \in X: x[i] = 1 \right\} \rvert = 2 ^ { l - 1 } 
+            \]
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+
+
+    <p>
+        With the above claim in hand, it's not hard to see that since \( B \) is missing one element then it's size is \( 2 ^ l - 1 \), thus by fixing an index \( i \)  and then partitioning by those that have \( 0 \) at position \( i \) and those that have a \( 1 \) (let us denote the former by \( \textbf{0} _ i \) and the latter with \( \textbf{1} _ i \)  , then there will be an imbalance. By that we mean that one partition have \( \pm 1 \) the size of the other.
+    </p>
+
+    <p>
+        This imbalance is key, suppose \( \textbf{ 0 } _ i \) has one less element than \( \textbf{1} _ i \), then we observe that the missing element must have a \( 0 \) at position \( i \) otherwise it would have increased the size of \( \textbf{0} _ i \) which would have removed the imbalance (which is a contradiction).
+    </p>
+    
+    <p>
+        Therefore by repeating this process for each index \( i \) we can obtain what the missing value's bit is at index \( i \). Note that whenever we finish finding the value at index \( i \), we no longer have to use index \( i \) ever again. Given \( \textbf{0} _ i \), if we construct the set \( \textbf{0} _ i ^ \prime  \) by simply extracting the \( 0 \) at position \( i \) from each binary number, and then doing the same but extracting the \( 1 \)'s in \( \textbf{1} _ i \) to obtain \( \textbf{1} _ i ^ \prime  \), then \( \textbf{0} _ i ^ \prime = \textbf{1} _ i ^ \prime  \), this is true if we consider generating binary numbers by taking the previous binary numbers and extending them by appending a \( 1 \) or a \( 0 \) at a specific position to produce to produce binary numbers of one greater length.
+    </p>
+
+    <p>
+        The upshot from the above is that we can simply select one of \( \textbf{0} _ i \) , \( \textbf{1} _ i \) when we continue our search. With this reduction we can see that the size of our search cuts down by half each time.
+    </p>
+
+    <p>
+        We could simply conclude that by the master theorem that our runtime is in \( \mathcal{ O } \left(  m \right)  \), but it more visually pleasing to see a direct calculation. Note that in the first iteration we must go through each binary number in the list, which there are \( m \) of, thus we take \( m \) steps, now we throw out half of our space, and do the same, thus this takes \( \frac{m}{2}  \) iterations, we do this exactly \( \log _ 2 m = l  \) times, which yields the finite summation of
+        \[
+            \sum _ { i = 0 }  ^  l \frac{m}{2 ^ i} = m \sum _ { i = 0 }  ^  l \frac{1}{2 ^ i}
+        \]
+    </p>
+
+    <p>
+        Note that the summation being multiplied by \( m \) is bounded by \( 2 \)
+        \[
+        \sum _ { i = 0 }  ^  l \frac{1}{2 ^ i} = \frac{ \frac{1}{2 ^ { l + 1 }}   - 1}{ \frac{1}{2}  - 1} = \frac{1 - \frac{1}{2 ^ { l + 1 } } }{\frac{1}{2} } = 2 - \frac{1}{2 ^ { l } } \le 2
+        \]
+    </p>
+    
+    <p>
+       Therefore we can conlcude that our runtime is \( \mathcal{ O } \left( 2m \right) = \mathcal{ O } \left( m \right)   \)
+    </p>
+
+    <h1>Pseudocode</h1>
+
+    <pre>
+        def find_missing_binary_number(binary_numbers: List[String], initial_size, search_idx: int, partial_solution: String):
+
+            length_of_individual_binary_numbers = log_2(initial_size)
+
+            if search_idx == length_of_individual_binary_numbers - 1: // we have a full number now.
+                return partial_solution
+
+            num_zeros = 0
+            num_ones = 0
+            for i in len(binary_numbers):
+                if bit_search(i, search_idx) == 1:
+                    num_ones += 1
+                else:
+                    num_zeros += 1
+
+            assert(num_zeros != num_ones) // because there is a single missing one
+
+            missing_a_zero =  num_zeros < num_ones
+
+            if missing_a_zero:
+                partial_solution += "0"
+            else:
+                partial_solution += "1"
+
+            binary_numbers_to_search = []
+            if missing_a_zero:
+                binary_numbers_to_search = filter(lambda b: b[search_idx] == 0, binary_numbers)
+            else:
+                binary_numbers_to_search = filter(lambda b: b[search_idx] == 1, binary_numbers)
+
+            return find_missing_binary_number(binary_numbers_to_search, search_idx + 1, partial_solution)
+    </pre>
+
+    <p>
+        The returned number has same string length, but is not equal to any binary number in the input list therefore it is the missing one.
+    </p>
+
+</div>
+</body>

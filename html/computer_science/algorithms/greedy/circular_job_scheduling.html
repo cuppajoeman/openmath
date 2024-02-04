@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Circular Job Scheduling</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <h1>Motivation</h1>
+
+    <p>
+        In this question we will refer to a build request of the form \( \left( a, b \right)  \) as a job, we will think of things in terms of time, this doesn't change anything about the original question.
+    </p>
+
+    <p>
+        As usual, we start with some motivation because without out it we will have no idea how to construct our algorithm. Let \( I \) denote the input jobs, firstly note that if \( O \) is an optimal solution that it's possible that every job self intersects, in this case the optimal solution is \( \emptyset \) where we schedule zero jobs, though that case isn't particularly interesting. Otherwise we know our optimal solution has at least one job \( J _ O \)  in it.
+    </p>
+
+    <p>
+        Also note that we can redefine where \( 0 \) is on any circular set up. Suppose we have the original set up, and we have some angle \( \alpha \), then we can re-center the set up around \( \alpha \) by subtracting \( \alpha \) from all angles and taking the positive modulo by \( 360 \). Note that re-centering a set up will geometrically change nothing, so a solution to to a re-centered set up is a solution to the original question.
+    </p>
+
+    <p>
+        If \( J \) is in \( O \), then no job that intersects \( J _ O \) can be in \( O \), this allows us to filter some jobs from \( I \) before finding a solution. Formally suppose \( X = \left\{ J _ 1, J _ 2, \ldots J _ m \right\}  \) are all jobs that intersect with \( J \), then the optimal solution for \( I \) is the same as the optimal solution for \( I \setminus X \) . Moreover we can recenter the set-up so that \( 0 \) is located at \( J _ O \)'s start time, with this in place, we can see that for any other job it must come after (or touching on the border) \( J _ O  \).
+    </p>
+
+    <p>
+        Now read the above reduction and note that this question asks "given a collection of jobs: \( I \setminus X \) , find the maximum subset of compatible jobs", the reason there is no more circular properties in this question is that no job every passes over the start time of \( J _ O \), if it did, then it would be intersecting \( J _ O \), but every intersecting job was removed, so this cannot happen, therefore no wrap-around will ever occur. Note that this implies that for every job it is of the form \( \left( x, y \right)  \) where \( x \le y \), this would not be true if ther was at least one job passing over \( 0 \), but that doesn't happen because that's \( J _ O \)' start time (the circle was re-centered).
+    </p>
+
+    <p>
+        Given the new question, we recall that this is the same question as the interval scheduling problem, where we built an algorithm and showed it has an optimal solution. Note that in our question our jobs will only ever have a end time of at most 360, this simply restricts the inputs to our algorithm but the greedy solution will still return the optimal solution nonetheless.
+    </p>
+
+
+    <h1>Algorithm Motivation and Correctness</h1>
+
+    <p>
+        Please note that the motivation section proves that our reduction is valid, which is required for correctness as well.
+    </p>
+
+    <p>
+        In reality our algorithm will apriori  know nothing about the optimal solution at all. So all it would be able to do would be to take a job \( J \) , remove all intersecting jobs \( X _ J \) , re-center all jobs according to this jobs start time, and then run the greedy interval scheduling problem. We might think this simply returns the optimal solution for the entire question, but that's not necessarily the case, looking deeper we realize that this returns the best solution out of the pool of all solutions which contain the job \( J \). The key thing to realize is that if we consider all possible optimal solutions, then it's certainly possible that none of them use the job \( J \) and in this case running our algorithm on this \( J \) has not found the optimal solution and would return a number which is strictly less than the optimal solution.
+    </p>
+
+    <p>
+        For any job \( J ^ \star \) which is in at least one optimal solution, then when we run the algorithm on this job, then we obtain the best solution out of all solutions that contain the job \( J ^ \star \), since one of these solutions is an optimal solution, then when our algorithm runs on this we do obtain the optimal solution. We also dealt with the case if the optimal solution has no possible jobs, so we know that there exists some job \( J ^ \star \) which is an at least one optimal solution.
+    </p>
+
+    <p>
+        With the above to paragraphs in mind, we can see that by iterating over every job in our input list, we will eventually run into some \( J ^  \star \) and in that case it will return the optimal number of jobs that can be scheduled, therefore by taking the max of between consecutive runs, we eventually hit \( J ^ \star \), the returned number is greater than or equal to all previous numbers (because it is optimal) and therefore the max will stay locked at this value until we return, which means that our algorithm will return the correct value.
+    </p>
+
+    <h1>Pseudocode</h1>
+
+    <pre>
+
+        def non_intersecting_jobs(job, other_jobs):
+            non_intersecting = []
+            for job in other_job:
+                if not intersects(job, other_job):
+                    non_intersecting.append(other_job)
+
+        def recenter_jobs(new_start_time, jobs):
+            recentered_jobs = []
+            for job in jobs:
+                recentered_jobs.append(Job((job.start_time - new_start_time) % 360, (job.end_time - new_start_time) % 360))
+            return recentered_jobs
+
+        def paste_head_to_tail(jobs):
+            """
+            takes a list of sorted jobs that have been recentered and corrects for the re-centering
+            postcondition: jobs are sorted by EFT
+            """
+            cut_point = find_recentered_position(jobs)
+            return jobs[cut_point: ] + jobs[0: cut_point]
+
+        def run_eft_scheduling(jobs):
+            """
+            returns the maximum number of jobs that can be scheduled
+            """
+            # implementation omitted, same as pseudocode noted for EFT scheduling
+
+        def maximize_circular_job_requests(jobs):
+            jobs_sorted_by_eft = sort_by_finish_time(jobs)
+            cur_max = -1
+
+            for start_job in jobs_sorted_by_eft:
+                recentered_jobs = recenter_jobs(start_job.start_time, jobs_sorted_by_eft) # doesn't mutate jseft
+                recentered_jobs_sorted_by_eft = paste_head_to_tail(recentered_jobs)
+                non_intersecting_jobs = remove_intersecting_jobs(start_job, recentered_jobs_sorted_by_eft)
+                max_requests_made = run_eft_scheduling(non_intersecting_jobs)
+                cur_max = max(cur_max, max_requests_made)
+
+            return cur_max
+
+    </pre>
+
+    <h1>Runtime</h1>
+
+
+    <p>
+        Before starting anything we sort all jobs based on earliest finishing time. We must iterate through all jobs, for a single job \( J \) we remove all intersecting jobs which takes at most \( n - 1 \) iterations so \( \mathcal{ O } \left( n \right)  \) time, now we re-center all jobs relative to \( J \)' start time, this takes \( \mathcal{ O } \left( n \right)  \). We can also cut the head of the sorted list and paste it at the end at the correct index to have our sorted array relative to the re-centering. Starting with job \( J \) we iterate through the sorted array and sequentially add elements via the regular EFT procedure, this takes \( \mathcal{ O } \left( n \right)  \).
+    </p>
+
+    <p>
+        There are \( n \) outer loop iterations and the cost of each iteration is given by \( \mathcal{ O } \left( n \right)  \) therefore the entire algorithm runs in \( \mathcal{ O } \left( n \log _ 2 n \right) + \mathcal{ O } \left( n ^ 2 \right)  = \mathcal{ O } \left( n ^ 2 \right)  \) time.
+    </p>
+
+    <h1>Doesn't Maximize Length</h1>
+
+    <p>
+        Note that our algorithm return the optimal solution, but an optimal solution might not be length optimal. We can see this through a simple example
+    </p>
+
+    <div class="centered-content">
+        <img src="circular_scheduling_counter_example.svg.svg" width="800px" alt="">
+    </div>
+
+    <p>
+        In the left example, we have two jobs scheduled which is better than one job scheduled, but alternatively we could have scheduled one huge job that overlaps everything else
+    </p>
+
+</div>
+</body>

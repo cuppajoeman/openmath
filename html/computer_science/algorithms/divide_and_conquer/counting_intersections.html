@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Counting Intersections</title>
+    <link rel="stylesheet" href="../../../styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+    <script src="/js/insert_file_contents.js"></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+    
+    <div class="definition" id="definition-intersecting-lines">
+    	<div class="title">Intersecting Lines</div>
+    	<div class="content">
+    		Suppose \( P = \left\{ \left( p _ 1, 1 \right) , \ldots , \left( p _ n, 1 \right)  \right\} \) and \( Q = \left\{ \left( q _ 1, 0 \right), \ldots , \left( q _ n, 0 \right)   \right\}   \). Suppose that \( p, p ^ \prime \in P  \) and \( q, q ^ \prime \in Q \), then we say that \( \left( p, q \right)  \) intersects with \( \left( p ^ \prime, q ^ \prime \right)  \) when either of the following two situations arise
+            <ul>
+                <li>\( p[1] \le p ^ \prime \left[ 1 \right]   \) and \( q \left[ 2 \right] \gt q ^ \prime \left[ 2 \right]  \) </li>
+                <li>\( p ^ \prime[1] \le p \left[ 1 \right]   \) and \( q ^ \prime \left[ 2 \right] \gt p  \left[ 2 \right]  \) </li>
+            </ul>
+    	</div>
+    </div>
+
+    <h1>Motivation & Correctness</h1>
+
+    <p>
+        Firstly note that \( P \) can be sorted to \( P _ S \). For any \( p \in P _ S \), let us denote the element in \( Q \) that forms a line with \( p \) by \( l \left( p \right)  \), consider the tuple formed by \( l \left( P _ S \right) := \left( l \left( p _ { \alpha _ 1 } \right), l \left( p _ { \alpha _ 2 } \right), \ldots  , l \left( p _ { \alpha _ n } \right)  \right)  \), let us denote this tuple as \( Q ^ \prime \), this is done so that for any index \( \alpha _ i \) we note that \( p _ { \alpha _ i }  \) forms a line with \( q _ { \alpha _ i }  \) for
+    </p>
+
+    <p>
+        We remark that if \( Q ^ \prime \) happened to be sorted then there would be no crossings, this follows by the definition of a crossing. The dual of this situation is when we have \( \alpha _ i \lt  \alpha _ j \) being indices into \( P _ S \) wherein \( q _ { \alpha _ i } \gt q _ { \alpha _ j } \), the lines  \( \left( p _ { \alpha _ i }, q _ { \alpha _ i }   \right)  \) and \( \left( p _ { \alpha _ j }, q _ { \beta _ j }   \right)  \) must cross, this holds true because \( P _ S \) was sorted, which means that if \( \alpha _ i \lt \alpha _ j \) then we have \( p _ { \alpha _ i } \lt p _ { \alpha _ j }\).
+    </p>
+
+    <p>
+        Observe that in the above remark, we've noted that for every instance of \( \alpha _ i \lt \alpha _ j \) such that \( q _ { \alpha _ i } \gt q _ { \alpha _ j }  \), we get exactly one line crossing between the two lines being defined. Therefore we've reduced this problem to counting the number of inversions in \( Q ^ \prime \).
+    </p>
+
+    <p>
+        Since we have an algorithm that we have proven correct as well as showing that it's time complexity is \( \mathcal{ O } \left( n \log _ 2 n \right)  \), we are able to conclude that by passing \( Q ^ \prime \) to <code>count_inversions</code> we know that this extended algorithm correctly returns the number of inversions in \( Q ^ \prime \).
+    </p>
+
+    <p>
+        We also observe that the number of line crossings between \( P _ S \) and \( Q ^ \prime \) is exactly equal to the number of line crossings between \( P \) and \( Q \), this can be seen because even though the order in which the points are observed has changed, the actual points included in the two sets doesn't, therefore the realize the same situation, so counting crossings in one yields the same answer as counting crossings in the other.
+    </p>
+
+    <h1>Runtime</h1>
+
+    <p>
+        We've proven that our algorithm is correct, we now turn to the time analysis.
+    </p>
+
+    <ul>
+        <li>when calling line_map it takes \( \Theta \left( n \right)  \) time</li>
+        <li>when sorting \( P \) to takes \( \mathcal{ O } \left( n \log _ 2 n \right)  \) time</li>
+        <li>when constructing \( Q ^ \prime \) it takes \( \Theta \left( n \right)  \) time</li>
+        <li>when counting inversions in \( Q ^ \prime \) it takes \( \mathcal{ O }  \left( n \log _ 2 n \right)  \) time</li>
+    </ul>
+
+    <p>
+        Therefore the total runtime is \( \mathcal{ O } \left( n \log _ 2 n \right)  \)
+    </p>
+
+    <h1>Pseudocode</h1>
+
+    <pre>
+        def count_line_crossings(P, Q):
+            l = line_map(P, Q)
+            P_s = sort(P)
+            Q_prime = map(l, P_s)
+
+            return count_inversions(Q_prime)
+    </pre>
+
+    <p>
+        Note that line map can be thought of as a function which takes a point in P and takes it to it's corresponding point in Q it is connected to.
+    </p>
+
+
+</div>
+</body>

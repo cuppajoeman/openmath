@@ -5,32 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-    <title>number bases</title>
+    <title>Number Bases</title>
 	
     <link rel="stylesheet" href="/styles/styles.css">
 
     <script src="../js/script.js" defer></script>
-
-	
-
 </head>
 
 <body>
     <div class="thin-wrapper">
 
-		<h1>decimal representation</h1>
-
 		<div class="definition" id="definition-base-representation">
-			<div class="title">base represenation</div>
+			<div class="title">Base Representation</div>
 			<div class="content">
-				Suppose that \( m , k \in \mathbb{N}_{1} \) and \( \left ( a_{k - 1} , a_{k - 2} , \ldots , a_{0} \right ) \in \left \lbrace 0 , 1 , 2 , \ldots , m \right \rbrace^{k} \). Then we define \( n := \sum_{i = 0}^{k - 1} a_{i} m^{i} \) and we say that \( a_{k - 1} a_{k - 2} \ldots a_{1} \) is the representation of \( n \) in the base \( m \)
+				Suppose that \( m , k \in \mathbb{N}_{1} \) and \( \left ( a_{k} , a_{k - 1} , \ldots , a_{1} \right ) \in \left \lbrace 0 , 1 , 2 , \ldots , m - 1 \right \rbrace^{k} \). Then we define \( n := \sum_{i = 0}^{k - 1} a_{i} m^{i} \) and we say that the string \( a_{k } a_{k - 1} \ldots a_{1} \) is the representation of \( n \) in the base \( m \) and define
+				\[
+				    \operatorname{ base\_repr } \left( n, m \right) := a _ { k }  a _ { k - 1 }  \ldots a _ 1
+				\]
 			</div>
 		</div>
 
 		<div class="definition" id="definition-decimal-representation">
-			<div class="title">decimal representation</div>
+			<div class="title">Decimal Representation</div>
 			<div class="content">
-				The decimal representation of a number \( n \) is the <a href="/number_theory/number_bases.html#definition-base-representation" class="knowledge-link">represetnation of \( n \) in the base \( 10 \)</a>
+				The decimal representation of a number \( n \) is the <a href="/number_theory/number_bases.html#definition-base-representation" class="knowledge-link">representation of \( n \) in the base \( 10 \)</a>
 			</div>
 		</div>
 
@@ -42,6 +40,19 @@
 				The binary representation of a number \( n \) is the <a href="/number_theory/number_bases.html#definition-base-representation" class="knowledge-link">represetnation of \( n \) in the base \( 2 \)</a>
 			</div>
 		</div>
+
+		<div class="definition" id="definition-binary-natural-numbers">
+			<div class="title">Binary Natural Numbers</div>
+			<div class="content">
+				We define the following:
+				\[
+					\mathbb{ B } := \operatorname{ base\_repr } \left( \mathbb{ N } _ 0, 2 \right)
+				\]
+			</div>
+		</div>
+		
+
+
 
 		<div class="proposition" id="proposition-division-by-9-rule">
 			<div class="title">division by 9 rule</div>

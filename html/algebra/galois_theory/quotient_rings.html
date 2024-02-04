@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quotient Rings</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+</head>
+<body>
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-quotient-ring">
+    	<div class="title">Quotient Ring</div>
+    	<div class="content">
+    		If \( I \) is an ideal in a ring \( \left( R, \oplus, \otimes \right)  \), then \( \left( R / I, \boxplus, \boxtimes \right)  \) is called the <b>quotient ring of \( R \) modulo \( I \)</b>
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-integers-modulo-n-equals-the-quotient-ring-of-Z-modulo-n">
+    	<div class="title">Integers Modulo N Equals the Quotient Ring of Z modulo n</div>
+    	<div class="content">
+    	    We claim that \( \left( \mathbb{ Z }  _ n ^ \%, \oplus, \otimes \right) = \left( \mathbb{ Z } / \left( n \right) _ \diamond  , \boxplus, \boxtimes  \right)   \) (stronger than isomorphic)
+    	</div>
+    	<div class="proof">
+            <p>
+                Let \( n \in \mathbb{ N } _ 1 \), recall that \( \left( n \right) _ \diamond = \mathbb{ Z } n \) and by definition we know that \( \mathbb{ Z } n = \left\{ k n : k \in \mathbb{ Z }  \right\}  \), which we can think of as all multiples of \( n \). Now then \( \mathbb{ Z }  / \left( n \right) _ \diamond = \left\{ s + \left( a \right) _ \diamond : s \in \mathbb{ Z } \right\} \), for some fixed \( s \in \mathbb{ Z }  \) we can see that \( s + \left( n \right) _ \diamond = \left\{ s + k \cdot n : k \in \mathbb{ Z }   \right\}  \)
+            </p>
+            <p>
+                We'll start by showing that the two sets are equal, so let \( X \in \mathbb{ Z } / \left( n \right) _ \diamond  \) then \( X = \left\{ s + k n : k \in \mathbb{ Z }  \right\}  \) for some \( s \in \mathbb{ Z }  \), now consider the equivalence class \( \overline{ s }  \), it is defined as all elements in \( \mathbb{ Z }  \) who all share the same remainder as \( s \) upon division by \( n \), as previously seen it turns out that this set is equal to \( \left\{ s + k n : k \in \mathbb{ Z }  \right\}  \) but this is exactly \( X \), as needed.
+            </p>
+            <p>
+                Now suppose that we have some \( \overline{ k } \in \mathbb{ Z } _ n ^ \%  \), as just discussed we know that \( \overline{ k } = \left\{ k + jn : n \in \mathbb{ Z }  \right\}  \) which is the coset \( s + \left( n \right) _ \diamond \in \mathbb{ Z } / \left( n \right) _ \diamond  \). Thus at this point we concluded that as sets, we have \( \mathbb{ Z } _ n ^ \% = \mathbb{ Z } //  \left( n \right) _ \diamond  \)
+            </p>
+            <p>
+                Suppose that \( \overline{ a } , \overline{ b } \in \mathbb{ Z } _ n ^ \%   \) then \( \overline{a} \oplus \overline{ b } = \overline{ a + b } \), but at the same time \( \overline{ a } = a + \left( n \right) _ \diamond \) and \( \overline{ b } = b + \left( n \right) _ \diamond \) and we have \( \left( a + \left( n \right) _ \diamond \right) \boxplus \left( b + \left( n \right) _ \diamond \right) = \left( \left( a + b \right) + \left( n \right) _ \diamond \right)    \) which shows us that their addition operations are the same because \( \overline{ a + b } = \left( a + b \right) + \left( n \right) _ \diamond \), it's similarly noted that their multiplications are the same by replacing respective plusses with the times symbol.
+            </p>
+            <p>
+                Therefore given these two rings, both of their sets are equal and their operations are equal, so they are actually the same ring.
+            </p>
+    	</div>
+    </div>
+
+
+    <div class="exercise" id="exercise-modulo-integer-polynomial">
+        <div class="title">Modulo Integer Polynomial</div>
+        <div class="content">
+            Let \( x ^ 4 - 16 \in \mathbb{ Z } \left[ x \right]  \)
+            <ul>
+                <li>Find a polynomial with degree \( \le 3 \) that is congruent to \( 9 x ^ 13 - 7 x ^ 9 + 4 x ^ 5 - 2 x ^ 3 + 3 \) modulo \( x ^ 4 - 16 \)   </li>
+                <li>
+                    Prove that \( x - 2 + \left( x ^ 4 - 16 \right) _ \diamond  \) and \( x + 2 + \left( x ^ 4 - 16 \right) _ \diamond \) are zero divisors in \( \mathbb{ Z } \left[ x \right] / \left( x ^ 4 - 16 \right) _ \diamond  \)
+                </li>
+            </ul>
+        </div>
+        <div class="proof">
+            <p>
+                To find a polynomial with the same remainder we first do things via long division:
+            </p>
+            <div class="centered-content">
+                <img src="polynomial_long_division.png" alt="">
+            </div>
+            <p>
+                Therefore the polynomial \( - 2 x ^ 3 - 35136x + 3 \) is congruent modulo \( x ^ 4 - 16 \), because they both have the same remainder upon division by \( x ^ 4 - 16 \) .
+            </p>
+            <p>
+                Recall the definition of a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-zero-divisor">zero divisor</a>, note that \( 0 \) in this quotient ring is simply the polynomial with all coefficients set to \( 0 \in \mathbb{ Z }  \), therefore we can clearly see that \( x - 2, x + 2 \) have at least one non-zero coefficient therefore they cannot be zero elements. Now at the same time we can factor \( x ^ 4 - 16 = \left( x ^ 2 - 4 \right) \left( x ^ 2 + 4 \right) = \left( x - 2 \right) \left( x + 2 \right) \left( x ^ 2 + 4 \right)   \). We get two equations from this : \( \left( x - 2 \right) \left( x ^ 3 + 2 x ^ 2 + 4x + 8  \right)  \) and \( \left( x + 2 \right) \left( x ^ 3 - 2x ^ 2 + 4 x - 8 \right)   \), since we can verify that \( x ^ 3 - 2 x ^ 2 + 4 x - 8 , x ^ 3 + 2 x ^ 2 + 4 x + 8 \) are both non-zero polynomials,
+
+
+                then so far we can conclude that \( x - 2, x + 2 \)
+            </p>
+            <p>
+                Now notice that \( x ^ 4 - 16 + \left( x ^ 4 - 16 \right) _ \diamond  = 0 + \left( x ^ 4 - 16  \right) _ \diamond \). For convience set \( I = \left( x ^ 4 - 16 \right) _ \diamond  \) So then we have that \( \left[ x - 2 + I \right]  \left[ x ^ 3 + 2 x ^ 2+ 4 x + 8 + I \right] = x ^ 4 - 16 + I = 0 + I \) and also that \( \left[ x + 2 + I \right] \left[ x ^ 3 - 2 x ^ 2 + 4x - 8 + I \right] = 0 + I  \)
+            </p>
+        </div>
+    </div>
+    
+    <div class="proposition" id="proposition-polynomial-of-degree-2-or-3-is-irreducible-iff-it-has-no-roots">
+    	<div class="title">Polynomial of Degree 2 or 3 is Irreducible Iff It has no Roots</div>
+    	<div class="content">
+    		
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-polynomials-mod-a-polynomial-is-a-field-iff-its-irreducible">
+    	<div class="title">Polynomials Mod a Polynomial is a Field iff it's irreducible</div>
+    	<div class="content">
+    		\( F \left[ x \right] / \left( p \left( x \right)  \right) _ \diamond  \) is a field iff \( p \left( x \right)  \) is irreducible in \( F \) 
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+
+    
+    <div class="exercise" id="exercise-integers-modulo-2-form-a-field-when-divided-by-a-certain-polynomial">
+    	<div class="title">Integers Modulo 2 Form a Field When Divided by a Certin Polynomial</div>
+    	<div class="content">
+    		Let \( I := \left( x ^ 3 + x + 1 \right) \in \mathbb{ Z } _ 2 ^ \% \left[ x \right]    \), show that \( \mathbb{ Z } _ 2 ^ \% \left[ x \right] / I  \) is a field.
+    	</div>
+    	<div class="proof">
+            <p>
+                We'll note that since \( p \left( x \right)  \) is of degree 3 and has no root in \( \mathbb{ Z } _ 2 ^ \%  \) because \( 0 + 0 + 1 \neq 0 \), \( 1 + 1 + 1 = 1 \neq 0 \), therefore \( p \left( x \right)  \) is irreducible. Therefore \( \mathbb{ Z } _ 2 ^ \% \left[ x \right] / I  \) is a field.
+            </p>
+    	</div>
+    </div>
+    
+
+    
+
+
+</div>
+</body>
+</html>
