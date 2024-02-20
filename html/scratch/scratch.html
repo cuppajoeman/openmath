@@ -1,0 +1,24 @@
+\( A _ { \max \left( j, k \right)  }  \) is an element of both intersection, and "consumes" all previous sets in the union.
+
+The random variable \( Z \) is said to have a standard normal distribution denoted by \( Z \sim N \left( 0, 1 \right)  \) iff \( Z \) has pdf \( \phi \left( z \right) := \frac{1}{\sqrt{2\pi}} e ^ \frac{-z ^ 2}{2}   \) for any \( z \in \mathbb{ R }  \)
+
+
+49. Prove \( Z \sim N \left( 0, 1 \right)  \) if and only if \( \left( \frac{Z ^ 2}{2}  \sim \operatorname{ gamma } \left( \frac{1}{2}  \right) \land -Z \stackrel{d}{=} Z  \right)  \)
+
+\( \implies  \) Let \( F _ { -Z } \left( z \right)  \) be the cumulative distribution function for \( -Z \) defined as usual noting:
+
+\[
+    F _ { -Z } \left( z \right) := P \left( -Z \le z \right) = P \left( Z \ge -z \right) = 1 - P \left( Z \lt -z \right) = 1 - P \left( Z \le -z \right) = \Phi \left( -z \right)
+\]
+
+Now we see that 
+\[
+    F _ { -Z }  ^  \prime \left( -z \right)  = 0 - \Phi ^ \prime \left( -z \right) \left( -1 \right) = \phi \left( -z \right) = \phi \left( z \right)
+\]
+
+Therefore \( -Z \stackrel{d}{=} Z \) 
+
+Now let \( W = \frac{Z ^ 2}{2}  \) and define 
+\[
+    H \left( w \right) = P \left( W \le w \right) = P \left( Z ^ 2 \le 2 w \right)  = P \left( \lvert Z \rvert \le \sqrt{2} w ^ \frac{1}{2}   \right)  = 2 P \left( 0 \le Z \le \sqrt{2} w ^ \frac{1}{2}  \right)
+\]
