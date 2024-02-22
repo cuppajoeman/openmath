@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Missing Number</title>
+  <link rel="stylesheet" href="../../../styles/styles.css">
+  <script src="/js/script.js" defer></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
+
+  <script>hljs.highlightAll();</script>
+
+  <script src="/js/insert_file_contents.js"></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+  <h1>Mario and Bowser</h1>
+
+  <p>
+    Bowser, a monster and a talented singer, is kidnapped by Princess Peach. Mario, who bought a ticket to Bowser's concert, is going to rescue Bowser. You are given a \( m \times n \) grid \( M \). Mario starts from the top-left corner \( M[1,1] \), and Bowser is locked in the bottom-right corner  \( M[m,n] \). Mario has an initial health value. At each step, Mario can choose to move either right or down one slot. In each slot, there is either a Goomba or a mushroom. For simplicity, a Goomba is represented by a negative integer that reduces Mario's health, and a mushroom is represented by a positive integer that increases Mario's health. Mario dies if his health drops to \( 0 \) or below. Note that there is mushroom or Goomba in the top-left and bottom-right corner, too. For example, \( M =  \)
+  </p>
+  \[
+  \begin{array}{ |c|c|c| }
+  \hline
+  -2 & -3 & 1 \\
+  \hline
+  -4 & -2 & 3 \\
+  \hline
+  3 & 1 & -5 \\
+  \hline
+  \end{array}
+  \]
+
+  <p>
+    When Mario starts from the top-left corner, he needs at least initial health \( 3 \) such that he will not die immediately. When Mario rescue's Bowser in the bottom-right corner, Mario needs to take the \( -5 \) damage first and not die before he can rescue Bowser.
+  </p>
+
+  <ul>
+    <li>In the example above, what is the minimum health Mario can start with such that he can rescue Bowser? And what is the path that Mario should follow? You can use a string \( {\tt RDRD} \) to denote that Mario moves right, then down, then right, then down. No justification required.</li>
+    <li>
+      Design a dynamic programming algorithm using bottom-up technique that works for a general \( m\times n \) grid \( M \) to determine the minimum initial health Mario can have such that he can rescue Bowser. Mario has to start with at least \( 1 \) health before he arrives at \( M[1,1] \). You also need to (in the same algorithm or in a helper algorithm) output the string in \(\{{\tt R}, {\tt D}\}^{m+n-2} \) that indicates the path to rescue Bowser.
+    </li>
+    <li>
+      What is the time and space complexity of your algorithm(s)? Briefly explain why.
+    </li>
+  </ul>
+
+  <hr>
+  
+  <p>
+    We want to figure out the minimal amount of health mario needs to get to bowser. One way of thinking about this is that if we're at a certain position in the grid \( \left( i, j \right)  \) , and it has some value \( a \in \mathbb{ Z }  \), then we either got here from \( i - 1, j \) or \( i, j - 1 \).
+  </p>
+  <p>
+    Firstly in order to survive the current square, we must have at least \( n = \lvert \min \left( 0, a \right) \rvert  + 1  \) health. To understand that suppose that \( a = -3 \), then we must have at least \( 4 \) health to survive this square. On the other hand if \( a \) was positive say \( 8 \), then our health doesn't matter at all.
+  </p>
+  <p>
+    Moreover, suppose we needed at least \( k \in \mathbb{ N } _ 1\) health to get to square \( \left( i - 1, j \right)  \), then we will still need at least that much health to get to square \( \left( i, j \right)  \) by taking this path from \( \left( i - 1, j \right)  \)
+  </p>
+
+  <p>
+    Suppose we needed \( j \in \mathbb{ N } _ 1 \) health to get to square \( \left( i, j - 1 \right)  \), then by taking this path to the current square, we would also need at least \( j \) health. Since we have the choice of taking this path, or the path discussed in the previous paragraph, we may choose to take the min of these two paths to help minimize the current health needed. Suppose \( m = \min \left( j, k \right)  \)
+  </p>
+
+  <p>
+    Since in either case we still have to land on the current square the the minimum health required to get to this position is given by \( \max \left( m, n \right)  \), we have to take the max to make sure we can get to the previous square, but then also the current square.
+  </p>
+
+
+
+
+
+  Therefore the minimal amount of health needed to get to this point is
+  \[
+  \max \left( \min \left( 0, a + 1 \right), M \left[ i - 1 \right] \left[ j \right], M \left[ i \right] \left[ j - 1 \right] \right)
+  \]
+  The reasoning for this is that in order to be able to get to this position, we must have enough health to survive, the current square
+
+
+  <p>
+    For any path \( p \) such that \( C \left( p \right) \gt 0  \), then mario can easily start with 1 health, because his (never mind it's not that easy)
+  </p>
+
+</div>
+</body>

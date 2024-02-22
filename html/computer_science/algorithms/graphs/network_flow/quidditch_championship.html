@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Missing Number</title>
+    <link rel="stylesheet" href="../../../../styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+    <script src="/js/insert_file_contents.js"></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <h1>Quidditch Championship</h1>
+
+    <p>
+        A muggle wants to know the outcome of Quidditch championship. You are a wizard to help him. A house wins the championship if it wins more matches than the other houses at the end of championship. If a house cannot finish first under any outcome of the remaining matches, then we call the house <b>eliminated</b>. For some houses, you do not need to wait for all matches to be played to determine if these houses are eliminated or not.
+    </p>
+
+    \[
+    \begin{array}{||c|c|c|c|c|c|c||}
+    \hline
+    \text{House} & \text{Wins} & \text{Remaining} & \text{vs.~Gryffindor} & \text{vs.~Hufflepuff} & \text{vs.~Ravenclaw} & \text{vs.~Slytherin} \\ \hline \hline
+    \text{Gryffindor} & 23 & 8 & - & 1 & 6 & 1\\ \hline
+    \text{Hufflepuff} & 19 & 4 & 1 & - & 0 & 3 \\ \hline
+    \text{Ravenclaw} & 18 & 7 & 6 & 0 & - & 1\\ \hline
+    \text{Slytherin} & 16 & 5 & 1 & 3 & 1 & -\\ \hline
+    \end{array}
+    \]
+
+    <ul>
+        <li>In the table above, which house(s) have been eliminated? Briefly explain why.</li>
+        <li>Let's generalize this problem. Suppose there are $n$ houses competing for the Quidditch cup. Let \( H = \{1,...,n\} \)  denote the set of houses in the championship. For each \( i \in H \), let \( w_i \) be house \( i \)'s number of wins so far; let \( r_i \) be the number of remaining matches to compete by house \( i \); let \( r_{ij} \) be number of remaining matches for house \( i \) to compete against house \( j \) (apparently  \( r_{ij} = r_{ji} \) ). \\</li>
+        <li>
+            Given any house $h \in H$, design a network flow to answer if \( h \) is eliminated. To make the question simpler, assume there is no trivial case: for every house \( i \in H \), there does not exist a house \( j \)  such that \( w_i + r_i < w_j \) . You are free to use edges with infinite capacity. After constructing your flow, you should make a claim: "if a flow of value ..., then house \( h \)  is eliminated", and then prove your claim.
+        </li>
+        <li>
+            Your construction in (b) can decide whether a single house $h$ is eliminated or not. If we want to determine all the eliminated houses, how many network flow instances do we need to construct? Briefly explain why.
+        </li>
+    </ul>
+
+    <hr>
+
+
+</div>
+</body>
+

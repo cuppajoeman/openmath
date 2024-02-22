@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Missing Number</title>
+  <link rel="stylesheet" href="../../../styles/styles.css">
+  <script src="/js/script.js" defer></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
+
+  <script>hljs.highlightAll();</script>
+
+  <script src="/js/insert_file_contents.js"></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+  <h1>Romeo and Juliet</h1>
+
+  <p>
+    Juliet has a secret to tell Romeo. However, every message that Juliet sends to Romeo needs to be examined by Capulet, Juliet's father. So Juliet decides to encrypt the message such that Capulet cannot understand easily. To simplify the problem, suppose there are only three letters in Juliet's alphabet \( \Sigma = \{ a , b, c \} \). Juliet defines a mapping \( f : \Sigma \to \{0,1\}^* \), where \( f(a) = 0, f(b) = 01, f(c) = 11 \) . Suppose Juliet wants to send a message \( m \in \{ a, b, c \}^k \). She sends the encrypted message \( f(m) = f(m_1) \circ f(m_2) \circ ... \circ f(m_k) \) , where \( m_i \) is the \( i \) th character of $m$, and \( \circ \) means concatenation.
+  </p>
+
+  <ul>
+    <li>Given \( f(m) = 1101100110001110 \), how many possible messages are there, and what are they? (No justification required)</li>
+    <li>Design a dynamic programming algorithm using memoization technique that decrypts any encrypted message \( s \) sent by Juliet. Your algorithm should return the original message \( m \) where \( f(m) = s \). If the pre-image \( f^{-1}(s) \) does not exist, return \( {\tt JUNK} \). Sometimes, Juliet sends meaningless junk to confuse her father.</li>
+    <li>What is the time and space complexity of your algorithm? Briefly explain why.</li>
+    <li>Consider \( \Sigma = \{ a, b, c, d\} \), and the mapping \( f: \Sigma \to \{0,1\}^* \) is now \( f(a) = 0, f(b) = 01, f(c) = 011, f(d) = 1110 \). Is there a greedy algorithm to decrypt messages encrypted by this mapping? Briefly explain why.</li>
+  </ul>
+
+  <hr>
+
+</div>
+</body>
