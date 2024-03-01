@@ -50,7 +50,92 @@
 				\]
 			</div>
 		</div>
-		
+
+
+		<div class="proposition" id="proposition-number-of-digits-required-in-a-base-2-representation">
+			<div class="title">Number of Digits Required in a Base 2 Representation</div>
+			<div class="content">
+				Given any \( n \in \mathbb{ N } _ 0\) prove that the number of digits in it's base 2 representation is given by
+				\[
+				    \left\lfloor \log _ 2 \left( n \right)  \right\rfloor + 1
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					Let \( n \in \mathbb{N} \), suppose  \( n \) requires \( d \) digits in it's base 2 representation, we'd like to show that \(d = \lfloor \log_2(n)  \rfloor+1\).
+				</p>
+
+				<p>
+					At most we have \(n = 1 \ldots 1\), that is \( d \) 1's in a row. But we know that is
+				</p>
+
+				\[
+					\sum_{i=0}^{d-1} 2^i = 2^d - 1
+				\]
+
+				<p>
+
+					At a minimum the first digit is a 1 and the rest are zeros (since the powers start at 0 right to left, this is \( 2^{d - 1} \)).
+				</p>
+
+				<p>
+					We now have the following bound  on \( n \).
+				</p>
+
+				\[
+					2^{d-1 } \le n \le 2^d - 1
+				\]
+
+				<p>
+					Taking log base 2 on on the above inequality yields: (Call this inequality $\beta$)
+				</p>
+
+				\[
+					d - 1 \le \log_2 (n) \le \log_2(2^d -1 )
+				\]
+
+				<p>
+					*Note*: Taking the log respects the inequalities because $\log_2(\cdot)$ is a strictly increasing function (check it's derivative)
+				</p>
+
+
+				<p>
+					We will attempt to take the floor of \( \beta \). Since \( d-1 \) is an integer \( \lfloor d-1 \rfloor = d-1 \), as for \( \log_2(2^d-1) \), we must look a little closer.
+				</p>
+
+				<p>
+					Since \( 2^{d-1} \le 2^d - 1 < 2^d \) and , we know that
+				</p>
+
+				\[
+					d-1 = \log_2(2^{d-1}) \le \log_2(2^d - 1) < log_2(2^d) = d
+				\]
+
+				<p>
+					Therefore \(\lfloor \log_2(2^d - 1) \rfloor = d-1 \) and so the result of taking the floor of \(\beta \) yields
+				</p>
+
+				\[
+					d - 1 \le \lfloor \log_2 (n) \rfloor \le \lfloor \log_2(2^d -1 ) \rfloor = d-1
+				\]
+
+				<p>
+					In other words
+				</p>
+
+				\[
+					d - 1 \le \lfloor \log_2 (n) \rfloor \le d-1
+				\]
+
+				<p> So </p>
+
+				\[
+					d - 1 = \lfloor \log_2 (n) \rfloor \Leftrightarrow d = \lfloor \log_2 (n) \rfloor + 1
+				\]
+
+			</div>
+		</div>
+
 
 
 
