@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Depth First Search</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+    <script src="/js/insert_file_contents.js"></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <div class="theorem" id="theorem-dfs-is-not-complete">
+    	<div class="title">DFS is not Complete</div>
+    	<div class="content">
+            Suppose that \( s, g \) are two connected vertices in a potentially infinite graph with a maximum branching factor of \( b \in \mathbb{ N } _ 0 \), then it's possible that DFS may not find a path connecting \( s \) and \( g \).
+    	</div>
+    	<div class="proof">
+            Suppose we have the embedded graph of \( \mathbb{ N } _ 0 \), but we also have a child node of \( 0 \) which is distinct from \( 1 \) called \( g \), then if DFS expands \( 1 \) first, then it will never expand \( g \) because it will go down the infinite chain of natural numbers.
+    	</div>
+    </div>
+
+
+</div>
+</body>

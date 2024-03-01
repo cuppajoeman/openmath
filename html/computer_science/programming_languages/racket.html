@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Lambda Calculus</title>
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-expression">
+    	<div class="title">Expression</div>
+    	<div class="content">
+    		An expression is one of the following:
+            <ol>
+                <li>An identifier: Some collection of symbols not including dot or lambda</li>
+                <li>A function expression: \( \lambda x . expr \) </li>
+                <li>A function application: \( f ~ expr \) </li>
+            </ol>
+    	</div>
+    </div>
+
+    <p>
+        Written as a grammar it looks like:
+    </p>
+
+    <pre>
+        &ltexpr&gt = x # IDENTIFIER
+        | e1 e2 # application
+        | λx . e # abstraction
+    </pre>
+
+    <p>
+        In practice this means that if we see \( \left( \lambda x . x \right) ~ 5 \) it can be evaluated to \( 5 \) .
+    </p>
+
+    <p>
+        That is to say that Lambda Calculus is concerned with denoting functions of one variable (or argument), and calling them with some value, we call the former an "abstraction" and the latter a function "application".
+    </p>
+
+    <p>
+        The semantics of lambda calculus use substitution to evaluate programs, given a function application, we first evaluate the expression on the right and suppose it evaluates to some value v, then we look in the body of the lambda, and recursively replace any instance of x with the value v, unless we hit another lambda which uses the same variable x, in that case we stop recursing there or if we find a value.
+    </p>
+
+    <div class="exercise" id="exercise-lambda-evaluation-of-euclidean-distance">
+    	<div class="title">Lambda Evaluation of Euclidean Distance</div>
+    	<div class="content">
+            Write down how lambda calculus would evaluate
+            \[
+                (((\lambda x . \lambda y . \sqrt{x ^ 2 + y ^ 2}) 1 + 2) 2 + 2)
+            \]
+    	</div>
+    	<div class="proof">
+            <p>
+                In this case, we have an outermost function application, so we evaluate \( 2 + 2 \) which becomes \( 4 \), we then evaluate the function expression on the left,
+            </p>
+            <p>
+                Since the expression on the left is a function application, we first evaluate \( 1 + 2 \) to obtain \( 3 \) and then evaluate the function expression on the left.
+            </p>
+            <p>
+                The function expression here is \( \lambda x . \lambda y . \sqrt{x ^ 2 + y ^ 2} \)  and so it evaluates to itself, then we replace it with it's body where we've replaced \( x \) with the value \( 3 \) to obtain \( \lambda y . \sqrt{3 ^ 2 + y ^ 2} \).
+            </p>
+            <p>
+                At this point our evaluation of the left with respect to our first paragraph is finally complete and the evaluation is equal to \( \lambda y . \sqrt{3 ^ 2 + y ^ 2} \), now we evaluate the body of this lambda with any instance of \( y \) replaced by \( 4 \), which yields \( \sqrt{3 ^ 2 + 4 ^ 2} \) which the evaluates to \( 5 \).
+            </p>
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-referential-transparency">
+    	<div class="title">Referential Transparency</div>
+    	<div class="content">
+    		An identifier is said to be referentially transparent if the identitifer can always be substituted for its definition without changing the programs behavior
+    	</div>
+    </div>
+
+    <p>
+        Consider the following python code:
+    </p>
+
+    <pre>
+        def not_good(x):
+            x = x + 1
+            print(x)
+
+        x = 3
+        not_good(x) ~> prints 4
+        print(x) ~> prints 3, because x was bound as a parameter (copy)
+
+        --- (if we now replace the not_good function by it's body)
+
+        x = 3
+        x += 1 ~> actually changed x...
+        print(x) ~> 4
+        print(x) ~> 4
+
+        --- (another example would be datetime.now())
+
+        print(datetime.now()) ~> a
+        print(datetime.now()) ~> b (where a < b)
+    </pre>
+
+
+
+    <p>
+        Therefore the identifier <code>not_good</code> is not referentially transparent. In pure functional languages, every identifier is referentially transparent. Which means that the value of a function application is independent of the context in which it occurs, and we know that the value of \( f \left( a, b, c \right)  \) only ever depends on the values of \( f, a, b, c \).
+    </p>
+
+    <p>
+        This is beneficial if we wan to reason about programs, because no function ever has any side effects so there's no need to consider global state.
+    </p>
+
+
+
+
+
+
+</div>
+</body>

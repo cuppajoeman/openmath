@@ -19,7 +19,9 @@ async function create_supporting_html(file_path, file_name, file_extension) {
     let code_element = document.createElement("code");
 
     code_element.classList.add("language-" + file_extension);
-    code_element.innerHTML = await fetch_file_contents(file_path);
+    let source_code = await fetch_file_contents(file_path);
+    source_code = source_code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    code_element.innerHTML = source_code;
     pre_element.appendChild(code_element)
 
     hljs.highlightElement(code_element);
