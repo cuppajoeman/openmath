@@ -21,6 +21,28 @@
                 an integer \( n \) is divisible by a non-zero integer \( m \) if there exists an integer \( k \) such that \( n = k \cdot m \). If this is all true we write \( m | n \).
             </div>
         </div>
+		
+		<div class="corollary" id="corollary-divisible-implies-integer-quotient">
+			<div class="title">Divisible iff Integer Quotient</div>
+			<div class="content">
+				Suppose that \( a \mid b \) iff \( \frac{b}{a} \in \mathbb{ Z } \)
+			</div>
+			<div class="proof">
+				Suppose that \( a \mid b \), then there is some \( k \in \mathbb{ Z }  \) such that \( a \cdot k = b \) therefore \( k = \frac{b}{a}  \), and since \( k \in \mathbb{ Z }  \) then \( \frac{b}{a} \in \mathbb{ Z }  \) as needed.
+			</div>
+		</div>
+
+		<div class="corollary" id="corollary-">
+			<div class="title">Not Divisible iff Non-Integer Quotient</div>
+			<div class="content">
+				\( a \nmid b \) iff \( \frac{b}{a} \notin \mathbb{ Z }  \) 
+			</div>
+			<div class="proof">
+				By the fact that \( P \iff Q \) iff \( \neg P \iff \neg Q \) 
+			</div>
+		</div>
+
+		
 
         <div class="proposition" id="proposition-one-divides-everything">
             <div class="title">1 Divides Everything</div>
@@ -122,7 +144,6 @@
 					</p>
 				</div>
 			</div>
-		
 
 		<div class="definition" id="definition-remainder-function">
 		    <div class="title">remainder function</div>
@@ -135,6 +156,33 @@
 			<div class="title">divisor function</div>
 			<div class="content">
 				Given two integers \( a , b \in \mathbb{Z} \) such that \( b \ne 0 \), <span class="knowledge-link" data-href="/number_theory/division.html#theorem-quotient-remainder">then </span> we get some \( q , r \in \mathbb{Z} \) with \( 0 \le r \lt \left | b \right |  \) such that \( a = b \cdot q + r \) and we define \( a / / b := q \)
+			</div>
+		</div>
+
+		<div class="corollary" id="corollary-specific-value-of-the-divisor-function">
+			<div class="title">Specific Value of the Divisor Function</div>
+			<div class="content">
+				We note that
+				\[
+				    a ~//~ b = \left\lfloor \frac{b}{a}  \right\rfloor
+				\]
+			</div>
+			<div class="proof">
+
+			</div>
+		</div>
+
+
+		<div class="corollary" id="corollary-specific-value-of-the-remainer-function">
+			<div class="title">Specific Value of the Remainder Function</div>
+			<div class="content">
+				We note that
+				\[
+				    a ~\%~ b = b - \left\lfloor \frac{b}{a}  \right\rfloor a
+				\]
+			</div>
+			<div class="proof">
+
 			</div>
 		</div>
 

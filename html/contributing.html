@@ -9,6 +9,11 @@
 		
         <link rel="stylesheet" href="/styles/styles.css">
         <script src="/js/script.js" defer></script>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
+
+		<script>hljs.highlightAll();</script>
     </head>
     <body>
 
@@ -168,6 +173,34 @@
 			<p>
 				If you aren't familiar with any svg tools, you may include rasterized graphics, in this case at least make sure you've given the graphic an alpha (see through) background.
 			</p>
+
+			<h2>Adding Code Snippets</h2>
+
+			<p>
+				As of right now if you'd like to include source files on a webpage, I recommend you add the following into the head of your document:
+			</p>
+
+			<pre>
+				&ltlink rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css"&gt
+				&ltscript src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"&gt&lt/script&gt&ltscript src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"&gt&lt/script&gt
+
+				&ltscript&gthljs.highlightAll();&lt/script&gt
+
+				&ltscript src="/js/insert_file_contents.js"&gt&lt/script&gt
+			</pre>
+
+			<p>
+				Here we're loading in our code highlight package, and also including the code which allows us to insert code file contents. Then wherever we want to include a file we do the following:
+			</p>
+
+			<pre>
+				&ltdiv class="code-file" data-file-name="../implementation/breadth_first_search.cpp"&gt&lt/div&gt
+			</pre>
+
+			<p>
+				The script automatically pulls the file extension and figures out how to highlight it.
+			</p>
+
 			
 			<h2>Adding Definitions</h2>
 

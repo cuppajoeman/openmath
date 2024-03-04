@@ -1,10 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Ford Fulkerson</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+    <script src="/js/insert_file_contents.js"></script>
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-network">
+    	<div class="title">Network</div>
+    	<div class="content">
+    		A <b>network</b> consists of the following
+            <ul>
+                <li>A finite directed graph \( N = \left( V, E \right)  \) </li>
+                <li>A source \( s \in V \) and a sink \( t \in V \)  </li>
+                <li>A capacity function which is a mapping \( c : E \to \mathbb{ R } ^ + \) which represents the maximum amount of flow that can pass through an edge.</li>
+
+            </ul>
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-in-neighbor-function">
+    	<div class="title">In Neighbor Function</div>
+    	<div class="content">
+    		We define the function
+            \[
+                \operatorname{ in-nhbs } \left( u \right) := \left\{ x : \left( x, u \right) \in E  \right\}
+            \]
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-out-neighbor-function">
+        <div class="title">Out Neighbor Function</div>
+        <div class="content">
+            We define the function
+            \[
+            \operatorname{ out-nhbs } \left( u \right) = \left\{ x : \left( u, x \right) \in E  \right\}
+            \]
+        </div>
+    </div>
+
+
+    <div class="definition" id="definition-flow">
+    	<div class="title">Flow</div>
+    	<div class="content">
+    		A <b>flow</b> through a network is a mapping \( f: E \to \mathbb{ R } ^ + \) such that the following hold true:
+            <ul>
+                <li><b>Capacity Constraint</b>: For every edge \( \left( u, v \right) \in E \) we have that \( f \left( u, v \right) \le c \left( u, v \right)   \)   </li>
+                <li><b>Conservation of Flow</b>: For each vertex \( v \) apart from \( s \) and \( t \) we have the following </li>
+                \[
+                    \sum _ { x \in \operatorname{ in-nhbs } \left( v \right)  }  f \left( x, v \right) = \sum _ { y \in \operatorname{ out-nhbs } \left( v \right)  } f \left( v, y \right)
+                \]
+                which says that the amount of flow coming into a node is the same as the amount of flow coming out.
+            </ul>
+
+    	</div>
+    </div>
+
+    <div class="corollary" id="corollary-flow-out-of-the-source-is-the-same-as-flow-entering-the-sink">
+    	<div class="title">Flow out of the Source is the Same as Flow Entering the Sink</div>
+    	<div class="content">
+    		\[
+                \sum _ { y \in \operatorname{ out-nbhs } \left( s \right)  } f \left( s, y \right) = \sum _ { x \in \operatorname{ in-nhbs } \left( t \right) } f \left( x, t \right)
+    		\]
+    	</div>
+    	<div class="proof">
+            This follows from the conservation axiom for flows.
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-flow-value">
+    	<div class="title">Flow Value</div>
+    	<div class="content">
+    		Given a network, and a flow, then it's flow value is defined as :
+            \[
+                \lvert f \rvert := \sum _ { y \in \operatorname{ out-nbhs } \left( s \right)  } f \left( s, y \right) = \sum _ { x \in \operatorname{ in-nhbs } \left( t \right)     } f \left( x, t \right)
+            \]
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-maximum-flow-problem">
+    	<div class="title">Maximum Flow Problem</div>
+    	<div class="content">
+            Given any <a class="knowledge-link" href="/computer_science/algorithms/graphs/network_flow/ford_fulkerson.html#definition-network">network</a>, maximize \( \lvert f \rvert  \)
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-s-t-cut">
+    	<div class="title">s-t Cut</div>
+    	<div class="content">
+    		An \( s-t \) cut is a partition \( \left\{ S, T \right\}  \) of \( V \) such that \( s \in S \) and \( t \in T \).
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-cut-set">
+    	<div class="title">Cut Set</div>
+    	<div class="content">
+            Suppose that \( S, T \) is an s-t cut, then we define
+            \[
+                X _ C := \left\{ \left( u, v \right) \in E: u \in S, v \in T \right\}
+            \]
+    	</div>
+    </div>
+
+    <div class="theorem" id="theorem-max-flow-min-cut">
+    	<div class="title">Max-Flow Min-Cut</div>
+    	<div class="content">
+            The maximum value of an s-t flow is equal to the minimum capacity over all s-t cuts.
+        </div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+
+
+    
+
+
+
+
+
+</div>
 </body>
 </html>

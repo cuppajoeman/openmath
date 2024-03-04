@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Lambda Calculus</title>
+    <title>Racket</title>
     <link rel="stylesheet" href="../../styles/styles.css">
     <script src="/js/script.js" defer></script>
 </head>
@@ -13,111 +13,137 @@
 <body>
 <div class="thin-wrapper">
 
-    <div class="definition" id="definition-expression">
-    	<div class="title">Expression</div>
-    	<div class="content">
-    		An expression is one of the following:
-            <ol>
-                <li>An identifier: Some collection of symbols not including dot or lambda</li>
-                <li>A function expression: \( \lambda x . expr \) </li>
-                <li>A function application: \( f ~ expr \) </li>
-            </ol>
-    	</div>
-    </div>
+    <h1>Racket</h1>
+
+    <h2>Define</h2>
 
     <p>
-        Written as a grammar it looks like:
+        The main command here is <a href="https://docs.racket-lang.org/reference/define.html">define</a>, the two main usages are to bind a value to the result of an expression, and to bind an id to a procedure.
+    </p>
+
+    <p>
+        To bind an id to the value of an expression do
     </p>
 
     <pre>
-        &ltexpr&gt = x # IDENTIFIER
-        | e1 e2 # application
-        | λx . e # abstraction
+        (define x 3)
     </pre>
 
     <p>
-        In practice this means that if we see \( \left( \lambda x . x \right) ~ 5 \) it can be evaluated to \( 5 \) .
+        To bind an id to a procedure you can do
     </p>
+
+    <pre>
+        (define (my-func arg1 arg2) (+ arg1 arg2))
+    </pre>
 
     <p>
-        That is to say that Lambda Calculus is concerned with denoting functions of one variable (or argument), and calling them with some value, we call the former an "abstraction" and the latter a function "application".
+        Note that this is equivalent to:
     </p>
+
+    <pre>
+        (define my-func (λ (arg1 arg2) (+ arg1 arg2))
+    </pre>
+
+    <h2>Local Name Bindings</h2>
 
     <p>
-        The semantics of lambda calculus use substitution to evaluate programs, given a function application, we first evaluate the expression on the right and suppose it evaluates to some value v, then we look in the body of the lambda, and recursively replace any instance of x with the value v, unless we hit another lambda which uses the same variable x, in that case we stop recursing there or if we find a value.
+        The Let expression allows us to make local name bindings, but the evaluation order of the bindings are done in some undefined order, meaning that they cannot depend on eachother.
     </p>
 
-    <div class="exercise" id="exercise-lambda-evaluation-of-euclidean-distance">
-    	<div class="title">Lambda Evaluation of Euclidean Distance</div>
+    <div class="exercise" id="exercise-let-in-racket">
+    	<div class="title">Let in Racket</div>
     	<div class="content">
-            Write down how lambda calculus would evaluate
-            \[
-                (((\lambda x . \lambda y . \sqrt{x ^ 2 + y ^ 2}) 1 + 2) 2 + 2)
-            \]
+    		What is the result of the following code:
+            <pre>
+                (define a 100)
+                (define b 100)
+                (define c 100)
+                (let ([a 5] [b (+ a a)] [c (+ a b)]) (list a b c) )
+            </pre>
+    	</div>
+    	<div class="proof">
+
+            <p>
+                Since the bindings of a let expression cannot depend on eachother, then previously computed values are not used until we are inside the body, thus we have the following
+            </p>
+            <p>
+                Suppose that c gets bound to (+ a b) first, thus c' becomes 200, suppose a is bound next thus a' becomes 5, then suppose b is bound to (+ a a), since we don't use previously computed values, we still use a = 100, to get that b' is 200. Now we evaluate the body with these ticked variables to obtain '(5 200 200).
+            </p>
+            <p>
+                Note that no matter what order they are evaluated you always will get the same answer.
+            </p>
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-let-error">
+    	<div class="title">Let Error</div>
+    	<div class="content">
+            Why does the following code work?
+            <pre>
+            (define sq-cube
+                (lambda (x)
+                    (let ([sqr (* x x)] [cube (* x sqr)]) (list sqr cube))
+                )
+            )
+            </pre>
     	</div>
     	<div class="proof">
             <p>
-                In this case, we have an outermost function application, so we evaluate \( 2 + 2 \) which becomes \( 4 \), we then evaluate the function expression on the left,
+                It won't work because there is no guarentee in which order the identifiers are bound, and thus if the second is bound first, <code>sqr</code> would be undefined.
             </p>
-            <p>
-                Since the expression on the left is a function application, we first evaluate \( 1 + 2 \) to obtain \( 3 \) and then evaluate the function expression on the left.
-            </p>
-            <p>
-                The function expression here is \( \lambda x . \lambda y . \sqrt{x ^ 2 + y ^ 2} \)  and so it evaluates to itself, then we replace it with it's body where we've replaced \( x \) with the value \( 3 \) to obtain \( \lambda y . \sqrt{3 ^ 2 + y ^ 2} \).
-            </p>
-            <p>
-                At this point our evaluation of the left with respect to our first paragraph is finally complete and the evaluation is equal to \( \lambda y . \sqrt{3 ^ 2 + y ^ 2} \), now we evaluate the body of this lambda with any instance of \( y \) replaced by \( 4 \), which yields \( \sqrt{3 ^ 2 + 4 ^ 2} \) which the evaluates to \( 5 \).
-            </p>
-    	</div>
-    </div>
-
-    <div class="definition" id="definition-referential-transparency">
-    	<div class="title">Referential Transparency</div>
-    	<div class="content">
-    		An identifier is said to be referentially transparent if the identitifer can always be substituted for its definition without changing the programs behavior
     	</div>
     </div>
 
     <p>
-        Consider the following python code:
+        We can fix the above problem by nesting let statements or by using the let* expression which was defined exactly for having sequential let statements.
+    </p>
+
+    <p>
+        Also note that local name bindings do not update values, so if we had the following code
     </p>
 
     <pre>
-        def not_good(x):
-            x = x + 1
-            print(x)
-
-        x = 3
-        not_good(x) ~> prints 4
-        print(x) ~> prints 3, because x was bound as a parameter (copy)
-
-        --- (if we now replace the not_good function by it's body)
-
-        x = 3
-        x += 1 ~> actually changed x...
-        print(x) ~> 4
-        print(x) ~> 4
-
-        --- (another example would be datetime.now())
-
-        print(datetime.now()) ~> a
-        print(datetime.now()) ~> b (where a < b)
+        (define a 10)
+        (let ([a 5]) (+ a 100))
     </pre>
 
-
-
     <p>
-        Therefore the identifier <code>not_good</code> is not referentially transparent. In pure functional languages, every identifier is referentially transparent. Which means that the value of a function application is independent of the context in which it occurs, and we know that the value of \( f \left( a, b, c \right)  \) only ever depends on the values of \( f, a, b, c \).
+        Then the value of a is still 10. In general pure functions will never update values, which implies that every time a given function takes in a specfic set of values it will always return the same result and there are no side effects.
     </p>
 
     <p>
-        This is beneficial if we wan to reason about programs, because no function ever has any side effects so there's no need to consider global state.
+        If no values ever change, then how do we actually do anything meaningful? Recursion.
     </p>
 
+    <h2>Symbols</h2>
 
+    <p>
+        Symbols can be thought of like enums.
+    </p>
 
+    <h2>Macros</h2>
 
+    <pre>
+        (define-syntax list-of ; this is the initial name of macro
+            (syntax-rules (for in) ; this are reserved keywords, match them literally
+                (
+                    (list-of result-element-expression for element-name in a-list) ; match this
+                    (map (λ (element-name) result-element-expression) a-list) ; map it to this
+                )
+            )
+        )
+    </pre>
 
+    <p>
+        Then <code>(list-of e for x in ls)</code> will get replaced with <code>(map (λ (x) e) ls)</code>
+    </p>
+
+    <p>
+        Note that you can have recursive macros
+    </p>
+
+    
 
 </div>
 </body>

@@ -74,6 +74,56 @@
 
     	</div>
     </div>
+    
+    <div class="definition" id="definition-syntactic-ambiguity">
+    	<div class="title">Syntactic Abiguity</div>
+    	<div class="content">
+    		We say that a grammar is ambiguous iff it generates a string expression for which there are two or more distinct ASTs
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-ambiguous-string-expression">
+    	<div class="title">Ambiguous String Expression</div>
+    	<div class="content">
+    		A string expression is ambiguous with respect to a grammar if that grammar generates two or more distinct AST's for the string expression.
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-ambiguous-if-then-grammar">
+    	<div class="title">Ambiguous If Then Grammar</div>
+    	<div class="content">
+            Prove that the following grammar is ambiguous
+            <pre>
+                &ltstmt&gt = &ltprint-stmt&gt | &ltif-stmt&gt
+                &ltif-stmt&gt = if &ltboolean-expr&gt then &ltstmt&gt
+                              | if &ltboolean-expr&gt then &ltstmt&gt else &ltstmt&gt
+            </pre>
+    	</div>
+    	<div class="proof">
+            Consider the string expression:
+            <pre>
+                if (x odd) then
+                if (x == 1) then
+                print "bleep";
+                else
+                print "bloop";
+            </pre>
+            THen the following two AST's can be produced.
+    	</div>
+    </div>
+
+    <p>
+        Note that we can fix the above grammar by introducing delimiters like this:
+    </p>
+
+    <pre>
+        &ltstmt&gt = &ltprint-stmt&gt | &ltif-stmt&gt
+        &ltif-stmt&gt = if &ltboolean-expr&gt then &ltstmt&gt fi
+                      | if &ltboolean-expr&gt then &ltstmt&gt else &ltstmt&gt fi
+    </pre>
+
+    
+    
 
 
     

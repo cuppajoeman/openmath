@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Racket</title>
+    <title>Evaluation</title>
     <link rel="stylesheet" href="../../styles/styles.css">
     <script src="/js/script.js" defer></script>
 </head>
@@ -13,116 +13,105 @@
 <body>
 <div class="thin-wrapper">
 
-    <h1>Racket</h1>
+    <h1>Evaluation</h1>
 
-    <h2>Define</h2>
-
-    <p>
-        The main command here is <a href="https://docs.racket-lang.org/reference/define.html">define</a>, the two main usages are to bind a value to the result of an expression, and to bind an id to a procedure.
-    </p>
+    <h2>Eager</h2>
 
     <p>
-        To bind an id to the value of an expression do
+        Let's look at eager evaluation with respect to a function application.
     </p>
 
+    <ol>
+        <li>Eval the expr representing the function</li>
+        <li>Eval each arguments expression from left to right</li>
+        <li>Bind the parameters to the respective arguments and evaluate the body </li>
+    </ol>
+
+    <p>
+        The fallout of eager is that every time a function call occurs all arguments are evaluated even if they're not used in the body of a function. If an argument is repeatedly used, it's only evaluated once (we can optimize)
+    </p>
+
+    <h2>Lazy</h2>
+
+    <ol>
+        <li>Eval the expression representing the function</li>
+        <li>Bind the parameters to the respective un-evaluated argument expressions</li>
+        <li>Evaluate the function body with the bindings</li>
+    </ol>
+
+    <p>
+        The fallout of lazy evaluation is that on the arguments that are used in the function are actually evaluated which may save time, but an expression that is used rpeatedly in the function is repeatedly evaluated, which could use more time.
+    </p>
+
+    <h2>The Difference</h2>
+
+    <p>
+        One big example would be errors, in eager, they will be found before the function body is executed whereas in lazy, the error arises inside the body of the function.
+    </p>
+
+    <pre>
+        ((λ (x) (* x x)) (/ 1 0)) ; eager: fails in arguments before function ever called
+    </pre>
+
+    <pre>
+        ((λ (x) (* x x)) (/ 1 0)) ; lazy: tries to do (* (/ 1 0 ) (/ 1 0)) and then finds div by zero.
+    </pre>
+
+    <h2>Delaying Evaluation in Eager</h2>
+
+    <p>
+        Recall that the body of a function is not evaluated until it is called. We can abuse this to create lazy evaluation inside of an eager evaluated language.
+    </p>
+    
+    <div class="definition" id="definition-thunk">
+    	<div class="title">Thunk</div>
+    	<div class="content">
+    		A thunk is a function with zero arguments
+    	</div>
+    </div>
+
+    <p>
+        The idea of a thunk is to be able to have expressions which aren't evaluated until we want them to be, which can allow us to safely handle expressions which if evaluated would evaluate forever such as streams.
+    </p>
+
+    <h2>Free Identifiers and Closures</h2>
+
+    <div class="definition" id="definition-free-identifier">
+    	<div class="title">Free Identifier</div>
+    	<div class="content">
+    		A free identifier is an identifier within a function body that is not a parameter to the function and is not bound in a local let-expression.
+    	</div>
+    </div>
+    
     <pre>
         (define x 3)
+        (define a-thunk (λ () (+ x 1)))
     </pre>
 
     <p>
-        To bind an id to a procedure you can do
+        In the above, \( x \) is a free identifier in a-thunk
     </p>
 
-    <pre>
-        (define (my-func arg1 arg2) (+ arg1 arg2))
-    </pre>
-
-    <p>
-        Note that this is equivalent to:
-    </p>
-
-    <pre>
-        (define my-func (λ (arg1 arg2) (+ arg1 arg2))
-    </pre>
-
-    <h2>Local Name Bindings</h2>
-
-    <p>
-        The Let expression allows us to make local name bindings, but the evaluation order of the bindings are done in some undefined order, meaning that they cannot depend on eachother.
-    </p>
-
-    <div class="exercise" id="exercise-let-in-racket">
-    	<div class="title">Let in Racket</div>
+    <div class="definition" id="definition-closure">
+    	<div class="title">Closure</div>
     	<div class="content">
-    		What is the result of the following code:
-            <pre>
-                (define a 100)
-                (define b 100)
-                (define c 100)
-                (let ([a 5] [b (+ a a)] [c (+ a b)]) (list a b c) )
-            </pre>
-    	</div>
-    	<div class="proof">
-
-            <p>
-                Since the bindings of a let expression cannot depend on eachother, then previously computed values are not used until we are inside the body, thus we have the following
-            </p>
-            <p>
-                Suppose that c gets bound to (+ a b) first, thus c' becomes 200, suppose a is bound next thus a' becomes 5, then suppose b is bound to (+ a a), since we don't use previously computed values, we still use a = 100, to get that b' is 200. Now we evaluate the body with these ticked variables to obtain '(5 200 200).
-            </p>
-            <p>
-                Note that no matter what order they are evaluated you always will get the same answer.
-            </p>
-    	</div>
-    </div>
-
-    <div class="exercise" id="exercise-let-error">
-    	<div class="title">Let Error</div>
-    	<div class="content">
-            Why does the following code work?
-            <pre>
-            (define sq-cube
-                (lambda (x)
-                    (let ([sqr (* x x)] [cube (* x sqr)]) (list sqr cube))
-                )
-            )
-            </pre>
-    	</div>
-    	<div class="proof">
-            <p>
-                It won't work because there is no guarentee in which order the identifiers are bound, and thus if the second is bound first, <code>sqr</code> would be undefined.
-            </p>
+    		A function with a free identifier
     	</div>
     </div>
 
     <p>
-        We can fix the above problem by nesting let statements or by using the let* expression which was defined exactly for having sequential let statements.
-    </p>
-
-    <p>
-        Also note that local name bindings do not update values, so if we had the following code
+        Note that the below is a closure as it has a free identifier, namely a or b
     </p>
 
     <pre>
-        (define a 10)
-        (let ([a 5]) (+ a 100))
+        (λ (x y z) (a + b))
     </pre>
 
     <p>
-        Then the value of a is still 10. In general pure functions will never update values, which implies that every time a given function takes in a specfic set of values it will always return the same result and there are no side effects.
+        We say that this closure closes over a and b.
     </p>
 
-    <p>
-        If no values ever change, then how do we actually do anything meaningful? Recursion.
-    </p>
 
-    <h2>Symbols</h2>
-
-    <p>
-        Symbols can be thought of like enums.
-    </p>
-
-    
 
 </div>
 </body>

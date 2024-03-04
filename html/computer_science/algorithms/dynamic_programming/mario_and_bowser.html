@@ -52,39 +52,156 @@
   </ul>
 
   <hr>
-  
-  <p>
-    We want to figure out the minimal amount of health mario needs to get to bowser. One way of thinking about this is that if we're at a certain position in the grid \( \left( i, j \right)  \) , and it has some value \( a \in \mathbb{ Z }  \), then we either got here from \( i - 1, j \) or \( i, j - 1 \).
-  </p>
-  <p>
-    Firstly in order to survive the current square, we must have at least \( n = \lvert \min \left( 0, a \right) \rvert  + 1  \) health. To understand that suppose that \( a = -3 \), then we must have at least \( 4 \) health to survive this square. On the other hand if \( a \) was positive say \( 8 \), then our health doesn't matter at all.
-  </p>
-  <p>
-    Moreover, suppose we needed at least \( k \in \mathbb{ N } _ 1\) health to get to square \( \left( i - 1, j \right)  \), then we will still need at least that much health to get to square \( \left( i, j \right)  \) by taking this path from \( \left( i - 1, j \right)  \)
-  </p>
+
+
+  <h3>1</h3>
 
   <p>
-    Suppose we needed \( j \in \mathbb{ N } _ 1 \) health to get to square \( \left( i, j - 1 \right)  \), then by taking this path to the current square, we would also need at least \( j \) health. Since we have the choice of taking this path, or the path discussed in the previous paragraph, we may choose to take the min of these two paths to help minimize the current health needed. Suppose \( m = \min \left( j, k \right)  \)
+    Note that in order for Mario to escape the top left 2x2 grid, the minimum amount of damage he will have to take is 5, by taking the top wall, also we by maximizing the number of turns he is on the right or bottom wall we can increase marios health, which would produce a lower required initial heatlh, since both the right and bottom wall can increase marios health by 4, then we simply choose the initial exit path from the top left 2x2 square which minimizes the damage, therefore the path RRDD is the best possible path.
   </p>
 
+  <h3>2</h3>
+
   <p>
-    Since in either case we still have to land on the current square the the minimum health required to get to this position is given by \( \max \left( m, n \right)  \), we have to take the max to make sure we can get to the previous square, but then also the current square.
+    We want to figure out the minimal amount of helath mario needs to get to bowser in general, one way of thinking about this is that as mario traverses the grid, his health will change based on the path he's taken so far. For example in the example grid \( M \), then mario intially takes \( -2 \) damage, by moving to the right he's taken \( -2 - 3 = -5 \) total damage, then by moving right again, he gains \( 1 \) health so that the total health change is \( -4 \), by moving down once the health change becomes \( -1 \) finally landing on the the final square yields a health change of \( -6 \).
   </p>
 
 
 
-
-
-  Therefore the minimal amount of health needed to get to this point is
+  <p>
+    Looking at the above sequence \( -2, -5, -4, -1, -6 \), we can see that as he moves through this path he's going to need to have at least \( 7 \) health to survive this journey. Note that it's not enough to simply look at the numbers on the grid, as then we might come to believe we would only need \( 6 \) health to survive the last block, but we need to keep track of how much health we've gained and lost as we move.
+  </p>
+  <p>
+    At the same time, mario could have taken a different path to get to the goal state, for example if he went down twice and then right twice we would have a health change sequence as follows \( -2, -6, -3, -2, -7 \) which would say that mario needs at least \( 8 \) health to get to the end state. There would be other paths to get to the goal state, but in general we want to know the minimum health mario would need to get to the goal state, so out of all the paths that could get us there, we only care about the one that requires mario having minimal health.
+  </p>
+  <p>
+    Before continuing we'll make some definitions to make speaking about this problem easier. If mario takes some path on the map, it generates a "health change sequence", as discussed in the previous paragraph, note that the last term in the sequence is the total health change obtained by getting to the current square, let's denote this as the health change amount (HCA) of a given square. We'll denote the original grid taken as input as the (AHC) absolute health change grid
+  </p>
+  <p>
+    If we have some health change amount (HCA) \( h \in \mathbb{ Z } \), then the larger it is, the better it is for mario because it would mean that you lose less health. Also at any given position in the map, there may be multiple ways to get there, each sequence yielding their own HCA, by taking the maximum of these paths, we can determine the path which gives mario the highest HCA at this square.
+  </p>
+  <p>
+    Let's try constructing a maximal HCA grid, given any position \( \left( i, j \right)  \)  on the AHC grid, suppose we know the max HCA value for \( \left( i - 1, j \right)  \) and \( \left( i, j - 1 \right)  \), denoted by \( \mathrm{ MHCA } _L , \mathrm{ MHCA }_ U \) respectively then the max HCA value for \( i, j \) would be given by
+  </p>
   \[
-  \max \left( \min \left( 0, a + 1 \right), M \left[ i - 1 \right] \left[ j \right], M \left[ i \right] \left[ j - 1 \right] \right)
+    \max \left(  \mathrm{ MHCA } _L , \mathrm{ MHCA } _ U\right) + a
   \]
-  The reasoning for this is that in order to be able to get to this position, we must have enough health to survive, the current square
-
 
   <p>
-    For any path \( p \) such that \( C \left( p \right) \gt 0  \), then mario can easily start with 1 health, because his (never mind it's not that easy)
+    Where \( a \) is the value at that particular cell, note that it must be included because you took a path and ended up at this square, meaning you have to change your health by the definition of the game.
   </p>
+
+  <p>
+    Since we subtracted one from the \( x \) or \( y \) component of \( \left( i, j \right)  \) without considering if the resulting position is within the grid, we can correct for this by noting that if we're on say the left wall, we'd only have to look up, to compute our MHCA value, that is:
+  </p>
+
+  MHCA[i][j] =
+
+  <ul>
+    <li>if i == j == 0</li>
+    <ul>
+      <li>AHC[0][0] (base case)</li>
+    </ul>
+    <li>elif i == 0 && j > 0</li>
+    <ul>
+      <li>MHCA[i][j - 1] + AHC[i][j] (on left wall, look up)</li>
+    </ul>
+    <li>elif j == 0 && i > 0</li>
+    <ul>
+      <li>MHCA[i - 1][j] + AHC[i][j] (on top wall, look left)</li>
+    </ul>
+    <li>else</li>
+    <ul>
+      <li>max(MHCA[i - 1][j], MHCA[i][j - 1]) + AHC[i][j]</li>
+    </ul>
+  </ul>
+
+  <p>
+    Now that we have this new MHCA grid constructed, it doesn't straight away give us the minimum amount of health mario will need to survive the journey, any given square simply tells us the maximum change in health mario could have at this position. For example suppose we have the following grid. \( N =  \)
+  </p>
+  \[
+  \begin{array}{ |c|c|c| }
+  \hline
+  -1 & -1 & -100 \\
+  \hline
+  -1 & -100 & 100  \\
+  \hline
+  -1 & -1 & 0 \\
+  \hline
+  \end{array}
+  \qquad \text{ then the MHCA grid is:  }  \qquad
+  \begin{array}{ |c|c|c| }
+  \hline
+  -1 & -2 & -102 \\
+  \hline
+  -2 & -103 & -2  \\
+  \hline
+  -3 & -4 & -2 \\
+  \hline
+  \end{array}
+  \]
+
+  <p>
+    The top right element of the MHCA grid says that the maximum health change mario could get at this grid position is \( -102 \) which means that any path that takes mario to this position, will give a net result of mario losing at least \( 102 \) health. Therefore we can deduce that the path \( \tt{RRDD} \) would require mario to have at least \( 103 \) health, whereas \( \tt{DDRR} \) would only require mario to have \( 5 \) health.
+  </p>
+
+  <p>
+    Let's use the MHCA grid to compute marios minimum required health. We'll do this by constructing one more grid such that a position on the grid is the minimum amount of health required for mario to make it to this grid square. We'll denote this grid by the "MHR grid" (min health required). Given the MHCA grid that we most recently discussed, we'll note that it's MHR grid is as follows:
+  </p>
+
+  \[
+    \begin{array}{ |c|c|c| }
+    \hline
+    -1 & -2 & -102 \\
+    \hline
+    -2 & -103 & -102  \\
+    \hline
+    -3 & -4 & -4 \\
+    \hline
+    \end{array}
+  \]
+
+  <p>
+    Which was obtained by taking any position in the MCHA grid and taking the max of left and up denoting that value by \( m \) and then taking the min of \( m \) and the MCHA value at that square. Specifically each square is computed as follows
+  </p>
+
+
+  MHR[i][j] =
+
+  <ul>
+    <li>if i == j == 0</li>
+    <ul>
+      <li>MHCA[0][0] (base case)</li>
+    </ul>
+    <li>elif i == 0 && j > 0</li>
+    <ul>
+      <li>min(MHCA[i][j - 1], MHCA[i][j]) (on left wall, look up)</li>
+    </ul>
+    <li>elif j == 0 && i > 0</li>
+    <ul>
+      <li>min(MHCA[i - 1][j] + MHCA[i][j]) (on top wall, look left)</li>
+    </ul>
+    <li>else</li>
+    <ul>
+      <li>min(MHCA[i - 1][j], MHCA[i][j - 1], MHCA[i][j])</li>
+    </ul>
+  </ul>
+
+  <p>
+    Now once that entire grid has been computed to find the minimum health required by mario we simply just look at MHR[N][M], which is our solution.
+  </p>
+
+  <h3>3</h3>
+
+  <p>
+    In order to compute the MHCA grid, we take a bottom up approach only computing each element of the grid once which will take \( \Theta \left( n \cdot m  \right)  \) time, we only need a single row or column to produce the next, and therefore we can reduce our space complexity to \( \mathcal{ O } \left( \min ( m, n )  \right)  \) by selecting the smaller dimension, and removing previous rows from memory.
+  </p>
+
+  <p>
+    The same analysis holds true for the MHR grid, thus, the runtime and space complexity does not change as this would only add a constant to the front of each.
+  </p>
+
+
 
 </div>
 </body>

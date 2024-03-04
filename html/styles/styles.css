@@ -80,6 +80,10 @@ a {
 	text-decoration: none;
 }
 
+table, th, td {
+    border: 1px solid var(--main-text-color);
+}
+
 /* top bar */
 
 #topbar {

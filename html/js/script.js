@@ -33,7 +33,7 @@ async function preparePage() {
     setUpKnowledgeLinks();
     createSystemColorModeListener();
     checkForSavedColorMode();
-    setCustomCursor();
+    // setCustomCursor(); temporarily disalbe custom cursor
     automaticallyAddIcon();
 }
 

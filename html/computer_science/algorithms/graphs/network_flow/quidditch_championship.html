@@ -23,7 +23,11 @@
     <h1>Quidditch Championship</h1>
 
     <p>
-        A muggle wants to know the outcome of Quidditch championship. You are a wizard to help him. A house wins the championship if it wins more matches than the other houses at the end of championship. If a house cannot finish first under any outcome of the remaining matches, then we call the house <b>eliminated</b>. For some houses, you do not need to wait for all matches to be played to determine if these houses are eliminated or not.
+        A muggle wants to know the outcome of Quidditch championship. You are a wizard to help him. A house wins the championship if it wins more matches than the other houses at the end of championship. If a house cannot finish first under any outcome of the remaining matches, then we call the house <b>eliminated</b>. Also if in the end, there are multiple teams who are tied with the same numbers of wins, then none of them are not eliminated.
+    </p>
+
+    <p>
+        For some houses, you do not need to wait for all matches to be played to determine if these houses are eliminated or not.
     </p>
 
     \[
@@ -39,16 +43,69 @@
 
     <ul>
         <li>In the table above, which house(s) have been eliminated? Briefly explain why.</li>
-        <li>Let's generalize this problem. Suppose there are $n$ houses competing for the Quidditch cup. Let \( H = \{1,...,n\} \)  denote the set of houses in the championship. For each \( i \in H \), let \( w_i \) be house \( i \)'s number of wins so far; let \( r_i \) be the number of remaining matches to compete by house \( i \); let \( r_{ij} \) be number of remaining matches for house \( i \) to compete against house \( j \) (apparently  \( r_{ij} = r_{ji} \) ). \\</li>
+        <li>Let's generalize this problem. Suppose there are \( n \) houses competing for the Quidditch cup. Let \( H = \{1,...,n\} \)  denote the set of houses in the championship. For each \( i \in H \), let \( w_i \) be house \( i \)'s number of wins so far; let \( r_i \) be the number of remaining matches to compete by house \( i \); let \( r_{ij} \) be number of remaining matches for house \( i \) to compete against house \( j \) (apparently  \( r_{ij} = r_{ji} \) ). \\</li>
         <li>
-            Given any house $h \in H$, design a network flow to answer if \( h \) is eliminated. To make the question simpler, assume there is no trivial case: for every house \( i \in H \), there does not exist a house \( j \)  such that \( w_i + r_i < w_j \) . You are free to use edges with infinite capacity. After constructing your flow, you should make a claim: "if a flow of value ..., then house \( h \)  is eliminated", and then prove your claim.
+            Given any house \( h \in H \), design a network flow to answer if \( h \) is eliminated. To make the question simpler, assume there is no trivial case: for every house \( i \in H \), there does not exist a house \( j \)  such that \( w_i + r_i < w_j \) . You are free to use edges with infinite capacity. After constructing your flow, you should make a claim: "if a flow of value X exists, then house \( h \) is not eliminated", and then prove your claim.
         </li>
         <li>
-            Your construction in (b) can decide whether a single house $h$ is eliminated or not. If we want to determine all the eliminated houses, how many network flow instances do we need to construct? Briefly explain why.
+            Your construction in (b) can decide whether a single house \( h \) is eliminated or not. If we want to determine all the eliminated houses, how many network flow instances do we need to construct? Briefly explain why.
         </li>
     </ul>
 
     <hr>
+
+    <p>
+        We'll first observe that Sytherin has 16 wins so far and 5 games remaining, and therefore they can end with at most 21 wins, which wouldn't be enough to surpass Gryffindor, which means that there is no way that they cannot finish first under any outcome of the remaining matches, and thus they are <b>eliminated</b>.
+    </p>
+    <p>
+        There is actually another house which is eliminated which is not immediately visible. Consider Hufflepuff, we know that if they manage to win all of the 4 remaining games then they would be at 23 wins, at which point, they would not be eliminated yet, but since they've won 4 games, this means that Gryffindor has lost one game, and that Slytherin has lost 3 games.
+    </p>
+    <p>
+        Focusing our attention to Gryffindor, we see that they have 7 remaining games now that they've lost one against Hufflepuff, now if Gryffindor wins at least one game, then they would have 24 wins, which would make Hufflepuff eliminated as they can only get 23 wins.
+    </p>
+    <p>
+        On the other hand, if Gryffindor loses all games, that means that Ravenclaw has just won 6 games against Gryffindor meaning that their total win count has just become 24, which means that Hufflepuff is eliminated as well. Therefore in any case we can see that Hufflepuff was eliminated, and thus no matter the outcome of the remaining games Hufflepuff cannot finish first and is thus eliminated.
+    </p>
+
+    <h3>2</h3>
+
+    <p>
+        Let \( x \) be a team, now we construct the following graph, create an arbitrary source node \( s \) and create another layer of nodes such that for each pair of games that need to be played excluding team \( x \) we have a node in this layer, and we adjoin \( s \) to the node \( i, j \) via an edge weight of \( r _ { i, j }  \), next we create another layer which consists of the team names, where each node in the previous layer that contains some team \( k \) in their pair is connected to node \( k \) in this new layer. The edge weights here don't need a specific capacity because it will already be upperbounded by \( r _ { i, j } \) so it's easier to put  \( \mathrm{ inf }  \) weight on those edges.
+    </p>
+
+    <p>
+        Finally we have a terminal node at the end where each team node is directly connected to the terminal node. The setup looks like this:
+    </p>
+
+    <div class="centered-content">
+        <img src="games_elimination_graph.svg" width="600px" alt="">
+    </div>
+
+    <p>
+        Let's observe that in this graph, this perfectly models how the rest of the games will be played under the constraint that the total number of wins that any other team makes must not exceed the number of remaining games \( x \) has to play. This can be seen because suppose there are \( 5 \) games remaining between team \( 1, 2 \), then suppose team 1 wins \( 2 \) games and team 2 wins 3. We can see that this implies that given any node in the team layer, the sum of it's inputs is equal to how many games it's won so far.
+    </p>
+
+    <p>
+        Suppose that team 1 wins exactly 2 games, because of the conservation property this must be no more than \( w _ x + r _ x  - 2\) so that if team \( x \) had \( 3 \) games left to play, there is no issue. We can see that if \( w _ x + r _ x - w _ 1 \) had been equal to 0, then it's possible for this bottleneck to reach back to source node's initial output, but more on that later.
+    </p>
+
+    <p>
+        For now let's see what happens when a max flow algorithm is run on this network, and let's denote \( g ^ * = \sum r _ { i, j }  \) which is the sum of capacities of coming from \( s \), and we note this is the greatest possible flow of this network. Let's see what occurs when we can acheive a max flow in this network.
+    </p>
+
+    <p>
+        If a max flow of \( g ^ * \) can be achieved then this means that there's a possible scenario such that all other games can be allowed to occur (that is: \( \sum g _ { i, j } =  g ^ *  \)) and no teams wins exceed the max possible wins of \( x \)  (given by \( w _ x + r _ x \)) . On the other hand if a max flow \( v \) is achieved where \( v \lt g ^ * \) then then no matter how the other games are played it will be impossible to play every game and respect the contraint that no team wins more games than \( x \), therefore it's guarenteed that \( x \) will be eliminated in this case.
+    </p>
+
+    <p>
+        We'll show this is actually an if and only if, by assuming that \( x \) will be eliminated, which means that no matter how the rest of the games are played, there will always exist a team which wins more than \( x \). Therefore assume by contradiction that \( v = g ^ * \), now if that's true, then there exists a remaining game sequence such that all games occur and \( x \) either ties with everyone or wins, but that's impossible because we assumed that there should be a team that beats \( x \) in every situation, therefore \( v \lt g ^ * \) and we've proved the if and only if.
+    </p>
+
+    <h3>3</h3>
+    <p>
+        Each network flow instance will be able to deduce that exactly one team is eliminated, in the worst case every team is eliminated except for one, therefore we will have to run our network flow instance at least \( n \) times.
+    </p>
+
 
 
 </div>

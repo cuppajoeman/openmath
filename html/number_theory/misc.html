@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Floor and Ceiling</title>
+    <title>Miscellaneous Facts</title>
 
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer></script>
@@ -15,74 +15,56 @@
 <body>
 <div class="thin-wrapper">
 
-    <div class="definition" id="definition-floor">
-    	<div class="title">Floor</div>
+    <div class="proposition" id="proposition-max-length-sequence">
+    	<div class="title">Max Length Sequence</div>
     	<div class="content">
-    		For any \( x \in \mathbb{ R }  \), we define the <b>floor of \( x \) </b> denoted by \( \lfloor x \rfloor \) as \( \max \left( \left\{ m \in \mathbb{ Z } : m \le x \right\}  \right)  \). Note that \( \lfloor \cdot  \rfloor : \mathbb{ R } \to \mathbb{ Z }   \)
+    		Let \( M \in \mathbb{ R }  \) then largest value of \( n \) such that there is a finite sequence \( \left( a _ 1, \ldots a _ n \right) \in \mathbb{ R } ^ n \) where each term is bounded below by \( \epsilon \in \mathbb{ R } ^ { \gt 0 }  \) and that
+            \[
+                \sum _ { i = 1 }  ^  n a _ i = M
+            \]
+            is given by \( n = \lfloor \frac{M}{\epsilon }  \rfloor  \)
+    	</div>
+    	<div class="proof">
+            <p>
+                First note that it's impossible for \( n \gt \frac{M}{\epsilon }   \), since if it were true we would know that:
+                \[
+                \sum _ { i = 0 }  ^  n a _ i \ge  n \epsilon \gt \frac{M}{\epsilon } \epsilon = M
+                \]
+                but we require this sum to be equal to \( M \), therefore we know that \( n \le \frac{M}{\epsilon } \). So we have an upper bound on the value of \( n \)
+            </p>
+            <p>
+                Suppose that \( \epsilon \mid M \), therefore \( \frac{M}{\epsilon }  \in \mathbb{ Z }  \), and thus by taking \( n = \frac{M}{\epsilon }  \) then clearly \( n \) is at a maximum as needed, and by taking \( a _ i = \epsilon  \) we have
+                \[
+                   \sum _ { i = 1 }  ^   n a _ i =  n \epsilon = M
+                \]
+                Also note that \( \left\lfloor \frac{M}{\epsilon }  \right\rfloor = \frac{M}{\epsilon }   \) in this case.
+            </p>
+            <p>
+                Otherwise \( \epsilon \nmid M \), therefore \( \frac{M}{\epsilon } \in \mathbb{ R } \setminus \mathbb{ Z }  \), therefore we can certainly not pick \( n = \frac{M}{\epsilon }  \), and as stated earlier we cannot have \( n \) exceed this value, so the next largest value would the largest integer less than or equal to \( \frac{M}{\epsilon }  \) which is defined as \( \lfloor \frac{M}{\epsilon } \rfloor \)
+            </p>
+
+            <p>
+                Recall that by the quotient remainder theorem there exists some \( q, r \in \mathbb{ Z }  \) such that \( q \cdot \epsilon + r = M \), and that specifically we have that \( q = \left\lfloor \frac{M}{\epsilon }  \right\rfloor  \) and \( r = M - \left\lfloor \frac{M}{\epsilon }  \right\rfloor \epsilon   \) which yields the equation
+            </p>
+
+            \[
+                \left\lfloor \frac{M}{\epsilon }  \right\rfloor \cdot \epsilon + \left( M - \left\lfloor \frac{M}{\epsilon }  \right\rfloor \epsilon   \right) = \left( \left\lfloor \frac{M}{\epsilon }  \right\rfloor - 1  \right) \cdot \epsilon  + \left( M - \left\lfloor \frac{M}{\epsilon}   \right\rfloor \epsilon + \epsilon   \right)
+            \]
+            And note that since \( r \ge  0 \), well that is \( M - \left\lfloor \frac{M}{\epsilon }  \right\rfloor \ge  0  \), we know that
+            \[
+                M - \left\lfloor \frac{M}{\epsilon }  \right\rfloor \epsilon + \epsilon \gt \epsilon
+            \]
+            and thus the sequence given by \( a _ i = \epsilon  \) for \( i \in \left[ 1 \ldots \left( \left\lfloor \frac{M}{\epsilon }  \right\rfloor - 1  \right)  \right]  \) and
+            \[
+                a _ { \left\lfloor \frac{M}{\epsilon }  \right\rfloor  } = \left( M - \left\lfloor \frac{M}{\epsilon }  \right\rfloor \epsilon + \epsilon \right)
+            \]
+            is clearly bounded below by \( \epsilon  \), and has sum equal to \( M \), and has \( \left\lfloor \frac{M}{\epsilon }  \right\rfloor  \) terms, so the largest value of \( n \) is preciely that.
     	</div>
     </div>
 
     <p>
-        From here we can see that \( \lfloor \pi \rfloor = 3 \)
+        One way to understand what's going on here is to look at the following example where we have \( M = 38 \) and \( \epsilon = 5 \), in this case since \( \epsilon \nmid M \), then we know that we'd construct the sequence \( a _ 1 = a _ 2 = a _ 3 = a _ 4 = a _ 5 = a _ 6 = 5 \) and then we have that \( a _ 7 = 3 + 5 = 8 \), so here it maintains the smallest value until it would exceed it, and then combines the extra overflow into the previous term in the sequence which shortens the sequence and allows it to equal \( 38 \)
     </p>
-
-    <div class="definition" id="definition-ceiling">
-        <div class="title">Ceiling</div>
-        <div class="content">
-            For any \( x \in \mathbb{ R }  \), we define the <b>celining of \( x \) </b> denoted by \( \lceil x \rceil \) as \( \min \left( \left\{ n \in \mathbb{ Z } : n \ge x \right\}  \right)  \), here \( \lceil \cdot  \rceil : \mathbb{ R } \to \mathbb{ Z }   \)
-        </div>
-    </div>
-
-    <p>
-        And that \( \lceil \pi \rceil = 4  \)
-    </p>
-
-    <div class="corollary" id="corollary-floor-of-an-integer-is-itself">
-    	<div class="title">Floor of an Integer is Itself</div>
-    	<div class="content">
-    		Suppose \( x \in \mathbb{ Z }  \), then \( \lfloor x \rfloor = x \)
-    	</div>
-    	<div class="proof">
-            The greatest integer less than or equal to \( x \) is \( x \).
-    	</div>
-    </div>
-
-    <div class="corollary" id="corollary-ceiling-of-an-integer-is-itself">
-        <div class="title">Ceiling of an Integer is Itself</div>
-        <div class="content">
-            Suppose \( x \in \mathbb{ Z }  \), then \( \lceil x \rceil = x \)
-        </div>
-        <div class="proof">
-            The smallest integer greater than or equal to \( x \) is \( x \).
-        </div>
-    </div>
-
-    <div class="proposition" id="proposition-floor-of-a-non-integer-is-smaller">
-    	<div class="title">Floor of a Non Integer is Smaller</div>
-    	<div class="content">
-    		Suppose that \( a \in \mathbb{ R } \setminus \mathbb{ Z }  \), then
-            \[
-                \lfloor a \rfloor \lt a
-            \]
-    	</div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-
-    <div class="proposition" id="proposition-ceiling-of-a-non-integer-is-greater">
-    	<div class="title">Ceiling of a Non Integer is Greater</div>
-    	<div class="content">
-    		Suppose that \( a \in \mathbb{ R } \setminus \mathbb{ Z }  \) then
-            \[
-                \lceil a \rceil \gt a
-            \]
-    	</div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-
 
 
 </div>
