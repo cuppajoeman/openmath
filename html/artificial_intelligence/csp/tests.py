@@ -8,23 +8,107 @@ from puzzle_csp import *
 from propagators import *
 import propagators
 
-BOARDS = [ [[3],[11,21,3,0],[12,22,2,1],[13,23,33,6,3],[31,32,5,0]],
-[[4],[11,21,6,3],[12,13,3,0],[14,24,3,1],[22,23,7,0],[31,32,2,2],[33,43,3,1],[34,44,6,3],[41,42,7,0]],
-[[5],[11,21,4,1],[12,13,2,2],[14,24,1,1],[15,25,1,1],[22,23,9,0],[31,32,3,1],[33,34,44,6,3],[35,45,9,0],[41,51,7,0],[42,43,3,1],[52,53,6,3],[54,55,4,1]],
-[[6],[11,21,11,0],[12,13,2,2],[14,24,20,3],[15,16,26,36,6,3],[22,23,3,1],[25,35,3,2],[31,32,41,42,240,3],[33,34,6,3],[43,53,6,3],[44,54,55,7,0],[45,46,30,3],[51,52,6,3],[56,66,9,0],[61,62,63,8,0],[64,65,2,2]],
-[[5],[11,12,21,22,10,0],[13,14,23,24,34,18,0],[15,25,35,2,1],[31,32,33,1,1],[41,42,43,51,52,53,600,3],[44,54,55,2,2],[45,3]], 
-[[6],[11,12,13,2,2],[14,15,3,1],[16,26,36,11,0],[21,22,23,2,2],[24,25,34,35,40,3],[31,41,51,61,14,0],[32,33,42,43,52,53,3600,3],[44,54,64,120,3],[45,46,55,56,1,1],[62,63,5,1],[65,66,5,0]]]
+
+BOARDS = [ 
+    # Operators: 0: +, 1: -, 2: /, 3: *
+    # Note that +, * are commutative operations, so that order of how it is applied doesn't matter 
+    # for - and / the order matters note that these operators are not commutative and therefore 
+    # in the game part of the problem is determining which order to use the division operator in, 
+
+
+    [
+        [3], # 3x3 grid
+        [11,21,3,0], # cage with cells at (1, 1) and (2, 1) which must produce 3, using operator 0:+
+        [12,22,2,1], # cage with cells at (1, 2), (2, 3) must produce 2 using -
+        [13,23,33,6,3], # cage with cells at (1, 3), (2, 3), (3, 3) must produce 6, using *
+        [31,32,5,0] # cage with cells at (3, 1), (3, 2) must produce 5 using +
+     ],
+
+    [
+        [4], # 4x4 grid
+        [11,21,6,3],
+        [12,13,3,0],
+        [14,24,3,1],
+        [22,23,7,0],
+        [31,32,2,2],
+        [33,43,3,1],
+        [34,44,6,3],
+        [41,42,7,0]
+    ],
+    [
+        [5], # 5x5 grid
+        [11,21,4,1],
+        [12,13,2,2],
+        [14,24,1,1],
+        [15,25,1,1],
+        [22,23,9,0],
+        [31,32,3,1],
+        [33,34,44,6,3],
+        [35,45,9,0],
+        [41,51,7,0],
+        [42,43,3,1],
+        [52,53,6,3],
+        [54,55,4,1]
+    ],
+    [
+        [6],
+        [11,21,11,0],
+        [12,13,2,2],
+        [14,24,20,3],
+        [15,16,26,36,6,3],
+        [22,23,3,1],
+        [25,35,3,2],
+        [31,32,41,42,240,3],
+        [33,34,6,3],
+        [43,53,6,3],
+        [44,54,55,7,0],
+        [45,46,30,3],
+        [51,52,6,3],
+        [56,66,9,0],
+        [61,62,63,8,0],
+        [64,65,2,2]
+    ], 
+    [
+        [5],
+        [11,12,21,22,10,0],
+        [13,14,23,24,34,18,0],
+        [15,25,35,2,1],
+        [31,32,33,1,1],
+        [41,42,43,51,52,53,600,3],
+        [44,54,55,2,2], # means that 
+        [45,3]
+    ], 
+    [
+        [6],
+        [11,12,13,2,2],
+        [14,15,3,1],
+        [16,26,36,11,0],
+        [21,22,23,2,2],
+        [24,25,34,35,40,3],
+        [31,41,51,61,14,0],
+        [32,33,42,43,52,53,3600,3],
+        [44,54,64,120,3],
+        [45,46,55,56,1,1],
+        [62,63,5,1],
+        [65,66,5,0]
+    ]
+]
+
+
 
 ## HELPER FUNCTIONS
-def check_diff(vars, board):
+def check_diff(vars, board) -> bool:
+    """
+    Note it doesn't matter how your board is transposed or not for this function to work
+    """
     N = board[0][0]
     for i in range(0,N):
         for j in range(0,N):
-            #row diff-constraints
+            #row diff-constraints (vise versa if transposed)
             for k in range(j+1,N):
                 if vars[i][j].get_assigned_value() == vars[i][k].get_assigned_value():
                     return False
-            #col diff-constraints
+            #col diff-constraints (vise versa if transposed)
             for l in range(i+1,N):
                 if vars[i][j].get_assigned_value() == vars[l][j].get_assigned_value():
                     return False
@@ -32,6 +116,8 @@ def check_diff(vars, board):
     
 def add_check(values, target):
         sum = 0
+        if values[0] is None:
+            print("blooga")
         for v in values:
             sum += v
         if sum != target:
@@ -70,24 +156,25 @@ def mult_check(values, target):
             return False
         return True
     
-def check_cages(vars, board):
+def check_cages(vars, board: List[List[int]]):
     N = board[0][0]
+    c: List[int]
     for c in board:
         if len(c) == 1:#board size specification
             continue
         if len(c) == 2:#forced value to a cell
             val = c[1]
-            cell_i = (c[0] // 10)-1
-            cell_j = (c[0] % 10)-1
+            cell_i = (c[0] // 10)-1 # extract x component
+            cell_j = (c[0] % 10)-1 # extract y component
             if vars[cell_i][cell_j].get_assigned_value() != val:
-                return False
+                    return False
         if len(c) > 2:#larger cage
             val = c[len(c)-2]
             op = c[len(c)-1]
             cage_values = []
             for v in range(0,len(c)-2):#get vars in cage
-                cell_i = (c[v] // 10)-1
-                cell_j = (c[v] % 10)-1
+                cell_i = (c[v] // 10)-1 # XY -> X-1
+                cell_j = (c[v] % 10)-1 # XY -> Y-1
                 cage_values.append(vars[cell_i][cell_j].get_assigned_value())
             if op == 0:
                 if add_check(cage_values,val) == False:
@@ -144,7 +231,7 @@ TEST_ENCODINGS   = True
 TEST_PROPAGATORS = True
 
 class TestStringMethods(unittest.TestCase):
-    def helper_prop(self, board, prop=prop_FC):
+    def helper_prop(self, board, prop=prop_FI):
         csp, var_array = caged_csp(board)
         solver = BT(csp)
         solver.bt_search(prop)
@@ -174,6 +261,7 @@ class TestStringMethods(unittest.TestCase):
         board = BOARDS[1]
         self.helper_bne_grid(board)
 
+
     @unittest.skipUnless(TEST_PROPAGATORS and TEST_ENCODINGS, "Not Testing Propagators and Encodings.")
     def test_props_1(self):
         board = BOARDS[0]
@@ -194,7 +282,7 @@ class TestStringMethods(unittest.TestCase):
         board = BOARDS[3]
         self.helper_prop(board, prop_FI)
 
-    @unittest.skipUnless(TEST_PROPAGATORS and TEST_ENCODINGS, "Not Testing Propagators and Encodings.")   
+    @unittest.skipUnless(TEST_PROPAGATORS and TEST_ENCODINGS, "Not Testing Propagators and Encodings.")
     def test_props_5(self):
         board = BOARDS[4]
         self.helper_prop(board, prop_FI)
@@ -215,20 +303,22 @@ class TestStringMethods(unittest.TestCase):
         var_domain = [x.cur_domain() for x in curr_vars]
         for i in range(len(curr_vars)):
             self.assertEqual(var_domain[i], answer[i], "Failed simple FC test: variable domains don't match expected results")
-    
+
     @unittest.skipUnless(TEST_PROPAGATORS, "Not Testing Propagotors.")
     def test_DWO_FC(self):
         queens = nQueens(6)
-        cur_var = queens.get_all_vars()
-        cur_var[0].assign(2)
+        cur_var = queens.get_all_vars() # Q1 Q2 Q3 Q4 Q5 Q6
+
+        cur_var[0].assign(2) # Q1 gets value 2
         pruned = propagators.prop_FC(queens,newVar=cur_var[0])
         self.assertTrue(pruned[0], "Failed a FC test: returned DWO too early.")
-        cur_var[1].assign(5)
+
+        cur_var[1].assign(5) # Q2 gets value 5
         pruned = propagators.prop_FC(queens,newVar=cur_var[1])
         self.assertTrue(pruned[0], "Failed a FC test: returned DWO too early.")
-        cur_var[4].assign(1)
-        pruned = propagators.prop_FC(queens,newVar=cur_var[4])
 
+        cur_var[4].assign(1) # Q4 gets value 1,
+        pruned = propagators.prop_FC(queens,newVar=cur_var[4])
         self.assertFalse(pruned[0], "Failed a FC test: should have resulted in a DWO")
 
 if __name__ == '__main__':

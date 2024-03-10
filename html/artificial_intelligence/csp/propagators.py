@@ -55,8 +55,9 @@
          that have one unassigned variable left
 
    '''
+from sys import unraisablehook
 from cspbase import CSP, Constraint, Variable
-from typing import List, Tuple
+from typing import Any, List, Tuple
 from queue import Queue
 
 def prop_BT(csp :CSP, newly_assigned_var=None) -> Tuple[bool, List]:
@@ -97,68 +98,123 @@ def prop_BT(csp :CSP, newly_assigned_var=None) -> Tuple[bool, List]:
 
     return True, [] # 
 
-def prop_FC(csp :CSP, newly_assigned_var=None) -> Tuple[bool, List]:
+def prop_FC(csp :CSP, newVar=None) -> Tuple[bool, List[Tuple[Variable, Any]]]:
     '''
-    Do forward checking. That is check constraints with 
-       only one uninstantiated variable. Remember to keep 
-       track of all pruned variable,value pairs and return 
+    brief:
+        perform forward checking infererce/propagation:
 
-    returns true iff:
-        every constraint involving the newly assigned variable which 
-        has exactly one unbound variable
+    description:
+        for every constraint that has exactly one uninstantiated variable
+        perform the forward checking algorithm:
 
+    parameters:
+        - a CSP object csp 
+        - (optionally) a Variable newly_assigned_var
 
-    Note: In forward checking a queue is not required as in regular inference
+    postcondition:
+        no variable in this csp should have it's domain changed
+
+    returns a tuple (t1: bool, t2: List) such that:
+
+        t1 is true iff :
+            there exists at least one assignment to variables in 
+            every constraint of interest such that the csp problem is satisfied
+            OR
+            Every constraint does not have one unassigned variable
+
+        t2:
+            a list of tuples (Variable, value) pairs that have been pruned 
 
    '''
 
-    if not newly_assigned_var:
-        return True, []
+    newly_assigned_var = newVar
+    constraints_of_interest: List[Constraint]
+    if newly_assigned_var is None:
+        constraints_of_interest = csp.get_all_cons()
+    else:
+        constraints_of_interest = csp.get_cons_with_var(newly_assigned_var)
+
+    impossible_var_val_pairs = []
 
     c: Constraint
-    for c in csp.get_cons_with_var(newly_assigned_var):
+    for c in constraints_of_interest:
 
         if c.get_n_unasgn() != 1:
             continue
 
         assert(len(c.get_unasgn_vars()) == 1)
         unassigned_var :Variable = c.get_unasgn_vars()[0]
+        assert(unassigned_var != newly_assigned_var)
 
-        at_least_one_possible_assignment = False
         possible_values = unassigned_var.cur_domain()
-        # try every possible value, see if it works
         for possible_value in possible_values:
-            if unassigned_var.is_assigned(): 
-                # second or more iteration
-                unassigned_var.unassign()
-                unassigned_var.assign(possible_value)
-            else: # first iteration
-                unassigned_var.assign(possible_value)
 
             vals = []
             scope_var: Variable
             for scope_var in c.get_scope():
-                vals.append(scope_var.get_assigned_value())
+                if scope_var.is_assigned():
+                    vals.append(scope_var.get_assigned_value())
+                else:
+                    vals.append(possible_value)
 
-            if c.check(vals):
-                at_least_one_possible_assignment = True
+            if not c.check(vals):
+                unassigned_var.prune_value(possible_value)
+                impossible_var_val_pairs.append((unassigned_var, possible_value))
 
-        if not at_least_one_possible_assignment: 
-            # TODO about to remove the bad value from the domain of nav
+                if unassigned_var.cur_domain_size() == 0: # domain wipe out
+                    return False, impossible_var_val_pairs
 
-    return True, [] # empty list probably wrong here.
-
-
-
-
-
-
+    return True, impossible_var_val_pairs 
 
 
+def prop_FI(csp :CSP, newly_assigned_var=None) -> Tuple[bool, List[Tuple[Variable, Any]]]:
+    '''
+    brief: Do full inference
+
+    description:
+
+    If newVar is None we initialize the queue with all variables.
+
+    returns a tuple (t1, t2) such that:
+
+    t1 is true iff by adding every variable of interest to the queue,
+    popping and popping each off in fifo order [TODO] what does this do?
+   '''
+    impossible_var_val_pairs = []
+    var_queue = Queue()
+
+    if newly_assigned_var is None:
+        for var in csp.vars:
+            var_queue.put(var)
+    else:
+        var_queue.put(newly_assigned_var)
+
+    while not var_queue.empty():
+        curr_var = var_queue.get()
+        constraints_of_interest = csp.get_cons_with_var(curr_var)
+        c: Constraint
+
+        for c in constraints_of_interest: # coi
+            coi_var: Variable
+
+            for coi_var in c.get_scope():
+                if coi_var == curr_var or coi_var.is_assigned():
+                    continue # skip over newly assigned vars or already assigned vars
+                possible_values = coi_var.cur_domain()
+
+                for possible_value in possible_values:
+                    if not c.has_support(coi_var, possible_value):
+                        coi_var.prune_value(possible_value)
+                        impossible_var_val_pairs.append((coi_var, possible_value))
+
+                        if coi_var.cur_domain_size() == 0: # if it loses it's whole domain stop.
+                            return False, impossible_var_val_pairs
+
+                if possible_values != coi_var.cur_domain():
+                    var_queue.put(coi_var)
+
+        print("=====END=====\n")
 
 
+    return True, impossible_var_val_pairs 
 
-def prop_FI(csp :CSP, newVar=None):
-    '''Do full inference. If newVar is None we initialize the queue
-       with all variables.'''
-    #IMPLEMENT

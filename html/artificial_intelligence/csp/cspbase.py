@@ -1,6 +1,6 @@
 import time
 import functools
-from typing import List, Dict
+from typing import List, Dict, Tuple, Any
 
 '''Constraint Satisfaction Routines
    A) class Variable
@@ -164,6 +164,7 @@ class Variable:
            '''
 
         if self.is_assigned() or not self.in_cur_domain(value):
+            print(self.is_assigned(), not self.in_cur_domain(value)) 
             print("ERROR: trying to assign variable", self, 
                   "that is already assigned or illegal value (not in curdom)")
             return
@@ -202,14 +203,20 @@ class Variable:
                                                              self.dom, 
                                                              self.curdom))
 class Constraint: 
-    '''Class for defining constraints variable objects specifes an
-       ordering over variables.  This ordering is used when calling
-       the satisfied function which tests if an assignment to the
-       variables in the constraint's scope satisfies the constraint'''
+    '''
+    Class for defining constraints variable objects 
+    - specifes an ordering over variables:
+        This ordering is used when calling the satisfied function which tests if an 
+        assignment to the variables in the constraint's scope satisfies the constraint
+   '''
 
-    def __init__(self, name, scope): 
-        '''create a constraint object, specify the constraint name (a
-        string) and its scope (an ORDERED list of variable objects).
+    def __init__(self, name: str, scope: List[Variable]): 
+        '''
+        create a constraint object:
+
+        - specify the constraint name (a string) 
+        - scope (an ORDERED list of variable objects).
+
         The order of the variables in the scope is critical to the
         functioning of the constraint.
 
@@ -220,7 +227,7 @@ class Constraint:
 
         NOTE: This is a very space expensive representation...a proper
         constraint object would allow for representing the constraint
-        with a function.  
+        with a function allowing things to be determined on the fly
         '''
 
         self.scope = list(scope)
@@ -234,13 +241,16 @@ class Constraint:
         self.sup_tuples = dict()
 
     def add_satisfying_tuples(self, tuples):
-        '''We specify the constraint by adding its complete list of satisfying tuples.'''
+        ''' We specify the constraint by adding its complete list of satisfying tuples. '''
         for x in tuples:
             t = tuple(x)  #ensure we have an immutable tuple
             if not t in self.sat_tuples:
                 self.sat_tuples[t] = True
 
             #now put t in as a support for all of the variable values in it
+            # assert(len(t) == len(self.scope))
+            if (len(t) != len(self.scope)):
+                print(len(t), len(self.scope))
             for i, val in enumerate(t):
                 var = self.scope[i]
                 if not (var,val) in self.sup_tuples:
@@ -251,7 +261,7 @@ class Constraint:
         '''get list of variables the constraint is over'''
         return list(self.scope)
 
-    def check(self, vals: List):
+    def check(self, vals: List) -> bool:
         '''
         Given list of values, one for each variable in the
            constraints scope, return true if and only if these value
@@ -274,18 +284,24 @@ class Constraint:
         return n
 
     def get_unasgn_vars(self): 
-        '''return list of unassigned variables in constraint's scope. Note
-           more expensive to get the list than to then number'''
+        '''
+        brief:
+            returns a list of unassigned variables in constraint's scope. 
+
+        Note: It's more expensive to call this than to call get_n_unasgn
+        '''
         vs = []
         for v in self.scope:
             if not v.is_assigned():
                 vs.append(v)
         return vs
 
-    def has_support(self, var, val):
-        '''Test if a variable value pair has a supporting tuple (a set
-           of assignments satisfying the constraint where each value is
-           still in the corresponding variables current domain
+    def has_support(self, var: Variable, val: Any) -> bool:
+        '''
+        description:
+            Test if a variable value pair has a supporting tuple (a set
+            of assignments satisfying the constraint where each value is
+            still in the corresponding variables current domain
         '''
         if (var, val) in self.sup_tuples:
             for t in self.sup_tuples[(var, val)]:
@@ -305,13 +321,19 @@ class Constraint:
         return("{}({})".format(self.name,[var.name for var in self.scope]))
 
 class CSP:
-    '''Class for packing up a set of variables into a CSP problem.
-       Contains various utility routines for accessing the problem.
-       The variables of the CSP can be added later or on initialization.
-       The constraints must be added later'''
+    '''
 
-    def __init__(self, name, vars=[]):
-        '''create a CSP object. Specify a name (a string) and 
+    Class for packing up a set of variables into a CSP problem.
+    Contains various utility routines for accessing the problem.
+    The variables of the CSP can be added later or on initialization.
+
+    The constraints must be added later after object creation
+
+    '''
+
+    def __init__(self, name: str, vars: List[Variable]=[]):
+        '''
+        create a CSP object. Specify a name (a string) and 
            optionally a set of variables'''
 
         self.name = name
@@ -332,9 +354,11 @@ class CSP:
             self.vars.append(v)
             self.vars_to_cons[v] = []
 
-    def add_constraint(self,c):
-        '''Add constraint to CSP. Note that all variables in the 
-           constraints scope must already have been added to the CSP'''
+    def add_constraint(self,c: Constraint):
+        '''
+        Add constraint to CSP. Note that all variables in the 
+           constraints scope must already have been added to the CSP
+       '''
         if not type(c) is Constraint:
             print("Trying to add non constraint ", c, " to CSP object")
         else:
@@ -416,7 +440,7 @@ class BT:
         print("Search made {} variable assignments and pruned {} variable values".format(
             self.nDecisions, self.nPrunings))
 
-    def restoreValues(self,prunings):
+    def restoreValues(self, prunings: List[Tuple[Variable, Any]]):
         '''Restore list of values to variable domains
            each item in prunings is a pair (var, val)'''
         for var, val in prunings:
@@ -495,6 +519,7 @@ class BT:
         self.restoreValues(prunings)
         if status == False:
             print("CSP{} unsolved. Has no solutions".format(self.csp.name))
+
         if status == True:
             print("CSP {} solved. CPU Time used = {}".format(self.csp.name,
                                                              time.process_time() - stime))
@@ -551,7 +576,7 @@ class BT:
 
                 if self.TRACE:
                     print('  ' * level, "bt_recurse restoring ", prunings)
-                self.restoreValues(prunings)
+                self.restoreValues(prunings) # so that we can make each run independent
                 var.unassign()
 
             self.restoreUnasgnVar(var)

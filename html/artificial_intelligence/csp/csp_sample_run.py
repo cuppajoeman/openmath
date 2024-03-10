@@ -53,13 +53,14 @@ print("=======================================================")
 
 #Now n-Queens example
 
-def queensCheck(qi, qj, i, j):
-    '''Return true if i and j can be assigned to the queen in row qi and row qj 
+def queensCheck(qi: int, qj: int, i: int, j: int) -> bool:
+    '''
+    Return true if i and j can be assigned to the queen in row qi and row qj 
        respectively. Used to find satisfying tuples.
     '''
     return i != j and abs(i-j) != abs(qi-qj)
 
-def nQueens(n):
+def nQueens(n: int) -> CSP:
     '''Return an n-queens CSP'''
     i = 0
     dom = []
@@ -86,7 +87,7 @@ def nQueens(n):
         csp.add_constraint(c)
     return csp
 
-def solve_nQueens(n, propType, trace=False):
+def solve_nQueens(n, propType, trace=False) -> None:
     csp = nQueens(n)
     solver = BT(csp)
     if trace:
@@ -100,12 +101,12 @@ def solve_nQueens(n, propType, trace=False):
         
 #trace = True
 trace = False
-print("Plain Bactracking on 8-queens")
-solve_nQueens(8, 'BT', trace)
+# print("Plain Bactracking on 8-queens")
+# solve_nQueens(8, 'BT', trace)
+# print("=======================================================")
+# print("Forward Checking 8-queens")
+# solve_nQueens(8, 'FC', trace)
 print("=======================================================")
-#print("Forward Checking 8-queens")
-#solve_nQueens(8, 'FC', trace)
-#print("=======================================================")
-#print("FI 8-queens")
-#solve_nQueens(8, 'FI', trace)
+print("FI 8-queens")
+solve_nQueens(8, 'FI', trace)
 
