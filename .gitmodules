@@ -1,0 +1,3 @@
+[submodule "html/machine_learning/implementation/external_libraries/glm"]
+	path = html/machine_learning/implementation/external_libraries/glm
+	url = git@github.com:g-truc/glm.git

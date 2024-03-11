@@ -1,0 +1,10 @@
+//
+// Created by ccn on 11/03/24.
+//
+
+#ifndef GRADIENT_DESCENT_GRAPHICS_HPP
+#define GRADIENT_DESCENT_GRAPHICS_HPP
+
+
+
+#endif //GRADIENT_DESCENT_GRAPHICS_HPP
