@@ -208,9 +208,55 @@
         &= \frac{1}{2N} \left( \mathbf{X} \mathbf{w} - \mathbf{y} \right)^\mathsf{T} \left( \mathbf{X} \mathbf{w} - \mathbf{y} \right) \\
         &= \frac{1}{2N} \left( \left( \mathbf{X} \mathbf{w} \right)^\mathsf{T} - \mathbf{y}^\mathsf{T} \right) \left( \mathbf{X} \mathbf{w} - \mathbf{y} \right) \\
         &= \frac{1}{2N} \left( \left( \mathbf{X} \mathbf{w} \right)^\mathsf{T} \mathbf{X} \mathbf{w} - \left( \mathbf{X} \mathbf{w} \right)^\mathsf{T} \mathbf{y}  - \mathbf{y}^\mathsf{T} \mathbf{X}\mathbf{w} + \mathbf{y}^\mathsf{T} \mathbf{y}\right) \\
-        &= \frac{1}{2N} \left( \mathbf{w}^\mathsf{T} \mathbf{X}^\mathsf{T} \mathbf{X} \mathbf{w} - 2 \mathbf{w}^\mathsf{T} \mathbf{X}^\mathsf{T} \mathbf{y} + \mathbf{y}^\mathsf{T} \mathbf{y}\right)
+        &= \frac{1}{2N} \left( \mathbf{w}^\mathsf{T} \mathbf{X}^\mathsf{T} \mathbf{X} \mathbf{w} - 2 \mathbf{w}^\mathsf{T} \mathbf{X}^\mathsf{T} \mathbf{y} + \mathbf{y}^\mathsf{T} \mathbf{y}\right) \\
+        &= \frac{1}{2N} \mathbf{w}^\mathsf{T} \mathbf{X}^\mathsf{T} \mathbf{X} \mathbf{w} - \frac{1}{N}\mathbf{w}^\mathsf{T} \mathbf{X}^\mathsf{T} \mathbf{y} + \frac{1}{2N} \mathbf{y}^\mathsf{T} \mathbf{y}
       \end{aligned}
     \]
+    <p>
+      Note that here we've used the following facts about matrix multiplication
+    </p>
+    <ul>
+      <li>\(  \left( \mathbf{X} \mathbf{w} \right) ^ \mathsf{T} \mathbf{y} = \mathbf{y} ^ \mathsf{T} \mathbf{X} \mathbf{w}     \) </li>
+      <li>
+        \( \left( A + v \right) \left( B + w \right) = A B + A w + B v + v w   \), note that the dimensions must match for this to occur
+      </li>
+    </ul>
+    <p>
+      Now we continue by taking the gradient of this with respect to \( \mathbf{w}  \) to obtain 
+      \[
+          \frac{\partial }{\partial \mathbf{w} } \mathcal{ J } \left( \mathbf{w}  \right) = \frac{1}{N} \mathbf{X} ^ \mathsf{T} \mathbf{X} \mathbf{w}  - \frac{1}{N} \mathbf{X} ^ \mathsf{T} \mathbf{y} 
+      \]
+    </p>
+    <p>
+      Here we've used the facts:
+    </p>
+    <ul>
+      <li>
+        We can take the derivative of a function which produces a box, by instead taking the derivative of the contents of that box and then putting it in a box, that is to say if \( f : \mathbb{ R } ^ n \to M _ { 1 \times 1 } \left( \mathbb{ R }  \right)   \), then we define \( f ^ \star \left( \mathbf{x}  \right) = \operatorname{ unpack } \left( f \left( \mathbf{x}  \right)  \right)   \)  \( \frac{\partial}{\partial \mathbf{x} }  f \left( \mathbf{x}  \right) := \operatorname{ pack } \left( \frac{\partial}{\partial \mathbf{x} } f ^ \star \left( \mathbf{x}  \right)  \right) \)
+      </li>
+      <li>
+        \( \frac{\partial }{\partial \mathbf{w}  } \mathbf{w}  \cdot \mathbf{x} = \textbf{ x }  \). Proof: \( \frac{\partial }{\partial \mathbf{w} _ i} \mathbf{w} \cdot \mathbf{x} = \frac{\partial }{\partial \mathbf{w} _ i } \sum _ { j = 1 }  ^ n w _ j x _ j = w _ j  \)
+      </li>
+      <li>
+        \( \frac{\partial }{\partial \mathbf{w} } \left( \mathbf{X} \mathbf{w} \right) \mathbf{w} = 2 \left( \mathbf{X} \mathbf{w}  \right)   \)
+      </li>
+    </ul>
+    <p>
+      Therefore by setting the gradient to zero we can explicitly solve for \( \mathbf{w}  \) so we have 
+      \[
+          \begin{gather}
+
+             \frac{1}{N} \mathbf{X} ^ \mathsf{T} \mathbf{X} \mathbf{w}  - \frac{1}{N} \mathbf{X} ^ \mathsf{T} \mathbf{y} = 0 \\
+      \Updownarrow \\
+            \mathbf{X} ^ \mathsf{T} \mathbf{X} \mathbf{w}  - \mathbf{X} ^ \mathsf{T} \mathbf{y} = 0  \\
+      \Updownarrow \\
+              \mathbf{X} ^ \mathsf{T} \mathbf{X} \mathbf{w} = \mathbf{X} ^ \mathsf{T} \mathbf{y} \\
+      \Updownarrow \\
+          \mathbf{w} = \left( \mathbf{X} ^ \mathsf{T} \mathbf{X}  \right) ^ { -1 } \mathbf{X} ^ \mathsf{T} \mathbf{y}
+      \end{gather}
+      \]
+      which can only be carried out so long as \( \left( \mathbf{X} ^ \mathsf{T} \mathbf{X}  \right) ^ { -1 }   \) exists, and thus we conclude that the weights that minimize \( \mathcal{ J } \left( w \right)  \) are given by this expression.
+    </p>
   </div>
 </body>
 
