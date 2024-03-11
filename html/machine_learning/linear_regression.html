@@ -126,8 +126,9 @@
         \[ \underset{\textbf{w}}{\text{argmin}} \frac{1}{2N}\sum_{i=1}^N \left(\hat{y}^{(i)} - y^{(i)}\right)^2\ \]
       </p>
       
+      <h2>Vectorization</h2>
       <p>
-        For computational efficiency, we can represent \( \mathcal{D} \) as a <i>design matrix</i>, denoted \( \textbf{X} \), defined
+        For computational efficiency, we can represent \( \{\textbf{x}^{(1)}, \ldots, \textbf{x}^{(N)}\} \) as a <i>design matrix</i>, denoted \( \textbf{X} \), defined
         as follows.
         \begin{bmatrix}
         1 & x_1^{(1)} & x_2^{(1)} & \cdots & x_D^{(1)} \\
@@ -136,22 +137,55 @@
         1 & x_1^{(N)} & x_2^{(N)} & \cdots & x_D^{(N)}
         \end{bmatrix}
 
-        By organizing \( \mathcal{D} \) as a matrix, we can express our computations in terms of matrix operations. This is particularly useful since computers are able to perform matrix operations in parallel, which significantly speeds up computations.
+        Similarly, we can represent \( \{y^{(1)}, \ldots, y^{(N)}\} \) as a matrix too, denoted \( \textbf{y} \), defined as follows.
+        \begin{bmatrix}
+        y^{(1)} \\
+        y^{(2)} \\
+        \vdots \\
+        y^{(N)}
+        \end{bmatrix}
+
+        By organizing \( \mathcal{D} \) as a matrix, we can express our computations in terms of matrix operations. This is particularly useful since modern GPUs are specialized to perform matrix operations in parallel, which significantly speeds up computations. Furthermore, matrices allow us to express computations on our dataset in a concise and simple language.
       </p>
 
+      <h2>Gradient Descent</h2>
+
+      <h3>Batch Gradient Descent</h3>
       <p>
         <!-- TODO: move gradient descent to bottom -->
-        If an analytical solution is not available, we can use iterative techniques like <i>gradient descent</i> to compute an approximation for the best \( \textbf{w} \). The basic idea of gradient descent is to initialize \( \textbf{w} \) to some element in \( \R^{D + 1} \) and iteratively adjust \( \textbf{w} \) in the direction opposite to the gradient of the objective function at the current \( \textbf{w} \). 
+        If an analytical solution is not available, we can use iterative approximation techniques like <i>gradient descent</i> to compute an estimate for the best \( \textbf{w} \). The basic idea of gradient descent is to initialize \( \textbf{w}_0 \) to some element in \( \R^{D + 1} \) at time step 0 and iteratively adjust \( \textbf{w}_t \) in the direction opposite to the gradient of the objective function at \( \textbf{w}_t \) at time step \( t \geq 1 \). 
 
         \[ \textbf{w}_t \gets \textbf{w}_{t-1} - \alpha \nabla \mathcal{J}(\textbf{w}_{t-1}) \text{, where } \alpha \in \R \]
 
         The gradient points in the direction of steepest ascent (TODO: PROVE WHY), so the direction opposite to the gradient is the direction of steepest descent. Following the direction of steepest descent will eventually lead to a local minimum. If the objective function is <i>convex</i>, then that local minima will also be the global minimum (TODO: PROVE WHY). 
       </p>
       <p>
-        The <i>learning rate</i> \( \alpha \) controls how much we adjust \( \textbf{w}_t \) during each iteration. Large values of \( \alpha \) means we take large "steps" down the objective function landscape, leading to potentially fast but coarse searches. In contrast, small values of \( \alpha \) means we take small "steps" instead, leading to slow but fine searches.
+        The <i>learning rate</i> \( \alpha \) controls how much we adjust \( \textbf{w}_t \) during each iteration. Large values of \( \alpha \) mean we take large "steps" down the objective function landscape, leading to potentially fast but coarse searches. In contrast, small values of \( \alpha \) mean we take small "steps" instead, leading to slow but fine searches.
+      </p>
+      <details>
+        <summary>In the context of linear regression...</summary>
+        <fieldset>
+          <p>
+            Assume our objective function is the mean squared error. Then, our gradient descent update rule would be:
+            \[ \textbf{w}_t \gets \textbf{w}_{t-1} - \alpha \frac{1}{N}\textbf{X}^\top(\textbf{Xw}_{t - 1} - \textbf{y}) \]
+          </p>
+        </fieldset>
+      </details>
+      <p>
+        TODO: pros vs. cons of different types of initializations of \( \textbf{w}_0 \). Stopping condition: convergence criterion, maximum number of iterations. Pitfalls.
       </p>
 
-      --- Redefined weights to include bias term, defined modified design matrix using this definition of weights, started section on gradient descent
+      <h3>Stochastic Gradient Descent (SGD)</h3>
+      <p>
+
+      </p>
+
+      <h3>Mini-Batch Gradient Descent</h3>
+      <p>
+        
+      </p>
+
+      <h3>TODO: Momentum, Adagrad, RMSprop, Adam</h3>
 
       </p>
     </div>
