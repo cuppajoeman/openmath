@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>Introduction</title>
+	
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+		<div class="definition" id="definition-process">
+			<div class="title">Process</div>
+			<div class="content">
+				Let \( X \) be a set and \( \Omega  \) be a sample space, then a process \( W: X \to \Omega  \) is an object that generates "outcomes" \( w \) from the sample space \( \Omega \). \( W : w _ 1, w _ 2, \ldots , w _ n, \ldots  \)
+			</div>
+		</div>
+
+		<div class="definition" id="definition-random-variable">
+			<div class="title">Random Variable</div>
+			<div class="content">
+				Given a process \( W \), and a function \( f : \Omega \to \mathbb{ R }  \) then \( g  \circ W : X \to \mathbb{ R }   \) is said to be a random variable.
+			</div>
+		</div>
+		
+		<div class="definition" id="definition-random-variable-and-binary-operation-syntax-sugar">
+			<div class="title">Random Variable and Binary Operation Syntax Sugar</div>
+			<div class="content">
+				Random Variable and Binary Operation Syntax Sugar: Suppose that \( X : \Omega \to \mathbb{ R }  \) is a random variable and that \( \star \) is a binary operation, then for any \( a \in \mathbb{ R }   \) we define
+				\[
+				X \star a := \left\{ m \in \mathbb{ R } : m \in \operatorname{ im } \left( X \right) \text{ such that } m \star a  \right\}
+				\]
+				We can ground this with \( \star :\equiv = \), and in that case \( X = 3 := \left\{ m : m \in \operatorname{ im } \left( X \right) \text{ such that } m = 3 \right\} \)
+
+			</div>
+		</div>
+		
+
+
+		<p>
+			If you're throwing a dice on a table, then the entire universe could be the system, and then it generates the outcome say \( 1 \) when you roll it.
+		</p>
+
+		<p>
+			A system \( W \) should be thought as a finite list of rules that when followed results in the creation of something physically observable
+		</p>
+
+		<div class="definition" id="definition-sample-mean">
+			<div class="title">Sample Mean</div>
+			<div class="content">
+				The sample mean value sequence for \(X=g(W)\):  for each \(n \in \mathbb{N}\), the sample mean over the first \(n\) trials is simply the arithmetic average of the function values over those \(n\) trials :
+				\[
+				\begin{aligned}
+				\widehat{E}_n X & \stackrel{\text { or }}{=} \widehat{E}_n g(W) \stackrel{\text { or }}{=} \widehat{E}_n g \\
+				& \stackrel{\text { defn }}{=} \frac{g\left(w_1\right)+\cdots+g\left(w_n\right)}{n} \stackrel{\text { or }}{=} \frac{\boldsymbol{\Sigma}_{i=1}^n g\left(w_i\right)}{n} \\
+				& \stackrel{\text { or }}{=} \frac{x_1+\cdots+x_n}{n} \stackrel{\text { or }}{=} \frac{\boldsymbol{\Sigma}_{i=1}^n x_i}{n} \stackrel{\text { or }}{=} \bar{x}_n .
+				\end{aligned}
+				\]
+			</div>
+		</div>
+		
+		<div class="definition" id="definition-random-system">
+			<div class="title">Random System</div>
+			<div class="content">
+				A system \( W \) is said to be a <b>random system</b> when 
+				<ul>
+					<li>\( \left( \widehat{E} _ n g \left( W \right) \right)   \) converges</li>
+					<li>It always converges to the same value given a different realization \( w _ 1, w _ 2 \) </li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="definition" id="definition-empirical-relative-frequencies">
+			<div class="title">Empirical Relative Frequencies</div>
+			<div class="content">
+				For any indicator function \(g=I_A\) with \(A \subset \Omega\) we will get the usual sequence of sample averages, but now to be referred to as empirical relative frequencies (these particular averages quite obviously giving the simple proportion of times that \(A\) occurs in the first \(n\) trials, as \(n=1,2, \ldots\) )
+				\[
+				\widehat{P}_n(W \in A) \stackrel{\text { defn }}{=} \widehat{E}_n I_A(W)=\frac{I_A\left(w_1\right)+\cdots+I_A\left(w_n\right)}{n}, \quad n \in \mathbb{N}
+				\]
+			</div>
+		</div>
+
+		<div class="definition" id="definition-long-run-frequency">
+			<div class="title">Long Run Frequency</div>
+			<div class="content">
+				\[
+				P ( W \in A) := E I _ A (W) = \lim _ { n \to \infty } P _ n (W \in A)
+				\]
+			</div>
+		</div>
+		
+		<div class="definition" id="definition-discrete-uniform-distribution">
+			<div class="title">Finite Uniform Distribution</div>
+			<div class="content">
+				For any specific \( N \in \mathbb{N} \) , the random variable \( X \) is said to have a (finite discrete) uniform distribution on the sample space \( \Omega=\{1, \ldots, N\} \) - denoted: \( X \sim \) unif \(\{1, \ldots, N\}\) iff
+				\[
+					P(X=k)=1 / N, \quad k=1, \ldots, N .
+				\]
+			</div>
+		</div>
+
+		<div class="definition" id="definition-continuous-uniform-distribution">
+			<div class="title">Continuous Uniform Distribution</div>
+			<div class="content">
+				The random variable \(U\) is said to have a (continuous) uniform distribution on the unit interval \([0,1]\) denoted by \( U \sim \text { unif }[0,1]\) iff
+				\[
+				P(U \leq u)=u \quad \forall 0 \leq u \leq 1 .
+				\]
+			</div>
+		</div>
+
+		<div class="definition" id="definition-conditional-probability">
+			<div class="title">Conditional Probability</div>
+			<div class="content">
+				Let \( A, B \subseteq \Omega  \), such that \( P \left( B \right) \neq 0 \) then the conditional probability of \( A \) given \( B \) is defined as
+				\[
+				    P \left( A \mid B \right) = \frac{P \left( A \cap B \right) }{ P \left( B \right) } 
+				\]
+			</div>
+		</div>
+		
+		<div class="corollary" id="corollary-intersection-as-conditional-probability">
+			<div class="title">Intersection as Conditional Probability</div>
+			<div class="content">
+				Suppose that \( P \left( A \right) , P \left( B \right) \neq 0 \) then we have 
+				\[
+				    P \left( A \cap B \right) = P \left( A \mid B \right) P \left( B \right) = P \left( B \mid A \right) P \left( A \right) 
+				\]
+			</div>
+			<div class="proof">
+				
+			</div>
+		</div>
+
+		<div class="lemma" id="lemma-probability-of-event-via-partition">
+			<div class="title">Probability of an Event through a Partition</div>
+			<div class="content">
+				Suppose that \( \mathcal{ X }  = \left\{ X _ 1,  X _ 2, \ldots  \right\}  \) is a partition of \( \Omega  \) then for any event \( E \) we have
+				\[
+				P \left( E \right) = \sum _ { i \in \mathbb{ N } _ 1 } P \left(  E \cap X _ i  \right)
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					Observe that \( E = E \cap \Omega = E \cap \left( \sqcup _ { i \in \mathbb{ N } _ 1 } X _ i  \right) = \sqcup _ { i \in \mathbb{ N } _ 1 } \left( E \cap X _ i \right)    \), therefore
+					\[
+					    P \left( E  \right) = \sum _ { i \in \mathbb{ N } _ 1 } P \left( E \cap X _ i \right)
+					\]
+				</p>
+			</div>
+		</div>
+
+		<p>
+			It follows as an easy corollary that it holds for finite partitions by seting the rest of the partition to be the empty set.
+		</p>
+
+		<div class="theorem" id="theorem-law-of-total-probability">
+			<div class="title">Law of Total Probability</div>
+			<div class="content">
+				Suppose that \( \mathcal{ X }  = \left\{ X _ 1,  X _ 2, \ldots  \right\}  \) is a partition of \( \Omega  \) then for any event \( E \) we have
+				\[
+					P \left( E \right) = \sum _ { i \in \mathbb{ N } _ 1 } P \left( E \mid X _ i \right) P \left( X _ i \right)
+				\]
+			</div>
+			<div class="proof">
+				
+			</div>
+		</div>
+		
+		<div class="definition" id="definition-statistically-independent">
+			<div class="title">Statistically Independent</div>
+			<div class="content">
+				We say that two events \( A, B \subseteq \Omega  \) are statistically independent and write \( A \perp B \) when 
+				\[
+				    P \left( A | B \right) = P \left( A \right) 
+				\]
+			</div>
+		</div>
+
+		<div class="corollary" id="corollary-independence-as-a-product">
+			<div class="title">Independence as a Product</div>
+			<div class="content">
+				\[
+				    A \perp B \iff P \left( A \cap B \right) = P \left( A \right) P \left( B \right) 
+				\]
+			</div>
+			<div class="proof">
+				We know that the following holds by this fact:
+				\[
+					P \left( A \cap B \right) = P \left( A \mid B\right)  P \left( B \right)
+				\]
+				therefore since we assumed \( A \perp B \) we know that \( P \left( A \mid B \right) = P \left( A \right)   \) and thus we have
+				\[
+				    P \left( A \cap B \right) =  P \left( A  \right) P \left( B \right)
+				\]
+				as needed.
+			</div>
+		</div>
+		
+		<div class="corollary" id="corollary-independence-is-reflexive">
+			<div class="title">Independence is Reflexive</div>
+			<div class="content">
+				\[
+				    A \perp B \iff B \perp A
+				\]
+			</div>
+			<div class="proof">
+				Follows from the previous corollary.
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+
+
+
+    </div>
+</body>

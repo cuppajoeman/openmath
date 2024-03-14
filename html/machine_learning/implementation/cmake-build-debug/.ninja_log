@@ -1,0 +1,6 @@
+# ninja log v5
+820	941	1710132644056043745	gradient_descent	de1e70462afcc28a
+2	106	1710253540414925455	build.ninja	8bafe1ea60c1d007
+3	806	1710132643922710420	CMakeFiles/gradient_descent.dir/math/math.cpp.o	fba8f3ee8c7aff98
+0	820	1710132643939377086	CMakeFiles/gradient_descent.dir/main.cpp.o	18fe52421eb7933e
+0	48	1710132643166043798	CMakeFiles/gradient_descent.dir/graphics/graphics.cpp.o	def240c52a14a2bc
