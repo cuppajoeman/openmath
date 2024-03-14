@@ -1,6 +1,0 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/opt/clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/ccn/projects/openmath/html/machine_learning/implementation -B /home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug
--- GLM: Version 1.0.2
--- GLM: Build with C++ features auto detection
--- Configuring done (0.1s)
--- Generating done (0.0s)
--- Build files have been written to: /home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug

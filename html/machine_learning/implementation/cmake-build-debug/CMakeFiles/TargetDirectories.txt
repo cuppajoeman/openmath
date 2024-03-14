@@ -1,8 +1,0 @@
-/home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug/CMakeFiles/gradient_descent.dir
-/home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug/external_libraries/glm/CMakeFiles/edit_cache.dir
-/home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug/external_libraries/glm/CMakeFiles/rebuild_cache.dir
-/home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug/external_libraries/glm/glm/CMakeFiles/glm.dir
-/home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug/external_libraries/glm/glm/CMakeFiles/edit_cache.dir
-/home/ccn/projects/openmath/html/machine_learning/implementation/cmake-build-debug/external_libraries/glm/glm/CMakeFiles/rebuild_cache.dir
