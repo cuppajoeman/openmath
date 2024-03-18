@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complexity</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+</head>
+<body>
+
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-polynomial-time">
+        <div class="title">Polynomial Time</div>
+        <div class="content">
+            The class of all decision problems computable by a turing machine in polynomial time with respect to the size of the input.
+        </div>
+    </div>
+
+    <div class="definition" id="definition-non-deterministic-polynomial-time">
+        <div class="title">Non-Deterministic Polynomial Time</div>
+        <div class="content">
+            The class of all decision problems for which a "yes" answer can be verified in polynomial time with respect to the size of the input
+        </div>
+    </div>
+    
+    <div class="definition" id="definition-complement-non-deterministic-polynomial-time">
+    	<div class="title">Complement Non-Deterministic Polynomial Time</div>
+    	<div class="content">
+    		A decision problem \( X \) is a member of co-NP if and only if it's complement is in \( \mathcal{ NP }  \) 
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-non-determinisic-polynomial-time-hard">
+    	<div class="title">Non-Deterministic Polynomial Time Hard</div>
+    	<div class="content">
+    		A computation problem \( H \) is called NP-hard if for every problem \( L \in \mathcal{ NP }  \), there is a polynomial time reduction from \( L \) to \( H \) 
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-adding-to-reduce">
+    	<div class="title">Adding to Reduce</div>
+    	<div class="content">
+            A 3-dimensional matching is a problem defined as follows: Let \(X, Y, Z\) be finite sets of natural numbers (could be multi-sets), and let \(|X| = |Y| = |Z| = n\). We say \(M\) is a 3-dimensional matching if
+            <ul>
+                <li>
+                    \(  M \subseteq  \{ (x,y,z) : x \in X, y \in Y, z \in Z \} \)
+                </li>
+                <li>
+                    for any \( \mathcal{ S } \in \left\{ X, Y, Z \right\}  \) each element \( s \in S \), it appears in exactly one triplet \((x,y,z) \in M\),
+                </li>
+                <li>
+                    sum of every triplet \( x+y+z \) is the same
+                </li>
+                <li>
+                    \( |M| = n \)
+                </li>
+            </ul>
+
+            <p>
+                Let 3DM be the decision version of 3-dimensional matching that given the sets \( X,Y,Z \), decide whether there exists a 3-dimensional matching \( M \) satisfying the properties above. An instance of 3DM is defined as \(\langle X,Y,Z \rangle \).
+            </p>
+            <p>
+                Let XYL be the decision problem that given two sets of natural numbers \( X \) and \( Y \) (they can be multi-sets, too) where \( |X| = n\) and \( |Y| = 2n \) and decide if it is possible to form \( n \) triples \( (x_i, y_j, y_k) \) such that \( x_i \in X \) and \( y_j, y_k \in Y \) and all the triples have the same sum, and each element is used exactly once. An instance of XYL is defined as \( \langle X,Y \rangle \).
+            </p>
+
+            <p>
+                It is well-known that 3DM is \(\cal{NP}\)-complete, show that \( \sf XYL \) is \( \cal NP \)-complete.
+            </p>
+
+            <p>
+                Hint: what if you add a big number to every element in \( Y \) (or \( Z \) or both)?
+            </p>
+
+    	</div>
+    	<div class="proof">
+            <p>
+                In order to prove that XYL is NP complete, we will use a karp reduction. Firstly let's note that XYL is in NP, this is true because given a collection of \( n \) triples satisfying the constraints, we can easily verify that they all have the correct properties in polynomial time with respect to the size of the input.
+            </p>
+            <p>
+                Now moving to the reduction, what we must do is to take an instance of 3DM and in polynomial time, we must construct an instance of XYL, and then prove that the answer to 3DM is yes if and only if the answer to XYL is yes.
+            </p>
+            <p>
+                Suppose we have an instance \(\langle X,Y,Z \rangle \) of 3DM, let \( f \left( z \right) :=  \max \left( X \right) + 2 \max \left( Y \right) + \max \left( Z \right)  + z\) and define  \( \overline{ Z } := \left\{ z + f \left( z \right)  : z \in Z \right\} \), we construct the instance of XYL by using \( \langle X, Y \sqcup \overline{ Z } \rangle \). \( \implies  \) Now suppose that the answer to 3DM with the instance \(\langle X,Y,Z \rangle \) is yes, therefore we have the set \( M \) satisfying all the properties listed in the question. Since we get \( n \) triples, then for any two triples of the form \( \left( x _ i, y _ j, z _ k \right) \) , \( \left( x _ l, y _ m, z _ n \right)  \) we know that \( x _ i + y _ j + z _ k = x _ l + y _ m + z _ n \), therefore we conclude also that
+                \[
+                    x _ i + y _ j + f \left( x _ k \right) = x _ l + y _ m + f \left( z _ n \right)
+                \]
+                this is because applying \( f \) simply just adds a constant to each side, but we observe that the triples \( \left( x _ i, y _ j, f \left( z _ k \right) \right)   \) and \( \left( x _ l, y _ m, f \left( z _ n \right)  \right)  \) are arbitrary triples in \( \langle X, Y \sqcup \overline{ Z } \rangle \) having the same sum and there are exactly \( n \) of these triples (by mapping the original ones through \( f \)), thus we've just shown there are \( n \) triples all having the same value using each value exactly once (since \( f \) is an injection). So the answer to XYL is yes.
+            </p>
+            <p>
+                \( \impliedby  \) Suppose that the answer to XYL is yes, so that we have \( n \) tuples using each value exactly once, and all having the same sum. Without further inspection it seems that a tuple of the form \( x _ i, y _ j, y _ k \) or \( x _ i , \overline{ z _ j }, \overline{ z _ k } \)  may be possible to exist within the \( n \) tuples, but we will actually prove that specifically it must be of the form \( x _ i, y _ j, z _ k \), that is to say, we cannot use two elements of \( Y \) nor two elements of \( \overline{ Z} \)  as part of any tuple.
+            </p>
+            <p>
+                With \( n \) different tuples, we must have that each that each element of \( Y \sqcup \overline{ Z } = 2n \) is used exactly once, if they were not they we wouldn't not be able to form \( n \) tuples or if we go over, one of them would be duplicated.  Now, there are two situations, either there will exist a tuple of the form \( x _ i, y _ j, y _ k \) or \( \left( x _ i, \overline{ z _ j }, \overline{ z _ k } \right) \)  or else they will all be of the form \( \left( x _ i, y _ j, f \left( z _ k \right)  \right) \) (up to a re-ordering) .
+            </p>
+            <p>
+                In the initial case of \( \left( x _ i, y _ j, y _ k \right)  \),  we observe that \( f \left( z _ k \right) \gt x _ i + y _ j + y _ k  \) by the definition of \( f \), but since \( f \left( x _ k \right)  \) will exist in exactly one tuple (or else we cannot create \( n \) tuples), then clearly this specific tuple will have a sum which is greater and thus not equal to the sum of \( \left( x _ i, y _ j, y _ k \right)  \) , which contradictions our assumption that XYL answers yes.
+            </p>
+            <p>
+                Similarly suppose there is a triple of the form \( \left( x _ i, \overline{ z _ j }, \overline{ z _ k }  \right) = \left( x _ i, f \left( z _ j \right), f \left( z _ k \right) \right) \), since another tuple of the form \( \left( x _ l, y _ m, y _ n \right)  \) cannot exist as just noted, then there must be a tuple of the form \( \left( x _ l, y _ m, f \left( z _ n \right)  \right)  \), we'll note
+            </p>
+            \[
+                \begin{align}
+                x _ i + f \left( z _ j \right)  + f \left( z _ k \right) &= x _ i + \left(  \max \left( X \right) + 2 \max \left( Y \right) + \max \left( Z \right)  + 1 + z _ j  \right)  + \left( \max \left( X \right) + 2 \max \left( Y \right) + \max \left( Z \right)  + 1 + z _ k \right) \\
+                &= 2 \max \left( X \right)  + 4 \max \left( Y \right) + 2 \max \left( Z \right)  + 2 + \left( x _ i + z _ j + z _ k \right)
+                \end{align}
+            \]
+            <p>
+                and then a chain of inequalities
+            </p>
+            \[
+                \begin{align}
+                    x _ l + y _ m + f \left( z _ n \right) &\le \max \left( X \right)  + \max \left( Y \right) + \left( \max \left( X \right) + 2 \max \left( Y \right) + \max \left( Z \right)  + 1 + z _ n \right)   \\
+                    &= 2 \max \left( X \right)  + 3 \max \left( Y \right) + \max \left( Z \right) + 1 + z _ n \\
+                    &\le 2 \max \left( X \right) + 3 \max \left( Y \right) + 2\max \left( Z \right)  + 1 \\
+                    &\le 2 \max \left( X \right) + 4 \max \left( Y \right) + 2\max \left( Z \right)  + 1 \\
+                    &\lt 2 \max \left( X \right) + 4 \max \left( Y \right) + 2\max \left( Z \right)  + 2 + \left( x _ i + z _ j + z _ k \right)  \\
+                    &= x _ i + f \left( z _ j \right)  + f \left( z _ k \right)
+                \end{align}
+            \]
+            <p>
+                Therefore we've found two tuples which have different value within they \( n \) tuples that supposedly all had the same value which is a contradiction, so every tuple is of the form \( \left( x _ i, y _ j, f \left( z _ k \right)  \right)  \). With that said there is a simple injective mapping which takes this tuple to the tuple \( \left( x _ i, y  _ j, z _ k \right)  \), which is a valid element of 3DM, we also note that if \( x _ i + y _ j + f \left( x _ k \right) = x _ l + y _ m + f \left( x _ n \right)   \) then we know that \( x _ i + y _ j + z _ k = x _ l + y _ m + z _ n \) as the function only adds a constant to each side. Therefore by using this injective mapping, we produce \( n \) tuples for 3DM, each of which have the same sum, and since the tuples in XYL used each element exactly once, then this property also holds when in 3DM, therefore these \( n \) tuples form a 3-dimensional matching and so the answer to 3DM is yes, as needed.
+            </p>
+            <p>
+                Thus we know that XYL is in NP and we've found a reduction from an NP-complete problem to it, thus we can conlude that XYL is NP-complete as needed.
+            </p>
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-">
+    	<div class="title"></div>
+    	<div class="content">
+            We say a boolean formula is a four-occurrence CNF formula if it is in conjunctive normal form and every variable appears at most four times. Define
+            \[
+                {\sf CNF}_4 = \{\ \psi : \psi \text{ is a satisfiable, four-occurrence CNF formula } \}.
+            \]
+            It is well-known that \(\sf{CNF}_4\) is \(\cal NP\)-complete. Now we define a boolean formula to be a four-occurrence 4CNF formula if it is in conjunctive normal form, and every variable appears at most four times, and every clause contains exactly four literals (no repetitions). Define
+            \[
+                {\sf 4CNF}_4 = \{\ \phi : \phi \text{ is a satisfiable, four-occurrence 4CNF formula } \}.
+            \]
+            Which complexity class is \(\sf{4CNF}_4\) in? Is it in \(\cal P\)? Is it in \(\cal NP\)? Is it \(\cal NP\)-complete? You need to answer each question and prove your solution.
+    	</div>
+    	<div class="proof">
+            <p>
+                We'll show that \( \sf{4CNF}_4 \in \mathcal{ P }  \), since \( \mathcal{ P } \subseteq \mathcal{ NP }  \), if it was NP-hard, then \( P = NP \) which we assume is false, so we know that cannot be the case.
+            </p>
+            <p>
+                To show it's in \( \mathcal{ P }  \) we must construct a polynomial time solution with respect to the size of the input. Before we do this we'll note the following:
+            </p>
+            <p>
+                Suppose that we have some formula \( \phi \) that has \( k \) clauses and \( n \) varaibles, construct a bi-partite graph by putting a node for each clause on the left, and then a node for each varaible on the right. Connect from left to right by taking some clause \( c _ i \) and then connecting it to every varaible used in that clause. Note that a perfect matching in this graph induces a valid truth assignment, this is because in the matching every variable is assigned to some clause, and so for those varaibles we set them to be true, if the negation of that variable is used in the clause set it to false. This means that at least one term in the clauses evaluates to true, since this holds for all clauses the entire statement evaluates to true because of the \( \lor, \land  \) structure of conjuctive normal form.
+            </p>
+            <p>
+                Note that this all relies on the fact that we can produce a perfect matching, recall Hall's Marriage theorem which states that you can find a perfect matching for some bi-partite graph \( G = \left( U \sqcup V , E \right)  \) iff for any \( S \subseteq U \), \( \lvert N \left( S \right)  \rvert \ge \lvert S \rvert   \). We'll now focus on showing this property so that we can always find a perfect matching.
+            </p>
+            <p>
+                Let \( S \subseteq C \) such that \( \lvert S \rvert = k \), for each clause in \( C \) there are four edges going out into \( V \) because each clause uses 4 unique variables, at the same time, for any variable \( v \in V \) it has at most \( 4 \) edges going into it this is because each variable is used at most four times. If \( \lvert N \left( S \right) \rvert \lt k \) then they could only intake \( 4 \left( k - a \right)  \) for some \( a \in \mathbb{ N } _ 1 \) incoming edges, but we need them to be able to intake \( 4 \cdot  k \), which is impossible, and therefore we must have that \( \lvert N \left( S \right)  \rvert \ge \lvert S \rvert   \)
+            </p>
+            <p>
+                Therefore we can conclude that there is always a perfect matching, and thus every formula is satisfiable. What this means that there is a polynomial algorithm to answer the decision problem, it simply returns true, and runs in constant time, which is what we need for our initial paragraph to make sense.
+            </p>
+    	</div>
+    </div>
+
+    
+    
+    
+</div>
+
+</body>
+</html>

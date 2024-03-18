@@ -16,8 +16,6 @@ def eprint(*args, **kwargs): #you can use this for debugging, as it will print t
 # Method to compute utility value of terminal state
 def compute_utility(board : Tuple[Tuple[int]], color: int) -> int:
     """
-    precondition: board is in a terminal state, no further moves can be made
-
     utility: the number of hectares a company own minus the number of hectares their competitor owns
 
     computes the utility of a terminal state for the specified company (identified with its color)
@@ -42,7 +40,8 @@ def minimax_min_node(board : Tuple[Tuple[int]], color: int, limit: int, caching:
     other_player = 2 if player == 1 else 1
     possible_actions: List[Tuple[int, int]] = get_possible_moves(board, player)
 
-    if len(possible_actions) == 0: # there are no possible moves to be made, therefore we are in a terminal state
+
+    if len(possible_actions) == 0 or limit == 0: # there are no possible moves to be made, therefore we are in a terminal state
         return (0, 0), compute_utility(board, player) # TODO is returning (0, 0) ok
     # otherwise we have at least one action
 
@@ -156,7 +155,7 @@ def select_move_alphabeta(board, color, limit, caching = 0, ordering = 0):
     i is the column and j is the row on the board.  
 
     Note that other parameters are accepted by this function:
-    If limit is a positive integer, your code should enfoce a depth limit that is equal to the value of the parameter.
+    If limit is a positive integer, your code should enforce a depth limit that is equal to the value of the parameter.
     Search only to nodes at a depth-limit equal to the limit.  If nodes at this level are non-terminal return a heuristic 
     value (see compute_utility)
     If caching is ON (i.e. 1), use state caching to reduce the number of state evaluations.
@@ -226,4 +225,10 @@ def run_ai():
             print("{} {}".format(movei, movej))
 
 if __name__ == "__main__":
+    (
+        (1, 1, 1, 1),
+        (1, 1, 1, 1),
+        (1, 1, 1, 1),
+        (1, 1, 1, 0)
+    )
     run_ai()
