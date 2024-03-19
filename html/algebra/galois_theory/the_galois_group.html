@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Galois Group</title>
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+<div class="thin-wrapper">
+    
+    <div class="definition" id="definition-automorphism">
+    	<div class="title">Automorphism</div>
+    	<div class="content">
+    		If \( E \) is a field, then an automorphism of \( E \) is an isomorphism of \( E \) with itself. 
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-automorphism-fixed-pointwise">
+    	<div class="title">Automorphism Fixed Pointwise</div>
+    	<div class="content">
+    		If \( E / F \) is a field extension, then an automorphism \( \sigma \) of \( E \) fixes \( F \) pointwise if \( \sigma \left( c \right) = c \) for every \( c \in F \)
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-automorphism-fixed-pointwise-takes-roots-to-roots">
+    	<div class="title">Automorphism Fixed Pointwise Takes Roots to Roots</div>
+    	<div class="content">
+    		Let \( f \left( x \right) \in F \left[ X \right]  \) and let \( E / F \) be an extension field of \( F \). If \( \sigma : E \to E \) is an automorphism fixing \( F \) pointwise , and if \( \alpha \in E \) is a root of \( f \left( x \right)  \) then \( \sigma \left( \alpha \right)   \) is also a root of \( f \left( x \right)  \)
+    	</div>
+    	<div class="proof">
+    	    Suppose that \( f \left( x \right) =  a_0 + a_1 x^1 + \cdots a_n x^n \) with \( a _ i \in F \) and therefore \( a_0 + a_1 \alpha^1 + \cdots a_n \alpha^n = 0  \), now since \( \sigma \) is a homomorphism, we have that 
+            \[
+                0 = \sigma \left( 0 \right) =  \sigma \left( a_0 + a_1 \alpha^1 + \cdots a_n \right) = \sigma \left( a _ 0 \right) + \sigma \left( a _ 1 \right) \sigma \left( \alpha \right) + \cdots + \sigma \left( a _ n \right) \sigma \left( \alpha \right) ^ n
+            \]
+            And since \( \sigma \) fixes \( F \) pointwise we know that  this is equal to 
+            \[
+                a _ 0 + a _ 1 \sigma \left( \alpha \right) + \cdots + a _ n \sigma \left( \alpha \right)  _ n = 0
+            \]
+            which means that \( \sigma \left( \alpha \right)  \) is a root of \( f \left( x \right)  \) as needed.
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-galois-group">
+    	<div class="title">Galois Group</div>
+    	<div class="content">
+    		Let \( E / F \) be a field extension, then it's <b>Galois Group</b> is 
+            \[
+                \operatorname{ Gal } \left( E / F \right) := \left\{ \text{ automorphisms } \sigma \text{ of } E \text{ fixing } F \text{ pointwise }   \right\}
+            \]
+            where the
+    	</div>
+    </div>
+    
+    
+    
+    
+
+
+
+</div>
+
+</body>
+</html>

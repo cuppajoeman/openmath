@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Domains and Fields</title>
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-domain">
+        <div class="title">Domain</div>
+        <div class="content">
+            A <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-crone">crone</a> \( R \) is a domain if the product of any two nonzero elements in \( R \) is itself non-zero
+        </div>
+    </div>
+
+    <p>
+        Note that in other places they may call this an integral domain
+    </p>
+
+    <div class="corollary" id="corollary-product-zero-implies-factor-zero-domain-equivalence">
+        <div class="title">Product Zero Implies Factor Zero Domain Equivalence</div>
+        <div class="content">
+            Suppose that \( R \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-crone">crone</a>. It is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-domain">domain</a> if and only if  for every \( a, b \in D \),  \( ab = 0 \) implies \( a = 0 \) or that \( b = 0 \)
+        </div>
+        <div class="proof">
+            Since \( R \) is a domain if and only if for any \( x \neq 0 \) and \( y \neq 0 \) it implies that \( x y \neq 0 \), this statement is equivalent to it's contrapositive: \( xy = 0 \) implies that \( x = 0 \) or \( y = 0 \) as needed.
+        </div>
+    </div>
+
+    <div class="proposition" id="proposition-domain-iff-cancellation">
+        <div class="title">Domain iff Cancellation</div>
+        <div class="content">
+            Let \( R \) be a crone. \( R \) is a domain if and only if given \( r, a, b \in R \) we have \( ra = rb \land r \neq 0 \implies a = b\)
+        </div>
+        <div class="proof">
+            <p>
+                For the rightward implication we can use properties of a ring to see the following
+                \[
+                \begin{gather}
+                ra &= rb \iff \\
+                ra - rb &= 0 \iff \\
+                r \left( a - b \right) &= 0 \iff \\
+                \end{gather}
+                \]
+            </p>
+            <p>
+                <a class="knowledge-link" href="/algebra/galois_theory/rings.html#corollary-product-zero-implies-factor-zero-domain-equivalence">Therefore</a> we conclude that either \( a - b = 0 \) or \( r = 0 \), the latter of which is impossible through our assumption that \( r \neq 0 \), therefore \( a = b \).
+            </p>
+            <p>
+                We move on to the leftward implication where our goal is to show that \( R \) is a domain, we do so by chasing it's <a class="knowledge-link" href="/algebra/galois_theory/rings.html#corollary-product-zero-implies-factor-zero-domain-equivalence">corollary</a>. So let \( a, b \in R \) and assume that \( ab = 0 \), note that at this point if \( a = 0 \), our proof is over, therefore we assume that \( a \neq 0 \), note that we can rewrite \( ab = 0 \)  <a class="knowledge-link" href="/algebra/galois_theory/rings.html#proposition-zero-multiplication-in-a-ring">to</a> \( ab = a0 \), then by our assumption we can conclude that \( b = 0 \), which proves it.
+            </p>
+        </div>
+    </div>
+
+    <p>
+        Since \( \mathbb{ Z } _ 4 \) forms a ring then we can then notice the following:
+        \[
+        \begin{align}
+        \left( [ 2 ] x + [ 1 ]  \right) ^ 2 &= [ 2 ] [ 2 ] x ^ 2 + [ 2 ] [ 1 ] x + [ 1 ] [ 2 ] x + [ 1 ] [ 1 ] \\
+        &= [ 4 ] x ^ 2 + [ 4 ] x + [ 1 ] \\
+        &= [ 0 ] x ^ 2 +  [ 0 ] x + [ 1 ]  \\
+        &= [ 1 ]
+        \end{align}
+        \]
+        Where we're noticing that the degree of the product has decreased, this is occuring because in \( \mathbb{ Z } _ 4 \) there are non-zero elements which have a product of \( 0 \).
+    </p>
+
+    <div class="definition" id="definition-unit">
+        <div class="title">Unit</div>
+        <div class="content">
+            Suppose that \( R \) is a ring, then an element \( u \in R \) is said to be a <b>unit</b> if there exists some element \( v \in R \) such that
+            \[
+            uv = vu = 1 _ R
+            \]
+        </div>
+    </div>
+
+
+    <div class="definition" id="definition-zero-divisor">
+        <div class="title">Zero Divisor</div>
+        <div class="content">
+            A non-zero element \( x \) in a ring is said to be a zero divisor if there exists some other non-zero \( y \) such that \( x y = 0 \)
+        </div>
+    </div>
+
+    <div class="definition" id="definition-nilpotent">
+        <div class="title">Nilpotent</div>
+        <div class="content">
+            Let \( R \) be a crone, then an element \( x \in R  \) is said to be <b>nilpotent</b> if there is some \( n \in \mathbb{ N } _ 1 \) such that \( x ^ n = 0 _ R  \)
+        </div>
+    </div>
+
+    <div class="proposition" id="proposition-nilpotent-implies-zero-or-zero-divisor">
+        <div class="title">Nilpotent Implies Zero or Zero Divisor</div>
+        <div class="content">
+            if \( x \) is nilpotent then \( x = 0 _ R \) or \( x \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#"></a>
+        </div>
+        <div class="proof">
+            <p>
+                If \( x = 0 _ R \) then our proof is done, so instead let's assume that \( x \neq 0 _ R \), we know that it's nilpotent, considering \( \left\{ a \in \mathbb{ N } _ 1: x ^  a = 0 _ R \right\} \subseteq \mathbb{ N } _ 0 \) it has a least element (as it's non-empty) say \( l \) such that \( x ^ l = 0 _ R \), note that \( l \gt 1 \) because \( x ^ 1 \neq 0 _ R \)
+            </p>
+            <p>
+                In that case we can see \( x ^ l = x ^ { l - 1 } x ^ 1 \), since \( l \) was the smallest natural number such that \( x ^ l = 0 _ R \) then we must have \( x ^ { l - 1 } \neq 0 _ R  \) since \( l - 1 \in \mathbb{ N } _ 0  \). Thus we can conclude that \( x x ^ { l - 1 } = 0 _ R \) where \( x, x ^ { l - 1 } \neq 0 _ R \) so that by definition \( x \) is a zero divisor.
+            </p>
+        </div>
+    </div>
+
+    <div class="proposition" id="proposition-constant-times-nilpotent-is-nilpotent">
+        <div class="title">Constant times Nilpotent is Nilpotent</div>
+        <div class="content">
+            Suppose \( R \) is a crone and that \( x \) is nilpotent, then \( r x \) is nilpotent for any \( r \in R \)
+        </div>
+        <div class="proof">
+            Since \( x \) is nilpotent we have some \( n \in \mathbb{ N } _ 1 \) such that \( x ^ n = 0 _ R \), since \( R \) is commutative, then it can be shown by induction that an equation of the form \( \left( ab \right) ^ n = a ^ n b ^ n  \), in other words \( \left( r x \right) ^ n    = r ^ n x ^ n = r ^ n 0 _ R = 0 _ R \) which proves that \( rx \) is nilpotent
+        </div>
+    </div>
+
+    <div class="proposition" id="proposition-one-plus-nilpotent-is-a-unit">
+        <div class="title">One plus Nilpotent is Nilpotent</div>
+        <div class="content">
+            Suppose that \( R \) is a crone, and \( x \) nilpotent then \( 1 _ R  + x \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-unit">unit</a>
+        </div>
+        <div class="proof">
+            <p>
+                If \( x ^ 1 = 0 _ R \), it clearly holds so lets assume that \( x ^ n = 0 _ R \) for some \( n \gt 1 \).
+            </p>
+            <p>
+                We claim that
+                \[
+                v := 1 - x + x ^ 2 - x ^ 3  + ... + \left( -1 \right) ^ { n - 1 } x ^ n - 1  = \sum _ { i = 1 }  ^  { n - 1 } \left( -1 \right) ^ i x ^ i
+                \]
+                is \( 1 + x \)'s multiplicative inverse.
+            </p>
+            <p>
+                To see this true, we use distributivity,
+                \[
+                \left( 1 + x \right) \left( \sum _ { i = 1 }  ^  { n - 1 } \left( -1 \right) ^ i x ^ i \right) = \sum _ { i = 1 }  ^  { n - 1 } \left( -1 \right) ^ i x ^ i  +  \sum _ { i = 1 }  ^  { n - 1 } \left( -1 \right) ^ i x ^ { i + 1 }
+                \]
+                Define the following
+                \[
+                S _ 1 \left( k \right) :=  \sum _ { i = 1 }  ^  { k - 1 } \left( -1 \right) ^ i x ^ i  = 1 - x + x ^ 2 - x ^ 3 + ... + \left( -1 \right) ^ { k - 1 } x ^ {  k - 1 }
+                \]
+                and that
+                \[
+                S _ 2 \left( k  \right) := \sum _ { i = 1 }  ^  { k - 1 } \left( -1 \right) ^ i x ^ { i + 1 } =  x - x ^ 2 + x ^ 3 - x ^ 4 + \ldots \left( -1 \right) ^ { k - 2 } x ^ { k - 1 } + \left( -1 \right) ^ { k - 1 } x ^ { k - 1 }
+                \]
+            </p>
+            <p>
+                Note that \( S _ 2 \left( n \right) = S _ 2  \left( n - 1 \right)   \) because \( S _ 2 \left( n \right)  \)'s last term is \( \left( -1 \right) ^ { n - 1 }  x ^ { n  } = 0 _ R \) since \( x ^  n = 0 _ R \) .
+            </p>
+            <p>
+                Through finite induction, we can show that for any \( j \in [ 2 \ldots n ],  S _ 1 \left( j \right) + S _ 2 \left( j - 1 \right) = 1 \) which allows us to conclude that \( S _ 1 \left( n \right) + S _ 2 \left( n - 1 \right) = 1 \)  and then \( S _ 1 \left( n \right) + S _ 2   \left( n \right) = 1  \) from the previous paragraph.
+            </p>
+            <p>
+                Finally this is good because now we continue the chain of equalities we mentioned at distributivity
+                \[
+                \begin{align}
+                \left( 1 + x \right) \left( \sum _ { i = 1 }  ^  { n - 1 } \left( -1 \right) ^ i x ^ i \right) &= \sum _ { i = 1 }  ^  { n - 1 } \left( -1 \right) ^ i x ^ i  +  \sum _ { i = 1 }  ^  { n - 1 } \left( -1 \right) ^ i x ^ { i + 1 }\\
+                &= S _ 1 \left( n \right)  + S _ 2 \left( n \right)  \\
+                &= 1
+                \end{align}
+                \]
+                Therefore \( 1 + x \) is a unit, as needed.
+            </p>
+        </div>
+    </div>
+
+    <div class="corollary" id="corollary-the-sum-of-a-unit-and-a-nilpotent-element-is-a-unit">
+        <div class="title">The Sum of a Unit and a Nilpotent Element is a Unit</div>
+        <div class="content">
+            Suppose \( R \) is a crone and let \( u \) be a unit and \( x \) a nilpotent element in \( R \) , then \( u + x \) is a unit.
+        </div>
+        <div class="proof">
+            <p>
+                Since \( u \) is a unit there exists some \( v \) such that \( u v = v u = 1 \), if that's the case then \( \left( u + x \right) v = 1 + vx \), we know that \( vx \) <a class="knowledge-link" href="/algebra/galois_theory/rings.html#proposition-constant-times-nilpotent-is-nilpotent">is nilpotent</a> and thus \( 1 + vx \) <a class="knowledge-link" href="/algebra/galois_theory/rings.html#proposition-one-plus-nilpotent-is-a-unit">is a unit</a>, so we have some \( a \) such that \( \left( 1 + vx \right) a = 1 \).
+            </p>
+            <p>
+                But \( \left( u + x \right) v = 1 + vx \) so in total we're saying \( \left( \left( u + x \right) v \right) a  = 1  \) by associativity  we have \( \left( u + x \right) \left( v a \right) = 1 \) and closure of multiplication shows us indeed \( u + x \) has a multiplicative inverse so that \( u + x \) is a unit.
+            </p>
+        </div>
+    </div>
+    
+    <div class="proposition" id="proposition-field-is-a-ring-with-units">
+    	<div class="title">Field is a Ring with Units</div>
+    	<div class="content">
+    		A field is a ring \( R \) in which every non-zero element \( r \in R \) is a unit
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Ideals and Maximal Ideals</title>
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+<div class="thin-wrapper">
+    
+    <div class="definition" id="definition-irreducible">
+    	<div class="title">Irreducible</div>
+    	<div class="content">
+    		Let \( F \) be a field. A non-zero polynomial \( p \left( x \right) \in F \left[ x \right]   \) is irreducible over \( F \) if \( \operatorname{ deg } \left( p \right) \ge 1 \) and there is no factorization \( \left( p \left( x \right) = f \left( x \right) g \left( x \right)  \right)  \) where \( f \left( x \right) , g \left( x \right) \in F \left[ x \right]  \) with \( \operatorname{ deg } \left( f \right) , \operatorname{ deg } \left( g \right) \lt \operatorname{ deg } \left( p \right)  \) 
+    	</div>
+    </div>
+
+    <p>
+        Note that the field plays into whether or not a polynomial is irreducible, for example \( x ^  2 + 1 \) is irreducible over \( \mathbb{ R }  \), but factors in \( \mathbb{ C }  \)
+    </p>
+    
+    <div class="definition" id="definition-prime-ideal">
+    	<div class="title">Prime Ideal</div>
+    	<div class="content">
+    		An ideal \( I \) in a ring \( R \) is called a <b>prime ideal</b> if it is a proper ideal and \( ab \in I \) implies that \( a \in I \) or \( b \in I \)
+    	</div>
+    </div>
+    
+    <div class="theorem" id="theorem-irreducibility-criterion-with-prime-ideals">
+    	<div class="title">Irreducibility Criterion with Prime Ideals</div>
+    	<div class="content">
+            If \( f \) is a field, then a non-zero polynomial \( p \left( x \right) \in F \left[ x \right]  \) is irreducible iff \( \left( p \left( x \right)  \right) _ \diamond  \) is a prime ideal
+        </div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-a-proper-ideal-is-prime-iff-the-quotient-ring-is-a-domain">
+    	<div class="title">A Proper Ideal is Prime iff the Quotient Ring is a Domain</div>
+    	<div class="content">
+    		Suppose that \( I \) is a proper ideal of \( R \) then \( I \) is a prime ideal iff \( R / I \) is a domain
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-maximal-ideal">
+    	<div class="title">Maximal Ideal</div>
+    	<div class="content">
+    		An ideal \( I \) in a crone \( R \) is a <b>maximal ideal</b> if it is a proper ideal and there is no ideal \( J \) such that 
+            \[
+                I \subset J \subset R
+            \]
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-maximal-iff-quotient-ring-is-a-field">
+    	<div class="title">Maximal iff Quotient Ring is a Field</div>
+    	<div class="content">
+    		A proper ideal \( I \) in a crone \( R \) is a maximal ideal if and only if \( R / I \) is a field.
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+
+    <div class="corollary" id="corollary-maximal-implies-prime">
+    	<div class="title">Maximal Implies Prime</div>
+    	<div class="content">
+    		Every maximal ideal \( I \) in a crone \( R \) is a prime ideal
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-in-a-pid-every-non-zero-prime-ideal-is-maximal">
+    	<div class="title">In a PID every Non-Zero Prime Ideal is Maximal</div>
+    	<div class="content">
+    		If \( R \) is a principal ideal domain then every non-zero ideal \( I \) is a maximal ideal
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="corollary" id="corollary-field-polynomials-mod-an-irreducible-yields-a-root">
+    	<div class="title">Field Polynomials Mod an Irreducible Yields a Root</div>
+    	<div class="content">
+    		If \( F \) is a field and \( p \left( x \right) \in F \left[ x \right]  \) is irreducible, then the quotient ring \( F \left[ x \right] / \left( p \left( x \right)  \right) _ \diamond  \) is a field containing (an isomorphic copy of) \( F \) and a root of \( p \left( x \right)  \)
+    	</div>
+    	<div class="proof">
+            Since \( p \left( x \right)  \) is irreducible, then it has degree at least one, and therefore is non-zero <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#theorem-irreducibility-criterion-with-prime-ideals">thus we know that</a> \( \left( p \left( x \right)  \right) _ \diamond  \) is a prime ideal, it is non-zero since \( p \left( x \right) \in \left( p \left( x \right)  \right) _ \diamond  \) and therefore
+    	</div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</div>
+
+</body>
+</html>
