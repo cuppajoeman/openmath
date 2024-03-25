@@ -53,6 +53,270 @@
     	</div>
     </div>
     
+    <div class="proposition" id="proposition-degree-1-iff-same-as-fields">
+    	<div class="title">Degree 1 iff Same as Fields</div>
+    	<div class="content">
+    		Suppose that \( E \) is a field extension of \( F \), then
+            \[
+                \left[ E : F \right] = 1 \iff E = F
+            \]
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-prime-degree-extension-restricts-subfields">
+    	<div class="title">Prime Degree Extension Restricts Subfields</div>
+    	<div class="content">
+    	    Suppose that the degree of the extension \( E / F \) is a prime \( p \). Show that any subfields \( K \) of \( E \) containing \( F \) is either \( E \) or \( F \).
+    	</div>
+    	<div class="proof">
+            Suppose that \( K \) is a subfield of \( E \) containing \( F \), we know that \( \left[ E : F \right] = p \), but also that
+            \[
+                p = \left[ E: F \right] = \left[ E : K \right] \left[ K : F \right]
+            \]
+            Since \( p \) is prime then we have two cases, if \( \left[ E : K \right] = 1, \left[ K : F \right] = p \) <a class="knowledge-link" href="/algebra/galois_theory/the_galois_group.html#proposition-degree-1-iff-same-as-fields">then we know</a> \( K = E \), in the other case we will obtain that \( F = K \), which proves what we wanted to show.
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-irreducible-polynomial-restricts-size-of-galois-group">
+    	<div class="title">Irreducible Polynomial Restricts Size of Galois Group</div>
+    	<div class="content">
+    	    Suppose that \( p \left( x \right)  \) 	is irreducible fo degree \( n \), and let \( E \) be \( p \left( x \right)  \)'s splitting field then
+            <ul>
+                <li> \( n \le \lvert \operatorname{ Gal } \left( E / \mathbb{ Q }  \right) \rvert \le n!   \) </li>
+                <li>\( \lvert \operatorname{ Gal } \left( E / \mathbb{ Q }  \right)  \rvert \mid n!  \) </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+    
+    <div class="exercise" id="exercise-polynomial-to-galois">
+    	<div class="title">Polynomial to Galois</div>
+    	<div class="content">
+    		Consider the polynomial given by \( p \left( x \right) = x ^ 3 + 3 x - 1 \in \mathbb{ Q } \left[ x \right]  \) 
+            <ul>
+                <li>Show that \( p \left( x \right)  \) has exactly one real root given by \( \alpha \in \mathbb{ R }  \)</li>
+                <li>Show that \( \mathbb{ Q } \left( \alpha \right)  \) is a field extension of \( \mathbb{ Q }  \) of degree 3  </li>
+                <li>Let \( E \) be the splitting field of \( p \left( x \right)  \) over \( \mathbb{ Q }  \) find the size of the Galois group \( G \left( E / \mathbb{ Q }  \right)  \) of \( E / \mathbb{ Q }  \).   </li>
+                <li>
+                    For each isomoprhism \( \phi \in \operatorname{ Gal } \left( E / \mathbb{ Q }  \right)  \) determine \( \phi \left( \alpha \right)  \) 
+                </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+    	    <p>
+                It should be clear that \( p \left( x \right)  \) has one real root, this can be noted that it has power \( 3 \) and that \( p ^ \prime \left( x \right) = 3 x ^ 2 + 3  \gt 0  \), thus it can only pass through the x-axis at most once, leading to exactly one real root.
+            </p>
+            <hr>
+            <p>
+                In order to prove that \( \mathbb{ Q } \left( \alpha \right)  \) is a field extension of \( \mathbb{ Q }  \) of degree 3, all we have to do is shot ath \( p \left( x \right)  \) is irreducible over \( \mathbb{ Q }  \). Recall that the following: given two polynomials \( m \left( x \right), k \left( x \right)   \) such that \( m \left( x \right) = k \left( x + a \right)  \), then \( m \left( x \right)  \) is irreducible iff \( k \left( x \right)  \) is irreducible.
+            </p>
+            <p>
+                With that said define \( m \left( x \right) = p \left( x + 1 \right)   \) where we note that
+                \[
+                    p \left( x + 1  \right) = x ^ 3 + 3 x ^ 2 + 3 x + 1 + 3x + 3 - 1 = x ^ 3 + 3 x ^ 2 + 6 x + 3
+                \]
+                which allows us to use Eisenstien's with \( p = 3 \) to deduce that \( p \left( x + 1 \right)  \) is irreducible in \( \mathbb{ Q } \left[ x \right]   \) , but then \( p \left( x \right)  \) is also irreducible by our previous paragraph. Therefore since \( p \left( x \right)  \) has degree 3, then we know that the extension \( \mathbb{ Q } \left( \alpha \right)  \) has degree 3.
+            </p>
+            <hr>
+            <p>
+                Note that \(  p \left( x \right) = x ^ 3 + 3x - 1 \) is sparable because \( \mathbb{ Q }  \) has characteristic 0. Therefore since \( E \) is its splitting field, then we have that \( \lvert \operatorname{ Gal } \left( E / \mathbb{ Q }  \right) \rvert = \left[ E : \mathbb{ Q }  \right] = \left[ E : \mathbb{ Q } \left( \alpha \right)  \right]  \left[ \mathbb{ Q } \left( \alpha \right) : \mathbb{ Q } \right] \).
+            </p>
+            <p>
+                Note that since there is exactly one root in \( \mathbb{ Q } \left( \alpha \right)  \) then we know that \( \left[ E : \mathbb{ Q } \left( \alpha \right)   \right] \gt 1 \) because if it was equal to one, then \( \mathbb{ Q } \left( \alpha \right)  \) would be the splitting field, which it cannot be because it contains exactly one root, we require that \( \lvert \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \rvert \lt \lvert  S _ 3 \rvert = 6   \right)  \) because the splitting field contains \( 3 \) distinct roots, all of this forces that \( \left[ E : \mathbb{ Q } \left( \alpha \right)   \right] = 2 \) so that \( \operatorname{ Gal } \left( E / \mathbb{ Q }  \right) \rvert = \left[ E : \mathbb{ Q }  \right] = 6  \) which means that \( \operatorname{ Gal } \left( E / \mathbb{ Q }  \right) \cong S _ 3  \).
+            </p>
+            <hr>
+            <p>
+                Each of the permutations in the Galois group is equivalent to one of the permutations in the symmetry group. Let \( a _ 1, a _ 2, a _ 3 \) (where \( a _ 2 = \alpha \)  be the roots, but instead let's denote them by \( 1, 2, 3 \) so that we can use cycle notation to easily describe what each does to \( \alpha \)
+                \[
+                    \begin{align}
+                        a _ 1 () &=  a _ 1 \\
+                        a _ 1 (1, 2) &= a _ 2 \\
+                        a _ 1 (2, 3) &= a _ 1 \\
+                        a _ 1 (1, 3) &= a _ 3 \\
+                        a _ 1 (1, 2, 3) &= a _ 2 \\
+                        a _ 1 (1, 3, 2) &= a _ 3
+                    \end{align}
+                \]
+            </p>
+    	</div>
+    </div>
+    
+    <div class="exercise" id="exercise-the-irreducible-polynomial-of-1-+-i">
+    	<div class="title">The Irreducible Polynomial of 1 + i</div>
+    	<div class="content">
+            Find the irreducbile polynomial of \( 1 + i \) over \( \mathbb{ Q }  \) 
+    	</div>
+    	<div class="proof">
+            Recall that the irreducible polynomial of \( 1 + i \) is a monic irreducible polynomial having \( 1 + i \) as a root. Note that we main employ the following idea, start with \( x = 1 + i \) and then attempt to re-arrange this into a polynomial which is easy to verify if it is irreducible and is monic. Observe that
+            \[
+                \begin{gather}
+                    x = 1 + i \\
+                    \Updownarrow  \\
+                    x - 1 = i \\
+                    \Downarrow \\
+                    x ^ 2 - 2x + 1 = -1 \\
+                    \Updownarrow \\
+                    x ^ 2 - 2x + 2 = 0
+                \end{gather}
+            \]
+            Observe that this is monic, which is good using the rational roots theorem, let's observe that the only possible solutions would be given by \( \pm 2 \) by verifying both we observe that this polynomial is irreducible over \( \mathbb{ Q } \left[ x \right]  \) as it has degree 2 and no roots.
+            <p>
+                Finally note that \( 1 + i \) is a root of this polynomial:
+                \[
+                    \left( 1 + i \right) ^ 2 - 2 \left( 1 + i \right) + 2 = 1 + 2 i -1 - 2 - 2i + 2 = 0
+                \]
+            </p>
+    	</div>
+    </div>
+    
+    <div class="exercise" id="exercise-degree-of-extension">
+    	<div class="title">Degree of Extension</div>
+    	<div class="content">
+            Find the degree of the extension \( \mathbb{ Q } \left( \sqrt{3 + 2 \sqrt{2}} \right)  \)
+    	</div>
+    	<div class="proof">
+    	    <p>
+                We'll do this by first noticing something which is not immediately obvious:
+                \[
+                    \sqrt{3 + 2 \sqrt{2}} = 1 + \sqrt{2}
+                \]
+                To see this let's show that \( 3 + 2 \sqrt{2} = \left( 1 + \sqrt{2} \right) ^ 2  \). Well \( \left( 1 + \sqrt{2} \right) ^ 2 = \left( 1 + 2 \sqrt{2} + 2 \right) =3 + 2 \sqrt{2}    \) as needed, thus it's true, from this we can note that
+                \[
+                    \mathbb{ Q } \left( \sqrt{3 + 2 \sqrt{2}} \right) = \mathbb{ Q } \left( 1 + \sqrt{2} \right)
+                \]
+                Now observe that \( \mathbb{ Q } \left( \sqrt{2} \right) = \mathbb{ Q } \left( 1 + \sqrt{2} \right)   \) so we conclude that 
+                \[
+                    \mathbb{ Q } \left( \sqrt{3 + 2 \sqrt{2}} \right) = \mathbb{ Q } \left( \sqrt{2} \right)
+                \]
+                We've seen that \( \left[ \mathbb{ Q } \left( \sqrt{2} \right) : \mathbb{ Q }  \right] = 2 \) so we conclude that the answer to the original question is \( 2 \).
+            </p>
+    	</div>
+    </div>
+    
+    
+    
+    <div class="exercise" id="exercise-quartic-roots">
+    	<div class="title">Quartic Roots</div>
+    	<div class="content">
+            Find the order of the Galois group \( \operatorname{ Gal } \left( \mathbb{ Q } \left( \sqrt[4]{2}, i \right) / \mathbb{ Q } \left( \sqrt{2} \right)   \right)  \) and say what each of its elements are doing to the generators \( \sqrt[4]{2} \) and \( i \).
+    	</div>
+    	<div class="proof">
+            <p>
+                Let \( \alpha = \sqrt[4]{2} \), let \( \phi \in \operatorname{ Gal } \left( \mathbb{ Q } \left( \sqrt[4]{2}, i \right) / \mathbb{ Q } \left( \sqrt{2} \right)   \right)  \), note that \( \phi \left( \alpha ^ 2 \right) = \alpha ^ 2  \), so that 
+                \[
+                    \phi \left( \alpha \right)  ^ 2 = \phi \left( \alpha ^ 2 \right)  = \alpha ^ 2
+                \]
+                thus \( \phi  \left( \alpha \right)  \) is an element who's sequre is \( \alpha ^ 2 \) since we are in an intergral domain then an element can have at most two square roots and since those would be \( \alpha, -\alpha  \) then we know that \( \phi \left( \alpha \right) = \pm \alpha \). 
+            </p>
+    	    <p>
+                On a similar note, we see that \( \phi  \left( i \right) ^ 2 = -1 \) so that the only possibilities are \( phi \left( i \right) = \pm i \). Summing up, we've deduced that given any element in the galois group it must map \( \alpha \) to \( \pm \alpha \) and \( i \) to \( \pm i \), since knowing what the map does to \( \alpha \) and \( i \) fully determines it, this means that there are at most 4 automorphisms in the galois group.
+            </p>
+            <p>
+                We note that \( \mathbb{ Q } \left( \alpha, i \right)  \) is the splitting field for \( x ^ 4 - 2 \) as \( \alpha, \alpha i, -\alpha, - \alpha i \) are contained in it, and there is nothing smaller containg all of them so that \( \lvert \operatorname{ Gal } \left( \alpha, i \right) / \mathbb{ Q } \left( \alpha ^ 2 \right)   \rvert = \left[ \mathbb{ Q } \left( \alpha, i \right) : \mathbb{ Q } \left( \alpha ^ 2 \right)   \right] = \left[ \mathbb{ Q } \left( \alpha, i \right) : \mathbb{ Q } \left( \alpha \right)   \right] \cdot \left[ \mathbb{ Q } \left( \alpha \right) : \mathbb{ Q } \left( \alpha ^ 2 \right)  \right]  = 2 \cdot 2 = 4  \). Note that \( \left[ \mathbb{ Q } \left( \alpha \right) : \mathbb{ Q } \left( \alpha ^ 2 \right)  \right] = 2 \) because we may use the basis \( \left( 1, \alpha \right)  \).
+            </p>
+            <p>
+                Going back to our original paragraphs, we deduce that the four automorphisms are indeed uniquely determined by \( \phi _ 1 \left( b \right) = b, \phi _ 1 \left( i \right) = i \)    , \( \phi _ 2 \left( b \right) = -b, \phi _ 2 = i \)    , \( \phi _ 3 \left( b \right) = b,  \phi _ 3 \left( i \right) = -i    \) and \( \phi _ 4 \left( b \right) = -b, \phi _ 4 \left( i \right) = -i \)
+            </p>
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-square-root-coefficients">
+    	<div class="title">Square Root Coefficients</div>
+    	<div class="content">
+    		Let \( f \left( x \right) = x ^ 3 - \sqrt{2} \in \mathbb{ Q } \left( \sqrt{2} \right) \left[ x \right]   \)
+            <ul>
+                <li>Show that \( f \left( x \right) \) is irreducible over \( \mathbb{ Q } \left( \sqrt{2} \right)  \)  </li>
+                <li>Let \( E \) be the splitting field of \( f \left( x \right)  \). Find \( \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right)  \right)  \) and describe its elements. </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+            <p>
+                Since it is of degree \( 3 \) we may verify that it is irreducible by checking all possible input values and confirming none are roots, so let \( a + b \sqrt{2} \in \mathbb{ Q } \left( \sqrt{2} \right)  \) then
+                \[
+                    \begin{gather}
+                        \left( a + b\sqrt{2} \right) ^ 3 - \sqrt{2} = 0  \\
+                        \Updownarrow \\
+                        a ^ 3 + 3 a ^ 2 b \sqrt{2} + 3 a b ^ 2 \left( \sqrt{2} \right) ^ 2 + b ^ 3 \left( \sqrt{2} \right) ^ 3 - \sqrt{2} = 0 \\
+                        \Updownarrow \\
+                        \left( a ^ 3 + 6 a b ^ 2 \right) + \sqrt{2} \left( 3 a ^ 2 b + 2 b ^ 3 - 1 \right)  = 0
+                    \end{gather}
+                \]
+                so that we must have
+                \[
+                    a ^ 3 + 6 a b ^ 2 = 0 \qquad \text{ and } \qquad 3 a ^ 2 b + 2 b ^ 3 - 1 = 0
+                \]
+                If so, then \( a ^ 3 + 6 a b ^ 2 = 0 \iff a \left( a ^ 2 + 6 b ^ 2 \right) = 0  \). If it's the case that \( a = 0 \), then we have
+                \[
+                    \begin{align}
+                        3 a ^ 2 b + 2 b ^ 3 - 1 = 0 \\
+                        \Updownarrow \\
+                        b = \frac{1}{\sqrt[3]{2}}
+                    \end{align}
+                \]
+                but by plugging that into \( f \) we obtain a non-zero value, on the other hand if \( a ^ 2 + 6 b ^ 2 = 0 \) then this forces \( a , b = 0 \) which also leads to a non-zero value when plugged into \( f \) therefore we know that \( f \) is irreducible over \( \mathbb{ Q } \left( \sqrt{2} \right)  \) 
+            </p>
+            <hr>
+            <p>
+                Let's observe that \( f \left( x \right)  \) is separable, this is simply because it is a non-zero polynomial within a field of characteristic zero, so we have that 
+                \[
+                    \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right)  \right)  \rvert = \left[ E : \mathbb{ Q } \left( \sqrt{2} \right)  \right]
+                \]
+                We also know that \(\lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right)  \right)  \rvert \mid \lvert S _ 3 \rvert  = 6  \). We also know that \( f \) has one real root, given by \( r = \sqrt[6]{2} \) and the other two are distinct complex numbers. 
+            </p>
+            <p>
+                Let \( F = \mathbb{ Q } \left( \sqrt{2} \right)  \) We now deduce that \( \left[ E : F \left( r \right)  \right] > 1  \) because \( F \left( r \right)  \) is not the splitting field as just discussed, by iv in theorem 47, we have that  \( \left[ F \left( r \right) : F  \right] = \operatorname{ deg } \left( f \right) = 3   \) therefore with all this information we are forced to have that \( \left[ E : F \left( r \right)  \right] = 2  \) so that \( \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right)  \right)  \rvert = 6  \) and thus \( \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right) \right) \cong S _ 3  \) so that each the galois's groups elements are one of the permutations.
+            </p>
+    	</div>
+    </div>
+
+    
+    <div class="exercise" id="exercise-polynomials-as-matrices">
+    	<div class="title">Polynomials as Matrices</div>
+    	<div class="content">
+            Let \( p \left( x \right) = a_0 + a_1 x ^ 1 + \ldots + a_m x ^  m \in F \left[ x \right]  \) be a polynomial with coefficients in a field \( F \). Let \( A \in M _ { n \times n } \left( F \right)    \), and note that we can evaluate \( p \left( A \right) = a_0 I + a_1 A + \ldots + a_m A ^ m \)
+            <ul>
+                <li>Prove that there is a non-zero polynomial \( p \left( x \right) \in F \left[ x \right]  \) such that \( p \left( A \right) = 0 \)  </li>
+                <li>Let \( I  \) be the set of all polynomaisl \( q \left( x \right) \in F \left[ x \right]  \) such that \( q \left( A \right) = 0 \), prove that \( I \) is an ideal in \( F \left[ x \right]  \)     </li>
+                <li>
+                    Let \( m \left( x \right)  \) be a monic polynomilal of least degree in \( I \). Prove that \( I = \left( m \left( x \right)  \right) _ \diamond  \).
+                </li>
+                <li>
+                    Prove that \( m \left( x \right) \) is the unique monic polynomial of least degree in \( I \)
+                </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+            <p>
+                Consider \( M _ { n \times n } \left( F \right)   \) as a vector space over \( F \), in this case it's easy to see that the "one-hot" matricies at each \( i, j \) form a basis for this vector space, and the dimension is precisely \( n ^ 2 \).
+            </p>
+            <p>
+                On the other hand, supposing we had the matrices \( A ^ 0, \ldots A ^ \left( n ^ 2 \right)  \), then as there are \( n ^ 2 + 1 \) of these matrices then we know that they are linearly depedent, so we get coefficients \( a _ 0, \ldots a _ \left( n ^ 2 \right)  \in F\) not all zero such that \( a _ 0 A ^ 0 + \ldots + a _ { n ^ 2 }  A ^ \left( n ^ 2 \right) = 0  \), semantically replace every \( A \) with an \( x \) to obtain a polynomial such that \( A \) is a root.
+            </p>
+            <hr>
+            <p>
+                let \( j \left( x \right), k \left( x \right) \in I  \), note that \( \left( j - k \right) \left( x \right) = j \left( x \right) - k \left( x \right)  \) so that \( \left( j - k \right) \left( A \right) =  0 - 0 = 0 \) so that \( \left( j - k \right) \left( x \right) \in I \), also let \( r \left( x \right) \in F \left[ x \right]  \) then \( r \left( x \right) j \left( x \right) \in I  \) because \( r \left( A \right) j \left( A \right) = r \left( A \right) \cdot 0 = 0  \), so that \( I \) is an ideal.
+            </p>
+            <hr>
+            <p>
+                We want to show that \( I = \left( m \left( x \right)  \right) _ \diamond  \), one way of proving this is to show that \( m \left( x \right)   \) divides every element in \( I \). So let \( f \left( x \right) \in I \) by the quotient remainder theorem we obtain \( q \left( x \right) , r \left( x \right)  \) such that \( f \left( x \right) = q \left( x \right) m \left( x \right) + r \left( x \right)  \) where either \( r \left( x \right) = 0 \) or \( \operatorname{ deg } \left( r \right) \lt \operatorname{ deg } \left( m \right)  \), but note the latter is impossible because \( m \left( x \right)  \) was the monic polynomial with the smallest degree in \( I \) (which is also the smallest degree of any polynomial in \( I \))  so that we must have \( r \left( x \right) = 0 \) which implies that \( m \left( x \right)  \) divides \( f \left( x \right)  \) as needed.
+            </p>
+            <hr>
+            <p>
+                Suppose that there was another monic polynomial \( c \left( x \right) \in I \)  with the same degree as \( m \left( x \right)   \), we know that \( m \left( x \right)  \) divides \( c \left( x \right)  \), but then we must have that the quotient is a non-zero constant polynomial, so that \( c \left( x \right) = \alpha m \left( x \right)  \), but then \( \alpha m \left( x \right)  \) is no longer monic unless \( \alpha = 1 \) therefore \( c \left( x \right) =  m \left( x \right)  \) as needed.
+            </p>
+    	</div>
+    </div>
+    
+    
+     
+    
+    
     
     
     

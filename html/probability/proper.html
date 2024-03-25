@@ -33,14 +33,14 @@
 			<div class="content">
 				Random Variable and Binary Operation Syntax Sugar: Suppose that \( X : \Omega \to \mathbb{ R }  \) is a random variable and that \( \star \) is a binary operation, then for any \( a \in \mathbb{ R }   \) we define
 				\[
-				X \star a := \left\{ m \in \mathbb{ R } : m \in \operatorname{ im } \left( X \right) \text{ such that } m \star a  \right\}
+				X \star a := \left\{ o \in \Omega :  X \left( o \right) \star a  \right\}
 				\]
-				We can ground this with \( \star :\equiv = \), and in that case \( X = 3 := \left\{ m : m \in \operatorname{ im } \left( X \right) \text{ such that } m = 3 \right\} \)
-
 			</div>
 		</div>
-		
 
+		<p>
+			The main thing to note with the above definition is that when we write something of the form \( R = 3 \), then this is a subset of our sample space and therefore we can take the probability of it.
+		</p>
 
 		<p>
 			If you're throwing a dice on a table, then the entire universe could be the system, and then it generates the outcome say \( 1 \) when you roll it.
@@ -49,6 +49,19 @@
 		<p>
 			A system \( W \) should be thought as a finite list of rules that when followed results in the creation of something physically observable
 		</p>
+
+		<div class="definition" id="definition-probability-density-function">
+			<div class="title">Probability Density Function</div>
+			<div class="content">
+				The probability density function (pdf) of a random variable \( X: \Omega \to \mathbb{ R }  \) is the function
+				\[
+					f _ X \left( t \right) = P \left( X = t \right)
+				\]
+			</div>
+		</div>
+
+
+		
 
 		<div class="definition" id="definition-sample-mean">
 			<div class="title">Sample Mean</div>
@@ -129,13 +142,39 @@
 			<div class="content">
 				Suppose that \( P \left( A \right) , P \left( B \right) \neq 0 \) then we have 
 				\[
-				    P \left( A \cap B \right) = P \left( A \mid B \right) P \left( B \right) = P \left( B \mid A \right) P \left( A \right) 
+				    P \left( A \cap B \right) = P \left( A \mid B \right) P \left( B \right)
 				\]
 			</div>
 			<div class="proof">
 				
 			</div>
 		</div>
+
+		<div class="corollary" id="corollary-symmetric-conditional-equation">
+			<div class="title">Symmetric Conditional Equation</div>
+			<div class="content">
+				\[
+					P \left( A \mid B \right) P \left( B \right) = P \left( B \mid A \right) P \left( A \right)
+				\]
+			</div>
+			<div class="proof">
+			</div>
+		</div>
+
+
+		<div class="proposition" id="proposition-probability-of-set-difference">
+			<div class="title">Probability of Set Difference</div>
+			<div class="content">
+				Suppose that \( A, B \subseteq \Omega  \) then
+				\[
+				    P \left( A \setminus B \right) = P \left( A \right) - P \left( A \cap B \right)
+				\]
+			</div>
+			<div class="proof">
+
+			</div>
+		</div>
+
 
 		<div class="lemma" id="lemma-probability-of-event-via-partition">
 			<div class="title">Probability of an Event through a Partition</div>
@@ -171,13 +210,45 @@
 				
 			</div>
 		</div>
+
+		<div class="definition" id="definition-independence-of-events">
+			<div class="title">Independence of Events</div>
+			<div class="content">
+				Given two events \( A, B \subseteq \Omega  \) we say that \( A \) and \( B \)re independent iff
+				\[
+				P \left( A | B \right) = P \left( A \right)
+				\]
+			</div>
+		</div>
+		
+		<div class="corollary" id="corollary-independence-is-symmetric">
+			<div class="title">Independence is Symmetric</div>
+			<div class="content">
+				Suppose that \( A \) and \( B \) are independent, then \( B \) and \( A \) are independent
+			</div>
+			<div class="proof">
+				<p>
+					We know that \( P \left( A \mid B   \right) =  P \left( A \right) \), we'd like to prove that \( P \left( B \mid A \right) = P \left( B \right)   \),
+					\[
+					    \begin{align}
+					        P \left( B \mid A \right) &= \frac{P \left( A \cap B \right) }{ P \left( A \right) } \\
+							&= \frac{P \left( A \mid B \right) P \left( B \right)  }{ P \left( A \mid B \right) } \\
+							&= P \left( B \right) 
+					    \end{align}
+					\]
+					on the second line we used the <a class="knowledge-link" href="/probability/proper.html#corollary-intersection-as-conditional-probability">intersection as conditional formula</a>
+				</p>
+			</div>
+		</div>
+		
+
 		
 		<div class="definition" id="definition-statistically-independent">
-			<div class="title">Statistically Independent</div>
+			<div class="title">Independent Random Variables</div>
 			<div class="content">
-				We say that two events \( A, B \subseteq \Omega  \) are statistically independent and write \( A \perp B \) when 
+				Suppose that \( X, Y \) are two random variables, we say that \( X \) and \( Y \) are independent and write \( X \perp Y \) iff given any \( A, B \subseteq \mathbb{ R }  \) such that \( P \left( Y \in B \right) \neq 0  \)  we have that
 				\[
-				    P \left( A | B \right) = P \left( A \right) 
+				    P \left( X \in A | Y \in B \right) = P \left( X \in A \right)
 				\]
 			</div>
 		</div>
@@ -186,7 +257,7 @@
 			<div class="title">Independence as a Product</div>
 			<div class="content">
 				\[
-				    A \perp B \iff P \left( A \cap B \right) = P \left( A \right) P \left( B \right) 
+				    A \perp B \iff P \left( X \in A \cap X \in B \right) = P \left( X \in A \right) P \left( X \in B \right)
 				\]
 			</div>
 			<div class="proof">
@@ -213,6 +284,88 @@
 				Follows from the previous corollary.
 			</div>
 		</div>
+
+		<div class="exercise" id="exercise-independence-practice">
+			<div class="title">Independence Practice</div>
+			<div class="content">
+				Suppose that \( A, B \) are two events such that \( P \left( A \setminus B  \right) = P \left( B \right) = \frac{2}{5}    \) and \( A \perp B \):
+				<ul>
+					<li>Determine \( P \left( A \right)  \) </li>
+					<li>Obtain the probabilities \( P \left( A \cap B \right), P \left( A \cap B ^ \complement \right) , P \left( A ^ \complement \cap B ^ \complement \right)   \) </li>
+					<li>
+						Determine the conditional probability \( P \left( A \setminus B \mid A \cap B \right)  \)
+					</li>
+				</ul>
+			</div>
+			<div class="proof">
+				<p>
+					We start by determining \( P \left( A \right)  \), firstly <a class="knowledge-link" href="/probability/proper.html#proposition-probability-of-set-difference">we know that</a> 
+					\[
+					    \begin{align}
+					        \frac{2}{5} &= P \left( B \right) = P \left( A \setminus B \right) \\
+							&= P \left( A \right) - P \left( A \cap B \right) \\
+							&= P \left( A \right) - P \left( A  \right) P \left( B \right)  \\
+							&= P \left( A \right) \left( 1 - P \left( B \right)  \right) \\
+							&= P \left( A \right) \left( 1 - \frac{2}{5}  \right) \\
+							&= P \left( A \right) \left( \frac{3}{5}  \right) 
+					    \end{align}
+					\]
+					therefore we deduce that \( P \left( A \right) = \frac{2}{3}  \) 	
+				</p>
+
+			</div>
+		</div>
+
+		<div class="definition" id="definition-collection-of-independent-events">
+			<div class="title">Collection of Independent Events</div>
+			<div class="content">
+				Suppose we have some collection \( A _ i, i \in I  \) of events for some index set \( I \), then we say that this collection of events are independent if
+
+			</div>
+		</div>
+
+
+		<div class="definition" id="definition-bernoulli-trial">
+			<div class="title">Bernoulli Trial</div>
+			<div class="content">
+				The random varaible \( Z \) is said to be a bernoulli trial denoted by \( Z \sym \operatorname{ bern } \left( p \right)  \) for \( 0 \le p \le 1 \) iff
+				\[
+				    P \left( Z = 0 \right) = p \qquad P \left( Z = 1 \right) = 1 - p
+				\]
+			</div>
+		</div>
+
+		<div class="definition" id="definition-sequence-of-identically-and-independently-distributed-random-varaibles">
+			<div class="title">Sequence of Identically and Independently Distributed Random Variables</div>
+			<div class="content">
+				Let \( \textbf{ X } = \left( X _ i : i \in I \right)  \) where \( I \) is some index set. We say that \( \textbf{ X } \) is identically and independently distributed and write IID with distribution \( D \)
+				<ul>
+					<li>\( X _ i \stackrel{d}{=} D  \) for every \( i \in I \)  </li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+
+		
+		<div class="definition" id="definition-binomial-distribution">
+			<div class="title">Binomial Distribution</div>
+			<div class="content">
+				The random varaible \( X \) is said to have a binomial distribion on \( n \) trials, with probability of success per trial \( p \) iff 
+				\[
+				    X \stackrel{d}{=} Z _ 1 + \cdots + Z _ n
+				\]
+				where \( Z _ 1, \ldots , Z _ n \) are IID and \( Z _ i \sym \operatorname{ bern } \left( p \right)  \) 
+			</div>
+		</div>
+		
+
+		
+
+
+
+
+
+
 		
 		
 		

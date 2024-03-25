@@ -97,15 +97,39 @@
             Since \( p \left( x \right)  \) is irreducible, then it has degree at least one, and therefore is non-zero <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#theorem-irreducibility-criterion-with-prime-ideals">thus we know that</a> \( \left( p \left( x \right)  \right) _ \diamond  \) is a prime ideal, it is non-zero since \( p \left( x \right) \in \left( p \left( x \right)  \right) _ \diamond  \) and therefore
     	</div>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
+	
+	<div class="definition" id="definition-prime-field">
+		<div class="title">Prime Field</div>
+		<div class="content">
+			The <b>prime field</b> of a field \( F \) is the intersection of all the subfields of \( F \)
+		</div>
+	</div>
+
+	<div class="definition" id="definition-characteristic">
+		<div class="title">Characteristic</div>
+		<div class="content">
+			Suppose that \( p \) is prime, and that \( F \) is a field, then we say that \( F \) has <b>characteristic</b> \( p \) if its <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#definition-prime-field">prime field</a> is isomorphic to \( \mathbb{ Z } _ p ^ \% \)
+		</div>
+	</div>
+
+
+	<div class="proposition" id="proposition-unique-roots-in-a-field-of-characteristic-p">
+		<div class="title">Unique Roots in a Field of Characteristic p</div>
+		<div class="content">
+			Let \( F \) be a finite field of characteristic \( p \), show that each element \( a \in F \) has a unique \( p \)-th root in \( F \) 
+		</div>
+		<div class="proof">
+			<p>
+				Let's first observe that that map \( g : F \to F \) defined by \( f \left( x \right) = x ^ p \) is an injective mapping, suppose that \( x ^ p = y ^ p \iff x ^ p - y ^ p = 0 \) then by the properties of a field of characteristic \( p \) we have \( \left( x - y \right) ^ p = 0 \iff x - y = 0 \iff x = y\), so that \( g \) is injective.
+			</p>
+			<p>
+				Recall that an injection over a finite set becomes a surjection, since \( a \in F \) then there exists some \( k \in F \) such that \( g \left( k \right) = a  \) which is to say \( k ^ p = a \) thus we know that there exists a root of \( a \). Let's prove that it's unique
+			</p>
+			<p>
+				Suppose that \( j \neq k \) is another \( p \)-th root of \( a \) therefore we have that \( j ^ p = a = k ^ p \) but then we have \( j ^ p - k ^ p = 0 \) so we have that \( \left( j - k \right) ^ p = 0 \iff j = k   \) which is a contradiction, so therefore the root is unique.
+			</p>
+		</div>
+	</div>
 
 </div>
 
