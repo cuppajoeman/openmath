@@ -3,7 +3,6 @@
 */
 
 #include <cstdio>
-#include "math/math.hpp"
 
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>

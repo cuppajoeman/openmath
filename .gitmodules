@@ -22,3 +22,6 @@
 [submodule "html/machine_learning/implementation/graphics/shaders"]
 	path = html/machine_learning/implementation/graphics/shaders
 	url = git@github.com:opengl-toolbox/shaders.git
+[submodule "html/machine_learning/implementation/external_libraries/eigen"]
+	path = html/machine_learning/implementation/external_libraries/eigen
+	url = https://gitlab.com/libeigen/eigen
