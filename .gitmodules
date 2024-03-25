@@ -1,3 +1,24 @@
 [submodule "html/machine_learning/implementation/external_libraries/glm"]
 	path = html/machine_learning/implementation/external_libraries/glm
 	url = git@github.com:g-truc/glm.git
+[submodule "html/machine_learning/implementation/graphics/window"]
+	path = html/machine_learning/implementation/graphics/window
+	url = git@github.com:opengl-toolbox/window.git
+[submodule "html/machine_learning/implementation/graphics/shader_pipeline"]
+	path = html/machine_learning/implementation/graphics/shader_pipeline
+	url = git@github.com:opengl-toolbox/shader_pipeline.git
+[submodule "html/machine_learning/implementation/external_libraries/glad_opengl_3.3_core"]
+	path = html/machine_learning/implementation/external_libraries/glad_opengl_3.3_core
+	url = git@github.com:opengl-toolbox/glad_opengl_3.3_core.git
+[submodule "html/machine_learning/implementation/external_libraries/glfw"]
+	path = html/machine_learning/implementation/external_libraries/glfw
+	url = git@github.com:glfw/glfw.git
+[submodule "html/machine_learning/implementation/interaction/mouse"]
+	path = html/machine_learning/implementation/interaction/mouse
+	url = git@github.com:opengl-toolbox/mouse.git
+[submodule "html/machine_learning/implementation/interaction/camera"]
+	path = html/machine_learning/implementation/interaction/camera
+	url = git@github.com:opengl-toolbox/camera.git
+[submodule "html/machine_learning/implementation/graphics/shaders"]
+	path = html/machine_learning/implementation/graphics/shaders
+	url = git@github.com:opengl-toolbox/shaders.git
