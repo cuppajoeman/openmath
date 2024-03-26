@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bayesian Networks</title>
+
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+<body>
+
+<div class="thin-wrapper">
+
+    <div class="exercise" id="exercise-bayes-burritos">
+    	<div class="title">Bayes Burritos</div>
+    	<div class="content">
+            Bayes’ Burrito Bowls is a food truck that serves burrito bowls (obviously). You can choose:
+            <ul>
+                <li>a type of rice, which can be; white, brown</li>
+                <li>a type of bean, which can be; black, pinto, lima, or kidney</li>
+                <li>any of the following toppings; guacamole, corn, salsa, sour cream, onion, lettuce, or cheese</li>
+            </ul>
+            <p>
+                We model each type of burrito as a triple (R, B, T), where R and B are the types of rice and bean, and T is any subset of the toppings. The type of burrito a customer picks depends on his/her preferences. We can model such preferences using a probability distribution over (R, B, T ).
+            </p>
+            <ul>
+                <li>How many different types of burrito bowls are there?</li>
+                <li>
+                    Eshan builds a burrito bowl as follows: He first chooses the type of rice and bean independently of each other. Based on both these choices, he chooses the toppings (the toppings are not chosen independently of each other). Provide an appropriate factorization of \( P _ \mathrm{ Eshan } \left( R, B, T \right) \)  and the number of values that must be known to compute it for any R, B, T.
+                </li>
+                <li>
+                    Zafeer builds a burrito as follows: He first chooses type of rice. Based on this choice, he chooses
+                    a type of bean. He chooses the toppings independently of the other choices (toppings are not
+                    chosen independently of each other). Provide an appropriate factorization of \( P _ \mathrm{ Zafeer } (R, B, T )  \)
+                    and the number of values that must be known to compute it for any R, B, T
+                </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+            <p>
+                We'll first count the number of different burritos, we already know that there are \( 2 \cdot 4 = 8 \) rice-bean combinations, therefore we just have to figure out how many different topping choices there are, clearly we want to count the number of different subsets of the collection of toppings, by putting each topping in a tuple, and then using a binary tuple of the same length to produce a subset, then there \( 2 ^ 7 \) topping choices, this leads there to be
+                \[
+                    2 \cdot 4 \cdot 2 ^ 7 = 2 ^ {10}
+                \]
+                different burritos.
+            </p>
+            <hr>
+            <p>
+                Eshan chooses rice and beans independently of each other, this means that \( P \left( B \mid R \right) = P \left( B \right)   \).
+            </p>
+    	</div>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

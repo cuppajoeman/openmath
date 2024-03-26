@@ -81,7 +81,7 @@
     <div class="proposition" id="proposition-in-a-pid-every-non-zero-prime-ideal-is-maximal">
     	<div class="title">In a PID every Non-Zero Prime Ideal is Maximal</div>
     	<div class="content">
-    		If \( R \) is a principal ideal domain then every non-zero ideal \( I \) is a maximal ideal
+    		If \( R \) is a principal ideal domain then every non-zero prime ideal \( I \) is a maximal ideal
     	</div>
     	<div class="proof">
 
@@ -94,10 +94,56 @@
     		If \( F \) is a field and \( p \left( x \right) \in F \left[ x \right]  \) is irreducible, then the quotient ring \( F \left[ x \right] / \left( p \left( x \right)  \right) _ \diamond  \) is a field containing (an isomorphic copy of) \( F \) and a root of \( p \left( x \right)  \)
     	</div>
     	<div class="proof">
-            Since \( p \left( x \right)  \) is irreducible, then it has degree at least one, and therefore is non-zero <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#theorem-irreducibility-criterion-with-prime-ideals">thus we know that</a> \( \left( p \left( x \right)  \right) _ \diamond  \) is a prime ideal, it is non-zero since \( p \left( x \right) \in \left( p \left( x \right)  \right) _ \diamond  \) and therefore
+			<p>
+				Since \( p \left( x \right)  \) is irreducible, then it has degree at least one, and therefore is non-zero <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#theorem-irreducibility-criterion-with-prime-ideals">thus we know that</a> \( \left( p \left( x \right)  \right) _ \diamond  \) is a prime ideal, it is non-zero since \( p \left( x \right) \in \left( p \left( x \right)  \right) _ \diamond  \).
+			</p>
+			<p>
+				Since \( F \) is a field, <a class="knowledge-link" href="/algebra/galois_theory/polynomial_rings_over_fields.html#theorem-if-F-is-a-field-then-F[x]-is-a-pid">then we know that</a> \( F \left[ x \right]  \) is a PID, therefore since we've just seen that \( I \) is a non-zero prime ideal <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#proposition-in-a-pid-every-non-zero-prime-ideal-is-maximal">then we know that</a>  \( I \) is a maximal ideal.
+			</p>
+			<p>
+				Since \( I \) is a maximal ideal, then <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#proposition-maximal-iff-quotient-ring-is-a-field">we know that </a> \( E := F \left[ x \right] / I \) is a field. Observe that the map \( a \mapsto a \boldsymbol{+}  I \) is an isomorphism from \( F \) to \( F ^ \prime := \left\{ a \boldsymbol{+} I : a \in F \right\}  \subseteq E \). We finally show that \( E \) contains a root.
+			</p>
+			<p>
+				Consider \( \theta = x \boldsymbol{+} I \in E \), and write \( p \left( x \right) = a_0  + a_1 x ^ 1 + \cdots + a_n x ^ n \), then
+				\[
+				    \begin{align}
+				        p \left( \theta \right) &= \left( a _ 0 \boldsymbol{+} I \right) + \left( a _ 1 \boldsymbol{+} I \right) \theta + \cdots + \left( a _ n \boldsymbol{+} I \right) \theta ^ n \\
+				&= \left( a _ 0 \boldsymbol{+} I \right) + \left( a _ 1 \boldsymbol{+} I \right) \left( x \boldsymbol{+} I \right)  + \cdots + \left( a _ n \boldsymbol{+} I \right) \left( x \boldsymbol{+} I \right)  ^ n \\
+				&= \left( a _ 0 \boldsymbol{+} I \right) + \left( a _ 1 x \boldsymbol{+} I \right)  + \cdots + \left( a _ n x ^ n \boldsymbol{+} I \right) \\
+				&= a_0 + a_1 x + \cdots + a_n x ^ n \boldsymbol{+} I \\
+				&= p \left( x \right)  \boldsymbol{+}  I \\
+				&= 0 \boldsymbol{+}  I \\
+				    \end{align}
+				\]
+				Since \( 0 \boldsymbol{+} I \) is the zero element of \( F \left[ x \right] / I \) then \( \theta \) is a root of \( p \left( x \right)  \) 
+			</p>
     	</div>
     </div>
-	
+
+	<div class="definition" id="definition-linear-factor">
+		<div class="title">Linear Factor</div>
+		<div class="content">
+			Suppose that \( F \) is a field and \( a \in F \), then we say that the polynomial \( x - a \in F \left[ x \right]  \) is a linear factor.
+		</div>
+	</div>
+
+	<div class="definition" id="definition-splits-over">
+		<div class="title">Splits Over</div>
+		<div class="content">
+			A polynomial \( f \left( x \right) \in F \left[ x \right]  \) splits over \( F \) if it is a product of linear factors in \( F \left[ x \right]  \)
+		</div>
+	</div>
+
+	<div class="corollary" id="corollary-splits-iff-root">
+		<div class="title">Splits iff Roots</div>
+		<div class="content">
+			\( f \left( x \right) \in F \left[ x \right]  \) splits over \( F \left[ x \right]  \) if and only if \( F \) contains all the roots of \( f \left( x \right)  \).
+		</div>
+		<div class="proof">
+
+		</div>
+	</div>
+
 	<div class="definition" id="definition-prime-field">
 		<div class="title">Prime Field</div>
 		<div class="content">

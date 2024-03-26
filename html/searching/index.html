@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sitewide Search</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js"></script>
+</head>
+<body>
+
+<div class="thin-wrapper">
+    <h1>Search</h1>
+    <input type="text" onkeydown="search(this.value)">
+    <div id="search_results">
+    </div>
+</div>
+
+<script src="fuzzysort.js"></script>
+<script src="search_data.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

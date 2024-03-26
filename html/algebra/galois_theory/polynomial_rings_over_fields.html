@@ -35,13 +35,28 @@
 
         	</div>
         </div>
+		
+		<div class="theorem" id="theorem-if-F-is-a-field-then-F[x]-is-a-pid">
+			<div class="title">If \( F \) is a Field then \( F \left[ x \right]  \) is a Principal Ideal Domain</div>
+			<div class="content">
+				As per title.
+			</div>
+			<div class="proof">
+				<p>
+					Let \( I \) be an ideal in \( F \left[ x \right]  \), if \( I = \left\{ 0 \right\}  \) then \( I = \left( 0 \right) _ \diamond \), which shows that it is a principal ideal. Now suppose that \( I \neq \left\{ 0 \right\}  \), and let \(  m \left( x \right) \in I  \)  of smallest degree, we'll show that \( I = \left( m \left( x \right)  \right) _ \diamond  \).
+				</p>
+				<p>
+					We can see that \( \left( m \left( x \right)  \right) _ \diamond \subseteq I  \) because for any element in an ideal, all of it's multiples are a part of it. Looking at \( \left( m \left( x \right)  \right) _ \diamond \supseteq I  \), then given some \( f \left( x \right) \in I \) then by the division algorithm we have \( q \left( x \right) , r \left( x \right)  \) such that 
+					\[
+					    f \left( x \right) = q \left( x \right) m \left( x \right)  + r \left( x \right) 
+					\]
+					where either \( r \left( x \right) = 0 \) or \( \operatorname{ deg } \left( r \right) \lt  \operatorname{ deg } \left( m \right)  \) but then \( r \left( x \right) = f \left( x \right)  - q \left( x \right) m \left( x \right) \in I \). Now if \( \operatorname{ deg } \left( r \right) \lt \operatorname{ deg } \left( m \right)  \) then we've found a polynomial with a smaller degree than \( m \left( x \right)  \) in \( I \) (namely \( r \left( x \right)  \)), so therefore we must have that \( r \left( x \right) = 0 \) which means that \( f \left( x \right) = q \left( x \right) m \left( x \right) \in \left( m \left( x \right)  \right) _ \diamond  \).
+				</p>
+			</div>
+		</div>
+		
+		
 
-
-
-
-        
-
-        
     </div>
 </body>
 </html>
