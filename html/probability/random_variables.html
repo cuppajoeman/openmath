@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Variables</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js"></script>
+</head>
+<body>
+
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-random-variable">
+    	<div class="title">Random Variable</div>
+    	<div class="content">
+            A <b>random variable</b> is a function from the sample space \( \Omega  \) to \( \mathbb{ R } \).
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-random-variable-function-composition">
+    	<div class="title">Random Variable Function Composition</div>
+    	<div class="content">
+    		Suppose that \( X \) is a random varaible and that \( g : \mathbb{ R } \to \mathbb{ R }  \) is a function, then we define
+            \[
+                g \left( X \right) := g \circ X
+            \]
+            where \( g \circ X: \Omega \to \mathbb{ R }  \)
+    	</div>
+    </div>
+
+    <p>
+        Note that when we compose a real valued function with a random varaible, we obtain a new random varaible.
+    </p>
+
+
+    
+
+    <div class="definition" id="definition-random-variable-and-binary-operation-syntax-sugar">
+        <div class="title">Random Variable and Binary Operation Syntax Sugar</div>
+        <div class="content">
+            Random Variable and Binary Operation Syntax Sugar: Suppose that \( X : \Omega \to \mathbb{ R }  \) is a random variable and that \( \star \) is a binary operation, then for any \( a \in \mathbb{ R }   \) we define
+            \[
+            X \star a := \left\{ o \in \Omega :  X \left( o \right) \star a  \right\}
+            \]
+        </div>
+    </div>
+
+    <p>
+        The main thing to note with the above definition is that when we write something of the form \( R = 3 \), then this is a subset of our sample space and therefore we can take the probability of it.
+    </p>
+
+    <div class="definition" id="definition-discrete-random-variable">
+    	<div class="title">Discrete Random Variable</div>
+    	<div class="content">
+            A random variable \( X \) is discrete if
+            \[
+                \sum _ { x \in \mathbb{ R }  } P \left( X = x \right) = 1
+            \]
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-probability-function">
+    	<div class="title">Probability Function</div>
+    	<div class="content">
+    		For a discrete random variable \( X \), it's probability function is the function \( p _ X : \mathbb{ R } \to \left[ 0, 1 \right]  \)
+            \[
+                p _ X \left( x \right) := P \left( X = x \right)
+            \]
+    	</div>
+    </div>
+
+
+
+
+    
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
