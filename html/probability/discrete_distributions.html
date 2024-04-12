@@ -10,19 +10,233 @@
 
 <div class="thin-wrapper">
 
-    <div class="definition" id="definition-bernouilli-distribution">
-        <div class="title">Bernouilli Distribution</div>
-        <div class="content">
-            We say that a random variable \( X \) is said to have the Bernouilli distribution, and write \( X \sim \operatorname{ Bernouilli } \left( \theta \right)  \) whenever
+    <div class="definition" id="definition-probability-mass-function">
+    	<div class="title">Probability Mass Function</div>
+    	<div class="content">
+    		Suppose that \( X \) is a discrete random varaible, then the <b>probability mass function</b> of \( X \) is defined by the function \( p : \mathbb{ R } \to \left[ 0, 1 \right]  \)
             \[
-            p _ X \left( 1 \right) = \theta \qquad \text{ and } \qquad  p _ X \left( 0 \right) = 1 - \theta
+                p _ X \left( x \right) = P \left( X = x \right)
+            \]
+    	</div>
+    </div>
+
+
+    <div class="definition" id="definition-bernoulli-random-variable">
+        <div class="title">Bernoulli Random Variable</div>
+        <div class="content">
+            We say that a random variable \( X \) is a <b>Bernoulli random varaible</b> iff there is some \( p \in \left[ 0, 1 \right]  \)
+            \[
+            P \left( X = 1 \right) = p \qquad \text{ and } \qquad P \left( X = 0 \right) = 1 - p
+            \]
+            we denote this symbolically as \( X \sim \operatorname{ bern } \left( p \right)  \)
+        </div>
+    </div>
+
+    <div class="corollary" id="corollary-expected-value-of-a-bernoulli-random-variable">
+        <div class="title">Expected Value of a Bernoulli Random Variable</div>
+        <div class="content">
+            Suppose \( X \sim \operatorname{ bern } \left( p \right)   \) then
+            \[
+            E \left( X \right) = p
+            \]
+        </div>
+        <div class="proof">
+
+            \[
+            E \left( X \right) = P \left( X = 1 \right) \cdot 1 + P \left( X = 0 \right) \cdot 0 = p \cdot 1
             \]
         </div>
     </div>
 
+
+
+    <div class="definition" id="definition-binomial-distribution">
+        <div class="title">Binomial Distribution</div>
+        <div class="content">
+            The random varialbe \( X \) is said to have a binomial distribution on \( n \) trials, with probability of success per trial \( p \) iff
+            \[
+            X \stackrel{d}{=} Z _ 1 + Z _ 2 + \cdots + Z _ n
+            \]
+            where \( Z _ 1, \ldots , Z _ n \text{ IID } Z _ i \sim \operatorname{ bern } \left( p \right)  \) 
+        </div>
+    </div>
+
+    <div class="corollary" id="corollary-expected-value-of-the-binomial-distribution">
+    	<div class="title">Expected Value of the Binomial Distribution</div>
+    	<div class="content">
+    		Suppose that \( X \sim \operatorname{ binom } \left( n, p \right)  \) then
+            \[
+                E \left( X \right) = np
+            \]
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-probability-mass-function-of-the-binomial-distribution">
+    	<div class="title">Probability Mass Function of the Binomial Distribution</div>
+    	<div class="content">
+    		Suppose \( X \sim \operatorname{ binom } \left( n, p \right)   \) then 
+            \[
+                p _ X \left( k \right) = \binom{n}{k} p ^ k \left( 1 - p \right)  ^ { n - k } 
+            \]
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+
+    <p>
+        Note that \( p _  X \left( k \right)  \) represents the probability of getting exactly \( k \) successes in \( n \) independent Bernouilli trials each with the same probability.
+    </p>
+    
+    <div class="exercise" id="exercise-coin-counting">
+    	<div class="title">Coin Counting</div>
+    	<div class="content">
+    		A coin is tossed 12 times and 7 heads occur
+            <ul>
+                <li>Determine the probability that the 7th head occurs on the 12th toss given that there are exactly 7 heads in these 12 tosses</li>
+                <li>Now determine the probability that the 6th head occurs on the 9th toss given that there are exactly 7 heads in the first 12 tosses</li>
+                <li>Finally determine the probability that the 2nd head toss occurs on the 4th toss and the 6th head occurs on the 9th toss given that there are exactly 7 heads in the first 12 tosses</li>
+            </ul>
+    	</div>
+    	<div class="proof">
+            <p>
+               Let \( A \)  be the event that the 7th head is on the 12th toss, and \( B \) the event that there are exactly 7 heads in these 12 tosses. In this case our goal is to determine \( P \left( A \mid B \right) = \frac{P \left( A \cap B \right) }{P \left( B \right) }   \), note that the event \( A \) is equal to \( X = k \) where \( X \sim \operatorname{ binom } \left( 12, \frac{1}{2}   \right)  \), and thus \( P \left( X = 7 \right) = \binom{12}{7} \left( \frac{1}{2}  \right) ^ 7 \left( \frac{1}{2}  \right) ^ 5    \).
+            </p>
+            <p>
+                Let's now try to compute \( P \left( A \cap B \right)  \) which is the probability of getting the 7th head on the 12th toss and exactly 7 heads in those 12 tosses. Note that by getting the 7th head on the 12th toss means that in the first 11 tosses exactly 6 heads occurred in any order, and then independently of that you do your last toss so that 
+                \[
+                    P \left( A \cap B \right) =  \left( \binom{11}{6} \left( \frac{1}{2}  \right) ^ 6 \left( \frac{1}{2} \right)  ^ 5  \right) \cdot \frac{1}{2}
+                \]
+            </p>
+            <p>
+                Now that we've computed the values of \( P \left( A \cap B \right)  \) along with \( P \left( B \right)  \) we divide them to get the answer.
+            </p>
+            <hr>
+            <p>
+                Let's take a similar approach where this time \( C, D \) are the events that the 6th head is on 9th toss and there exactly 7 heads in these 12 tosses respectively, so that our goal is to compute \( P \left( C \mid D \right)  \). Recall that we can compute that via \( P \left( C \mid D \right) = \frac{P \left( C \cap D \right) }{P \left( D \right) }   \), but we know what \( P \left( D \right)  \) is from our previous answer, as that was \( P \left( B \right)  \), therefore we just need a way to compute \( P \left( C \cap D \right)  \).
+            </p>
+            <p>
+                \( P \left( C \cap D \right)  \) is the probability that the 6th head is on the 9th toss and there are exactly 7 heads in 12 tosses. We can break this up into two parts, the first being that you have to get exactly 5 heads in the first 8 tosses, then land another head on the 9th toss and then get exactly 1 head in the last 3 tosses, therefore this probability is given by
+                \[
+                    \left( \binom{8}{5} \left( \frac{1}{2}  \right) ^ 5 \left( \frac{1}{2}  \right) ^ 3   \right) \cdot \frac{1}{2} \cdot \left( \binom{3}{1} \left( \frac{1}{2}  \right) ^ 1 \left( \frac{1}{2}  \right) ^ 2   \right)
+                \]
+            </p>
+            <hr>
+            <p>
+                Similarly to the previous two questions, we use the definition of conditional probability to write it as a fraction, we will only need to focus on the numerator which is the probability that the 2nd head occurs on the 4th toss and the 6th head occurs on the 9th toss and that there are exactly 7 heads in the first 12 tosses. It can be handled similarly to the above by splitting it into separate binomial computations.
+            </p>
+    	</div>
+    </div>
+
+<!--    <div class="definition" id="definition-bernouilli-distribution">-->
+<!--        <div class="title">Bernouilli Distribution</div>-->
+<!--        <div class="content">-->
+<!--            We say that a random variable \( X \) is said to have the Bernouilli distribution, and write \( X \sim \operatorname{ Bernouilli } \left( \theta \right)  \) whenever-->
+<!--            \[-->
+<!--            p _ X \left( 1 \right) = \theta \qquad \text{ and } \qquad  p _ X \left( 0 \right) = 1 - \theta-->
+<!--            \]-->
+<!--        </div>-->
+<!--    </div>-->
+
     <p>
         Consider flipping a coin that has probability \( \theta \) of coming up heads and \( 1 - \theta \) of coming up tails, then the random variable which evalutes to 1 if the coin is heads, and 0 if the coin is tails has the bernouilli distribution
     </p>
+
+    <div class="definition" id="definition-poisson-distribution">
+    	<div class="title">Poisson Distribution</div>
+    	<div class="content">
+    		The random variable \( N \) is said to have a <b>poisson distribution</b> with average number of successes \( \lambda \in \mathbb{ R } ^ { \gt 0 }  \) iff
+            \[
+                P \left( N = k \right) = e ^ { - \lambda  } \frac{\lambda ^ k}{k !}
+            \]
+            where \( k \in \mathbb{ N } _ 0 \). We write \( N \sim \operatorname{ pois } \left( \lambda  \right)  \)
+    	</div>
+    </div>
+
+    <div class="theorem" id="theorem-poisson-as-a-limit-of-binomial">
+    	<div class="title">Poisson as a Limit of Binomial</div>
+    	<div class="content">
+
+            For any \(  i \in \mathbb{ N }  \) suppose we have some \( p _ i \in \left[ 0, 1 \right]  \), then define \( \lambda _ i = i \cdot p _ i  \). Moreover suppose we have some \( X _ i \sim \operatorname{ binom } \left( i, p _ i \right)   \). If \( \lim _ { k \to \infty  } \lambda _ k \) exists denote it by \( \lambda  \) and we have:
+            \[
+                P \left( N =  k \right) = \lim _ { n \to \infty  } P \left( X _ i = k \right)
+            \]
+            where \( N \sim \operatorname{ pois } \left( \lambda  \right)  \)
+
+    	</div>
+    	<div class="proof">
+            \[
+                \begin{align}
+                    P \left( X _ n = k \right) &= \binom{n}{k} p _ n ^ k \left( 1 - p _ n \right) ^ {  n - k } \\
+            &= \binom{n}{k} \left( \frac{\lambda _ n }{n}  \right)  ^ k \left( 1 - \frac{\lambda _ n }{n}  \right) ^ {  n - k } \\
+            &= \frac{n \left( n - 1 \right) \cdots \left( n - k + 1 \right) }{k \left( k - 1 \right) \cdots 1} \left( \frac{\lambda _ n}{n}  \right) ^ k \left( 1 - \frac{\lambda _ n}{n}  \right) ^ { n - k }  \\
+            &= \left( 1 - \frac{\lambda _ n}{n}  \right) ^ n \frac{\lambda _ n ^ k}{k!}  \cdot \left( \frac{\frac{n \left( n - 1 \right) \cdots \left( n - k - 1 \right)  }{ n ^ k} }{ \left( 1 - \frac{\lambda _ n}{n}  \right) ^ k }  \right) \\
+            &= \left( 1 - \frac{\lambda _ n}{n}  \right) ^ n \frac{\lambda _ n ^ k}{k!}  \cdot \left( \frac{\left( 1 - \frac{1}{n}  \right) \cdots \left( 1 - \frac{k - 1}{n}  \right) }{ \left( 1 - \frac{\lambda _ n}{n}  \right) \cdots \left( 1 - \frac{\lambda _ n}{n}  \right)  }  \right)
+                \end{align}
+            \]
+            
+            Note that as \( n \to \infty  \) we see that \( 1 - \frac{\lambda _ n}{ n} \to 1 \) and \( 1 - \frac{x}{n} \to  1 \) where \( x \in \mathbb{ R }  \) so that
+            \[
+            \left( \frac{\left( 1 - \frac{1}{n}  \right) \cdots \left( 1 - \frac{k - 1}{n}  \right) }{ \left( 1 - \frac{\lambda _ n}{n}  \right) \cdots \left( 1 - \frac{\lambda _ n}{n}  \right)  }  \right) \to 1
+            \]
+            therefore as \( n \to \infty  \) we have that
+            \[
+                P \left( X _ n = k \right) \to e ^ { - \lambda  } \frac{\lambda ^ k}{k !}
+            \]
+    	</div>
+    </div>
+
+    <p>
+        This also allows us to compute a binomial with a large \( n \) by approximating it with a poisson.
+    </p>
+
+    <div class="definition" id="definition-negative-binomial">
+    	<div class="title">Negative Binomial</div>
+    	<div class="content">
+    		The random variable \( Y \) is said to have a <b>negative binomial</b> distribution on \( k \) successes each with probability \( p \) iff 
+            \[
+                Y \stackrel{d}{=} \min \left(  \right) 
+            \]
+    	</div>
+    </div>
+    
+
+    <div class="exercise" id="exercise-large-number-of-tossed-coins">
+    	<div class="title">Large Number of Tossed Coins</div>
+    	<div class="content">
+            A coin is tossed 1000 statistically independent times and exactly 3 heads occurs.
+            <ul>
+                <li>
+                    If we toss it 1000 times more, and let \(N\) denote the number of heads we might get this time, estimate the probability that \(N\) is anywhere between 1 and 5. [hint: \(e^3 \approx 20.1\)]
+                </li>
+                <li>
+                    Suppose now we toss the coin \(1000 x\) times and let \(N_x\) denote the number of heads in \(1000 x\) tosses and \(T_1\) the random number of trials until we obtain the first head. How large does \(x\) have to be so that \(P\left(T_1>x\right)=1 / 2\) ?
+                </li>
+                <li>
+                    Now determine the probability that the \(2 n d\) head occurs between 750 and 1250 tosses.
+                </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+            <p>
+                This situation is perfectly modelled by the binomial distribution, (\( N \sim \operatorname{ binom } \left( 1000, \frac{1}{2}  \right)   \) ) it's just that it's hard to compute the binomial distribution for large values. Therefore we can employ an approximation using the poisson distribution as discussed previously, we want to know \( P \left( N \in \left\{ 1, 2, 3, 4, 5 \right\}  \right) = P \left( N = 1 \right) + P \left( N = 2 \right) + P \left( N = 3 \right) + P \left( N = 4 \right) + P \left( N = 5 \right)     \) and we can approximate each such value, using \( \lambda = 1000 \cdot \frac{1}{2} = 500 \)
+            </p>
+            <ul>
+                <li>\( P \left( N = 1 \right) \approx e ^ { - 500 } \frac{500 ^ 1}{1}  \) </li>
+                <li>\( P \left( N = 2 \right) \approx e ^ { - 500 } \frac{500 ^ 2}{2}  \) </li>
+                <li>...</li>
+                <li>\( P \left( N = 5 \right) \approx e ^ { - 500 } \frac{500 ^ 5}{5}  \) </li>
+            </ul>
+            <p>
+                Therefore by adding all these numbers together we obtain an estimation on the probability of \( N \) being anywhere between 1 and 5.
+            </p>
+
+    	</div>
+    </div>
+
 
 </div>
 
