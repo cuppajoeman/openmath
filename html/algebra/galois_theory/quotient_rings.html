@@ -172,10 +172,34 @@
     	</div>
     </div>
     
-
-
-
+    <div class="exercise" id="exercise-isomorphic-rings">
+    	<div class="title">Isomorphic Rings</div>
+    	<div class="content">
+    		Show that the rings \( \mathbb{ Z } _ 3 ^ \%  \left( i \right)   \) and \( \mathbb{ Z } _ 3 ^ \% \left[ x \right] / \left( x ^ 2 + 1 \right) _ \diamond    \) are isomorphic
+    	</div>
+    	<div class="proof">
+            <p>
+                Consider the map \( \phi : \mathbb{ Z } _ 3 ^ \% \left[ x \right] \to \mathbb{ Z } _ 3 ^ \% \left( i \right)    \) defined by \( \phi \left( p \left( x \right)  \right) = p \left( i \right) \), note that the domain is correct because for any \( n \in \mathbb{ N } _ 0 \), \( i ^ n \in \left\{ 1, -1, i, -i \right\}  \) so therefore \( p \left( i \right) = c + di \) for some \( c, d \in \mathbb{ Z } _ 3 ^ \%  \). Moreover see that it is a homomorphism quite easily by verifying multiplication, addition and that clearly it maps \( 1 \) to \( 1 \).
+            </p>
+            <p>
+                Additionally this map is surjective because given any \( a + bi \in \mathbb{ Z } _ 3 ^ \% \left( i \right)  \)   we see that the polynomial \( a + b x \) will map to it under \( \phi \), this means that \( \operatorname{ im } \left( \phi  \right) :=  \phi \left( \mathbb{ Z } _ 3 ^ \% \left[ x \right]   \right) = \mathbb{ Z } _ 3 ^ \% \left( i \right)    \), with that knowledge <a class="knowledge-link" href="/algebra/galois_theory/quotient_rings.html#theorem-crone-homomorphism-induces-an-isomorphism-to-its-image">therefore</a> we have that
+                \[
+                    \mathbb{ Z } _ 3 ^ \% \left[ x \right] / \operatorname{ ker } \left( \phi  \right)  \cong \mathbb{ Z } _ 3 ^ \%  \left( i \right)
+                \]
+            </p>
+            <p>
+                We'll now prove that \( \operatorname{ ker } \left( \phi \right) = \left( x ^ 2 + 1 \right) _ \diamond \). Starting with \( \supseteq  \) recall that \( \left( x ^ 2 + 1 \right) _ \diamond  \) are all the multiples of \( x ^ 2 + 1 \), moreover \( \phi \left( x ^ 2 + 1 \right) = 1 + \left( i \right) ^ 2 = 0  \) therefore \( x ^ 2 + 1 \in \operatorname{ ker } \left( \phi  \right)  \), since any element of \( \left( x ^ 2 + 1  \right) _ \diamond  \) is a multiple of \( x ^ 2 + 1 \) then by taking an arbitrary element from it, it must be of the form \( m \left( x \right) \cdot \left( x ^ 2 + 1 \right)   \)  where \( m \left( x \right) \in \mathbb{ Z } _ 3 ^ \%  \left[ x \right]  \) but since \( \phi  \) is a homomorphism, then we know that \( \phi \left( m \left( x \right) \left( x ^ 2 + 1 \right)  \right) = \phi \left( m \left( x \right)  \right) \phi \left( x ^ 2 + 1 \right) = 0    \), thus \( \left( x ^ 2 + 1 \right) _ \diamond \subseteq \operatorname{ ker } \left( \phi  \right)  \).
+            </p>
+            <p>
+                Now approaching the other inclusion we suppose we have some \( p \left( x \right) \in \operatorname{ ker } \left( \phi  \right)  \), clearly if \( p \left( x \right) = 0 \) tne \( \phi \left( phi \left( x \right)  \right) = 0  \) on the other hand if \( p \left( x \right)  \) is a constant other than zero, then also \( \phi \left( p \left( x \right)  \right) \neq 0  \) therefore we may assume that \( p \left( x \right)  \) is non-constant, in such a case <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#proposition-irreducible-either-has-gcd-1-or-divides-with-any-other-polynomial-non-constant">we know that</a> either \( \gcd \left( p \left( x \right) , x ^ 2 + 1 \right) = 1  \) or that \( \left( x ^ 2 + 1 \right) \mid p \left( x \right)   \).
+            </p>
+            <p>
+                Suppose that \( \gcd \left( p \left( x \right) , x ^ 2 + 1 \right) = 1  \) <a class="knowledge-link" href="/algebra/galois_theory/polynomial_rings_over_fields.html#proposition-gcd-as-a-linear-combination">therefore</a> we get polynomials \( a \left( x \right) , b \left( x \right)  \) such that \( 1 = a \left( x \right) g \left( x \right) + b \left( x \right) \left( x ^ 2 + 1 \right)  \) but then \( 1 = \phi \left( 1  \right) = \phi \left( a \left( x \right)  \right) \cdot 0 + \phi \left( b \left( x \right) \right) \cdot 0 = 0     \)  which is a contradiction, and therefore we must have that \( \left( x ^ 2 + 1 \right) \mid p \left( x \right)   \) so that \( p \left( x \right)  \) is a multiple of \( x ^ 2 + 1 \), in other-words \( p \left( x \right) \in \left( x ^ 2 + 1 \right) _  \diamond \)
+            </p>
+    	</div>
+    </div>
     
+
     <div class="exercise" id="exercise-polynomials-and-prime-ideals">
     	<div class="title">Polynomials and Prime Ideals</div>
     	<div class="content">
@@ -212,19 +236,8 @@
             </p>
     	</div>
     </div>
-    
-    
-    
-    <div class="proposition" id="proposition-polynomial-of-degree-2-or-3-is-irreducible-iff-it-has-no-roots">
-    	<div class="title">Polynomial of Degree 2 or 3 is Irreducible Iff It has no Roots</div>
-    	<div class="content">
-    		
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
-    </div>
-    
+
+
     <div class="proposition" id="proposition-polynomials-mod-a-polynomial-is-a-field-iff-its-irreducible">
     	<div class="title">Polynomials Mod a Polynomial is a Field iff it's irreducible</div>
     	<div class="content">

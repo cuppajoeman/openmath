@@ -20,14 +20,53 @@
     <p>
         Note that the field plays into whether or not a polynomial is irreducible, for example \( x ^  2 + 1 \) is irreducible over \( \mathbb{ R }  \), but factors in \( \mathbb{ C }  \)
     </p>
-    
+
+	<div class="corollary" id="corollary-degree-one-polynomials-are-irreducible">
+		<div class="title">Degree One Polynomials are Irreducible</div>
+		<div class="content">
+			As per title.
+		</div>
+		<div class="proof">
+			Observer that the degree of any polynomial is bounded below by zero. Now let \( p \left( x \right)  \) be a degree one polynomial, and suppose there were two polynomials \( a \left( x \right) , b	 \left( x \right)  \) such that \( p \left( x \right) = a \left( x \right) b \left( x \right)  \) where \( \operatorname{ deg } \left( a \right) , \operatorname{ deg } \left( b \right) \lt \operatorname{ deg } \left( p \right) = 1  \) this means that both \( a \left( x \right) , b \left( x \right)  \) have degree zero, so then they are constant, so their product is constant, which is a contradiction, therefore \( p \left( x \right)  \) is irreducible.
+		</div>
+	</div>
+
+
+
+	<div class="proposition" id="proposition-polynomial-of-degree-2-or-3-is-irreducible-iff-it-has-no-roots">
+		<div class="title">Polynomial of Degree 2 or 3 is Irreducible Iff It has no Roots</div>
+		<div class="content">
+			A polynomial \( p \left( x \right) \in F \left[ x \right]  \) of degree 2 or 3 is irreducible over \( F \) if and only if \( F \) contains no root of \( p \left( x \right)  \)
+
+		</div>
+		<div class="proof">
+
+		</div>
+	</div>
+	<p>
+		Note that the above doesn't hold for degree 4 because the polynomial \( \left( x ^ 2 + 1 \right) ^ 2  \) factors as \( \left( x ^ 2 + 1 \right) \left( x ^ 2 + 1 \right)   \) in \( \mathbb{ R } \left[ x \right]  \) (and is thus not irreducible) but has no real roots.
+	</p>
+
+
+	<div class="proposition" id="proposition-irreducible-either-has-gcd-1-or-divides-with-any-other-polynomial-non-constant">
+		<div class="title">Irreducible Either has GCD 1 or Divides any other Non-Constant Polynomial</div>
+		<div class="content">
+			Let \( p \left( x \right) \in F \left[ x \right]  \) be irreducible. If \( g \left( x \right) \in F \left[ x \right]  \) is not constant, then either \( \gcd \left( p \left( x \right) , g \left( x \right)  \right) = 1  \) or \( p \left( x \right) \mid g \left( x \right)  \)
+		</div>
+		<div class="proof">
+
+		</div>
+	</div>
+
+
     <div class="definition" id="definition-prime-ideal">
     	<div class="title">Prime Ideal</div>
     	<div class="content">
     		An ideal \( I \) in a ring \( R \) is called a <b>prime ideal</b> if it is a proper ideal and \( ab \in I \) implies that \( a \in I \) or \( b \in I \)
     	</div>
     </div>
-    
+
+
     <div class="theorem" id="theorem-irreducibility-criterion-with-prime-ideals">
     	<div class="title">Irreducibility Criterion with Prime Ideals</div>
     	<div class="content">

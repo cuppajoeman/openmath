@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Splitting Fields</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
 </head>
 <body>
-
+<div class="thin-wrapper">
+    
+    <div class="proposition" id="proposition-field-extension-must-adjoin-a-square-root">
+    	<div class="title">Field Extension must Adjoin a Square Root</div>
+    	<div class="content">
+    		Suppose that \( E \) is a field extension of \( \mathbb{ Q }  \) of degree 2. Prove that \( E = \mathbb{ Q } \left( \sqrt{ a }  \right)  \) for some \( a \in \mathbb{ Q }  \) such that \( \sqrt{ a } \notin \mathbb{ Q }  \)
+    	</div>
+    	<div class="proof">
+            <p>
+                Since \( E \) is a vector space of degree 2 over \( \mathbb{ Q }  \) then it has some basis \( \left( 1, k \right)  \). It must be that \( k \notin \mathbb{ Q }  \) because if \( k \in \mathbb{ Q }  \) then \( \left( 1, k \right)  \) would no longer be linearly independent. Moreover we can write \( k ^ 2 \in E \) as a linear combination of the basis vectors so that we have some \( c, d \in \mathbb{ Q }  \) such that \( k ^ 2 = -c - dk \) which is to say that \( k ^ 2 + dk + c = 0  \) which means that \( k \) is a solution to the polynomial \( x ^ 2 + dx + c = 0 \).
+            </p>
+            <p>
+                The quadratic formula determines that \( k \) is of the form \( \frac{- \left( -d \right) \pm \sqrt{ d ^ 2 - 4 \cdot 1 \cdot c } }{2}  \), now if \( d ^ 2 - 4c  \) is a square, then the entire expression yields a rational, but \( k \) is not rational, so we know that \( d ^ 2 - 4c \) is not a square. Let \( m := d ^ 2 - 4c \in \mathbb{ Q }  \) so that \( k = \frac{d}{2} \pm \frac{\sqrt{ m } }{2} \iff \sqrt{ m } = \pm \left( 2k - d \right)  \). Recall that \( k \notin \mathbb{ Q } \) so that \( 2k - d \notin \mathbb{ Q }  \) so that \( \sqrt{ m } \notin \mathbb{ Q }  \)
+            </p>
+            <p>
+                For any number \( x \notin \mathbb{ Q }  \) we know that \( \mathbb{ Q } \left( x \right) = \mathbb{ Q } \left( a x + b \right)  \) where \( a, b \in \mathbb{ Q }  \) then we know that \( \mathbb{ Q } \left( k \right) = \mathbb{ Q } \left( \sqrt{ m }  \right) \) so we've proven the statement true.
+            </p>
+    	</div>
+    </div>
+    
+    
+</div>
 </body>
 </html>
