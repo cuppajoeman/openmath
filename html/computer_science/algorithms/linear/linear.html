@@ -230,6 +230,179 @@
             </p>
     	</div>
     </div>
+
+    <div class="exercise" id="exercise-">
+    	<div class="title">Simple Scheduling with Prerequisites</div>
+    	<div class="content">
+            <p>
+                You are given \( n \) jobs with a list of durations \( d _ 1, d _ 2, \ldots d _ n \). For every pair of jobs \( \left( i, j \right)  \) you are given a boolean \( p _ { i, j }  \) such that if it is true then job \( i \) must finish before job \( j \) can begin, meaning that job \( i \) is a pre-requisite for job \( j \)
+            </p>
+            <p>
+                Your goal is to find non-negative start times \( s _ 1, \ldots , s _ n \) for the jobs such that the total time of all jobs is minimized while ensuring that the prerequisite constrains are met. Write a linear program to solve this problem.
+            </p>
+    	</div>
+    	<div class="proof">
+            <p>
+                For any job \( i \) we note that it's finishing time is \( s _ i + d _ i \), the total duration for all jobs to be completed is simply \( T := \operatorname{ max } \left( \left\{ s _ i + d _ i : i \in \left[ 1 , \ldots , n \right]  \right\}  \right)  \), but this is not a linear combination of our variables so instead of defining it, we simply declare it as a variable \( T \) and assert that \( T \gt 0 \) and add \( n \) constraints of the form \( T \gt s _ i + d _ i \)
+            </p>
+            <p>
+                We also need to enforce certain constraints, which is to say that for any \( p _ { i, j }  \) which is true we add the following inequality: 
+                \[
+                    s _ i + d _ i \le s _ j
+                \]
+                which says that the finishing time of job \( i \) comes before the start time of job \( j \).
+            </p>
+            <p>
+                We also have \( s _ i \gt 0 \) for all \( i \in \left[ 1 ,\ldots , n \right]  \), and now along with these contraints we minimize \( T \) which defines our linear programming problem.
+            </p>
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-binary-integer-linear-program">
+    	<div class="title">Binary Integer Linear Program</div>
+    	<div class="content">
+            An optimization problem with a linear objective, linear constraints and each variable taking the value \( 0 \) or \( 1 \).
+    	</div>
+    </div>
+
+    
+    <div class="exercise" id="exercise-logical-operators">
+    	<div class="title">Logical Operators</div>
+    	<div class="content">
+    		Suppose you are writing down a binary integer linear program. Three of the binary variables in your program are \( x, y, z \in \left\{ 0, 1 \right\}  \), show how to encode the following relations between \( x,y, z \) using linear constraints:
+            <ul>
+                <li>
+                    \( z =  x \land y \)
+                </li>
+                <li>\( z = x \lor y \) </li>
+                <li>
+                    \( z = \neg x \)
+                </li>
+            </ul>
+            where \( 0, 1 \) represent false and true respectively.
+    	</div>
+    	<div class="proof">
+            <p>
+                For logical and we require both to be true, which means that \( x = 1  \) and \( y = 1 \) and in that case we require that \( z = 1 \) in any other case we need that \( z = 0 \). It can be seen that these constraints are equivalent to \( z = \min \left( x, y \right)  \) under this view it's simpler to derive constraints. Firstly the minimum must be smaller than the two input values:
+                \[
+                    z \le x \quad \text{ and } \quad z \le y
+                \]
+                note that this is not enough still because if \( x, y = 1 \) then we can still pick \( z = 0 \) and things are satisfied, so we need to enforce a lower bound on \( z \), to construct this lower bound, we'll consider a few cases.
+            </p>
+            <ul>
+                <li>\( x , y = 1 \), we require that \( z \ge 1  \)  </li>
+                <li>if \( x = 1, y = 0 \), \( x = 0, y = 1 \) or \( x = 0, y = 0 \), our initial constraints automatically force \( z = 0 \) so no extra constraints are required.</li>
+            </ul>
+            <p>
+                From the above, we can throw in the constraint that \( z \ge x + y - 1 \) which enforces \( z \ge 1 \) when \( x, y = 1 \) and in the other cases it either enforces \( z \ge 0 \) or \( z \ge -1 \) which add no information since we know that \( z \in \left\{ 0, 1 \right\}  \)
+            </p>
+            <hr>
+            <p>
+                For logical or, we require that at least one of \( x, y \) is equal to 1. Which means their sum is at least one, so we encode that with we see that this is equivalent to \( z = \max \left( x, y \right)  \) but that \( \max \) is not a linear constraint, therefore we have to take a similar approach as above, similarly we require that
+                \[
+                    z \ge x \quad \text{ and } \quad z \ge y
+                \]
+                symetrically when \( x, y = 0 \) then \( z = 0 \) is a possibility so we need to put an upper bound on \( z \) and we'll just note that \( z \le x + y \) works
+            </p>
+            <hr>
+            <p>
+                Finally for \( z = \neg x \) we need to take \( 1 \mapsto 0 \) and \( 0 \mapsto 1 \) which can be done with
+                \[
+                    z = x - 1
+                \]
+                note that equality can be represented by two opposite inequalities.
+            </p>
+    		
+    	</div>
+    </div>
+    
+    <div class="exercise" id="exercise-cargo-plane">
+    	<div class="title">Cargo Plane</div>
+    	<div class="content">
+            A cargo plane can carry a maximum weight of 100 tons and a maximum volume of 60 cubic meters. There are three materials to be transported, and the cargo company may choose to carry any amount of each, up to the maximum available limits given below.
+            <ul>
+                <li>
+                    Material 1 has density 2 tons/cubic meter, maximum available amount 40 cubic meters, and revenue $1,000 per cubic meter.
+                </li>
+                <li>
+                    Material 2 has density 1 ton/cubic meter, maximum available amount 30 cubic meters, and revenue $1,200 per cubic meter.
+                </li>
+                <li>
+                    Material 3 has density 3 tons/cubic meter, maximum available amount 20 cubic meters, and revenue $12,000 per cubic meter.
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>
+                    Write a linear program in standard form that optimizes revenue within the constraints.
+                </li>
+                <li>
+                    Explain what the dual of a linear program is and why one may wish to solve the dual formulation rather than the primal formulation.
+                </li>
+                <li>
+                    Write the dual formulation of the program in part (a). The result does not need to be in standard form for the dual in that you are not responsible for remembering the direction of inequalities in the standard form for dual formulations.
+                </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+            <p>
+                Let \( m _ 1, m _ 2, m _ 3 \) denote how many cubic meters of each material there are where \(  m _ i \ge 0 \), we'd like to maximize our profit which is given by the equation
+                \[
+                    1000 m _ 1 + 1200 m _ 2 + 12000 m _ 3
+                \]
+            </p>
+            <p>
+                Our cargo plane can carry a maximum weight of 100 tons, since each material has a different density this means that
+                \[
+                    2 m _ 1 + m _ 2 + 3 m _ 3 \le 100
+                \]
+            </p>
+            <p>
+                It can store a maximum volume of 60 cubic meters, meaning that
+                \[
+                    m _ 1 + m _ 2 + m _ 3 \le 60
+                \]
+            </p>
+            <p>
+                We also know that there are only limited amounts of each material, we have that:
+                \[
+                    m _ 1 \le 40 \quad \text{ and } \quad m _ 2 \le 30 \quad \text{ and } \quad m _ 3 \le 20
+                \]
+            </p>
+            <hr>
+            <p>
+                If someone claims they have an algorithm to solve a linear program and give you a maximum value, you can only check if it meets the constraints, but you can't be sure it's the best value. The dual of a linear program aims to minimize with respect to an upper bound of the original question. If a solution to both the primal and dual linear programs yields the same objective values, it's maximal. This dual verification serves as a certificate to confirm if a given value is the maximum.
+            </p>
+            <p>
+                It may turn out that the dual problem may be easier or quicker to solve as compared to the primal problem, this is one reason why one may prefer the dual over the primal.
+            </p>
+            <hr>
+            <p>
+                To obtain the dual we take our original primal and introduce variables \( y _ 1, y _ 2, y _ 3, y _  4, y _ 5 \), for each inequality in the primal, then we multiply the \( i \)-th inequality by \( y _ i \), then we sum all the inequalities to obtain a master sum:
+                \[
+                    m _ 1 \left( y _ 1 +  2 y _ 2 +  y _ 3 \right) + m _ 2 \left( y _ 1 +  y _ 2 + y _ 4 \right) + m _ 3 \left( y _ 1 + 3 y _ 2 + y _ 5 \right) \le 60 y _ 1 +  100 y _ 2 + 40 y _ 3 + 30 y _ 4 + 20 y _ 5
+                \]
+                We can see that this inequality is implied by the primal, and what we'd like to do is to choose values for \(  y _ i \) which make the upper bound as small as possible, also we'd like to make sure that
+               \[
+                 1000 m _ 1 + 1200 m _ 2 + 12000 m _ 3 \le m _ 1 \left( y _ 1 +  2 y _ 2 +  y _ 3 \right) + m _ 2 \left( y _ 1 +  y _ 2 + y _ 4 \right) + m _ 3 \left( y _ 1 + 3 y _ 2 + y _ 5 \right)
+               \]
+                by doing this it makes sure that the upper bound will be an upper bound of what we were maximizing so that the primal doesn't find some smaller solution. With all that said the primal is thus given by minimizing
+                \[
+                60 y _ 1 +  100 y _ 2 + 40 y _ 3 + 30 y _ 4 + 20 y _ 5
+                \]
+                such that
+                \[
+                \begin{gather}
+                    y _ 1 + 2 y _ 2 + y _ 3 \ge 1000 \\
+                y _ 1 +  y _ 2 + y _ 4 \ge 1200 \\
+                y _ 1 + 3 y _ 2 + y _ 5  \ge 12000
+                \end{gather}
+                \]
+            </p>
+
+    	</div>
+    </div>
+
     
 
 

@@ -99,6 +99,8 @@
     	</div>
     </div>
 
+
+
     <div class="definition" id="definition-s-t-cut">
     	<div class="title">s-t Cut</div>
     	<div class="content">
@@ -125,6 +127,76 @@
 
     	</div>
     </div>
+    
+    <div class="definition" id="definition-residual-edge">
+    	<div class="title">Residual Edge</div>
+    	<div class="content">
+    		Given a regular directed graph, with edge capacities and flow values assigned to them, then given an edge \( e \) going from vertex \( x \) to \( y \), with capacity \( c \) and having flow value \( f \) then its residual edge is defined as a new edge that goes from \( y  \) to \( x \) and having flow equal to \( c - f \) 
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-residual-graph">
+    	<div class="title">Residual Graph</div>
+    	<div class="content">
+    		The residual graph of a directed graph with edge capacities and flow values assigned to them is the graph resulting after adding the residual edge of every edge in the original graph.
+    	</div>
+    </div>
+    
+
+
+    <p>
+        Here's an overview of the Ford Fulkerson algorithm:
+    </p>
+    <ul>
+        <li>
+            <b>Initialization</b>: Start with initializing the flow on each edge to zero.
+        </li>
+        <li>
+            <b>Find augmenting paths</b>: Repeat the following steps until no augmenting paths can be found:
+            <ul>
+                <li>
+                    Use a path-finding algorithm (commonly DFS - Depth First Search) to find an augmenting path from the source to the sink in the residual graph. An augmenting path is a simple path (no repeated vertices) from the source to the sink where each edge has residual capacity greater than zero.
+                </li>
+                <li>
+                    Residual capacity of an edge is the difference between its capacity and its current flow. If an edge has a flow of 3 out of a capacity of 5, then its residual capacity is 2.
+                </li>
+                <li>
+                    If an augmenting path is found, determine the maximum additional flow that can be sent along this path. This is usually the minimum residual capacity of the edges in the path.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>Update flow</b>: Once an augmenting path is found, update the flow along that path by adding the maximum additional flow found in step 2. This process increases the total flow from the source to the sink.
+        </li>
+        <li>
+            <b>Repeat</b>: Repeat steps 2 and 3 until no augmenting paths can be found.
+        </li>
+        <li>
+            <b>Termination</b>: When no augmenting paths can be found, the algorithm terminates, and the maximum flow is the sum of flows leaving the source.
+        </li>
+    </ul>
+
+    <div class="proposition" id="proposition-sum-of-capacities-runtime">
+    	<div class="title">Sum of Capacities Runtime</div>
+    	<div class="content">
+            Show that the maximum number of updates to the flow in the residual graph needed before Ford-Fulkerson terminates is in \( \mathcal{ O } \left( C \right)  \)  where \( C \) is the sum of the capacities of all directed edges incident to the sink vertex \( t \) .
+    	</div>
+    	<div class="proof">
+            <p>
+                Recall that the flow value of a network is equal to the of the flow entering the terminal node. On each iteration if it is not the final one then an augmenting path is found which starts from \( s \) and goes to \( t \), and the flow of this path is increased by at least one, which increases the amount of of flowing going into the terminal node, which reversely means that one of the edges going into the terminal node has a flow value that increased by at least one.
+            </p>
+            <p>
+                In the worst case each time when we augment a path we increase by one, and we will not stop until all the edges going into the terminal node are fully saturated, and thus will take at most \( C \) iterations.
+            </p>
+    	</div>
+    </div>
+
+
+
+
+
+
+
 
 
 

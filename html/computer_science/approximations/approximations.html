@@ -162,6 +162,37 @@
 
     	</div>
     </div>
+
+    <div class="exercise" id="exercise-randomized-max-k-sat">
+    	<div class="title">Randomized Max-k-Sat</div>
+    	<div class="content">
+            Max- \(k\)-SAT is a problem where we try to maximize the number of clauses that can be satisfied. Suppose there are \(n\) variables \(x_1, x_2, \ldots, x_n\), and each clause contains precisely \(k\) distinct literals (e.g. \(\left(\bar{x}_1 \vee x_2 \vee \bar{x}_3 \vee \ldots \vee x_k\right)\) ), and \(x_i\) and \(\bar{x}_i\) will not both appear in the same clause. Note that unlike Exact- \(k\)-SAT, we do not demand that every clause to be satisfied.
+            <ul>
+                <li>
+                    Prove that there exists a randomized algorithm that will approximately solve Max\(k\)-SAT within an approximation ratio of \(\left(2^k-1\right) / 2^k\).
+                </li>
+                <li>
+                    Provide a de-randomization of the algorithm that uses the method of conditional expectations.
+                </li>
+            </ul>
+    	</div>
+    	<div class="proof">
+            <p>
+                Our randomized algorithm simply assigns random truth values to all variables, since each clause is a sequence of logical or operations taken at once and it uses \( k \) distinct variables, then there is exactly one way for it to be false, and \( 2 ^ k \) possible truth assigments to these variables, therefore the probability that the whole statement is true is given by
+                \[
+                    \frac{2 ^ k - 1}{2 ^ k}
+                \]
+            </p>
+            <p>
+                If there are \( m \) clauses total, then the expected number of satisfied clauses is simply given by \( m \cdot \frac{2 ^ k - 1}{2 ^ k} \), since the optimal number of satisfied clauses is \( m \) then this provides a \( \frac{2 ^ k - 1}{ 2 ^ k}  \) approximation.
+            </p>
+            <p>
+                Note that if our random assigment doesn't yield a solution that satisfies at least \(  \frac{2 ^ k - 1}{2 ^ k} m \) clauses, we simply try a new random assignment, it should only take a few iterations until we do at least as well as the expected value.
+            </p>
+
+    	</div>
+    </div>
+
     
 
 

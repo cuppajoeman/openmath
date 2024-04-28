@@ -162,9 +162,179 @@
             </p>
     	</div>
     </div>
+    
+    <div class="definition" id="definition-subset-sum-problem">
+    	<div class="title">Subset Sum Problem</div>
+    	<div class="content">
+    		Given a finite subset \( X \subseteq \mathbb{ Z }  \) and some integer \( W \) is there a subset \( S \subseteq X \) whose sum equals \( W \) ?
+    	</div>
+    </div>
 
+    <div class="corollary" id="corollary-subset-sum-is-in-NP">
+    	<div class="title">Subset Sum is in NP</div>
+    	<div class="content">
+            As per title.
+    	</div>
+    	<div class="proof">
+            Given a subset, we can simply iterate over all of its values each time adding that value to an incrementing sum, after finitely many iterations we can answer yes or if if that sum equals \( W \)
+        </div>
+    </div>
     
+    <div class="proposition" id="proposition-subset-sum-is-np-complete">
+    	<div class="title">Subset Sum is NP-Complete</div>
+    	<div class="content">
+    		As per title.
+    	</div>
+    	<div class="proof">
+            Reduce exact 3sat to subset sum
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-set-partition-problem">
+    	<div class="title">Set Partition Problem</div>
+    	<div class="content">
+    		Suppose \( X \subseteq \mathbb{ Z }  \) such that \( \lvert X \rvert = n \). Does there exist a <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-partition">partition</a> of \( X \) into two sets with equal sum?
+    	</div>
+    </div>
     
+    <p>
+        For example given the set \( X = \left\{ 2, 3, 4, 8, 1 \right\}  \) then we can take the subsets \( \left\{ 2, 3, 4 \right\}  \) and \( \left\{ 8, 1 \right\}  \) where both have sum \( 9 \). So the answer is yes. For \( \left\{ 2, 3, 4, 7 \right\}  \) in this case you cannot, so the answer is no.
+    </p>
+
+    <div class="proposition" id="proposition-set-partition-is-in-np">
+    	<div class="title">Set Partition is in NP</div>
+    	<div class="content">
+            As per title.
+    	</div>
+    	<div class="proof">
+            Given a proposed solution \( A, B \) we have to verify that the sum of both subsets are equal and that they form a partition of \( X \subseteq \mathbb{ Z }  \), which we can do by showing that \( A \cup B = X \) and \( A \cap B = \emptyset  \). Which can be done in polynomial time
+    	</div>
+    </div>
+
+
+    <div class="proposition" id="proposition-set-partition-is-np-complete">
+    	<div class="title">Set Partition is NP-Complete</div>
+    	<div class="content">
+    		As per title.
+    	</div>
+    	<div class="proof">
+            <p>
+                We will do a karp reduction to show that \( \mathrm{ Subset Sum } \le _ p \mathrm{ Set Partition }  \). Suppose we are given an instance of subset sum, so that we have some finite set \( X \subseteq \mathbb{ Z }  \) and a target value \( T \), and we want to construct an instance of set partition such that it will answer yes iff subset sum answers yes.
+            </p>
+            <p>
+                Recall that if set partition finds a solution, then the value that both partitions sum to is exactly half that of the original set. We can use this to our advantage.
+            </p>
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-squared-sum-partition">
+    	<div class="title">Squared Sum Partition</div>
+    	<div class="content">
+            Given positive integers \(b_1, \ldots, b_n, j\) and \(W\), the squared sum partition problem asks whether \(\{1, \ldots, n\}\) can be partitioned into \(j\) pairwise disjoint subsets \(\{1, \ldots, n\}=C_1 \sqcup \cdots \sqcup C_j\), such that
+            \[
+            \sum_{i=1}^j\left(\sum_{k \in C_i} b_k\right)^2 \leq W
+            \]
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-squared-sum-partition-is-np-complete">
+    	<div class="title">Squared Sum Partition is NP-Complete</div>
+    	<div class="content">
+    		As per title.
+    	</div>
+    	<div class="proof">
+            <p>
+                We do a reduction from set partition. Suppose that \( \left\{ x _ 1, \ldots x _ n \right\} =  X \subseteq \mathbb{ Z } \), which then is an instance of set partition, and let \( T := \sum X \). We construct an instance of squared sum partition with \( k = 2 \) and \( W = \frac{T ^ 2}{2}  \) with integers \( x _ 1, \ldots x, _ n \)
+            </p>
+            <hr>
+            <p>
+                \( \implies  \) Suppose that \( A, B \) is a solution to the set partition problem, therefore \( \sum A = \sum B = \frac{T}{2}  \), therefore we have that 
+                \[
+                    \left( \sum A  \right) ^ 2 + \left( \sum B \right) ^ 2 \le \left( \frac{T}{2}  \right) ^ 2  + \left( \frac{T}{2}  \right) ^ 2 = \frac{T ^ 2}{2}  = W
+                \]
+                which shows that squared sum partition holds true.
+            </p>
+            <hr>
+            <p>
+                \( \impliedby  \) Suppose that \( C _ 1, C _ 2 \) is a solution to the squared sum partition problem, so we have that
+                \[
+                    \left( \sum C _ 1  \right) ^ 2 + \left( \sum C _ 2 \right) ^ 2 \le \frac{T ^ 2}{2}
+                \]
+                for the sake of contradiction let's assume that \( \sum C _ 1 \neq \sum C _ 2 \), since we know that \( \sum C _ 1 + \sum C _ 2 = T \) since they form a partition then we know that there exists some \( \epsilon \gt 0 \) such that wlog \( \sum C _ 1 = \frac{T}{2} + \epsilon   \) and \( \sum C _ 2 = \frac{T}{2} - \epsilon   \), if that's true then we have
+                \[
+                    \begin{align}
+                \left( \sum C _ 1 \right) ^ 2 + \left( \sum C _ 2 \right) ^ 2 &= \left( \frac{T}{2} + \epsilon   \right) ^ 2 +  \left( \frac{T}{2} - \epsilon \right) ^ 2\\
+                &= \left( \frac{T ^ 2}{4} + T \epsilon + \epsilon ^ 2 \right) + \left( \frac{T ^ 2}{4} - T \epsilon + \epsilon ^ 2 \right) \\
+                &= \frac{T ^ 2}{2}  + 2 \epsilon ^ 2
+                    \end{align}
+                \]
+                and this is a contradiction because we require that \( \left( \sum C _ 1 \right) ^ 2 + \left( \sum C _ 2 \right) ^ 2 \le \frac{T ^ 2}{2}    \), therefore we must have that \( \sum C _ 1 = \sum C _ 2 \) which means that set partition holds true.
+            </p>
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-max-cut-problem">
+    	<div class="title">Max Cut Problem</div>
+    	<div class="content">
+            <ul>
+                <li>
+                    Input: An undirected graph \(G=(V, E)\) and an integer \(\ell\).
+                </li>
+                <li>
+                    Question: Is there a partition of \(V\) into \((A, B)\) such that at least \(\ell\) edges have one endpoint in \(A\) and the other in \(B\) ?
+                </li>
+            </ul>
+    	</div>
+    </div>
+    
+    <div class="definition" id="definition-">
+    	<div class="title">Max 2 Sat Problem</div>
+    	<div class="content">
+            <ul>
+                <li>
+                    Input: A 2-CNF formula \(\varphi\) and an integer \(t\). (In a 2-CNF formula, each clause has exactly two literals.)
+                </li>
+                <li>
+                    Question: Does there exist a truth assignment under which at least \(t\) clauses of \(\varphi\) are satisfied?
+                </li>
+            </ul>
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-max-2-sat-is-np-complete">
+    	<div class="title">Max-2-Sat is NP-Complete</div>
+    	<div class="content">
+            Show that MAX-2-SAT is NP-complete. For the hardness part, use MAX-CUT in your reduction. (You can assume that MAX-CUT is known to be NP-complete.)
+    	</div>
+    	<div class="proof">
+            <p>
+                Max-2-sat is in NP because given a truth assignment we just verify that at least \( t \) clauses of \( \phi \) hold true which can be done in polytime.
+            </p>
+            <p>
+                Next we'll make a reduction starting with an instance of max-cut \( \left( G, \ell \right)  \). Start by making variables \( x _ u \) for each \( u \in V \) and for each edge \( \left( a, b \right) \in E \) we create the clauses \( x _ a \lor x _ b \) and \( \overline{ x _ a } \lor \overline{ x _ b } \).
+            </p>
+            <p>
+                We'll next show that for each cut, we can define a unique truth assignment associated with it. To do this if we have the cut \( A, B \) having a cut with\( k \ge \ell \) edges. Then we simply construct the assignment \( v \left( x _ i \right) = T  \iff x _ i \in A \).
+
+                Then for each edge \( \left( j, k \right)  \) in the cut,
+            </p>
+            <p>
+                Note that we can partition all edges of \( E \) into those that are entirely contained in \( A \): \( E _ A \) (\( E _ B \) respectively) and those which are part of the cut \( E _ C \). For every edge \( \left( u, v \right) \in E _ A \) we see that \( v \left( \left( x _ u \lor x _ v \right)  \right) = T   \) whereas \( v \left( \overline{ x _ u } \lor \overline{ x _ v }  \right) = F \), symetrically we see that for any \( \left( m, n \right) \in E _ B \) we have that \( v \left( x _ m \lor x _ n \right) = F  \) and \( v \left( \overline{ x _ m } \lor \overline{ x _ n }   \right) = T \).
+            </p>
+            <p>
+                On the other hand for every \( \left( j, k \right) \in E _ C \) we see that \( v \left( x _ j \lor x _ k \right) = T \lor F = T = F \lor T = v \left( \overline{ x _ j } \lor \overline{ x _ k }   \right)   \). Which is to say that the number of satisfied clauses is given by
+                \[
+                    \lvert E _ A \rvert + \lvert E _ B \rvert + 2 \lvert E _ C \rvert = \lvert E \rvert + k
+                \]
+            </p>
+            <p>
+                \( \implies  \) Therefore by using \( \phi  \) which is the disjunction of all of the edge clauses, and with \( t = \lvert E \rvert + k \) we clearly can say that max-2-sat is satisifed.
+            </p>
+            <p>
+                \( \impliedby  \) On the other hand given \( \phi \) and it's assignment we get a unique cut with at least \( k = t - \lvert E \rvert  \) edges involved in the cut.
+            </p>
+    	</div>
+    </div>
     
 </div>
 
