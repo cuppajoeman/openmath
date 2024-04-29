@@ -1,3 +1,33 @@
+function get_indentation_in_spaces(level) {
+    const tab_size_in_spaces = 4;
+    const default_depth = tab_size_in_spaces * 2; // because we're in body and then also div thin-wrapper.
+    return " ".repeat(default_depth + (level * tab_size_in_spaces))
+}
+
+function get_template(swp_type) {
+    if (swp_type == "definition") {
+        return `<div class="definition" id="definition-TODO-USING-LOWERCASE-AND-HIPHEN">
+${get_indentation_in_spaces(1)}<div class="title">TODO</div>
+${get_indentation_in_spaces(1)}<div class="content">
+${get_indentation_in_spaces(2)}TODO
+${get_indentation_in_spaces(1)}</div>
+${get_indentation_in_spaces(0)}</div>`
+    } else if (swp_type == "knowledge-link") {
+        return '<a class="knowledge-link" data-href="ABSOLUTE_PATH_TO_FILE_CONTAINING_KNOLWEDGE#KNOWLEDGE_ID">TODO</a>'
+    } else {
+        return `<div class="${swp_type}" id="${swp_type}-TODO-USING-LOWERCASE-AND-HIPHEN" >
+${get_indentation_in_spaces(1)}<div class="title">TODO</div>
+${get_indentation_in_spaces(1)}<div class="content">
+${get_indentation_in_spaces(2)}TODO
+${get_indentation_in_spaces(1)}</div>
+${get_indentation_in_spaces(1)}<div class="proof">
+${get_indentation_in_spaces(2)}TODO
+${get_indentation_in_spaces(1)}</div>
+${get_indentation_in_spaces(0)}</div>`
+    }
+}
+
+
 function set_split_screen_height() {
     var navbar = document.getElementById("navbar");
     var splitScreen = document.getElementById("split-screen");
@@ -62,9 +92,45 @@ function set_up_editor_interaction(page_to_edit_path) {
     }
 }
 
+function insert_text_into_textarea_and_refocus(textarea, text) {
+    // Get the current cursor position
+    const position = textarea.selectionStart;
+
+    // Get the text before and after the cursor position
+    const before = textarea.value.substring(0, position);
+    const after = textarea.value.substring(position, textarea.value.length);
+
+    // Insert the new text at the cursor position
+    textarea.value = before + text + after;
+
+    textarea.focus()
+
+    // Set the cursor position to after the newly inserted text
+    textarea.selectionStart = textarea.selectionEnd = position + text.length;
+}
+
+function wrap(i, insert_elements, input_textarea) {
+    var insert_element = insert_elements.item(i);
+    console.log(insert_element, insert_element.dataset.type)
+    insert_element.onclick = function() {
+        insert_text_into_textarea_and_refocus(input_textarea, get_template(insert_element.dataset.type))
+    }
+}
+
+function configure_insert_buttons(){
+    var input_textarea = document.getElementById("input-textarea");
+    var insert_elements = document.getElementsByClassName("insert-content");
+
+    // https://stackoverflow.com/a/35135537/6660685, this is why wrap has to be created
+    for (let i = 0; i < insert_elements.length; i++) {
+        wrap(i, insert_elements, input_textarea);
+    }
+
+}
+
 window.onload = function() {
-    const page_to_edit_path = new URLSearchParams(window.location.search).get('page');
-    console.log(page_to_edit_path)
+    configure_insert_buttons();
     set_split_screen_height();
+    const page_to_edit_path = new URLSearchParams(window.location.search).get('page');
     set_up_editor_interaction(page_to_edit_path);
 };

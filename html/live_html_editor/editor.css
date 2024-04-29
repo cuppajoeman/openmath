@@ -38,6 +38,17 @@ body, html {
     background-color: #777; /* Change background color on hover */
 }
 
+/* a hovering section of the website for info */
+.modal {
+  background: green;
+  position: absolute;
+    z-index: 1000; /* on top of everything */
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* Flexbox container for the split-screen */
 #split-screen {
     display: flex; /* Flexbox for horizontal alignment */

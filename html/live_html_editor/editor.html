@@ -2,27 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Equal Split Screen with Fixed Navbar</title>
+    <title>openmath editor</title>
     <link rel="stylesheet" href="editor.css">
-
+    <link rel="stylesheet" href="modal/modal.css">
+    <link rel="stylesheet" href="nested-dropdown-menu/style.css">
 </head>
 <body>
 
     <!-- Fixed navbar with centered title and left-aligned buttons -->
     <div id="navbar">
         <button id="run-button">Run</button>
-        <button id="publish-changes-button">Publish Changes</button>
+
+
+        <div class="dropdown">
+            <button class="menu-button">Insert Element</button> <!-- Dark-themed button -->
+            <div class="dropdown-content">
+                <a class="insert-content" data-type="definition">Definition</a> <!-- No submenu -->
+                <a class="insert-content" data-type="knowledge-link">Knowledge Link</a> <!-- No submenu -->
+                <div class="dropdown-submenu">
+                    <a href="#more" class="submenu-trigger">Statement With Proof</a> <!-- This is a submenu trigger -->
+                    <div class="dropdown-submenu-content"> <!-- First nested submenu -->
+                        <a class="insert-content" data-type="theorem">Theorem</a> <!-- No submenu -->
+                        <a class="insert-content" data-type="proposition">Proposition</a> <!-- No submenu -->
+                        <a class="insert-content" data-type="lemma">Lemma</a> <!-- No submenu -->
+                        <a class="insert-content" data-type="corollary">Corollary</a> <!-- No submenu -->
+                        <a class="insert-content" data-type="exercise">Exercise</a> <!-- No submenu -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="publish-changes-button">Request Changes</button>
+        <button id="open-modal">Help</button>
 
         <div style="position: absolute; left: 50%; transform: translateX(-50%);">
             openmath editor
         </div>
     </div>
 
+
+        <!-- <button>Copy Element</button> -->
+
+
+
+
+        <div style="position: absolute; left: 50%; transform: translateX(-50%);">
+            openmath editor
+        </div>
+    </div>
+
+    <!-- modal for information -->
+    <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <!-- Modal header with centered title and close button -->
+      <div class="modal-header">
+        <h3>openmath editor</h3> <!-- Centered title -->
+        <button class="close-btn" id="close-modal">&times;</button> <!-- Close button in the top-right corner -->
+      </div>
+      <div class="modal-body">
+        <p>
+            Welcome to the openmath editor. Up until now the only way people could edit oopenmath to do major edits was by cloning the files to the computer, modifying them and then making a pull request. This editor was created to reduce the barrier of entry to making changes on openmath.
+        </p>
+        <hr>
+        <h4>editing</h4>
+        <p>
+            To modify the files simply change anything that already exists in the left source code panel. 
+        </p>
+        <p>
+            To create a new definition go to the <code>Copy Element</code> dropdown, and select <code>definition</code>. This copies a blank definition to your clipboard which you can paste into the editor panel.
+        </p>
+        <p>
+            Likewise to create a theorem, proposition, lemma, corollary or exercise you can use the copy dropdown to select the correct one.
+        </p>
+        <p>
+            One of the most powerful tools on openmath is the knowledge link, which allows you to link to other places on the site and it can be expanded in-line. Simply copy the knowledge link from the copy menu, then navigate to the location of the knowledge you'd like to link to and use that as the href tag.
+        </p>
+        <hr>
+        <h4>request changes</h4>
+        <p>
+            After you've made your edits, click the request changes file. This immediately copies all the text in the left input box to your clipboard and opens the respective page you just edited on github. Next simply paste the contents of your clipboard to overwrite the previous content on the page and follow the steps given to you by github.
+        </p>
+        <h4>stuck</h4>
+        <p>
+            If you're still stuck, then feel free to reach out on our discord server.
+        </p>
+      </div>
+    </div>
+    </div>
+
     <!-- Flexbox container for the split-screen -->
     <div id="split-screen">
         <!-- Left panel with a text area -->
         <div class="left-panel">
-            <textarea id="input-textarea" placeholder="Enter your text here..."></textarea>
+            <textarea id="input-textarea" spellcheck="false"></textarea>
         </div>
 
         <!-- Right panel with an iframe -->
@@ -35,5 +107,6 @@
     <!-- (B) -->
     <script src="textarea_editor.js"></script>
     <script src="editor.js"></script>
+    <script src="modal/modal.js"></script>
 </body>
 </html>

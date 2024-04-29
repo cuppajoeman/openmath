@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Three-Layer Dropdown Menu</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <!-- Main dropdown menu -->
+    <div class="dropdown">
+        <button class="menu-button">Menu</button> <!-- Dark-themed button -->
+        <div class="dropdown-content">
+            <a href="#home">Home</a> <!-- No submenu -->
+            <a href="#services">Services</a> <!-- No submenu -->
+
+            <!-- First layer of nested submenu -->
+            <div class="dropdown-submenu">
+                <a href="#more" class="submenu-trigger">More</a> <!-- This is a submenu trigger -->
+                <div class="dropdown-submenu-content"> <!-- First nested submenu -->
+                    <a href="#option1">Option 1</a> <!-- No submenu -->
+                    <a href="#option2">Option 2</a> <!-- No submenu -->
+
+                    <!-- Second layer of nested submenu -->
+                    <div class="dropdown-submenu">
+                        <a href="#advanced" class="submenu-trigger">Advanced</a> <!-- Another submenu trigger -->
+                        <div class="dropdown-submenu-content"> <!-- Second nested submenu -->
+                            <a href="#optionA">Option A</a> <!-- No submenu -->
+                            <a href="#optionB">Option B</a> <!-- No submenu -->
+
+                            <!-- Third layer of nested submenu -->
+                            <div class="dropdown-submenu">
+                                <a href="#deep" class="submenu-trigger">Deep Menu</a> <!-- Submenu trigger -->
+                                <div class="dropdown-submenu-content"> <!-- Third nested submenu -->
+                                    <a href="#deep1">Deep Option 1</a> <!-- No submenu -->
+                                    <a href="#deep2">Deep Option 2</a> <!-- No submenu -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#contact">Contact</a> <!-- No submenu -->
+        </div>
+    </div>
+</body>
+</html>
