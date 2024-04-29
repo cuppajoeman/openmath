@@ -1,75 +1,102 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Congruence</title>
-
     <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-
+    <script src="/js/script.js" defer>
+</script>
 </head>
 
 <body>
     <div class="thin-wrapper">
+        <div class="definition" id="definition-congruence">
+            <div class="title">
+                Congruence
+            </div>
 
-		<div class="definition" id="definition-congruence">
-			<div class="title">Congruence</div>
-			<div class="content">
-				Fix an integer \( m \) called the modulus, then say \( a \equiv b \left ( \operatorname{mod} m \right ) \) if and only if \( m | b - a \)
-			</div>
-		</div>
+            <div class="content">
+                Fix an integer \( m \) called the modulus, then say \( a \equiv b \left ( \operatorname{mod} m \right )
+                \) if and only if \( m | b - a \)
+            </div>
+        </div>
 
-		<div class="corollary" id="corollary-congruence-iff-same-remainder">
-			<div class="title">congruence iff same remainder</div>
-			<div class="content">
-				\( a , b \in \mathbb{Z} \) are congruent modulo \( m \) if and only if <span class="knowledge-link" data-href="/number_theory/division.html#definition-remainder-function">\( a \% m \)</span> \( = b \% m \)
-				<p>
-					note: <i>this means that \( a \) and \( b \) have the same remainder upon division by \( m \)</i>
-				</p>
-			</div>
-			<div class="proof">
-				<p>
-					Suppose that \( a \equiv b \left ( \operatorname{mod} m \right ) \), so we know \( m | b - a \), then we can write \( b = k_{b} m + r_{b} \) and \( a = k_{a} m + r_{a} \) so that \( b - a = m \cdot \left ( k_{b} + k_{a} \right ) + k_{b} - k_{a} \) <span class="knowledge-link" data-href="/number_theory/division.html#proposition-forced-division-of-sum">thus</span> \( m | k_{b} - k_{a} \).
-				</p>
-				<p>
-					Notice that \( 0 \le k_{a} , k_{b} \lt \left | m \right |  \) also we know that \( k_{a} \ne k_{b} \) therefore \( k_{b} - k_{a} \ne 0 \)
+        <div class="corollary" id="corollary-congruence-iff-same-remainder">
+            <div class="title">
+                congruence iff same remainder
+            </div>
 
-					so then \( - \left | m \right |  \lt k_{b} - k_{a} \lt \left | m \right |  \)
-				</p>
-			</div>
-		</div>
-		
-		<div class="proposition" id="proposition-congruence-commutes">
-			<div class="title">Congruence Commutes</div>
-			<div class="content">
-				Let \( a, b, m \in \mathbb{ Z }  \) then
-				\[
-				    a \equiv b \left( \operatorname{ mod } m \right) \iff  b \equiv a \left( \operatorname{ mod } m \right)
-				\]
-			</div>
-			<div class="proof">
-				
-			</div>
-		</div>
-		
+            <div class="content">
+                \( a , b \in \mathbb{Z} \) are congruent modulo \( m \) if and only if <span class="knowledge-link"
+                data-href="/number_theory/division.html#definition-remainder-function">\( a \% m \)</span> \( = b \% m
+                \)
 
-		<div class="proposition" id="proposition-division-iff-congruent-mod-0">
-			<div class="title">Division iff Congruent Mod 0</div>
-			<div class="content">
-				Let \( a, b \in \mathbb{ Z }  \) such that \( a \neq 0 \), then
-				\[
-				    a \mid b \iff b \equiv 0 \left( \operatorname{ mod } a \right)
-				\]
-			</div>
-			<div class="proof">
-				\( a \mid b \) 	if and only if \( a \mid b - 0 \) <a class="knowledge-link" href="/number_theory/congruence.html#definition-congruence">iff</a> \( 0 \equiv b \left( \operatorname{ mod } a \right)  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-congruence-commutes">iff</a> \( b \equiv 0 \left( \operatorname{ mod } a \right)  \) as needed.
-			</div>
-		</div>
-		
+                <p>note: <i>this means that \( a \) and \( b \) have the same remainder upon division by \( m
+                \)</i></p>
+            </div>
 
+            <div class="proof">
+                <p>Suppose that \( a \equiv b \left ( \operatorname{mod} m \right ) \), so we know \( m | b - a \),
+                then we can write \( b = k_{b} m + r_{b} \) and \( a = k_{a} m + r_{a} \) so that \( b - a = m \cdot
+                \left ( k_{b} + k_{a} \right ) + k_{b} - k_{a} \) <span class="knowledge-link" data-href=
+                "/number_theory/division.html#proposition-forced-division-of-sum">thus</span> \( m | k_{b} - k_{a}
+                \).</p>
 
+                <p>Notice that \( 0 \le k_{a} , k_{b} \lt \left | m \right | \) also we know that \( k_{a} \ne k_{b} \)
+                therefore \( k_{b} - k_{a} \ne 0 \) so then \( - \left | m \right | \lt k_{b} - k_{a} \lt \left | m
+                \right | \)</p>
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-congruence-commutes">
+            <div class="title">
+                Congruence Commutes
+            </div>
+
+            <div class="content">
+                Let \( a, b, m \in \mathbb{ Z } \) then \[ a \equiv b \left( \operatorname{ mod } m \right) \iff b
+                \equiv a \left( \operatorname{ mod } m \right) \]
+            </div>
+
+            <div class="proof"></div>
+        </div>
+
+        <div class="proposition" id="proposition-division-iff-congruent-mod-0">
+            <div class="title">
+                Division iff Congruent Mod 0
+            </div>
+
+            <div class="content">
+                Let \( a, b \in \mathbb{ Z } \) such that \( a \neq 0 \), then \[ a \mid b \iff b \equiv 0 \left(
+                \operatorname{ mod } a \right) \]
+            </div>
+
+            <div class="proof">
+                \( a \mid b \) if and only if \( a \mid b - 0 \) <a class="knowledge-link" href=
+                "/number_theory/congruence.html#definition-congruence">iff</a> \( 0 \equiv b \left( \operatorname{ mod
+                } a \right) \) <a class="knowledge-link" href=
+                "/number_theory/congruence.html#proposition-congruence-commutes">iff</a> \( b \equiv 0 \left(
+                \operatorname{ mod } a \right) \) as needed.
+            </div>
+        </div>
+        
+        <div class="proposition" id="proposition-congruence-is-transitive" >
+            <div class="title">Congruence is Transitive</div>
+            <div class="content">
+                Let \(a, b, c, m \in \mathbb{Z} \) such that \( a \equiv b \left( \operatorname{ mod } m \right) \) and \( b \equiv c \left( \operatorname{ mod } m \right) \), then we have that 
+                \[
+                 a \equiv c \left( \operatorname{ mod } m \right) 
+                \]
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+        
     </div>
 </body>
+</html>
