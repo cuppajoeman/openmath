@@ -1,113 +1,152 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>series</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer>
+</script>
+</head>
 
-        <title>series</title>
+<body>
+    <div class="thin-wrapper">
+        <div class="proposition" id="proposition-closed-form-of-a-geometric-series">
+            <div class="title">
+                Closed form of a Geometric Series
+            </div>
 
-        <link rel="stylesheet" href="/styles/styles.css">
-        <script src="/js/script.js" defer></script>
+            <div class="content">
+                \( \sum_{n = 0}^{k} x^{n} = \frac{1 - x^{k + 1}}{1 - x} \)
+            </div>
 
-		
-
-    </head>
-    <body>
-        <div class="thin-wrapper">
-
-			<div class="proposition" id="proposition-closed-form-of-a-geometric-series">
-				<div class="title">closed form of a geometric series</div>
-				<div class="content">
-					\( \sum_{n = 0}^{k} x^{n} = \frac{1 - x^{k + 1}}{1 - x} \)
-				</div>
-				<div class="proof">
-					Let \( S = \sum_{n = 0}^{k} x^{n} \), then \( x S - S = x^{k + 1} - x^{0} \) therefore \( S = \frac{x^{k + 1} - 1}{x - 1} \), so also \( S = \frac{1 - x^{k + 1}}{1 - x} \) by factoring -1 from the numerator and the denominator, as needed
-				</div>
-			</div>
-
-			<div >
-				<div class="proposition" id="proposition-geometric-power-series">
-					<div class="title">geometric power series</div>
-					<div class="content">
-						for \( \left | x \right |  < 1 \) we have \( \sum_{n = 0}^{\infty} x^{n} = \frac{1}{1 - x} \)
-					</div>
-					<div class="proof">
-						<p>
-							By definition we know that \( \sum_{n = 0}^{\infty} x^{n} = \lim_{k \to \infty} \sum_{n = 0}^{k} x^{n} \)<span class="knowledge-link" data-href="/analysis/single_variable/series.html#proposition-closed-form-of-a-geometric-series">\( = \)</span> \( \lim_{k \to \infty} \frac{1 - x^{k + 1}}{1 - x} \) 
-						</p>
-						<a href="#lemma-exponent-limit">exponent limit lemma</a> if \( \left | x \right |  < 1 \) then \( \lim_{k \to \infty} x^{k + 1} \) becomes zero and we get \( \lim_{k \to \infty} \frac{1 - x^{k + 1}}{1 - x} = \frac{1}{1 - x} \)
-					</div>
-				</div>
-
-			</div>
-
-
-			<div class="proposition" id="proposition-geometric-sum-with-incrementing-factor">
-				<div class="title">geometric sum with incrementing factor</div>
-				<div class="content">
-					Given \( t \in \mathbb{R}^{\ne 0} \), show that 
-					<div class="centered-content">
-						\( \sum_{i = 1}^{n} i t^{i} = t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1 - t} \)
-					</div>
-				</div>
-				<div class="proof">
-					We want to find the sum defined by 
-					<div class="centered-content">
-						\( S \left ( t \right ) := t + 2 t^{2} + 3 t^{3} + \ldots + \left ( n - 1 \right ) t^{n - 1} + n t^{n} \), 
-					</div>
-					But then we know that 
-					<div class="centered-content">
-						<div>
-							\( t \cdot S \left ( t \right ) = t^{2} + 2 t^{3} + 3 t^{4} + \ldots + \left ( n - 1 \right ) t^{n} + n t^{n + 1} \)
-						</div>	
-						<div>\( \iff \)</div>
-						<div>
-							\( S \left ( t \right ) - t S \left ( t \right ) = t + t^{2} + t^{3} + \ldots + t^{n} - n t^{n + 1} \)
-						</div>
-						<div>\( \iff \)</div>
-						<div>
-							\( \left ( 1 - t \right ) S \left ( t \right ) = t + t^{2} + t^{3} + \ldots + t^{n} - n t^{n + 1} \)
-						</div>
-					</div>
-					Now since we know that \( t + t^{2} + t^{3} + \ldots + t^{n} = t \frac{1 - t^{n}}{1 - t} \), then we have 
-					<div class="centered-content">
-						<div>
-							\( \left ( 1 - t \right ) S \left ( t \right ) = t \frac{1 - t^{n}}{1 - t} - n t^{n + 1} \)
-						</div>
-						<div>\( \iff \)</div>
-						<div>
-							\( S \left ( t \right ) = \frac{t \frac{1 - t^{n}}{1 - t} - n t^{n + 1}}{1 - t} \)
-						</div>
-						<div>\( \iff \)</div>
-						<div class="boxed">
-							\( S \left ( t \right ) = t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1 - t} \)
-						</div>
-					</div>
-				</div>
-			</div>
-			
-
-			<div class="proposition" id="proposition-geometric-series-with-incrementing-factor">
-				<div class="title">geometric series with incrementing factor</div>
-				<div class="content">
-					Suppose that \( \left | t \right |  \lt 1 \), then 
-					<div class="centered-content">
-						\( \sum_{i = 1}^{\infty} i t^{i} = \frac{t}{\left ( 1 - t \right )^{2}} \)
-					</div>
-				</div>
-				<div class="proof">
-					<p>
-						We know that \( \sum_{i = 1}^{\infty} i t^{i} = \lim_{n \to \infty} \sum_{i = 1}^{n} i t^{i} \) <span class="knowledge-link" data-href="/analysis/single_variable/series.html#proposition-geometric-sum-with-incrementing-factor">\( = \)</span> \( \lim_{n \to \infty} t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1 - t} \)
-					</p>
-					<p>
-						Now since \( \left | t \right |  \lt 1 \), then \( \lim_{n \to \infty} t^{n} = 0 \) and \( \lim_{n \to \infty} n t^{n + 1} = 0 \), therefore \( \lim_{n \to \infty} t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1 - t} = \frac{t}{\left ( 1 - t \right )^{2}} \) as needed.
-					</p>
-				</div>
-			</div>
-			
-
+            <div class="proof">
+                Let \( S = \sum_{n = 0}^{k} x^{n} \), then \( x S - S = x^{k + 1} - x^{0} \) therefore \( S =
+                \frac{x^{k + 1} - 1}{x - 1} \), so also \( S = \frac{1 - x^{k + 1}}{1 - x} \) by factoring -1 from the
+                numerator and the denominator, as needed
+            </div>
         </div>
-    </body>
+
+        <div class="proposition" id="proposition-geometric-power-series">
+            <div class="title">
+                geometric power series
+            </div>
+
+            <div class="content">
+                for \( \left | x \right | &lt; 1 \) we have \( \sum_{n = 0}^{\infty} x^{n} = \frac{1}{1 - x} \)
+            </div>
+
+            <div class="proof">
+                <p>By definition we know that \( \sum_{n = 0}^{\infty} x^{n} = \lim_{k \to \infty} \sum_{n = 0}^{k}
+                x^{n} \)<span class="knowledge-link" data-href=
+                "/analysis/single_variable/series.html#proposition-closed-form-of-a-geometric-series">\( = \)</span> \(
+                \lim_{k \to \infty} \frac{1 - x^{k + 1}}{1 - x} \)</p><a href="#lemma-exponent-limit">exponent limit
+                lemma</a> if \( \left | x \right | &lt; 1 \) then \( \lim_{k \to \infty} x^{k + 1} \) becomes zero and
+                we get \( \lim_{k \to \infty} \frac{1 - x^{k + 1}}{1 - x} = \frac{1}{1 - x} \)
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-geometric-sum-with-incrementing-factor">
+            <div class="title">
+                geometric sum with incrementing factor
+            </div>
+
+            <div class="content">
+                Given \( t \in \mathbb{R}^{\ne 0} \), show that
+
+                <div class="centered-content">
+                    \( \sum_{i = 1}^{n} i t^{i} = t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1
+                    - t} \)
+                </div>
+            </div>
+
+            <div class="proof">
+                We want to find the sum defined by
+
+                <div class="centered-content">
+                    \( S \left ( t \right ) := t + 2 t^{2} + 3 t^{3} + \ldots + \left ( n - 1 \right ) t^{n - 1} + n
+                    t^{n} \),
+                </div>But then we know that
+
+                <div class="centered-content">
+                    <div>
+                        \( t \cdot S \left ( t \right ) = t^{2} + 2 t^{3} + 3 t^{4} + \ldots + \left ( n - 1 \right )
+                        t^{n} + n t^{n + 1} \)
+                    </div>
+
+                    <div>
+                        \( \iff \)
+                    </div>
+
+                    <div>
+                        \( S \left ( t \right ) - t S \left ( t \right ) = t + t^{2} + t^{3} + \ldots + t^{n} - n t^{n
+                        + 1} \)
+                    </div>
+
+                    <div>
+                        \( \iff \)
+                    </div>
+
+                    <div>
+                        \( \left ( 1 - t \right ) S \left ( t \right ) = t + t^{2} + t^{3} + \ldots + t^{n} - n t^{n +
+                        1} \)
+                    </div>
+                </div>Now since we know that \( t + t^{2} + t^{3} + \ldots + t^{n} = t \frac{1 - t^{n}}{1 - t} \), then
+                we have
+
+                <div class="centered-content">
+                    <div>
+                        \( \left ( 1 - t \right ) S \left ( t \right ) = t \frac{1 - t^{n}}{1 - t} - n t^{n + 1} \)
+                    </div>
+
+                    <div>
+                        \( \iff \)
+                    </div>
+
+                    <div>
+                        \( S \left ( t \right ) = \frac{t \frac{1 - t^{n}}{1 - t} - n t^{n + 1}}{1 - t} \)
+                    </div>
+
+                    <div>
+                        \( \iff \)
+                    </div>
+
+                    <div class="boxed">
+                        \( S \left ( t \right ) = t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1
+                        - t} \)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-geometric-series-with-incrementing-factor">
+            <div class="title">
+                geometric series with incrementing factor
+            </div>
+
+            <div class="content">
+                Suppose that \( \left | t \right | \lt 1 \), then
+
+                <div class="centered-content">
+                    \( \sum_{i = 1}^{\infty} i t^{i} = \frac{t}{\left ( 1 - t \right )^{2}} \)
+                </div>
+            </div>
+
+            <div class="proof">
+                <p>We know that \( \sum_{i = 1}^{\infty} i t^{i} = \lim_{n \to \infty} \sum_{i = 1}^{n} i t^{i} \)
+                <span class="knowledge-link" data-href=
+                "/analysis/single_variable/series.html#proposition-geometric-sum-with-incrementing-factor">\( =
+                \)</span> \( \lim_{n \to \infty} t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1
+                - t} \)</p>
+
+                <p>Now since \( \left | t \right | \lt 1 \), then \( \lim_{n \to \infty} t^{n} = 0 \) and \( \lim_{n
+                \to \infty} n t^{n + 1} = 0 \), therefore \( \lim_{n \to \infty} t \frac{1 - t^{n}}{\left ( 1 - t
+                \right )^{2}} - n \frac{t^{n + 1}}{1 - t} = \frac{t}{\left ( 1 - t \right )^{2}} \) as needed.</p>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
