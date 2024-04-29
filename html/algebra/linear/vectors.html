@@ -1,81 +1,94 @@
 <!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Vectors</title>
+    <title>Vectors</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer>
+</script>
+    <script async="" src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js">
+</script>
+    <script type="importmap">
+              {
+                        "imports": {
+                          "three": "https://unpkg.com/three@v0.156.1/build/three.module.js",
+                          "three/addons/": "https://unpkg.com/three@v0.156.1/examples/jsm/"
+                        }
+                  }
+    </script>
+</head>
 
-		<link rel="stylesheet" href="/styles/styles.css">
-        <script src="/js/script.js" defer></script>
+<body>
+    <div class="thin-wrapper">
+        <h1>vectors</h1>
 
-        
-
-		<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
-
-		<script type="importmap">
-		  {
-			"imports": {
-			  "three": "https://unpkg.com/three@v0.156.1/build/three.module.js",
-			  "three/addons/": "https://unpkg.com/three@v0.156.1/examples/jsm/"
-			}
-		  }
-		</script>
-
-	</head>
-    <body>
-
-        <div class="thin-wrapper">
-            <h1>vectors</h1>
-
-            <div class="definition" id="definition-vector">
-            	<div class="title">Vector</div>
-            	<div class="content">
-                    A vector is alternate notation for an <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-n-tuple">n tuple</a>, so that
-                    \[
-                    \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix}
-                    \]
-                    is the n-tuple \( (a_1, a_2, \ldots, a_n ) \)
-            	</div>
+        <div class="definition" id="definition-vector">
+            <div class="title">
+                Vector
             </div>
 
+            <div class="content">
+                A vector is alternate notation for an <a class="knowledge-link" href=
+                "/fundamentals/sets/tuples.html#definition-finite-tuple">n tuple</a>, so that \[ \begin{bmatrix} a_1 \\ a_2
+                \\ \vdots \\ a_n \end{bmatrix} \] is the n-tuple \( (a_1, a_2, \ldots, a_n ) \)
+            </div>
+        </div>
 
-            <div class="definition" id="definition-length">
-            	<div class="title">The length of a Vector</div>
-            	<div class="content">
-            		Given a vector in \( \mathbb{R}^n \), then we define the
-            	</div>
+        <div class="definition" id="definition-length">
+            <div class="title">
+                The length of a Vector
             </div>
 
+            <div class="content">
+                Given a vector in \( \mathbb{R}^n \), then we define the
+            </div>
+        </div>
 
-            <div class="definition" id="definition-dot-product">
-                <div class="title">dot product</div>
-                <div class="content">
-                    Given two sequences of numbers of the same length: \( a = \left ( a_{1} , \ldots , a_{k} \right ) \) and \( b = \left ( b_{1} , \ldots , b_{k} \right ) \), their dot product denoted and defined by by \( a \cdot b = \sum_{i = 1}^{k} a_{i} \cdot b_{i} \). Note that \( \cdot : \mathbb{R}^{k} \times \mathbb{R}^{k} \to \mathbb{R} \)
-                </div>
+        <div class="definition" id="definition-dot-product">
+            <div class="title">
+                dot product
             </div>
 
-			<div class="definition" id="definition-vector-form-of-a-line">
-				<div class="title">vector form of a line</div>
-				<div class="content">
-					Suppose that \( d , p \) are vectors, then we say that the set \( l := \left \lbrace x : x = t d + p , \text{ for some } t \in \mathbb{R} \right \rbrace \) is a line and say that the vector equation for the line is 
-					<div class="centered-content">
-						\( x = t d + p \)
-					</div>
-					We also say that \( d \) is the direction vector for \( l \)
-				</div>
-			</div>
+            <div class="content">
+                Given two sequences of numbers of the same length: \( a = \left ( a_{1} , \ldots , a_{k} \right ) \)
+                and \( b = \left ( b_{1} , \ldots , b_{k} \right ) \), their dot product denoted and defined by by \( a
+                \cdot b = \sum_{i = 1}^{k} a_{i} \cdot b_{i} \). Note that \( \cdot : \mathbb{R}^{k} \times
+                \mathbb{R}^{k} \to \mathbb{R} \)
+            </div>
+        </div>
 
-            <p>
-                An example of the vector form of a line in \( \mathbb{R}^{3} \) could be \( x = t \left [ \begin{matrix} 1 \\ 2 \\ 3 \end{matrix} \right ] + \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \), where \( \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \) (the red dot) is a part of the line when \( t = 0 \), and the line's direction follows the direction of the vector \( \left [ \begin{matrix} 1 \\ 2 \\ 3 \end{matrix} \right ] \)
-            </p>
+        <div class="definition" id="definition-vector-form-of-a-line">
+            <div class="title">
+                vector form of a line
+            </div>
 
-            <div id="threejs-vector-line" style="width: 100vh; height: 50vh; margin: 0px auto; border-radius: 10%;"></div>
+            <div class="content">
+                Suppose that \( d , p \) are vectors, then we say that the set \( l := \left \lbrace x : x = t d + p ,
+                \text{ for some } t \in \mathbb{R} \right \rbrace \) is a line and say that the vector equation for the
+                line is
 
+                <div class="centered-content">
+                    \( x = t d + p \)
+                </div>We also say that \( d \) is the direction vector for \( l \)
+            </div>
+        </div>
 
-        <script type="module" src="/js/plotting/mathematical_space_3d.js"></script>
-        <script type="module" src="vectors.js"></script>
+        <p>An example of the vector form of a line in \( \mathbb{R}^{3} \) could be \( x = t \left [ \begin{matrix} 1
+        \\ 2 \\ 3 \end{matrix} \right ] + \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \), where \( \left [
+        \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \) (the red dot) is a part of the line when \( t = 0 \), and
+        the line&#39;s direction follows the direction of the vector \( \left [ \begin{matrix} 1 \\ 2 \\ 3 \end{matrix}
+        \right ] \)</p>
 
-    </body>
+        <div id="threejs-vector-line" style="width: 100vh; height: 50vh; margin: 0px auto; border-radius: 10%;">
+            <canvas style="display: block; width: 937px; height: 469px; touch-action: none;" data-engine=
+            "three.js r156" width="937" height="469"></canvas>
+        </div><script type="module" src="/js/plotting/mathematical_space_3d.js">
+</script> <script type="module" src="vectors.js">
+</script>
+    </div>
+</body>
 </html>
