@@ -29,12 +29,23 @@ async function preparePage() {
     await setUpStatementWithProofTemplates();
     automaticallyAddMathJaxScript();
     setUpProofToggleButtons();
-	addLinksToEveryPieceOfKnowledge();
+    addLinksToEveryPieceOfKnowledge();
     setUpKnowledgeLinks();
     createSystemColorModeListener();
     checkForSavedColorMode();
     // setCustomCursor(); temporarily disalbe custom cursor
     automaticallyAddIcon();
+    configureEditPageButton();
+}
+
+
+function configureEditPageButton() {
+    var edit_page_button = document.getElementById("edit-page-button")
+    let currentHtmlFilePath = window.location.pathname;
+    edit_page_button.onclick = function() {
+	// document.location.href = "/live_html_editor/editor.html"
+	location.href = "/live_html_editor/editor.html?page=" + currentHtmlFilePath
+    }
 }
 
 function automaticallyAddIcon() {
@@ -367,15 +378,15 @@ function setUpKnowledgeLink(knowledgeLinkElement) {
 
             destinationElement.classList.add("expanded-knowledge");
 
-			const destinationTitle = destinationElement.querySelector(".title")
+	    const destinationTitle = destinationElement.querySelector(".title")
 
-			// add link for newly created element
-			let linkToSelf = document.createElement("a");
-			linkToSelf.style.cssFloat ='right';
-			linkToSelf.textContent = copyLinkEmoji;
-			linkToSelf.href = fullDestinationUrl;
-			linkToSelf.onclick = copyURI;
-			destinationTitle.append(linkToSelf);
+	    // add link for newly created element
+	    let linkToSelf = document.createElement("a");
+	    linkToSelf.style.cssFloat ='right';
+	    linkToSelf.textContent = copyLinkEmoji;
+	    linkToSelf.href = fullDestinationUrl;
+	    linkToSelf.onclick = copyURI;
+	    destinationTitle.append(linkToSelf);
 
             typesetNewMathJax();
             // Now set up and knowledge links that this one has

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equal Split Screen with Fixed Navbar</title>
+    <link rel="stylesheet" href="editor.css">
+
+</head>
+<body>
+
+    <!-- Fixed navbar with centered title and left-aligned buttons -->
+    <div id="navbar">
+        <button id="run-button">Run</button>
+        <button id="publish-changes-button">Publish Changes</button>
+
+        <div style="position: absolute; left: 50%; transform: translateX(-50%);">
+            openmath editor
+        </div>
+    </div>
+
+    <!-- Flexbox container for the split-screen -->
+    <div id="split-screen">
+        <!-- Left panel with a text area -->
+        <div class="left-panel">
+            <textarea id="input-textarea" placeholder="Enter your text here..."></textarea>
+        </div>
+
+        <!-- Right panel with an iframe -->
+        <div class="right-panel">
+            <iframe id="output-iframe"></iframe>
+        </div>
+    </div>
+    <!-- (A) -->
+    <script src='http://lovasoa.github.io/tidy-html5/tidy.js'></script>
+    <!-- (B) -->
+    <script src="textarea_editor.js"></script>
+    <script src="editor.js"></script>
+</body>
+</html>
