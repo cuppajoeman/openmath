@@ -1,208 +1,231 @@
 <!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>absolute value</title>
-        <link rel="stylesheet" href="/styles/styles.css">
-        <script src="/js/script.js" defer></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-		
+    <title>absolute value</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer>
+</script>
+</head>
 
-    </head>
-    <body>
-        <div class="thin-wrapper">
-
-            <div class="definition" id="definition-absolute-value">
-                <div class="title">absolute value</div>
-                <div class="content">
-                    the absolute value function \( \left \lvert \cdot \right \rvert : \mathbb{R} \to \mathbb{R}^{\ge 0} \) is defined by 
-                    <div class="centered-content">
-                        \( \left | x \right |  = \left \lbrace \begin{matrix} x \text{ if } x \ge 0 \\ - x \text{ if } x < 0 \end{matrix} \right . \)
-                    </div>
-                </div>
+<body>
+    <div class="thin-wrapper">
+        <div class="definition" id="definition-absolute-value">
+            <div class="title">
+                Absolute Value
             </div>
 
-			<div class="proposition" id="proposition-absolute-value-differs-by-sign">
-				<div class="title">absolute value differs by sign</div>
-				<div class="content">
-					\( \forall x \in \mathbb{R} , x = \left | x \right |  \vee x = - \left | x \right |  \)
-				</div>
+            <div class="content">
+                the absolute value function \( \left \lvert \cdot \right \rvert : \mathbb{R} \to \mathbb{R}^{\ge 0} \)
+                is defined by
 
-				<div class="proof">
-					Let \( x \in \mathbb{R} \) if \( x > 0 \), then \( x = \left | x \right |  \) by definition, if \( x < 0 \), then \( \left | x \right |  = - x \), or rather \( x = - \left | x \right |  \)
-				</div>
-			</div>
-			
-			
-
-			<div class="theorem" id="theorem-multiplication-in-absolute-value">
-				<div class="title">multiplication in absolute value</div>
-				<div class="content">
-					<div class="centered-content">
-						\( \left \lvert x \cdot y \mid = \right \rvert x \left \lvert \cdot \mid y \right \rvert \)
-					</div>
-				</div>
-
-				<div class="proof">
-					<ul>
-						<li>
-							If both \( x , y \) are positive then \( \left | x \cdot y \right |  = x \cdot y = \left | x \right |  \cdot \left | y \right |  \)
-						</li>
-						<li>
-							if both \( x , y \) are negative, then their product is positive so it follows as above
-						</li>
-						<li>
-							if one of \( x , y \) is positive and the other negative, without loss of generality assume that \( x < 0 \) and \( y > 0 \)then their product is negative so \( \left | x \cdot y \right |  = - 1 \cdot x \cdot y = \left | x \right |  \cdot \left | y \right |  \)
-						</li>
-						<li>
-							if any one of \( x , y \) is zero, then \( \left | x \cdot y \right |  = 0 = \left | x \right |  \cdot \left | y \right |  \)
-						</li>
-					</ul>
-				</div>
-			</div>
-
-
-			<div class="proposition" id="proposition-absolute-value-greater-inequality">
-				<div class="title">absolute value greater inequality</div>
-				<div class="content">
-					Suppose that \( x \in \mathbb{R} \) and that \( c \in \mathbb{R} \) such that \( \left | c \right |  \ge 1 \) then \( \left | x \right |  \le \left | c x \right |  \)
-				</div>
-
-				<div class="proof">
-					Since \( 1 \lt \left | c \right |  \) then \( 1 \cdot \left | x \right |  \le \left | c \right |  \cdot \left | x \right |  = \left | c x \right |  \)
-				</div>
-			</div>
-			
-			
-
-			<div class="proposition" id="proposition-absolute-value-equality">
-				<div class="title">absolute value equality</div>
-				<div class="content">
-					Suppose that \( a , b \in \mathbb{Z} \) and that \( \left | a \right |  = \left | b \right |  \), then \( a = b \) or \( a = - b \)
-				</div>
-				<div class="proof">
-					TODO
-				</div>
-			</div>
-			
-
-			<div class="proposition" id="proposition-TODO">
-				<div class="title">not equal range</div>
-				<div class="content">
-					Suppose that \( a , b \in \mathbb{Z} \) then if \( - \left | b \right |  \lt a \lt \left | b \right |  \) then \( a \ne b \)
-				</div>
-				<div class="proof">
-						Suppose that \( a = b \) for contradiction, then \( - \left | a \right |  \lt a \lt \left | a \right |  \) , <span class="knowledge-link" data-href="/analysis/single_variable/absolute_value.html#proposition-absolute-value-differs-by-sign">but either</span> \( a = \left | a \right |  \) or \( a = - \left | a \right |  \), so this yields a contradiction.
-				</div>
-			</div>
-			
-
-			<div class="corollary" id="corollary-changing-sign-doesn't-change-absolute-value">
-				<div class="title">changing sign doesn't change absolute value</div>
-				<div class="content">
-					\( \forall x \in \mathbb{R} , | x \left \lvert = \mid - x \right \rvert \)
-				</div>
-
-				<div class="proof">
-					Let \( x \in \mathbb{R} \) <span class="knowledge-link" data-href="/analysis/single_variable/absolute_value.html#theorem-multiplication-in-absolute-value">then</span> \( \left | - x \right |  = \left | - 1 \cdot x \right |  = \left | - 1 \right |  \cdot \left | x \right |  = 1 \cdot \left | x \right |  = \left | x \right |  \)
-				</div>
-			</div>
-			
-			
-			<div class="corollary" id="absolute-value-is-greater-than-itself">
-				<div class="title">absolute value is greater than itself</div>
-				<div class="content">
-					\( \forall x \in \mathbb{R} , x \le \left \lvert x \right \rvert \)
-				</div>
-
-				<div class="proof">
-					<ul>
-						<li>
-							if \( x > 0 \) then \( \left | x \right |  = x \)
-						</li>
-						<li>
-							if \( x < 0 \) then \( \left | x \right |  = - x \) so \( \left | x \right |  \ge - x > x \) this is true since \( x < 0 \) and \( 0 < - x \)
-						</li>
-					</ul>
-				</div>
-			</div>
-
-
-            <div class="corollary">
-                <div class="title">absolute value is greater than the negative version of itself</div>
-                <div class="content">
-                    \( \forall x \in \mathbb{R} , - x \le \left \lvert x \right \rvert \)
+                <div class="centered-content">
+                    \( \left | x \right | = \left \lbrace \begin{matrix} x \text{ if } x \ge 0 \\ - x \text{ if } x
+                    &lt; 0 \end{matrix} \right . \)
                 </div>
-
-				<div class="proof">
-				   using the fact \( y < \left | y \right |  \) and subbing in \( - x \) we obtain the result
-				</div>
             </div>
-
-
-            <div class="corollary">
-                <div class="title"></div>
-                <div class="content">
-                    \( \left \lvert a \right \rvert^{- 1} = \left \lvert \frac{1}{a} \right \rvert \)
-                </div>
-
-				<div class="proof">
-					\( \left \lvert a \right \rvert \cdot \left \lvert \frac{1}{a} \mid = \right \rvert a \cdot \frac{1}{a} \left \lvert = \mid 1 \right \rvert = 1 \)
-				</div>
-            </div>
-
-
-            <div class="corollary">
-                <div class="title"></div>
-                <div class="content">
-                    <div class="centered-content">
-                        \( \left \lvert x + y \right \rvert \le \left | \left | x \right |  + \left | y \right |  \right |  \)
-                    </div>
-                </div>
-				<div class="proof">
-					TODO
-				</div>
-            </div>
-
-			<div class="theorem" id="theorem-triangle-inequality">
-				<div class="title">Triangle Inequality</div>
-				<div class="content">
-					Suppose that \( x, y \in \mathbb{ R }  \), then we have
-					\[
-					    \lvert x + y \rvert \le \lvert x \rvert + \lvert y \rvert
-					\]
-				</div>
-				<div class="proof">
-
-				</div>
-			</div>
-
-			
-			<div class="proposition" id="proposition-isolate-absolute-value-inequality">
-				<div class="title">Isolate Absolute value Inequality</div>
-				<div class="content">
-					Let \( a, b, c \in \mathbb{ R }  \)  then \( \lvert a - b \rvert \le c  \) implies that \( \lvert a \rvert \le c + \lvert b \rvert \)
-				</div>
-				<div class="proof">
-					We have the following:
-					\[
-						\begin{gather}
-						    \lvert a - b \rvert \le c \\
-							\Updownarrow \\
-							\lvert a - b \rvert + \lvert b \rvert  \le c + \lvert b \rvert  \\
-							\Updownarrow \\
-							\lvert a - b + b \rvert \le  \lvert a - b \rvert + \lvert b \rvert  \le c + \lvert b \rvert\\
-							\Updownarrow \\
-							\lvert a \rvert \le c + \lvert b \rvert
-						\end{gather}
-					\]
-					Where in the second last line we used the triangle inequality
-				</div>
-			</div>
-			
-
         </div>
-    </body>
+
+        <div class="proposition" id="proposition-absolute-value-differs-by-sign">
+            <div class="title">
+                Absolute Value Differs By Sign
+            </div>
+
+            <div class="content">
+                \[ \forall x \in \mathbb{R} , x = \left | x \right | \vee x = - \left | x \right | \]
+            </div>
+
+            <div class="proof">
+                Let \( x \in \mathbb{R} \) if \( x &gt; 0 \), then \( x = \left | x \right | \) by definition, if \( x
+                &lt; 0 \), then \( \left | x \right | = - x \), or rather \( x = - \left | x \right | \)
+            </div>
+        </div>
+
+        <div class="theorem" id="theorem-multiplication-in-absolute-value">
+            <div class="title">
+                multiplication in absolute value
+            </div>
+
+            <div class="content centered-content">
+                \( \left \lvert x \cdot y \mid = \right \rvert x \left \lvert \cdot \mid y \right \rvert \)
+            </div>
+
+            <div class="proof">
+                <ul>
+                    <li>If both \( x , y \) are positive then \( \left | x \cdot y \right | = x \cdot y = \left | x
+                    \right | \cdot \left | y \right | \)</li>
+
+                    <li>if both \( x , y \) are negative, then their product is positive so it follows as above</li>
+
+                    <li>if one of \( x , y \) is positive and the other negative, without loss of generality assume
+                    that \( x &lt; 0 \) and \( y &gt; 0 \)then their product is negative so \( \left | x \cdot y \right
+                    | = - 1 \cdot x \cdot y = \left | x \right | \cdot \left | y \right | \)</li>
+
+                    <li>if any one of \( x , y \) is zero, then \( \left | x \cdot y \right | = 0 = \left | x \right |
+                    \cdot \left | y \right | \)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-absolute-value-greater-inequality">
+            <div class="title">
+                absolute value greater inequality
+            </div>
+
+            <div class="content">
+                Suppose that \( x \in \mathbb{R} \) and that \( c \in \mathbb{R} \) such that \( \left | c \right | \ge
+                1 \) then \( \left | x \right | \le \left | c x \right | \)
+            </div>
+
+            <div class="proof">
+                Since \( 1 \lt \left | c \right | \) then \( 1 \cdot \left | x \right | \le \left | c \right | \cdot
+                \left | x \right | = \left | c x \right | \)
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-absolute-value-equality">
+            <div class="title">
+                absolute value equality
+            </div>
+
+            <div class="content">
+                Suppose that \( a , b \in \mathbb{Z} \) and that \( \left | a \right | = \left | b \right | \), then \(
+                a = b \) or \( a = - b \)
+            </div>
+
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-TODO">
+            <div class="title">
+                not equal range
+            </div>
+
+            <div class="content">
+                Suppose that \( a , b \in \mathbb{Z} \) then if \( - \left | b \right | \lt a \lt \left | b \right | \)
+                then \( a \ne b \)
+            </div>
+
+            <div class="proof">
+                Suppose that \( a = b \) for contradiction, then \( - \left | a \right | \lt a \lt \left | a \right |
+                \) , <span class="knowledge-link" data-href=
+                "/analysis/single_variable/absolute_value.html#proposition-absolute-value-differs-by-sign">but
+                either</span> \( a = \left | a \right | \) or \( a = - \left | a \right | \), so this yields a
+                contradiction.
+            </div>
+        </div>
+
+        <div class="corollary" id="corollary-changing-sign-doesn&#39;t-change-absolute-value">
+            <div class="title">
+                changing sign doesn&#39;t change absolute value
+            </div>
+
+            <div class="content">
+                \( \forall x \in \mathbb{R} , | x \left \lvert = \mid - x \right \rvert \)
+            </div>
+
+            <div class="proof">
+                Let \( x \in \mathbb{R} \) <span class="knowledge-link" data-href=
+                "/analysis/single_variable/absolute_value.html#theorem-multiplication-in-absolute-value">then</span> \(
+                \left | - x \right | = \left | - 1 \cdot x \right | = \left | - 1 \right | \cdot \left | x \right | = 1
+                \cdot \left | x \right | = \left | x \right | \)
+            </div>
+        </div>
+
+        <div class="corollary" id="absolute-value-is-greater-than-itself">
+            <div class="title">
+                absolute value is greater than itself
+            </div>
+
+            <div class="content">
+                \( \forall x \in \mathbb{R} , x \le \left \lvert x \right \rvert \)
+            </div>
+
+            <div class="proof">
+                <ul>
+                    <li>if \( x &gt; 0 \) then \( \left | x \right | = x \)</li>
+
+                    <li>if \( x &lt; 0 \) then \( \left | x \right | = - x \) so \( \left | x \right | \ge - x &gt; x
+                    \) this is true since \( x &lt; 0 \) and \( 0 &lt; - x \)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="title">
+                absolute value is greater than the negative version of itself
+            </div>
+
+            <div class="content">
+                \( \forall x \in \mathbb{R} , - x \le \left \lvert x \right \rvert \)
+            </div>
+
+            <div class="proof">
+                using the fact \( y &lt; \left | y \right | \) and subbing in \( - x \) we obtain the result
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="title"></div>
+
+            <div class="content">
+                \( \left \lvert a \right \rvert^{- 1} = \left \lvert \frac{1}{a} \right \rvert \)
+            </div>
+
+            <div class="proof">
+                \( \left \lvert a \right \rvert \cdot \left \lvert \frac{1}{a} \mid = \right \rvert a \cdot \frac{1}{a}
+                \left \lvert = \mid 1 \right \rvert = 1 \)
+            </div>
+        </div>
+
+        <div class="corollary">
+            <div class="title"></div>
+
+            <div class="content centered-content">
+                \( \left \lvert x + y \right \rvert \le \left | \left | x \right | + \left | y \right | \right | \)
+            </div>
+
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+        <div class="theorem" id="theorem-triangle-inequality">
+            <div class="title">
+                Triangle Inequality
+            </div>
+
+            <div class="content">
+                Suppose that \( x, y \in \mathbb{ R } \), then we have \[ \lvert x + y \rvert \le \lvert x \rvert +
+                \lvert y \rvert \]
+            </div>
+
+            <div class="proof"></div>
+        </div>
+
+        <div class="proposition" id="proposition-isolate-absolute-value-inequality">
+            <div class="title">
+                Isolate Absolute value Inequality
+            </div>
+
+            <div class="content">
+                Let \( a, b, c \in \mathbb{ R } \) then \( \lvert a - b \rvert \le c \) implies that \( \lvert a \rvert
+                \le c + \lvert b \rvert \)
+            </div>
+
+            <div class="proof">
+                We have the following: \[ \begin{gather} \lvert a - b \rvert \le c \\ \Updownarrow \\ \lvert a - b
+                \rvert + \lvert b \rvert \le c + \lvert b \rvert \\ \Updownarrow \\ \lvert a - b + b \rvert \le \lvert
+                a - b \rvert + \lvert b \rvert \le c + \lvert b \rvert\\ \Updownarrow \\ \lvert a \rvert \le c + \lvert
+                b \rvert \end{gather} \] Where in the second last line we used the triangle inequality
+            </div>
+        </div>
+    </div>
+</body>
 </html>
