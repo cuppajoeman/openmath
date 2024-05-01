@@ -25,6 +25,10 @@
             </div>
         </div>
 
+        <p>
+            It is not immediately clear why we prefer the above definition, it's most important property follows below:
+        </p>
+
         <div class="corollary" id="corollary-congruence-iff-same-remainder">
             <div class="title">
                 congruence iff same remainder
@@ -91,8 +95,10 @@
 
             <div class="content">
                 Let \(a, b, c, m \in \mathbb{Z} \) such that \( a \equiv b \left( \operatorname{ mod } m \right) \) and
-                \( b \equiv c \left( \operatorname{ mod } m \right) \), then we have that \[ a \equiv c \left(
-                \operatorname{ mod } m \right) \]
+                \( b \equiv c \left( \operatorname{ mod } m \right) \), then we have that
+                \[
+                a \equiv c \left( \operatorname{ mod } m \right)
+                \]
             </div>
 
             <div class="proof">
@@ -103,20 +109,46 @@
         <div class="definition" id="definition-modular-inverse">
             <div class="title">Modular Inverse</div>
             <div class="content">
-                given two integers a, and N, x is the modular inverse for a mod N if ax = 1 (mod N)
+                Given \( a, m \in \mathbb{ Z } \) we say that an integer \( x \in \mathbb{ Z } \) is a the modular inverse for \( a \) mod \( m \) when:
+                \[
+                    a \cdot x \equiv 1 \left( \operatorname{ mod } m \right)
+                \]
             </div>
         </div>
-        
-        <div class="proposition" id="proposition-modular-inverse-existance-criterion" >
-            <div class="title">Modular Inverse Existance Criterion</div>
-            <div class="content">
-                Suppose we have two integers a, and N. If gcd(a,N) = 1, then an integer x exists which is a's <a class="knowledge-link" data-href="/number_theory/congruence.html#definition-modular-inverse">modular inverse</a> (mod N)
-            </div>
-            <div class="proof">
-                TODO
-            </div>
+
+        <div class="proposition" id="proposition-modular-inverse-iff-gcd-1">
+        	<div class="title">Modular Inverse iff GCD 1</div>
+        	<div class="content">
+        		Suppose that \( a, m \in \mathbb{ Z }  \) and that \( a \) has a modular inverse mod \( m \), iff \( \gcd \left( a, m \right) = 1  \).
+        	</div>
+        	<div class="proof">
+                <p>
+                    \( \implies  \) We know that \( a \cdot x \equiv 1 \left( \operatorname{ mod } m \right)  \) therefore by definition \( m \mid \left( 1 - a \cdot x \right)  \) therefore \( 1 - a x = k \cdot m \) for some \( k \in \mathbb{ Z }  \).
+                </p>
+                <p>
+                    Therefore \( x a - k m = 1 \), so now suppose that \( g = \gcd \left( a, m \right)  \), so by definition \( g \mid a \) and \( g \mid m \) so that \( g \mid x a - k m = 1 \) which implies that \( g = 1 \) as needed.
+                </p>
+                <hr>
+                <p>
+                    \( \impliedby  \) <a class="knowledge-link" href="/number_theory/division.html#proposition-gcd-is-a-linear-combination"></a> \( s, t \in \mathbb{ Z } \) such that  \( 1 = \gcd \left( a, m \right) = as + mt \) so that \( 1 - as  =  mt  \) which means that \( m \mid 1 - as \) so that by definition we have that
+                    \[
+                        as \equiv 1  \left( \operatorname{ mod } m \right)
+                    \]
+                    which means that \( s \) is \( a \)'s inverse mod \( m \).
+                </p>
+        	</div>
         </div>
-        
+
+        <div class="corollary" id="corollary-not-relatively-prime-implies-no-inverse">
+        	<div class="title">Not Relatively Prime iff No Modular Inverse</div>
+        	<div class="content">
+        		\( \gcd \left( a, m \right) \neq 1 \) iff \( a \) doesn't have an inverse mod \( m \)
+        	</div>
+        	<div class="proof">
+                This follows by the contra-positive of <a class="knowledge-link" href="/number_theory/congruence.html#proposition-modular-inverse-has-gcd-1">the above</a>.
+        	</div>
+        </div>
+
     </div>
 </body>
 </html>

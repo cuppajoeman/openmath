@@ -74,8 +74,7 @@
 			</div>
 		</div>
 		
-
-		<div class="proposition" id="proposition-if-it-divides-it's-less-than-or-equal">
+		<div class="proposition" id="proposition-if-it-divides-its-less-than-or-equal">
 			<div class="title">If it Divides it's Less than or Equal</div>
 			<div class="content">
 				Suppose that \( n \in \mathbb{ N } _ 1 \), then if \( d \in \mathbb{ Z }  \) <a class="knowledge-link" href="/number_theory/division.html#definition-divides">divides </a> \( n \), then \( d \le n \)
@@ -84,8 +83,6 @@
 
 			</div>
 		</div>
-
-
 
 		<div class="proposition" id="proposition-any-integer-cannot-divide-something-smaller-than-itself">
 			<div class="title">Any Integer cannot Divide Something Smaller than Itself</div>
@@ -250,6 +247,25 @@
             </div>
         </div>
 
+		<p>
+			Therefore \( \gcd : \mathbb{ Z } \times \mathbb{ Z } \to \mathbb{ N } _ 1 \)
+		</p>
+		
+		<div class="corollary" id="corollary-gcd-characterization">
+			<div class="title">GCD's Characterization</div>
+			<div class="content">
+				Let \( a, b \in \mathbb{ Z }  \), and let \( c \in \mathbb{ Z }  \) such that \( c \mid a \land c \mid b \) and
+				\[
+				    \forall d \in \mathbb{ N } _ 1, \left( d \mid a \land d \mid b \right) \implies d \le c
+				\]
+				then \( c = \gcd \left( a, b \right)  \) 
+			</div>
+			<div class="proof">
+				
+			</div>
+		</div>
+		
+
 		<div class="proposition" id="proposition-gcd-is-a-linear-combination">
 			<div class="title">GCD is a Linear Combination</div>
 			<div class="content">
@@ -277,7 +293,7 @@
 					If \( r = 0 \), then \( a = qd  \) meaning that \( d \) divides \( a \), by copying the above text and replacing the variable \( a \) with \( b \) we obtain a proof that \( d \) divides \( b \) as well. To complete showing that \( d = \gcd \left( a, b \right)  \) we need to prove that \( d \) is the smallest divisor.
 				</p>
 				<p>
-					Suppose that \( m \) is another common divisor of \( a, b \), then we have \( k_a, k_b \in \mathbb{ Z }  \), such that \( a = k_a m \) and \( b = k_b m \), from \( d \)'s definition we see \( d = a j + bk = \left( k_a m \right) j + \left( k_b m \right) k = m \left( k_a j + k_b k \right) \), this shows that \( m \mid d \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-it's-less-than-or-equal">so that</a> \( m \le d \) showing that \( d \) is the largest divisor and we conclude \( d = \gcd \left( a, b \right)  \) 
+					Suppose that \( m \) is another common divisor of \( a, b \), then we have \( k_a, k_b \in \mathbb{ Z }  \), such that \( a = k_a m \) and \( b = k_b m \), from \( d \)'s definition we see \( d = a j + bk = \left( k_a m \right) j + \left( k_b m \right) k = m \left( k_a j + k_b k \right) \), this shows that \( m \mid d \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal">so that</a> \( m \le d \) showing that \( d \) is the largest divisor <a class="knowledge-link" href="/number_theory/division.html#corollary-gcd-characterization">and we conclude</a> \( d = \gcd \left( a, b \right)  \)
 				</p>
 			</div>
 		</div>
