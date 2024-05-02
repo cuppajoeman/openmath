@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Decimal Expansion</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-terminating-decimal-expansion">
+    	<div class="title">Terminating Decimal Expansion</div>
+    	<div class="content">
+    		A terminating decimal expansion is one of the form
+            \[
+                0 . a _ 1 a _ 2 a _ 3 \ldots a _ k 0 0 0 \ldots
+            \]
+            where \( k \in \mathbb{ N } _ 1 \) and \( a _ i \in \mathbb{ N } _ 0 \)
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-finite-decimal-expansion-implies-restriction-on-denominator">
+    	<div class="title">Finite Decimal Expansion Implies Restriction on Denominator</div>
+    	<div class="content">
+            Let \( m, n \in \mathbb{ N } _ 1 \) such that \( \gcd \left( m, n \right) = 1 \), if \( \frac{m}{n}  \) has a finite decimal expansion then \( n = 2 ^ a \cdot 5 ^ b \) for some \( a, b \in \mathbb{ N } _ 0 \)
+    	</div>
+    	<div class="proof">
+            Suppose that \( \frac{m}{n} = 0.a _ 1 a _ 2 \ldots a _ k 0 0 0 \ldots \)  thus we have
+            \[
+                10 ^ k \left( \frac{m}{n}  \right) = a _ 1 a _ 2 \ldots a _ k
+            \]
+            therefore \( 10 ^ k \left( \frac{m}{n}  \right) \in \mathbb{ N } _ 1 \) then also \( 10 ^ k \left( \frac{m}{n}  \right) = \frac{10 ^ k}{n} \cdot m   \)
+    	</div>
+    </div>
+    
+    
+
+</div>
+</body>

@@ -90,6 +90,13 @@ function set_up_editor_interaction(page_to_edit_path) {
             // iframe.srcdoc = "<h1>hello</h1>\n" + "<p>" + input_textarea.value + "</p>";
         }
     }
+
+    const back_button = document.getElementById("back-button");
+    back_button.onclick = function() {
+        alert("Your changes will not be saved!");
+        window.location.href = page_to_edit_path;
+    }
+
 }
 
 function insert_text_into_textarea_and_refocus(textarea, text) {
