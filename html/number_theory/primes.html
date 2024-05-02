@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Division</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer>
+</script>
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+        <div class="definition" id="definition-prime">
+            <div class="title">
+                Prime
+            </div>
+
+            <div class="content">
+                A number \( p \in \mathbb{N}_{1} \) is said to be prime if it&#39;s only divisors are \( 1 \) and \( p
+                \)
+            </div>
+        </div>
+
+        <div class="corollary" id="corollary-composite-iff-not-prime">
+            <div class="title">
+                Composite iff Not Prime
+            </div>
+
+            <div class="content">
+                Let \( a \in \mathbb{ N } _ 1 \) then \( a \) is composite iff \( a \) is not prime
+            </div>
+
+            <div class="proof">
+                We know that it&#39;s always true that \( a \mid a \) and \( 1 \mid a \) therefore if \( a \) is not
+                prime iff it has some other divisor other than \( 1 \) or \( a \) iff \( a \) is composite
+            </div>
+        </div>
+
+        <div class="lemma" id="lemma-a-prime-is-relatively-prime-to-anything-else">
+            <div class="title">
+                A Prime is Relatively Prime to Anything Else
+            </div>
+
+            <div class="content">
+                Suppose that \( p \) is <a class="knowledge-link" href=
+                "/number_theory/division.html#definition-prime">prime</a> and \( n \in \mathbb{ Z } \) such that \( p
+                \nmid n \), then \( \gcd \left( p, n \right) = 1 \)
+            </div>
+
+            <div class="proof"></div>
+        </div>
+
+        <div class="proposition" id="proposition-a-prime-divisor-of-a-product-divides-at-least-one">
+            <div class="title">
+                A Prime Divisor of a Product Divides at Least One
+            </div>
+
+            <div class="content">
+                If \( p, a, b \in \mathbb{ Z } \) and we know \( p \) is <a class="knowledge-link" href=
+                "/number_theory/division.html#definition-prime">prime</a> and \( p \mid ab \) then \( p \mid a \) or \(
+                p \mid b \).
+            </div>
+
+            <div class="proof">
+                If \( p \) were to divide \( a \), the proof is over so we assume that it does not. <a class=
+                "knowledge-link" href=
+                "/number_theory/division.html#lemma-a-prime-is-relatively-prime-to-anything-else">therefore</a> \( \gcd
+                \left( p, a \right) = 1 \) <a class="knowledge-link" href=
+                "/number_theory/division.html#corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">and
+                then</a> \( 1 = as + pt \), then \( b = \left( ab \right) s + ptb = \left( k \cdot p \right) s + ptb
+                \), so then \( p \) divides the right hand side, therefore \( p \mid b \), as needed.
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
