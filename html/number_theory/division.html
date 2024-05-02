@@ -421,12 +421,17 @@
                 b \right) \)</p>
             </div>
         </div>
-        
-        <div class="proposition" id="proposition-forced-division-through-gcd" >
-            <div class="title">Forced Division through GCD</div>
-            <div class="content">
-                Suppose we have \( n, a, b \in \mathbb{Z} \) and that \( \gcd (a, n) = 1 \), then if \( n \mid a b \) then \( n \mid b \)
+
+        <div class="proposition" id="proposition-forced-division-through-gcd">
+            <div class="title">
+                Forced Division through GCD
             </div>
+
+            <div class="content">
+                Suppose we have \( n, a, b \in \mathbb{Z} \) and that \( \gcd (a, n) = 1 \), then if \( n \mid a b \)
+                then \( n \mid b \)
+            </div>
+
             <div class="proof">
                 TODO
             </div>
@@ -614,6 +619,17 @@
                 "/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">then we know that</span> \(
                 r_{2 k + 2} \lt \frac{1}{2} \cdot \frac{b}{2^{k}} = \frac{b}{2^{k + 1}} \) which is what we needed to
                 show</p>
+            </div>
+        </div>
+        
+                
+        <div class="theorem" id="theorem-quotient-rule-for-exponents" >
+            <div class="title">Quotient Rule for Exponents</div>
+            <div class="content">
+                Given two exponents with the same base, \( x^{a} \) and \( x^b \), \( \frac{x^a}{x^b} = x^{(a-b)} \).
+            </div>
+            <div class="proof">
+                Expand out \(\frac{x^a}{x^b}\) into \(\frac{x_1x_2x_3...x_a}{x_1x_2x_3...x_b}\), this can be simplified to \(1*\frac{x^{(a-b)}}{1}\)
             </div>
         </div>
 
