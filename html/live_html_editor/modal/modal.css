@@ -21,6 +21,8 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
   width: 50%; /* Modal width relative to window size */
   max-width: 800px; /* Maximum width */
+  max-height: 500px; /* Maximum width */
+  overflow-y: scroll; /* Make modal scrollable */
   position: relative; /* For absolute positioning of the close button */
     z-index: 1000; /* on top of everything */
 }

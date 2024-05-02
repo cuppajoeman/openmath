@@ -93,3 +93,10 @@ body, html {
     height: 100%; /* Fill the entire height */
     border: none; /* No border for a clean look */
 }
+
+/* used to center the video in the help modal */
+.centered-content {
+    display: block;
+    text-align: center;
+    margin: 2em;
+}
