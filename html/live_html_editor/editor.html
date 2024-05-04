@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="editor.css">
     <link rel="stylesheet" href="modal/modal.css">
     <link rel="stylesheet" href="nested-dropdown-menu/style.css">
+
+    <!-- mathjax integration-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 <body>
 
@@ -88,6 +94,11 @@
               <iframe width="560" height="315" src="https://www.youtube.com/embed/s_sOLHXbLPA?si=zjkk-pYoRpLLAu2u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         <hr>
+        <h4>fast insertion menu</h4>
+        <p>
+            Simply press <b>shift+I</b> to toggle it, and search for the latex command you want to enter, use tab to select it and then enter to insert it into the document at the last position you were at.
+        </p>
+        <hr>
         <h4>editing</h4>
         <p>
             To modify the files simply change anything that already exists in the left source code panel. 
@@ -114,6 +125,24 @@
     </div>
     </div>
 
+    <!-- modal latex insertion -->
+    <dialog class="modal-overlay" id="fast-insert-modal">
+    <div class="modal-content">
+      <!-- Modal header with centered title and close button -->
+      <div class="modal-header">
+        <h3>Latex Insertion (type, then use tab to navigate)</h3> <!-- Centered title -->
+        <button class="close-btn" id="close-modal">&times;</button> <!-- Close button in the top-right corner -->
+      </div>
+      <div class="modal-body">
+                    <div class="centered-content">
+                    <input type="text" id="fast-insert-modal-search-bar" onkeyup="update_ui_with_search_results(this.value)" onkeydown="update_ui_with_search_results(this.value)"></input>
+                    </div>
+                    <div id="search_results">
+                    </div>
+      </div>
+    </div>
+    </dialog>
+
     <!-- Flexbox container for the split-screen -->
     <div id="split-screen">
         <!-- Left panel with a text area -->
@@ -132,5 +161,7 @@
     <script src="textarea_editor.js"></script>
     <script src="editor.js"></script>
     <script src="modal/modal.js"></script>
+    <script src="fast-latex-insertion/fuzzysort.js"></script>
+    <script src="fast-latex-insertion/update_ui_with_search_results.js"></script>
 </body>
 </html>

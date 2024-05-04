@@ -99,7 +99,7 @@ function set_up_editor_interaction(page_to_edit_path) {
 
 }
 
-function insert_text_into_textarea_and_refocus(textarea, text) {
+function insert_text_into_textarea(textarea, text, refocus) {
     // Get the current cursor position
     const position = textarea.selectionStart;
 
@@ -110,17 +110,17 @@ function insert_text_into_textarea_and_refocus(textarea, text) {
     // Insert the new text at the cursor position
     textarea.value = before + text + after;
 
-    textarea.focus()
-
+    if (refocus) {
+        textarea.focus()
+    }
     // Set the cursor position to after the newly inserted text
     textarea.selectionStart = textarea.selectionEnd = position + text.length;
 }
 
 function wrap(i, insert_elements, input_textarea) {
     var insert_element = insert_elements.item(i);
-    console.log(insert_element, insert_element.dataset.type)
     insert_element.onclick = function() {
-        insert_text_into_textarea_and_refocus(input_textarea, get_template(insert_element.dataset.type))
+        insert_text_into_textarea(input_textarea, get_template(insert_element.dataset.type), true)
     }
 }
 
@@ -132,7 +132,6 @@ function configure_insert_buttons(){
     for (let i = 0; i < insert_elements.length; i++) {
         wrap(i, insert_elements, input_textarea);
     }
-
 }
 
 window.onload = function() {
