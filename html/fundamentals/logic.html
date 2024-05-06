@@ -1,149 +1,173 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>Logic</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../styles/styles.css">
-    <script src="../js/script.js" defer></script>
+    <script src="../js/script.js" defer>
+</script>
 </head>
 
 <body>
     <div class="thin-wrapper">
+        <div class="definition" id="definition-true-and-false">
+            <div class="title">
+                True and False
+            </div>
 
-		<div class="definition" id="definition-true-and-false">
-			<div class="title">True and False</div>
-			<div class="content">
-				True and false denoted by \( T, F \) respectively are distinct symbols ( \( T \neq F \) ).
-			</div>
-		</div>
+            <div class="content">
+                True and false denoted by \( T, F \) respectively are distinct symbols ( \( T \neq F \) ).
+            </div>
+        </div>
 
-		<div class="definition" id="definition-predicate">
-			<div class="title">Predicate</div>
-			<div class="content">
-				A predicate is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f : X \to \left\{ T, F \right\}  \) for some set \( X \)
-			</div>
-		</div>
+        <div class="definition" id="definition-predicate">
+            <div class="title">
+                Predicate
+            </div>
 
+            <div class="content">
+                A predicate is a <a class="knowledge-link" href=
+                "/fundamentals/functions.html#definition-function">function</a> \( f : X \to \left\{ T, F \right\} \)
+                for some set \( X \)
+            </div>
+        </div>
 
+        <div class="definition" id="definition-logical-and">
+            <div class="title">
+                Logical And
+            </div>
 
-		<div class="definition" id="definition-logical-and">
-			<div class="title">Logical And</div>
-			<div class="content">
-				We define the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \lor : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\}  \) by the following table:
-				\[
-				\begin{array}{|c c|c|}
-				% |c c|c| means that there are three columns in the table and
-				% a vertical bar ’|’ will be printed on the left and right borders,
-				% and between the second and the third columns.
-				% The letter ’c’ means the value will be centered within the column,
-				% letter ’l’, left-aligned, and ’r’, right-aligned.
-				p & q & p \land q\\ % Use & to separate the columns
-				\hline % Put a horizontal line between the table header and the rest.
-				T & T & T\\
-				T & F & F\\
-				F & T & F\\
-				F & F & F\\
-				\end{array}
-				\]
-				note that we use infix notation for this function.
-			</div>
-		</div>
+            <div class="content">
+                We define the <a class="knowledge-link" href=
+                "/fundamentals/functions.html#definition-function">function</a> \( \lor : \left\{ T, F \right\} \times
+                \left\{ T, F \right\} \to \left\{ T, F \right\} \) by the following table: \[ \begin{array}{|c c|c|} %
+                |c c|c| means that there are three columns in the table and % a vertical bar ’|’ will be printed on the
+                left and right borders, % and between the second and the third columns. % The letter ’c’ means the
+                value will be centered within the column, % letter ’l’, left-aligned, and ’r’, right-aligned. p &amp; q
+                &amp; p \land q\\ % Use &amp; to separate the columns \hline % Put a horizontal line between the table
+                header and the rest. T &amp; T &amp; T\\ T &amp; F &amp; F\\ F &amp; T &amp; F\\ F &amp; F &amp; F\\
+                \end{array} \] note that we use infix notation for this function.
+            </div>
+        </div>
+        
 
-		<div class="definition" id="definition-logical-negation">
-			<div class="title">Logical Negation</div>
-			<div class="content">
-				We define the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \neg : \left\{ T, F \right\} \to \left\{ T, F \right\}  \) by the following table:
-				\[
-				\begin{array}{|c|c|}
-				p & \neg p\\ % Use & to separate the columns
-				\hline % Put a horizontal line between the table header and the rest.
-				T & F \\
-				F & T \\
-				\end{array}
-				\]
-			</div>
-		</div>
+       
 
-		<p>
-			When working with the negation, we almost never include the parenthesis unless it is really necessary, so you'll see \( \neg T = F \) rather than the standard function notation: \( \neg \left( T \right) = F  \)
-		</p>
+        <div class="definition" id="definition-logical-negation">
+            <div class="title">
+                Logical Negation
+            </div>
 
-		<div class="definition" id="definition-logical-or">
-			<div class="title">Logical Or</div>
-			<div class="content">
-				We define \( \lor : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\}  \) as
-				\[
-				    p \lor q := \neg \left( \neg p \land \neg q \right)
-				\]
-			</div>
-		</div>
+            <div class="content">
+                We define the <a class="knowledge-link" href=
+                "/fundamentals/functions.html#definition-function">function</a> \( \neg : \left\{ T, F \right\} \to
+                \left\{ T, F \right\} \) by the following table: \[ \begin{array}{|c|c|} p &amp; \neg p\\ % Use &amp;
+                to separate the columns \hline % Put a horizontal line between the table header and the rest. T &amp; F
+                \\ F &amp; T \\ \end{array} \]
+            </div>
+        </div>
 
-		<div class="definition" id="definition-rightward-logical-implication">
-			<div class="title">Rightward Logical Implication</div>
-			<div class="content">
-				We define \( \implies : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\}  \) as
-				\[
-				    p \implies q := \neg p \lor q
-				\]
-			</div>
-		</div>
+        <p>When working with the negation, we almost never include the parenthesis unless it is really necessary, so
+        you&#39;ll see \( \neg T = F \) rather than the standard function notation: \( \neg \left( T \right) = F \)</p>
 
-		<p>
-			Note that even though the above doesn't seem intuitive, it exactly matches your intuition, we know that the only time an implication can be false is when we have the antecdent to be true, but the result false, which is exactly the case for the above definition.
-		</p>
+        <div class="definition" id="definition-logical-or">
+            <div class="title">
+                Logical Or
+            </div>
 
-		<div class="definition" id="definition-leftward-logical-implication">
-			<div class="title">Leftward Logical Implication</div>
-			<div class="content">
-				We define \( \impliedby  : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\}  \) as
-				\[
-				p \impliedby  q := q \implies p
-				\]
-			</div>
-		</div>
+            <div class="content">
+                We define \( \lor : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) as
+                \[ p \lor q := \neg \left( \neg p \land \neg q \right) \]
+            </div>
+        </div>
 
-		<div class="definition" id="definition-logical-bi-implication">
-			<div class="title">Logical Bi-Implication</div>
-			<div class="content">
-				We define \( \iff : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\}  \) as
-				\[
-				p \iff q := \left( p \implies q \right) \land \left( p \impliedby q \right)
-				\]
-			</div>
-		</div>
+        <div class="definition" id="definition-rightward-logical-implication">
+            <div class="title">
+                Rightward Logical Implication
+            </div>
 
-		<p>
-			Note that in writing mathematicians will use the word "iff" as short-hand for if and only if, which represents the bi-implication.
-		</p>
+            <div class="content">
+                We define \( \implies : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \)
+                as \[ p \implies q := \neg p \lor q \]
+            </div>
+        </div>
 
-		<div class="definition" id="definition-logical-exclusive-or">
-			<div class="title">Logical Exclusive Or</div>
-			<div class="content">
-				We define \( \oplus : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\}  \) as
-				\[
-				p \oplus q := \left( \neg p \land q \right) \lor \left( p \land \neg q \right)
-				\]
-			</div>
-		</div>
+        <p>Note that even though the above doesn&#39;t seem intuitive, it exactly matches your intuition, we know that
+        the only time an implication can be false is when we have the antecdent to be true, but the result false, which
+        is exactly the case for the above definition.</p>
 
-		<p>
-			"XOR" is sometimes used in place of it's regular name.
-		</p>
+        <div class="definition" id="definition-leftward-logical-implication">
+            <div class="title">
+                Leftward Logical Implication
+            </div>
 
-		<div class="definition" id="definition-tautology">
-			<div class="title">Tautology</div>
-			<div class="content">
-				We say that a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : X \to \left\{ T, F \right\} \) is a tautology iff for every \( x \in A, P \left( x \right) = T\).
-			</div>
-		</div>
+            <div class="content">
+                We define \( \impliedby : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\}
+                \) as \[ p \impliedby q := q \implies p \]
+            </div>
+        </div>
 
-		<p>
-			In mathematics, when we prove a statement, we are actually showing that it is a tautology.
-		</p>
+        <div class="definition" id="definition-logical-bi-implication">
+            <div class="title">
+                Logical Bi-Implication
+            </div>
 
+            <div class="content">
+                We define \( \iff : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) as
+                \[ p \iff q := \left( p \implies q \right) \land \left( p \impliedby q \right) \]
+            </div>
+        </div>
 
+        <p>Note that in writing mathematicians will use the word &quot;iff&quot; as short-hand for if and only if,
+        which represents the bi-implication.</p>
+        
+        <div class="exercise" id="exercise-logical-and-true-iff-both-arguments-are-true" >
+            <div class="title">Logical And True iff both Arguments are True</div>
+            <div class="content">
+                \[
+                p \land q = T \iff p = T \land q = T
+                \]
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+        
+        <p>
+            The above proof might feel a bit meta, indeed, we are using the definition of "iff" which comes a bit later in this page. The "metaness" is coming from the fact that the "iff" we use in english language is actually the bi-implication which we formally define a bit later in the page (which in-turn is then defined in terms of logical and eventually).
+        </p>
+
+        <div class="definition" id="definition-logical-exclusive-or">
+            <div class="title">
+                Logical Exclusive Or
+            </div>
+
+            <div class="content">
+                We define \( \oplus : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \)
+                as \[ p \oplus q := \left( \neg p \land q \right) \lor \left( p \land \neg q \right) \]
+            </div>
+        </div>
+
+        <p>&quot;XOR&quot; is sometimes used in place of it&#39;s regular name.</p>
+        
+        <div class="definition" id="definition-tautology">
+            <div class="title">
+                Tautology
+            </div>
+
+            <div class="content">
+                We say that a <a class="knowledge-link" href=
+                "/fundamentals/logic.html#definition-predicate">predicate</a> \( P : X \to \left\{ T, F \right\} \) is
+                a tautology iff for every \( x \in A, P \left( x \right) = T\).
+            </div>
+        </div>
+
+        <p>In mathematics, when we prove a statement, we are actually showing that it is a tautology.</p>
     </div>
 </body>
+</html>
