@@ -37,40 +37,43 @@
             </div>
         </div>
 
-        <div class="definition" id="definition-logical-and">
-            <div class="title">
-                Logical And
-            </div>
+		<div class="definition" id="definition-logical-and">
+			<div class="title">Logical And</div>
+			<div class="content">
+				We define the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \lor : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\}  \) by the following table:
+				\[
+				\begin{array}{|c c|c|}
+				% |c c|c| means that there are three columns in the table and
+				% a vertical bar ’|’ will be printed on the left and right borders,
+				% and between the second and the third columns.
+				% The letter ’c’ means the value will be centered within the column,
+				% letter ’l’, left-aligned, and ’r’, right-aligned.
+				p & q & p \land q\\ % Use & to separate the columns
+				\hline % Put a horizontal line between the table header and the rest.
+				T & T & T\\
+				T & F & F\\
+				F & T & F\\
+				F & F & F\\
+				\end{array}
+				\]
+				note that we use infix notation for this function.
+			</div>
+		</div>
 
-            <div class="content">
-                We define the <a class="knowledge-link" href=
-                "/fundamentals/functions.html#definition-function">function</a> \( \lor : \left\{ T, F \right\} \times
-                \left\{ T, F \right\} \to \left\{ T, F \right\} \) by the following table: \[ \begin{array}{|c c|c|} %
-                |c c|c| means that there are three columns in the table and % a vertical bar ’|’ will be printed on the
-                left and right borders, % and between the second and the third columns. % The letter ’c’ means the
-                value will be centered within the column, % letter ’l’, left-aligned, and ’r’, right-aligned. p &amp; q
-                &amp; p \land q\\ % Use &amp; to separate the columns \hline % Put a horizontal line between the table
-                header and the rest. T &amp; T &amp; T\\ T &amp; F &amp; F\\ F &amp; T &amp; F\\ F &amp; F &amp; F\\
-                \end{array} \] note that we use infix notation for this function.
-            </div>
-        </div>
-        
-
-       
-
-        <div class="definition" id="definition-logical-negation">
-            <div class="title">
-                Logical Negation
-            </div>
-
-            <div class="content">
-                We define the <a class="knowledge-link" href=
-                "/fundamentals/functions.html#definition-function">function</a> \( \neg : \left\{ T, F \right\} \to
-                \left\{ T, F \right\} \) by the following table: \[ \begin{array}{|c|c|} p &amp; \neg p\\ % Use &amp;
-                to separate the columns \hline % Put a horizontal line between the table header and the rest. T &amp; F
-                \\ F &amp; T \\ \end{array} \]
-            </div>
-        </div>
+		<div class="definition" id="definition-logical-negation">
+			<div class="title">Logical Negation</div>
+			<div class="content">
+				We define the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \neg : \left\{ T, F \right\} \to \left\{ T, F \right\}  \) by the following table:
+				\[
+				\begin{array}{|c|c|}
+				p & \neg p\\ % Use & to separate the columns
+				\hline % Put a horizontal line between the table header and the rest.
+				T & F \\
+				F & T \\
+				\end{array}
+				\]
+			</div>
+		</div>
 
         <p>When working with the negation, we almost never include the parenthesis unless it is really necessary, so
         you&#39;ll see \( \neg T = F \) rather than the standard function notation: \( \neg \left( T \right) = F \)</p>
