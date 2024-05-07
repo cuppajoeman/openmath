@@ -31,7 +31,6 @@
 			</div>
 		</div>
 
-
 		Suppose we wrote out the set \( \left \lbrace a , b , c , d \right \rbrace \) and then later on realized that \( a = b = c = d \), then this set is simply \( \left \lbrace a , a , a , a \right \rbrace \), which we define to just be \( \left \lbrace a \right \rbrace \). Therefore we allow duplicates when declaring a set, but realize the set it generates has no such duplicate, so \( \left \lbrace 1 , 1 , 1 \right \rbrace = \left \lbrace 1 , 1 \right \rbrace = \left \lbrace 1 \right \rbrace \)
 
 
@@ -43,7 +42,7 @@
 		</div>
 
 		<div class="definition" id="definition-empty-set">
-			<div class="title">empty set</div>
+			<div class="title">Empty Set</div>
 			<div class="content">
 				The <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> with no elements is called the empty set and is denoted by \( \emptyset \)
 			</div>
@@ -126,6 +125,23 @@
 			<div class="title">Natural Numbers 0</div>
 			<div class="content">
 				We define \( \mathbb{N}_{0} := \left \lbrace 0 , 1 , 2 , 3 , 4 , \ldots \right \rbrace \)
+			</div>
+		</div>
+
+		<div class="definition" id="definition-finite-integer-set">
+			<div class="title">Finite Integer Set</div>
+			<div class="content">
+				Suppose that \( a, b \in \mathbb{ Z }  \), then the notation \( \left\{ a, \ldots b \right\}  \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> \( X \) such that for any \( x \in \mathbb{ Z }  \) if \( a \le x \le b \) then \( x \in X \).
+			</div>
+		</div>
+
+		<div class="corollary" id="corollary-empty-integer-set">
+			<div class="title">Empty Integer Set</div>
+			<div class="content">
+				Suppose that \( a, b \in \mathbb{ Z }  \) such that \( a > b \) then \( \left\{ a, \ldots b \right\} = \emptyset   \)
+			</div>
+			<div class="proof">
+				\( \left\{ a, \ldots b \right\}  \) is <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-finite-integer-set">defined as</a> the set \( X \) such that \( x \in \mathbb{ X }  \) iff \( x \in \mathbb{ Z }  \) and \( a \le x \le b \) but this is impossible for if there were any such \( x \) then by transitivity we have that \( a \le b \) which is impossible.
 			</div>
 		</div>
 

@@ -98,10 +98,11 @@
             </div>
         </div>
 
-        <p>Note that even though the above doesn't seem intuitive, it exactly matches your intuition, we know that
-            the only time an implication can be false is when we have the antecdent to be true, but the result false,
-            which
-            is exactly the case for the above definition.</p>
+        <p>Note that even though the above doesn't seem intuitive, it exactly matches your intuition, we know that the only time an implication can be false is when we have the antecdent to be true, but the result false, which is exactly the case for the above definition.</p>
+
+        <p>
+            Usually \( p \) is called the "antecedent" and \( q \) the "consequent".
+        </p>
 
         <div class="definition" id="definition-leftward-logical-implication">
             <div class="title">
@@ -174,9 +175,117 @@
         </div>
 
         <p>In mathematics, when we prove a statement, we are actually showing that it is a tautology.</p>
+
+        <div class="proposition" id="proposition-contrapositive">
+        	<div class="title">Contrapositive</div>
+        	<div class="content">
+                The following is a tautology
+                \[
+                    \left( p \implies q \right)  \iff \left( \neg q \implies \neg p \right)
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-forced-consequence">
+        	<div class="title">Forced Consequence</div>
+        	<div class="content">
+                The following is a tautology
+                \[
+                    \left( T \implies p \right)  \iff p = T
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-arbitrary-and">
+        	<div class="title">Arbitrary And</div>
+        	<div class="content">
+                For any \( n \in \mathbb{ N } _ 0 \) we define <b>arbitrary and</b> as the <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( \bigwedge: \left\{ T, F \right\} ^ n \to \left\{ T, F \right\}  \) such that for any \( X = \left( x _ 1, \ldots , x _ n \right)  \in \left\{ T, F \right\} ^ n \).
+                \[
+                    \bigwedge X = T
+                \]
+                if and only if the following statement holds true
+                \[
+                    \forall i \in \left\{ 1, \ldots , n \right\}, x _ i = T
+                \]
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-empty-and-is-true">
+        	<div class="title">Empty And is True</div>
+        	<div class="content">
+        		Suppose that \( X = \left(  \right)  \) (the empty tuple), then
+                \[
+                    \bigwedge X = T
+                \]
+                where we've used the <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and">the arbitrary and</a>
+        	</div>
+        	<div class="proof">
+                It holds vacuously true.
+        	</div>
+        </div>
+
+        
+        <div class="definition" id="definition-arbitrary-and-indexed-notation">
+        	<div class="title">Arbitrary And Indexed Notation</div>
+        	<div class="content">
+        		Suppose that, \( a, b \in \mathbb{ Z }  \) and \( p _ a, \ldots p _ b \in \left\{ T, F \right\} \) then we define
+                \[
+                    \bigwedge _ { i = a }  ^  b p _ i := \bigwedge \left( p _ a, \ldots , p _ b \right)
+                \]
+                where we've used the <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and">the arbitrary and</a>
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-arbitrary-and-indexed-notation-with-reversed-integers-is-true">
+        	<div class="title">Arbitrary And Indexed Notation with Reversed Integers is True</div>
+        	<div class="content">
+        		Suppose \( a > b \in \mathbb{ Z }  \) and
+                \[
+                    \bigwedge _ { i = a } ^ b  p _ i = T
+                \]
+        	</div>
+        	<div class="proof">
+        		<a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and-indexed-notation">Recall that</a>
+                \[
+                    \bigwedge _ { i = a }  ^  b p _ i = \bigwedge \left( p _ a, \ldots , p _ b \right)
+                \]
+                But <a class="knowledge-link" href="/fundamentals/sets/tuples.html#proposition-when-an-integer-indexed-tuple-is-empty">at the same time</a> \( \left( p _ a, \ldots, p _ b \right) = \left(  \right)  \)  because \( a \gt b \) therefore \( \bigwedge \left( p _ a, \ldots , p _ b \right) = \bigwedge \left(  \right)  \) and <a class="knowledge-link" href="/fundamentals/logic.html#corollary-empty-and-is-true">therefore</a> evaluates to true.
+
+        	</div>
+        </div>
+
+
+        <div class="definition" id="definition-">
+        	<div class="title">Arbitrary And Expanded Notation</div>
+        	<div class="content">
+                Suppose that \( p _ 1, \ldots p _ n \in \left\{ T, F \right\} \) then we define
+                \[
+                p _ 1 \land \cdots \land p _ n := \bigwedge _ { i = 1 }  ^  n p _ i
+                \]
+                where we've used the <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and-indexed-notation">previous definition</a>
+        	</div>
+        </div>
+
+        
+        
+        <div class="definition" id="definition-arbitrary-or">
+        	<div class="title">Arbitrary Or</div>
+        	<div class="content">
+
+        	</div>
+        </div>
+        
+
+
+        
+
     </div>
-
-
 </body>
 
 </html>

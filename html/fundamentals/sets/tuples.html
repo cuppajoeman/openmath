@@ -21,6 +21,14 @@
             Let \( I \) be an index set, and \( S \) a set then we say that a function \( t : I \to S \) is a <b>tuple</b>,
         </div>
     </div>
+    
+    <div class="definition" id="definition-empty-tuple">
+    	<div class="title">Empty Tuple</div>
+    	<div class="content">
+    		Suppose \( t: I \to S \) is a tuple such that \( I = \emptyset \) then \( t \) is said to be the empty tuple and is notated by \( \left(  \right)  \).
+    	</div>
+    </div>
+    
 
     <div class="definition" id="definition-tuple-at-an-index">
     	<div class="title">Tuple at an Index</div>
@@ -50,17 +58,29 @@
     	</div>
     </div>
 
-    <div class="definition" id="definition-naturally-indexed-tuple">
-    	<div class="title">Naturally Indexed Tuple</div>
+    <div class="definition" id="definition-integer-indexed-tuple">
+    	<div class="title">Integer Indexed Tuple</div>
     	<div class="content">
-    		A naturally indexed tuple is a tuple whose index set equals \( \mathbb{ N } _ 1 \) or \( [ 1 \ldots m ]  \) for some \( m \in \mathbb{ N } _ 1 \)
+    		A integer indexed tuple is a tuple whose index set <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-finite-integer-set">equals</a> \( \left\{ a, \ldots , b \right\}   \) for some \( a, b \in \mathbb{ Z } \) or is some \( I \subseteq \mathbb{ Z } \)
     	</div>
     </div>
 
     <p>
-        Note that a naturally indexed tuple is represented using ordered tuple notation using \( \left( a _ 1, a _ 2, \ldots  \right)  \). When it's finite we get \( \left( a _ 1, a _ 2, a _ 3, a _ 4 \right)  \)
+        Note that a integer indexed tuple is represented using ordered tuple notation using \( \left( a _ 1, a _ 2, \ldots  \right)  \). When it's finite we get \( \left( a _ { - 2 } , a _ { -1 }, a _ 0,  a _ 1, a _ 2, a _ 3, a _ 4 \right)  \)
     </p>
 
+    <div class="proposition" id="proposition-when-an-integer-indexed-tuple-is-empty">
+    	<div class="title">When an Integer Indexed Tuple is Empty</div>
+    	<div class="content">
+    		Suppose that \( i > j \in \mathbb{ Z }  \) then
+            \[
+                \left( a _ i, \ldots , a _ j \right) = \left(  \right)
+            \]
+    	</div>
+    	<div class="proof">
+    	    By <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-integer-indexed-tuple">definition</a> we can see that it's index set is \( \left\{ i, \ldots , j \right\}  \) <a class="knowledge-link" href="/fundamentals/sets/basics.html#corollary-empty-integer-set">which is equal to</a> \( \emptyset  \) and therefore it is the <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-empty-tuple">empty tuple</a>.
+    	</div>
+    </div>
 
 
     <div class="definition" id="definition-n-tuple-equality">

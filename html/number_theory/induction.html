@@ -170,13 +170,17 @@
     	<div class="content">
             Suppose we have a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : \mathbb{ N } _ 0 \to \left\{ T, F \right\}  \), then if we know that for every \( k \in \mathbb{ N } _ 0 \)
             \[
-            \left( P \left( 0 \right) \land \ldots P \left( k - 1 \right)  \right) \implies P \left( k \right)
+            \left( P \left( 0 \right) \land \cdots \land P \left( k - 1 \right)  \right) \implies P \left( k \right)
             \]
             then for every \( n \in \mathbb{ N }  _ 0 \) we have that \( P \left( n \right)  \) holds true.
     	</div>
     	<div class="proof">
             <p>
-                Let \( Q \left( n \right)  \) be the predicate that \( P \left( j \right)  \) holds true for \( 0 \le j \le n \). [TODO] therefore \( Q \left( 0 \right)  \) holds true.
+                Let \( Q \left( n \right)  \) be the predicate that \( P \left( j \right)  \) holds true for \( 0 \le j \le n \). We want to prove that \( Q \left( 0 \right)  \) holds true, which is equivalent to \( P \left( 0 \right)  \) being true. Observe that for \( k = 0 \) the assumption of strong induction states that
+                \[
+                    \left( P \left( 0 \right) \land \cdots \land P \left( -1 \right)  \right) \implies P \left( 0 \right)
+                \]
+                but <a class="knowledge-link" href="/fundamentals/logic.html#corollary-arbitrary-and-indexed-notation-with-reversed-integers-is-true">we know that</a> \( P \left( 0 \right) \land \cdots \land P \left( -1 \right)  \) holds true, <a class="knowledge-link" href="/fundamentals/logic.html#proposition-forced-consequence">therefore</a> \( P \left( 0 \right)  \) holds.
             </p>
             <p>
                 Let \( k \in \mathbb{ N  } _ 0 \) and assume that \( Q \left( k \right)  \) holds true, therefore \( P \left( j \right)  \) holds true for \( 1 \le j \le k \) since \( P \) satisfies the property stated in the statement we are trying to prove, we get that \( P \left( k + 1 \right)  \) holds, which shows that \( Q \left( k + 1 \right)  \) is true.
@@ -186,9 +190,34 @@
             </p>
     	</div>
     </div>
+    
+    <div class="theorem" id="theorem-strong-induction-implies-the-well-ordering-principal">
+    	<div class="title">Strong Induction Implies The Well Ordering Principal</div>
+    	<div class="content">
+    		<a class="knowledge-link" href="/number_theory/induction.html#theorem-strong-induction">Strong induction</a> implies <a class="knowledge-link" href="/number_theory/induction.html#proposition-well-ordering-principle">the well ordering principal</a>
+    	</div>
+    	<div class="proof">
+            <p>
+                Assume the strong induction holds, we want to prove that given any non-empty set \( S \subseteq \mathbb{ N } _ 0 \) then it has a minimum element, we will show this is true by the <a class="knowledge-link" href="/fundamentals/logic.html#proposition-contrapositive">contrapositive</a>, so assume that \( S \) has no min element and we'll show that \( S \) is empty.
+            </p>
+            <p>
+                Let \( P \left( n \right)  \) be the predicate which claims that \( n \notin S \). Since \( S \) is bounded below by \( 0 \) then if \( 0 \in S \) then it would be the least element, so \( 0 \notin S \), which shows that \( P \left( 0 \right)  \) holds.
+            </p>
+            <p>
+                Let \( k \in \mathbb{ N } _ 0  \) and that \( p \left( 0 \right) \land \cdots \land p \left( k \right)  \) hold true, note that this means that \( 0, 1, \ldots k \notin S \),  we'll show that \( p \left( k + 1 \right)  \) is true. For contradiction suppose that it does not, which means that \( k + 1 \in S \), but since nothing before it is in the set, then that would make it the minimum element, but \( S \) has no minimum element, given this contradiction we know that \( k + 1 \notin S \) and therefore \( P \left( k + 1 \right)  \) is true, thus by strong induction, we know that \( P \left( n \right)  \) holds true for all \( n \in \mathbb{ N } _ 0 \) and therefore since no element is in \( S \) is it empty, as needed.
+            </p>
+    	</div>
+    </div>
 
-
-
+    <div class="corollary" id="corollary-the-well-ordering-principle-induction-and-strong-induction-are-equivalent">
+    	<div class="title">The Well Ordering Principle, Induction and Strong Induction are Equivalent</div>
+    	<div class="content">
+            As per title.
+    	</div>
+    	<div class="proof">
+            Let \( A \) be the statement of the well ordering principle, \( B \) that of induction and \( C \) of strong induction. Since we've proven \( A \implies B \), \( B \implies C \) and \( C \implies A \), then this induces a connected directed graph, and thus all statements are equivalent.
+    	</div>
+    </div>
 
 </div>
 </body>
