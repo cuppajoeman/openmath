@@ -41,6 +41,51 @@
     	</div>
     </div>
 
+    <div class="theorem" id="theorem-induction">
+    	<div class="title">Induction</div>
+    	<div class="content">
+    		Suppose we have a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : \mathbb{ N } _ 0 \to \left\{ T, F \right\}  \), then if we know that
+            <ul>
+                <li>\( P \left( 0 \right)  \) </li>
+                <li>For any \( k \in \mathbb{ N } _ 0, P \left( k \right) \implies P \left( k + 1 \right)  \) </li>
+            </ul>
+            then \( P \left( n \right)  \) holds for every \( n \in \mathbb{ N } _ 0 \)
+    	</div>
+    	<div class="proof">
+            <p>
+                Let \( S := \left\{ n \in \mathbb{ N } _ 0: \neg P \left( n \right)  \right\}  \) if the principle of induction holds true, then this set must be empty, therefore towards a contradiction assume that it is empty, so assume for the sake of contradiction that it is non-empty.
+            </p>
+            <p>
+                If this set is not empty then we have sme \( a \in \mathbb{ N } _ 0 \) such that \( \neg P \left( a \right)  \) holds true, therefore by <a class="knowledge-link" href="/number_theory/induction.html#proposition-well-ordering-principle">the well ordering principal</a> we know that \( S \) has a minimal element, which we will denote by \( m \), so that \( m - 1 \notin S \) so by definition of \( S \) it means that \( P \left( m - 1\right)  \) holds true, but then by the second property of induction we obtain that \( P \left( m \right)  \) holds true, so therefore \( m \notin S \) which is a contradiction.
+            </p>
+            <p>
+                Therefore since by assuming that \( S \) is non-empty we get a contradiction, it must mean that \( S \) is empty, which means that for every \( n \in \mathbb{ N } _ 0 \) we have that \( P \left( n \right)  \) holds true, as needed.
+            </p>
+    	</div>
+    </div>
+
+
+
+
+    <div class="definition" id="definition-triangular-number">
+    	<div class="title">Triangular Number</div>
+    	<div class="content">
+    	    We define the triangular numbers by
+            <ul>
+                <li>\( T _ 1 = 1 \) </li>
+                <li>\( T _ n = T _ { n - 1 } + n  \) </li>
+            </ul>
+    	</div>
+    </div>
+
+    <p>
+        They are called triangular numbers because by stacking dots of consecutive integers it forms a triangle.
+    </p>
+
+
+
+
+
 
 
 

@@ -242,14 +242,12 @@ function addLinksToEveryPieceOfKnowledge() {
 
 		let statementWithProof = statementsWithProof[i];
 
-		let wrapper = statementWithProof.parentElement;
-
 		let title = statementWithProof.querySelector(".title");
 		let linkToSelf = document.createElement("a");
 		linkToSelf.style.cssFloat ='right';
 		linkToSelf.textContent = copyLinkEmoji;
 		linkToSelf.onclick = copyURI;
-		linkToSelf.href = currentHtmlFilePath + "#" + wrapper.id;
+		linkToSelf.href = currentHtmlFilePath + "#" + statementWithProof.id;
 		title.append(linkToSelf);
 	}
 
