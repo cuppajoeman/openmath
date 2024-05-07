@@ -11,8 +11,8 @@ function configure_modal(modal_element, toggle_button_element) {
 
 function configure_close_functionality_for_modal(modal_element) {
   // precondition your modal element must have 
-  const closeModalButton = modal_element.querySelector('#close-modal');
-  assert(closeModalButton, "your modal must have a #close-modal sub element");
+  const closeModalButton = modal_element.querySelector('.close-modal');
+  console.assert(closeModalButton, "your modal must have a .close-modal sub element");
   // Close the modal
   closeModalButton.addEventListener('click', () => {
     modal_element.style.display = 'none'; // Hide the modal by setting display to none
@@ -31,6 +31,7 @@ const modalOverlay = document.getElementById('modal-overlay');
 const openModalButton = document.getElementById('open-modal');
 
 configure_modal(modalOverlay, openModalButton);
+configure_close_functionality_for_modal(modalOverlay);
 
 // const fast_insert_modal_button = document.getElementById("open-fast-insert-modal");
 const fast_insert_modal = document.getElementById("fast-insert-modal");

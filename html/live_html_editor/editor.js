@@ -93,6 +93,7 @@ function set_up_editor_interaction(page_to_edit_path) {
     var publish_button = document.getElementById("publish-changes-button");
     const url = "https://github.com/cuppajoeman/openmath/edit/main/html" + page_to_edit_path
     publish_button.onclick = function() {
+        alert("Great! We've just copied the contents of the left pane to your clipboard \n\n After clicking ok you'll be redirected to github to make a pull request. \n\n When you get there use 'ctrl-a' then 'ctrl-v' to paste the contents into the github editor and press 'commit changes'. \n\n Stuck: Click the 'help' tab to watch a video on how to do this.");
         input_textarea.select();
         document.execCommand('copy');
         window.open(url, '_blank').focus();
@@ -112,7 +113,7 @@ function set_up_editor_interaction(page_to_edit_path) {
 
     const back_button = document.getElementById("back-button");
     back_button.onclick = function() {
-        alert("Your changes will not be saved!");
+        alert("Unless you've made a pull request, your changes will not be saved!");
         window.location.href = page_to_edit_path;
     }
 
