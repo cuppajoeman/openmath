@@ -82,6 +82,91 @@
         They are called triangular numbers because by stacking dots of consecutive integers it forms a triangle.
     </p>
 
+    <div class="corollary" id="corollary-formula-for-the-triangular-numbers">
+    	<div class="title">Formula for the Triangular Numbers</div>
+    	<div class="content">
+    		For any \( n \in \mathbb{ N } _ 1 \) we have that
+            \[
+                T _ n = \frac{n \cdot \left( n + 1 \right) }{2}
+            \]
+    	</div>
+    	<div class="proof">
+            <p>
+                By definition we know that \( T _ 1 = 1 \), by the equation we get \( \frac{1 \cdot 2}{2} = 1 \), therefore the base case holds true.
+            </p>
+            <p>
+                Let \( k \in \mathbb{ N } _ 1 \) and assume that \( T _ k = \frac{k \cdot \left( k + 1  \right) }{2 }  \), let's show that \( T _ { k + 1  } = \frac{\left( k + 1  \right) \cdot \left( k + 2  \right)  }{2 }   \).
+                \[
+                    \begin{align}
+                        T _ { k + 1 } &= T _ k + \left( k + 1 \right)  \\
+                &= \frac{k ^ 2 + k}{2 } + \frac{2k 2}{2} \\
+                &= \frac{k ^ 2 + 3k 2k}{2} \\
+                &= \frac{\left( k + 1 \right) \left( k + 2  \right)  }{2 }
+                    \end{align}
+                \]
+            </p>
+
+    	</div>
+    </div>
+    
+    <div class="lemma" id="lemma-multiplying-by-a-non-negative-constant-retains-inequality">
+    	<div class="title">Multiplying by a non Negative Constant Retains Inequality</div>
+    	<div class="content">
+    		Suppose that \( a \ge  b \in \mathbb{ R }  \) and that \( c \in \mathbb{ R } ^ { \gt 0 }  \) then
+            \[
+                a c \ge b c
+            \]
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-the-square-of-a-real-number-is-non-negative">
+    	<div class="title">The Square of a Real Number is Non-Negative</div>
+    	<div class="content">
+    		For any \( x \in \mathbb{ R }  \)
+            \[
+                x ^ 2 \ge 0
+            \]
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+    
+    
+    <div class="proposition" id="proposition-bernoullis-inequality">
+    	<div class="title">Bernouilli's Inequality</div>
+    	<div class="content">
+    		For any \( x \in \left( -1, \infty  \right)  \) and \( n \in \mathbb{ N } _ 0 \) we have
+            \[
+                \left( 1 + x \right) ^ n \ge 1 + nx
+            \]
+    	</div>
+    	<div class="proof">
+    	    <p>
+                Let \( n = 0 \), then we have that \( \left( 1 + x  \right) ^ 0 = 1  \) and \( 1 + 0x = 1 \) so the inequality holds true.
+            </p>
+            <p>
+                Suppose the inequality holds true for \( k \in \mathbb{ N } _ 0 \), we'd like to show it holds true for \( k + 1 \) which is to say that \( 1 + \left( k + 1 \right) x \le \left( 1 + x \right) ^ { k + 1 } \), on the other hand see that:
+                \[
+                \begin{align}
+                \left( 1 + x \right) ^ k  &= \left( 1 + x \right) ^ { k + 1 } \\
+                &= \left( 1 + x \right) ^ k \left( 1 + x \right) \\
+                &\ge \left( 1 + kx \right) \left( 1 + x \right) \\
+                &= 1 + \left( k + 1  \right) x + k x ^ 2 \\
+                &\ge 1 + \left( k + 1 \right) x
+                \end{align}
+                \]
+                To get the third line we used the induction hypothesis along <a class="knowledge-link" href="/number_theory/induction.html#lemma-multiplying-by-a-non-negative-constant-retains-inequality">with this fact</a> because we know that \( x + 1 \gt 0 \) since \( x \in \left( -1, \infty  \right)  \)  , to get to the last line we used <a class="knowledge-link" href="/number_theory/induction.html#proposition-the-square-of-a-real-number-is-non-negative">this fact</a>
+            </p>
+    	</div>
+    </div>
+    
+
+
 
 
 
