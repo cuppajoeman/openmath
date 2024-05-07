@@ -164,14 +164,28 @@
             </p>
     	</div>
     </div>
-    
 
-
-
-
-
-
-
+    <div class="theorem" id="theorem-strong-induction">
+    	<div class="title">Strong Induction</div>
+    	<div class="content">
+            Suppose we have a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : \mathbb{ N } _ 0 \to \left\{ T, F \right\}  \), then if we know that for every \( k \in \mathbb{ N } _ 0 \)
+            \[
+            \left( P \left( 0 \right) \land \ldots P \left( k - 1 \right)  \right) \implies P \left( k \right)
+            \]
+            then for every \( n \in \mathbb{ N }  _ 0 \) we have that \( P \left( n \right)  \) holds true.
+    	</div>
+    	<div class="proof">
+            <p>
+                Let \( Q \left( n \right)  \) be the predicate that \( P \left( j \right)  \) holds true for \( 0 \le j \le n \). [TODO] therefore \( Q \left( 0 \right)  \) holds true.
+            </p>
+            <p>
+                Let \( k \in \mathbb{ N  } _ 0 \) and assume that \( Q \left( k \right)  \) holds true, therefore \( P \left( j \right)  \) holds true for \( 1 \le j \le k \) since \( P \) satisfies the property stated in the statement we are trying to prove, we get that \( P \left( k + 1 \right)  \) holds, which shows that \( Q \left( k + 1 \right)  \) is true.
+            </p>
+            <p>
+                Therefore by the <a class="knowledge-link" href="/number_theory/induction.html#theorem-induction">principal of induction</a> we see that \( Q \left( n \right)  \) holds true for every \( n \in \mathbb{ N } _ 0 \), this implies that \( P \left( n \right)  \) holds true for every \( n \in \mathbb{ N } _ 0 \) as well, therefore the statement of strong induction is proven.
+            </p>
+    	</div>
+    </div>
 
 
 
