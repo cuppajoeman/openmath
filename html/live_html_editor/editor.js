@@ -36,15 +36,42 @@ function set_split_screen_height() {
     splitScreen.style.height = `calc(100vh - ${navbarHeight}px)`; // Adjust height for split-screen
 }
 
-function format_html(unformatted_html) {
-      const options = {
-      "indent":"auto", "indent-spaces":4, "wrap":120,
-      "markup":true, "output-xml":false, "numeric-entities":true,
-      "quote-marks":true, "quote-nbsp":false, 
-      "quote-ampersand":false, "break-before-br":true, "uppercase-tags":false,
-      "uppercase-attributes":false, "drop-font-tags":true, "tidy-mark":false
+function unconvert_escape_codes(source_string) {
+    const conversion_map = {
+        "&nbsp;": '\t',
+        "&amp;": "&",
+        "&quot;": '"',
+        "&gt;": ">",
+        "&lt;": "<",
     }
-    return tidy_html5(unformatted_html, options)
+    for (var key in conversion_map){
+        source_string = source_string.replaceAll( key, conversion_map[key] );
+    }
+    return source_string
+}
+
+function format_html(unformatted_html) {
+    // https://api.html-tidy.org/tidy/quickref_5.0.0.html
+    const options = {
+        "indent_size": "4",
+        "indent_char": " ",
+        "max_preserve_newlines": "5",
+        "preserve_newlines": true,
+        "keep_array_indentation": false,
+        "break_chained_methods": false,
+        "indent_scripts": "normal",
+        "brace_style": "collapse",
+        "space_before_conditional": true,
+        "unescape_strings": false,
+        "jslint_happy": false,
+        "end_with_newline": false,
+        "wrap_line_length": "120",
+        "indent_inner_html": false,
+        "comma_first": false,
+        "e4x": false,
+        "indent_empty_lines": false
+    }
+    return html_beautify(unconvert_escape_codes(unformatted_html), options)
 }
 
 function set_up_editor_interaction(page_to_edit_path) {
@@ -73,22 +100,14 @@ function set_up_editor_interaction(page_to_edit_path) {
 
     var run_button = document.getElementById("run-button");
     var auto_render = false;
-    if (auto_render) {
-        input_textarea.addEventListener('keyup',()=>{
-          var html = input_textarea.value;
-          // iframe.src = "data:text/html;charset=utf-8," + encodeURI(html);
-            iframe.srcdoc = "<h1>hello</h1>\n" + "<p>" + input_textarea.value + "</p>";
-        })
-    } else {
-        run_button.onclick = function() {
-            // working on this, we need to make it so that this works by maybe having to use fast-html so files are as they seem?
-            // requries knowing github actions to use that. 
-            iframe.contentDocument.body.innerHTML = input_textarea.value;
-            iframe.contentWindow.preparePage();
-            iframe.contentWindow.MathJax.typeset();
-
-            // iframe.srcdoc = "<h1>hello</h1>\n" + "<p>" + input_textarea.value + "</p>";
-        }
+    run_button.onclick = function() {
+        // working on this, we need to make it so that this works by maybe having to use fast-html so files are as they seem?
+        // requries knowing github actions to use that.
+        input_textarea.value = format_html(input_textarea.value)
+        iframe.contentDocument.body.innerHTML = input_textarea.value;
+        iframe.contentWindow.preparePage();
+        iframe.contentWindow.MathJax.typeset();
+        // iframe.srcdoc = "<h1>hello</h1>\n" + "<p>" + input_textarea.value + "</p>";
     }
 
     const back_button = document.getElementById("back-button");
