@@ -9,15 +9,16 @@
 
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer=""></script>
+
 </head>
 
 <body>
 
     <div class="thin-wrapper">
-        <h1>binary operations and groups</h1>
+
 
         <div class="definition" id="definition-binary-operation">
-            <div class="title">binary operation</div>
+            <div class="title">Binary Operation</div>
             <div class="content">
                 Let \( S \) be a set, a binary operation on \( S \) is a <span class="knowledge-link"
                     data-href="/fundamentals/functions.html#definition-function">function</span> \( \star : S \times S
@@ -25,7 +26,12 @@
             </div>
         </div>
 
-        <div class="definition" id="definition-commutative-binary-relation">
+        <p>
+            Note the distinction between binary operation and binary relation, a binary operation is a function, which
+            is a binary relation with some extra conditions.
+        </p>
+
+        <div class="definition" id="definition-commutative-binary-operation">
             <div class="title">Commutative Binary Operation</div>
             <div class="content">
                 A <span class="knowledge-link"
@@ -49,7 +55,9 @@
         <div class="definition" id="definition-distributivity">
             <div class="title">Distributivity</div>
             <div class="content">
-                Let \( \oplus \) be a binary operation on a set \( S \), and let \( \otimes : X \times S \to S \) be a
+                Let \( \oplus \) be a <a class="knowledge-link"
+                    href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary
+                    operation</a> on a set \( S \), and let \( \otimes : X \times S \to S \) be a
                 binary function for some set \( X \) then we say that <b>\( \otimes \) distributes into \( \oplus \)
                 </b> whenever we have for any \( a, b \in S \) and \( c \in X \)
                 \[
@@ -144,12 +152,11 @@
         </div>
 
         <div class="definition" id="definition-identity-element">
-            <div class="title">Identity Element for a Binary Operation</div>
+            <div class="title">Identity Element</div>
             <div class="content">
                 Given a set \( S \) and a <a class="knowledge-link"
                     href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( \star \), we
-                say that an element \( e \in S \) is an identity element for \( \star \) on \( S \) when for every \( s
-                \in S, e \star s
+                say that an element \( e \in S \) is an identity element on \( S \) when for every \( s \in S, e \star s
                 = s \star e = s\)
             </div>
         </div>
