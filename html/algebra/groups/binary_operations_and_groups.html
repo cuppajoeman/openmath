@@ -1,488 +1,633 @@
-<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Binary Operations and Groups</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="/styles/styles.css">
-        <script src="/js/script.js" defer></script>
+    <title>Binary Operations and Groups</title>
 
-    </head>
-    <body>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer=""></script>
+</head>
 
-        <div class="thin-wrapper">
-            <h1>binary operations and groups</h1>            
+<body>
 
-			<div class="definition" id="definition-binary-operation">
-				<div class="title">binary operation</div>
-				<div class="content">
-					Let \( S \) be a set, a binary operation on \( S \) is a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( \star : S \times S \to S \) where we denote \( \star \left ( a , b \right ) \) as \( a \star b \) using infix notation
-				</div>
-			</div>
+    <div class="thin-wrapper">
+        <h1>binary operations and groups</h1>
 
-			<div class="definition" id="definition-commutative-binary-relation">
-				<div class="title">Commutative Binary Operation</div>
-				<div class="content">
-					A <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</span> on a set \( S \) such that for any \( a , b \in S \), then \( a \star b = b \star a \) is called commutative
-				</div>
-			</div>
-
-			<div class="definition" id="definition-associative-binary-operation">
-				<div class="title">Associative Binary Operation</div>
-				<div class="content">
-					A <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</span> on a set \( S \) such that for any \( a , b , c \in S \), then \( \left ( a \star b \right ) \star c = a \star \left ( b \star c \right ) \) is called associative
-				</div>
-			</div>
-
-<!--			TODO: rename distributes right into  and make distributes left into-->
-			<div class="definition" id="definition-distributivity">
-				<div class="title">Distributivity</div>
-				<div class="content">
-					Let \( \oplus \) be a binary operation on a set \( S \), and let \( \otimes : X \times S \to S \) be a binary function for some set \( X \) then we say that <b>\( \otimes \) distributes into \( \oplus \) </b> whenever we have for any \( a, b  \in S \) and \( c \in X \)
-					\[
-						c \otimes \left( a \oplus b \right) = \left( c \otimes a \right) \oplus \left( c \otimes b \right) 
-					\]
-				</div>
-			</div>
-			
-
-			<div class="theorem" id="theorem-bracket-placement-doesn't-matter-for-associative-binary-operations">
-				<div class="title">Bracket Placement Doesn't Matter for Associative Binary Operations</div>
-				<div class="content">
-					Suppose that \( \star \) is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</span>, then for any \( n \in \mathbb{Z}^{\ge 3} \), then no matter how one places the brackets in the product \( x_{1} \star x_{2} \star \ldots \star x_{n} \) it always evaluates to the same value
-				</div>
-				<div class="proof">
-					<p>
-						In order to prove this statement we have to prove that no matter the bracketing we get the same value, but what exactly is this value? It must be the result of <i>some</i> bracketing so to make our life easier let's select a left-most bracketing of the form
-						\[
-						\left( \left( x _ 1 \star x _ 2 \right)  \star x _ 3 \star  \cdots \right) \star  x _ k
-						\]
-					</p>
-					<p>
-						Therefore the statement we are trying to prove is equivalent to that of: for any \( k \in \mathbb{ N } ^ { \ge 3 }   \) given the syntactically incorrect
-						\[
-						    x _ 1 \star x _ 2 \star \cdots \star x _ k
-						\]
-						then given any syntactically valid version (obtained by inserting brackets), the value of the expression is equal to the value of the version where it is bracketed in the left-most manner. We'll prove this by strong induction or induction, which we will determine as the proof continues.
-					</p>
-					<hr>
-					<p>
-						For the base case this holds true because of associativity. Now for the induction step assume it holds true for \( k \in \mathbb{ N } ^ { \ge 3 }  \) and lets show that it holds true for \(  k + 1 \), suppose we have a product \( x _ 1 \star \cdots \star x _ { k + 1 }  \) and then an arbitrary bracketing of the product which is syntactically valid, it must have the form
-						\[
-						    \left( e _ a \right) \star \left( e _ b \right)
-						\]
-						where \( a + b = k + 1 \) where without loss of generality \( a \ge 2 \) and \( b \ge 1 \), due to this we also know that \( a, b \le k \)
-					</p>
-					<p>
-						Since we are (now) using strong induction then we know that the property holds true on \( e _ a, e _ b \) as they are arbitrarily bracketed expressions, each of which have the same value as their left-most bracketed counterparts, and therefore since they have the same value, they can be substituted so that
-						\[
-						    \left( e _ a \right) \star \left( e _ b \right) = \left( \left( \left( x _ 1 \star x _ 2 \right) \star \cdots \right)  \star x _ a \right) \star \left( \left( \left( x _ { a + 1 }  \star x _ { a + 2 }  \right) \star \cdots \right) \star x _ { a + b }  \right)
-						\]
-						at this point we've done some work, now if we can re-arrange this to be fully left-bracketed which would prove the statement true, recall that one of the properties we haven't used yet is associativity of \( \star \) . Closing our left eye, we can observe that:
-						\[
-						    \left( e _ a \right) \star \left( e _ { b - 1 } \star x _ { a + b }  \right) = \left( e _ a \star e _ { b - 1 }  \right) \star x _ { a + b }
-						\]
-						Now \( \left( e _ a \star e _ { b - 1 }  \right)  \) is a arbitrarily bracketed expression of using \( a + b - 1 \lt k + 1\) elements and so by our strong induction hypothesis we know that it's value is equal to the leftmost bracketed version of itself, so we have 
-						\[
-						    \left(  e _ a \star e _ { b - 1 }  \right) \star x _ { a + b }  = \left( \left( \left( x _ 1 \star x _ 2 \right) \star \cdots\right)  \star x _ { b - 1 }  \right) \star x _ { a + b }
-						\]
-					</p>
-					<p>
-						Chaining equalities, we've proven that \( \left( e _ a \right) \star \left( e _ b \right) = \left( \left( \left( x _ 1 \star x _ 2 \right) \star \cdots\right)  \star x _ { b - 1 }  \right) \star x _ b \), which is exactly what we wanted to show, therefore by induction this shows that the property holds for every expression.
-					</p>
-				</div>
-			</div>
-			
-
-			<div class="definition" id="definition-composition-law">
-				<div class="title">Composition Law</div>
-				<div class="content">
-					A composition law is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</span>
-				</div>
-			</div>
-
-			<div class="definition" id="definition-identity-element">
-				<div class="title">Identity Element</div>
-				<div class="content">
-					Given a set \( S \) and a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( \star \), we say that an element \( e \in S \) is an identity element on \( S \)  when for every \( s \in S, e \star s = s \star e = s\)
-				</div>
-			</div>
-
-			<div class="definition" id="definition-binary-operation-has-inverses-for-an-identity">
-				<div class="title">Binary Operation has Inverses For an Identity</div>
-				<div class="content">
-					Given a set \( S \) and a binary operation \( \star \) on \( S \), that has an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity element</a> \( e \),
-					 then we say that <b>\( \star \)  has inverses for \( e \)</b> if for every \( s \in S \), there exists some \( r \in S \) such that
-					\[
-					    s \star r = e
-					\]
-				</div>
-			</div>
-
-
-			<div class="definition" id="definition-group">
-				<div class="title">Group</div>
-				<div class="content">
-					We say that \( \left( G, \star \right)  \) where \( G \) is a set and \( \star \) is a <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition law</span> on \( G \), when there exists an element \( e \in G \) satisfying the following properties:
-					<ul>
-						<li>\( e \) is an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity element</a> on \( G \) </li>
-						<li>inversion: for every \( a \in G \) we have some \( b \in G \) such that \( a \star b = b \star a = e \)
-					</ul>
-					<p>
-				        note: <i>informally this says that you can do nothing, and you can also undo anything</i>
-					</p>
-				</div>
-			</div>
-			
-			<div class="definition" id="definition-trivial-group">
-				<div class="title">Trivial Group</div>
-				<div class="content">
-					A trivial group is a group that has one element
-				</div>
-			</div>
-
-			<div class="proposition" id="proposition-integers-are-a-group">
-				<div class="title">The Integers are a Group</div>
-				<div class="content">
-					\( \mathbb{ Z } , + \) 	form a group
-				</div>
-				<div class="proof">
-
-				</div>
-			</div>
-
-			<p>
-				Note that at this point in time we can write things like \( a + b \) and that makes sense, if we were to write something like \( x a + b \) this should not make sense because at this point we only have one operator, and not a multiplication operator yet, but we can think of \( x a \) as "syntactic sugar" for \( a + a + \ldots + a \) (with \( x \) repetitions) and it's alright.
-			</p>
-			
-			
-			<div class="proposition" id="proposition-one-point-sets-form-trivial-groups">
-				<div class="title">One Point sets are Form Trivial Groups</div>
-				<div class="content">
-					Suppose that \( T \) is a set such that \( | T | = 1 \), and \( \star \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-constant-function">constant</a> composition law, then \( \left( T, \star \right)  \) forms a group
-				</div>
-				<div class="proof">
-					<p>
-						Let \( t \) be the only element of \( T \), we claim this is the identity, which we can verify by checking \( t \star t = t \), because \( \star \) is constant, thus it is an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity element</a>.
-					</p>
-					<p>
-						Now we can also show that we have inversion as well, because for every element in \( T \) (which is just \( t \)) we have an element (which is also \( t \)) such that \( t \star t = t \), where the \( t \) on the right hand side is the identity.
-					</p>
-				</div>
-			</div>
-
-			<p>
-				It should be clear by now that \( \emptyset  \) is not a group since it cannot have an identity element because there are no elements as candidate for this position. At this point in time we know that in a group there is at least one element \( e \) with the above properties, we will now find out that there is exactly one such element.
-			</p>
-
-			<div class="proposition" id="proposition-identity-element-is-unique-in-a-group">
-				<div class="title">identity element is unique in a group</div>
-				<div class="content">
-					Suppose \( G \) is a group, then the identity element \( e \) is unique
-				</div>
-				<div class="proof">
-					Suppose that \( f \) and \( g \) are both identity elements, then by the identity property of a group, we know that \( f{\star} g{=} g{\star} f{=} f \) since \( g \) is an identity element, but also \( g{\star} f{=} f{\star} g{=} g \) since \( f \) is the identity, as well. Relating the equalities yields that \( f{=} g \) and therefore the identity element is unique.
-				</div>
-			</div>
-			
-
-
-			<div class="proposition" id="proposition-inverse-element-is-unique">
-				<div class="title">inverse element is unique</div>
-				<div class="content">
-					Suppose \( G \) is a group, and \( a \in G \), then there is a unique element \( b \) such that \( a \star b = b \star a = e \)
-				</div>
-				<div class="proof">
-					Suppose that \( b \) and \( c \) are both inverses to \( a \), thus \( a \star b = e = c \star a \), then \( c = c \star e = c \star \left ( a \star b \right ) = \left ( c \star a \right ) \star b = e \star b = b \) so then \( c = b \)
-				</div>
-			</div>
-			
-
-			<div class="definition" id="definition-inverse">
-				<div class="title">Inverse</div>
-				<div class="content">
-					Given a group \( G \) and \( a \in G \), we denote the unique element \( b \) such that \( a \star b = b \star a = e \) as \( a^{- 1} \) and call it the inverse of \( a \)
-				</div>
-			</div>
-
-			<div class="proposition" id="proposition-two-inverses-cancel">
-				<div class="title">two inverses cancel</div>
-				<div class="content">
-					\( \left ( a^{- 1} \right )^{- 1} = a \)
-				</div>
-				<div class="proof">
-					To show this is true we want to show that \( a^{- 1} \star a = a \star a^{- 1} = e \), though the definition of \( a^{- 1} \) is such that \( a \star a^{- 1} = a^{- 1} \star a = e \) and since the equality symbol is a reflexive relation, this proves what we needed to show
-				</div>
-			</div>
-			
-			<div class="proposition" id="proposition-inverse-of-ab">
-				<div class="title">inverse of ab</div>
-				<div class="content">
-					Given a group \( G \) and \( a , b \in G \), then \( \left ( a \star b \right )^{- 1} = b^{- 1} \star a^{- 1} \)
-				</div>
-				<div class="proof">
-					For ease let \( c = \left ( a \star b \right )^{- 1} \), <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-inverse">so that</span> \( \left ( a \star b \right ) \star c = c \star \left ( a \star b \right ) = e \) <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">since we know</span> \( \left ( a \star b \right ) \star c = a \star \left ( b \star c \right ) = e \) , and thus \( a^{- 1} \star \left ( a \star \left ( b \star c \right ) \right ) = a^{- 1} \star e \), thus \( \left ( a^{- 1} \star a \right ) \star \left ( b \star c \right ) = a^{- 1} e \), which simplifies to \( e \star \left ( b \star c \right ) = a^{- 1} \), so we can see that \( a^{- 1} = b \star c \), as needed
-				</div>
-			</div>
-
-			<div class="proposition" id="proposition-cancellation">
-				<div class="title">Cancellation</div>
-				<div class="content">
-					Suppose \( G \) is a group and \( a , b , c \in G \), then \( a \star c = b \star c \implies a = b \) and \( c \star a = c \star b \implies a = b \), in other words, we can cancel common elements on right and left
-				</div>
-				<div class="proof">
-					Suppose that \( a \star c = b \star c \), let \( c ^ { -1 }  \) be the inverse of \( c \) , then we have the following
-					\[
-					    \begin{gather}
-							a \star c = b \star c &\iff \\
-							\left( a \star c \right) \star c ^ { -1 } = \left( b \star c \right)  \star c ^ { -1 } &\iff \\
-							a \star \left( c \star c ^ { -1 } \right) =  b \star \left( c \star c ^ { -1 }   \right) &\iff \\
-							a \star e =  b \star e &\iff \\
-							a  =  b
-						\end{gather}
-					\]
-					Where we've used associativity followed by the definition of inverse and then the identity element. The proof for right cancellation can be obtained by placing a mirror on the left of the above chain of equalities and reversing individual elements, so that if you see ɘ you interpret it as e.
-				</div>
-			</div>
-			
-
-			<div class="definition" id="definition-order-of-a-group">
-				<div class="title">Order of a group</div>
-				<div class="content">
-					The order of a group \( G \) denoted by \( \left | G \right |  \) is the cardinality of \( G \)
-				</div>
-			</div>
-
-			<div class="definition" id="definition-abelian">
-				<div class="title">Abelian</div>
-				<div class="content">
-					Given a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-group">group</a>, if it's <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition law</span> is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-relation">commutative</a>, then we say that the group is <b>abelian</b>
-				</div>
-			</div>
-			
-			<div class="proposition" id="proposition-integers-with-addition-are-abelian">
-				<div class="title">The Integers with Addition are Abelian</div>
-				<div class="content">
-					\( \mathbb{ Z } , + \) where \( + \) is defined in the usual sense form an abelian group
-				</div>
-				<div class="proof">
-					
-				</div>
-			</div>
-
-			<div class="proposition" id="proposition-cartesian-product-of-abelian-groups-is-abelian">
-				<div class="title">Cartesian Product of Abelian Groups is Abelian</div>
-				<div class="content">
-					Let \( \left( G, \star \right)  \) 	be an abelian group, then \( G ^ n \) forms an abelian group with the operation \( \oplus \) defined for \( a, b \in G ^ n \) as
-					\[
-					    a \oplus b := \left( a _ 1 \star b _ 1, \ldots , a _ n \star b _ n \right)
-					\]
-				</div>
-				<div class="proof">
-
-				</div>
-			</div>
-
-			<p>
-				Can the above be generalized for any extra group properties?
-			</p>
-
-
-
-			<div class="definition" id="definition-multiplicative-notation">
-				<div class="title">Multiplicative Notation</div>
-				<div class="content">
-					<p>
-						Given a group \( \left ( G , \star \right ) \) then since there is only one operation in question, instead of writing the operator between every two pairs of elements we may limit it to \( a b \), to refer to \( a \star b \) to reduce visual clutter
-					</p>
-					<p>
-						note: <i>since \( \cdot \) is also a simple thing to write, we may also use it in place of \( \star \)</i>
-					</p>
-				</div>
-			</div>
-
-			<div class="definition" id="definition-power-of-an-element">
-				<div class="title">Power of an Element</div>
-				<div class="content">
-					Given a group \( G \) and \( a \in G \), then we define \( a^{n} := \overbrace{a a \ldots a}^{\text{n times}} \) for any \( n \in \mathbb{Z}^{\gt 0} \) and \( a^{0} := e \), when \( n \in \mathbb{Z}^{\lt 0} \) then \( a^{n} := \left ( a^{- 1} \right )^{n} \), thus we've defined \( a^{n} \) for all \( n \in \mathbb{Z} \)
-				</div>
-			</div>
-
-			<div class="proposition" id="proposition-power-properties">
-				<div class="title">Power Properties</div>
-				<div class="content">
-					For all \( a , b \in G \), \( a^{n} a^{m} = a^{n + m} \) and \( \left ( a^{n} \right )^{m} = a^{n m} \) for any \( m , n \in \mathbb{Z} \)
-				</div>
-				<div class="proof">
-					TODO
-				</div>
-			</div>
-			
-
-			<div class="definition" id="definition-order-of-a-group-element">
-				<div class="title">Order of a Group Element</div>
-				<div class="content">
-					The order of an element \( a \in G \), denoted \( \left | a \right |  \), is the smallest \( n \in \mathbb{N}_{1} \) such that \( a^{n} = e \)
-				</div>
-			</div>
-
-			<div class="proposition" id="proposition-finite-order-implies-powers-have-same-remainder">
-				<div class="title"></div>
-				<div class="content">
-					Suppose \( G \) is a group and that \( a \in G \) if \( a \) has finite order given by \( n \in \mathbb{ N } _ 0 \), then \( a ^ i = a ^ j \)  iff \( i ~\%~ n = j ~\%~ n \)
-				</div>
-				<div class="proof">
-
-				</div>
-			</div>
-			
-			<div class="corollary" id="corollary-if-the-power-of-an-element-with-finite-order-yields-the-identity-then-the-order-divides-the-power">
-				<div class="title">If the power of an element with finite order yields the identity then the order divides the power</div>
-				<div class="content">
-					Let \( G \) be a group and suppose \( a \in G \) has order \( n \) then if \( a ^ k = e \) then \( n \mid k \)
-				</div>
-				<div class="proof">
-					We know that \( a ^ k = e = a ^ 0 \) therefore \( k ~\%~ n = 0 ~\%~ n = 0\) therefore \( n \mid k \) as needed.
-				</div>
-			</div>
-			
-
-
-			<div class="definition" id="definition-subgroup">
-				<div class="title">Subgroup</div>
-				<div class="content">
-					Suppose that \( \left( G, \star \right)  \) is a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-group">group</a>, then if \( H \subseteq G \) is a group under \( \star \), then we say that \( H \) is a subgroup of \( G \) and write \( H \leqslant G \)
-				</div>
-			</div>
-			
-			<div class="proposition" id="proposition-">
-				<div class="title"></div>
-				<div class="content">
-					Let \( G \) be a group. Given a non-empty \( H \subseteq G \) if \( a b ^ { -1 } \in H \) for any \( a, b \in H \), then \( H \leqslant G \)
-				</div>
-				<div class="proof">
-					<p>
-						Since \( H \) is non-empty then there is some element \( h \in H \), thus we know that \( h h ^ { -1 } \in H \), since \( h \in H \), since \( H \subseteq G \), then we know that \( h \in G \), and therefore in \( G \) we have an inverse \( h ^ { -1 }  \) such that \( h h ^  { -1 } = e \), where \( e \in G \) but by assumption this is also an element of \( H \), thus \( e \in H \).
-					</p>
-					<p>
-						So now we know that \( e \in H \), how can we be sure this is the identity in \( H \)? Perhaps it is not, but given any \( s \in H \), since \( H \subseteq G \), we know \( s \in G \) then using the fact that \( G \) is a group we see \( e \star s  = s \star e \), since \( e \) is also in \( H \) this confirms that it is \( H \)'s identity.
-					</p>
-					<p>
-						Now we'll show that \( H \) has inverses, so let \( a \in H \),  at the same time we know we have \( e \in H \), thus \( e a ^ { -1 } \in H \) and thus \( a ^ { -1 }  \in H \) as needed.
-					</p>
-					<p>
-						At this point it may seem like we've verified all the requirements for \( H \) to be a group, but there's something a little subtle, when we were working with \( \star \) we know that it was composition law meaning that this operation is closed for elements in \( G \), so we also need to verify that \( \star \) is closed in \( H \), that is to say that \( \star \) is a composition law in \( H \), so let \( x, y \in H \), then from the previous paragraph we know that \( y ^ { -1 }  \) is a member of \( H \), thus \( x \left( y ^ { -1 }  \right) ^ { -1 } \in H \)
-					</p>
-				</div>
-			</div>
-
-			<p>
-				Notice that the equation stated above is special, firstly given two elements in \( a, b \in H \) it combines \( a  \) and \( b ^ { -1 }  \), the special thing here is the \( b ^ { -1 }  \), originally we don't know if this element is a member of \( H \) because in the proof we verify if indeed it is a group, and we don't know that inverses exists until we verify them, but we do know when it's combined with \( b ^ { -1 }  \) it produces an element of \( H \).
-			</p>
-
-			<p>
-				Note that we need \( H \) to be non-empty otherwise the empty set would satisfy the above, and we know that the empty set is not a group. It also helps us bootstrap the proof.
-			</p>
-
-
-			<div class="exercise" id="exercise-TODO">
-				<div class="title">TODO</div>
-				<div class="content">
-					An element of a group has order \( 1 \) if and only if \( x = e \)
-				</div>
-				<div class="proof">
-					<p>
-							<span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-order-of-a-group-element"></span>
-
-						Suppose that \( a \in G \), then \( \left | a \right |  = 1 \) if and only if \( a^{1} = e \) note that \( a^{1} = a \), so \( a = e \) as needed
-					</p>
-					<p>
-						For the reverse direction, follow the above proof backwards, noting that each connection is a bi-implication
-					</p>
-				</div>
-			</div>
-			
-
-			<div class="exercise" id="exercise-TODO">
-				<div class="title">TODO</div>
-				<div class="content">
-					Show that \( \mathbb{Q} , \mathbb{R} , \mathbb{C} \) are groups under multiplicaiton
-				</div>
-				<div class="proof">
-					TODO
-				</div>
-			</div>
-			
-
-			<div class="definition" id="definition-generator">
-				<div class="title">Generator</div>
-				<div class="content">
-					The notation \( \left \langle a \right \rangle \) denotes the set \( \left \lbrace a^{n} : n \in \mathbb{Z} \right \rbrace \). Then \( a \in G \) is said to be a generator of \( g \) if and only if \( G = \left \langle a \right \rangle \)
-				</div>
-			</div>
-
-			For a positive integer n, all groups of order n are cyclic  iff   GCD(n, phi(n)) = 1
-
-			<div class="definition" id="definition-cyclic-group">
-				<div class="title">cyclic group</div>
-				<div class="content">
-					A group \( G \) is considered a cyclic group if and only iff there exists some \( a \in G \) such that \( G = \left \langle a \right \rangle \)
-				</div>
-			</div>
-
-			<div class="proposition" id="proposition-cyclic-implies-abelian">
-				<div class="title">cyclic implies abelian</div>
-				<div class="content">
-					If a group \( G \) is cyclic, then it is abelian
-				</div>
-				<div class="proof">
-					TODO
-				</div>
-			</div>
-			
-			<div class="proposition" id="proposition-power-equivalence">
-				<div class="title">power equivalence</div>
-				<div class="content">
-					For a group \( G \) with \( a \in G \), if \( G \) has infinite order, then \( a^{i} = a^{j} \) if and only if \( i = j \) otherwise if \( G \) has finite order \( n \) then \( a^{i} = a^{j} \) if and only if \( i \% n = j \% n \)
-				</div>
-				<div class="proof">
-					TODO
-				</div>
-			</div>
-			
-
-			<div class="theorem" id="theorem-gcd-generates-the-same">
-				<div class="title">gcd generates the same</div>
-				<div class="content">
-					Suppose \( G \) is a group. Let \( a \in G \) so that \( \left | a \right |  = n \), then \( \left \langle a^{k} \right \rangle = \left \langle a^{\gcd{\left ( n , k \right )}} \right \rangle \) and \( \left | a^{k} \right |  = \frac{n}{\gcd{\left ( n , k \right )}} \)
-				</div>
-				<div class="proof">
-					<div class="title"></div>
-					<div class="content">
-						TODO
-					</div>
-				</div>
-			</div>
-			
-
-			<div class="corollary" id="corollary-TODO">
-				<div class="title">TODO</div>
-				<div class="content">
-					For a group \( G \) and \( a \in G \), then \( \left | a \right |  \) divides \( \left | G \right |  \)
-				</div>
-				<div class="proof">
-					TODO
-				</div>
-			</div>
-			
-
-
-			
-
+        <div class="definition" id="definition-binary-operation">
+            <div class="title">binary operation</div>
+            <div class="content">
+                Let \( S \) be a set, a binary operation on \( S \) is a <span class="knowledge-link"
+                    data-href="/fundamentals/functions.html#definition-function">function</span> \( \star : S \times S
+                \to S \) where we denote \( \star \left ( a , b \right ) \) as \( a \star b \) using infix notation
+            </div>
         </div>
-        
-    </body>
+
+        <div class="definition" id="definition-commutative-binary-relation">
+            <div class="title">Commutative Binary Operation</div>
+            <div class="content">
+                A <span class="knowledge-link"
+                    data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary
+                    operation</span> on a set \( S \) such that for any \( a , b \in S \), then \( a \star b = b \star a
+                \) is called commutative
+            </div>
+        </div>
+
+        <div class="definition" id="definition-associative-binary-operation">
+            <div class="title">Associative Binary Operation</div>
+            <div class="content">
+                A <span class="knowledge-link"
+                    data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary
+                    operation</span> on a set \( S \) such that for any \( a , b , c \in S \), then \( \left ( a \star b
+                \right ) \star c = a \star \left ( b \star c \right ) \) is called associative
+            </div>
+        </div>
+
+        <!--			TODO: rename distributes right into  and make distributes left into-->
+        <div class="definition" id="definition-distributivity">
+            <div class="title">Distributivity</div>
+            <div class="content">
+                Let \( \oplus \) be a binary operation on a set \( S \), and let \( \otimes : X \times S \to S \) be a
+                binary function for some set \( X \) then we say that <b>\( \otimes \) distributes into \( \oplus \)
+                </b> whenever we have for any \( a, b \in S \) and \( c \in X \)
+                \[
+                c \otimes \left( a \oplus b \right) = \left( c \otimes a \right) \oplus \left( c \otimes b \right)
+                \]
+            </div>
+        </div>
+
+
+        <div class="theorem" id="theorem-bracket-placement-doesn't-matter-for-associative-binary-operations">
+            <div class="title">Bracket Placement Doesn't Matter for Associative Binary Operations</div>
+            <div class="content">
+                Suppose that \( \star \) is an <span class="knowledge-link"
+                    data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative
+                    binary operation</span>, then for any \( n \in \mathbb{Z}^{\ge 3} \), then no matter how one places
+                the brackets in the product \( x_{1} \star x_{2} \star \ldots \star x_{n} \) it always evaluates to the
+                same value
+            </div>
+            <div class="proof">
+                <p>
+                    In order to prove this statement we have to prove that no matter the bracketing we get the same
+                    value, but what exactly is this value? It must be the result of <i>some</i> bracketing so to make
+                    our life easier let's select a left-most bracketing of the form
+                    \[
+                    \left( \left( x _ 1 \star x _ 2 \right) \star x _ 3 \star \cdots \right) \star x _ k
+                    \]
+                </p>
+                <p>
+                    Therefore the statement we are trying to prove is equivalent to that of: for any \( k \in \mathbb{ N
+                    } ^ { \ge 3 } \) given the syntactically incorrect
+                    \[
+                    x _ 1 \star x _ 2 \star \cdots \star x _ k
+                    \]
+                    then given any syntactically valid version (obtained by inserting brackets), the value of the
+                    expression is equal to the value of the version where it is bracketed in the left-most manner. We'll
+                    prove this by strong induction or induction, which we will determine as the proof continues.
+                </p>
+                <hr>
+                <p>
+                    For the base case this holds true because of associativity. Now for the induction step assume it
+                    holds true for \( k \in \mathbb{ N } ^ { \ge 3 } \) and lets show that it holds true for \( k + 1
+                    \), suppose we have a product \( x _ 1 \star \cdots \star x _ { k + 1 } \) and then an arbitrary
+                    bracketing of the product which is syntactically valid, it must have the form
+                    \[
+                    \left( e _ a \right) \star \left( e _ b \right)
+                    \]
+                    where \( a + b = k + 1 \) where without loss of generality \( a \ge 2 \) and \( b \ge 1 \), due to
+                    this we also know that \( a, b \le k \)
+                </p>
+                <p>
+                    Since we are (now) using strong induction then we know that the property holds true on \( e _ a, e _
+                    b \) as they are arbitrarily bracketed expressions, each of which have the same value as their
+                    left-most bracketed counterparts, and therefore since they have the same value, they can be
+                    substituted so that
+                    \[
+                    \left( e _ a \right) \star \left( e _ b \right) = \left( \left( \left( x _ 1 \star x _ 2 \right)
+                    \star \cdots \right) \star x _ a \right) \star \left( \left( \left( x _ { a + 1 } \star x _ { a + 2
+                    } \right) \star \cdots \right) \star x _ { a + b } \right)
+                    \]
+                    at this point we've done some work, now if we can re-arrange this to be fully left-bracketed which
+                    would prove the statement true, recall that one of the properties we haven't used yet is
+                    associativity of \( \star \) . Closing our left eye, we can observe that:
+                    \[
+                    \left( e _ a \right) \star \left( e _ { b - 1 } \star x _ { a + b } \right) = \left( e _ a \star e _
+                    { b - 1 } \right) \star x _ { a + b }
+                    \]
+                    Now \( \left( e _ a \star e _ { b - 1 } \right) \) is a arbitrarily bracketed expression of using \(
+                    a + b - 1 \lt k + 1\) elements and so by our strong induction hypothesis we know that it's value is
+                    equal to the leftmost bracketed version of itself, so we have
+                    \[
+                    \left( e _ a \star e _ { b - 1 } \right) \star x _ { a + b } = \left( \left( \left( x _ 1 \star x _
+                    2 \right) \star \cdots\right) \star x _ { b - 1 } \right) \star x _ { a + b }
+                    \]
+                </p>
+                <p>
+                    Chaining equalities, we've proven that \( \left( e _ a \right) \star \left( e _ b \right) = \left(
+                    \left( \left( x _ 1 \star x _ 2 \right) \star \cdots\right) \star x _ { b - 1 } \right) \star x _ b
+                    \), which is exactly what we wanted to show, therefore by induction this shows that the property
+                    holds for every expression.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="definition" id="definition-composition-law">
+            <div class="title">Composition Law</div>
+            <div class="content">
+                A composition law is an <span class="knowledge-link"
+                    data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative
+                    binary operation</span>
+            </div>
+        </div>
+
+        <div class="definition" id="definition-identity-element">
+            <div class="title">Identity Element for a Binary Operation</div>
+            <div class="content">
+                Given a set \( S \) and a <a class="knowledge-link"
+                    href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( \star \), we
+                say that an element \( e \in S \) is an identity element for \( \star \) on \( S \) when for every \( s
+                \in S, e \star s
+                = s \star e = s\)
+            </div>
+        </div>
+
+        <div class="definition" id="definition-binary-operation-has-inverses-for-an-identity">
+            <div class="title">Binary Operation has Inverses For an Identity</div>
+            <div class="content">
+                Given a set \( S \) and a binary operation \( \star \) on \( S \), that has an <a class="knowledge-link"
+                    href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity
+                    element</a> \( e \),
+                then we say that <b>\( \star \) has inverses for \( e \)</b> if for every \( s \in S \), there exists
+                some \( r \in S \) such that
+                \[
+                s \star r = e
+                \]
+            </div>
+        </div>
+
+
+        <div class="definition" id="definition-group">
+            <div class="title">Group</div>
+            <div class="content">
+                We say that \( \left( G, \star \right) \) where \( G \) is a set and \( \star \) is a <span
+                    class="knowledge-link"
+                    data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition
+                    law</span> on \( G \), when there exists an element \( e \in G \) satisfying the following
+                properties:
+                <ul>
+                    <li>\( e \) is an <a class="knowledge-link"
+                            href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity
+                            element</a> on \( G \) </li>
+                    <li>inversion: for every \( a \in G \) we have some \( b \in G \) such that \( a \star b = b \star a
+                        = e \)
+                    </li>
+                </ul>
+                <p>
+                    note: <i>informally this says that you can do nothing, and you can also undo anything</i>
+                </p>
+            </div>
+        </div>
+
+        <div class="definition" id="definition-trivial-group">
+            <div class="title">Trivial Group</div>
+            <div class="content">
+                A trivial group is a group that has one element
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-integers-are-a-group">
+            <div class="title">The Integers are a Group</div>
+            <div class="content">
+                \( \mathbb{ Z } , + \) form a group
+            </div>
+            <div class="proof">
+
+            </div>
+        </div>
+
+        <p>
+            Note that at this point in time we can write things like \( a + b \) and that makes sense, if we were to
+            write something like \( x a + b \) this should not make sense because at this point we only have one
+            operator, and not a multiplication operator yet, but we can think of \( x a \) as "syntactic sugar" for \( a
+            + a + \ldots + a \) (with \( x \) repetitions) and it's alright.
+        </p>
+
+
+        <div class="proposition" id="proposition-one-point-sets-form-trivial-groups">
+            <div class="title">One Point sets are Form Trivial Groups</div>
+            <div class="content">
+                Suppose that \( T \) is a set such that \( | T | = 1 \), and \( \star \) is a <a class="knowledge-link"
+                    href="/fundamentals/functions.html#definition-constant-function">constant</a> composition law, then
+                \( \left( T, \star \right) \) forms a group
+            </div>
+            <div class="proof">
+                <p>
+                    Let \( t \) be the only element of \( T \), we claim this is the identity, which we can verify by
+                    checking \( t \star t = t \), because \( \star \) is constant, thus it is an <a
+                        class="knowledge-link"
+                        href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity
+                        element</a>.
+                </p>
+                <p>
+                    Now we can also show that we have inversion as well, because for every element in \( T \) (which is
+                    just \( t \)) we have an element (which is also \( t \)) such that \( t \star t = t \), where the \(
+                    t \) on the right hand side is the identity.
+                </p>
+            </div>
+        </div>
+
+        <p>
+            It should be clear by now that \( \emptyset \) is not a group since it cannot have an identity element
+            because there are no elements as candidate for this position. At this point in time we know that in a group
+            there is at least one element \( e \) with the above properties, we will now find out that there is exactly
+            one such element.
+        </p>
+
+        <div class="proposition" id="proposition-identity-element-is-unique-in-a-group">
+            <div class="title">identity element is unique in a group</div>
+            <div class="content">
+                Suppose \( G \) is a group, then the identity element \( e \) is unique
+            </div>
+            <div class="proof">
+                Suppose that \( f \) and \( g \) are both identity elements, then by the identity property of a group,
+                we know that \( f{\star} g{=} g{\star} f{=} f \) since \( g \) is an identity element, but also \(
+                g{\star} f{=} f{\star} g{=} g \) since \( f \) is the identity, as well. Relating the equalities yields
+                that \( f{=} g \) and therefore the identity element is unique.
+            </div>
+        </div>
+
+
+
+        <div class="proposition" id="proposition-inverse-element-is-unique">
+            <div class="title">inverse element is unique</div>
+            <div class="content">
+                Suppose \( G \) is a group, and \( a \in G \), then there is a unique element \( b \) such that \( a
+                \star b = b \star a = e \)
+            </div>
+            <div class="proof">
+                Suppose that \( b \) and \( c \) are both inverses to \( a \), thus \( a \star b = e = c \star a \),
+                then \( c = c \star e = c \star \left ( a \star b \right ) = \left ( c \star a \right ) \star b = e
+                \star b = b \) so then \( c = b \)
+            </div>
+        </div>
+
+
+        <div class="definition" id="definition-inverse">
+            <div class="title">Inverse</div>
+            <div class="content">
+                Given a group \( G \) and \( a \in G \), we denote the unique element \( b \) such that \( a \star b = b
+                \star a = e \) as \( a^{- 1} \) and call it the inverse of \( a \)
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-two-inverses-cancel">
+            <div class="title">two inverses cancel</div>
+            <div class="content">
+                \( \left ( a^{- 1} \right )^{- 1} = a \)
+            </div>
+            <div class="proof">
+                To show this is true we want to show that \( a^{- 1} \star a = a \star a^{- 1} = e \), though the
+                definition of \( a^{- 1} \) is such that \( a \star a^{- 1} = a^{- 1} \star a = e \) and since the
+                equality symbol is a reflexive relation, this proves what we needed to show
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-inverse-of-ab">
+            <div class="title">inverse of ab</div>
+            <div class="content">
+                Given a group \( G \) and \( a , b \in G \), then \( \left ( a \star b \right )^{- 1} = b^{- 1} \star
+                a^{- 1} \)
+            </div>
+            <div class="proof">
+                For ease let \( c = \left ( a \star b \right )^{- 1} \), <span class="knowledge-link"
+                    data-href="/algebra/groups/binary_operations_and_groups.html#definition-inverse">so that</span> \(
+                \left ( a \star b \right ) \star c = c \star \left ( a \star b \right ) = e \) <span
+                    class="knowledge-link"
+                    data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">since we
+                    know</span> \( \left ( a \star b \right ) \star c = a \star \left ( b \star c \right ) = e \) , and
+                thus \( a^{- 1} \star \left ( a \star \left ( b \star c \right ) \right ) = a^{- 1} \star e \), thus \(
+                \left ( a^{- 1} \star a \right ) \star \left ( b \star c \right ) = a^{- 1} e \), which simplifies to \(
+                e \star \left ( b \star c \right ) = a^{- 1} \), so we can see that \( a^{- 1} = b \star c \), as needed
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-cancellation">
+            <div class="title">Cancellation</div>
+            <div class="content">
+                Suppose \( G \) is a group and \( a , b , c \in G \), then \( a \star c = b \star c \implies a = b \)
+                and \( c \star a = c \star b \implies a = b \), in other words, we can cancel common elements on right
+                and left
+            </div>
+            <div class="proof">
+                Suppose that \( a \star c = b \star c \), let \( c ^ { -1 } \) be the inverse of \( c \) , then we have
+                the following
+                \[
+                \begin{gather}
+                a \star c = b \star c &\iff \\
+                \left( a \star c \right) \star c ^ { -1 } = \left( b \star c \right) \star c ^ { -1 } &\iff \\
+                a \star \left( c \star c ^ { -1 } \right) = b \star \left( c \star c ^ { -1 } \right) &\iff \\
+                a \star e = b \star e &\iff \\
+                a = b
+                \end{gather}
+                \]
+                Where we've used associativity followed by the definition of inverse and then the identity element. The
+                proof for right cancellation can be obtained by placing a mirror on the left of the above chain of
+                equalities and reversing individual elements, so that if you see ɘ you interpret it as e.
+            </div>
+        </div>
+
+
+        <div class="definition" id="definition-order-of-a-group">
+            <div class="title">Order of a group</div>
+            <div class="content">
+                The order of a group \( G \) denoted by \( \left | G \right | \) is the cardinality of \( G \)
+            </div>
+        </div>
+
+        <div class="definition" id="definition-abelian">
+            <div class="title">Abelian</div>
+            <div class="content">
+                Given a <a class="knowledge-link"
+                    href="/algebra/groups/binary_operations_and_groups.html#definition-group">group</a>, if it's <span
+                    class="knowledge-link"
+                    data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition
+                    law</span> is <a class="knowledge-link"
+                    href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-relation">commutative</a>,
+                then we say that the group is <b>abelian</b>
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-integers-with-addition-are-abelian">
+            <div class="title">The Integers with Addition are Abelian</div>
+            <div class="content">
+                \( \mathbb{ Z } , + \) where \( + \) is defined in the usual sense form an abelian group
+            </div>
+            <div class="proof">
+
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-cartesian-product-of-abelian-groups-is-abelian">
+            <div class="title">Cartesian Product of Abelian Groups is Abelian</div>
+            <div class="content">
+                Let \( \left( G, \star \right) \) be an abelian group, then \( G ^ n \) forms an abelian group with the
+                operation \( \oplus \) defined for \( a, b \in G ^ n \) as
+                \[
+                a \oplus b := \left( a _ 1 \star b _ 1, \ldots , a _ n \star b _ n \right)
+                \]
+            </div>
+            <div class="proof">
+
+            </div>
+        </div>
+
+        <p>
+            Can the above be generalized for any extra group properties?
+        </p>
+
+
+
+        <div class="definition" id="definition-multiplicative-notation">
+            <div class="title">Multiplicative Notation</div>
+            <div class="content">
+                <p>
+                    Given a group \( \left ( G , \star \right ) \) then since there is only one operation in question,
+                    instead of writing the operator between every two pairs of elements we may limit it to \( a b \), to
+                    refer to \( a \star b \) to reduce visual clutter
+                </p>
+                <p>
+                    note: <i>since \( \cdot \) is also a simple thing to write, we may also use it in place of \( \star
+                        \)</i>
+                </p>
+            </div>
+        </div>
+
+        <div class="definition" id="definition-power-of-an-element">
+            <div class="title">Power of an Element</div>
+            <div class="content">
+                Given a group \( G \) and \( a \in G \), then we define \( a^{n} := \overbrace{a a \ldots a}^{\text{n
+                times}} \) for any \( n \in \mathbb{Z}^{\gt 0} \) and \( a^{0} := e \), when \( n \in \mathbb{Z}^{\lt 0}
+                \) then \( a^{n} := \left ( a^{- 1} \right )^{n} \), thus we've defined \( a^{n} \) for all \( n \in
+                \mathbb{Z} \)
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-power-properties">
+            <div class="title">Power Properties</div>
+            <div class="content">
+                For all \( a , b \in G \), \( a^{n} a^{m} = a^{n + m} \) and \( \left ( a^{n} \right )^{m} = a^{n m} \)
+                for any \( m , n \in \mathbb{Z} \)
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+
+        <div class="definition" id="definition-order-of-a-group-element">
+            <div class="title">Order of a Group Element</div>
+            <div class="content">
+                The order of an element \( a \in G \), denoted \( \left | a \right | \), is the smallest \( n \in
+                \mathbb{N}_{1} \) such that \( a^{n} = e \)
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-finite-order-implies-powers-have-same-remainder">
+            <div class="title"></div>
+            <div class="content">
+                Suppose \( G \) is a group and that \( a \in G \) if \( a \) has finite order given by \( n \in \mathbb{
+                N } _ 0 \), then \( a ^ i = a ^ j \) iff \( i ~\%~ n = j ~\%~ n \)
+            </div>
+            <div class="proof">
+
+            </div>
+        </div>
+
+        <div class="corollary"
+            id="corollary-if-the-power-of-an-element-with-finite-order-yields-the-identity-then-the-order-divides-the-power">
+            <div class="title">If the power of an element with finite order yields the identity then the order divides
+                the power</div>
+            <div class="content">
+                Let \( G \) be a group and suppose \( a \in G \) has order \( n \) then if \( a ^ k = e \) then \( n
+                \mid k \)
+            </div>
+            <div class="proof">
+                We know that \( a ^ k = e = a ^ 0 \) therefore \( k ~\%~ n = 0 ~\%~ n = 0\) therefore \( n \mid k \) as
+                needed.
+            </div>
+        </div>
+
+
+
+        <div class="definition" id="definition-subgroup">
+            <div class="title">Subgroup</div>
+            <div class="content">
+                Suppose that \( \left( G, \star \right) \) is a <a class="knowledge-link"
+                    href="/algebra/groups/binary_operations_and_groups.html#definition-group">group</a>, then if \( H
+                \subseteq G \) is a group under \( \star \), then we say that \( H \) is a subgroup of \( G \) and write
+                \( H \leqslant G \)
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-">
+            <div class="title"></div>
+            <div class="content">
+                Let \( G \) be a group. Given a non-empty \( H \subseteq G \) if \( a b ^ { -1 } \in H \) for any \( a,
+                b \in H \), then \( H \leqslant G \)
+            </div>
+            <div class="proof">
+                <p>
+                    Since \( H \) is non-empty then there is some element \( h \in H \), thus we know that \( h h ^ { -1
+                    } \in H \), since \( h \in H \), since \( H \subseteq G \), then we know that \( h \in G \), and
+                    therefore in \( G \) we have an inverse \( h ^ { -1 } \) such that \( h h ^ { -1 } = e \), where \(
+                    e \in G \) but by assumption this is also an element of \( H \), thus \( e \in H \).
+                </p>
+                <p>
+                    So now we know that \( e \in H \), how can we be sure this is the identity in \( H \)? Perhaps it is
+                    not, but given any \( s \in H \), since \( H \subseteq G \), we know \( s \in G \) then using the
+                    fact that \( G \) is a group we see \( e \star s = s \star e \), since \( e \) is also in \( H \)
+                    this confirms that it is \( H \)'s identity.
+                </p>
+                <p>
+                    Now we'll show that \( H \) has inverses, so let \( a \in H \), at the same time we know we have \(
+                    e \in H \), thus \( e a ^ { -1 } \in H \) and thus \( a ^ { -1 } \in H \) as needed.
+                </p>
+                <p>
+                    At this point it may seem like we've verified all the requirements for \( H \) to be a group, but
+                    there's something a little subtle, when we were working with \( \star \) we know that it was
+                    composition law meaning that this operation is closed for elements in \( G \), so we also need to
+                    verify that \( \star \) is closed in \( H \), that is to say that \( \star \) is a composition law
+                    in \( H \), so let \( x, y \in H \), then from the previous paragraph we know that \( y ^ { -1 } \)
+                    is a member of \( H \), thus \( x \left( y ^ { -1 } \right) ^ { -1 } \in H \)
+                </p>
+            </div>
+        </div>
+
+        <p>
+            Notice that the equation stated above is special, firstly given two elements in \( a, b \in H \) it combines
+            \( a \) and \( b ^ { -1 } \), the special thing here is the \( b ^ { -1 } \), originally we don't know if
+            this element is a member of \( H \) because in the proof we verify if indeed it is a group, and we don't
+            know that inverses exists until we verify them, but we do know when it's combined with \( b ^ { -1 } \) it
+            produces an element of \( H \).
+        </p>
+
+        <p>
+            Note that we need \( H \) to be non-empty otherwise the empty set would satisfy the above, and we know that
+            the empty set is not a group. It also helps us bootstrap the proof.
+        </p>
+
+
+        <div class="exercise" id="exercise-TODO">
+            <div class="title">TODO</div>
+            <div class="content">
+                An element of a group has order \( 1 \) if and only if \( x = e \)
+            </div>
+            <div class="proof">
+                <p>
+                    <span class="knowledge-link"
+                        data-href="/algebra/groups/binary_operations_and_groups.html#definition-order-of-a-group-element"></span>
+
+                    Suppose that \( a \in G \), then \( \left | a \right | = 1 \) if and only if \( a^{1} = e \) note
+                    that \( a^{1} = a \), so \( a = e \) as needed
+                </p>
+                <p>
+                    For the reverse direction, follow the above proof backwards, noting that each connection is a
+                    bi-implication
+                </p>
+            </div>
+        </div>
+
+
+        <div class="exercise" id="exercise-TODO">
+            <div class="title">TODO</div>
+            <div class="content">
+                Show that \( \mathbb{Q} , \mathbb{R} , \mathbb{C} \) are groups under multiplicaiton
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+
+        <div class="definition" id="definition-generator">
+            <div class="title">Generator</div>
+            <div class="content">
+                The notation \( \left \langle a \right \rangle \) denotes the set \( \left \lbrace a^{n} : n \in
+                \mathbb{Z} \right \rbrace \). Then \( a \in G \) is said to be a generator of \( g \) if and only if \(
+                G = \left \langle a \right \rangle \)
+            </div>
+        </div>
+
+        For a positive integer n, all groups of order n are cyclic iff GCD(n, phi(n)) = 1
+
+        <div class="definition" id="definition-cyclic-group">
+            <div class="title">cyclic group</div>
+            <div class="content">
+                A group \( G \) is considered a cyclic group if and only iff there exists some \( a \in G \) such that
+                \( G = \left \langle a \right \rangle \)
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-cyclic-implies-abelian">
+            <div class="title">cyclic implies abelian</div>
+            <div class="content">
+                If a group \( G \) is cyclic, then it is abelian
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-power-equivalence">
+            <div class="title">power equivalence</div>
+            <div class="content">
+                For a group \( G \) with \( a \in G \), if \( G \) has infinite order, then \( a^{i} = a^{j} \) if and
+                only if \( i = j \) otherwise if \( G \) has finite order \( n \) then \( a^{i} = a^{j} \) if and only
+                if \( i \% n = j \% n \)
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+
+        <div class="theorem" id="theorem-gcd-generates-the-same">
+            <div class="title">gcd generates the same</div>
+            <div class="content">
+                Suppose \( G \) is a group. Let \( a \in G \) so that \( \left | a \right | = n \), then \( \left
+                \langle a^{k} \right \rangle = \left \langle a^{\gcd{\left ( n , k \right )}} \right \rangle \) and \(
+                \left | a^{k} \right | = \frac{n}{\gcd{\left ( n , k \right )}} \)
+            </div>
+            <div class="proof">
+                <div class="title"></div>
+                <div class="content">
+                    TODO
+                </div>
+            </div>
+        </div>
+
+
+        <div class="corollary" id="corollary-TODO">
+            <div class="title">TODO</div>
+            <div class="content">
+                For a group \( G \) and \( a \in G \), then \( \left | a \right | \) divides \( \left | G \right | \)
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+</body>
+
 </html>
