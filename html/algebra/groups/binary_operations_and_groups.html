@@ -55,7 +55,44 @@
 					Suppose that \( \star \) is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</span>, then for any \( n \in \mathbb{Z}^{\ge 3} \), then no matter how one places the brackets in the product \( x_{1} \star x_{2} \star \ldots \star x_{n} \) it always evaluates to the same value
 				</div>
 				<div class="proof">
-					TODO
+					<p>
+						In order to prove this statement we have to prove that no matter the bracketing we get the same value, but what exactly is this value? It must be the result of <i>some</i> bracketing so to make our life easier let's select a left-most bracketing of the form
+						\[
+						\left( \left( x _ 1 \star x _ 2 \right)  \star x _ 3 \star  \cdots \right) \star  x _ k
+						\]
+					</p>
+					<p>
+						Therefore the statement we are trying to prove is equivalent to that of: for any \( k \in \mathbb{ N } ^ { \ge 3 }   \) given the syntactically incorrect
+						\[
+						    x _ 1 \star x _ 2 \star \cdots \star x _ k
+						\]
+						then given any syntactically valid version (obtained by inserting brackets), the value of the expression is equal to the value of the version where it is bracketed in the left-most manner. We'll prove this by strong induction or induction, which we will determine as the proof continues.
+					</p>
+					<hr>
+					<p>
+						For the base case this holds true because of associativity. Now for the induction step assume it holds true for \( k \in \mathbb{ N } ^ { \ge 3 }  \) and lets show that it holds true for \(  k + 1 \), suppose we have a product \( x _ 1 \star \cdots \star x _ { k + 1 }  \) and then an arbitrary bracketing of the product which is syntactically valid, it must have the form
+						\[
+						    \left( e _ a \right) \star \left( e _ b \right)
+						\]
+						where \( a + b = k + 1 \) where without loss of generality \( a \ge 2 \) and \( b \ge 1 \), due to this we also know that \( a, b \le k \)
+					</p>
+					<p>
+						Since we are (now) using strong induction then we know that the property holds true on \( e _ a, e _ b \) as they are arbitrarily bracketed expressions, each of which have the same value as their left-most bracketed counterparts, and therefore since they have the same value, they can be substituted so that
+						\[
+						    \left( e _ a \right) \star \left( e _ b \right) = \left( \left( \left( x _ 1 \star x _ 2 \right) \star \cdots \right)  \star x _ a \right) \star \left( \left( \left( x _ { a + 1 }  \star x _ { a + 2 }  \right) \star \cdots \right) \star x _ { a + b }  \right)
+						\]
+						at this point we've done some work, now if we can re-arrange this to be fully left-bracketed which would prove the statement true, recall that one of the properties we haven't used yet is associativity of \( \star \) . Closing our left eye, we can observe that:
+						\[
+						    \left( e _ a \right) \star \left( e _ { b - 1 } \star x _ { a + b }  \right) = \left( e _ a \star e _ { b - 1 }  \right) \star x _ { a + b }
+						\]
+						Now \( \left( e _ a \star e _ { b - 1 }  \right)  \) is a arbitrarily bracketed expression of using \( a + b - 1 \lt k + 1\) elements and so by our strong induction hypothesis we know that it's value is equal to the leftmost bracketed version of itself, so we have 
+						\[
+						    \left(  e _ a \star e _ { b - 1 }  \right) \star x _ { a + b }  = \left( \left( \left( x _ 1 \star x _ 2 \right) \star \cdots\right)  \star x _ { b - 1 }  \right) \star x _ { a + b }
+						\]
+					</p>
+					<p>
+						Chaining equalities, we've proven that \( \left( e _ a \right) \star \left( e _ b \right) = \left( \left( \left( x _ 1 \star x _ 2 \right) \star \cdots\right)  \star x _ { b - 1 }  \right) \star x _ b \), which is exactly what we wanted to show, therefore by induction this shows that the property holds for every expression.
+					</p>
 				</div>
 			</div>
 			
