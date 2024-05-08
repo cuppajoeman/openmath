@@ -13,7 +13,7 @@ ${get_indentation_in_spaces(2)}TODO
 ${get_indentation_in_spaces(1)}</div>
 ${get_indentation_in_spaces(0)}</div>`
     } else if (swp_type == "knowledge-link") {
-        return '<a class="knowledge-link" data-href="ABSOLUTE_PATH_TO_FILE_CONTAINING_KNOLWEDGE#KNOWLEDGE_ID">TODO</a>'
+        return '<a class="knowledge-link" href="ABSOLUTE_PATH_TO_FILE_CONTAINING_KNOLWEDGE#KNOWLEDGE_ID">TODO</a>'
     } else {
         return `<div class="${swp_type}" id="${swp_type}-TODO-USING-LOWERCASE-AND-HIPHEN" >
 ${get_indentation_in_spaces(1)}<div class="title">TODO</div>
