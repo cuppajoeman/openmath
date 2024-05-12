@@ -192,6 +192,37 @@
         	</div>
         </div>
 
+        <div class="proposition" id="proposition-maximum-is-always-bigger-than-its-arguments">
+        	<div class="title">Maximum is Always Bigger than It's arguments</div>
+        	<div class="content">
+        		Let \( x, y \in \mathbb{ R }  \) then
+                \[
+                    x \le \max \left( x, y \right) \text{ and } y \le \max \left( x, y \right)
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+        
+
+        <div class="proposition" id="proposition-value-between-implies-its-value-is-less-than-the-max-of-the-others">
+        	<div class="title">Value Between Implies It's Absolute Value is Less than the Max of the Others</div>
+        	<div class="content">
+                Suppose that \( a \le b \le c \) then \( \lvert b \rvert \le \max \left( \lvert a \rvert , \lvert c \rvert  \right)  \)
+        	</div>
+        	<div class="proof">
+                Let's recall that \( c \le \lvert c \rvert \le \max \left( \lvert c \rvert , \lvert a \rvert  \right)  \), and on the other hand that \( a \ge - \lvert a \rvert \ge - \max \left( \lvert a \rvert, \lvert c \rvert   \right)   \) combining inequalities, that says 
+                \[
+                    - \max \left( \lvert a \rvert , \lvert c \rvert  \right) \le b \le \max \left( \lvert a \rvert , \lvert c \rvert  \right)
+                \]
+                <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-value-between-positive-and-negative-equivalence">therefore</a>
+                \[
+                    \lvert b \rvert \le \lvert \max \left( \lvert a \rvert, \lvert c \rvert   \right)  \rvert = \max \left( \lvert a \rvert , \lvert c \rvert  \right)
+                \]
+                as needed.
+        	</div>
+        </div>
         
         <div class="corollary" id="corollary-absolute-value-bounds-distance">
         	<div class="title">Absolute Value Bounds Distance</div>

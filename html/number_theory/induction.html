@@ -24,6 +24,53 @@
             Taken as an axiom.
     	</div>
     </div>
+    
+    <div class="proposition" id="proposition-empty-negation-set-means-true-for-everything">
+    	<div class="title">Empty Negation Set means True for Everything</div>
+    	<div class="content">
+    		Let \( P \) be a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> then for any \( X \subseteq \operatorname{ dom } \left( P \right)  \)
+            \[
+                C := \left\{ x \in X \left( P \right) : \neg P \left( x  \right)   \right\} = \emptyset
+            \]
+            implies that \( \forall x \in X, P \left( x \right)  \)
+    	</div>
+    	<div class="proof">
+            Let \( a \in X \), suppose that \( \neg P \left( a \right)  \) for a contradiction, but then \( a \in C  \) so that \( C \neq \emptyset  \) which is a contradiction, so we know that \( P \left( a \right)  \) as needed.
+    	</div>
+    </div>
+    
+
+    <div class="exercise" id="exercise-triangular-numbers-with-the-well-ordering-principle">
+    	<div class="title">Triangular Numbers with the Well Ordering Principle</div>
+    	<div class="content">
+    		Prove that
+            \[
+                1 + 2 + 3 + \cdots + n = \frac{n \left( n + 1  \right) }{2}
+            \]
+    	</div>
+    	<div class="proof">
+            <p>
+                Let \( P \left( n \right)  \) be the predicate which claims that \( 1 + 2 + 3 + \cdots + n = \frac{n \left( n + 1  \right) }{2}  \), and define the set \( C = \left\{ n \in \mathbb{ N } _ 1: \neg P \left( n \right)   \right\}  \), by showing that this set is empty, <a class="knowledge-link" href="/number_theory/induction.html#proposition-empty-negation-set-means-true-for-everything">then it holds true</a> for all \( n \in \mathbb{ N } _ 1 \).
+            </p>
+            <p>
+                Therefore by contradiction assume that the set \( C \) is not empty, thus by the well ordering principle it has a smallest element \( m \in C \), note that \( m \ge 2 \) because \( P \left( 1 \right)  \) holds  therefore \( m - 1 \notin C \cap \mathbb{ N } _ 0 \) which means that \( P \left( m - 1 \right)  \) which implies that \( 1 + 2 + \cdots + \left( m - 1 \right) = \frac{\left( m - 1 \right) m }{2}   \) then by simply adding \( m \) to both sides we get that
+                \[
+                    1 + 2 + \cdots + m = \frac{m ^ 2 - m + 2m}{2} = \frac{m ^ 2 + m}{2 } = \frac{m \left( m + 1  \right) }{2 }
+                \]
+                so thefore \( P \left( m \right)  \) holds, which is a contradiction so therefore \( S = \emptyset  \) as needed.
+            </p>
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-there-is-not-an-infinitely-strictly-decreasing-sequence-of-natural-numbers">
+    	<div class="title">There is Not an Infinitely Strictly Decreasing Sequence of Natural Numbers</div>
+    	<div class="content">
+            There does not exist a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> \( x _ 1 > x _ 2 > \ldots  \) in the natural numbers.
+    	</div>
+    	<div class="proof">
+            Suppose for the sake of contradiction that such a sequence did exist, and let \( S \) be the set of values of the sequence, by definition \( S \subseteq \mathbb{ N } _ 0 \) we assumed our sequence has at least one value and therefore \( S \neq \emptyset  \) and so by the well ordering principle it has a least element say \( x _ k \) for \( k \in \mathbb{ N } _ 0 \) but then we know that \( x _ k \gt x _ { k + 1 }  \) which is a contradiction, so such as sequence must not exist.
+    	</div>
+    </div>
 
     <div class="proposition" id="proposition-archimedean-property">
     	<div class="title">Archimedean Property</div>
@@ -56,7 +103,7 @@
                 Let \( S := \left\{ n \in \mathbb{ N } _ 0: \neg P \left( n \right)  \right\}  \) if the principle of induction holds true, then this set must be empty, assume for the sake of contradiction that it is non-empty.
             </p>
             <p>
-                If this set is not empty then we have sme \( a \in \mathbb{ N } _ 0 \) such that \( \neg P \left( a \right)  \) holds true, therefore by <a class="knowledge-link" href="/number_theory/induction.html#proposition-well-ordering-principle">the well ordering principal</a> we know that \( S \) has a minimal element, which we will denote by \( m \), so that \( m - 1 \notin S \) so by definition of \( S \) it means that \( P \left( m - 1\right)  \) holds true, but then by the second property of induction we obtain that \( P \left( m \right)  \) holds true, so therefore \( m \notin S \) which is a contradiction.
+                If this set is not empty then we have some \( a \in \mathbb{ N } _ 0 \) such that \( \neg P \left( a \right)  \) holds true, therefore by <a class="knowledge-link" href="/number_theory/induction.html#proposition-well-ordering-principle">the well ordering principle</a> we know that \( S \) has a minimal element, which we will denote by \( m \) and note that \( m \ge 1 \) because \( P \left( 0 \right)  \) holds true  , so that so that \( m - 1 \in \mathbb{ N  } _ 0  \) and it is minimal so that \( m - 1 \notin S \)  so by definition of \( S \) it means that \( P \left( m - 1\right)  \) holds true, but then by the second property of induction we obtain that \( P \left( m \right)  \) holds true, so therefore \( m \notin S \) which is a contradiction.
             </p>
             <p>
                 Therefore since by assuming that \( S \) is non-empty we get a contradiction, it must mean that \( S \) is empty, which means that for every \( n \in \mathbb{ N } _ 0 \) we have that \( P \left( n \right)  \) holds true, as needed.
@@ -64,6 +111,26 @@
     	</div>
     </div>
 
+    <div class="exercise" id="exercise-there-is-a-source-and-a-sink">
+    	<div class="title">There is a Source and a Sink</div>
+    	<div class="content">
+            Suppose you are in a country where all roads between any two cities are on-way and when you leave a city you cannot return to it again. Prove that there exists a city into which all roads enter and a city from which all roads exit.
+    	</div>
+    	<div class="proof">
+            <p>
+                Let \( P \left( n \right)  \) be the predicate that the statement holds true on a graph with \( n \) vertices.  We will show this is true via <a class="knowledge-link" href="/number_theory/induction.html#theorem-induction">induction</a> over \( \mathbb{ N } _ 2 \).
+            </p>
+            <p>
+                For the base case, we have two vertices \( s, t \) , if there are no edges between them it holds vacuously, note that the only other case is that there is one edge, because if there were two then they could only be formed of the edges \( \left( s, t \right) , \left( t, s \right)  \) which would contradict that there is no way to return back to a city you were previously at. Therefore without loss of generality assume that the only edge is \( \left( s, t \right)  \), in that case the statement holds true because \( t \) is the city into which all roads enter and \( s \) is the city from which all roads exit.
+            </p>
+            <p>
+                For the induction step assume the prediate holds true for \( k \in \mathbb{ N } _ 2 \) and we'll prove that it holds true on \( k + 1 \), so supposing we have a graph with \( k + 1 \) nodes, let's obtain the graph by removing one vertex \( x \) and all edges it's involved in, by induction this subgraph has an \( s, t \) such that all roads enter \( s \) and all roads exit \( t \), specifically note that this implies that the edge \( \left( x, s \right)  \) and \( \left( t, x \right)  \) exist in the original graph that contained \( x \).
+            </p>
+            <p>
+                Note that by re-adding in \( x \) the property would be maintained unless \( x \) had an edge \( \left( s , x \right) \), but this would be impossible because the graph has the property that when you leave a city you cannot return to it again, but if we have \( \left( x, s \right), \left( s, x \right)   \) the path \( x - s - x \) contradicts this fact, similarly if an edge \( \left( x, t \right)  \) existed we also get this contradiction, therefore such edges must not exist which shows that the predicate holds true on the graph containing \( x \) by using \( s \) as the sink and \( t \) as the source.
+            </p>
+    	</div>
+    </div>
 
 
 
@@ -108,7 +175,97 @@
 
     	</div>
     </div>
-    
+
+    <div class="proposition" id="proposition-telescoping-sum">
+    	<div class="title">Telescoping Sum</div>
+    	<div class="content">
+    	    Let \( \left( a _ n \right)  \) be a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> of real numbers, then
+            \[
+                \sum _ { k = 1 }  ^  n \left( a _ { k + 1 } - a _ k  \right) = a _ { n + 1  } - a _ 1
+            \]
+            for any \( n \in \mathbb{ N } _ 1 \)
+    	</div>
+    	<div class="proof">
+            <p>
+                We show this true by induction over \( \mathbb{ N } _ 1 \) so for the base case note that \( \sum _ { k = 1  }  ^  1 \left( a _ k - 1 - a _ k \right) = a _ 2 - a _ 1    \) as needed.
+            </p>
+            <p>
+                Now suppose that it holds true for \( j \in \mathbb{ N } _ 1 \) and now let's prove that
+                \[
+                    \sum _ { k = 1 }  ^  { j + 1 }  \left( a _ { k + 1 } - a _ k  \right) = a _ { \left( j + 1 \right)  + 1  } - a _ 1
+                \]
+                but observe that
+                \[
+                    \begin{align}
+                \sum _ { k = 1 }  ^  { j + 1 }  \left( a _ { k + 1 } - a _ k  \right) &= \sum _ { k = 1 }  ^  { j }  \left( a _ { k + 1 } - a _ k  \right) + \left( a _ { j + 2 } - a _ j  \right) \\
+                &= \left( a _ j - a _ 1 \right) + a _ { j + 2 } - a _ j \\
+                &= a _ { \left( j + 1 \right) + 1  } - a _ 1
+                    \end{align}
+                \]
+            </p>
+
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-">
+    	<div class="title">Formula for n-term arithmetic Progression</div>
+    	<div class="content">
+    	    Let \( a, d \in \mathbb{ R }  \), then
+            \[
+                a + \left( a + d \right) + \left( a + 2d \right) + \cdots + \left( a + \left( n - 1  \right)d  \right) = \frac{n \left( 2a + \left( n - 1 \right)d  \right) }{2}
+            \]
+            for every \( n \in \mathbb{ N } _ 1 \)
+    	</div>
+    	<div class="proof">
+            <p>
+                By do it by induction, for the base case we need to verify that
+                \[
+                a = \frac{1 \left( 2a + 0d \right) }{2}
+                \]
+                which is true because the right hand side simplifies to \( a \).
+            </p>
+            <p>
+                Now suppose the formula holds true for \( k \in \mathbb{ N } _ 1 \) and we'll show it holds true for \( k + 1 \).
+                \[
+                    \begin{align}
+                a + \left( a + d \right) + \left( a + 2d \right) + \cdots + \left( a + \left( \left( k + 1  \right)  - 1  \right)d  \right) &= a + \left( a + d \right) + \left( a + 2d \right) + \cdots + \left( a + \left( k - 1 \right)d  \right) +  \left( a +  kd  \right)\\
+                &= \frac{k \left( 2a + \left( k - 1 \right)d  \right) }{2} + \left( a + kd \right) \\
+                &= \frac{k \left( 2a + \left( k - 1 \right)d  \right) + 2a + 2kd }{2}\\
+                    \end{align}
+                \]
+            </p>
+            <p>
+                For a moment let's focus on the numerator, we want to show that the numerator is equal to \( \left( k + 1 \right) \left( 2a + kd \right) = k \left( 2a + kd \right) + \left( 2 a + kd \right) \), towards this goal notice that
+                \[
+                    \begin{align}
+                        k \left( 2a + \left( k - 1 \right) d  \right) +   2a + 2kd &= 2ka + k ^ 2 d - kd + 2a + 2kd \\
+                &= 2ka + k ^ 2 d + 2a + kd \\
+                &= k \left( 2a + kd \right) + 2a + kd \\
+                &= \left( k + 1 \right) \left( 2a + kd \right)
+                    \end{align}
+                \]
+                and so the numerator is correct and the entire formula holds true.
+            </p>
+    	</div>
+    </div>
+
+    <p>
+        With \( a = d = 1 \) then we get the sequence \( 1 , 3, 5, 7, \ldots  \) (the triangular numbers) which recovers the formula for the triangular numbers that was discovered earlier.
+    </p>
+
+    <div class="proposition" id="proposition-sum-of-the-squares-of-consecutive-integers">
+    	<div class="title">Sum of the Squares of Consecutive Integers</div>
+    	<div class="content">
+            \[
+                1 ^ 2 + 2 ^ 2 + 3 ^ 2 + \cdots + n ^ 2 = \frac{n \left( n + 1 \right) \left( 2n + 1 \right)  }{6}
+            \]
+    	</div>
+    	<div class="proof">
+            
+    	</div>
+    </div>
+
+
     <div class="lemma" id="lemma-multiplying-by-a-non-negative-constant-retains-inequality">
     	<div class="title">Multiplying by a non Negative Constant Retains Inequality</div>
     	<div class="content">
@@ -135,8 +292,6 @@
     	</div>
     </div>
 
-    
-    
     <div class="proposition" id="proposition-bernoullis-inequality">
     	<div class="title">Bernouilli's Inequality</div>
     	<div class="content">

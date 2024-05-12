@@ -20,15 +20,37 @@
             </div>
 
             <div class="content">
-                \( \sum_{n = 0}^{k} x^{n} = \frac{1 - x^{k + 1}}{1 - x} \)
+                For any \( x \in \mathbb{ R } ^ { \neq 1 }   \) and \( k \in \mathbb{ N } _ 0 \)
+                \[
+                \sum_{n = 0}^{k} x^{n} = \frac{1 - x^{k + 1}}{1 - x}
+                \]
             </div>
 
             <div class="proof">
                 Let \( S = \sum_{n = 0}^{k} x^{n} \), then \( x S - S = x^{k + 1} - x^{0} \) therefore \( S =
                 \frac{x^{k + 1} - 1}{x - 1} \), so also \( S = \frac{1 - x^{k + 1}}{1 - x} \) by factoring -1 from the
                 numerator and the denominator, as needed
+                <hr>
+                Or instead it can be proven inductively as follows, in the base case we get
+                \[
+                    \sum _ { n = 0 }  ^  0 x ^ n = x ^ 0 = 1 = \frac{1 - x ^ 1}{1 - x}
+                \]
+                assume it holds true for \( j \in \mathbb{ N } _ 0  \) and we want to prove that it holds true for \( j + 1 \)
+                \[
+                    \begin{align}
+                        \sum _ { n = 0 }  ^  { j + 1 } x ^ n &= \sum _ { n = 0 }  ^  { j } x ^ n + x ^ { j + 1 }  \\
+                &= \frac{1 - x ^ { j + 1 }  }{ 1 - x} + \frac{x ^ { j + 1 } \left( 1 - x \right)  }{ 1 - x} \\
+                &= \frac{1 - x ^ { j + 1 }  +  x ^ { j + 1 } \left( 1 - x \right)}{ 1 - x} \\
+                &= \frac{1 - x ^ { j + 2 } }{1 - x}
+                    \end{align}
+                \]
+                as needed.
             </div>
         </div>
+
+        <p>
+            Note that when \( x = 1 \) the sum simply yields \( k + 1 \).
+        </p>
 
         <div class="proposition" id="proposition-geometric-power-series">
             <div class="title">
@@ -36,7 +58,10 @@
             </div>
 
             <div class="content">
-                for \( \left | x \right | &lt; 1 \) we have \( \sum_{n = 0}^{\infty} x^{n} = \frac{1}{1 - x} \)
+                for \( \left | x \right | &lt; 1 \) we have
+                \[
+                    \sum_{n = 0}^{\infty} x^{n} = \frac{1}{1 - x}
+                \]
             </div>
 
             <div class="proof">
@@ -55,12 +80,12 @@
             </div>
 
             <div class="content">
-                Given \( t \in \mathbb{R}^{\ne 0} \), show that
+                Given \( t \in \mathbb{R}^{\ne 0} \), the following holds:
 
-                <div class="centered-content">
-                    \( \sum_{i = 1}^{n} i t^{i} = t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1
-                    - t} \)
-                </div>
+                \[
+                \sum_{i = 1}^{n} i t^{i} = t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1
+                    - t}
+                \]
             </div>
 
             <div class="proof">
@@ -129,10 +154,9 @@
 
             <div class="content">
                 Suppose that \( \left | t \right | \lt 1 \), then
-
-                <div class="centered-content">
-                    \( \sum_{i = 1}^{\infty} i t^{i} = \frac{t}{\left ( 1 - t \right )^{2}} \)
-                </div>
+                \[
+                    \sum_{i = 1}^{\infty} i t^{i} = \frac{t}{\left ( 1 - t \right )^{2}}
+                \]
             </div>
 
             <div class="proof">
