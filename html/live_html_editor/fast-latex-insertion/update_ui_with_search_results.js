@@ -113,7 +113,7 @@ function update_ui_with_search_results(content) {
 
 function toggle_visibility_of_fast_insert_modal() {
     const fast_insert_modal = document.getElementById("fast-insert-modal");
-    assert(fast_insert_modal, "you were missing the fast-insert-modal");
+    console.assert(fast_insert_modal, "you were missing the fast-insert-modal");
 
     if (fast_insert_modal.style.display == 'flex') {
         fast_insert_modal.style.display = 'none'; 
@@ -126,7 +126,7 @@ function toggle_visibility_of_fast_insert_modal() {
 
 function get_search_bar_element() {
     const search_bar = fast_insert_modal.querySelector("#fast-insert-modal-search-bar");
-    assert(search_bar, "you must have a textarea with the id: #fast-insert-modal-search-bar");
+    console.assert(search_bar, "you must have a textarea with the id: #fast-insert-modal-search-bar");
     return search_bar
 }
 
@@ -155,11 +155,11 @@ function handle_custom_key_bindings(e){
             focused_on_something_irrelevant = true;
         }
         if (!focused_on_something_irrelevant) {
-            assert(focused_li, "you weren't focused on an li, this should be impossible");
-            assert(focused_li.hasAttribute("latex-src"), "this li is missing the latex-src attribute");
+            console.assert(focused_li, "you weren't focused on an li, this should be impossible");
+            console.assert(focused_li.hasAttribute("latex-src"), "this li is missing the latex-src attribute");
             const content_to_be_inserted = focused_li.getAttribute("latex-src");
             const input_textarea = document.getElementById("input-textarea");
-            assert(input_textarea, "you must have an element with id 'input-textarea'");
+            console.assert(input_textarea, "you must have an element with id 'input-textarea'");
             // precondition, you've included editor.js in the html page before the line where this js file is included.
             insert_text_into_textarea(input_textarea, content_to_be_inserted, false);
             // reselect search bar for further additions
