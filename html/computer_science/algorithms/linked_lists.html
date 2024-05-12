@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +7,81 @@
 
     <title>Linked List</title>
     <link rel="stylesheet" href="../../styles/styles.css">
-    <script src="/js/script.js" defer></script>
+    <script src="/js/script.js" defer=""></script>
 </head>
 
 <body>
-<div class="thin-wrapper">
+    <div class="thin-wrapper">
+        <pre>
+# Note this is in Python
+def findDuplicate(nums: List[int]) -> int:    
+    # loop 1
+    slow1 = 0
+    fast = 0
+    while True:
+        slow1 = nums[slow1]
+        fast = nums[nums[fast]]
+        if slow1 == fast:
+            break
 
+    # loop 2
+    slow2 = 0
+    while slow1 != slow2:
+        slow1 = nums[slow1]
+        slow2 = nums[slow2]
+    return slow1
+        </pre>
 
-</div>
+        <div class="definition" id="definition-TODO-USING-LOWERCASE-AND-HIPHEN">
+            <div class="title">Repeated Element in Tuple</div>
+            <div class="content">
+                Given a \(n\)-tuple \(A\), where \(n \geq 2\), a repeated element \(x\) in \(A\) is an element such that
+                \(A_i = A_j = x\), where \(i \neq j\).
+            </div>
+        </div>
+
+        <div class="lemma" id="lemma-TODO-USING-LOWERCASE-AND-HIPHEN">
+            <div class="title">TODO</div>
+            <div class="content">
+                The first while loop terminates and slow1 = fast.
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+        <div class="lemma" id="lemma-TODO-USING-LOWERCASE-AND-HIPHEN">
+            <div class="title">TODO</div>
+            <div class="content">
+                The second while loop terminates and nums[slow1] is the meet point.
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+        <div class="lemma" id="lemma-TODO-USING-LOWERCASE-AND-HIPHEN">
+            <div class="title">TODO</div>
+            <div class="content">
+                The duplicate element is located at the meet point.
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+
+        <div class="theorem" id="theorem-TODO-USING-LOWERCASE-AND-HIPHEN">
+            <div class="title">TODO</div>
+            <div class="content">
+                Given an \((n+1)\)-tuple consisting of elements in the range \([1, n]\) with exactly one repeated
+                element, the
+                algorithm above returns that element.
+            </div>
+            <div class="proof">
+                TODO
+            </div>
+        </div>
+    </div>
 </body>
+
+</html>
