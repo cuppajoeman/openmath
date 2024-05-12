@@ -12,8 +12,7 @@
 
 <body>
     <div class="thin-wrapper">
-        <pre>
-# Note this is in Python
+        <pre># Note this is in Python
 def findDuplicate(nums: List[int]) -> int:    
     # loop 1
     slow1 = 0
@@ -41,13 +40,26 @@ def findDuplicate(nums: List[int]) -> int:
             </div>
         </div>
 
+
         <div class="lemma" id="lemma-TODO-USING-LOWERCASE-AND-HIPHEN">
             <div class="title">TODO</div>
             <div class="content">
-                The first while loop terminates and slow1 = fast.
+                The first while loop terminates and \(\mathtt{slow1} = \mathtt{fast}\).
             </div>
             <div class="proof">
-                TODO
+
+                <br />
+
+                Assume \(G\) has a cycle \(C = (c_0, c_1, \dots, c_k)\). Consider the iteration when \(\mathtt{slow1}\)
+                and \(\mathtt{fast}\) are both in \(C\) for the first time. Without a loss of generality, assume
+                \(\mathtt{slow1} = c_0\) and \(\mathtt{fast} = c_i\), where \(i \in [0, k]\). Since
+                \(C\) is a cycle of length \(k + 1\) and \(\mathtt{fast}\) traverses \(C\) at twice the speed of
+                \(\mathtt{slow1}\), \(\mathtt{slow1} = \mathtt{fast}\) when \(t \equiv i + 2t
+                \pmod{k+1}\), where \(t\) is the \(t\)-th iteration after \(\mathtt{slow1}\)
+                and \(\mathtt{fast}\) are both in \(C\) for the first time.
+                <br />
+                Rearranging shows \(t \equiv -i \pmod{k+1}\). Therefore, \(\mathtt{slow1} = \mathtt{fast}\) for the
+                first time when \(t = k + 1 - i\).
             </div>
         </div>
 
@@ -135,6 +147,9 @@ def findDuplicate(nums: List[int]) -> int:
             </div>
         </div>
     </div>
+
+
+
 </body>
 
 </html>
