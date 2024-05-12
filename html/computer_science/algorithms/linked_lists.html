@@ -48,7 +48,7 @@ def findDuplicate(nums: List[int]) -> int:
             </div>
             <div class="proof">
 
-                <br />
+                <br>
 
                 Assume \(G\) has a cycle \(C = (c_0, c_1, \dots, c_k)\). Consider the iteration when \(\mathtt{slow1}\)
                 and \(\mathtt{fast}\) are both in \(C\) for the first time. Without a loss of generality, assume
@@ -57,7 +57,7 @@ def findDuplicate(nums: List[int]) -> int:
                 \(\mathtt{slow1}\), \(\mathtt{slow1} = \mathtt{fast}\) when \(t \equiv i + 2t
                 \pmod{k+1}\), where \(t\) is the \(t\)-th iteration after \(\mathtt{slow1}\)
                 and \(\mathtt{fast}\) are both in \(C\) for the first time.
-                <br />
+                <br>
                 Rearranging shows \(t \equiv -i \pmod{k+1}\). Therefore, \(\mathtt{slow1} = \mathtt{fast}\) for the
                 first time when \(t = k + 1 - i\).
             </div>
@@ -69,68 +69,147 @@ def findDuplicate(nums: List[int]) -> int:
                 The second while loop terminates and nums[slow1] is the meet point.
             </div>
             <div class="proof">
-                TODO
+
+
+                \(G\) has a cycle \(C = (c_0, c_1, \dots, c_k)\). Let \(x\) be the distance from \(g_0\) to \(c_0\). Let
+                \(y\) be the distance from \(c_0\) to \(c_i\), where \(c_i\) is the vertex where \(\mathtt{slow1} =
+                \mathtt{slow2}\) after the first while loop. Let
+                \(z\) be the distance from \(c_i\) back to \(c_0\).
+                <br />
+                <br />
+                From the previous lemma, we know that the first while loop terminates before \(\mathtt{slow1}\)
+                completes a cycle around \(C\), so \(\mathtt{slow1}\) travels \(x + y\) vertices by the end of that
+                loop. We also know that \(\mathtt{fast}\) travels 2
+                vertices for every vertex travelled by \(\mathtt{slow1}\), so it travels \(2(x + y)\) vertices by the
+                end of the first while loop. Alternatively, we can express this number as \(x\) plus \(n\) complete
+                cycles around \(C\) (which has a length of \(y + z\)) plus \(y\). Therefore, we have the following.
+                <br />
+                <br />
+                \(\begin{align*}
+                2(x + y) &= x + n(y + z) + y \\
+                2x + 2y &= x + (n + 1)y + nz \\
+                x &= (n - 1)y + nz \\
+                x &= (n - 1)(y + z) + z
+                \end{align*}\)
+                <br />
+                <br />
+                Therefore, travelling \(x\) is equivalent to travelling \(n - 1\) complete cycles plus \(z\). So \(x\)
+                iterations into the second while loop, \(\mathtt{slow2} = c_0\) by definition of \(x\), given
+                \(\mathtt{slow2}\) is initialized to \(g_0\). Additionally,
+                \(\mathtt{slow1} = c_0\) by definition of \(z\), since \(\mathtt{slow1}\) completes \(n - 1\) complete
+                cycles around \(C\) plus \(z\).
+                <br />
+                <br />
+                Therefore, \(\mathtt{slow1} = \mathtt{slow2}\) so the loop terminates and both \(\mathtt{slow1}\) and
+                \(\mathtt{slow2}\) are at \(c_0\).
             </div>
         </div>
 
         <div class="definition" id="definition-index-array">
-        	<div class="title">Index Array</div>
-        	<div class="content">
-        		An index array is an array whose values are valid indices to itself
-        	</div>
+            <div class="title">Index Array</div>
+            <div class="content">
+                An index array is an array whose values are valid indices to itself
+            </div>
         </div>
 
 
         <div class="definition" id="definition-index-array-graph">
-        	<div class="title">Index Array Graph</div>
-        	<div class="content">
-        	    Given an index array \( A \) then it's induced graph \( G \) is a directed graph whose vertices are the elements of \( A \), it's edges are obtained as follows, set , then the edge
+            <div class="title">Index Array Graph</div>
+            <div class="content">
+                Given an index array \( A \) then it's induced graph \( G \) is a directed graph whose vertices are
+                the
+                elements of \( A \), it's edges are obtained as follows, set , then the edge
                 <ul>
-                    <li>Set \( g _ 0 = 0 \) and for any \(  i \in \mathbb{ N } _ 0 \) let \( g _ { i + 1 } = A \left[ g _ i \right]  \) </li>
-                    <li>The graph has edges: \( \left( g _ i, g _ {  i + 1 }  \right)  \)</li>
+                    <li>Set \( g _ 0 = 0 \) and for any \( i \in \mathbb{ N } _ 0 \) let \( g _ { i + 1 } = A \left[
+                        g _
+                        i \right] \) </li>
+                    <li>The graph has edges: \( \left( g _ i, g _ { i + 1 } \right) \)</li>
                 </ul>
-                We also define the sequnce \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots  \right)  \) as its <b>movement sequence.</b>
-        	</div>
+                We also define the sequnce \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots \right) \) as its
+                <b>movement sequence.</b>
+            </div>
         </div>
 
         <p>
-            The index array graph can be constructed by extending the behavior of \( \mathtt{slow1} \) in the first while loop.
+            The index array graph can be constructed by extending the behavior of \( \mathtt{slow1} \) in the first
+            while loop.
         </p>
 
-        
+
         <div class="definition" id="definition-meet-point">
-        	<div class="title">Meet Point</div>
-        	<div class="content">
-                Given the index array graph for an index array \( A \), following it's recursive definition we define the <b>meet point</b> to be the smallest \( j \in \mathbb{ N } _ 0 \) such that \( \left( g _ 0, g _ 1, g _ 2, \ldots g _ j \right)  \) has a repeated element.
-        	</div>
+            <div class="title">Meet Point</div>
+            <div class="content">
+                Given the index array graph for an index array \( A \), following it's recursive definition we
+                define
+                the <b>meet point</b> to be the smallest \( j \in \mathbb{ N } _ 0 \) such that \( \left( g _ 0, g _
+                1,
+                g _ 2, \ldots g _ j \right) \) has a repeated element.
+            </div>
         </div>
-        
+
         <div class="proposition" id="proposition-all-input-arrays-have-a-meet-point">
-        	<div class="title">All Input Arrays have a Meet Point</div>
-        	<div class="content">
-        		Suppose that \( A \) is an arrary of \( n + 1 \) integers such that \( a _ i \in \left[ 1, \ldots , n \right]  \), such that there is only one repeated number, then \( A \) has a meet point.
-        	</div>
-        	<div class="proof">
-                From the definition of the index array graph, consider it's movement sequence \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots  \right)  \) and it's set define as \( X := \left\{ g _ i : i \in \mathbb{ N } _ 0 \right\}  \), by definition of \( A \) the movement sequence contains at most \( n \) unique numbers and so we see that \( \lvert X \rvert \le n \), and thus it is finite, this means that there is some duplicated element in the movement sequence, suppose there is not, then each element is unique, and so \( X \) would be infinite, which is a contradiction, thus there is some duplicated element in the movement sequence, and so a meet point exists.
-        	</div>
+            <div class="title">All Input Arrays have a Meet Point</div>
+            <div class="content">
+                Suppose that \( A \) is an arrary of \( n + 1 \) integers such that \( a _ i \in \left[ 1, \ldots ,
+                n
+                \right] \), such that there is only one repeated number, then \( A \) has a meet point.
+            </div>
+            <div class="proof">
+                From the definition of the index array graph, consider it's movement sequence \( \textbf{ g } :=
+                \left(
+                g _ 0, g _ 1, g _ 2, \ldots \right) \) and it's set define as \( X := \left\{ g _ i : i \in \mathbb{
+                N }
+                _ 0 \right\} \), by definition of \( A \) the movement sequence contains at most \( n \) unique
+                numbers
+                and so we see that \( \lvert X \rvert \le n \), and thus it is finite, this means that there is some
+                duplicated element in the movement sequence, suppose there is not, then each element is unique, and
+                so
+                \( X \) would be infinite, which is a contradiction, thus there is some duplicated element in the
+                movement sequence, and so a meet point exists.
+            </div>
         </div>
-        
-        
+
+
 
         <div class="lemma" id="lemma-the-meet-point-holds-the-duplicated-value">
             <div class="title">The Meet Point Holds the Duplicated Value</div>
             <div class="content">
-                Let \( A \) an an array which satisfies the specification of the algorithm where \( d \) is it's duplicated element and \( m \in A \) be the meet point, let's prove that \( m = d \) 
+                Let \( A \) an an array which satisfies the specification of the algorithm where \( d \) is it's
+                duplicated element and \( m \in A \) be the meet point, let's prove that \( m = d \)
             </div>
             <div class="proof">
                 <p>
-                    By definition of the meet point, it is encountered twice in the movement sequence \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots  \right)  \) on it's first encounter, we have some index \( i \) such that \( g _ i = m \) by the definition of the movement sequence this means that \( A \left[ g _ { i - 1 }  \right] = m  \) so that \( g _ { i - 1 }  \) is the index of \( m \) in \( A \)
+                    By definition of the meet point, it is encountered twice in the movement sequence \( \textbf{ g
+                    } :=
+                    \left( g _ 0, g _ 1, g _ 2, \ldots \right) \) on it's first encounter, we have some index \( i
+                    \)
+                    such that \( g _ i = m \) by the definition of the movement sequence this means that \( A \left[
+                    g _
+                    { i - 1 } \right] = m \) so that \( g _ { i - 1 } \) is the index of \( m \) in \( A \)
                 </p>
                 <p>
-                    On the second encounter of \( m \) in the movement sequence we have some \( j \)  where \( \left( j \gt i \right) \)  such that \( g _ j = m \) so also that \( A \left[ g _ { j - 1 }  \right] = m  \). Now note that with respect to the movement sequence, we have the following subsequence \( g _ { i - 1 }, m, \ldots , g _ { j - 1 }, m  \), if \( g _ { i - 1 } = g _ { j - 1 }   \) then \( m \) cannot be the meet point, because \( \left( g _ 0, \ldots g _ { j - 1 }  \right)  \) is a sequence with a repeated element and so the meet point would be some \( g _ p \) where \( p \in \left[ 0, \ldots , j - 1 \right] \) it cannot be \( g _ i = m \) because the element \( g _ j = m \) is excluded, and so the meet point would have to be some \( g _ p \neq m \) which is a contradiction becase \( m  \) is the meet point, therefore we must have that \( g _ { i - 1 } \neq  g _ { j - 1 }   \).
+                    On the second encounter of \( m \) in the movement sequence we have some \( j \) where \( \left(
+                    j
+                    \gt i \right) \) such that \( g _ j = m \) so also that \( A \left[ g _ { j - 1 } \right] = m
+                    \).
+                    Now note that with respect to the movement sequence, we have the following subsequence \( g _ {
+                    i -
+                    1 }, m, \ldots , g _ { j - 1 }, m \), if \( g _ { i - 1 } = g _ { j - 1 } \) then \( m \) cannot
+                    be
+                    the meet point, because \( \left( g _ 0, \ldots g _ { j - 1 } \right) \) is a sequence with a
+                    repeated element and so the meet point would be some \( g _ p \) where \( p \in \left[ 0, \ldots
+                    , j
+                    - 1 \right] \) it cannot be \( g _ i = m \) because the element \( g _ j = m \) is excluded, and
+                    so
+                    the meet point would have to be some \( g _ p \neq m \) which is a contradiction becase \( m \)
+                    is
+                    the meet point, therefore we must have that \( g _ { i - 1 } \neq g _ { j - 1 } \).
                 </p>
                 <p>
-                    Since each \( g _ k \) for any \( k \in \mathbb{ N } _ 0 \)  is a valid index to \( A \) then we have that \( A \left[ g _ { i - 1 }  \right] = A \left[ g _ { j - 1 }  \right] = m \). Since \( A \) contains exactly one duplicated element, then we must conclude that \( d = m \).
+                    Since each \( g _ k \) for any \( k \in \mathbb{ N } _ 0 \) is a valid index to \( A \) then we
+                    have
+                    that \( A \left[ g _ { i - 1 } \right] = A \left[ g _ { j - 1 } \right] = m \). Since \( A \)
+                    contains exactly one duplicated element, then we must conclude that \( d = m \).
                 </p>
             </div>
         </div>
@@ -147,6 +226,8 @@ def findDuplicate(nums: List[int]) -> int:
             </div>
         </div>
     </div>
+
+
 
 
 
