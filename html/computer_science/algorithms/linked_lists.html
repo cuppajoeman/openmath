@@ -32,6 +32,7 @@ def findDuplicate(nums: List[int]) -> int:
     return slow1
         </pre>
 
+
         <div class="definition" id="definition-TODO-USING-LOWERCASE-AND-HIPHEN">
             <div class="title">Repeated Element in Tuple</div>
             <div class="content">
@@ -60,13 +61,65 @@ def findDuplicate(nums: List[int]) -> int:
             </div>
         </div>
 
-        <div class="lemma" id="lemma-TODO-USING-LOWERCASE-AND-HIPHEN">
-            <div class="title">TODO</div>
+        <div class="definition" id="definition-index-array">
+        	<div class="title">Index Array</div>
+        	<div class="content">
+        		An index array is an array whose values are valid indices to itself
+        	</div>
+        </div>
+
+
+        <div class="definition" id="definition-index-array-graph">
+        	<div class="title">Index Array Graph</div>
+        	<div class="content">
+        	    Given an index array \( A \) then it's induced graph \( G \) is a directed graph whose vertices are the elements of \( A \), it's edges are obtained as follows, set , then the edge
+                <ul>
+                    <li>Set \( g _ 0 = 0 \) and for any \(  i \in \mathbb{ N } _ 0 \) let \( g _ { i + 1 } = A \left[ g _ i \right]  \) </li>
+                    <li>The graph has edges: \( \left( g _ i, g _ {  i + 1 }  \right)  \)</li>
+                </ul>
+                We also define the sequnce \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots  \right)  \) as its <b>movement sequence.</b>
+        	</div>
+        </div>
+
+        <p>
+            The index array graph can be constructed by extending the behavior of \( \mathtt{slow1} \) in the first while loop.
+        </p>
+
+        
+        <div class="definition" id="definition-meet-point">
+        	<div class="title">Meet Point</div>
+        	<div class="content">
+                Given the index array graph for an index array \( A \), following it's recursive definition we define the <b>meet point</b> to be the smallest \( j \in \mathbb{ N } _ 0 \) such that \( \left( g _ 0, g _ 1, g _ 2, \ldots g _ j \right)  \) has a repeated element.
+        	</div>
+        </div>
+        
+        <div class="proposition" id="proposition-all-input-arrays-have-a-meet-point">
+        	<div class="title">All Input Arrays have a Meet Point</div>
+        	<div class="content">
+        		Suppose that \( A \) is an arrary of \( n + 1 \) integers such that \( a _ i \in \left[ 1, \ldots , n \right]  \), such that there is only one repeated number, then \( A \) has a meet point.
+        	</div>
+        	<div class="proof">
+                From the definition of the index array graph, consider it's movement sequence \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots  \right)  \) and it's set define as \( X := \left\{ g _ i : i \in \mathbb{ N } _ 0 \right\}  \), by definition of \( A \) the movement sequence contains at most \( n \) unique numbers and so we see that \( \lvert X \rvert \le n \), and thus it is finite, this means that there is some duplicated element in the movement sequence, suppose there is not, then each element is unique, and so \( X \) would be infinite, which is a contradiction, thus there is some duplicated element in the movement sequence, and so a meet point exists.
+        	</div>
+        </div>
+        
+        
+
+        <div class="lemma" id="lemma-the-meet-point-holds-the-duplicated-value">
+            <div class="title">The Meet Point Holds the Duplicated Value</div>
             <div class="content">
-                The duplicate element is located at the meet point.
+                Let \( A \) an an array which satisfies the specification of the algorithm where \( d \) is it's duplicated element and \( m \in A \) be the meet point, let's prove that \( m = d \) 
             </div>
             <div class="proof">
-                TODO
+                <p>
+                    By definition of the meet point, it is encountered twice in the movement sequence \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots  \right)  \) on it's first encounter, we have some index \( i \) such that \( g _ i = m \) by the definition of the movement sequence this means that \( A \left[ g _ { i - 1 }  \right] = m  \) so that \( g _ { i - 1 }  \) is the index of \( m \) in \( A \)
+                </p>
+                <p>
+                    On the second encounter of \( m \) in the movement sequence we have some \( j \)  where \( \left( j \gt i \right) \)  such that \( g _ j = m \) so also that \( A \left[ g _ { j - 1 }  \right] = m  \). Now note that with respect to the movement sequence, we have the following subsequence \( g _ { i - 1 }, m, \ldots , g _ { j - 1 }, m  \), if \( g _ { i - 1 } = g _ { j - 1 }   \) then \( m \) cannot be the meet point, because \( \left( g _ 0, \ldots g _ { j - 1 }  \right)  \) is a sequence with a repeated element and so the meet point would be some \( g _ p \) where \( p \in \left[ 0, \ldots , j - 1 \right] \) it cannot be \( g _ i = m \) because the element \( g _ j = m \) is excluded, and so the meet point would have to be some \( g _ p \neq m \) which is a contradiction becase \( m  \) is the meet point, therefore we must have that \( g _ { i - 1 } \neq  g _ { j - 1 }   \).
+                </p>
+                <p>
+                    Since each \( g _ k \) for any \( k \in \mathbb{ N } _ 0 \)  is a valid index to \( A \) then we have that \( A \left[ g _ { i - 1 }  \right] = A \left[ g _ { j - 1 }  \right] = m \). Since \( A \) contains exactly one duplicated element, then we must conclude that \( d = m \).
+                </p>
             </div>
         </div>
 
