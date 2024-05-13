@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,49 +7,79 @@
 
     <title>runtime</title>
     <link rel="stylesheet" href="../styles/styles.css">
-    <script src="/js/script.js" defer></script>
+    <script src="/js/script.js" defer=""></script>
 
 </head>
 
 <body>
-<div class="thin-wrapper">
+    <div class="thin-wrapper">
 
-    <div class="definition" id="definition-resistor">
-    	<div class="title">Resistor</div>
-    	<div class="content">
-    		A resistor is an electrical component which relates current through it to voltage across it by the ohm's law equation: \(V = I * R\), where V is voltage measured in 
-            Volts, I is the current measured in Amperes, and R is it's resistance measured in Ohms.
+        <div class="definition" id="definition-resistor">
+            <div class="title">Resistor</div>
+            <div class="content">
+                A resistor is an electrical component which relates current through it to voltage across it by the ohm's
+                law equation: \(V = I * R\), where V is voltage measured in
+                Volts, I is the current measured in Amperes, and R is it's resistance measured in Ohms.
+            </div>
         </div>
-    </div>
-    
-    <div class="definition" id="definition-transistor">
-    	<div class="title">Transistor</div>
-    	<div class="content">
-    		A transistor is a device which can act as a switch or can amplify signals
-    	</div>
-    </div>
-    
-    <div class="definition" id="definition-capacitor">
-    	<div class="title">Capacitor</div>
-    	<div class="content">
-    		A capacitor is a device that stores electrical energy
-    	</div>
-    </div>
-    
-    <div class="definition" id="definition-inductor">
-    	<div class="title">Inductor</div>
-    	<div class="content">
-    		An inductor is a device which stores energy in a magnetic field when electric current flows through it
-    	</div>
+
+        <div class="definition" id="definition-transistor">
+            <div class="title">Transistor</div>
+            <div class="content">
+                A transistor is a device which can act as a switch or can amplify signals
+            </div>
+        </div>
+
+        <div class="definition" id="definition-capacitor">
+            <div class="title">Capacitor</div>
+            <div class="content">
+                A capacitor is a device that stores electrical energy by accumulating electric charge across two
+                surfaces which are insulated from each other
+            </div>
+        </div>
+
+        <div class="definition" id="definition-capacitance">
+            <div class="title">Capacitance</div>
+            <div class="content">
+                Capacitance is a unit used to quantify the ability of a capacitor to create a potential difference
+                (measured in Volts) when a charge (measured in Coulombs) is stored across its surfaces. The formula for
+                capacitance is \(C = \frac{Q}{V}\) where Q is electric charge in Coulombs, and V is the voltage across
+                the surfaces of the capacitor
+            </div>
+        </div>
+
+        <div class="theorem" id="theorem-ohms-law-for-capacitors">
+            <div class="title">Ohm's Law for Capacitors</div>
+            <div class="content">
+                Ohm's Law, the law relating voltage linearly to current with the resistance constant \(V=IR\), can be
+                adapted to relate voltage to current across a capacitor by taking the derivative of the equation for
+                capacitance, \(C=\frac{Q}{V}\) to obtain an equation in terms of current as the rate of charge:
+                \(I=C\frac{dV}{dt}\)
+            </div>
+            <div class="proof">
+                \(VC=Q\), Take the time derivative of both sides of the equation, \(\frac{dV}{dt}C=\frac{dQ}{dt}\),
+                convert \(\frac{dQ}{dt}\) to I for current, as current is defined as the charge flowing through per
+                second
+            </div>
+        </div>
+
+        <div class="definition" id="definition-inductor">
+            <div class="title">Inductor</div>
+            <div class="content">
+                An inductor is a device which stores energy in a magnetic field when electric current flows through it
+            </div>
+        </div>
+
+        <div class="definition" id="definition-diode">
+            <div class="title">Diode</div>
+            <div class="content">
+                A diode is a two terminal electronic component that conducts currently primarily in one direction
+            </div>
+        </div>
+
+
     </div>
 
-    <div class="definition" id="definition-diode">
-    	<div class="title">Diode</div>
-    	<div class="content">
-    	    A diode is a two terminal electronic component that conducts currently primarily in one direction
-    	</div>
-    </div>
-
-
-</div>
 </body>
+
+</html>
