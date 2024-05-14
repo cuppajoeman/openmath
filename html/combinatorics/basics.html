@@ -63,6 +63,35 @@
     	</div>
     </div>
     
+    <div class="definition" id="definition-catalan-numbers">
+    	<div class="title">Catalan Numbers</div>
+    	<div class="content">
+    		Let \( n \in \mathbb{ N } _ 0 \), then the number of lattice paths from \( \left( 0, 0 \right)  \) to \( \left( n, n \right)  \) which never go above then line \( y = x \) is said to be the \( n \)-th Catalan Number
+    	</div>
+    </div>
+   
+    <div class="proposition" id="proposition-formula-for-the-nth-catalan-number">
+    	<div class="title">Formula For the \( n \)-th Catalan Number</div>
+    	<div class="content">
+    		\[
+    		    C \left( n \right) = \frac{1}{n + 1} \binom{2n}{n}
+    		\]
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+
+    <div class="proposition" id="proposition-number-of-bracketings-is-equal-to-the-nth-catalan-number">
+    	<div class="title">Number of Bracketings is Equal to the \( n \)-th Catalan Number</div>
+    	<div class="content">
+    		The number of distinct arrangement of \( n \) pairs of left-right parenthesis which close is equal to \( C \left( n \right)  \)
+    	</div>
+    	<div class="proof">
+    		The idea is that we can build a bijection between each lattice path and valid parenthesis order, the fact that it doesn't cross the diagonal forces that the substrings of parenthesis are promising and the fact that it ends at \( \left( n, n \right)  \) means there are exactly the same number of left and right brackets.
+    	</div>
+    </div>
+
 
 
 </div>

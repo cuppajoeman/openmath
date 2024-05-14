@@ -41,6 +41,25 @@
                 Note that if you have an arbitrary sequence \( \left( y _ n \right)  \) which you don't know if it converges to anything and you write \( \lim _ { n \to \infty  } y _ n = L  \)  for some \( L \in \mathbb{ R }  \), this is two assertions, first that \( \left( y _ n \right)  \) converges to something, and the value it converges to is \( L \).
             </p>
 
+            <div class="exercise" id="exercise-reciprocal-power-goes-to-zero">
+            	<div class="title">Reciprocal Power Goes to Zero</div>
+            	<div class="content">
+            		Let \( \left( x _ n \right) : \mathbb{ N } _ 0 \to \mathbb{ R }  \) be the sequence such that \( x _ n = \frac{1}{n ^ \alpha}  \) for some \( \alpha \in \mathbb{ R } ^ { \gt 0 }  \), then \( \left( x _ n  \right) \to 0  \)
+            	</div>
+            	<div class="proof">
+                    Let \( \epsilon \in \mathbb{ R } ^ { \gt 0 }  \), we need to pick an \( N \in \mathbb{ N } _ 1\) such that for \( n \ge N \) we have that \( \lvert \frac{1}{n ^ \alpha} - 0 \rvert \lt \epsilon   \), it's clear that \( \frac{1}{n ^ \alpha } \gt 0 \) so therefore we can drop the absolute values so we just need an \( n \) that satisfies
+                    \[
+                        \frac{1}{n ^ \alpha } \lt \epsilon \iff \frac{1}{\epsilon ^ { \frac{1}{\alpha }  } } \lt n
+                    \]
+                    By setting \( N = \lceil \frac{1}{\epsilon ^ { \frac{1}{\alpha }  } } \rceil + 1  \) then we have that for any \( n \ge N \)
+                    \[
+                        \frac{1}{\epsilon ^ \frac{1}{\alpha } } \lt \left\lceil \frac{1}{\epsilon ^ \frac{1}{\alpha } } \right\rceil + 1 = N \le n
+                    \]
+                    So that \( \frac{1}{\epsilon ^ \frac{1}{\alpha } } \lt n \) as needed.
+            	</div>
+            </div>
+
+
             <div class="definition" id="definition-sequence-goes-to-positive-infinity">
                 <div class="title">Sequence Goes to Positive Infinity</div>
                 <div class="content">
