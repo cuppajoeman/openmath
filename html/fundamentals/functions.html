@@ -20,7 +20,7 @@
 		<div class="definition" id="definition-function">
 			<div class="title">Function</div>
 			<div class="content">
-				A function from \( X \) to \( Y \) denoted by \( f: X \to Y \) is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \times Y \) such that if \( \left ( x , y \right ) , \left ( x , z \right ) \in R \), then \( z = y \), which says given an element \( x \in X \) it is only ever related to a single \( y \in Y \).
+				A function from \( X \) to \( Y \) denoted by \( f: X \to Y \) is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( R \) on \( X \times Y \) such that if \( \left ( x , y \right ) , \left ( x , z \right ) \in R \), then \( z = y \), which says given an element \( x \in X \) it is only ever related to a single \( y \in Y \).
 			</div>
 		</div>
 
@@ -306,7 +306,7 @@
 		<div class="definition" id="definition-injective-function">
 			<div class="title">Injective Function</div>
 			<div class="content">
-				a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( f{:} X \to Y \) is injective iff \( \forall x , y \in X , f{\left ( x \right )} = f{\left ( y \right )} \implies x = y \)
+				a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f{:} X \to Y \) is injective iff \( \forall x , y \in X , f{\left ( x \right )} = f{\left ( y \right )} \implies x = y \)
 			</div>
 		</div>
 
@@ -333,7 +333,7 @@
 		<div class="definition" id="definition-surjective-function">
 			<div class="title">Surjective Function</div>
 			<div class="content">
-				a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( f{:} X \to Y \) is surjective iff \( \forall y \in Y , \exists x \in X \text{ such that } f{\left ( x \right )} = y \)
+				a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f{:} X \to Y \) is surjective iff \( \forall y \in Y , \exists x \in X \text{ such that } f{\left ( x \right )} = y \)
 			</div>
 		</div>
 		
@@ -363,7 +363,7 @@
 		<div class="definition" id="definition-bijective-function">
 			<div class="title">Bijective function</div>
 			<div class="content">
-				a function is bijective iff it is <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-surjective-function">surjective</span> and <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-injective-function">injective</span>
+				a function is bijective iff it is <a class="knowledge-link" href="/fundamentals/functions.html#definition-surjective-function">surjective</a> and <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a>
 			</div>
 		</div>
 
@@ -371,7 +371,7 @@
 		<div class="proposition" id="proposition-composition-of-two-bijective-functions-is-bijective">
 			<div class="title">composition of two bijective functions is bijective</div>
 			<div class="content">
-				Suppose \( A , B , C \) are non-empty sets and \( f{:} A \to B , g{:} B \to C \) are functions, and that \( g{\circ} f{:} A \to C \) is a function. Then if \( f \) and \( g \) are <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-bijective-function">bijective</span> then \( g{\circ} f \) is also bijective.
+				Suppose \( A , B , C \) are non-empty sets and \( f: A \to B , g: B \to C \) are functions, and that \( g{\circ} f{:} A \to C \) is a function. Then if \( f \) and \( g \) are <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijective</a> then \( g{\circ} f \) is also bijective.
 			</div>
 			<div class="proof">
 				<p>
@@ -414,6 +414,32 @@
 		<p>
 			So for example \( f ^ { \circ 3 } \left( x \right) = f \left( f \left( f \left( \operatorname{ id } \left( x \right)  \right)  \right)  \right)    \) which is what we expect.
 		</p>
+
+		<div class="definition" id="definition-relation-preserving-function">
+			<div class="title">Relation Preserving Function</div>
+			<div class="content">
+				Suppose that \( \left( R, X \right)  \) and \( \left( S, Y \right)  \) are <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relations</a>, and \( f: X \to Y \) a function, then we say that \( f \) is relation preserving if given \( x, y \in X \)
+				\[
+				    x R y \implies f \left( x \right) S f \left( y \right)
+				\]
+			</div>
+		</div>
+
+		<p>
+			Note that when the relation is an order, we say that it is an order preserving function, you are already familiar with them, consider \( f \left( x \right) = x + 1  \) on \( \mathbb{ R }  \).
+		</p>
+
+		<div class="definition" id="definition-relation-reversing-function">
+			<div class="title">Relation Reversing Function</div>
+			<div class="content">
+				Suppose that \( \left( R, X \right)  \) and \( \left( S, Y \right)  \) are relations, and \( f: X \to Y \) a function, then we say that \( f \) is relation reversing if given \( x, y \in X \)
+				\[
+				x R y \implies f \left( y \right) S f \left( x \right)
+				\]
+			</div>
+		</div>
+
+
 
 
 

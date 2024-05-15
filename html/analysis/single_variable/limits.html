@@ -177,6 +177,110 @@
                 </div>
             </div>
 
+            <div class="proposition" id="proposition-cauchy-with-converging-subsequence-implies-entire-sequence-converges">
+            	<div class="title">Cauchy with Converging Subsequence Implies Entire Sequence Converges</div>
+            	<div class="content">
+            		Let \( \left( x _ n \right)  \) be a cauchy sequence and \( \left( x _ { \sigma \left( n \right) }   \right)  \) a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-subsequence">subsequence</a> such that \( \lim _ { k \to \infty  } x _ { \sigma \left( k \right)  } = L   \) then \( \lim _ { n \to \infty  } x _ n = L \).
+            	</div>
+            	<div class="proof">
+                    Let \( \epsilon \in \mathbb{ R } ^ + \), since \( \left( x _ n \right)  \) is cauchy we obtain some \( N _ 1 \) such that for any \( n, m \ge N, \lvert a _ n - a _ m \rvert \le \frac{\epsilon}{2}  \), on the other hand we see that there is some \( N _ 2  \) such that for all \( n \ge N _ 2 \) we have \( \lvert x _ { \sigma \left( n \right)  } - L  \rvert \le \frac{\epsilon }{2}  \), so let \( N = \max \left( N _ 1, N _ 2 \right)  \) and let \( n \ge N \), consider \( \sigma \left( n \right)  \), we will want this value to be greater or equal to \( N _ 1 \) so we can use it in-place of \( m \), if it turns out that \( \sigma \left( n \right) \lt N _ 1 \) then since \( \sigma  \) is increasing there exists some \( k \gt n \ge N _ 2 \) such that \( \sigma \left( k \right) \ge N _ 1 \), then note:
+                    \[
+                        \begin{align}
+                            \lvert x _ n - L \rvert &= \lvert x _ n - x _ { \sigma \left( k \right)  } + x _ { \sigma \left( k \right)  } - L  \rvert \\
+                    &\le \lvert x _ n - x _ { \sigma \left( k \right)  }  \rvert + \lvert x _ { \sigma \left( k \right)  } - L  \rvert \\
+                    &\lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon
+                        \end{align}
+                    \]
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-generalized-triangle-inequality">
+            	<div class="title">Generalized Triangle Inequality</div>
+            	<div class="content">
+            		Let \( j \le  k \in \mathbb{ N } _ 0 \) and \( \left( a _ n \right)  \) be a sequence, then we have the following
+                    \[
+                    \lvert a _ j - a _ k \rvert \le \lvert a _ j - a _ { j + 1 }  \rvert + \lvert a _ { j + 1 } - a _ { j + 2 }   \rvert + \cdots + \lvert a _ { k - 1 } - a _ k  \rvert
+                    \]
+            	</div>
+            	<div class="proof">
+                    which is obtained by using the fact that we can insert \( 0 = - a _ i + a _ i \) into the absolute value and then use the triangle inequality to break it, the general result is proven using induction using this fact in the induction step.
+            	</div>
+            </div>
+
+
+            <div class="proposition" id="proposition-series-of-differences-converges-implies-cauchy">
+            	<div class="title">Series of Differences Converges Implies Cauchy</div>
+            	<div class="content">
+            		Let \( \left( a _ n \right)  \) be a sequence such that \( \lim _ { N \to \infty  } \sum _ { n = 1 }  ^ N  \lvert a _ n - a _ { n + 1 }  \rvert \lt \infty    \), show that \( \left( a _ n \right)  \) is cauchy.
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Let \( \epsilon \in \mathbb{ R } ^ + \) and set \( S _ m := \sum _ { i = 1 }  ^ { k - 1 } \lvert a _ {i - 1} - a _ { i }  \rvert  \) since we we assumed that \( \lim _ { N \to \infty  } S _ N  \) exists, then the sequence is cauchy so we get some \( N ^ \prime  \) such that for any \( a, b \ge N, \lvert S _ a - S _ b \rvert \le \epsilon \) and take \( N = N ^ \prime  \) and let \( n, m \ge N \), and without loss of generality assume that \( n \le m \)
+                        \[
+                            \begin{align}
+                        \lvert a _ n - a _ m \rvert &\le  \lvert a _ n - a _ { n + 1 }  \rvert + \lvert a _ { n + 1 } - a _ { n + 2 }   \rvert + \cdots + \lvert a _ { m - 1 } - a _ m  \rvert \\
+                        &= S _ m - S _ n \\
+                        &= \lvert S _ m - S _ n \rvert \le \epsilon
+                            \end{align}
+                        \]
+                        where we've used the <a class="knowledge-link" href="/analysis/single_variable/limits.html#proposition-generalized-triangle-inequality">generalized triangle inequality</a> and the fact that \( S _ k \) is increasing, as each higher index adds a non-negative element to the sum.
+                    </p>
+            	</div>
+            </div>
+            
+            <div class="proposition" id="proposition-cauchy-sequence-implies-subsequence-with-convergent-differences">
+            	<div class="title">Cauchy Sequence Implies Subsequence with Convergent Differences</div>
+            	<div class="content">
+            		If \( \left( x _ n  \right) _ { n = 1 }  ^ \infty     \) is cauchy, show that it has a subsequence \( \left( x _ { \sigma \left( n \right)  }  \right)  \) such that
+                    \[
+                        \sum _ { k = 1 }  ^  \infty \lvert x _ { \sigma \left( k \right) } - x _ { \sigma \left( k + 1  \right)     }  \rvert \lt \infty
+                    \]
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Recall that a <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#corollary-series-of-halves-is-bounded">geometric series of halves</a> is bounded, and thus we're inspired to try to make each \( \lvert x _ { \sigma \left( k \right) } - x _ { \sigma \left( k + 1  \right)     }  \rvert \le \frac{1}{2 ^ k}  \), call this property \( \alpha  \).
+                    </p>
+                    <p>
+                        Let's construct this subsequence, for any \( k \in \mathbb{ N } _ 1 \) consider \( \epsilon = \frac{1}{2 ^ k}  \), then we get an \( N _ k \) such that for all \( n, m \ge N _ k, \lvert a _ n - a _ m \rvert \le \frac{1}{2 ^ k}   \), and consider the sequence \( x _ { N _ 1 }, x _ { N _ 2 }, x _ { N _ 3 }, \ldots \), we'll show it satisfies \( \alpha  \).
+                    </p>
+                    <p>
+                        Let \( j \in \mathbb{ N } _ 1 \), and consider \( N _ j, N _ { j + 1  }  \), in the case that \( N _ j \ge N _ { j + 1  }  \) then note that \( \lvert x _ { N _ j } - x _ { N _ { j + 1  }  }   \rvert \le \frac{1}{2 ^ { j + 1  } } \le \frac{1}{2 ^ j}    \) (where \( n = N _ j, m = N _ { j + 1  }  \)), in the case that \( N _ j \lt  N _ { j + 1  }  \) we also get that \( \lvert x _ { N _ j } - x _ { N _ { j + 1  }  }   \rvert \le \frac{1}{2 ^ j} \) so \( \alpha  \) is satisfied for this subsequence. Therefore
+                        \[
+                            \sum _ { k = 1  }  ^  \infty \lvert x _ { N _ k } - x _ { N _ { k + 1  }  }  \rvert \le \sum _ { k = 1 }  ^  \infty \frac{1}{2 ^ k} = 1
+                        \]
+                        as needed.
+                    </p>
+            	</div>
+            </div>
+            
+            <div class="lemma" id="lemma-zig-zag-sequence-has-nested-bound">
+            	<div class="title">Zig-Zag Sequence has Nested Bound</div>
+            	<div class="content">
+                    Suppose that \( \left( a _ n \right)   \) is a sequence such that \( a _ { 2 n } \le a _ { 2n + 2 } \le a _ { 2 n + 3 } \le a _ { 2n + 1 }    \) for all \( n \in \mathbb{ N } _ 0 \) then for any \( k, n \in \mathbb{ N } _ 0 \)
+                    \[
+                        n \ge 2k + 1 \implies a _ n \in \left[ a _ { 2k }, a _ { 2k + 1 }   \right]
+                    \]
+            	</div>
+            	<div class="proof">
+            	    Proven by induction.
+            	</div>
+            </div>
+            
+            <div class="proposition" id="proposition-zig-zag-sequence-is-cauchy-iff-differences-go-to-zero">
+            	<div class="title">Zig-Zag Sequence is Cauchy iff Differences go to Zero</div>
+            	<div class="content">
+            		Suppose that \( \left( a _ n \right)   \) is a sequence such that \( a _ { 2 n } \le a _ { 2n + 2 } \le a _ { 2 n + 3 } \le a _ { 2n + 1 }    \) for all \( n \in \mathbb{ N } _ 0 \), then this sequence is cauchy iff \( \lim _ { n \to \infty  } \lvert a _ n - a _ { n + 1 }  \rvert = 0 \).
+            	</div>
+            	<div class="proof">
+                    <p>
+                        \( \implies  \) this direction is easy, let \( \epsilon \in \mathbb{ R } ^ + \), since \( \left( a _ n \right)  \) is cauchy we get some \( N ^ \prime  \) such that for all \( n, m \ge N ^ \prime, \lvert a _ n - a _ m \rvert \lt \epsilon \), and so take \( N = N ^ \prime  \) then specifically for \( n, n + 1 \ge N \) we have that \( \epsilon \gt \lvert a _ n - a _ { n + 1  }  \rvert = \lvert \lvert a _ n - a _ { n + 1  }  \rvert - 0  \rvert    \) as needed.
+                    </p>
+                    <p>
+                        \( \impliedby  \) Assume that \( \lim _ { n \to \infty  } \lvert a _ n - a _ { n + 1 }  \rvert = 0  \) and now we want to prove that \( \left( a _ n     \right)  \) is cauchy so let \( \epsilon \in \mathbb{ R } ^ + \) and so we obtain some \( N \) such that for any \( n \ge N \) we have that \( \lvert a _ n - a _ { n + 1  }  \rvert \le \epsilon   \) take \( N ^ \prime = 2 N + 1 \) and let \( n, m \ge N ^ \prime  \) by our lemma, we see that \( a _ n, a _ m \in \left[ a _ { 2N }, a _ { 2N + 1 }   \right]  \), but then again since \( 2N, 2N + 1 \ge N \) we see that \( \lvert a _ { 2N + 1  } - a _ { 2N }   \rvert \le \epsilon \) and therefore \( \lvert a _ n - a _ m \rvert \le \epsilon   \) as needed.
+                    </p>
+            	</div>
+            </div>
+
 
         </div>
     </body>
