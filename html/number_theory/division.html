@@ -21,9 +21,8 @@
             <div class="title">
                 Divides
             </div>
-
             <div class="content">
-                an integer \( n \) is divisible by a non-zero integer \( m \) if there exists an integer \( k \) such
+                an integer \( n \) is divisible by another integer \( m \) if there exists an integer \( k \) such
                 that \( n = k \cdot m \). If this is all true we write \( m | n \).
             </div>
         </div>
@@ -73,13 +72,34 @@
             </div>
         </div>
 
+        <div class="proposition" id="proposition-if-something-divides-one-then-it-is-one-or-negative-one">
+        	<div class="title">If something Divides One then it is One or Negative One</div>
+        	<div class="content">
+        		Suppose \( d \mid 1 \) then \( d = \pm 1 \)
+        	</div>
+        	<div class="proof">
+                We have that \( 1 = k d \) but the only numbers in \( \mathbb{ Z }  \) that have a multiplicative inverse are \( 1, -1 \) so \( d \) must be one of those or else we have a contradiction.
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-if-zero-divides-a-number-then-that-number-is-zero">
+        	<div class="title">If Zero Divides a Number, then that Number is Zero</div>
+        	<div class="content">
+        		Suppose \( 0 \mid d \) then \( d = 0 \)
+        	</div>
+        	<div class="proof">
+        		By definition we have \( d = k \cdot 0 = 0 \) so \( d = 0 \)
+        	</div>
+        </div>
+
+
         <div class="proposition" id="proposition-zero-is-divisible-by-everything">
             <div class="title">
                 0 is Divisible by Everything
             </div>
 
             <div class="content">
-                for any \( d \in \mathbb{Z}^{\ne 0} , d | 0 \)
+                for any \( d \in \mathbb{Z} , d | 0 \)
             </div>
 
             <div class="proof">
@@ -103,278 +123,166 @@
             </div>
         </div>
 
-        <div class="proposition" id="proposition-if-it-divides-its-less-than-or-equal">
-            <div class="title">
-                If it Divides it&#39;s Less than or Equal
-            </div>
-
-            <div class="content">
-                Suppose that \( n \in \mathbb{ N } _ 1 \), then if \( d \in \mathbb{ Z } \) <a class="knowledge-link"
-                href="/number_theory/division.html#definition-divides">divides</a> \( n \), then \( d \le n \)
-            </div>
-
-            <div class="proof"></div>
+        <div class="proposition" id="proposition-division-is-transitive">
+        	<div class="title">Division is Transitive</div>
+        	<div class="content">
+        		Suppose \( a \mid b \) and \( b \mid c \) then \( a \mid c \)
+        	</div>
+        	<div class="proof">
+        	    We have that \( b = k _ a a \) 	and \( c = k _ b b \) therefore \( c = k _ b \left( k _ a a \right)  \) therefore by taking \( k _ c = \left( k _ a k _ b \right)  \) we see that \( a \mid c \)
+        	</div>
         </div>
 
-        <div class="proposition" id="proposition-any-integer-cannot-divide-something-smaller-than-itself">
+        <div class="proposition" id="proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">
             <div class="title">
-                Any Integer cannot Divide Something Smaller than Itself
+                If it Divides it&#39;s Less than or Equal with Absolute Values
             </div>
 
             <div class="content">
-                Suppose that \( m \in \mathbb{Z} \), then for any \( a \in \mathbb{Z}^{\ne 0} \) such that \( - \left |
-                m \right | &lt; a &lt; \left | m \right | \), then \( m \) does not divide \( a \)
+                Suppose that \( n, d \in \mathbb{ Z }  \), such that \( n \neq 0 \)  then if \( d \) <a class="knowledge-link"
+                                                                              href="/number_theory/division.html#definition-divides">divides</a> \( n \), then \( \lvert d \rvert  \le \lvert n \rvert  \)
             </div>
 
             <div class="proof">
-                Suppose that for the sake of contradiciton that \( m | a \) , then there is some \( k \in \mathbb{Z} \)
-                such that \( a = m k \)
+                <p>
+                    We see that \( n = k d \) for some \( k \in \mathbb{ Z }  \), since \( n \neq 0 \) then also we must have \( k, d \neq 0 \) specifically note that \( \lvert k \rvert \ge 1 \) so that we have
+                    \[
+                        \lvert n \rvert = \lvert k d \rvert = \lvert k \rvert \cdot \lvert d \rvert \ge 1 \lvert d \rvert = \lvert d \rvert
+                    \]
+                    so that \( \lvert n \rvert \ge \lvert d \rvert  \)
+                </p>
             </div>
         </div>
 
-        <div class="proposition" id="proposition-forced-division-of-sum">
-            <div class="title">
-                Forced Division of Sum
-            </div>
+        <p>
+            We have to specify \( n \neq 0 \) because we know that everything divides zero, and therefore without that assumption we could use it to claim that since \( -42 \mid 0 \) that \( \lvert -42 \rvert \le 0 \) which is clearly false.
+        </p>
+        
+        <div class="corollary" id="corollary-larger-absolute-value-implies-no-disivion">
+        	<div class="title">Larger Absolute value Implies no Division</div>
+        	<div class="content">
+        		for any \( n, d \in \mathbb{ Z }  \) such that \( n \neq 0 \) if \( \lvert d \rvert \gt \lvert n \rvert  \) then \( d \nmid n \) 
+        	</div>
+        	<div class="proof">
+        		This follows by <a class="knowledge-link" href="/fundamentals/logic.html#proposition-contrapositive">the contrapositive</a> and <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">this</a>
+        	</div>
+        </div>
+        
 
+        <div class="proposition" id="proposition-if-two-numbers-divide-each-other-then-their-absolute-values-are-equal">
+        	<div class="title">If two Numbers Divide each other then Their Absolute Values are Equal</div>
+        	<div class="content">
+        		For any \( a, b \in \mathbb{ Z } \), if \( a \mid b \) and \( b \mid a \) then \( \lvert a \rvert = \lvert b \rvert  \)
+        	</div>
+        	<div class="proof">
+                <p>
+                    If \( a = 0 \) then because \( a \mid b \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-zero-divides-a-number-then-that-number-is-zero">then this forces</a> \( b = 0 \) so that \( a = b = 0 \), also if we assumed \( b = 0 \) the same thing occurs.
+                </p>
+                <p>
+                    In the case that neither of \( a, b = 0 \) then recall that if \( a \mid b \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">we have</a> \( \lvert a \rvert \le \lvert b \rvert  \) also since \( b \mid a \) then also \( \lvert a \rvert \le \lvert b \rvert  \) so that \( \lvert a \rvert = \lvert b \rvert \).
+                </p>
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-divisibility-is-a-partial-order-on-the-natural-numbers">
+        	<div class="title">Divisibility is a Partial Order on the Natural Numbers</div>
+        	<div class="content">
+        		Divisibility is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-partial-order">partial order</a> on \( \mathbb{ N } _ 0 \).
+        	</div>
+        	<div class="proof">
+                It is reflexive because we know that <a class="knowledge-link" href="/number_theory/division.html#proposition-everything-divides-itself">everything divides itself</a>, we know it is <a class="knowledge-link" href="/number_theory/division.html#proposition-division-is-transitive">transitive</a>, and we also know that it is anti-symmetric, because for any \( n \in \mathbb{ N } _ 0, \lvert n \rvert = n \) and using <a class="knowledge-link" href="/number_theory/division.html#proposition-if-two-numbers-divide-each-other-then-their-absolute-values-are-equal">this proposition</a>.
+        	</div>
+        </div>
+
+        <p>
+            Note that we can't quite get a partial order \( \mathbb{ Z }  \) because of the fact that \( -a \mid a \).
+        </p>
+
+        <div class="proposition" id="proposition-linearity-of-division">
+        	<div class="title">Linearity of Division</div>
+        	<div class="content">
+        		Suppose that \( a \mid b _ 1, \ldots , b _ n \) then
+                \[
+                    a \mid c _ 1 b _ 1 + \cdots + c _ n b _ n
+                \]
+                where \( a, b _ i, c _ i \in \mathbb{ Z }  \)
+        	</div>
+        	<div class="proof">
+        		<p>
+                    For the base case of \( n = 2 \) if \( a \mid b _ 1 \) and \( a \mid b _ 2 \) then we know that there are \( k _ 1, k _ 2 \in \mathbb{ Z }  \) such that \( b _ 1 = k _ 1 a \) and \( b _ 2 =  k _ 2 a \) so that \( c _ 1 b _ 1 + c _ 2 b _ 2 = c _ 1 \left( k _ 1 a \right) + c _ 2 \left( k _ 2 a \right) = a \left( c _ 1 k _ 1 + c _ 2 k _ 2 \right) \).
+                </p>
+                <p>
+                    For the induction step, assume the statement holds true for \( k \in \mathbb{ N } _ 1 \) and we'll show that it holds true for \( k + 1 \) so suppose that \( a \mid b _ 1, \ldots b _ { k + 1 }  \) by the induction hypothesis we know that \( a \mid c _ 1 b _ 1 + \cdots + c _ k b _ k \) so we get some \( j ^ \prime \in \mathbb{ Z }   \) such that \( c _ 1 b _ 1 + \cdots + c _ k b _ k = j ^ \prime  a \) and also some \( j ^ { \prime \prime  } \in \mathbb{ Z }   \) such that \( b _ { k + 1  } = j ^ { \prime \prime  } a   \) and therefore
+                    \[
+                    c _ 1 b _ 1 + \cdots + c _ k b _ k + c _ { k + 1  } b _ { k + 1  } = j ^ \prime a + j ^ { \prime \prime  } a = a \left( j ^ \prime + j ^ { \prime \prime  }  \right)
+                    \]
+                    so therefore \( a \mid c _ 1 b _ 1 + \cdots + c _ { k + 1  } b _ { k + 1  }  \)
+                </p>
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-even-number">
+            <div class="title">Even Number</div>
             <div class="content">
-                Suppose that \( m \mid a \) and that \( m \mid \left ( a + b \right ) \) then \( m \mid b \)
+                We say that an integer \( n \in \mathbb{ Z }  \) is even if there is some \( k \in \mathbb{ Z }  \) such that
+                \[
+                n = 2k
+                \]
             </div>
+        </div>
 
+        <div class="proposition" id="proposition-a-power-of-an-even-number-is-even">
+        	<div class="title">A power of an Even Number is Even</div>
+        	<div class="content">
+        		If \( n \in \mathbb{ Z }  \) is even, then for any \( m \in \mathbb{ N } _ 1 \) we have \( n ^ m \) is even
+        	</div>
+        	<div class="proof">
+        		If \( n \) is even then there is some \( k \in \mathbb{ Z }  \) such that \( n =  2k \) and therefore \( n ^ m = \left( 2k \right) ^ m = 2 ^ m k ^ m = 2 \left( 2 ^ { m - 1 } k ^ m  \right)  \) so that \( n ^ m \) is also even.
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-odd-number">
+            <div class="title">Odd Number</div>
+            <div class="content">
+                We say that an integer \( n \in \mathbb{ Z }  \) is odd if there is some \( k \in \mathbb{ Z }  \) such that
+                \[
+                n = 2k + 1
+                \]
+            </div>
+        </div>
+
+
+
+        <div class="proposition" id="proposition-a-power-of-an-odd-number-is-odd">
+            <div class="title">A power of an Even Number is Odd</div>
+            <div class="content">
+                If \( n \in \mathbb{ Z }  \) is odd, then for any \( m \in \mathbb{ N } _ 0 \) we have \( n ^ m \) is odd
+            </div>
             <div class="proof">
-                TODO
+                <p>
+                    Base case, set \( m = 0 \) then \( n ^ m = 1 \) which is odd. For the induction step assume it holds true for \( k \in \mathbb{ N } _ 0 \) so that \( n ^ k \) is odd, which means that there is some \( j \in \mathbb{ Z }  \) such that \( n ^ k =  2j + 1  \) therefore \( n ^ { k + 1 } = \left( 2 j + 1 \right) n   \) but \( n \) is odd so there is some \( j ^ \prime \in \mathbb{ Z }  \) such that \( n = 2 j ^ \prime + 1  \) and thus
+                    \[
+                        n ^ { k + 1  } = \left( 2 j + 1  \right) \left( 2 j ^ \prime + 1  \right) = 4j j ^ \prime  + 2j + 2 j ^ \prime + 1 = 2 \left( 2 j j ^ \prime  + j + j ^ \prime  \right) + 1
+                    \]
+                    hence \( n ^ { k + 1  }  \) is prime so the statement follows from the principle of induction.
+                </p>
             </div>
         </div>
 
-        <div class="definition" id="definition-even">
-            <div class="title">
-                Even Number
-            </div>
+<!--        <div class="proposition" id="proposition-forced-division-of-sum">-->
+<!--            <div class="title">-->
+<!--                Forced Division of Sum-->
+<!--            </div>-->
 
-            <div class="content">
-                Given an integer \( a \), we say that it is even when <a class="knowledge-link" href=
-                "/number_theory/division.html#definition-divides">\( 2 \mid a \)</a>
-            </div>
-        </div>
+<!--            <div class="content">-->
+<!--                Suppose that \( m \mid a \) and that \( m \mid \left ( a + b \right ) \) then \( m \mid b \)-->
+<!--            </div>-->
 
-        <div class="theorem" id="theorem-quotient-remainder">
-            <div class="title">
-                Quotient Remainder
-            </div>
+<!--            <div class="proof">-->
+<!--                TODO-->
+<!--            </div>-->
+<!--        </div>-->
 
-            <div class="content">
-                Suppose that \( a , b \in \mathbb{Z} \), but that \( b \ne 0 \), then there exists unique integers \( q
-                , r \) such that \( a = b \cdot q + r \) where \( 0 \le r \lt \left | b \right | \)
-            </div>
-
-            <div class="proof">
-                <p>Let \( a , b \in \mathbb{Z} \) and assume \( b \ne 0 \). Define \( S = \left \lbrace x \in
-                \mathbb{Z} : x \ge 0 \text{ and } x = a + \left | b \right | \cdot k \text{ where } k \in \mathbb{Z}
-                \right \rbrace \supseteq \mathbb{N}_{0} \), we&#39;ll show that \( S \) is non-empty. We can think of
-                \( S \) as taking \( a \) and then either adding muliples of \( \left | b \right | \) or subtracting
-                them to \( a \), each time leaving some remainder, thinking ahead we can guess that the smallest value
-                of this set should be the smallest remainder and possibly the \( r \) we are looking for.</p>
-
-                <p>If \( a \ge 0 \) then when \( k = 0 \) we have \( a + \left | b \right | \cdot k = a \ge 0 \) thus
-                \( a \in S \), on the other hand if \( a \lt 0 \), then observe that since \( 0 \le r \lt \left | b
-                \right | \), then \( 1 \le \left | b \right | \iff 0 \le \left | b \right | - 1 \) and also \( - a \gt
-                0 \), then we have \( 0 \le \left ( \left | b \right | - 1 \right ) \cdot \left ( - a \right ) \). But
-                also we can see that \( \left ( \left | b \right | - 1 \right ) \cdot \left ( - a \right ) = \left | b
-                \right | \cdot \left ( - a \right ) + a \) so it&#39;s of the form of an element in \( S \) and since
-                it&#39;s non-negative, it must be an element of \( S \). Therefore this paragraph shows us that \( S \)
-                has at least one element, no matter the value of \( a \).</p>
-
-                <p>Due to this and since \( S \subseteq \mathbb{N}_{0} \), then by the well ordering principle there is
-                some smallest element \( s \in S \), we know that this value satisfies \( s = a - \left | b \right |
-                \cdot k \). Now we will show that \( 0 \le s \lt \left | b \right | \).</p>
-
-                <p>\( s \in S \) so therefore \( s \ge 0 \), if we were to assume that \( s \ge \left | b \right | \)
-                then \( s - \left | b \right | \ge 0 \). By recalling the equality that \( s \) satisifies we can write
-                \( s - \left | b \right | = \left ( a - \left | b \right | \cdot k \right ) - \left | b \right | = a -
-                \left | b \right | \left ( k + 1 \right ) \), therefore \( s - \left | b \right | \in S \) but since \(
-                \left | b \right | \gt 1 \) then \( s - \left | b \right | \lt s \) which is a contradiction because we
-                assumed that \( s \) was the smallest element in \( S \), thus we must have that \( s &lt; \left | b
-                \right | \)</p>
-
-                <p>At this point we have \( a = \left | b \right | \cdot k + s \) where \( 0 \le s \lt \left | b \right
-                | \) so take \( q = \text{sgn} \left ( b \right ) \cdot k \) and \( r = s \). If \( b \ge 0 \), then \(
-                \left | b \right | = b \) and \( \text{sgn} \left ( b \right ) = 1 \), so we obtain \( a = b \cdot k +
-                s \), if \( b &lt; 0 \), then \( \left | b \right | = - b \) and \( \text{sgn} \left ( b \right ) = - 1
-                \) so again we have \( a = \left ( - b \right ) \cdot \left ( - 1 \right ) k + s \). We&#39;ll finish
-                the proof by showing that these values are unique.</p>
-
-                <p>Assume we have another pair \( \overline{q} , \overline{r} \) satisfying \( a = b \cdot \overline{q}
-                + \overline{r} \) with \( 0 \le \overline{r} \le \left | b \right | \) but \( \overline{q} \ne q \) and
-                \( \overline{r} \ne r \), therefore we have \( b \cdot q + r = b \overline{q} + \overline{r} \iff
-                \overline{r} - r = b \cdot \left ( \overline{q} - q \right ) \).</p>
-
-                <p>Without loss of generality assume \( \overline{r} \gt r \), then \( \overline{r} - r \gt 0 \) and
-                since \( 0 \le r \lt \left | b \right | \) then \( 0 \le \overline{r} - r \le \overline{r} \lt \left |
-                b \right | \), recalling that \( \overline{r} - r = \left | b \right | \cdot \left ( \overline{q} - q
-                \right ) \), we can re-write our last inequality as \( 0 \le \left | b \right | \cdot \left (
-                \overline{q} - q \right ) \lt \left | b \right | \) and since \( b \ne 0 \) we can divide by \( \left |
-                b \right | \) to get \( 0 \lt \overline{q} - q \lt 1 \) but since \( q , \overline{q} \in \mathbb{Z} \)
-                this force \( q = \overline{q} \), which then shows \( r = \overline{r} \) by previous equalities,
-                therefore assuming we have another solution, it turns out it must be our original one, and thus our
-                solution is unique.</p>
-            </div>
-        </div>
-
-        <div class="definition" id="definition-remainder-function">
-            <div class="title">
-                remainder function
-            </div>
-
-            <div class="content">
-                Given two integers \( a , b \in \mathbb{Z} \) such that \( b \ne 0 \), <span class="knowledge-link"
-                data-href="/number_theory/division.html#theorem-quotient-remainder">then</span> we get some \( q , r
-                \in \mathbb{Z} \) with \( 0 \le r \lt \left | b \right | \) such that \( a = b \cdot q + r \) and we
-                define \( a \% b := r \)
-            </div>
-        </div>
-
-        <div class="definition" id="definition-divisor-function">
-            <div class="title">
-                divisor function
-            </div>
-
-            <div class="content">
-                Given two integers \( a , b \in \mathbb{Z} \) such that \( b \ne 0 \), <span class="knowledge-link"
-                data-href="/number_theory/division.html#theorem-quotient-remainder">then</span> we get some \( q , r
-                \in \mathbb{Z} \) with \( 0 \le r \lt \left | b \right | \) such that \( a = b \cdot q + r \) and we
-                define \( a / / b := q \)
-            </div>
-        </div>
-
-        <div class="corollary" id="corollary-specific-value-of-the-divisor-function">
-            <div class="title">
-                Specific Value of the Divisor Function
-            </div>
-
-            <div class="content">
-                We note that \[ a ~//~ b = \left\lfloor \frac{b}{a} \right\rfloor \]
-            </div>
-
-            <div class="proof"></div>
-        </div>
-
-        <div class="corollary" id="corollary-specific-value-of-the-remainer-function">
-            <div class="title">
-                Specific Value of the Remainder Function
-            </div>
-
-            <div class="content">
-                We note that \[ a ~\%~ b = b - \left\lfloor \frac{b}{a} \right\rfloor a \]
-            </div>
-
-            <div class="proof"></div>
-        </div>
-
-        <div class="corollary" id="corollary-quotient-remainder-on-positive-integer-has-positive-divisor">
-            <div class="title">
-                quotient remainder on positive integer has positive divisor
-            </div>
-
-            <div class="content">
-                Suppose that \( a , b \in \mathbb{N}_{1} \) such that \( a \ge b \) then <span class="knowledge-link"
-                data-href="/number_theory/division.html#definition-divisor-function">\( a / / b \ge 1 \)</span>
-            </div>
-
-            <div class="proof">
-                <p>For brevity define \( q = a / / b \), we know that \( a = b \cdot q + r \) with \( 0 \le r \lt b \),
-                thus far we know that \( q \in \mathbb{Z} \), though if \( q &lt; 0 \), then we know that \( b \cdot q
-                &lt; r \cdot q \le 0 \), therefore \( a = b \cdot q + r &lt; r \cdot q + r = r \left ( q + 1 \right )
-                \)</p>
-
-                <p>For a contradiction assume that \( q \lt 1 \iff q \le 0 \), therefore \( r \left ( q + 1 \right )
-                \le r \left ( 0 + 1 \right ) = r \), which shows that \( a \lt r \), since \( 0 \le r \lt b \), then we
-                have \( a \lt b \) which is a contradiction because we know that \( a \ge b \).</p>
-
-                <p>Since by assuming \( q \lt 1 \), we have a contradiction, so therefore \( q \ge 1 \), which is the
-                same as \( a / / b \ge 1 \).</p>
-            </div>
-        </div>
-
-        <div class="theorem" id="theorem-every-integer-is-either-odd-or-even">
-            <div class="title">
-                every integer is either odd or even
-            </div>
-
-            <div class="content">
-                For any \( z \in \mathbb{Z} \), it is even or it is odd
-            </div>
-
-            <div class="proof">
-                Let \( z \in \mathbb{Z} \) and then we know that \( z \% 2 \in \left \lbrace 0 , 1 \right \rbrace \),
-                if \( z \% 2 = 1 \) then there is some \( q \in \mathbb{Z} \) such that \( z = q \cdot 2 + 1 \), and
-                thus odd, if \( z \% 2 = 0 \), then we have some \( q \in \mathbb{Z} \) such that \( z = q \cdot 2 + 0
-                \) and is thus even.
-            </div>
-        </div>
-
-        <div class="definition" id="definition-composite-number">
-            <div class="title">
-                composite number
-            </div>
-
-            <div class="content">
-                A number \( n \in \mathbb{N}_{1} \) is said to be composite, when it has a positive <a class=
-                "knowledge-link" href="/number_theory/division.html#definition-divides">divisor</a> other than \( 1 \)
-                and itself
-            </div>
-        </div>
-
-        <div class="proposition" id="proposition-quotient-rule-for-exponents">
-            <div class="title">
-                Quotient Rule for Exponents
-            </div>
-
-            <div class="content">
-                Given two exponents with the same base, \( x^{a} \) and \( x^b \), \[ \frac{x^a}{x^b} = x^{(a-b)} \].
-            </div>
-
-            <div class="proof">
-                Expand out \(\frac{x^a}{x^b}\) into \(\frac{x_1x_2x_3...x_a}{x_1x_2x_3...x_b}\), this can be simplified
-                to \(1*\frac{x^{(a-b)}}{1}\)
-            </div>
-        </div>
-
-        <div class="definition">
-            <div class="title">
-                multiplicative function
-            </div>
-
-            <div class="content">
-                an <span class="knowledge-link" data-href=
-                "/fundamentals/set_theory.html#definition-arithmetic-function">arithmetic function</span> is said to be
-                multiplicative when
-
-                <div class="centered-content">
-                    \( f{\left ( m \right )} \cdot f{\left ( n \right )} = f{\left ( m \cdot n \right )} \)
-                </div>for all coprime positive integers \( m , n \)
-            </div>
-        </div>
-
-        <div class="proposition">
-            <div class="title"></div>
-
-            <div class="content">
-                Suppose that \( d \left ( n \right ) \) is the number of divisors of \( n \), then \( d \) is a
-                multiplicative function.
-            </div>
-
-            <div class="proof">
-                <p>Let \( m , n \in \mathbb{Z}^{+} \) and assume that \( \gcd{\left ( m , n \right )} = 1 \), we&#39;d
-                like to prove that \( d \left ( m \right ) \cdot d \left ( n \right ) = d \left ( m \cdot n \right )
-                \)</p>
-
-                <p>Suppose that the divisors of \( m \) are \( P = \left \lbrace p_{1} , \ldots , p_{j} \right \rbrace
-                \) and the divisors of \( n \) are \( Q = \left \lbrace q_{1} , \ldots , q_{k} \right \rbrace \)</p>
-
-                <p>Claim that the set \( P \cdot Q = \left \lbrace p_{x} \cdot q_{y} : x \in \left [ j \right ] , y \in
-                \left [ k \right ] \right \rbrace \) is exactly equal to the divisors of \( m \cdot n \)</p>
-            </div>
-        </div>
     </div>
 </body>
 </html>
