@@ -90,20 +90,6 @@
             </div>
         </div>
 
-        <div class="proposition" id="proposition-forced-division-through-gcd">
-            <div class="title">
-                Forced Division through GCD
-            </div>
-
-            <div class="content">
-                Suppose we have \( n, a, b \in \mathbb{Z} \) and that \( \gcd (a, n) = 1 \), then if \( n \mid a b \)
-                then \( n \mid b \)
-            </div>
-
-            <div class="proof">
-                TODO
-            </div>
-        </div>
 
         <div class="corollary" id="corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">
             <div class="title">
@@ -123,9 +109,69 @@
             </div>
         </div>
 
+        <div class="proposition" id="proposition-forced-division-through-gcd">
+            <div class="title">
+                Forced Division through GCD
+            </div>
+
+            <div class="content">
+                Suppose we have \( n, a, b \in \mathbb{Z} \) and that \( \gcd (a, n) = 1 \), then if \( n \mid a b \)
+                then \( n \mid b \)
+            </div>
+
+            <div class="proof">
+                The gcd is a linear combination, and therefore \( ax + ny = 1 \) so that \( abx + nby = b \) since \( n \mid ab \) then we have some \( k \in \mathbb{ Z }  \) such that \( ab = nk \) therefore \( nkx + nby = b  \) so that \( n \left( kx + by  \right) = b   \) so therefore \( n \mid b \)
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-if-you-can-find-a-linear-combination-that-yields-one-then-their-gcd-is-one">
+        	<div class="title">If you Can find a Linear Combination that Yields One, then Their gcd is one</div>
+        	<div class="content">
+        		Let \( a, b \in \mathbb{ Z }  \), if there exists \( x, y \in \mathbb{ Z }  \) such that
+                \[
+                    ax + by = 1
+                \]
+                then \( \gcd \left( a, b \right) = 1 \)
+        	</div>
+        	<div class="proof">
+                Suppose we have a \( d \in \mathbb{ Z }  \) such that \( d \mid a, b \) then we know that \( d \mid ax + by = 1 \), therefore \( d = \pm 1 \), therefore by definition \( \gcd \left( a, b \right) = 1 \)
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-coefficients-have-gcd-one">
+        	<div class="title">Coefficients have GCD one</div>
+        	<div class="content">
+        		Suppose that \( \gcd \left( a, b \right) = 1 \) and thus we have some \( x, y \in \mathbb{ Z }  \) such that \( ax + b y = 1 \) then \( \gcd \left( x, y \right) = 1 \)
+        	</div>
+        	<div class="proof">
+        		By using \( a \) replaced by \( x \) and \( b \) replaced by \( y \) in the previous theorem.
+        	</div>
+        </div>
+
+
+
+        <div class="corollary" id="corollary-dividing-out-by-gcd-removes-all-common-factors">
+        	<div class="title">Dividing out by GCD removes all Common Factors</div>
+        	<div class="content">
+        		Suppose \( a, b \in \mathbb{ Z }  \) and let \( d := \gcd \left( a, b \right)  \) then
+                \[
+                    \gcd \left( \frac{a}{d} , \frac{b}{d}  \right) = 1
+                \]
+        	</div>
+        	<div class="proof">
+                We know that the gcd is a linear combination, so we get some \( x, y \in \mathbb{ Z }  \) such that \( d = ax + by \) therefore
+                \[
+                    1 = \left( \frac{a}{d}  \right) x + \left( \frac{b}{d}  \right) y
+                \]
+                therefore by the previous proposition we see that \( \gcd \left( \frac{a}{d} , \frac{b}{d}  \right) = 1  \)
+        	</div>
+        </div>
+
+
+
         <div class="corollary" id="corollary-same-divisors-implies-same-gcd">
             <div class="title">
-                same divisors implies same gcd
+                Same Divisors Implies same GCD
             </div>
 
             <div class="content">
@@ -136,13 +182,35 @@
             </div>
 
             <div class="proof">
-                TODO
+                If two sets are equal, then their maximum positive values are equal, therefore their gcd's are equal.
             </div>
         </div>
 
-        <div class="definition">
+        <div class="proposition" id="proposition-division-by-individuals-implies-division-by-product-when-gcd-is-one">
+        	<div class="title">Division by Individuals Implies Division by Product when GCD is one</div>
+        	<div class="content">
+        		Suppose \( \gcd \left( a, b \right) = 1 \) then
+                \[
+                    \left( a \mid c \land b \mid c \right) \implies ab \mid c
+                \]
+        	</div>
+        	<div class="proof">
+        	    The gcd is a linear combintion of \( a, b \) so \( a x + by = 1 \) for some \( x, y \in \mathbb{ z }  \) but then
+                \[
+                    acx + bcy = c
+                \]
+                but recall that \( a \mid c \) and \( b \mid c \) so we have \( k _ a, k _ b \in \mathbb{ Z }  \) such that \( c = k _ a a \) and \( c = k _ b b \) subbing each of these equations into the above equation we have
+                \[
+                    a \left( b k _ b \right) x + b \left( a k _ a \right) y = c
+                \]
+                so therefore \( \left( a b \right) \left( k _ b x + k _ a y \right) = c  \) so that \( ab \mid c \) as needed.
+        	</div>
+        </div>
+
+
+        <div class="definition" id="definition-coprime">
             <div class="title">
-                coprime integers
+                Coprime
             </div>
 
             <div class="content">
@@ -151,130 +219,68 @@
             </div>
         </div>
 
-        <div class="corollary">
-            <div class="title"></div>
+        <div class="corollary" id="corollary-coprime-gcd-characterization">
+            <div class="title">Coprime GCD Characterization</div>
 
             <div class="content">
                 \( a , b \in \mathbb{Z} \) are coprime if and only if \( \gcd{\left ( a , b \right )} = 1 \)
             </div>
 
             <div class="proof">
-                TODO
+                \( \implies  \) If \( a, b \) are coprime, then \( D _ { a, b }  = \left\{ 1, -1 \right\}  \) and therefore \( \gcd \left( a, b \right) = 1 \) as needed. \( \impliedby  \) if \( \gcd \left( a, b \right) = 1 \) then the only positive integer that divides them is \( 1 \) because if some other positive integer divided both of them then \( \gcd \left( a, b \right) \gt 1 \) which would be a contradiction.
             </div>
         </div>
 
-        <div class="theorem" id="theorem-eucliden-algorithm">
-            <div class="title">
-                euclidean algorithm
-            </div>
-
-            <div class="content">
-                Let \( m , n \in \mathbb{N}_{1} \) such that \( m &gt; n \), if \( m \% n &gt; 0 \), then \( \gcd{\left
-                ( m , n \right )} = \gcd{\left ( n , m \% n \right )} \). Otherwise if \( m \% n = 0 \), then \( n | m
-                \) and \( \gcd{\left ( m , n \right )} = n \)
-            </div>
-
-            <div class="proof">
-                <p>If \( m \% n = 0 \), then \( m = \left ( m / / n \right ) \cdot n \), therefore \( \gcd{\left ( m ,
-                n \right )} = \gcd{\left ( \left ( m / / n \right ) \cdot n , n \right )} = n \), so now assume that \(
-                m \% n &gt; 0 \)</p>
-
-                <p>Recall that \( m = \left ( m / / n \right ) \cdot n + m \% n \), therefore \( m - \left ( m / / n
-                \right ) \cdot n = m \% n \), so that if \( d \) divides both \( m , n \), then it must divide \( m \%
-                n \) (and clearly \( n \)), and by the original equation if \( d \) is a divisor of both \( n , m \% n
-                \) then \( d \) divides \( m \) (and clearly \( n \)).</p>
-
-                <p>The above paragraph shows that a number is a divisor of \( m , n \) if and only if it is a divisor
-                of \( n , m \% n \), which shows that their set of divisors are equal and thus \( \gcd{\left ( m , n
-                \right )} = \gcd{\left ( n , m \% n \right )} \)</p>
-            </div>
+        <div class="definition" id="definition-least-common-multiple">
+        	<div class="title">Least Common Multiple</div>
+        	<div class="content">
+                Suppose that \( a , b \in \mathbb{Z} \) then the least common multiple of \( a \) and \( b \) notated
+                as \( \operatorname{ lcm }  \left ( a , b \right) \) is the smallest positive integer such that \( a, b \mid \operatorname{ lcm }  \left( a, b \right)  \)
+        	</div>
         </div>
 
-        <div class="lemma" id="lemma-bounded-sum-implies-one-less-then-half">
-            <div class="title">
-                bounded sum implies one less then half
-            </div>
-
-            <div class="content">
-                Suppose that \( x , y , b \in \mathbb{N}_{1} \) and \( x &lt; y \) with \( x + y \le b \), then \( x
-                &lt; \frac{b}{2} \)
-            </div>
-
-            <div class="proof">
-                Suppose for the sake of contradiction that \( x \ge \frac{b}{2} \), then we know that \( y &gt; x \ge
-                \frac{b}{2} \) so therefore \( x + y \gt \frac{b}{2} + \frac{b}{2} = b \), so we have \( x + y &gt; b
-                \) which is a contradiction so that \( x &lt; \frac{b}{2} \).
-            </div>
+        <div class="corollary" id="corollary-least-common-multiple-characterization">
+        	<div class="title">Least Common Multiple Characterization</div>
+        	<div class="content">
+        		The lcm \( l := \operatorname{ lcm }  \left( a, b \right)  \) is the unique number satisfying
+                <ul>
+                    <li>\( a, b \mid l \) </li>
+                    <li>For every \( m \in \mathbb{ Z } ^ +, \left( a, b \mid m \right) \implies l \le m  \) </li>
+                </ul>
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
         </div>
 
-        <div class="proposition" id="proposition-euclidean-algorithm-has-exponentially-decreasing-remainders">
-            <div class="title">
-                euclidean algorithm has exponentially decreasing remainders
-            </div>
+        <div class="theorem" id="theorem-gcd-and-lcm-connection">
+        	<div class="title">GCD and LCM Connection</div>
+        	<div class="content">
+                \[
 
-            <div class="content">
-                Let \( a , b \in \mathbb{N}_{1} \) with \( a \ge b \) be two integers, and suppose we will preform the
-                euclidean algorithm on them to compute \( \gcd{\left ( m , n \right )} \), supposing that \( r_{k} \)
-                represents the remainder after \( k \) (where \( k \in \mathbb{N}_{1} \)) steps into the euclidean
-                algorithm, then \( r_{2 n} \lt \frac{b}{2^{n}} \)
-            </div>
-
-            <div class="proof">
-                <p>For the base case, suppose that \( n = 1 \), so we&#39;d like to prove that \( r_{2} \lt \frac{b}{2}
-                \). Firstly we know that \( a = b q_{0} + r_{0} \) with \( 0 \le r_{0} \lt b \), then applying the next
-                iteration we have \( b = r_{0} q_{1} + r_{1} \) with \( 0 \le r_{1} \lt r_{0} \) and one more time, we
-                get \( r_{0} = r_{1} q_{2} + r_{2} \) with \( 0 \le r_{2} \lt r_{1} \), this shows us that \( b = \left
-                ( r_{1} q_{2} + r_{2} \right ) q_{1} + r_{1} \).</p>
-
-                <p>Since \( a \ge b \), \( b \gt r_{0} \) and \( r_{0} \gt r_{1} \), <span class="knowledge-link"
-                data-href=
-                "/number_theory/division.html#corollary-quotient-remainder-on-positive-integer-has-positive-divisor">then</span>
-                \( q_{0} \ge 1 \), \( q_{1} \ge 1 \) and \( q_{2} \ge 1 \), therefore \( b = \left ( r_{1} q_{2} +
-                r_{2} \right ) q_{1} + r_{1} \ge \left ( r_{1} \cdot 1 + r_{2} \right ) \cdot 1 + r_{1} \ge r 1 + r 2
-                \) <span class="knowledge-link" data-href=
-                "/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">therefore</span> \( r_{2}
-                &lt; \frac{b}{2} \) which concludes the base case</p>
-
-                <p>Now let \( k \in \mathbb{N}_{1} \) assuming that \( r_{2 k} \le \frac{b}{2^{k}} \), we want to prove
-                that \( r_{2 \left ( k + 1 \right )} = \frac{b}{2^{k + 1}} \), noting that \( 2 \left ( k + 1 \right )
-                = 2 k + 2 \).</p>
-
-                <p>To start let&#39;s say we have an intance of the euclidean algorithm that lasts for at least \( 2 k
-                + 2 \) iterations, therefore we know that \( r_{2 k} \le \frac{b}{2^{k}} \) by our induction
-                hypothesis, additionally at the \( 2 k \)-th iteration we would have an equation of the form \( r_{2 k}
-                = r_{2 k + 1} \left ( q_{2 k + 2} \right ) + r_{2 k + 2} \), since we know that \( r_{2 k + 1} &gt;
-                r_{2 k + 2} \), <span class="knowledge-link" data-href=
-                "/number_theory/division.html#corollary-quotient-remainder-on-positive-integer-has-positive-divisor">then</span>
-                \( q_{2 k + 2} \ge 1 \), which then shows that \( r_{2 k} = r_{2 k + 1} \left ( q_{2 k + 2} \right ) +
-                r_{2 k + 2} \ge r_{2 k + 1} + r_{2 k + 1} \), and since \( \frac{b}{2^{k}} \gt r_{2 k} \) ,
-                <span class="knowledge-link" data-href=
-                "/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">then we know that</span> \(
-                r_{2 k + 2} \lt \frac{1}{2} \cdot \frac{b}{2^{k}} = \frac{b}{2^{k + 1}} \) which is what we needed to
-                show</p>
-            </div>
+                \gcd \left( a, b \right) \operatorname{ lcm } \left( a, b \right) = ab
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    For simplicity let \( g, l \) denote the the gcd and lcm respectively, then we're trying to prove that \( l = \frac{ab}{g}  \) we'll do that using the characterization, so note that \( l = a \left( \frac{b}{d}  \right)  = b \left( \frac{a}{d}  \right) \) and that \( \frac{b}{d} , \frac{a}{d} \in \mathbb{ Z }  \) since \( d \) divides both by definition, thus \( a, b \mid l \).
+                </p>
+                <p>
+                    Now suppose that there is some \( m \in \mathbb{ Z } ^ + \) such that \( a , b \mid m \) in other words there exists some \( k _ a, k _ b \in  \mathbb{ Z }  \) such that \( m = a k _ a = b k _ b \) we'll show that \( l \le m \). Recall that \( d \mid a, b \) and so we get some \( \alpha , \beta \in  \mathbb{ Z }  \) such that \( a = \alpha d \) and \( b = \beta d \) therfore
+                    \[
+                    m = a k _ a = b k _ b \iff \left( \alpha d \right) k _ a = \left( \beta d \right) k _ b \iff \alpha k _ a = \beta k _ b
+                    \]
+                </p>
+                <p>
+                    The above equation shows that \( \alpha \mid \beta k _ b \) and \( \beta \mid \alpha k _ a \), but note that \( \gcd \left( \alpha , \beta \right) = \gcd \left( \frac{a}{d} , \frac{b}{d}  \right) = 1   \) therefore by the previous proposition we must have that \( \alpha \mid k _ b \) and \( \beta \mid k _ a \) therefore there is some \( j \in \mathbb{ Z }  \) such that \( k _ b = j \alpha \) thus finally
+                    \[
+                        m = b k _ b = b j \alpha = b \left( \frac{a}{d}  \right) j = l j
+                    \]
+                    therefore \( l \mid m \) so that \( l \le m \). Therefore \( l = \frac{ab}{g}  \) and thus \( g l = ab \) as needed.
+                </p>
+        	</div>
         </div>
-        
-                
 
-        <div class="corollary" id="corollary-upper-bound-on-euclidean-algorithm-iterations">
-            <div class="title">
-                upper bound on euclidean algorithm iterations
-            </div>
-
-            <div class="content">
-                The euclidean algorithm terminates in at most \( 2 \log_{2}{\left ( b \right )} \) iterations
-            </div>
-
-            <div class="proof">
-                The euclidean algorithm terminates in \( k \) iterations if and only if \( r_{k} = 0 \), we know that
-                for all \( n \in \mathbb{N}_{1} \) that \( r_{2 n} \lt \frac{b}{2^{n}} \), therefore when \( n =
-                \log_{2}{\left ( b \right )} \), then we have \( r_{2 \log_{2}{\left ( b \right )}} \lt
-                \frac{b}{2^{\log_{2}{\left ( b \right )}}} = \frac{b}{b} = 1 \), but if \( r_{2 \log_{2}{\left ( b
-                \right )}} \lt 1 \), then since the remainders are always elements of \( \mathbb{N}_{0} \), then we
-                know that \( r_{2 \log_{2}{\left ( b \right )}} = 0 \), thus we&#39;ve shown after \( 2 \log_{2}{\left
-                ( b \right )} \) iterations the algorithm must terminate
-            </div>
-        </div>
 
     </div>
 </body>
