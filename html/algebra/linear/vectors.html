@@ -10,21 +10,20 @@
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer>
 </script>
-    <script async="" src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js">
-</script>
-    <script type="importmap">
-              {
-                        "imports": {
-                          "three": "https://unpkg.com/three@v0.156.1/build/three.module.js",
-                          "three/addons/": "https://unpkg.com/three@v0.156.1/examples/jsm/"
-                        }
-                  }
-    </script>
+<!--    <script async="" src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js">-->
+<!--</script>-->
+<!--    <script type="importmap">-->
+<!--              {-->
+<!--                        "imports": {-->
+<!--                          "three": "https://unpkg.com/three@v0.156.1/build/three.module.js",-->
+<!--                          "three/addons/": "https://unpkg.com/three@v0.156.1/examples/jsm/"-->
+<!--                        }-->
+<!--                  }-->
+<!--    </script>-->
 </head>
 
 <body>
     <div class="thin-wrapper">
-        <h1>vectors</h1>
 
         <div class="definition" id="definition-vector">
             <div class="title">
@@ -44,22 +43,41 @@
             </div>
 
             <div class="content">
-                Given a vector in \( \mathbb{R}^n \), then we define the
+                Given  \( x \in \mathbb{R}^n \), then we define the it's length as
+                \[
+                    \lVert x \rVert :=  \sqrt{ \sum _ { i = 1 }  ^  n  x _ i ^ 2  }
+                \]
             </div>
         </div>
 
         <div class="definition" id="definition-dot-product">
             <div class="title">
-                dot product
+                Dot Product
             </div>
 
             <div class="content">
                 Given two sequences of numbers of the same length: \( a = \left ( a_{1} , \ldots , a_{k} \right ) \)
-                and \( b = \left ( b_{1} , \ldots , b_{k} \right ) \), their dot product denoted and defined by by \( a
-                \cdot b = \sum_{i = 1}^{k} a_{i} \cdot b_{i} \). Note that \( \cdot : \mathbb{R}^{k} \times
-                \mathbb{R}^{k} \to \mathbb{R} \)
+                and \( b = \left ( b_{1} , \ldots , b_{k} \right ) \), their dot product denoted and defined by
+                \[
+                a \cdot b = \sum_{i = 1}^{k} a_{i} \cdot b_{i}
+                \]
+                Note that \( \cdot : \mathbb{R}^{k} \times \mathbb{R}^{k} \to \mathbb{R} \)
             </div>
         </div>
+
+        <div class="proposition" id="proposition-dot-product-geometric">
+        	<div class="title">Dot Product Geometric</div>
+        	<div class="content">
+        		\[
+        		    a \cdot b = \lVert a \rVert \lVert b \rVert \cos \left( \theta  \right)
+        		\]
+                where \( \theta  \) is the angle between \( a, b \)
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
 
         <div class="definition" id="definition-vector-form-of-a-line">
             <div class="title">
@@ -77,18 +95,45 @@
             </div>
         </div>
 
-        <p>An example of the vector form of a line in \( \mathbb{R}^{3} \) could be \( x = t \left [ \begin{matrix} 1
-        \\ 2 \\ 3 \end{matrix} \right ] + \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \), where \( \left [
-        \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \) (the red dot) is a part of the line when \( t = 0 \), and
-        the line&#39;s direction follows the direction of the vector \( \left [ \begin{matrix} 1 \\ 2 \\ 3 \end{matrix}
-        \right ] \)</p>
 
-        <div id="threejs-vector-line" style="width: 100vh; height: 50vh; margin: 0px auto; border-radius: 10%;">
-            <canvas style="display: block; width: 937px; height: 469px; touch-action: none;" data-engine=
-            "three.js r156" width="937" height="469"></canvas>
-        </div><script type="module" src="/js/plotting/mathematical_space_3d.js">
-</script> <script type="module" src="vectors.js">
-</script>
+        <div class="definition" id="definition-cross-product">
+        	<div class="title">Cross Product</div>
+        	<div class="content">
+        		Given two vectors \( a, b \in \mathbb{ R } ^ 3 \) we define their <b>cross-product</b> to be
+                \[
+                    a \times b := \lVert a \rVert \lVert b \rVert \sin \left( \theta  \right) n
+                \]
+                where \( \theta  \) is the angle between \( a \) and \( b \) and \( n \) is a unit vector such that \( a , n , b \) is positively oriented.
+        	</div>
+        </div>
+        
+        <div class="proposition" id="proposition-cross-product-vector-component-formula">
+        	<div class="title">Cross Product Vector Component Formula</div>
+        	<div class="content">
+        		\[
+        		    \left( a _ 1 , a _ 2, a _ 3  \right) \times \left( b _ 1, b _ 2, b _ 3 \right) = \left( a _ 2 b _ 2 - a _ 3 b _ 2, a _ 3 b _ 1 - a _ 1 b _ 3, a _ 1 b _ 2 - a _ 2 b _ 1  \right)
+        		\]
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+        
+
+
+
+<!--        <p>An example of the vector form of a line in \( \mathbb{R}^{3} \) could be \( x = t \left [ \begin{matrix} 1-->
+<!--        \\ 2 \\ 3 \end{matrix} \right ] + \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \), where \( \left [-->
+<!--        \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \) (the red dot) is a part of the line when \( t = 0 \), and-->
+<!--        the line&#39;s direction follows the direction of the vector \( \left [ \begin{matrix} 1 \\ 2 \\ 3 \end{matrix}-->
+<!--        \right ] \)</p>-->
+
+<!--        <div id="threejs-vector-line" style="width: 100vh; height: 50vh; margin: 0px auto; border-radius: 10%;">-->
+<!--            <canvas style="display: block; width: 937px; height: 469px; touch-action: none;" data-engine=-->
+<!--            "three.js r156" width="937" height="469"></canvas>-->
+<!--        </div><script type="module" src="/js/plotting/mathematical_space_3d.js">-->
+<!--</script> <script type="module" src="vectors.js">-->
+<!--</script>-->
     </div>
 </body>
 </html>
