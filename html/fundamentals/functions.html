@@ -285,6 +285,21 @@
 			If this is your first brush with notation overloading, then know that it can be confusing, but all confusion can be cleared by inspecting what the inputs are to the function. This should remind you that a function is not just a name, it's signature is given by it's name, input types and return type. To see if you really understand this, answer the following exercise.
 		</p>
 		
+		<div class="proposition" id="proposition-invertible-iff-bijective">
+			<div class="title">Invertible iff Bijective</div>
+			<div class="content">
+				
+			</div>
+			<div class="proof">
+				
+			</div>
+		</div>
+
+		<p>
+			This means that the notation \( f ^ { -1 } \left( y \right)  \) where \( y \in \operatorname{ ran }  \left( f \right)  \) is reserved only for functions \( f \) whose inverse exists, otherwise we have problems for example if \( f \) was not surjective and there was an element \( z \) that can never get mapped to then what does \( f ^ { - 1  }\left( z \right)   \) mean? If it was not injective, then suppose that there was \( a \neq b \) such that \( f \left( a  \right) = f \left( b \right)  \) then \( a \stackrel{?}{=}  f ^ { - 1 } \left( f \left( a \right)  \right) = f ^ { - 1  } \left( f \left( b \right)  \right)  \stackrel{?}{=}  b   \) makes no sense because we know that \( a \neq b \), so we must have injectivity. Therefore you must be carful not to write the symbol \( f ^ { - 1  }  \) unless you know that \( f \) is invertible.
+		</p>
+		
+
 		<div class="exercise" id="exercise-inverse-image-of-the-inverse-function-is-the-image">
 			<div class="title">Inverse Image of the Inverse Function is the Image</div>
 			<div class="content">
@@ -438,6 +453,25 @@
 				\]
 			</div>
 		</div>
+		
+		<div class="proposition" id="proposition-">
+			<div class="title">The Inverse of an Order Preserving Function is Order Preserving</div>
+			<div class="content">
+				Suppose that \( \left( A, \le _ A \right)  \) and \( \left( B, \le B \right)  \) are partial orders and \( f: A \to B \) is order preserving and invertible, then \( f ^ { - 1  }  : B \to A\) is also order preserving
+			</div>
+			<div class="proof">
+				<p>
+					Let \( b _ 1, b _ 2 \in  B \) 	such that \( b _ 1 \le _ B b _ 2 \) now we want to prove that \( f ^ { - 1  } \left( b _ 1 \right) \le _ A f ^ { - 1  } \left( b _ 2 \right) \).
+				</p>
+				<p>
+					If it so happens that \( b _ 1 =  b _ 2 \) then we automatically have that \( f ^ { -  1  } \left( b _ 1 \right) = f ^ { - 1  } \left( b _ 2 \right)    \) as \( \le _ A \) is reflexive.
+				</p>
+				<p>
+					So suppose rather that \( b _ 1 \le _ B b _ 2 \) and that \( b _ 1 \neq b _ 2 \). Note that \( f ^ { - 1  } \left( b _ 1 \right) = a _ 1   \) and \( f ^ { - 1  } \left( b _ 2 \right) =  a _ 2   \) for some \( a _ 1, a _ 2 \in A \) since \( \le _ A \) is a total order than \( a _ 1, a _ 2  \) are comparable, if it so happens that \( a _ 2 \le _ A a _ 1  \) then since \( f \) is order preserving, then we would have \( f \left( a _ 2 \right) \le _ B f \left( a _ 1 \right) \iff b _ 2 \le _ B b _ 1  \) since \( f \) was assumed invertible, which would only be possible if \( b _ 1 =  b _ 2 \) which we know is not the case, therefore we must have that \( a _ 1 \le _ A a _ 2 \) which means that \( f ^ { - 1  } \left( b _ 1 \right) \le _ A f ^ { -1 } \left( b _ 2 \right)    \)
+				</p>
+			</div>
+		</div>
+		
 
 
 

@@ -43,6 +43,17 @@
 			</div>
 		</div>
 
+		<div class="definition" id="definition-the-reverse-of-a-binary-relation">
+			<div class="title">The Reverse of a Binary Relation</div>
+			<div class="content">
+				Suppose that \( R \) is a binary relation then
+				\[
+				    \operatorname{ rev } \left( R \right) := \left\{ \left( y, x \right) : \left( x, y \right) \in R  \right\}
+				\]
+			</div>
+		</div>
+
+
 		<div class="definition" id="definition-set-filtered-by-a-relation">
 			<div class="title">set filtered by a relation</div>
 			<div class="content">
@@ -148,6 +159,20 @@
 			</div>
 		</div>
 
+		<div class="corollary" id="corollary-every-partial-order-admits-a-strict-partial-order">
+			<div class="title">Every Partial Order Admits a Strict Partial Order</div>
+			<div class="content">
+				Suppose that \( \left( X , \le  \right)  \) is a partial order, then there exists a relation \( \lt  \) such that \( \left( X, \lt  \right)  \) is a partial order such that
+				\[
+				    a \lt b \iff \left( a \le b \land a \neq b \right)
+				\]
+			</div>
+			<div class="proof">
+				Consider the partial order \( \left( X, \le  \right)  \), since \( \le  \) is a collection of tuples we just need to consider \( \lt = \le \setminus \left\{ \left( x, x \right) : x \in X \right\}  \)
+			</div>
+		</div>
+
+
 		<div class="definition" id="definition-comparable">
 			<div class="title">Comparable</div>
 			<div class="content">
@@ -194,8 +219,6 @@
 				Suppose that there are two smallest elements \( a, b \in S\) since \( a \) is the smallest then \( a \le b \) and since \( b \) is the smallest then \( b \le a \) by transitivity \( a = b \) and so the smallest element is unique.
 			</div>
 		</div>
-
-
 
     </div>
 </body>
