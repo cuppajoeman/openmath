@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Set difference</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+		<div class="definition" id="definition-characteristic-function-of-a-set">
+			<div class="title">Characteristic Function of a Set</div>
+			<div class="content">
+				Suppose that \( A \) is a set, then it's characteristic function is defined as 
+				\[
+				    \chi _ A \left( x \right) = 
+				\begin{cases}
+				1 &, \text{ if } x \in A \\
+				0 &, \text{ if } x \notin A
+				\end{cases}
+				\]
+			</div>
+		</div>
+
+		<div class="corollary" id="corollary-set-equality-through-the-characteristic">
+			<div class="title">Set Equality through the Characteristic</div>
+			<div class="content">
+				\[
+				    A = B \iff \chi _ A = \chi _ B
+				\]
+			</div>
+			<div class="proof">
+
+			</div>
+		</div>
+
+		<div class="definition" id="definition-symmetric-difference">
+			<div class="title">Symmetric Difference</div>
+			<div class="content">
+				Suppose \( A, B \) are two sets, then we define 
+				\[
+				    A \Delta B := \left( A \setminus B \right) \cup \left( B \setminus A \right)
+				\]
+				using the <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#definition-set-difference">set difference</a>
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-symmetric-difference-characterization">
+			<div class="title">Symmetric Difference Characterization</div>
+			<div class="content">
+				Suppose that \( A, B \) are sets then
+				\[
+				    x \notin A \Delta B \iff \left( x \in A \cap B  \lor \left( x \notin A \land x \notin B \right) \right)
+				\]
+			</div>
+			<div class="proof">
+
+			</div>
+		</div>
+
+
+		<div class="proposition" id="proposition-characteristic-version-of-symmetric-difference">
+			<div class="title">Characteristic Version of Symmetric Difference</div>
+			<div class="content">
+				\[
+				    \chi _ { A \Delta B } =  \chi _ A \oplus \chi _ B
+				\]
+			</div>
+			<div class="proof">
+
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-symmetric-difference-is-associative">
+			<div class="title">Symmetric Difference is Associative</div>
+			<div class="content">
+				For any three sets \( A, B, C \) we have
+				\[
+				    \left( A \Delta B \right) \Delta C = A \Delta \left( B \Delta C \right)
+				\]
+			</div>
+			<div class="proof">
+				\[
+				    \begin{align}
+				        \chi _ { \left( A \Delta B \right) \Delta C  }  &=  \left( \chi _  A \oplus \chi _ B \right) \oplus \chi _ C  \\
+				&= \chi _ A \oplus  \left( \chi _ B \oplus \chi _ C \right) \\
+				&= \chi _ { A \Delta \left( B \Delta C \right)  }
+				    \end{align}
+				\]
+				therefore \(  \left( A \Delta B \right) \Delta C = A \Delta \left( B \Delta C \right)\)
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-characteristic-version-of-symmetric-difference-generalized">
+			<div class="title">Characteristic Version of Symmetric Difference Generalized</div>
+			<div class="content">
+				Let \( n \in \mathbb{ N } _ 2 \), prove that for any collection of sets \( A_1 , A_2 , \ldots , A_n\) we have that
+				\[
+				\chi _ {A_1 \Delta A_2 \Delta \cdots \Delta A_n  } = \chi _ { A _ 1 } \oplus \chi _ { A _ 2 } \oplus \cdots \oplus \chi	_ { A _ n }
+				\]
+			</div>
+			<div class="proof">
+				Holds by induction using previous facts to help with the induction step.
+			</div>
+		</div>
+
+		<div class="corollary" id="corollary-element-is-in-the-fold-of-symmetric-differences-iff-it-is-in-an-odd-number-of-sets">
+			<div class="title">Element is in the Fold of Symmetric Differences iff it is an an odd Number of Sets</div>
+			<div class="content">
+				Let \( n \in \mathbb{ N } _ 2 \), prove that for any collection of sets \( A_1 , A_2 , \ldots , A_n\) the set
+				\[
+				    A_1 \Delta A_2 \Delta \cdots \Delta A_n
+				\]
+				contains exactly those elements \( x \) which are present in an odd number of the sets
+			</div>
+			<div class="proof">
+				Recall <a class="knowledge-link" href="/fundamentals/logic.html#corollary-exclusive-or-evaluates-to-true-iff-an-odd-number-of-arguments-are-true">this property of the exclusive or</a>	therefore combining this with our previous proposition the function on the right hand side will only evaluate to true iff \( \chi _ { A _ i } \left( x \right) = 1   \) for an odd number of \( i \)'s therefore we've proved the statement true.
+			</div>
+		</div>
+		
+
+		
+
+    </div>
+</body>

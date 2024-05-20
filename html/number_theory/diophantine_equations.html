@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Diophantine Equations</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer>
+</script>
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+        <div class="definition" id="definition-linear-diophantine-equation">
+        	<div class="title">Linear Diophantine Equation</div>
+        	<div class="content">
+        		A linear diophantine equation is an equation of the form
+                \[
+                    ax + by = c
+                \]
+                where \( a, b, c \in \mathbb{ Z }  \)
+        	</div>
+        </div>
+
+        <p>
+            Note that while we know that there are infinitely many solutions to the above equation if we're seaching in \( \mathbb{ R } ^ 2  \) but it's not clear if there is even one solution when we restrict \( x, y \in  \mathbb{ Z }  \)
+        </p>
+
+        <div class="proposition" id="proposition-a-linear-diophantine-equation-has-solutions-if-the-gcd-of-the-coefficients-divides-the-constant">
+        	<div class="title">A Linear Diophantine Equation Has Solutions if the GCD of the coefficients divides the Constant</div>
+        	<div class="content">
+        		\( ax + by = c \) has solutions if and only if \( \gcd \left( a, b \right) \mid c \)
+        	</div>
+        	<div class="proof">
+                Let \( g := \gcd \left( a, b \right)  \) then note that \( g \mid c \) iff there is some \( k \in \mathbb{ Z }  \) such that \( c = k g \) at the same time we know that there are \( x _ 0, y _ 0 \in  \mathbb{ Z  }  \) such that \( g = a x _ 0 + b y _ 0 \) iff \( gk = ak x _ 0 + b k y _ 0 \) iff \( c = a \left( k x _ 0 \right) + b \left( k y _ 0 \right)   \)
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-one-solution-yields-infinitely-many">
+        	<div class="title">One Solution Yields Infinitely Many</div>
+        	<div class="content">
+        		Suppose that \( a x _ 0 + b y _ 0 = c \) is a solution, then the entire set of solutions is given by:
+                \[
+                    S := \left\{ \left( x _ 0, y _ 0 \right) + t \left( \frac{b}{d} , - \frac{a}{d}  \right) : t \in \mathbb{ Z }    \right\}
+                \]
+        	</div>
+        	<div class="proof">
+        		Taking \( s \in S \) then we see that
+                \[
+                    s = \left( x _ 0 + t  \frac{b}{d}, y _ 0 - t \frac{a}{d}   \right)
+                \]
+                Now, let's confirm that this is a solution, so we have to make sure that \( a s _ 1 + b s _ 2 = c \).
+                \[
+                    a \left( x _ 0 + t \frac{b}{d}  \right) + b \left( y _ 0 - t \frac{a}{d}  \right) = ax _ 0 + b y _ 0 + 0 = c
+                \]
+                therefore every element in \( S \) is a solution, but let's now show that it contains all solutions.
+                <hr>
+                <p>
+                    We already know that \( \left( x _ 0, y _ 0 \right)  \) is a solution, so let \( x _ 1, y _ 1 \) be a different solution, then we have
+                    \[
+                        ax _ 1 + b y _ 1 = c = a x _ 0 + b y _ 0 \iff a \left( x _ 1 - x _ 0 \right) = - b \left( y _ 1 - y _ 0 \right)
+                    \]
+                    dividing through by \( g := \gcd \left( a, b \right)  \) we see that \( \frac{a}{g} \left( x _ 1 - x _ 0 \right) = \frac{-b}{g} \left( y _ 1 - y _ 0 \right)   \) but then recall that \( \gcd \left( \frac{a}{g} , \frac{b}{g}  \right) = 1  \) thus by forced division, we see that \( \frac{a}{g } \mid y _ 1 - y _ 0 \)so that there is some \( k \in \mathbb{ Z }  \) such that \( y _ 1 - y _ 0 = \frac{a}{g} k \)  thus
+                    \[
+                    \frac{a}{g} \left( x _ 1 - x _ 0 \right) = \frac{-b}{g} \left( y _ 1 - y _ 0 \right) \iff \frac{a}{g} \left( x _ 1 - x _ 0 \right) = \frac{-b}{g} \left( \frac{a}{g} k \right)
+                    \]
+                    therefore by cancellation we have that \( x _ 1 - x _ 0 =  - \frac{b}{g} k \) and symmetrically \( y _ 1 - y _ 0 = \frac{a}{g} k \) therefore
+                    \[
+                        \left( x _ 1, y _ 1 \right) = \left( x _ 0 - k \frac{b}{g} , y _ 0 + k \frac{a}{g}  \right)
+                    \]
+                    so therefore \( \left( x _ 1, y _ 1 \right) \in S  \) as needed.
+
+                </p>
+
+        	</div>
+        </div>
+
+
+        
+
+    </div>
+</body>
+</html>

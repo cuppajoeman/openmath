@@ -1,0 +1,89 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Quaternions</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer=""></script>
+
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+        <div class="definition" id="definition-the-quaternions">
+            <div class="title">The Quaternions</div>
+            <div class="content">
+                The collection of <b>quaternions</b> are:
+                \[
+                \mathbb{ H } := \left\{ a + b \mathbf{ i } + c \mathbf{ j }+ d \mathbf{ k } \right\}
+                \]
+                where \( a, b, c, d \in \mathbb{ R } \) and \( \mathbf{ i } ^ 2 = \mathbf{ j } ^ 2 = \mathbf{ k } ^ 2 =
+                \mathbf{ ijk }=
+                -1 \)
+            </div>
+        </div>
+
+        <div class="definition" id="definition-quaternion-scalar-part">
+            <div class="title">Scalar Part of the Quaternion</div>
+            <div class="content">
+                Given a quaternion \(q = a + bi + cj + dk\), we say that \(a\) is the scalar part of the quaternion (or real part), and is denoted by \(\operatorname{ Re } \left( q \right) \)
+            </div>
+        </div>
+
+        <div class="definition" id="definition-quaternion-vector-part">
+            <div class="title">Vector Part of the Quaternion</div>
+            <div class="content">
+                Given a quaternion \(q = a + bi + cj + dk\), we say that \(bi + cj + dk\) is the vector part of the quaternion , and is denoted by \(\operatorname{ V } \left( q \right) \)
+            </div>
+        </div>
+
+        <div class="definition" id="definition-quaternion-addition">
+            <div class="title">Quaternion Addition</div>
+            <div class="content">
+                \[
+                a_1+b_1\mathbf i + c_1\mathbf j + d_1\mathbf k) + (a_2 + b_2\mathbf i + c_2\mathbf j + d_2\mathbf k) =
+                (a_1 + a_2) + (b_1 + b_2)\mathbf i + (c_1 + c_2)\mathbf j + (d_1 + d_2) \mathbf k,
+                \]
+            </div>
+        </div>
+
+        <div class="definition" id="definition-scalar-quaternion-multiplication">
+            <div class="title">Scalar Quaternion Multiplication</div>
+            <div class="content">
+                \[
+                \lambda(a + b\,\mathbf i + c\,\mathbf j + d\,\mathbf k) = \lambda a + (\lambda b)\,\mathbf i + (\lambda
+                c)\,\mathbf j + (\lambda d)\,\mathbf k.
+                \]
+            </div>
+        </div>
+
+        <div class="definition" id="definition-conjugate-quaternion">
+            <div class="title">Conjugate Quaternion</div>
+            <div class="content">
+                Given the quaternion \( q = a + b \mathbf{ i }+ c \mathbf{ j } + d \mathbf{ k } \), it's conjugate is
+                given by
+                \[
+                \overline{ q } := a - b \mathbf{ i }- c \mathbf{ j } - d \mathbf{ k }
+                \]
+            </div>
+        </div>
+
+
+        <div class="definition" id="definition-pure-quaternion">
+            <div class="title">Pure Quaternion</div>
+            <div class="content">
+                A pure quaternion \( a + b \mathbf{ i }+ c \mathbf{ j } + d \mathbf{ k } \) is one such that \( a = 0 \)
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

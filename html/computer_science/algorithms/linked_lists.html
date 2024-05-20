@@ -40,6 +40,57 @@ def findDuplicate(nums: List[int]) -> int:
             </div>
         </div>
 
+        <div class="definition" id="definition-index-array">
+            <div class="title">Index Array</div>
+            <div class="content">
+                An index array is an array whose values are valid indices to itself
+            </div>
+        </div>
+
+
+        <div class="definition" id="definition-index-array-graph">
+            <div class="title">Index Array Graph</div>
+            <div class="content">
+                Given an index array \( A \) then it's induced graph \( G \) is a directed graph whose vertices are the elements of \( A \), it's edges are obtained as follows, set , then the edge
+                <ul>
+                    <li>Set \( g _ 0 = 0 \) and for any \(  i \in \mathbb{ N } _ 0 \) let \( g _ { i + 1 } = A \left[ g _ i \right]  \) </li>
+                    <li>The graph has edges: \( \left( g _ i, g _ {  i + 1 }  \right)  \)</li>
+                </ul>
+                We also define the sequnce \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots  \right)  \) as its <b>movement sequence.</b>
+            </div>
+        </div>
+
+        <p>
+            The index array graph can be constructed by extending the behavior of \( \mathtt{slow1} \) in the first while loop.
+        </p>
+
+
+        <div class="definition" id="definition-meet-point">
+            <div class="title">Meet Point</div>
+            <div class="content">
+                Given the index array graph for an index array \( A \), following it's recursive definition we define the <b>meet point</b> to be the smallest \( j \in \mathbb{ N } _ 0 \) such that \( \left( g _ 0, g _ 1, g _ 2, \ldots g _ j \right)  \) has a repeated element.
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-all-input-arrays-have-a-meet-point">
+            <div class="title">All Input Arrays have a Meet Point</div>
+            <div class="content">
+                Suppose that \( A \) is an arrary of \( n + 1 \) integers such that \( a _ i \in \left[ 1, \ldots , n \right]  \), such that there is only one repeated number, then \( A \) has a meet point.
+            </div>
+            <div class="proof">
+                From the definition of the index array graph, consider it's movement sequence \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots  \right)  \) and it's set define as \( X := \left\{ g _ i : i \in \mathbb{ N } _ 0 \right\}  \), by definition of \( A \) the movement sequence contains at most \( n \) unique numbers and so we see that \( \lvert X \rvert \le n \), and thus it is finite, this means that there is some duplicated element in the movement sequence, suppose there is not, then each element is unique, and so \( X \) would be infinite, which is a contradiction, thus there is some duplicated element in the movement sequence, and so a meet point exists.
+            </div>
+        </div>
+
+        <div class="corollary" id="corollary-all-index-array-graphs-have-a-cycle-continuing-forever">
+        	<div class="title">All Index Array Graphs have A Cycle Continuing Forever</div>
+        	<div class="content">
+        		As per title.
+        	</div>
+        	<div class="proof">
+                Since we know that all inputs arrays have a meet point then it's movement sequence is of the form \( g _ 0, \ldots g _ i, g _ { i + 1 } \ldots g _ { i + k },  g _ i, g _ { i + 1 }, \ldots g _ { i + k }, \ldots   \), where \( g _ i  \) is the meet point, and there are \( k \) other elements encountered before we get to the meet point. It must continue forever because after \( g _ i \) is encountered for the second element, then the next element is defined as \( A \left[ g _ i \right]  \) which is the same as the definition of \( g _ { i + 1 }  \) and so on until \( g _ i \) is reached again, therefore it continues cycling forever.
+        	</div>
+        </div>
 
         <div class="lemma" id="lemma-TODO-USING-LOWERCASE-AND-HIPHEN">
             <div class="title">TODO</div>
@@ -47,17 +98,24 @@ def findDuplicate(nums: List[int]) -> int:
                 The first while loop terminates and \(\mathtt{slow1} = \mathtt{fast}\).
             </div>
             <div class="proof">
+                <p>
+                    Let \( \mathtt{slow1}_t \) be the value of \( \mathtt{slow1} \) at the end of the \( k \)-th iteration of the while loop. Observe that \( g _ k = \mathtt{slow1}_t \), this holds true for \( k = 0 \) as well where we have \( g _ 0 = 0 = \mathtt{slow1}_0 \), note that the equality holds true as each iteration of the while loop directly pertains the recursive definition of \( g _ { i + 1 } \), moreover note that \( \mathtt{fast}_k = g _ { 2k }  \) which can be verified in a similar manner. Note that this means that \( \mathtt{fast} \)'s movement sequence is a subsequence of \( \mathtt{slow1} \)'s denote this subsequence \( \textbf{ s } := \left( s _ 0, s _ 1, s _ 2, \ldots  \right)  \) where \( s _ i = g _ { 2i }  \) then we know that \( \mathtt{fast} _ k = s _ k\).
+                </p>
+                <p>
+                    Let \( G \) be the index array graph of \( A \), we know that it has a cycle that it gets stuck in forever by our previous corollary, and suppose that the elements of the cycle are given by \(C = (c_0, c_1, \dots, c_k) \), where \( c _ 0 \) is the meet point.
+                </p>
+                <p>
+                    Consider the smallest index \( m \) where \( g _ m  \) and \( s _ m \) are both in \(C\) for the first time. Since the start of the cycle is the meet point, then we know that \( g _ m = c _ 0 \) whereas \( s _ m = c _ i  \) where \(i \in [0, k]\).
+                </p>
 
-                <br>
+                <p>
+                    Since \(C\) is a cycle of length \(k + 1\) and \(\mathtt{fast}\) traverses \(C\) at twice the speed of \(\mathtt{slow1}\), (which is to say that \( g _ { m + l } = c _ { \left( 0 + l \right) ~\%~ { k + 1 }  }  \) and \( s _ { m + l } = c _ { \left( 0 + 2l \right) ~\%~ { k + 1 }   }   \)). Then we know that the value \( t \) for which \( \textbf{ g } \) and \( \textbf{ s } \)
+                </p>
 
-                Assume \(G\) has a cycle \(C = (c_0, c_1, \dots, c_k)\). Consider the iteration when \(\mathtt{slow1}\)
-                and \(\mathtt{fast}\) are both in \(C\) for the first time. Without a loss of generality, assume
-                \(\mathtt{slow1} = c_0\) and \(\mathtt{fast} = c_i\), where \(i \in [0, k]\). Since
-                \(C\) is a cycle of length \(k + 1\) and \(\mathtt{fast}\) traverses \(C\) at twice the speed of
-                \(\mathtt{slow1}\), \(\mathtt{slow1} = \mathtt{fast}\) when \(t \equiv i + 2t
-                \pmod{k+1}\), where \(t\) is the \(t\)-th iteration after \(\mathtt{slow1}\)
-                and \(\mathtt{fast}\) are both in \(C\) for the first time.
-                <br>
+                 \(\mathtt{slow1} = \mathtt{fast}\) when \(t \equiv i + 2t \pmod{k+1}\), where \(t\) is the \(t\)-th iteration after \(\mathtt{slow1}\) and \(\mathtt{fast}\) are both in \(C\) for the first time.
+
+
+                Assume \(G\) has a cycle
                 Rearranging shows \(t \equiv -i \pmod{k+1}\). Therefore, \(\mathtt{slow1} = \mathtt{fast}\) for the
                 first time when \(t = k + 1 - i\).
             </div>
@@ -168,7 +226,6 @@ def findDuplicate(nums: List[int]) -> int:
                 movement sequence, and so a meet point exists.
             </div>
         </div>
-
 
 
         <div class="lemma" id="lemma-the-meet-point-holds-the-duplicated-value">

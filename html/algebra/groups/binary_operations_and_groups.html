@@ -51,6 +51,39 @@
             </div>
         </div>
 
+        <div class="definition" id="definition-left-fold">
+        	<div class="title">Left Fold</div>
+        	<div class="content">
+        		Suppose that \( \star : S \times S \to S \) is a binary operation, and \(  \left( x _ 1, x _ 2, \ldots x _ k \right)  \) be a tuple in \( \mathbb{ N } _ 0 \) for some \( k \in \mathbb{ N } _ 1 \) then
+                \[
+                    \operatorname{ foldl } \left( \star, \left( x _ 1, x _ 2, \ldots x _ k \right)  \right) :=
+                \begin{cases}
+                    \left( \operatorname{ foldl } \left( \star, \left( x _ 1, x _ 2, \ldots x _ { k - 1 }  \right)  \right) \right) \star x _ k    &\text{ if } k \ge 2 \\
+                    x _ 1 &\text{ if } k = 1
+                \end{cases}
+                \]
+        	</div>
+        </div>
+
+        <p>
+            Left fold formalizes the idea that we want to look at objects of the form \( \left( \left( \left( x _ 0 \star x _ 1 \right) \star x _ 2 \right) \star \cdots \star x _ k \right) \), we also have a right fold:
+        </p>
+
+        <div class="definition" id="definition-right-fold">
+            <div class="title">Right Fold</div>
+            <div class="content">
+                Suppose that \( \star : S \times S \to S \) is a binary operation, and \(  \left( x _ 1, x _ 2, \ldots x _ k \right)  \) be a tuple in \( \mathbb{ N } _ 0 \) for some \( k \in \mathbb{ N } _ 1 \) then
+                \[
+                \operatorname{ foldr } \left( \star, \left( x _ 1, x _ 2, \ldots x _ k \right)  \right) :=
+                \begin{cases}
+                x _ 1 \star \left( \operatorname{ foldr } \left( \star, \left(  x _ 2, \ldots x _ { k }  \right)  \right) \right)    &\text{ if } k \ge 2 \\
+                x _ 1 &\text{ if } k = 1
+                \end{cases}
+                \]
+            </div>
+        </div>
+
+
         <!--			TODO: rename distributes right into  and make distributes left into-->
         <div class="definition" id="definition-distributivity">
             <div class="title">Distributivity</div>
@@ -140,7 +173,43 @@
                 </p>
             </div>
         </div>
+        
+        <div class="corollary" id="corollary-associativity-imlies-folds-are-equal">
+        	<div class="title">Associativity Implies Folds are Equal</div>
+        	<div class="content">
+        		Suppose that \( \star : S \times S \to S \) is associative, and \( \left( x _ 1, \ldots x _ k \right)  \) is a tuple in \( \mathbb{ N } _ 1 \), then
+                \[
+                    \operatorname{ foldl } \left( \star, \left( x _ 1, \ldots x _ k \right)  \right) = \operatorname{ foldr } \left( \star, \left( x _ 1, \ldots, x _ k \right)  \right)
+                \]
+        	</div>
+        	<div class="proof">
+                Since <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#theorem-bracket-placement-doesn't-matter-for-associative-binary-operations">all bracketings are equal</a>, then specifically these bracketing are equal
+        	</div>
+        </div>
+        
+        <div class="definition" id="definition-the-fold-of-a-composition-law">
+        	<div class="title">Fold of a Composition Law</div>
+        	<div class="content">
+        		Suppose that \( \star : S \times S \to S \) is a composition law, and \( \left( x _ 1, \ldots x _ k \right)  \) a tuple in \( \mathbb{ N } _ 0 \) for \( k \in \mathbb{ N } _ 1 \)
+                \[
+                    \operatorname{ fold } \left( \star, \left( x_0 , x_1 , \ldots , x_k \right)  \right) := \operatorname{ foldl } \left( \star, \left( x_0 , x_1 , \ldots , x_k \right)  \right)
+                \]
+        	</div>
+        </div>
 
+        <div class="definition" id="definition-ellipses-notation">
+        	<div class="title">Ellipses Notation</div>
+        	<div class="content">
+                Suppose that \( \star : S \times S \to S \) is a composition law, and \( \left( x _ 1, \ldots x _ k \right)  \) a tuple in \( \mathbb{ N } _ 0 \) for \( k \in \mathbb{ N } _ 1 \)
+                \[
+                x _ 1 \star x _ 2 \star \cdots \star x _ k := \operatorname{ fold } \left( \star, \left( x_0 , x_1 , \ldots , x_k \right)  \right)
+                \]
+        	</div>
+        </div>
+
+        <p>
+            Since all bracketings yield the same value, our definition of fold to be the left fold was quite arbitrary. We can also now look at previous things under simpler lights, recall a definition of \( \sum _ { i = 0 }  ^ k a _ i   \) that you're familiar with, this is simply just \( \operatorname{ fold } \left( +, \left( a _ 0, \ldots , a _ k \right)  \right)  \)
+        </p>
 
         <div class="definition" id="definition-composition-law">
             <div class="title">Composition Law</div>

@@ -20,16 +20,14 @@
 		<div class="definition" id="definition-nary-relation">
 		    <div class="title">\( n \)-ary relation</div>
 		    <div class="content">
-				        
-
-				An \( n \)-ary relation on the sets \( X_{1} , X_{2} , \ldots , X_{n} \) is a subset \( R \) of their <span class="knowledge-link" data-href="/fundamentals/sets/cartesian_product.html#definition-cartesian-product">cartesian product</span>, where we say that the relation holds between \( x_{1} , x_{2} , \ldots , x_{n} \)  when \( \left ( x_{1} , x_{2} , \ldots , x_{n} \right ) \in R \)
+				An \( n \)-ary relation on the sets \( X_{1} , X_{2} , \ldots , X_{n} \) is a subset \( R \) of their <a class="knowledge-link" href="/fundamentals/sets/cartesian_product.html#definition-cartesian-product">cartesian product</a>, where we say that the relation holds between \( x_{1} , x_{2} , \ldots , x_{n} \)  when \( \left ( x_{1} , x_{2} , \ldots , x_{n} \right ) \in R \)
 		    </div>
 		</div>
 
 		<div class="definition" id="definition-unary-relation">
 			<div class="title">Unary Relation</div>
 			<div class="content">
-				A unary relation \( R \) on X is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-nary-relation">\( 1 \)-ary relation</span> 
+				A unary relation \( R \) on X is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-nary-relation">\( 1 \)-ary relation</a>
 			</div>
 		</div>
 
@@ -37,13 +35,24 @@
 			<div class="title">Binary Relation</div>
 			<div class="content">
 				<p>
-					A binary relation \( R \) is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-nary-relation">\( 2 \)-ary relation</span>, when \( \left ( x , y \right ) \in R \), then we write \( x R y \) to say that \( x \) is related to \( y \).
+					A binary relation \( R \) is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-nary-relation">\( 2 \)-ary relation</a>, when \( \left ( x , y \right ) \in R \), then we write \( x R y \) to say that \( x \) is related to \( y \).
 				</p>
 				<p>
 					Note: <i>A binary relation on \( X \times X \) is stated simply as a relation on \( X \)</i>
 				</p>
 			</div>
 		</div>
+
+		<div class="definition" id="definition-the-reverse-of-a-binary-relation">
+			<div class="title">The Reverse of a Binary Relation</div>
+			<div class="content">
+				Suppose that \( R \) is a binary relation then
+				\[
+				    \operatorname{ rev } \left( R \right) := \left\{ \left( y, x \right) : \left( x, y \right) \in R  \right\}
+				\]
+			</div>
+		</div>
+
 
 		<div class="definition" id="definition-set-filtered-by-a-relation">
 			<div class="title">set filtered by a relation</div>
@@ -55,36 +64,44 @@
 		<div class="definition" id="definition-reflexive-relation">
 			<div class="title">reflexive relation</div>
 			<div class="content">
-                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \), we say it is reflexive when every element of \( X \) is related to itself. Symbolically \( \forall x \in X , x R x \)
+                Given a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( R \) on \( X \), we say it is reflexive when every element of \( X \) is related to itself. Symbolically \( \forall x \in X , x R x \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-symmetric-relation">
 			<div class="title">symmetric relation</div>
 			<div class="content">
-                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \), we say it is symmetric if the relation goes both ways, that is for any \( x , y \in X \) if \( x R y \) then \( y R x \)
+                Given a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( R \) on \( X \), we say it is symmetric if the relation goes both ways, that is for any \( x , y \in X \) if \( x R y \) then \( y R x \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-anti-symmetric-relation">
-			<div class="title">anti-symmetric relation</div>
+			<div class="title">Anti-Symmetric Relation</div>
 			<div class="content">
-                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \), we say it is anti-symmetric when for any \( x , y \in X \), if \( x R y \) and \( y R x \) we have that \( x = y \)
+                Given a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( R \) on \( X \), we say it is anti-symmetric when for any \( x , y \in X \), if \( x R y \) and \( y R x \) we have that \( x = y \)
 			</div>
 		</div>
+
+		<div class="definition" id="definition-asymmetric-relation">
+			<div class="title">Asymmetric Relation</div>
+			<div class="content">
+				Given a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( R \) on \( X \), we say it is <b>asymmetric</b> when for any \( x , y \in X \), if \( x R y \) then it's false that \( y R x \).
+			</div>
+		</div>
+		
 
 		<div class="definition" id="definition-transitive-relation">
 			<div class="title">Transitive Relation</div>
 			<div class="content">
-                Given a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-binary-relation">binary relation</span> \( R \) on \( X \), we say it is transitive if for any \( x , y , z \in X \) if \( x R y \) and \( y R z \) then \( y R x \)
+                Given a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( R \) on \( X \), we say it is transitive if for any \( x , y , z \in X \) if \( x R y \) and \( y R z \) then \( y R x \)
 			</div>
 		</div>
 
 		<div class="definition" id="definition-equivalence-relation">
-			<div class="title">equivalence relation</div>
+			<div class="title">Equivalence Relation</div>
 			<div class="content">
 				<p>
-					An equivalence relation is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-reflexive-relation">reflexive</span>, <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-symmetric-relation">symmetric</span> and <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-transitive-relation">transitive</span> relation
+					An equivalence relation is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-reflexive-relation">reflexive</a>, <a class="knowledge-link" href="/fundamentals/relations.html#definition-symmetric-relation">symmetric</a> and <a class="knowledge-link" href="/fundamentals/relations.html#definition-transitive-relation">transitive</a> relation
 				</p>
 				<p>
 					when \( R \) is an equivalence relation, we denote it by \( \sim \) instead of \( R \)
@@ -92,17 +109,31 @@
 			</div>
 		</div>
 
-		<div class="definition" id="definition-equivalence-class">
-			<div class="title">equivalence class</div>
+		<div class="definition" id="definition-connected-relation">
+			<div class="title">Connected Relation</div>
 			<div class="content">
-				Given an <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</span> \( \sim \) an equivalence class is a complete set of equivalent elements, which we denote by \( \left [ x \right ] \) which is defined to be the set \( \left \lbrace y \in X : y \sim x \right \rbrace \)
+				Given a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( R \) on \( X \), we say it is <b>connected</b> if for any \( x, y \in X \) if \( x \neq y \) then \( x R y  \) or \( y R x \)
+			</div>
+		</div>
+
+		<div class="definition" id="definition-strongly-connected-relation">
+			<div class="title">Strongly Connected Relation</div>
+			<div class="content">
+				Given a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> \( R \) on \( X \), we say it is <b>strongly connected</b> if for any \( x, y \in X \) \( x R y  \) or \( y R x \)
+			</div>
+		</div>
+
+		<div class="definition" id="definition-equivalence-class">
+			<div class="title">Equivalence Class</div>
+			<div class="content">
+				Given an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</a> \( \sim \) an equivalence class is a complete set of equivalent elements, which we denote by \( \left [ x \right ] \) which is defined to be the set \( \left \lbrace y \in X : y \sim x \right \rbrace \)
 			</div>
 		</div>
 
 		<div class="exercise" id="exercise-congruences-induce-a-equivalence-relation">
-			<div class="title">congruences induce a equivalence relation</div>
+			<div class="title">Congruences induce a Equivalence Relation</div>
 			<div class="content">
-				Fix \( n \in \mathbb{N}_{1} \), then relation on \( \mathbb{Z} \) by \( a R b \) if and only if \( a \% n = b \% n \) defines an <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation </span>				
+				Fix \( n \in \mathbb{N}_{1} \), then relation on \( \mathbb{Z} \) by \( a R b \) if and only if \( a \% n = b \% n \) defines an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation </a>
 			</div> 
 
 			<div class="proof">
@@ -113,29 +144,51 @@
 		</div>
 
 		<div class="definition" id="definition-partial-order">
-		    <div class="title">partial order</div>
+		    <div class="title">Partial Order</div>
 		    <div class="content">
 				<p>
-					a partial order is a binary relation \( R \) on a set \( X \) such that for any \( a , b , c \in X \) we have that:
-					<ul>
-						<li>\( a R a \)</li>
-						<li>if \( a R b \) and \( b R a \) then \( a = b \)</li>
-						<li>if \( a R b \) and \( b R c \) then \( a R c \)</li>
-					</ul>
-					And we say that \( X \) is a partially ordered set.
-				</p>
-				<p>
-					<i>
-						Note that the above three statements equivalently say that \( \le \) is a reflexive, anti-symmetric and transitive relation.
-					</i>
+					A partial order is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> denoted by \( \le \) on a set \( X \) such that \( \le \) is <a class="knowledge-link" href="/fundamentals/relations.html#definition-reflexive-relation">reflexive</a>, <a class="knowledge-link" href="/fundamentals/relations.html#definition-anti-symmetric-relation">symmetric</a> and <a class="knowledge-link" href="/fundamentals/relations.html#definition-transitive-relation">transitive relation</a>.
 				</p>
 		    </div>
 		</div>
+		
+		<div class="definition" id="definition-strict-partial-order">
+			<div class="title">Strict Partial Order</div>
+			<div class="content">
+				A strict partial order is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> denoted by \( \lt \) on a set \( X \) such that \( \lt \) is   <a class="knowledge-link" href="/fundamentals/relations.html#definition-transitive-relation">transitive</a> and <a class="knowledge-link" href="/fundamentals/relations.html#definition-asymmetric-relation">asymmetric</a>.
+			</div>
+		</div>
+
+		<div class="corollary" id="corollary-every-partial-order-admits-a-strict-partial-order">
+			<div class="title">Every Partial Order Admits a Strict Partial Order</div>
+			<div class="content">
+				Suppose that \( \left( X , \le  \right)  \) is a partial order, then there exists a relation \( \lt  \) such that \( \left( X, \lt  \right)  \) is a partial order such that
+				\[
+				    a \lt b \iff \left( a \le b \land a \neq b \right)
+				\]
+			</div>
+			<div class="proof">
+				Consider the partial order \( \left( X, \le  \right)  \), since \( \le  \) is a collection of tuples we just need to consider \( \lt = \le \setminus \left\{ \left( x, x \right) : x \in X \right\}  \)
+			</div>
+		</div>
+
+
+		<div class="definition" id="definition-comparable">
+			<div class="title">Comparable</div>
+			<div class="content">
+				Suppose \( R \) is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-partial-order">partial order</a>, then elements \( a, b \in R \) are said to be <b>comparable</b> if \( a R b \) or \( b R a \), otherwise they are said to be <b>incomparable</b>
+			</div>
+		</div>
+
+		<p>
+			With the strict partial order \( \subset  \) we can see that \( \left\{ 1 \right\}   \) and \( \left\{ 2 \right\}  \) are incomparable.
+		</p>
+
 
 		<div class="definition" id="definition-total-order">
-		    <div class="title">total order</div>
+		    <div class="title">Total Order</div>
 		    <div class="content">
-				A total order is a <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-partial-order">partial order </span>
+				A total order is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-partial-order">partial order</a> which is <a class="knowledge-link" href="/fundamentals/relations.html#definition-strongly-connected-relation">strongly connected</a>.
 		    </div>
 		</div>	
 
@@ -150,13 +203,22 @@
 		<div class="theorem" id="theorem-well-ordering">
 			<div class="title">well ordering</div>
 			<div class="content">
-				Every set \( X \) can be <span class="knowledge-link" data-href="/fundamentals/relations.html#definition-well-order">well ordered</span>		
+				Every set \( X \) can be <a class="knowledge-link" href="/fundamentals/relations.html#definition-well-order">well ordered</a>
 			</div>
 			<div class="proof">
 				TODO
 			</div>
 		</div>
 
+		<div class="proposition" id="proposition-the-smallest-element-of-a-set-is-unique">
+			<div class="title">The Smallest Element of a Set is Unique</div>
+			<div class="content">
+				Supose that \( \left( S, \le \right)   \) is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-partial-order">partial order</a>, then the smallest element is unique
+			</div>
+			<div class="proof">
+				Suppose that there are two smallest elements \( a, b \in S\) since \( a \) is the smallest then \( a \le b \) and since \( b \) is the smallest then \( b \le a \) by transitivity \( a = b \) and so the smallest element is unique.
+			</div>
+		</div>
 
     </div>
 </body>
