@@ -82,15 +82,76 @@
     	</div>
     </div>
 
+	<div class="definition" id="definition-bracket-string">
+		<div class="title">Bracket String</div>
+		<div class="content">
+			A bracket string is a finite tuple \( \left(  a _ 1, \ldots a _ k \right)  \) such that \( a _ i \in \left\{ \mathtt{(}, \mathtt{)} \right\}  \)
+		</div>
+	</div>
+
+	For example "())))(" is a bracket string.
+
+	<div class="definition" id="definition-valid-bracket-string">
+		<div class="title">Valid Bracket String</div>
+		<div class="content">
+			A bracket string \( \left( a _ 1, \ldots , a _ k \right) \)   is said to be valid by considering the mapping \( f : \left\{ \mathtt{(}, \mathtt{)} \right\} \to \left\{ -1, 1 \right\}   \) such that for any \( j \in \left[ 1, \ldots k \right]  \)
+			\[
+			    \sum _ { i = 1 }  ^ j f \left( a _ i \right)  \le 0 \text{ and } \sum _ { i = 1 }  ^  k f \left( a _ i \right) = 0
+			\]
+
+		</div>
+	</div>
+
+
+	<div class="proposition" id="proposition-bijection-between-valid-bracket-strings-and-lattice-paths">
+		<div class="title">Bijection Between Valid Bracket Strings and Lattice Paths</div>
+		<div class="content">
+			For every valid bracket string involving \( n \) pairs of brackets, this corresponds to exactly one lattice path from \( \left( 0, 0 \right)  \) to \( \left( n, n \right)  \) which never crosses the diagonal.
+		</div>
+		<div class="proof">
+			Consider the construction of a lattice path \( l \) from a valid bracket string
+			<ul>
+				<li>If \(  a  _ i = \mathtt{(} \) then \( l _ i = R\)  </li>
+				<li>If \(  a  _ i = \mathtt{)} \) then \( l _ i = U\)  </li>
+			</ul>
+			We can prove that this is a lattice path not crossing the diagonal by the definition of valid bracket string.
+		</div>
+	</div>
+
     <div class="proposition" id="proposition-number-of-bracketings-is-equal-to-the-nth-catalan-number">
-    	<div class="title">Number of Bracketings is Equal to the \( n \)-th Catalan Number</div>
+    	<div class="title">Number of Valid Bracketings is Equal to the \( n \)-th Catalan Number</div>
     	<div class="content">
     		The number of distinct arrangement of \( n \) pairs of left-right parenthesis which close is equal to \( C \left( n \right)  \)
     	</div>
     	<div class="proof">
-    		The idea is that we can build a bijection between each lattice path and valid parenthesis order, the fact that it doesn't cross the diagonal forces that the substrings of parenthesis are promising and the fact that it ends at \( \left( n, n \right)  \) means there are exactly the same number of left and right brackets.
+			This is true because we constructed a bijection valid bracket arrangments and lattice paths, the latter of which we know has size equal to \( C \left( n \right)  \) as needed.
     	</div>
     </div>
+	
+	<div class="exercise" id="exercise-counting-stars">
+		<div class="title">Counting Stars</div>
+		<div class="content">
+			Let \(S\) be a nonempty set, and \(*\) a binary operation on \(S\), called a star. If \(*\) is not known to be associative, the expression "the star of \(a, b, c\) " (for some \(a, b, c \in S\) ) is ambiguous. It could have one of 12 distinct interpretations:
+			\[
+			\begin{array}{llll}
+			(a * b) * c & a *(b * c) & (a * c) * b & a *(c * b) \\
+			(b * a) * c & b *(a * c) & (b * c) * a & b *(c * a) \\
+			(c * a) * b & c *(a * b) & (c * b) * a & c *(b * a) .
+			\end{array}
+			\]
+
+			For every \(n \in \mathbb{Z}^{+}\), let \(M(n)\) denote the number of distinct interpretations of the expression "the star of \(a_1, a_2, \ldots, a_n\) " (where \(a_1, a_2, \ldots, a_n\) are arbitrary elements in \(S\) ). Show that
+			\[
+			M(n)=\frac{(2 \left( n - 1  \right) )!}{\left( n - 1 \right) !}
+			\]
+		</div>
+		<div class="proof">
+			One can count \( M \left( n \right)  \) by first fixing a valid bracket arrangement and then permuting elements with that valid bracket arrangement, moreover note that the star of \( a _ 1, \ldots  a _ n \) contains \( n - 2 \) bracket pairs.
+
+		</div>
+	</div>
+	
+	
 
 
 

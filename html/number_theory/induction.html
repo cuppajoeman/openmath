@@ -373,6 +373,53 @@
             Let \( A \) be the statement of the well ordering principle, \( B \) that of induction and \( C \) of strong induction. Since we've proven \( A \implies B \), \( B \implies C \) and \( C \implies A \), then this induces a connected directed graph, and thus all statements are equivalent.
     	</div>
     </div>
+    
+    <div class="proposition" id="proposition-finite-induction">
+    	<div class="title">Finite Induction</div>
+    	<div class="content">
+            Suppose we have a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : \mathbb{ N } _ 0 \to \left\{ T, F \right\}  \) , then if
+            <ul>
+                <li>\( P \left( 0 \right)  \) </li>
+                <li>For any \( k \in \left\{ 0, \ldots j - 1  \right\} , P \left( k \right) \implies P \left( k + 1 \right)  \)  </li>
+            </ul>
+            then \( P \left( n \right)  \) holds for every \( n \in \left\{ 0, \ldots , j \right\}  \)
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+    
+    <div class="theorem" id="theorem-upward-downward-induction">
+    	<div class="title">Upward Downward Induction</div>
+    	<div class="content">
+            Let \(P: \mathbb{N} _ 0 \rightarrow\{\mathrm{T}, \mathrm{F}\}\) be a predicate such that:
+            <ol>
+                <li>\(P(n)\) is true for infinitely many \(n \in \mathbb{N} _ 0\); and</li>
+                <li>
+                    For every \(n \geq 1\) the implication \(P(n) \Longrightarrow P(n-1)\) is true
+                </li>
+            </ol>
+            then \(\forall n \in \mathbb{N} \cdot P(n)\).
+    	</div>
+    	<div class="proof">
+            <p>
+                Note that if \( P \left( 0 \right) \land P \left( 1 \right) \land \cdots \land P \left( l \right)  \) holds true for \( l \in \mathbb{ N } _ 0 \) then we would be able to conclude that \( P \left( n \right)  \) for all \( n \in \mathbb{ N } _ 0 \), let's prove that this statement is true.
+            </p>
+            <p>
+                Let \( l \in \mathbb{ N } _ 0 \) since \( P \left( n \right)  \) holds true for infinitely many values then there exists some \( l ^ \prime \in \mathbb{ N } _ 0 \) such that \( l ^ \prime \gt l \) such that \( P \left( l ^ \prime  \right)  \). Now consider the new predicate defined by \( Q \left( n \right) := P \left( l ^ \prime  - n  \right)  \), note that if \( Q \left( n \right)  \) holds true for values \( \left\{ l ^ \prime , l ^ \prime  - 1, \ldots 0 \right\}  \) then \( P \left( n \right)  \) holds true on the values \( \left\{ 0, \ldots l ^ \prime  \right\}  \) which is what we're trying to prove.
+            </p>
+            <p>
+                Therefore we'll prove that \( Q \) holds on \( \left\{ 0, \ldots l ^ \prime  \right\}  \) via <a class="knowledge-link" href="/number_theory/induction.html#proposition-finite-induction">finite induction</a>. Note that \( Q \left( 0 \right)  \) holds true as it is \( P \left( l ^ \prime  - 0  \right) = P \left( l ^ \prime  \right)  \), let \( k \in \left\{ 0, \ldots , l ^ \prime  - 1 \right\}  \) and assume \( Q \left( k \right)  \) holds true, which is to say that \( P \left( l ^ \prime  - k \right)  \) is true, let's prove that \( Q \left( k + 1  \right)  \) holds true, which is to say that we must prove that \( P \left( l ^ \prime  - k - 1 \right)  \) holds true.
+            </p>
+            <p>
+                Since \( l ^ \prime - k \ge l ^ \prime - \left( l ^ \prime  - 1 \right) = 1  \) then by the second property of \( P \) since we know that \( P \left( l ^ \prime  - k \right)  \) holds true, then we know that \( P \left( l ^ \prime - \left( k + 1  \right)  \right) = P \left( l ^ \prime  - k - 1 \right)   \) holds true, so that \( Q \left( k + 1  \right)  \) holds true, therefore by finite induction, see that \( Q \left( n \right)  \) holds on the set \( \left\{ 0, \ldots , l ^ \prime  \right\}  \) and therefore \( P \) holds on the set \( \left\{ 0, \ldots , l ^ \prime  \right\}  \) as well, which is what we were trying to show, and thus \( P \left( n \right)  \) holds true for all \( n \in \mathbb{ N } _ 0 \) .
+            </p>
+
+
+    	</div>
+    </div>
+    
 
 </div>
 </body>
