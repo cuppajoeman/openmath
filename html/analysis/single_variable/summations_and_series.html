@@ -27,9 +27,9 @@
         </div>
 
         
-        <div class="proposition" id="proposition-closed-form-of-a-geometric-series">
+        <div class="proposition" id="proposition-closed-form-of-a-geometric-summation">
             <div class="title">
-                Closed form of a Geometric Series
+                Closed form of a Geometric Summation
             </div>
 
             <div class="content">
@@ -64,6 +64,47 @@
         <p>
             Note that when \( x = 1 \) the sum simply yields \( k + 1 \).
         </p>
+
+        <div class="definition" id="definition-series">
+        	<div class="title">Series</div>
+        	<div class="content">
+        		Given a sequence \( \left( a _ n \right) _ { n = 1 }  ^ \infty  \) and defining \( S _ k  = \sum _ { i = 1 }  ^ k  a _ k \) then we define
+                \[
+                    \sum _ { i = 0 }  ^  \infty a _ i := \lim _ { n \to \infty  } S _ n
+                \]
+        	</div>
+        </div>
+
+        <p>
+            Note that because it is defined as a limit we can ask if \( \sum _ { i  = 0 }  ^ \infty  a _ n   \) converges or not.
+        </p>
+        
+        <div class="proposition" id="proposition-">
+        	<div class="title">Harmonic Series Diverges</div>
+        	<div class="content">
+        		\[
+        		    \sum _ { n = 1 }  ^  \infty \frac{1}{n}
+        		\]
+                diverges to \( \infty  \)
+        	</div>
+        	<div class="proof">
+        		We claim that \( S _ { 2 ^ k } \ge \frac{k + 2 }{2} = \frac{k}{2}  + 1 \) for all \( k \in \mathbb{ N } _ 0 \), for the base case we see that \( S _ { 2 ^ 0 } = S _ 1 = \frac{1}{1} \ge \frac{0}{2} + 1  \) so it holds true, now suppose its true for some \( j \in \mathbb{ N  } _ 0  \) we want to prove that \( S _ { 2 ^ { j + 1  }  } \ge \frac{j + 1 }{2} + 1  \)
+                \[
+                    \begin{align}
+                        S _ { 2 ^ { k + 1 }  } &= S _ { 2 ^ k } + \sum _ { m = 2 ^ k + 1  }  ^  { 2 ^ { k + 1  }  } \frac{1}{m} \\
+                &\ge \left( \frac{k }{2} + 1  \right)  + \sum _ { m = 2 ^ k + 1  }  ^  { 2 ^ { k + 1  }} \frac{1}{m}  \\
+                &\ge \left( \frac{k }{2} + 1  \right)  + \sum _ { m = 2 ^ k + 1  }  ^  { 2 ^ { k + 1  } }\frac{1}{2 ^ { k + 1   }  }  \\
+                &\ge \left( \frac{k }{2} + 1  \right) + \sum _ { m = 2 ^ k + 1  }  ^  { 2 ^ { k + 1  } } \frac{1}{2 ^ { k + 1  }   }  \\
+                &= \left( \frac{k }{2} + 1  \right)  + 2 ^ k \left( \frac{1}{2 ^ { k + 1  } }  \right) \\
+                &= \left( \frac{k }{2} + 1  \right) + \frac{1}{2}  \\
+                &= \frac{k + 1 }{2} + 1
+                    \end{align}
+                \]
+                Thus since \( S _ { 2 ^ k } \ge \frac{k}{2} + 1  \) and \( \lim  _ { k \to \infty  } \frac{k}{2} + 1 = \infty   \) then we know that \( \sum _ { k \to \infty  } S _ { 2 ^ k } = \infty    \) and thus since a subsequence \( S _ n \) diverges then we know that \( S _ n \) diverges
+        	</div>
+        </div>
+        
+        
 
         <div class="proposition" id="proposition-geometric-power-series">
             <div class="title">
@@ -197,6 +238,42 @@
                 \right )^{2}} - n \frac{t^{n + 1}}{1 - t} = \frac{t}{\left ( 1 - t \right )^{2}} \) as needed.</p>
             </div>
         </div>
+        
+        <div class="proposition" id="proposition-convergent-series-implies-sequence-goes-to-zero">
+        	<div class="title">Convergent Series Implies Sequence goes to Zero</div>
+        	<div class="content">
+                If \( \sum _ { n = 1 }  ^ \infty a _ n   \) is convergent then \( \lim _ { n \to \infty  } a _ n = 0 \) 
+        	</div>
+        	<div class="proof">
+                Let \( \left( S _ n \right) _ { n = 1 }  ^ \infty     \) be so defined such that \( S _ n = \sum _ { i = 0 }  ^ n a _ i   \), observe that \( S _ n - S _ { n - 1  } = a _ n  \) for all \( n \ge 2 \) so then 
+                \[
+                    \lim _ { n \to \infty  } a _ n = \lim _  { n \to  \infty  } \left( s _ n - s _ {  n - 1 }  \right) = \lim _ { n \to \infty  }  s _ n - \lim _ { n \to \infty  } s _ { n - 1 } = 0
+                \]
+        	</div>
+        </div>
+        
+        <div class="theorem" id="theorem-cauchy-criterion-for-series">
+        	<div class="title">Cauchy Criterion for Series</div>
+        	<div class="content">
+        		Suppose that \( \sum _ { n = 1 }  ^ \infty  a _ n   \) is a series, then the following are equivalent:
+                <ol>
+                    <li>The series converges</li>
+                    <li>\( \forall \epsilon \in \mathbb{ R } ^ + , \exists N \in \mathbb{ N } _ 0 \text{ st } \forall n \in \mathbb{ N } _ 0 , n \ge N \implies \lvert \sum _ { k = n + 1  }  ^ \infty  a _ k   \rvert \lt \epsilon   \) </li>
+                    <li>\( \forall \epsilon \in \mathbb{ R } ^ + , \exists N \in \mathbb{ N } _ 0 \text{ st } \forall n, m \in \mathbb{ N } _ 0 , n, m \ge N \implies \lvert \sum _ { k = n + 1  }  ^ m  a _ k   \rvert \lt \epsilon   \) </li>
+                </ol>
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <p>
+            Note that 2 informally says that tails converge and are arbitrarily small, and 3 essentially says that \( S _ n \) is a cauchy sequence because \( \sum  _ { k = n + 1 }  ^ m a _ k  = S _ m - S _ n \)
+        </p>
+        
+        
+
+
     </div>
 </body>
 </html>

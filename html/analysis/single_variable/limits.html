@@ -306,16 +306,171 @@
 
             
 
-            <div class="theorem" id="theorem-monotone-convergence">
-            	<div class="title">Monotone Convergence</div>
+            <div class="theorem" id="theorem-bounded-above-and-monotone-increasing-converges-to-supremum">
+            	<div class="title">Bounded Above and Monotone Increasing Converges to Supremum</div>
             	<div class="content">
-                    A monotone increasing sequence that is bounded above converges to \( L =  \)
-            		
+                    A monotone increasing sequence that is bounded above converges to \( L = \sup \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)  \)
             	</div>
             	<div class="proof">
-            		
+                    <p>
+                        Since \( \left( a _ n \right) _ { n = 1 }  ^ \infty     \) is bounded above, then so is \( \operatorname{ im } \left( \left( a _ n \right)  \right) \subseteq \mathbb{ R }   \) therefore since \( \mathbb{ R }  \) has the least upper bound property, we know that \( \sup \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)  \) exists, call it \( L \) and we'll prove that \( \left( a _ n \right)  \) converges there.
+                    </p>
+                    <p>
+                        Let \( \epsilon \in \mathbb{ R } ^ + \) by definition of the supremum we know that \( L - \epsilon  \) is not an upper bound for \( A \), in other words there exists some element \( a _ N \in \operatorname{ im } \left( \left( a _ n \right)  \right)  \) such that \( L - \epsilon \lt a _ N \)
+                    </p>
+                    <p>
+                        Since \( \left( a _ n \right)  \) is increasing, we know that for any \( n \in \mathbb{ N } , n \ge N , a _ N \le a _ n \), moreover \( L \) is an upperbound so that we get
+                        \[
+                            L - \epsilon \lt a _ N \le a _ n \le L \lt L + \epsilon \implies L - \epsilon \lt a _ n \lt L + \epsilon
+                        \]
+                        <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">therefore</a> \( \lvert a _ n - L \rvert \lt \epsilon  \), therefore \( \lim _ { n \to \infty  } a _ n = L  \) as needed.
+                    </p>
             	</div>
             </div>
+
+            <div class="theorem" id="theorem-bounded-below-and-montone-decreasing-converges-to-infimum">
+            	<div class="title">Bounded Below and Monotone Decreasing Converges to Infimum</div>
+            	<div class="content">
+                    A monotone decreasing sequence that is bounded below converges to \( L = \inf \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)  \)
+            	</div>
+            	<div class="proof">
+                    If \( \left( a _ n \right)  \) is decreasing and bounded below by \( B \), then the sequence \( \left( - a _ n \right)  \) is increasing and bounded above by \( - B \). Thus the sequence \( \left( -a _ n \right) _ { n = 1 }  ^ \infty  \) has limit \( L = \sup \left( \operatorname{ im } \left( \left( - a _ n \right)  \right)  \right) \) <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-negative-of-infimum-is-supremum-of-negatives">recall that</a>
+                    \[
+                        \sup \left( \operatorname{ im } \left( \left( - a _ n \right)  \right)   \right) = - \inf \left( \left\{ -x : x \in \operatorname{ im } \left( \left( - a _ n \right)  \right)  \right\}  \right) = - \inf \left( \operatorname{ im } \left( a _ n \right)  \right)
+                    \]
+                    So that \( -L = \inf \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)  \). Then note that \( \lim _ { n \to \infty  } - a _ n = L  \) implies that \( -L = \lim _ { n \to \infty  } a _ n \) so we conclude that
+                    \[
+                        \lim _ { n \to \infty  } a _ n = \inf \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)
+                    \]
+                    as needed.
+            	</div>
+            </div>
+            
+            <div class="exercise" id="exercise-nested-square-root-twos">
+            	<div class="title">Nested Square Root Twos</div>
+            	<div class="content">
+                    Consider the sequence defined as follows for \( \alpha \in \mathbb{ R } ^ + \)
+                    <ul>
+                        <li>\( a _ 1 = \sqrt{ \alpha  }   \) </li>
+                        <li>\( a _ { n + 1  } = \sqrt{ \alpha  + a _ n  }   \) for every \( n \ge 1 \)  </li>
+                    </ul>
+                    Show that it converges
+            	</div>
+            	<div class="proof">
+                    <p>
+                        One way to show that it converges would to be the use the MCT for monotone increasing sequences. We start by showing that it is monotone increasing by showing it is strictly increasing.
+                    </p>
+                    <p>
+                        For the base case we need to verify that \( a _ 1 \lt a _ 2 \) which is equivalent to showing that \( \sqrt{ \alpha  }   \lt \sqrt{ \alpha  + \sqrt{ \alpha  }  } \) this is true because \( \sqrt{ \cdot  }  \) is order preserving and we know that \(  \alpha   \lt  \alpha + \sqrt{ \alpha  }   \) because \( \sqrt{ \alpha  }  \gt 0 \).
+                    </p>
+                    <p>
+                        For the induction step assume that \( a _ k \lt a _ { k + 1  }  \) and we'll prove that \( a _ { k + 1  } \lt a _ { k + 2 }   \). Note that \( a _ { k + 2  } = \sqrt{ \alpha + a _ { k + 1  }  }   \) by the induction hypothesis we can see that \( \sqrt{ \alpha + a _ { k + 1  }  } \gt \sqrt{ \alpha + a _  k   } = a _ { k + 1  }   \), thus we have that \( a _ { k + 2  } \gt a _ { k + 1 }  \) as needed.
+                    </p>
+                    <p>
+                        We'll move on to showing that it is bounded now, to do so we claim that \( \sqrt{ \alpha  } + 1  \) is an upper bound, we'll show it is by induction, so for \( n = 1 \) we see that \( \sqrt{ \alpha } \le \sqrt{ \alpha  } + 1    \), now assuming it's true for \( k \in \mathbb{ N } _ 1 \) we'll show that \( a _ { k + 1  } \le \sqrt{ \alpha } + 1   \). We note that \( a _  { k + 1  } = \sqrt{ \alpha + a _ k }    \) and thus by the induction hypothesis we have \( \sqrt{ \alpha + a _ k } \le \sqrt{ \alpha + \sqrt{ \alpha } + 1  }   \), but note that
+                        \[
+                            \sqrt{ \alpha + \sqrt{ \alpha  } + 1  } \lt \sqrt{ \alpha + 2 \sqrt{ \alpha  } + 1   } = \sqrt{ \left(  \sqrt{ \alpha }+ 1     \right) ^ 2  } = \sqrt{ \alpha  } + 1
+                        \]
+                        thus chaining inequalities we obtain \(  a _ { k + 1  } \le \sqrt{ \alpha  } + 1   \) as needed, the choice of \( \sqrt{ \alpha  } + 1   \) was inspired by thinking ahead to induction, what we would have to prove and figuring out what it can be upper bounded.
+                    </p>
+                    <p>
+                        Since we've shown monotone increasing and bounded above, then the sequence converges to some \( L \in \mathbb{ R }  \), if that's true then \( L = \sqrt{ \alpha + L }  \) because \( \lim _ { n \to \infty  } a _ { n + 1 } =  \lim _ { n \to \infty  } \sqrt{ \alpha + a _ n }    \) therefore \( L ^ 2 = \alpha + L \) so that \( L ^ 2 - L - \alpha = 0 \) so by the quadratic formula we have
+                        \[
+                            L = \frac{1 \pm \sqrt{ 1 + 4 \alpha  } }{2}
+                        \]
+                        but since \( a _ n \ge 0 \) for all \( n \in \mathbb{ N } _ 1 \) then we know that \( L \ge 0 \) and therefore specifically it converges to
+                        \[
+                        L = \frac{1 + \sqrt{ 1 + 4 \alpha  } }{2}
+                        \]
+                    </p>
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-inequality-from-sequence-to-limit">
+            	<div class="title">Inequality From Sequence to Limit</div>
+            	<div class="content">
+            		Suppose \( \left( a _ n \right), \left( b _ n \right)   \) are converging sequences such that \( a _ n \le b _ n \) for all \( n \in \mathbb{ N } _ 1 \) then
+                    \[
+                        \lim _ { n \to \infty  } a _ n \le \lim _ {  n \to \infty  } b _ n
+                    \]
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+
+            <div class="lemma" id="lemma-nested-intervals">
+            	<div class="title">Nested Intervals</div>
+            	<div class="content">
+            		Suppose that \( I _ n = \left[ a _ n, b _ n \right]  \) are nonempty closed intervals such that \( I _ { n + 1  } \subseteq I _ n  \) for every \( n \in \mathbb{ N } _ 1 \), then
+                    \[
+                        \bigcap _ { n \in \mathbb{ N } _ 1 } I _ n \neq \emptyset
+                    \]
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Since \( \left[ a _ { n + 1  }, b _ { n + 1 }   \right] \subseteq \left[ a _ n, b _ n \right]   \) then we know that \( a _ n \le a _ {  n + 1 } \le  b _ {  n + 1  } \le b _ n   \) for any \( n \in \mathbb{ N } _ 1 \) and therefore we conclude that \( \left( a _ n \right)  \) is monotone increasing and that \( \left( b _ n \right)  \) is monotone decreasing. Also note that \( a _ n \le b _ n \le b _ 1  \)  and \( a _ 1 \le  a _ n  \le  b _ n \) so that by transitivity we obtain \( a _ n \le b _ 1 \) and \( a _ 1 \le  b _ n \) which is to say that \( a _ n \) is bounded above and that \(  b _ n  \) is bounded below.
+                    </p>
+                    <p>
+                        Therefore from both versions of the montone convergence theorem we see that \( a _ n \) and \( b _ n \) converge to \( a := \sup \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right) , b := \inf \left( \operatorname{ im } \left( b _ n \right)  \right)  \) respectively and from the above proposition we see that \( a \le b \)
+                    </p>
+                    <p>
+                        By the definition of the supremum and infimum, we also have that
+                        \[
+                            a _ k \le  a \le b \le  b _ k
+                        \]
+                        for all \( k \in \mathbb{ N } _ 1 \) meaning that \( a, b \) belongs to \( I _ k \), so that \( \left\{ a, b \right\} \subseteq \bigcap _ { n \in \mathbb{ N } _ 1 } I _ n   \) and so it must not be empty.
+                    </p>
+            	</div>
+            </div>
+
+            <div class="theorem" id="theorem-bolazno-wierstrass">
+            	<div class="title">Bolzano-Weierstrass</div>
+            	<div class="content">
+                    Every bounded sequence of real numbers has a convergent subsequence.
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Let \( \left( a _ n \right)  \) be bounded by \( B \), therefore \( \operatorname{ im } \left( \left( a _ n \right)  \right) \subseteq \left[ -B, B \right]   \). If \( I \) is an interval containing infinitely man points of ths equence \( \left( a _ n \right)  \) and \( I = J _ 1 \cup  J _ 2 \) then at least one of \( J _ 1, J _ 2 \) has infinitely many elements or we would have a contradiction.
+                    </p>
+                    <p>
+                        With that in mind we construct the following sequence of intervals
+                    </p>
+
+                    <ul>
+                        <li>
+                            \( I _ 1 = \left[ a _ 1, b _ 1 \right]  \) where \(  a _ 1 = -B \) and \( b _ 1 = B\)
+                        </li>
+                        <li>
+                            Consider \(  L =  \left[ a _ m, \frac{a _ m + b _ m }{2}  \right]\) and \( R =  \left[ \frac{a _ m + b _ m}{2} , b _ m \right] \)
+                            <ul>
+                                <li>If \( L \cap \operatorname{ im } \left( a _ n \right) \) is infinite then \(  I _ {  m + 1  } = L \)
+                                </li>
+                                <li>
+                                    If \( R \cap \operatorname{ im } \left( a _ n \right) \) is infinite then \(  I _ {  m + 1  } = R \)
+                                </li>
+                                <li>
+                                    If both are infinite just use \( I _ { m + 1  } = L \)
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>
+                        We now construct a subsequence as follows: Since every \( I _ k \cap \operatorname{ im } \left( \left( a _ n \right)  \right) \) is infinite then we know there is some \( a _ j \in I _ k \cap \operatorname{ im } \left( \left( a _ n \right)  \right)  \), this defines a function \( \sigma : \mathbb{ N  } _ 1 \to  \mathbb{ N }  _ 1  \) such that \( \sigma \left( k  \right) = j  \) and we use this to make our subsequence \( \left( a _ { \sigma \left( n \right) }   \right)  \)
+                    </p>
+                    <p>
+                        We will now show that this subsequence converges. Note that by construction we see that \( I _ { k + 1  } \subseteq I _ k  \) for all \( k \in \mathbb{ N } _ 1 \), and that each is non-empty, so that by the nested intervals lemma there exists an \( L \in \bigcap  { n \in \mathbb{ N } _ 1 } I _ n  \), let's show that the subsequence converges there. Moreover note that \( \lvert I _ k \rvert = 2 ^ { 2 - k  } B   \)
+                    </p>
+                    <p>
+                        Let \( \epsilon \in \mathbb{ R } ^ + \) then there exists some \( k \in \mathbb{ N } _ 1 \) such that \( 2 ^ { k - 2 } B  \le \epsilon  \) and thus by definition of \( \sigma \) we have \( a _ { \sigma \left( k \right)  }, L \in I _ k  \) and thus \( \lvert a _ { \sigma \left( k \right) }  - L  \rvert \le \lvert I _ k \rvert = 2 ^ { 2 - k } B \le \epsilon    \) which shows that \( \left( a _ { \sigma \left( n \right)  }  \right) \to L  \)
+                    </p>
+            	</div>
+            </div>
+
+
+            
+
             
 
         </div>
