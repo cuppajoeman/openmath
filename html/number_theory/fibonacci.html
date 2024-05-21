@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fibonacci Sequence</title>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer></script>
+
+</head>
+
+<body>
+<div class="thin-wrapper">
+
+    <div class="definition" id="definition-the-fibonacci-numbers">
+    	<div class="title">The Fibonacci Numbers</div>
+    	<div class="content">
+    		We define the \( n \)-th fibonacci number as follows
+            <ul>
+                <li>\( F _ 0 = 0 \) and \( F _ 1 = 1 \)  </li>
+                <li>\( F _ n = F _ {  n - 1 } + F _ { n - 2 }  \) for every \( n \ge 2 \)  </li>
+            </ul>
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-sum-equals-jump-two-minus-one">
+    	<div class="title">Sum Equals Jump 2 minus One</div>
+    	<div class="content">
+    		For every \( n \in \mathbb{ N }  _ 0 \) we have
+            \[
+                F _ 0 + F _ 1 + \cdots + F _ n = F _ { n + 2 } - 1
+            \]
+    	</div>
+    	<div class="proof">
+    	    We prove it by induction, for the base case \( F \left( 0 + 2 \right) - 1 = \left( F _ 1 + F _ 0  \right) - 1 = 1 + 0 - 1  = 0 = F _ 0   \) 	as needed. Next assume it holds true for \( k \in \mathbb{ N } _ 0 \) and then we want to prove that \( F _ { k + 3 } - 1 = F _ 0 + \ldots + F _ { k + 1  }   \), we can handle the sum with the inductive hypothesis, so that
+            \[
+                F _ 0 + \ldots  + F _ k + F _ { k + 1  } = \left( F _ { k + 2  } - 1   \right) + F _ { k + 1  }  = F _ { k + 3  } - 1
+            \]
+            as needed.
+    	</div>
+    </div>
+    
+
+</div>
+</body>

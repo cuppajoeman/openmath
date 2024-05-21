@@ -59,6 +59,41 @@
             	</div>
             </div>
 
+            <div class="exercise" id="exercise-limit-of-sine-doesnt-exist-at-infinity">
+            	<div class="title">Limit of Sine Doesn't Exist at Infinity</div>
+            	<div class="content">
+            		Show that \( \lim _ { n \to \infty  } \sin \left( \frac{n \pi}{2}  \right)   \) doesn't exist using the definition of limit.
+            	</div>
+            	<div class="proof">
+            		To show that the limit doesn't exist we will use the negation of the definition and show that is true, so we have to prove that
+                    \[
+                        \forall L \in \mathbb{ R } , \exists \epsilon \in \mathbb{ R } ^ + \text{ st } \forall N \in \mathbb{ N } _ 0 , \exists n \in \mathbb{ N } _ 0 \text{ st } \left( n \ge N \land \lvert a _ n - L \rvert \ge \epsilon   \right)
+                    \]
+                    So let \( L \in \mathbb{ R }  \) and take \( \epsilon = \frac{1}{4}  \) let \( N \in \mathbb{ N } _ 0 \). 
+                    <p>
+                        Before finding our \( n \) value, consider sequence \( a _ n =  \sin \left( \frac{n \pi}{2}  \right)  \), and that \( \lvert  a _ n - a _ { n + 1  }  \rvert = 1  \). 
+                    </p>
+                    <p>
+                        Now to find our \( n \) value we look at the requirement that \( \lvert a _ n - L \rvert \ge \epsilon \) which means that it's not true that \( \lvert a _ n - L \rvert \lt \epsilon   \), so that in <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">other words</a> \( a _ n \notin \left( L - \epsilon , L + \epsilon  \right)  \), due to the fact that \( \ell \left( \left( L - \epsilon , L + \epsilon  \right)  \right) = \frac{1}{2}  \) then given that \( \lvert a _ N - a _ { N + 1  }  \rvert = 1   \) then exactly one of \( a _ N, a _ { N + 1  } \) is not in \( \left( L - \epsilon , L + \epsilon  \right)  \) therefore we can set \( n \) respectively to force \( \lvert a _ n - L \rvert \ge \epsilon   \) as needed.
+                    </p>
+                    
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-non-zero-limit-implies-eventually-non-zero-sequence">
+            	<div class="title">Non-Zero Limit Implies Eventually Non-Zero Sequence</div>
+            	<div class="content">
+            		Suppose that \( \lim _ { n \to \infty  } a _ n = L  \neq 0 \) then there exists some \( N \in \mathbb{ N } _ 0 \) such that \( a _ n \neq 0 \) for all \( n \ge N \).
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Suppose for the sake of contradiction that that was not true, so that for every \( N \) we had some \( n \ge N \) such that \( a _ n = 0 \), let's derive a contradiction.
+                    </p>
+                    <p>
+                        Since \( \left( a _ n \right) \to L  \) then specifically for \( \epsilon = \frac{L}{2}  \) we have some \( N ^ \prime  \in \mathbb{ N } _ 0  \) such that for every \( n \ge N ^ \prime  \) we have \( \lvert a _ n - L  \rvert \le \frac{L}{2}   \), therefore by our contradiction assumption we also know there is some \( k \ge N ^ \prime  \) such that \( a _ k = 0 \) so therefore because the limit exists we have \( \lvert a _ k - L \rvert \le \frac{L}{2}   \) but \( a _ k = 0 \) so that \( \lvert L \rvert \le \frac{L}{2}  \) which is impossible so therefore we have a contradiction and so the original statement holds true.
+                    </p>
+            	</div>
+            </div>
 
             <div class="definition" id="definition-sequence-goes-to-positive-infinity">
                 <div class="title">Sequence Goes to Positive Infinity</div>
@@ -69,6 +104,7 @@
                     \]
                 </div>
             </div>
+
 
             <p>
                 You can probably guess the next definition.
@@ -94,6 +130,64 @@
                     We say that a sequence goes to infinity if it <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-sequence-goes-to-positive-infinity">goes to positive infinity</a> or <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-sequence-goes-to-negative-infinity">negative infinity</a>, and write \( \left( x _ n \right) \to  \pm \infty  \)
                 </div>
             </div>
+
+            <div class="exercise" id="exercise-log-goes-to-infinity">
+            	<div class="title">Log Goes to Infinity</div>
+            	<div class="content">
+                    Show that \( \left( \ln \left( n \right)  \right) _ { n = 1 }  ^ \infty    \to \infty   \)
+            	</div>
+            	<div class="proof">
+                    Let \( M \in \mathbb{ R } ^ + \) and take \( N = \left\lceil e ^ M \right\rceil  \) and let \( n \ge N \) therefore \( n = \left\lceil e ^ M \right\rceil  + k \) for some \( k \in \mathbb{ N } _ 0 \) since \( \ln \) is increasing then we know that \( M = \ln \left( e ^ M \right) \le \ln \left( \left\lceil e ^ M \right\rceil  \right) \le \ln \left( \left\lceil e ^ M \right\rceil + k  \right)    \) so that \( M \le \ln \left( n \right)  \) as needed therefore it goes to infinity
+            	</div>
+            </div>
+
+<!--            <div class="proposition" id="proposition-function-constant-inequality-has-solution-of-funciton-has-inverse">-->
+<!--            	<div class="title">Function Constant Inequality Has Solution if Function has Inverse</div>-->
+<!--            	<div class="content">-->
+<!--            		Suppose that \( f \) is an <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">invertible function</a> and \( c \in \mathbb{ R }  \) then-->
+<!--                    \[-->
+<!--                        f \left( x \right) \le c-->
+<!--                    \]-->
+<!--                    has a solution?-->
+<!--            	</div>-->
+<!--            	<div class="proof">-->
+
+<!--            	</div>-->
+<!--            </div>-->
+
+
+            <div class="proposition" id="proposition-two-limits-that-get-arbitrarily-close-have-the-same-limit">
+            	<div class="title">Two Limits that get Arbitrarily Close Have the Same Limit</div>
+            	<div class="content">
+            		Suppose htat \( \left( a _ n \right) , \left( b _ n \right) \) are sequence of real numbers such that \( \lvert a _ n - b _ n \rvert \lt \frac{1}{n}   \). If \( L = \lim _ { n \to \infty  } a _ n  \) exists, then \( \lim _ { n \to \infty  } b _ n = L  \) as well
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Let \( \epsilon \in \mathbb{ R } ^ + \) we need to pick an \( N \in \mathbb{ N } _ 0 \) such that for every \( n \ge N \) we have that \( \lvert b _ n - L \rvert \lt \epsilon   \).
+                    </p>
+                    <p>
+                         Since \( \lim  _ { n \to \infty  } a _ n = L  \) then we can set  \( \epsilon ^ \prime = f \left( \epsilon  \right)   \) for any function \( f : \mathbb{ R } ^ + \to \mathbb{ R } ^ +  \) of our choosing, to get some \( N ^ \prime  \) such that for any \( n \ge N ^ \prime  \) we have \( \lvert a _ n - L  \rvert \lt  f \left( \epsilon  \right)   \)
+                    </p>
+                    <p>
+                        Morover note that for this given \( \epsilon  \) we can always find a \( K \in \mathbb{ N } _ 1 \) such that \( \frac{1}{K} \lt g \left( \epsilon  \right)  \) where \( g : \mathbb{ R } ^ + \to \mathbb{ R } ^ +  \) is of our choosing,
+                        By picking \( N = \max \left( N ^ \prime, K \right) \) we know that
+                    </p>
+                    \[
+                        \begin{align}
+                            \lvert b _ n - L \rvert &= \lvert b _ n - a _ n + a _ n - L \rvert \\
+                    &\le \lvert b _ n - a _ n \rvert + \lvert a _ n - L \rvert  \\
+                    &\le \frac{1}{n} + f \left( \epsilon  \right) \\
+                    &\le \frac{1}{K} + f \left( \epsilon  \right) \\
+                    &\le g \left( \epsilon  \right) + f \left( \epsilon\right)
+                        \end{align}
+                    \]
+                    <p>
+                        to obtain the desired inequality one would have to pick \( f, g \) such that \( f \left( \epsilon \right) + g \left( \epsilon  \right)   \lt \epsilon \), a simple choice of \( f \left( x \right) = g \left( x \right) = \frac{x}{4}   \) yields \( \lvert b _ n - L  \rvert \lt \frac{\epsilon }{2} \lt \epsilon    \)
+                    </p>
+            	</div>
+            </div>
+
+
 
 
             <div class="definition" id="definition-bounded-sequence">

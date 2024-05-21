@@ -112,6 +112,20 @@
 				</div>
 			</div>
 
+
+
+			<div class="definition" id="definition-maximum-value">
+				<div class="title">Maximum Value</div>
+				<div class="content">
+					Given a set \( S \) a maximum value is an element \( s \in S \) such that for every \( s ^ \prime \in S, s ^ \prime \le s \)
+				</div>
+			</div>
+
+			<p>
+				One way of thinking of the maximum value is that the set \( S \) contains one of it's upper bounds.
+			</p>
+
+
 			<div class="definition" id="definition-least-upper-bound-property">
 				<div class="title">Least Upper Bound Property</div>
 				<div class="content">
@@ -125,9 +139,26 @@
 					As per title.
 				</div>
 				<div class="proof">
-
+					Suppose we have some upper bound \( s \in S \) such that for every \( s ^ \prime \in S \) \( s ^ \prime \le s \), then \( s \) is the supremum of \( S \), the reason why is that by contradiction if there was a smaller upper bound say \( x \) such that \( x \lt s \) then \( x \) would not be an upper bound because there exists an element in \( S \) greater than it, namely \( s \), therefore \( s \) is the smallest upper bound and so \( \sup \left( S \right) = s \).
 				</div>
 			</div>
+
+			<div class="proposition" id="proposition-maximum-value-iff-contains-sup">
+				<div class="title">Maximum Value iff Contains Sup</div>
+				<div class="content">
+					A set \( S \) has a maximum value given by \( \sup \left( S \right)  \)  iff \(  \sup \left( S \right) \in S  \)
+				</div>
+				<div class="proof">
+					<p>
+						\( \implies  \) Suppose \( S \) has a maximum value \( s \) <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#lemma-if-an-upper-bound-is-contained-in-the-set-it-is-the-supremum">therefore</a> it is the supremum, therefore since the maximum value is contained within the set \( S \) then s
+					</p>
+					<p>
+						\( \impliedby \) Let \( s = \sup \left( S \right)  \) and assume that \( s \in S \) therefore \( s \) is an upper bound and is contained in \( S \), therefore \( s \) is the max value of \( S \) as needed.
+					</p>
+				</div>
+			</div>
+
+
 			<div class="proposition" id="proposition-negative-of-infimum-is-supremum-of-negatives">
 				<div class="title">Negative of Infimum is Supremum of Negatives</div>
 				<div class="content">
@@ -212,8 +243,6 @@
 					<p>
 						But it also is the least upper bound, so suppose for the sake of contradiction that there was a smaller upper bound \( B \) so that \( B \lt L \) and set \( \epsilon = \frac{L - B}{2}  \) similarly to our previous paragraph we can obtain some \( N \) such that \( \lvert a _ N - L \rvert \lt \epsilon   \) which implies that \( B \lt a _ N \) but that would imply that \( a _ N \) is an upper bound, which is not possible, and therefore we have a contradiction so \( L \) is the least upper bound.
 					</p>
-
-
 				</div>
 			</div>
 
