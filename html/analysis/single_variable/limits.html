@@ -287,6 +287,45 @@
                     \]
             	</div>
             </div>
+            <div class="proposition" id="proposition-limit-to-a-limit">
+            	<div class="title">Limit to a Limit</div>
+            	<div class="content">
+            		Suppose \( \left( x _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R }   \) and that \( L _ k \) are real numbers such that \( \lim _ { k \to \infty  } L _ k = L  \), if for each \( k \in \mathbb{ N } _ 1 \) there is a subsequence of \( \left( x _ n \right)  \) converging to \( L _ k \) show that some subsequence of \( \left( x _ n \right)  \)  converges to \( L \).
+            	</div>
+            	<div class="proof">
+                    <p>
+                        We will construct a subsequence \( \left( x _ { \sigma \left( n \right)  }  \right)  \) such that \( \lvert x _ \sigma \left( k \right) - L  \rvert \lt \frac{1}{k}   \). By doing so, we will have solved the problem, because for any \( \epsilon \in \mathbb{ R } ^ +  \) there is always a \( k \in \mathbb{ N } _ 1 \) such that \( \frac{1}{k} \lt \epsilon  \) which shows that \( \lvert x _ { \sigma \left( k \right)  } - L  \rvert \lt \epsilon   \) by transitivity.
+                    </p>
+                    <p>
+                        Consider any \( j \in \mathbb{ N } _ 1 \) by assumption there is some \( \sigma _ j  \) such that \( \left( x _ { \sigma _ j \left( n \right)  }  \right) \to L _ j  \), thus for any \( a \in \mathbb{ R } ^ +  \) we get some \( N _ { j _ 1 }  \in \mathbb{ N } _ 0 \) such that for any \( n \ge N _ { j _ 1 }  \) we have \( \lvert x _ { \sigma _ j  \left(  n \right)  } - L _ j  \rvert \lt a  \).
+                    </p>
+                    <p>
+                        Also consider the fact that for any \( b \in \mathbb{ R } ^ +  \) we have some \( N _ { j _ 2 }   \in \mathbb{ N } _  0 \) such that for any \( n \ge N  _ { j _ 2 }  \) we have: \( \lvert L _ n - L \rvert \lt b  \). Note that if we consider the value \( N _ j = \max \left( N _ { j _ 1 }  , N _ { j _ 2 }    \right)  \), we have both
+                        \[
+                            \lvert x _ { \sigma _ j \left( N _ j \right)  } - L \lt a  \rvert \text{ and } \lvert L _ { N _ j } - L  \rvert \lt b
+                        \]
+                        We claim that \( \sigma \left( j  \right) =  \sigma _ j \left( N _ j  \right)   \) will work as our subsequence index function.
+                    </p>
+                    <p>
+                        Note the above paragraph states that for any concrete value of \( j \)  and then of \( a, b \) we obtain some \( N _ j  \) such that the discussed inequalities hold true.
+                    </p>
+                    <p>
+                        We want to prove that \( \lvert x _ { \sigma \left( k \right)  } - L   \rvert \lt \frac{1}{k}   \), to show this, let \( k \in \mathbb{ N } _ 1 \), then consider \( a, b = \frac{1}{2k}  \), so that we get some \( N _ k   \) and we have:
+                        \[
+                            \begin{align}
+                        \lvert x _ { \sigma \left( k \right)  } - L  \rvert &= \lvert x _ {  \sigma _ k \left( N _ k \right)     } - L  \rvert \\
+                        &= \lvert x _ {  \sigma _ k \left( N _ k \right)     } - L _ { N _ k } + L _ { N _ k } - L   \rvert \\
+                        &\le \lvert x _ { \sigma _ k \left( N _ k \right)  } - L _ { N _ k }   \rvert  + \lvert L _ { N _ k } - L  \rvert \\
+                        &\lt \frac{1}{2k} + \frac{1}{2k} \\
+                        &= \frac{1}{k}
+                            \end{align}
+                        \]
+                        which solves the problem
+                    </p>
+            	</div>
+            </div>
+            
+            
 
             <div class="proposition" id="proposition-generalized-triangle-inequality">
             	<div class="title">Generalized Triangle Inequality</div>
