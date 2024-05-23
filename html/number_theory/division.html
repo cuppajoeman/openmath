@@ -269,6 +269,44 @@
             </div>
         </div>
 
+        <div class="lemma" id="lemma-product-of-two-equal-factors-means-they-are-square-roots">
+        	<div class="title">Product of Two Equal Factors means They are Square Roots</div>
+        	<div class="content">
+        		Suppose that \(  a =  bc \) then \( b = \sqrt{ a }  \) iff \( b = c \)
+        	</div>
+        	<div class="proof">
+                <p>
+                    \( \implies  \) suppose that \( b = \sqrt{ a }  \) then for sake of contradiction if \( b \neq c \) then if \( c \lt b \) then we see that \( a = b c \lt b b =  \sqrt{ a } \sqrt{ a } = a   \) which is impossible, on the other hand if \( c \gt b = \sqrt{ a }  \) then we see \( a = b c \lt c c \lt \sqrt{ a } \sqrt{ a }   \) which yields the same contradiciton.
+                </p>
+                <p>
+                    \( \impliedby  \) Now suppose that \(  b = c \) therefore \( a =  b c = b b \) therefore \( b ^ 2 = a \) and so \( b = \sqrt{ a }  \) as needed, moreover in this case note that \(  c = \sqrt{ a }  \) as well.
+                </p>
+        	</div>
+        </div>
+
+        
+        <div class="proposition" id="proposition-product-implies-square-root-bound-on-factors">
+        	<div class="title">Product Implies Square Root bound on Factors</div>
+        	<div class="content">
+        		Suppose that \( a, b, c \in \mathbb{ N } _ 1 \) and that \( b \neq c \) where \( a = b c \) then
+                \[
+                    \left( b \gt \sqrt{ a } \land c \lt \sqrt{ a }  \right) \lor \left( b \lt \sqrt{ a } \land c \gt \sqrt{ a }   \right) 
+                \]
+        	</div>
+        	<div class="proof">
+                Suppose for the sake of contradiction that it was not true, so that we knew that
+                \[
+                \left( b \le \sqrt{ a } \lor c \ge \sqrt{ a }  \right) \land  \left( b \ge \sqrt{ a } \lor c \le \sqrt{ a }   \right)
+                \]
+                Suppose that \( b \le \sqrt{ a }  \) and \( b \ge \sqrt{ a }  \) holds true, then \( b = \sqrt{ a }  \) since \( c \neq b \) then if \( c \lt b \) we see that \( b c \lt \sqrt{ a } \sqrt{ a } = a   \) which is a contradiction since we know that \(  b c = a \), if it turns out that \( c \le \sqrt{ a }  \) and \( c \ge \sqrt{ a }  \) it is handeled symetrically.
+
+                <p>
+                    On the other hand if we know that \( b \le \sqrt{ a }  \) and that \( c \le \sqrt{ a }  \), since \( b \neq a \) <a class="knowledge-link" href="/number_theory/division.html#lemma-product-of-two-equal-factors-means-they-are-square-roots">then we know that</a> \( b \neq \sqrt{ a }  \), therefore more specifically we see that \( b \lt \sqrt{ a }  \) this implies that \( a = b c \lt \sqrt{ a } \sqrt{ a } = a  \) which is a contradiction. In the case of \( c \ge \sqrt{ a }  \) and \( b \ge \sqrt{ a }  \) it follows in a symmetrical manner.
+                </p>
+        	</div>
+        </div>
+        
+
 <!--        <div class="proposition" id="proposition-forced-division-of-sum">-->
 <!--            <div class="title">-->
 <!--                Forced Division of Sum-->

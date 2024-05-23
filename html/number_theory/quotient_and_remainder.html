@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Division</title>
+    <title>Quotient and Remainder</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer>
 </script>
@@ -85,6 +85,8 @@
             Note that the requirement that \( b \) be non-zero is important, because if it were zero we'd be asking "how many times do you have to multiply \( 0 \) and add \( r \)  to get \( a \)" which in itself doesn't intuitively make sense, formally since we require \( 0 \le r  \lt \lvert b \rvert  \) then if \( b = 0 \) no such \( r \) could ever exist.
         </p>
 
+
+
         <div class="definition" id="definition-remainder-function">
             <div class="title">
                 Remainder Function
@@ -114,6 +116,21 @@
                 \[
                 a ~//~ b := q
                 \]
+            </div>
+        </div>
+
+
+
+        <div class="proposition" id="proposition-divides-iff-zero-remainder">
+            <div class="title">Divides iff Zero Remainder</div>
+            <div class="content">
+                For any \( a, b \in \mathbb{ Z }  \)
+                \[
+                    a \mid b \iff a ~\%~ b = 0
+                \]
+            </div>
+            <div class="proof">
+                Note that \(  a \mid b \) iff \( b = ka = k a + 0 \) iff \( a ~//~ b = k \) and \( a ~\%~ b = 0 \). The last iff comes from the fact that there are unique integers that satisfy the equation laid out by the quotient remainder theorem.
             </div>
         </div>
 
@@ -180,6 +197,17 @@
             </div>
         </div>
 
+        <div class="proposition" id="proposition-exactly-one-of-any-two-consecutive-numbers-is-even">
+        	<div class="title">Exactly one of any two Consecutive Numbers is Even</div>
+        	<div class="content">
+        		For any \( n \in \mathbb{ Z }  \) exactly one of \( n, n + 1  \) is even (and the other odd)
+        	</div>
+        	<div class="proof">
+                If \( n \) is even, we are done, if \( n  \) is odd, then there is a \( k \in \mathbb{ Z }  \) such that \( n =  2k + 1  \) therefore \( n + 1 = 2 \left( k + 1  \right)  \) which is even as needed.
+        	</div>
+        </div>
+
+
         <div class="corollary" id="corollary-every-perfect-square-has-remainder-zero-or-one-upon-division-by-four">
         	<div class="title">Every Perfect Square has Remainder Zero or One Upon Division by Four</div>
         	<div class="content">
@@ -192,6 +220,17 @@
                 We know that \( n \) is <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-every-integer-is-either-odd-or-even">either odd or even</a> and therefore in the case that \( n = 2k \) then \( n ^ 2 = 4 k ^ 2 = 2 \left( 2 k ^ 2  \right) + 0  \) so \( n ^ 2 ~\%~ 4 = 0 \), on the other hand if \( n = 2k + 1  \) then \( n ^ 2 = 4 k ^ 2 + 4k + 1 = 2 \left( 2 k ^ 2 + 2k \right) + 1 \) therefore \( n ^ 2 ~\%~ 4 = 1 \) as needed.
         	</div>
         </div>
+        
+        <div class="proposition" id="proposition-every-odd-perfect-square-has-remainder-one-mod-eight">
+        	<div class="title">Every Odd Perfect Square has Remainder 1 mod 8</div>
+        	<div class="content">
+        		As per title.
+        	</div>
+        	<div class="proof">
+        		Suppose that \( n ^ 2 = 2k + 1 \) it's impossible for \( n \) to be even, because then \( n ^ 2 \) would be, since every number is either <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-every-integer-is-either-odd-or-even">even or odd</a>, then \( n  \) must have been even, therefore there is a \( j \in \mathbb{ Z }  \) such that \( n = 2j + 1  \) therefore \( n ^ 2 = 4j ^ 2 + 4j + 1 = 4 \left( j \left( j + 1  \right)  \right) + 1  \). Recall that at least one of \( j, j + 1  \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-exactly-one-of-any-two-consecutive-numbers-is-even">is even </a>, therfore \( j  \left( j + 1  \right)   \) is even and therefore \( 4 \left( j \left( j + 1  \right)  \right)  \) is divisible by \( 8 \) in other words we have some \( m \in \mathbb{ Z }  \) such that \( n ^ 2 = 8 m + 1 \) as needed.
+        	</div>
+        </div>
+        
 
 
         <div class="definition" id="definition-composite-number">

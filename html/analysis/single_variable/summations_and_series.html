@@ -270,6 +270,190 @@
         <p>
             Note that 2 informally says that tails converge and are arbitrarily small, and 3 essentially says that \( S _ n \) is a cauchy sequence because \( \sum  _ { k = n + 1 }  ^ m a _ k  = S _ m - S _ n \)
         </p>
+
+        <div class="definition" id="definition-summable">
+        	<div class="title">Summable</div>
+        	<div class="content">
+        		We say that the sequence \( \left( a _ n \right)  \) is summable if the limit \( \sum _ { n = 1 }  ^ \infty a _ n   \) exists.
+        	</div>
+        </div>
+
+        <div class="theorem" id="theorem-comparison-test">
+        	<div class="title">Comparison Test</div>
+        	<div class="content">
+        		Consider two sequences of real numbers \( \left( a _ n \right) , \left( b _ n \right)  \) with \( \lvert a _ n \rvert \le b _ n  \) for all \( n \in \mathbb{ N } _ 1  \), then if \( \left( b _ n \right)  \) is <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-summable">summable</a> then \( \left( a _ n \right)  \) is summable and
+                \[
+                    \left\lvert \sum _ { n = 1 }  ^ \infty  a _ n \right\rvert \le \sum _ { n = 1 }  ^  \infty b _ n
+                \]
+                while if \( \left( a _ n \right)  \) is not summable, then \( \left( b _ n \right)  \) is not summable.
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-if-the-absolute-valued-series-converges-then-so-does-the-original">
+        	<div class="title">If the Absolute Valued Series Converges then so does the Original</div>
+        	<div class="content">
+                If \( \sum _ { n = 1 } ^ \infty \left\lvert a _ n \right\rvert   \) converges then so does \( \sum _ { n = 1 }  ^ \infty a _ n   \)
+        	</div>
+        	<div class="proof">
+                Clearly \( \left\lvert a _ n \right\rvert \le \left\lvert a _ n \right\rvert   \) for all \(  n \in \mathbb{ N } _ 1 \) and since \(  \)
+        	</div>
+        </div>
+
+
+        <div class="proposition" id="proposition-non-negative-series-converges-iff-partial-sums-are-bounded-above">
+        	<div class="title">Non-Negative Series Converges iff Partial Sums are Bounded Above</div>
+        	<div class="content">
+        		Suppose that \( a _ n \ge 0 \) for every \( n \in \mathbb{ N } _ 1 \) , then \( \left( a _ n \right)  \) is summable iff \( \left( S _ n \right)  \) is bounded above, where \( S _ k := \sum _ { n = 1 }  ^ k a _ n \)
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <p>
+            We required that \( a _ n \ge 0 \) because if you consider the series \( \sum _ {  n = 1 } ^ \infty \left( -1 \right) ^ \left( n + 1  \right)     \) that has a sequence of partial sums of the form \( 1, 0, 1, 0, 1, 0, \ldots  \) which is clearly bounded but the limit doesn't exist.
+        </p>
+
+        <div class="proposition" id="proposition-limsup-exists-iff-the-sequence-is-bounded-above">
+        	<div class="title">limsup Exists iff the Sequence is Bounded Above</div>
+        	<div class="content">
+        		As per title.
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+
+
+        <div class="proposition" id="proposition-limit-exists-and-goes-to-L-iff-limsup-and-liminf-do-as-well">
+        	<div class="title">Limit Exists and Goes to L iff limsup and limsup do as well</div>
+        	<div class="content">
+                \[
+                    \lim _ { n \to \infty  } a _ n = L \iff \limsup \left( a _ n \right) = \liminf \left( a _ n \right) = L
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="theorem" id="theorem-root-test">
+        	<div class="title">Root Test</div>
+        	<div class="content">
+        		Suppose that \( a _ n \ge 0 \) for all \( n \in \mathbb{ N } _ 1 \) and let \( l = \limsup \left( \sqrt[n]{ a _ n }  \right)  \) if \( l \lt 1 \) then \( \sum _ { n = 1 }  ^ \infty  a _ n   \) converges and if \( l \gt 1 \) then \( \sum _ { n = 1 }  ^ \infty  \) diverges
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        
+        <div class="proposition" id="proposition-ratio-test">
+        	<div class="title">Ratio Test</div>
+        	<div class="content">
+        		Suppose that \( \left( a _ n \right) _ { n = 1 }  ^ \infty     \) is a sequence of positive terms. Show that if \( \limsup _ { n \to \infty  } \frac{a _ { n + 1  } }{ a _ n}  \lt 1  \) then \( \sum _ { n = 1 }  ^ \infty a _ n   \) converges
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-alternating-sequence">
+        	<div class="title">Alternating Sequence</div>
+        	<div class="content">
+        		A sequence is alternating if it has the form \( \left( -1 \right) ^ n a _ n \) or \( \left( -1 \right) ^ \left( n + 1  \right) a _ n  \) where \( a _ n \ge 0 \) for all \( n \in \mathbb{ N } _ 1  \).
+        	</div>
+        </div>
+
+        <p>
+            This characterization simply states that consecutive terms change sign.
+        </p>
+
+        <div class="definition" id="definition-alternating-series">
+        	<div class="title">Alternating Series</div>
+        	<div class="content">
+        		A series \( \sum _ { n = 1  } ^ \infty a _ n   \) is said to be <b>alternating</b> if \( \left( a _ n \right)  \) is <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-alternating-sequence">alternating</a>.
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-leibniz-alternating-series-test">
+        	<div class="title">Leibniz Alternating Series Test</div>
+        	<div class="content">
+        		Suppose that \( \left( a _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R }  \) is a <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-monotone-decreasing-sequence">monotone decreasing</a> sequence and \( \lim _ { n \to \infty  } a _ n = 0  \) then the alternating series
+                \[
+                    \sum _ { n = 1 }  ^  \infty \left( -1 \right) ^ n a _ n
+                \]
+                converges
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-absolutely-convergent-series">
+        	<div class="title">Absolutely Convergent Series</div>
+        	<div class="content">
+        		A series \( \sum _ { n = 1 } ^ \infty a _ n \) is said to be <b>absolutely convergent</b> if the series \( \sum _ { n = 1 }  ^ \infty \left\lvert a _ n \right\rvert    \) converges.
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-conditionally-convergent-series">
+        	<div class="title">Conditionally Convergent Series</div>
+        	<div class="content">
+        		A series \( \sum _ { n = 1 }  ^ \infty a _ n   \) is said to be conditionally convergent if it converges but \( \sum _ { n = 1 }  ^ \infty a _ n    \) does not.
+        	</div>
+        </div>
+
+        <p>
+            Recall that \( \sum _ { n = 1 }  ^ \infty  \frac{\left( -1 \right) ^ { n + 1  }  }{n}    \) converges to \( \ln \left( 2 \right)  \) and is conditionally convergent because the harmonic series diverges.
+        </p>
+
+        <div class="definition" id="definition-series-rearrangement">
+        	<div class="title">Series Rearrangement</div>
+        	<div class="content">
+        		A <b>rearrangment</b> of a series \( \sum _ { n = 1 }  ^ \infty    \) is another series
+                \[
+                    \sum _ { n = 1 }  ^ \infty a _ { \pi \left( n \right)  }
+                \]
+                where \( \pi \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-permutation">permutation</a> of \( \mathbb{ N }  _ 1 \)
+        	</div>
+        </div>
+
+        <p>
+            The above definition formalizes the idea of taking a series and then looking at it with the same terms in a different order. Also note that the definition of a series is the limit of the partial sums, which is an entirely different thing than the \( + \) operation, thus we have no idea whether or not the new series will have the same limit, or even exist.
+        </p>
+
+        <div class="theorem" id="theorem-every-rearrangement-of-an-absolutely-convergent-series-converges-to-the-same-limit">
+        	<div class="title">Every Rearrangment of an Absolutely Convergent Series converges to the same Limit</div>
+        	<div class="content">
+                As per title.
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+
+
+
+
+
+
+
+
+        
+
+        
+
+
+
+
+
+
         
         
 

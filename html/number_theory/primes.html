@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Division</title>
+    <title>Primes</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer>
 </script>
@@ -21,8 +21,10 @@
             </div>
 
             <div class="content">
-                A number \( p \in \mathbb{N}_{1} \) is said to be prime if it&#39;s only divisors are \( 1 \) and \( p
-                \)
+                A number \( p \in \mathbb{N}_{2} \) is said to be prime if it&#39;s only divisors are \( 1 \) and \( p \) symbolically that is
+                \[
+                    \forall d \in \mathbb{ N } _ 1, \left( d \mid p \right) \implies d \in \left\{ 1, p \right\}
+                \]
             </div>
         </div>
 
@@ -48,7 +50,7 @@
 
             <div class="content">
                 Suppose that \( p \) is <a class="knowledge-link" href=
-                "/number_theory/division.html#definition-prime">prime</a> and \( n \in \mathbb{ Z } \) such that \( p
+                "/number_theory/primes.html#definition-prime">prime</a> and \( n \in \mathbb{ Z } \) such that \( p
                 \nmid n \), then \( \gcd \left( p, n \right) = 1 \)
             </div>
 
@@ -62,20 +64,97 @@
 
             <div class="content">
                 If \( p, a, b \in \mathbb{ Z } \) and we know \( p \) is <a class="knowledge-link" href=
-                "/number_theory/division.html#definition-prime">prime</a> and \( p \mid ab \) then \( p \mid a \) or \(
+                "/number_theory/primes.html#definition-prime">prime</a> and \( p \mid ab \) then \( p \mid a \) or \(
                 p \mid b \).
             </div>
 
             <div class="proof">
                 If \( p \) were to divide \( a \), the proof is over so we assume that it does not. <a class=
                 "knowledge-link" href=
-                "/number_theory/division.html#lemma-a-prime-is-relatively-prime-to-anything-else">therefore</a> \( \gcd
+                "/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else">therefore</a> \( \gcd
                 \left( p, a \right) = 1 \) <a class="knowledge-link" href=
-                "/number_theory/division.html#corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">and
+                "/number_theory/primes.html#corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">and
                 then</a> \( 1 = as + pt \), then \( b = \left( ab \right) s + ptb = \left( k \cdot p \right) s + ptb
                 \), so then \( p \) divides the right hand side, therefore \( p \mid b \), as needed.
             </div>
         </div>
+
+        <div class="theorem" id="theorem-every-number-is-divisible-by-a-prime">
+        	<div class="title">Every Number is Divisible by a Prime</div>
+        	<div class="content">
+        		For any \( n \in \mathbb{ N } _ 2 \) there is a <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">prime</a> \( p \) such that \( p \mid n \)
+        	</div>
+        	<div class="proof">
+                <p>
+                    To show existance we will use the <a class="knowledge-link" href="/number_theory/induction.html#proposition-well-ordering-principle">well ordering principle</a> so consider the set
+                    \[
+                    S := \left\{ c \in \mathbb{ N } _ 2 : c \mid n \right\}
+                    \]
+                    observe that \( n \in S \) so therefore \( S \neq \emptyset  \) and therefore by the well ordering principle it has a least element \( p \in S \) therefore by the definition of \( S \) we know that \( p \mid n \), lets show that \( p \) is prime.
+                </p>
+                <p>
+                    Let \( d \in \mathbb{ N } _ 1, d \mid p \) if \( d = 1  \), then \( d \in \left\{ 1, p \right\}  \) so all is well, on the other hand if \( d \gt 1 \) so that \( d \in \mathbb{ N } _ 2 \) then since we already knew that \( p \mid n \) and that <a class="knowledge-link" href="/number_theory/division.html#proposition-division-is-transitive">division is transitive</a> then we know that \( d \mid n \) which means that \( d \in S \), since \( p \) is the minimal element of \( S \) then \( p \le d \) at the same time since \( d \mid p \) then <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">we know that</a> \( d \le p \), thus since \( \le  \) is <a class="knowledge-link" href="/fundamentals/relations.html#definition-anti-symmetric-relation">anti-symmetric</a>, then \( d = p \).
+                </p>
+                <p>
+                    Thus \( p \) is prime, and \( p \mid n \) as needed.
+                </p>
+        	</div>
+        </div>
+
+
+        <div class="proposition" id="proposition-every-number-is-a-product-of-primes">
+        	<div class="title">Every Number is a Product of Primes</div>
+        	<div class="content">
+                For every \( n \in \mathbb{ N } _ 2 \)
+                \[
+                    n := p _ 1 \cdot p _ 2 \cdot \cdots \cdot p _ k
+                \]
+                for some \( k \in \mathbb{ N } _ 1 \)
+        	</div>
+        	<div class="proof">
+                <p>
+                    We prove the statement true via strong induction, for the base case of \( n = 2 \) we see that \( p _ 1 = 2 \) works, namely that \( 2 = 2 \).
+                </p>
+                <p>
+
+                    Now suppose for some \( j \in \mathbb{ N } _ 2  \) the statement we'd like to prove holds for \( \left\{ 2, \ldots , j \right\}  \) we'll prove that the statement holds true for \( j + 1 \), so consider \( j + 1 \), if it is prime, then we are done, as we can take it as the singleton product, elsewise it is not prime, and <a class="knowledge-link" href="/number_theory/primes.html#corollary-composite-iff-not-prime">therefore it is composite</a> so we get \( a, b \in \mathbb{ N } _ 2 \) such that \( a b = j + 1 \) by our induction hypothesis we know that the statement holds true for \( a, b \) and thus we get \( a = p _ 1 \cdot \cdots \cdot p _ n \) and \( b = q _ 1 \cdot \cdots \cdot q _ m \) for some \( m, n \in \mathbb{ N } _ 1 \), thus \( j + 1 = p _ 1 \cdots p _ n q _ 1 \cdots q _ m \) so that \( j + 1 \) is the product of \( m + n \) primes as needed.
+                </p>
+        	</div>
+        </div>
+
+        <div class="theorem" id="theorem-there-are-infinitely-many-primes">
+        	<div class="title">There are Infinitely Many Primes</div>
+        	<div class="content">
+        		As per title.
+        	</div>
+        	<div class="proof">
+        		Suppose that there were finitely many primes, and we listed all of them here: \( p _ 1, \ldots p _ k \) for \( k \in \mathbb{ N } _ 1 \) and consider
+                \[
+                    M := p _ 1 \cdots  p _ k + 1
+                \]
+                For every \( i \in \left[ 1, k \right]  \) we have that \( M ~\%~ p _ i = 1 \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-divides-iff-zero-remainder">therefore</a> \( p _ i \nmid P \), at the same time \( M \) must be divisible by some prime \( p ^ \prime  \) but clearly \( p ^ \prime  \neq p _ i \) for any \( i \in \left[ 1, k \right]  \) or else \( M ~\%~ p _ i = 0 \) which would be a contradiction, since it's not equal to any of the primes we listed, this is a contradiction because we know that it contained all primes, therefore our assumption is incorrect and there must be infinitely many primes.
+        	</div>
+        </div>
+        
+        <div class="proposition" id="proposition-there-are-gaps-of-arbitrary-size-between-consecutive-primes">
+        	<div class="title">There are Gaps of Arbitrary Size between Consecutive Primes</div>
+        	<div class="content">
+                Suppose that \( \left( p _ 1, p _ 2, p _ 2 , \ldots  \right)  \) is an increasing sequence of all the primes, then for every \( m \in \mathbb{ N } _ 1 \) there exists an \( N \in \mathbb{ N } _ 1 \) such that
+                \[
+                    p _ { N + 1 } - p _ { N } \ge m
+                \]
+        	</div>
+        	<div class="proof">
+        	    Let \( m \in \mathbb{ N } _ 1 \), consider the following numbers
+                \[
+                    \left( m + 1 \right) ! + 2, \left( m + 1  \right) ! + 3, \ldots , \left( m + 1 \right) ! + \left( m + 1 \right)
+                \]
+                <a class="knowledge-link" href="/combinatorics/basics.html#proposition-the-number-of-integers-between-two-integers-inclusive">since there are</a> \( \left( m + 1 \right) - 2 + 1 = m \) numbers here, and for each element of the form \( \left( m + 1 \right) ! + i  \) we know that \( i \mid \left( m + 1 \right)! + i  \) since \( i \in \mathbb{ N } _ 2 \) this makes it composite, and thus not prime, thus take \( N \) as the greatest index such that \( p _ N \lt \left( m + 1 \right) ! + 2  \) thus the gap between \( p _ N \) and \( p _ { N + 1  }  \) must be at least \( m \) as needed.
+        	</div>
+        </div>
+        
+
+
 
     </div>
 </body>
