@@ -389,6 +389,21 @@
                 </p>
         	</div>
         </div>
+
+
+
+        <div class="proposition" id="proposition-one-over-n-to-the-p-converges-iff-p-is-greater-than-one">
+        	<div class="title">One over N to the p Convergence iff p is greater than One</div>
+        	<div class="content">
+        		\[
+        		    \sum _ { n = 1 }  ^  \infty \frac{1}{n ^ p} \lt \infty \iff p \ge 1
+        		\]
+        	</div>
+        	<div class="proof">
+        	    Recall that \( \sum _ { n = 1 }  ^ \infty \frac{1}{n ^ p}  \) <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-cauchy-condensation-test">converges iff</a> \( \sum _ { n = 0 }  ^ \infty 2 ^ n \frac{1}{\left( \left( 2 ^ n \right) ^ p  \right) } = \sum _ { n = 0 }  ^ \infty 2 ^ { n - n p } = \sum _ { n = 0 }  ^ \infty \left( 2 ^ { 1 - p }  \right) ^ n \) which <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#proposition-geometric-power-series">converges iff</a> \( 2 ^ \left( 1 - p \right)   \in \left( -1, 1 \right)  \) since \( 2 ^ \left(  1 - p \right)   \) is always positive then we just need \( 2 ^ \left( 1 - p \right)  \lt 1 \) which is the same as \( 1 - p \lt \log _ 2 \left( 1 \right) = 0  \) which is equivalent to \( 1 \lt p \)
+        	</div>
+        </div>
+        
         
         <div class="theorem" id="theorem-root-test">
         	<div class="title">Root Test</div>

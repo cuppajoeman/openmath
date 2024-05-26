@@ -373,6 +373,48 @@
                     \]
             	</div>
             </div>
+
+            <div class="lemma" id="lemma-strictly-increasing-natural-number-function-surpasses-all-values">
+            	<div class="title">Strictly Increasing Natural Number Function Surpasses All Values</div>
+            	<div class="content">
+            		Suppose \( f: \mathbb{ N } _ 1 \to \mathbb{ N } _ 1  \) is increasing, then for any \( K \in \mathbb{ R }  \) there exists an \( n \in \mathbb{ N } _ 1 \) such that \( f \left( n \right) \gt K \)
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Before we start this proof, note that for any \( n \in \mathbb{ N } _ 1 \) we have that \( f \left( n \right) \lt f \left( n + 1  \right)  \) which means that \( f \left( n \right) + 1  \le f \left( n + 1  \right) \) which is to say that \( 1 \le f \left( n + 1  \right) - f \left( n \right)   \), running with this we can generalize this to say that for any \( j \le k \in \mathbb{ N } _ 1 \)  \( f \left( n + j \right) - f \left( n + k \right) \ge j - k \)
+                    </p>
+                    <p>
+                        With that in mind, if\( f \left( 1 \right) \gt K  \) we are done, so then suppose that \( f \left( 1 \right) \le K  \), let \( \alpha = K + 1 - f \left( 1 \right) \in \mathbb{ N } _ 1   \) but then we know that \( f \left(1 + \alpha \right) - f \left( 1 \right) \ge \alpha = K + 1 - f \left( 1 \right)     \) adding \( f \left( 1 \right)  \) to both sides tells us that \( f \left( 1 + \alpha  \right) \ge K + 1 \gt K  \) as needed.
+                    </p>
+
+            	</div>
+            </div>
+
+
+
+            <div class="lemma" id="lemma-for-all-there-exists-past-a-point-yields-ordered-satisfaction">
+                <div class="title">For all, There Exists Past a Point Yields Ordered Satisfaction</div>
+                <div class="content">
+                    Suppose that you know the following statement holds true:
+                    \[
+                    \forall x \in \mathbb{ N } _ 1, \exists N _ x \in \mathbb{ N } _ 1, f _ x : \mathbb{ N } _ 1 \to \mathbb{ N }  _ 1 \text{ st } , n \ge N _ x \implies P \left( x, f _ x \left( n \right)  \right)
+                    \]
+                    where \( f _ x \) is strictly increasing. Then there exists an order sequence of values in \( \mathbb{ N } _ 1 \) where  \( \left( \alpha _ 1 \le  \alpha _ 2 \le  \alpha _ 3 \le  \alpha _ 4 \le \ldots  \right)  \) such that
+                    \[
+                    P \left( 1, \alpha _ 1 \right) \land P \left( 2, \alpha _ 2 \right) \land P \left( 3, \alpha _ 3 \right) \land \cdots
+                    \]
+                </div>
+                <div class="proof">
+                    <p>
+                        Plugging in \( x = 1 \) we obtain some \( N _ 1, f _ 1 \) such that for all \( n \ge N _ 1 \) we have \( P \left( 1, f _ 1 \left( n \right)  \right)  \), let \( \alpha _ 1 = f _ 1 \left( N _ 1 \right)  \) note that since \( N _ 1 \ge N _ 1 \) we have \( P \left( 1, f _ 1 \left( N _ 1 \right)  \right) = P \left( 1, \alpha _ 1 \right)   \)
+                    </p>
+                    <p>
+                        Now for any \( k \in \mathbb{ N } _ 2 \) we similarly get an \( N _ k, f _ k \) such that for all \( n \ge N _ k \) we have \( P \left( k, f _ k \left( n \right)  \right)  \), now consider the value \( f _ k \left( N _ k \right)  \), we'd like to set \( \alpha _ k \) to it, but we have no idea if \( f _ k \left( N _ k \right) \ge \alpha  _ { k - 1  }     \), but since we do know that \( \alpha _ { k - 1  } \in \mathbb{ N } _ 1  \) then since \( f _ k \) is increasing <a class="knowledge-link" href="/analysis/single_variable/limits.html#lemma-strictly-increasing-natural-number-function-surpasses-all-values">we know that there is a value</a> \( N _ k + m \) for some \( m \in \mathbb{ N } _ 1 \) such that \( f _ k \left( N _ k + m \right) \ge \alpha _ { k - 1  }  \) , since \( N _ k + m \ge N _ k \) then clearly \( P \left( k, f _ k \left( N _ k + m \right)  \right)  \) holds true, and thus we define \( \alpha _ k = f \left(  N _ k + m\right)  \), so that \( P \left( k , \alpha _ k \right)  \) also holds. Notice that we've also just proven that \( \alpha  _ k \ge \alpha  _ { k - 1 }  \) making them increasing.
+                    </p>
+                </div>
+            </div>
+
+
             <div class="proposition" id="proposition-limit-to-a-limit">
             	<div class="title">Limit to a Limit</div>
             	<div class="content">
@@ -382,36 +424,38 @@
                     <p>
                         We will construct a subsequence \( \left( x _ { \sigma \left( n \right)  }  \right)  \) such that \( \lvert x _ \sigma \left( k \right) - L  \rvert \lt \frac{1}{k}   \). By doing so, we will have solved the problem, because for any \( \epsilon \in \mathbb{ R } ^ +  \) there is always a \( k \in \mathbb{ N } _ 1 \) such that \( \frac{1}{k} \lt \epsilon  \) which shows that \( \lvert x _ { \sigma \left( k \right)  } - L  \rvert \lt \epsilon   \) by transitivity.
                     </p>
+
                     <p>
-                        Consider any \( j \in \mathbb{ N } _ 1 \) by assumption there is some \( \sigma _ j  \) such that \( \left( x _ { \sigma _ j \left( n \right)  }  \right) \to L _ j  \), thus for any \( a \in \mathbb{ R } ^ +  \) we get some \( N _ { j _ 1 }  \in \mathbb{ N } _ 0 \) such that for any \( n \ge N _ { j _ 1 }  \) we have \( \lvert x _ { \sigma _ j  \left(  n \right)  } - L _ j  \rvert \lt a  \).
+                        Let \( k \in \mathbb{ N } _ 1 \) since \( \left( L _ n \right) \to L  \) then by considering \( \frac{1}{2k}  \) we know that there is an \( N _ k ^ \prime   \in \mathbb{ N } _ 1 \) such that for all \( n \ge N _ k ^ \prime   \) we have \( \left\lvert L _ n - L \right\rvert \lt \frac{1}{2k} \), now consider any \( m _ k \ge N _ k ^ \prime   \), thus we know that \( \left\lvert L _ { m _ k }  - L  \right\rvert \lt \frac{1}{2k} \).
                     </p>
                     <p>
-                        Also consider the fact that for any \( b \in \mathbb{ R } ^ +  \) we have some \( N _ { j _ 2 }   \in \mathbb{ N } _  0 \) such that for any \( n \ge N  _ { j _ 2 }  \) we have: \( \lvert L _ n - L \rvert \lt b  \). Note that if we consider the value \( N _ j = \max \left( N _ { j _ 1 }  , N _ { j _ 2 }    \right)  \), we have both
+                        Now since \( m _ k \in \mathbb{ N } _ 1 \) then there exists a subsequence \( x _ { \sigma _ { m _ k }  \left( n \right)  } \to L _ { m _ k }   \) , therefore using \( \epsilon = \frac{1}{2k}  \) we get a \( N _ k \) such that for all \( n \ge N _ k, \left\lvert x _ { \sigma _ { m _ k }  \left( n \right) - L _ { m _ k }   }  \right\rvert \lt \frac{1}{2k}   \), therefore we have
+                    </p>
+                    \[
+                    \begin{align}
+                    \left\lvert x _ { \sigma _ { m _ k }  \left( n \right)  } - L \right\rvert &= \left\lvert x _ { \sigma _ { m _ k }  \left( n \right)  } - L _ m + L _ m - L  \right\rvert \\
+                    &\le \left\lvert x _ { \sigma _ { m _ k }  \left( n \right)  } - L _ { m _ k }   \right\rvert + \left\lvert L _ { m _ k }   - L \right\rvert \\
+                    &\lt \frac{1}{2k} + \frac{1}{2k} = \frac{1}{k}
+                    \end{align}
+                    \]
+                    <p>
+                        Initially it might seem as simple as taking the subsequence \( x _ { \sigma _ { m _ 1 } \left( N _ 1 \right)   }, x _ { \sigma _ { m _ 2 } \left( N _ 2 \right)   }, x _ { \sigma _ { m _ 3 } \left( N _ 3 \right)   }, \ldots   \) but there's no guarentee that this subsequence has increasing indices (which is a requirement of a subsequence), therefore we need more work.
+                    </p>
+                    <p>
+                        Condensing what we've proven above, we've shown that
                         \[
-                            \lvert x _ { \sigma _ j \left( N _ j \right)  } - L \lt a  \rvert \text{ and } \lvert L _ { N _ j } - L  \rvert \lt b
+                            \forall k \in \mathbb{ N } _ 1, \exists N _ k \in \mathbb{ N } _ 1, \sigma _ { m _ k }  : \mathbb{ N } _ 1 \to \mathbb{ N }  _ 1 \text{ st } \forall n \ge N _ 2,  P \left( k, \sigma _ m \left( n \right)  \right)
                         \]
-                        We claim that \( \sigma \left( j  \right) =  \sigma _ j \left( N _ j  \right)   \) will work as our subsequence index function.
                     </p>
                     <p>
-                        Note the above paragraph states that for any concrete value of \( j \)  and then of \( a, b \) we obtain some \( N _ j  \) such that the discussed inequalities hold true.
-                    </p>
-                    <p>
-                        We want to prove that \( \lvert x _ { \sigma \left( k \right)  } - L   \rvert \lt \frac{1}{k}   \), to show this, let \( k \in \mathbb{ N } _ 1 \), then consider \( a, b = \frac{1}{2k}  \), so that we get some \( N _ k   \) and we have:
+                        Where \( P \left( k, v  \right) := \left\lvert x _ v - L \right\rvert \lt \frac{1}{k} \), and since \( \sigma _ { m _ k }  \) defines a subsequence then it is strictly increasing, <a class="knowledge-link" href="/analysis/single_variable/limits.html#lemma-for-all-there-exists-past-a-point-yields-ordered-satisfaction">therefore</a> there exists an ordered sequence \( \left( \alpha _ 1 \le  \alpha _ 2 \le  \alpha _ 3 \le  \ldots  \right)  \) such that \( P \left( k , \alpha _ k   \right)  \) which is to say that \( \left\lvert x _ { \alpha _ k } - L  \right\rvert \lt \frac{1}{k}   \) so that the following subsequence works
                         \[
-                            \begin{align}
-                        \lvert x _ { \sigma \left( k \right)  } - L  \rvert &= \lvert x _ {  \sigma _ k \left( N _ k \right)     } - L  \rvert \\
-                        &= \lvert x _ {  \sigma _ k \left( N _ k \right)     } - L _ { N _ k } + L _ { N _ k } - L   \rvert \\
-                        &\le \lvert x _ { \sigma _ k \left( N _ k \right)  } - L _ { N _ k }   \rvert  + \lvert L _ { N _ k } - L  \rvert \\
-                        &\lt \frac{1}{2k} + \frac{1}{2k} \\
-                        &= \frac{1}{k}
-                            \end{align}
+                        \left( x _ { \alpha _ 1 }, x _ { \alpha _ 2 }, \ldots    \right)
                         \]
-                        which solves the problem
+                        or in another notation with \( \sigma \left( n \right) = \alpha _ n \) we are using the subsequence \( \left( x _ { \sigma \left( n \right)  }  \right)  \)
                     </p>
             	</div>
             </div>
-            
-            
 
             <div class="proposition" id="proposition-generalized-triangle-inequality">
             	<div class="title">Generalized Triangle Inequality</div>
