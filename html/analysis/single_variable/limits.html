@@ -27,6 +27,20 @@
                 Note that you may come across various other notations for this definition in other resources, the main ones to note will be: \( x _ n \to x \) as \( n \to \infty \), or even more shortened as \( x _ n \to x \), sometimes limit notation will be used: \( \lim _ { n \to \infty } x _ n = x \) or just \( \lim x _ n = x \)
             </p>
 
+            <div class="corollary" id="corollary-convergent-sequence-doesnt-reqiure-strict-inequality">
+            	<div class="title">Convergent Sequence Doesn't Require Strict Inequality</div>
+            	<div class="content">
+                    \( \left( a _ n  \right) \to L  \) is equivalent to
+                    \[
+                        \forall \epsilon \in \mathbb{ R } ^ +, \exists N \in \mathbb{ N } _ 0, \text{ st } \forall n \in \mathbb{ N } _ 0,  n \ge N \implies \left\lvert a _ n - L  \right\rvert \le \epsilon
+                    \]
+            	</div>
+            	<div class="proof">
+            		\( \implies  \) Suppose \( \left( a _ n \right) \to L  \), now let \( \epsilon \in \mathbb{ R }  \), and consider \( \frac{\epsilon}{2}  \), then since \( \left( a _ n \right) \to L  \) we get some \( N \in \mathbb{ N } _ 0 \) such that for every \( n \ge N \) we have \( \left\lvert a _ n - L \right\rvert \lt \frac{\epsilon}{2} \le \epsilon   \) as needed. \( \impliedby  \) Assume the other direction, and we want to prove \( \left( a _ n \right) \to L  \) so let \( \epsilon \in \mathbb{ R } ^ +  \) therefore we get an \( N \in \mathbb{ N } _ 0 \) such that for all \( n \ge N \) we have \( \left\lvert a _ n - L  \right\rvert \le \frac{\epsilon }{2} \lt \epsilon    \) as needed.
+            	</div>
+            </div>
+
+
             <div class="definition" id="definition-limit-notation">
             	<div class="title">Limit Notation</div>
             	<div class="content">
@@ -94,6 +108,10 @@
                     </p>
             	</div>
             </div>
+
+
+
+
 
             <div class="definition" id="definition-sequence-goes-to-positive-infinity">
                 <div class="title">Sequence Goes to Positive Infinity</div>
@@ -256,6 +274,74 @@
                         which is to say that \( \lvert b _ n - L  \rvert \lt \epsilon   \)
                     </p>
             	</div>
+            </div>
+
+            <div class="definition" id="definition-limsup">
+                <div class="title">limsup</div>
+                <div class="content">
+                    Suppose that \( \left( a _ n \right)  \) is a sequence, then we define another sequence
+                    \[
+                    s _ n := \sup \left( \left\{ a _ k: k \ge n \right\}   \right)
+                    \]
+                    and then we define the <b>limsup</b> of \( \left( a _ n \right)  \) as
+                    \[
+                    \limsup \left( a _ n \right) := \lim _ { n \to \infty  } s  _ n
+                    \]
+                </div>
+            </div>
+
+            <div class="definition" id="definition-liminf">
+                <div class="title">liminf</div>
+                <div class="content">
+                    Suppose that \( \left( a _ n \right)  \) is a sequence, then we define another sequence
+                    \[
+                    i _ n := \inf \left( \left\{ a _ k: k \ge n \right\}   \right)
+                    \]
+                    and then we define the <b>liminf</b> of \( \left( a _ n \right)  \) as
+                    \[
+                    \liminf \left( a _ n \right) := \lim _ { n \to \infty  } i  _ n
+                    \]
+                </div>
+            </div>
+
+
+            <div class="proposition" id="proposition-limsup-exists-iff-the-sequence-is-bounded-above">
+                <div class="title">limsup Exists iff the Sequence is Bounded Above</div>
+                <div class="content">
+                    As per title.
+                </div>
+                <div class="proof">
+
+                </div>
+            </div>
+
+            <div class="proposition" id="proposition-convergence-iff-lim-sup-and-inf-are-equal">
+                <div class="title">Convergence iff Lim Sup and Inf are Equal</div>
+                <div class="content">
+                    \[
+                    \left( a _ n \right) \to L \iff \limsup \left( a _ n \right) = L = \liminf \left(  a _ n \right)
+                    \]
+                </div>
+                <div class="proof">
+                    <p>
+                        Define \( s _ n : = \sup \left( \left\{ a _ k: k \ge n \right\}  \right)  \) and \( i _ n : = \inf \left( \left\{ a _ k : k \ge n \right\}  \right)  \).
+
+                    </p>
+                    <p>
+                        Now suppose that \( \limsup \left( a _ n \right) = \liminf \left( a _ n \right) = L   \), since \(  a _ k \in \left\{ a _ k : k \ge n \right\}  \) , then as they are defined as upper and lower bounds, we have \( i _ n \le a _ n \le s _ n \) for all \( n \in \mathbb{ N } _ 1 \) then by the squeeze theorem \( \left( a _ n \right) \to L  \) .
+                    </p>
+                    <p>
+                        Now suppose that \( \limsup \left( a _ n \right) = \limsup \left( a _ n \right) = L  \), and let's prove \( \left( a _ n \right) \to L  \), let \( \epsilon \in \mathbb{ R } ^ +  \), therefore we get an \( N \in \mathbb{ N } _ 1 \) such that for every \( n \ge N \) we have \( \left\lvert a _ n - L \right\rvert \lt \epsilon   \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">iff</a> \( L - \epsilon \le a _ n \le L + \epsilon  \), thus \( L + \epsilon  \) and \( L - \epsilon  \) are upper and lower bounds of \( \left\{ a _ k : k \ge n \right\}  \) respectively, since the sup and the inf are the lest and greatest of their bounds respectively so we have that \( \sup \left( \left\{ a _ k: k \ge n \right\}  \right) \le L + \epsilon  \) and \( L - \epsilon \le \inf \left( \left\{ a _ k: k \ge n \right\}  \right)  \) combining the two we obtain
+                        \[
+                            L - \epsilon \le \inf \left( \left\{ a _ k : k \ge n \right\}  \right) \le \sup \left( \left\{ a _ k : k \ge n \right\}  \right) \le L + \epsilon
+                        \]
+                        which is equivalent to both
+                        \[
+                            \left\lvert \inf \left( \left\{ a _ k : k \ge n \right\}  \right) - L  \right\rvert \le \epsilon \text{ and } \left\lvert \sup \left( \left\{ a _ k : k \ge n \right\}  \right) - L   \right\rvert \le \epsilon
+                        \]
+                        <a class="knowledge-link" href="/analysis/single_variable/limits.html#corollary-convergent-sequence-doesnt-reqiure-strict-inequality">therefore</a> \( \limsup \left( a _ n \right) = \liminf \left( a _ n \right) = L   \)
+                    </p>
+                </div>
             </div>
 
             <div class="proposition" id="proposition-sum-law">

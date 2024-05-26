@@ -23,7 +23,7 @@
             <div class="content">
                 suppose that \( a , b \in \mathbb{Z} \) then the greatest common divsor of \( a \) and \( b \) notated
                 as \( \gcd{\left ( a , b \right )} \) is the largest positive integer that <span class="knowledge-link"
-                data-href="/number_theory/number_theory.html#definition-divides">divides</span> each of \( a , b \)
+                data-href="/number_theory/division.html#definition-divides">divides</span> each of \( a , b \)
             </div>
         </div>
 
@@ -183,6 +183,91 @@
         </div>
 
 
+        <div class="definition" id="definition-rational-in-lowest-terms">
+        	<div class="title">Rational in Lowest Terms</div>
+        	<div class="content">
+        		A rational number \( r \in \mathbb{ Q }  \) written as a fraction \( r = \frac{a}{b}  \) is said to be in <b>lowest terms</b> if \( \gcd \left( a, b \right) = 1 \)
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-lowest-terms-rational-always-exists">
+        	<div class="title">Lowest Terms Rational Always Exists</div>
+        	<div class="content">
+                For any \( r \in \mathbb{ Q }  \) it can be represented in <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#definition-rational-in-lowest-terms">lowest terms</a>
+        	</div>
+        	<div class="proof">
+                Suppose \( r = \frac{a}{b} \in \mathbb{ Q }  \) and let \( d = \gcd \left( a, b \right)  \) and consider
+                \[
+                    \frac{a}{b} = \left( \frac{\frac{1}{d} }{\frac{1}{d} }  \right) \left( \frac{a}{d}  \right) = \frac{\frac{a}{d} }{\frac{b}{d}}
+                \]
+                and <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#corollary-dividing-out-by-gcd-removes-all-common-factors">since we know</a> that \( \gcd \left( \frac{a}{d} , \frac{b}{d}  \right) = 1  \) we've proven the statement true
+
+        	</div>
+        </div>
+
+
+
+
+
+
+        <div class="definition" id="definition-common-divisor-set">
+        	<div class="title">Common Divisor Set</div>
+        	<div class="content">
+        	    Suppose that \( a, b \in \mathbb{ Z }  \) then we define
+                \[
+                    \operatorname{ cd } \left( a, b \right) = \left\{ d \in \mathbb{ Z } : d \mid a \land d \mid b \right\}
+                \]
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-adding-a-multiple-of-the-other-yields-the-same-common-divisors">
+        	<div class="title">Add a multiple of the other Yields Same Common Divisors</div>
+        	<div class="content">
+        		For any \( a, b, k \in \mathbb{ Z }  \)
+                \[
+                    \operatorname{ cd } \left( a , b \right) = \operatorname{ cd } \left( a, b + k a \right)
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    We'll deal with \( \operatorname{ cd } \left( a, b \right) = \operatorname{ cd } \left( a, b + ka \right)  \) first. \( \subseteq  \) Suppose \( d \mid a, b \) therefore \( d \mid a + k a \) as needed. \( \supseteq  \) now suppose that \( d \mid a, b + ka \) since \( d \mid a \) then \( d \mid ka \) and therefore \( d \mid  \left( b + ka \right) - ka  = b\) therefore \( d \in \operatorname{ cd } \left( a, b \right)  \)
+                </p>
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-add-a-multiple-of-the-other-both-ways-yields-same-common-divisors">
+        	<div class="title">Add a multiple of the Other Both ways Yields Same Common Divisors</div>
+        	<div class="content">
+                for any \( a, b, j, k \)
+                \[
+                    \operatorname{ cd } \left( a, b \right) = \operatorname{ cd } \left( a + k b, b + ja  \right)
+                \]
+        	</div>
+        	<div class="proof">
+                By the previous proposition we know that \( \operatorname{ cd } \left( a, b \right) = \operatorname{ cd } \left( a, b + ja \right)  \). Now note that \( \operatorname{ cd } \left( a, b + ja \right) = \operatorname{ cd } \left( b + ja, a \right)   \) and thus by the same proposition again
+        	</div>
+        </div>
+
+
+
+
+        <div class="proposition" id="proposition-superset-divisors-implies-greater-gcd">
+        	<div class="title">Superset Divisors Implies Greater GCD</div>
+        	<div class="content">
+        	    For any \( a, b, p, q \in \mathbb{ Z }  \)
+                \[
+                    \operatorname{ cd } \left( a, b \right) \subseteq \operatorname{ cd } \left( p, q \right) \implies \gcd \left( a, b \right) \le \gcd \left( p, q \right)
+                \]
+        	</div>
+        	<div class="proof">
+        		For any \( X \subseteq Y \subseteq \mathbb{ Z }  \) then \( \max \left( X \right) \lt \max \left( Y \right)   \) therefore we have
+                \[
+                    \gcd \left( a, b \right) = \max \left( \operatorname{ cd } \left( a, b \right)  \right) \le \max \left( \operatorname{ cd } \left( p, q \right)  \right) = \gcd \left( p, q \right)
+                \]
+                so that \( \gcd \left( a, b \right) \le \gcd \left( p, q \right)  \) as needed.
+        	</div>
+        </div>
+        
 
         <div class="corollary" id="corollary-same-divisors-implies-same-gcd">
             <div class="title">
@@ -190,16 +275,16 @@
             </div>
 
             <div class="content">
-                Suppose that \( a , b , p , q \in \mathbb{Z} \) and that \( D_{a , b} = \left \lbrace d \in \mathbb{Z}
-                : d \left \lvert a \text{ and } d \mid b \right \rbrace \right. \) and \( D_{p , q} = \left \lbrace d
-                \in \mathbb{Z} : d \left \lvert p \text{ and } d \mid q \right \rbrace \right. \) are equal, then \(
-                \gcd{\left ( a , b \right )} = \gcd{\left ( p , q \right )} \)
+                Suppose that \( a , b , p , q \in \mathbb{Z} \), then
+                \[
+                    \operatorname{ cd } \left( a, b \right) = \operatorname{ cd } \left( p, q \right) \implies  \gcd \left( a, b \right) = \gcd \left( p, q \right)
+                \]
             </div>
-
             <div class="proof">
-                If two sets are equal, then their maximum positive values are equal, therefore their gcd's are equal.
+                Since \( \operatorname{ cd } \left( a, b \right) = \operatorname{ cd } \left( p, q \right)  \) then we know that \( \operatorname{ cd } \left( a, b \right) \subseteq \operatorname{ cd } \left( p, q \right)   \) and that \( \operatorname{ cd } \left( a, b \right) \supseteq \operatorname{ cd } \left( p, q \right)   \) so that we have \( gcd \left( a, b \right) \le \gcd \left( p, q \right)  \) and \( \gcd \left( a, b \right) \ge \gcd \left( a, b \right)  \) so that \( \gcd \left( a, b \right) = \gcd \left( p, q \right)  \) as needed.
             </div>
         </div>
+        
 
         <div class="proposition" id="proposition-division-by-individuals-implies-division-by-product-when-gcd-is-one">
         	<div class="title">Division by Individuals Implies Division by Product when GCD is one</div>
@@ -223,6 +308,54 @@
         </div>
 
 
+        <div class="proposition" id="proposition-gcd-of-a-multiple-is-greater">
+        	<div class="title">GCD of a Multiple is Greater</div>
+        	<div class="content">
+                For any \( a, b ,k \in \mathbb{ Z }  \) we have:
+                \[
+                    \gcd \left( a, b \right) \le \gcd \left( k a, b \right)
+                \]
+        	</div>
+        	<div class="proof">
+                Recall this, therefore we can show that \( \operatorname{ cd } \left( a, b \right) \subseteq \operatorname{ cd } \left( ak , b \right)  \) thus \( \gcd \left( a, b \right) \le \gcd \left( ka, b \right)  \) 
+        	</div>
+        </div>
+        
+
+        <div class="proposition" id="proposition-a-divisor-of-a-coprime-number-is-also-coprime">
+        	<div class="title">A Divisor of a Coprime number Is also Coprime</div>
+        	<div class="content">
+                Suppose that \( a, b, d \in \mathbb{ Z }  \) such that \( \gcd \left( a, b \right) = 1 \) and \( d \mid a \) then \( \gcd \left( d, b \right) = 1 \)
+        	</div>
+        	<div class="proof">
+                Let \( g := \gcd \left( b, d \right)  \) clearly \( g \mid d \) and since \( d \mid a \) then \( g \mid a \), also we know that \( g \mid b \) and therefore \( g \) is a common divisor of \( a, b \) and therefore \( g = 1 \), as needed.
+        	</div>
+        </div>
+
+
+        <div class="proposition" id="proposition-relatively-prime-factors-implies-relatively-prime-product">
+            <div class="title">Relatively Prime Factors Implies Relatively Prime Product</div>
+            <div class="content">
+                Suppose that \( \gcd \left( a, b \right) = 1  \) and \( \gcd \left( a, c \right) = 1  \) then \( \gcd \left( a, bc \right) = 1  \)
+            </div>
+            <div class="proof">
+                <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">We have some</a> \( x _ 1, x _ 2, y _ 1, y _ 2 \) such that
+                \[
+                a x _ 1 + b y _ 1 = 1 = a x _ 2 + c y _ 2
+                \]
+                So then
+                \[
+                \begin{align}
+                1 &= \left( a x _ 1 + b y _ 1 \right) \left( a x _ 2 + c y _ 2 \right) \\
+                &= a ^ 2 x _ 1 x _ 2 + a x _ 1 c y _ 2 + b y _ 1 a x _ 2 + b c y _ 1 y _ 2 \\
+                &= a \left( a x _ 1 x _ 2 + x _ 1 b y _ 2 + b y _ 1 x _ 2 \right)  + bc \left(  y _ 1 y _ 2 \right)
+                \end{align}
+                \]
+                so <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-if-you-can-find-a-linear-combination-that-yields-one-then-their-gcd-is-one">therefore</a> \( \gcd \left( a, bc \right) = 1 \)
+            </div>
+        </div>
+
+
         <div class="definition" id="definition-coprime">
             <div class="title">
                 Coprime
@@ -233,6 +366,7 @@
                 1 \).
             </div>
         </div>
+
 
         <div class="corollary" id="corollary-coprime-gcd-characterization">
             <div class="title">Coprime GCD Characterization</div>
@@ -295,6 +429,11 @@
                 </p>
         	</div>
         </div>
+
+
+
+
+
 
 
 

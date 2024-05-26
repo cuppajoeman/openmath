@@ -317,30 +317,79 @@
             We required that \( a _ n \ge 0 \) because if you consider the series \( \sum _ {  n = 1 } ^ \infty \left( -1 \right) ^ \left( n + 1  \right)     \) that has a sequence of partial sums of the form \( 1, 0, 1, 0, 1, 0, \ldots  \) which is clearly bounded but the limit doesn't exist.
         </p>
 
-        <div class="proposition" id="proposition-limsup-exists-iff-the-sequence-is-bounded-above">
-        	<div class="title">limsup Exists iff the Sequence is Bounded Above</div>
+        <div class="lemma" id="lemma-monotone-increasing-sequence-with-a-subsequence-which-is-bounded-above-implies-entire-sequence-is-bounded-above">
+        	<div class="title">Monotone Increasing Sequence with a Subsequence which is Bounded Above Implies Entire Sequence is Bounded Above</div>
         	<div class="content">
-        		As per title.
+                Suppose that \( \left( a _ n \right)  \) is monotone increasing, and there is some subsequence \( \left( a _ { \sigma \left( n \right)  }  \right)  \) that is bounded above, then \( \left( a _ n \right)  \) is bounded above.
         	</div>
         	<div class="proof">
 
         	</div>
         </div>
 
-
-
-        <div class="proposition" id="proposition-limit-exists-and-goes-to-L-iff-limsup-and-liminf-do-as-well">
-        	<div class="title">Limit Exists and Goes to L iff limsup and limsup do as well</div>
+        
+        <div class="theorem" id="theorem-cauchy-condensation-test">
+        	<div class="title">Cauchy Condensation Test</div>
         	<div class="content">
+        		Suppose that \( \left( a _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R } ^ +   \) is monotone decreasing then
                 \[
-                    \lim _ { n \to \infty  } a _ n = L \iff \limsup \left( a _ n \right) = \liminf \left( a _ n \right) = L
+                    \sum _ { n = 1 }  ^  \infty a _ n \lt \infty  \iff \sum _ { n = 0 }  ^  \infty 2 ^ n a _ { 2 ^ n } \lt \infty
                 \]
         	</div>
         	<div class="proof">
-
+        	    Let's define \( S _ n = \sum _ { k = 1 }  ^ n a _ k   \) 	and \( T _ n = \sum _ { k = 0  } ^ n 2 ^ k a _ { 2 ^ k }    \).
+                <p>
+                    Assume that \( \sum _ { n = 0 } ^ \infty 2 ^ n a _ { 2 ^ n }   \) converges, which by definition means that \( \left( T _ n \right)  \) converges and is therefore bounded above, which means there is some \( M \) such that for any \( i \in \mathbb{ N } _ 0, T _ i \le M \), we'll use this fact to show that \( \left( S _ n \right)  \) is bounded above by showing that it has a subsequence which is bounded above. Namely we will prove that
+                    \[
+                        S _ { 2 ^ n - 1 } \le t _ { n - 1 } \le M
+                    \]
+                </p>
+                <p>
+                    Base case \( n = 1 \), \( S _ { 2 ^ 1 - 1 } = S _ 1 = a _ 1 = 2 ^ 0 a _ { 2 ^ 0 } = T _ 0 \le M  \) as needed. Now asssume that it holds true for \( n \in \mathbb{ N } _ 1 \), which is to say that \( S _ { 2 ^ n - 1 } \le T _ { n - 1 } \le M   \) and now let's prove that \( S _ { 2 ^ { n + 1  } - 1  } \le T _ { n } \le M   \)
+                </p>
+                <p>
+                    Note that in the induction step the following fact will be useful, which says for any \( n \in \mathbb{ N } _ 1 \) we have that
+                    \[
+                        T _ { n  } - T _ { n - 1 } = 2 ^ n a _ { 2 ^ n }
+                    \]
+                    Now continuing on, we note the following
+                </p>
+                <p>
+                    \[
+                    \begin{align}
+                    S _ { 2 ^ { n + 1  } - 1   } &= S _ { 2 ^ n - 1 } + \sum _ { i = 2 ^ n }   ^ { 2 ^ { n + 1  } - 1   } a _ i\\
+                    &\le T _ { n - 1  } + \sum _ { i = 2 ^ n }   ^ { 2 ^ { n + 1  } - 1   } a _ i\\
+                    &\le T _ { n - 1  } + 2 ^ n a _ { 2 ^ n } \\
+                    &= T _ { n - 1 } + \left( T _ n - T _ { n - 1  }  \right) \\
+                    &= T _ { n } \le M
+                    \end{align}
+                    \]
+                    Note that going from the second line to the third comes from the fact that \( \left( a _ n \right)  \) is decreasing which means for any \( x \in \left\{ 2 _ n, \ldots,  2 ^ { n + 1  } - 1   \right\}  \) that \( a _ { 2 ^ n } \ge a _ x  \) additionally the <a class="knowledge-link" href="/combinatorics/basics.html#proposition-the-number-of-integers-between-two-integers-inclusive">the size of that set is</a> \( 2 ^ { n + 1  }  - 1 - 2 ^ n + 1 = 2 ^ n \left( 2 - 1 \right) = 2 ^ n  \), which allow us to upper bound that summation by \( 2 ^ n a _ { 2 ^ n }  \), which shows the induction step true. Thus we've proven that \( S _ n \) is bounded above, and so by the MCT it converges which is to say that \( \sum _ { n = 1 } ^ \infty a _ n \lt \infty   \)
+                </p>
+                <p>
+                    Now let's assume that \( \sum _ { n = 0  }  ^ \infty 2 ^ n a _ { 2 ^ n }    \) converges, and show that the other one does as well, we'll follow a similar structure that in we show that \( T _ n \) is bounded above. Specifically we will show that
+                    \[
+                        a _ 1 + 2 \sum _ { i = 2 }  ^  { 2 ^ n } a _ n \ge T _ n
+                    \]
+                    Since \( \left( S _ n \right)  \) is bounded above by some \( M \in \mathbb{ R } \) then by adding \( a _ 1 \) to both sides we obtain \( 2 S _ { 2 ^ n } \ge a _ 1 + T _ n  \) which is to say that \( 2 M \ge a _ 1 + T _ n \) which shows that \( T _ n \) is bounded above, and since it is increasing we would know that it converges by the MCT.
+                </p>
+                <p>
+                    For the base case of \( n = 0 \) we have \( a _ 1 + 2 a _ 2 \ge a _ 1 = T _ 0 \) so it holds true. Now let \( n \in \mathbb{ N } _ 0 \) and suppose that \( a _ 1 + 2 \sum _ { i = 2 }  ^ { 2 ^ n }  a _ n \ge T _ n   \) we need to prove that \( a _ 1  + 2 \sum _ { i = 2 }  ^ { 2 ^{ n + 1  }  } a _ n \ge T _ { n + 1  }     \), then notice that
+                    \[
+                        \begin{align}
+                            a _ 1 + 2 \sum _ { i = 2 }  ^  { 2 ^ { n + 1  }  } a _ n &= a _ 1 + 2 \sum _ { i = 2 }  ^  { 2 ^ n } a _ n + 2 \sum _ { i = 2 ^ n + 1  }  ^  { 2 ^ { n + 1  }  } a _ n \\
+                    &\ge T _ n + 2 \sum _ { i = 2 ^ n + 1  }  ^  { 2 ^ { n + 1  }  } a _ n \\
+                    &\ge T _ n + 2 \left( 2 ^ n a _ { 2 ^ { n + 1  }  }  \right)  \\
+                    &= T _ n + 2 ^ { n + 1  } a _ { 2 ^ { n + 1  }  } \\
+                    &= T _ n + \left( T _ { n + 1  } - T _ n  \right) \\
+                    &= T _ { n + 1  }
+                        \end{align}
+                    \]
+                    In this case the 3rd line follows by a similar argument to the previous induction step, but this team using the fact that for all \( x \in \left\{ 2 ^ n + 1 , \ldots , 2 ^ { n + 1  }  \right\}  \) we have \( a _ x \ge a _ { 2 ^ { n + 1  }  }  \) because \( \left( a _ n \right)  \) is monotone decreasing.
+                </p>
         	</div>
         </div>
-
+        
         <div class="theorem" id="theorem-root-test">
         	<div class="title">Root Test</div>
         	<div class="content">
