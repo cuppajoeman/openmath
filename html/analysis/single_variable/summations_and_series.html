@@ -263,6 +263,51 @@
                 </ol>
         	</div>
         	<div class="proof">
+                <p>
+                    We start by proving that \( 1 \implies 2 \) so assume that series converges. Let \( S _ n := \sum _ { k = 1 }  ^ n a _ k  \) be the sequence of partial sums, therefore we know that for any \( \epsilon  \) there is an \( N \in \mathbb{ N } _ 0 \) such that for all \( n \ge N, \left\lvert S _ n - L  \right\rvert \lt \epsilon   \), note that
+                    \[
+                    \begin{align}
+                    L - S _ n &= \left( \lim _ { m \to \infty  } S _ m \right)  - S _ n \\
+                    &= \lim _ { m \to \infty  } \left( S _ m - S _ n \right) \\
+                    &= \lim _ { m \to \infty  } \sum _ { k = n + 1  }  ^  m a _ k \\
+                    &= \sum _ { k = n + 1  }  ^  \infty a _ k
+                    \end{align}
+                    \]
+                    then it follows that
+                    \[
+                        \left\lvert \sum _ { k = n + 1  } ^ \infty a _ k  \right\rvert = \left\lvert S _ n - L \right\rvert \lt \epsilon
+                    \]
+                    as needed.
+                </p>
+                <hr>
+                <p>
+                    Now we'll prove that \( 2 \implies 3 \) so to show this is true, let \( \epsilon \in \mathbb{ R } ^ +  \) therefore by considering \( \frac{\epsilon}{2}  \) in our assumption we get an \( N \in \mathbb{ N } _ 1 \) such that for any \( n \ge N \) we have that
+                    \[
+                        \left\lvert \sum _ { k = n + 1  }  ^  \infty a _ k \right\rvert \le \frac{\epsilon}{2}
+                    \]
+                </p>
+                <p>
+                    Now let \( a, b \ge N \) and we'll prove that \( \left\lvert \sum _ { k = a + 1  }  ^ b a _ k \right\rvert \lt \epsilon     \), to do this note the following
+                    \[
+                        \begin{align}
+                            \left\lvert \sum _ { k = a + 1  }  ^ b a _ k   \right\rvert &= \left\lvert \sum _ { k = a + 1  } ^ b a _ k + \sum _ { k = b + 1  } ^ \infty a _ k - \sum _ { k = b + 1  } ^ \infty a _ k  \right\rvert \\
+                   &= \left\lvert \sum _ { k = a + 1 } ^ \infty a _ k - \sum _ { k = b + 1 } ^ \infty  a _ k \right\rvert  \\
+                    &\le \left\lvert \sum _ { k = a + 1  }  ^ \infty a _ k  \right\rvert + \left\lvert \sum _ { k = b + 1  }  ^ \infty a _ k   \right\rvert \\
+                    &\lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon
+                        \end{align}
+                    \]
+                    as needed.
+                </p>
+                <hr>
+                <p>
+                    We'll prove that \( 3 \implies 1 \), since we assume \( 3 \) and use the notation for \( S _ n \) as the partial sums, then we can see that
+                    \[
+                        \left\lvert \sum _ { k = n + 1  } ^ { m } \right\rvert = \left\lvert S _ m - S _ n \right\rvert
+                    \]
+                    and thus assuming \( 3 \) is the same as assuming that \( S _ n \) is cauchy, but we know that any cauchy sequence is convergent and thus \( S _ n \) converges, which shows that \( \sum _ { n = 1 } ^ {\infty   } a _ n   \) converges.
+                </p>
+
+
 
         	</div>
         </div>
