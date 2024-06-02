@@ -78,6 +78,20 @@
         	</div>
         </div>
 
+        <div class="corollary" id="corollary-norm-squared-is-the-dot-product">
+        	<div class="title">Norm Squared is the Dot Product</div>
+        	<div class="content">
+                For any \( x \in \mathbb{ R } ^ n \) we have that
+                \[
+                    \lVert x \rVert ^ 2 = x \cdot x
+                \]
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+        
+
 
         <div class="definition" id="definition-vector-form-of-a-line">
             <div class="title">
@@ -118,6 +132,99 @@
         		
         	</div>
         </div>
+
+        <div class="definition" id="definition-collinear">
+        	<div class="title">Collinear</div>
+        	<div class="content">
+        		Given a vector space \( \left( V, F \right)  \) then we say that two vectors \( x, y \in V \) are collinear if there exists an \( \alpha \in F \) such that
+                \[
+                    x = \alpha y
+                \]
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-parallelogram-law">
+        	<div class="title">Parallelogram Law</div>
+        	<div class="content">
+        		Suppose \( x, y \in \mathbb{ R } ^ n \) then we have
+                \[
+                    \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2 = 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2
+                \]
+        	</div>
+        	<div class="proof">
+        		\[
+        		    \begin{align}
+        		        \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2 &= \left( x + y \right) \cdot \left( x + y \right)  + \left( x - y \right) \cdot \left( x - y \right) \\
+                &= x \cdot x + 2 x \cdot y + y \cdot y + x \cdot x - 2 x \cdot y + y \cdot y \\
+                &= 2 x \cdot x + 2 y \cdot y \\
+                &= 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2
+        		    \end{align}
+        		\]
+        	</div>
+        </div>
+
+        <div class="exercise" id="exercise-the-norm-of-the-half-of-the-sum-of-two-unit-vectors-is-one-iff-they-are-equal">
+        	<div class="title">The Norm of The Half of The Sum of Two Unit Vectors is One iff They are Equal</div>
+        	<div class="content">
+        		Suppose \( x, y \in \mathbb{ R } ^ n \) such that \( \lVert x \rVert = \lVert y \rVert = 1 \) then
+                \[
+                    \left\lVert \frac{x + y}{2}  \right\rVert  = 1  \iff  x = y
+                \]
+        	</div>
+        	<div class="proof">
+                \( \implies  \) Suppose that \( \left\lVert \frac{x + y}{2}  \right\rVert = 1  \) we'd like to prove that \( x = y \), thus it's equivalent to show that \( \lVert x - y \rVert = 0  \), recall that from the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-parallelogram-law">parallelogram law</a> that
+                \[
+                    \lVert x - y \rVert = \sqrt{ 2 \lVert x \rVert ^ 2 + 2 \lVert y  \rVert ^ 2 - \lVert x + y \rVert ^ 2  }
+                \]
+                thus it's enough to show that \( 2 \lVert x  \rVert ^ 2 +  2 \lVert y  \rVert ^ 2 -  \lVert x + y \rVert ^ 2 = 0  \), which means we just have to show that \( \lVert x + y \rVert  ^ 2 = 2 \lVert x \rVert ^ 2 +  2 \lVert y \rVert ^ 2 \), moreover \( x, y  \) were unit vectors so we have \( \lVert x \rVert = \lVert y \rVert = 1 \) and we now just need to prove that \( \lVert x + y \rVert ^ 2 = 4  \).  We've assumed that \( \left\lVert \frac{x + y}{2}  \right\rVert = 1 \), this means that \( \lVert x + y \rVert = 2  \) thus we conclude that \( \lVert x + y \rVert ^ 2 = 4  \) as needed.
+                <p>
+                    \( \impliedby  \) Suppose that \( x = y \), then
+                    \[
+                        \left\lVert \frac{x + y}{2}  \right\rVert = \left\lVert \frac{2x}{2}  \right\rVert = \lVert x \rVert = 1
+                    \]
+                    as needed.
+                </p>
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-cosine-law">
+        	<div class="title">Cosine Law</div>
+        	<div class="content">
+        		Suppose that \( x, y \in \mathbb{ R } ^ n \) and \( \theta  \) is the angle between them, then
+                \[
+                    \lVert x + y \rVert ^ 2 =  \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta \right) +  \lVert y \rVert ^ 2
+                \]
+        	</div>
+        	<div class="proof">
+        	    This follows from distributivity of the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-geometric">geometric interpretation of the dot product</a>
+                \[
+                    \begin{align}
+                        \lVert x + y \rVert ^ 2 &= \left( x + y \right)  \cdot \left( x + y \right) \\
+                &= x \cdot x + 2 x \cdot y +  y ^ 2 \\
+                &= \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta  \right) + \lVert y \rVert ^ 2
+                    \end{align}
+                \]
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-dot-product-is-a-sum-of-norms">
+        	<div class="title">Dot Product Is a Sum of Norms</div>
+        	<div class="content">
+        	    \[
+        	        x \cdot y = \frac{\lVert x + y \rVert ^ 2 - \lVert x \rVert ^ 2 - \lVert y \rVert ^ 2}{2}
+        	    \]
+        	</div>
+        	<div class="proof">
+                Rearrange <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cosine-law">this</a>.
+        	</div>
+        </div>
+
+
+
+
+        
+
+
         
 
 

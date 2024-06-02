@@ -55,6 +55,20 @@
                 Note that if you have an arbitrary sequence \( \left( y _ n \right)  \) which you don't know if it converges to anything and you write \( \lim _ { n \to \infty  } y _ n = L  \)  for some \( L \in \mathbb{ R }  \), this is two assertions, first that \( \left( y _ n \right)  \) converges to something, and the value it converges to is \( L \).
             </p>
 
+            <div class="proposition" id="proposition-eventually-increasing-index-mapping-maintains-limit">
+            	<div class="title">Eventually Increasing Index Mapping Maintains Limit</div>
+            	<div class="content">
+            		Suppose that \( \lim _ { n \to \infty  } x _ n = x  \) and \( f : \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \) is an eventually increasing function, then
+                    \[
+                        \lim _ { n \to \infty  } x _ { f \left( n \right)  } = x
+                    \]
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+
             <div class="exercise" id="exercise-reciprocal-power-goes-to-zero">
             	<div class="title">Reciprocal Power Goes to Zero</div>
             	<div class="content">
@@ -315,6 +329,28 @@
                 </div>
             </div>
 
+            <div class="proposition" id="proposition-a-sequence-eventually-gets-close-to-limsups-limit">
+            	<div class="title">A Sequence Eventually gets Close to Limsups Limit</div>
+            	<div class="content">
+            	    Let \( \left( a _ n  \right) : \mathbb{ N } _ 1 \to \mathbb{ R } \) and suppose that \( \limsup \left( a _ n \right) \to L  \) , then for any \( \epsilon \in \mathbb{ R } ^ + \) there exists an \( N \in \mathbb{ N } _ 1 \) such that for any \( n \ge N \)
+                    \[
+                        a _ n \lt L + \epsilon
+                    \]
+            	</div>
+            	<div class="proof">
+                    Let \( \epsilon \in \mathbb{ R }^ { +  }  \) then there exists an \( N \in \mathbb{ N } _ 1 \) such that
+                    \[
+                        \left\lvert \sup \left( \left\{ a _ k: k \ge n \right\}  \right) - L   \right\rvert \lt \epsilon
+                    \]
+                    which is true if and only if
+                    \[
+                        L - \epsilon \lt \sup \left( \left\{ a _ k : k \ge n \right\}  \right) \lt L + \epsilon
+                    \]
+                    thus since \( a _ n \le \sup \left( \left\{ a _ k: k \ge n \right\}  \right)  \) by transitivity we know that \( a _ n \lt L + \epsilon  \)
+            	</div>
+            </div>
+
+
             <div class="proposition" id="proposition-convergence-iff-lim-sup-and-inf-are-equal">
                 <div class="title">Convergence iff Lim Sup and Inf are Equal</div>
                 <div class="content">
@@ -457,8 +493,8 @@
             	</div>
             </div>
 
-            <div class="proposition" id="proposition-generalized-triangle-inequality">
-            	<div class="title">Generalized Triangle Inequality</div>
+            <div class="proposition" id="proposition-telescoping-triangle-inequality">
+            	<div class="title">Telescoping Triangle Inequality</div>
             	<div class="content">
             		Let \( j \le  k \in \mathbb{ N } _ 0 \) and \( \left( a _ n \right)  \) be a sequence, then we have the following
                     \[
@@ -486,7 +522,7 @@
                         &= \lvert S _ m - S _ n \rvert \le \epsilon
                             \end{align}
                         \]
-                        where we've used the <a class="knowledge-link" href="/analysis/single_variable/limits.html#proposition-generalized-triangle-inequality">generalized triangle inequality</a> and the fact that \( S _ k \) is increasing, as each higher index adds a non-negative element to the sum.
+                        where we've used the <a class="knowledge-link" href="/analysis/single_variable/limits.html#proposition-telescoping-triangle-inequality">generalized triangle inequality</a> and the fact that \( S _ k \) is increasing, as each higher index adds a non-negative element to the sum.
                     </p>
             	</div>
             </div>

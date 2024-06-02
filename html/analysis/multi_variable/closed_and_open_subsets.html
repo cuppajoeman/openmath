@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Closed and Open Subsets</title>
+        <script src="/js/script.js" defer></script>
+        <link rel="stylesheet" href="/styles/styles.css">
+
+    </head>
+    <body>
+        <div class="thin-wrapper">
+
+           <div class="definition" id="definition-limit-point">
+                <div class="title">Limit Point</div>
+                <div class="content">
+                    A point \( x \in \mathbb{ R } ^ n \) is a <b>limit point</b> of \( A \subseteq \mathbb{ R } ^ n \) if there is a sequence \( \left( a _ n \right) :\mathbb{ N } _ 1 \to A   \)  such that
+                    \[
+                        \lim _ { n \to \infty  } a _ n = x
+                    \]
+                </div>
+           </div>
+
+            <div class="definition" id="definition-closed">
+            	<div class="title">Closed</div>
+            	<div class="content">
+            		A set \( A \subseteq \mathbb{ R } ^ n \) is said to be closed if it contains all of it's limit points
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-the-set-of-one-over-n-with-zero-is-closed">
+            	<div class="title">The Set of One over N with Zero is Closed</div>
+            	<div class="content">
+                    \[
+                        S := \left\{ \frac{1}{n} : n \in \mathbb{ N } _ 1 \right\} \cup \left\{ 0 \right\}
+                    \]
+            	    is closed.
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Note that for any point \( x \in \mathbb{ R } \setminus S  \), what we will do is that we will assume there was a sequence that converges to \( x \) then if it can be shown that there exists an epsilon ball which is completely disjoint from \( S \) then \( x \) certainly cannot be a limit point creating a contradiction. If this can be done for all points in \( \mathbb{ R }  \setminus S \) then it will have show that \( S \) already contains all of its limit points.
+                    </p>
+                    <p>
+
+                        Formally if \( x \in \mathbb{ R } \setminus S \) then if \( x \notin \left[ 0, 1 \right]  \) and if \( x \gt 1 \) we can use \( \epsilon = \frac{x - 1}{2}  \) and if \( x \lt 0 \) then we can use \( \epsilon = \frac{\left\lvert x \right\rvert}{2}   \). Otherwise \( x \in \left[ 0, 1 \right]  \), but we also know that \( x \notin \left\{ \frac{1}{n} : n \in \mathbb{ N } _ 1 \right\} \cup \left\{ 0 \right\}   \), so certainly \( x \notin \left\{ 0, 1 \right\}  \) and moreover what can be observed is that there exists a \( k \in \mathbb{ N } _ 1 \) such that \( x \in \left( \frac{1}{k} , \frac{1}{k + 1}  \right)  \), thus by taking \( \epsilon = \frac{\min \left( x - \frac{1}{k + 1 }, \frac{1}{k} - x  \right) }{2} \), we can find an epsilon ball that completely excludes any points from \( S \) so \( x \) cannot be a limit point.
+                    </p>
+            	</div>
+            </div>
+
+            
+            <div class="proposition" id="proposition-finite-unions-and-arbitrary-intersections-are-closed">
+            	<div class="title">Finite Unions and Arbitrary Intersections are Closed</div>
+            	<div class="content">
+            	    Suppose \( \mathcal{ A } := \left\{ A _ i : i \in I \right\}  \) where each \( A _ i \subseteq \mathbb{ R } ^ n\) is closed, then \( \bigcap \mathcal{ A }  \) is closed, and if \( I \) is finite, then \( \bigcup \mathcal{ A }  \) is closed.
+            	</div>
+            	<div class="proof">
+            		
+            	</div>
+            </div>
+            
+            <div class="definition" id="definition-closure">
+            	<div class="title">Closure</div>
+            	<div class="content">
+            		If \( A \subseteq \mathbb{ R } ^ n \), then we define \( \overline{ A }  \) as the <b>closure</b> of \( A \) which is the set consisting of all limit points of \( A \)
+            	</div>
+            </div>
+
+            <div class="corollary" id="corollary-the-closure-is-closed">
+            	<div class="title">The Closure is Closed</div>
+            	<div class="content">
+            		For any \( A \subseteq \mathbb{ R } ^ n \), then \( \overline{ A }  \) is closed
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-closed-iff-equals-closure">
+            	<div class="title">Closed iff Equals Closure</div>
+            	<div class="content">
+            		Suppose that \( A \subseteq \mathbb{ R } ^ n \) then \( A \) is closed if and only if
+                    \[
+                        \overline{ A } = A
+                    \]
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+
+            
+            <div class="proposition" id="proposition-the-closure-of-a-set-is-the-smallest-closed-set-containing-it">
+            	<div class="title">The Closure of a Set is the Smallest Closed Set Containing It</div>
+            	<div class="content">
+            		
+            	</div>
+            	<div class="proof">
+            		
+            	</div>
+            </div>
+
+            <div class="definition" id="definition-open-ball">
+            	<div class="title">Open Ball</div>
+            	<div class="content">
+                    We say that the set
+                    \[
+                        B \left( a, r \right) := \left\{ x \in \mathbb{ R } ^ n : \lVert x - a \rVert \lt r  \right\}
+                    \]
+                    is the <b>ball</b> about \( a \in \mathbb{ R } ^ n\) of radius \( r \in \mathbb{ R } ^ +  \)
+            	</div>
+            </div>
+
+            <div class="definition" id="definition-open">
+            	<div class="title">Open</div>
+            	<div class="content">
+            		We say \( U \subseteq \mathbb{ R } ^ n \) is open if for every \( a \in U \) there is some \( \epsilon \in \mathbb{ R } ^ +  \) such that \( B \left( a, \epsilon  \right) \subseteq U \)
+            	</div>
+            </div>
+
+
+            <div class="corollary" id="corollary-the-open-ball-is-open">
+            	<div class="title">The Open Ball is Open</div>
+            	<div class="content">
+                    \( B \left( a, r \right)  \) is open.
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+            <div class="theorem" id="theorem-open-iff-its-complement-is-closed">
+            	<div class="title">Open iff Its Complement is Closed</div>
+            	<div class="content">
+            		\( A \subseteq \mathbb{ R } ^ n \) is open if and only if \( \mathbb{ R } ^ n \setminus A \) is closed.
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+            
+            <div class="proposition" id="proposition-the-arbitrary-union-and-finite-intersection-of-open-sets-is-open">
+            	<div class="title">The Arbitrary Union and Finite Intersection of Open sets is Open</div>
+            	<div class="content">
+            		Suppose \( \mathcal{ A } = \left\{ A _ i : i \in I \right\}  \) then \( \bigcup \mathcal{ A }  \) is open and if \( I \) is finite, then \( \bigcap \mathcal{ A }  \) is closed.
+            	</div>
+            	<div class="proof">
+            		
+            	</div>
+            </div>
+
+            <div class="definition" id="definition-compact">
+            	<div class="title">Compact</div>
+            	<div class="content">
+            		\( A \subseteq \mathbb{ R } ^ n \) is <b>compact</b> if every sequence \( \left( a _ n \right): \mathbb{ N } _ 1 \to A  \) has a convergent subsequence \( \left( a _ { \sigma \left( n \right)  }  \right)  \) such that \( \lim _ { i \to \infty  } a _ { \sigma \left( i \right)  } = a \) and \( a \in A \)
+            	</div>
+            </div>
+
+
+
+            <div class="definition" id="definition-bounded">
+            	<div class="title">Bounded</div>
+            	<div class="content">
+            		\( S \subseteq \mathbb{ R } ^ n \) is said to be bounded if there exist an \( R \in \mathbb{ R } ^ +  \) such that \( S \subseteq B \left( 0, R \right)  \)
+            	</div>
+            </div>
+
+            <div class="lemma" id="lemma-compact-implies-closed-and-bounded">
+            	<div class="title">Compact Implies Closed and Bounded</div>
+            	<div class="content">
+            		If \( C \subseteq \mathbb{ R } ^ n \) is compact, then \( C \) is closed and bounded
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+            <div class="lemma" id="lemma-a-closed-subset-of-a-compact-set-is-compact">
+            	<div class="title">A Closed Subset of a Compact Set is Compact</div>
+            	<div class="content">
+            		Suppose \( S \subseteq C  \) where \( S \) is closed and \( S \) compact, then \( S \) is compact
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+            <div class="theorem" id="theorem-heine-borel">
+            	<div class="title">Heine Borel</div>
+            	<div class="content">
+            		\( S \subseteq \mathbb{ R } ^ n \) is compact iff \( S \) is closed and bounded
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+            <div class="corollary" id="corollary-the-finite-union-of-compact-sets-is-compact">
+                <div class="title">The Finite Union of Compact sets is Compact</div>
+                <div class="content">
+                    Suppose \( \mathcal{ C } \) is a family of compact sets such that \( \left\lvert \mathcal{ C } \right\rvert \ge 2 \) is finite, then \( \bigcup \mathcal{ C }  \) is compact
+                </div>
+                <div class="proof">
+                    <p>
+                        For \( n = 2 \), let \( C _ 1, C _ 2 \) be compact sets, by heine borel they are both closed in bounded, this immediately implies that \( C _ 1 \cup C _ 2 \) is closed, but to show boundedness we note that we get an \( R _ 1, R _ 2 \) such that \( C _ 1 \subseteq B \left( 0, R _ 1 \right)  \) and \( C _ 2 \subseteq B \left( 0, R _ 2 \right)  \), we claim that \( C _ 1 \cup C _ 2 \subseteq B \left( 0, \max \left( R _ 1, R _ 2 \right)  \right)  \), this is simply true because if \( x \in C _ 1 \cup C _ 2 \) then if \( x \in  C _ 1 \) then \( \lVert x \rVert \lt R _ 1 \le \max \left( R _ 1, R _ 2 \right)  \) and on the other hand if \( x \in C _ 2 \) then we know \( \lVert x \rVert \le R _ 2 \le \max \left( R _ 1, R _ 2 \right)  \) so that \( C _ 1 \cup C _ 2 \subseteq B \left( 0, \max \left( R _ 1, R _ 2 \right)  \right)  \)
+                    </p>
+                    <p>
+                        For the induction step assume it holds true for \( k \in \mathbb{ N } _ 2 \) and we'll show that it holds true on \( \left\lvert \mathcal{ C }  \right\rvert = k + 1   \), suppose that \( C \in \mathcal{ C }  \) then we know that \( \bigcup \mathcal{ C } \setminus C \) is compact, and we also know that \( C \) is compact. In the base case we proved that for any two compact sets so is their union, thus
+                        \[
+                            \bigcup \mathcal{ C } \setminus C \cup C = \bigcup \mathcal{ C }
+                        \]
+                        is compact, as needed.
+                    </p>
+                </div>
+            </div>
+
+            <div class="corollary" id="corollary-the-arbitrary-intersection-of-compact-sets-is-compact">
+            	<div class="title">The Abitrary Intersection of Compact Sets is Compact</div>
+            	<div class="content">
+            		Suppose that \( \mathcal{ C }  \) is a family of compact sets such that \( \left\lvert \mathcal{ C }  \right\rvert \ge 2  \) , then
+                    \[
+                        \bigcap \mathcal{ C }
+                    \]
+                    is a compact set.
+            	</div>
+            	<div class="proof">
+                    We know that \( \bigcap \mathcal{ C }  \) is closed, therefore one just has to show that it's bounded, we know that for any \( C \in \mathcal{ C }  \) that it is bounded, and also that \( \bigcap \mathcal{ C } \subseteq C \) therefore \( \bigcap \mathcal{ C }  \) is bounded, and therefore it is compact.
+            	</div>
+            </div>
+
+            <div class="lemma" id="lemma-forced-convergence-of-a-summand">
+            	<div class="title">Forced Convergence of a Summand</div>
+            	<div class="content">
+            		Suppose that \( \left( a _ n \right), \left( b _ n \right), \left( c _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R } ^ n    \), such that \( c _ n = a _ n + b _ n \) then if \( \left( a _ n \right), \left( c _ n \right)   \) converge then so does \( \left( b _ n \right)  \).
+            	</div>
+            	<div class="proof">
+            	    Since \( a _ n  \) 	converges and \( c _ n \) converges, then so does \( c _ n - a _ n \), but \( c _ n - a _ n =  b _ n \) so that \(  \left( b _ n \right)  \) converges, as needed.
+            	</div>
+            </div>
+
+
+            <div class="proposition" id="proposition-the-sum-of-a-closed-subset-and-a-compact-subset-is-closed">
+            	<div class="title">The Sum of a Closed Subset and a Compact Subset is Closed</div>
+            	<div class="content">
+            		Suppose that \( L, M \subseteq \mathbb{ R } ^ n \) such that \( L \) is closed and \( M \) is compact then
+                    \[
+                        L + M
+                    \]
+                    is closed.
+            	</div>
+            	<div class="proof">
+                    <p>
+                        We want to prove that \( L + M \) is closed, so in order to do that we have to show that it contains all of its limit points. So suppose that \( \left( z _ n  \right): \mathbb{ N } _ 1 \to L + M  \) is a sequence that converges to a point \( z \) then we want to show that \( z \in L + M \).
+                    </p>
+                    <p>
+                        Note that for any \( k \in \mathbb{ N } _ 1 \) there must exist some \( l _ k, m _ k \in L, M \) respectively such that \( z _ k = l _ k + m _ k \). So we can  consider \( \left( m _ n \right): \mathbb{ N } _ 1 \to M  \), since \( M \) is compact then there exists some \( m _ { \sigma \left( n \right)  } : \mathbb{ N } _ 1 \to M \) such that \( \left( m _ { \sigma \left( n \right)  }  \right) \to m  \) where \( m \in M \).
+                    </p>
+                    <p>
+                        Next consider the sequence \( z _ { \sigma \left( n \right)  } := l _ { \sigma \left( n \right)  } + m _ { \sigma \left( n \right)  }    \), since \( \left( z _ n \right)  \) converges then so does \( \left( z _ { \sigma \left( n \right)  }  \right)   \), as just discussed \( \left( m _ { \sigma \left( n \right)  }  \right)  \) converges, <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#lemma-forced-convergence-of-a-summand">therefore</a> \( l _ { \sigma \left( n \right)  }  \) converges, but \( L \) is closed so it converges to a point \( l \in L \).
+                    </p>
+                    <p>
+                        Thus we can see that \( \left( l _ { \sigma \left( n \right)  } \right) \to l   \), \( \left( m _ { \sigma \left( n \right)  } \right) \to m   \) therefore we know that \( \left( z _ { \sigma \left( n \right)  }  \right) \to m + l  \). Recall that we assumed that \( \left( z _ n \right) \to z  \), and we know that any subsequence also converges to \( z \) which implies that \( z = m + l \) thus since \( m \in M \) and \( l \in L \) we know that \( z \in M + L \) as needed.
+                    </p>
+            	</div>
+            </div>
+
+            <p>
+                Note that the sum of finitely many compact sets and a single closed set is closed, because (cmpct + (cmpct + ... + (cmpct + closed) ... ) = closed, using the above theorem repeatedly.
+            </p>
+
+            <div class="proposition" id="proposition-the-sum-of-two-closed-sets-might-not-be-closed">
+            	<div class="title">The Sum of two Closed sets Might Not be Closed</div>
+            	<div class="content">
+            		We claim that
+                    \[
+                         \left\{ n + \frac{1}{n} : n \in \mathbb{ N }  \right\} + \left\{ -n : n \in \mathbb{ N } _ 1 \right\}
+                    \]
+                    is not closed.
+            	</div>
+            	<div class="proof">
+                    <p>
+                         Let \( J := \left\{ n + \frac{1}{n} : n \in \mathbb{ N }   \right\}  \) represent the set on the left hand side. To see why it is closed, evaluate the few first terms to see \( 1 + 1, 2 + \frac{1}{2}, 3 + \frac{1}{3}, \ldots \), we'll show that for any \( x \neq  y \in J, \left\lvert x - y \right\rvert \ge \frac{1}{2} \), we'll first cover the case \( x = 1 + 1, y = 2 + \frac{1}{2}  \) (wlog) and so \( \left\lvert x - y \right\rvert = \left\lvert 2 - 2.5 \right\rvert = \frac{1}{2} \ge \frac{1}{2}   \) as needed, now suppose that \( x = l + \frac{1}{l} \) and \( y = m + \frac{1}{m} \) such that \( l, m \ge 2 \) where without loss of generality we have \( l \lt m \) therefore we know that \( \frac{1}{m} \lt \frac{1}{l}  \), from this we conclude that
+                        \[
+                            \left\lvert x - y  \right\rvert = \left\lvert m - l + \left( \frac{1}{l} - \frac{1}{m}  \right)  \right\rvert \ge 1 \ge \frac{1}{2} 
+                        \]
+                        thus for any \( x \in \mathbb{ R } \setminus J \) by using \( \epsilon = \frac{1}{4}  \) we can get a contradiction if such a limit were to exist, thus \( J \) is closed.
+                    </p>
+                    <p>
+                        The right hand side (which we will denote by \( K \))  is closed as well for the even simpler \( \epsilon = \frac{1}{2}  \)
+                    </p>
+                    <hr>
+                    <p>
+                        But their sum is certainly not closed, because \( 0 \notin J + K \) but \( \left\{ \frac{1}{n} : n \in \mathbb{ N } _ 1 \right\} \subseteq J + K \), this means that \( 0 \) is a limit point which is not contained in \( J + K \), so \( J + K \) is not closed.
+                    </p>
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-if-every-sub-sub-sequence-converges-to-the-same-point-so-does-the-original">
+            	<div class="title">If every Sub-sub-sequence Converges to the Same Point So does the Original</div>
+            	<div class="content">
+                    Suppose that \( \left( a _ n \right): \mathbb{ N } _ 1 \to \mathbb{ R } ^ n  \), and \( a \in \mathbb{ R } ^ n  \), such that for every subsequence there exists a sub-subsequence such that that converges to \( a \)  then \( \left( a _ n \right) \to a  \)
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Suppose for the sake of contradiction that \( \left( a _ n \right)  \) does not converge to \( a \), thus there exists some \( \epsilon  \in \mathbb{ R } ^ +  \) such that for any \( N \in \mathbb{ N } _ 1 \) there exists an \( n \ge N \) and \( \lVert a _ n - a \rVert \ge \epsilon   \).
+                    </p>
+                    <p>
+                        Thus for \( N = 1 \) we obtain some \( n _ 1 \) such that \( \lVert a _ { n _ 1 }  - a \rVert \gt \epsilon   \), then recursively, by setting \( N = n _ { i }  \) we obtain some \( n _ { i + 1 }  \) for \( i \in \mathbb{ N } _ 1 \) such that \( \lVert a _ { n _ { i + 1  }  } - a  \rVert \ge \epsilon   \), by doing this we obtain that \( n _ k \le n _ { k + 1  }  \) for all \( k \in \mathbb{ N } _ 1 \), so that we've constructed a subsequence \( a _ { n _ k }  \) such that for any \( k \in \mathbb{ N } _ 1 \)  we have that
+                        \[
+                            \lVert a _ { n _ k } - a  \rVert \ge \epsilon
+                        \]
+                    </p>
+                    <p>
+                        But as per assumption since \( \left( a _ { n _ k }  \right)  \) is a subsequence then it has a sub-subsequence that converges to \( a \), but this is clearly impossible since all elements of this subsequence stay at least \( \epsilon  \) away from \( a \). Therefore it must be that \( \left( a _ n \right) \to a  \)
+                    </p>
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-divergent-sequence-in-a-compact-set-must-have-two-different-sub-limits">
+            	<div class="title">Divergent Sequence in A Compact Set Must have Two Different Sub-limits</div>
+            	<div class="content">
+            		Suppose that \( \left( x _ n \right) : \mathbb{ N } _ 1 \to K \subseteq \mathbb{ R } _ n \) where \( K \) is compact, then there are two subsequences of this sequence that are convergent to different limit points.
+            	</div>
+            	<div class="proof">
+                    <p>
+                        Suppose the former, but for the sake of contradiction assume that the latter is false, which is that every convergent subsequence converges to the same value, let's denote this value as \( L \in \mathbb{ R } ^ n \)
+                    </p>
+                    <p>
+                        Let \( \left( x _ { f \left( n \right)  }  \right)  \) be a subsequence,
+                        since \( K \) is compact, then it is bounded, thus since \( x _ n \) is a value in \( K \) then \( \left( x _ n \right)  \) is a bounded sequence in \( \mathbb{ R } ^ n \) therefore by Bolzano-Weierstrass, we see that \( x _ { f \left( n \right)  }  \) converges, and thus by our previous paragraph \( \left( x _ { f \left( n \right)  }  \right) \to L  \), thus for any subsequence of \( \left( x _ { f \left( n \right)  }  \right)  \) it also converges to \( L \) <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#proposition-if-every-sub-sub-sequence-converges-to-the-same-point-so-does-the-original">therefore</a> \( \left( x _ n \right) \to L  \) which is a contradiction.
+                    </p>
+                    <p>
+                        Since we've reached a contradiction, then we know that our assumption was false so that there are two subsequence of \( \left( x _ n \right)  \)  that converge to different values.
+                    </p>
+            	</div>
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </body>
+</html>

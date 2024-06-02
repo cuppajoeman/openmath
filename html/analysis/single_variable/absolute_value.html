@@ -376,6 +376,28 @@
             <div class="proof"></div>
         </div>
 
+        <div class="proposition" id="proposition-generalized-triangle-inequality">
+        	<div class="title">Generalized Triangle Inequality</div>
+        	<div class="content">
+        		Suppose that \( X \subseteq \mathbb{ R }  \) is finite then
+                \[
+                    \left\lvert \sum X \right\rvert  \le \sum _ { x \in X } \left\lvert x \right\rvert
+                \]
+        	</div>
+        	<div class="proof">
+                We prove it true by induction based on the size of \( X \). Base case \( \left\lvert X \right\rvert = 2 \) is covered by the regular triangle inequality. Now suppose that it holds true for \( \left\lvert Y \right\rvert =  k \) we'll show it holds true for \( \left\lvert Z \right\rvert = k + 1  \), let \( z \in Z \), then we have \(  \left\lvert \sum \left( Z \setminus \left\{ z \right\}  \right) \right\rvert \le \sum _ { a \in Z \setminus \left\{ z \right\}  } \left\lvert a \right\rvert    \) since \( \left\lvert Z \setminus \left\{ z \right\}  \right\rvert = k  \). Now by the regular triangle inequality we obtain that
+                \[
+                \begin{align}
+                    \left\lvert \sum Z \right\rvert &= \left\lvert \sum \left( Z \setminus \left\{ z \right\}  \right) + z  \right\rvert \\
+                &\le \left\lvert \sum \left( Z \setminus \left\{ z \right\}  \right)  \right\rvert + \left\lvert z \right\rvert \\
+                &\le \sum _ { a \in Z \setminus \left\{ z \right\}  } \left\lvert a \right\rvert  + \left\lvert z \right\rvert \\
+                &= \sum _ { z \in Z } \left\lvert z \right\rvert
+                \end{align}
+                \]
+        	</div>
+        </div>
+
+
         <div class="proposition" id="proposition-isolate-absolute-value-inequality">
             <div class="title">
                 Isolate Absolute value Inequality

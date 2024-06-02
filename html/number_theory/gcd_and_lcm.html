@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Division</title>
+    <title>GCD and LCM</title>
     <link rel="stylesheet" href="/styles/styles.css">
     <script src="/js/script.js" defer>
 </script>
@@ -35,13 +35,19 @@
             </div>
 
             <div class="content">
-                Let \( a, b \in \mathbb{ Z } \), and let \( c \in \mathbb{ Z } \) such that \( c \mid a \land c \mid b
-                \) and \[ \forall d \in \mathbb{ N } _ 1, \left( d \mid a \land d \mid b \right) \implies d \le c \]
-                then \( c = \gcd \left( a, b \right) \)
+                Let \( a, b \in \mathbb{ Z } \), and let \( g \in \mathbb{ Z } \) sugh that \( g \mid a \land g \mid b
+                \) and \[ \forall d \in \mathbb{ N } _ 1, \left( d \mid a \land d \mid b \right) \implies d \le g \]
+                if and only if \( g = \gcd \left( a, b \right) \)
             </div>
 
-            <div class="proof"></div>
+            <div class="proof">
+<!--                todo this needs to be the definition actually, perhaps push back the definition of largest satifying a property into ordering section.-->
+            </div>
         </div>
+
+        <p>
+            Note that since \( d \mid g \implies d \le g \) we may use \( d \mid g \) on the right hand side of the implication
+        </p>
 
         <div class="proposition" id="proposition-gcd-is-a-linear-combination">
             <div class="title">
@@ -127,14 +133,14 @@
         <div class="proposition" id="proposition-if-you-can-find-a-linear-combination-that-yields-one-then-their-gcd-is-one">
         	<div class="title">If you Can find a Linear Combination that Yields One, then Their gcd is one</div>
         	<div class="content">
-        		Let \( a, b \in \mathbb{ Z }  \), if there exists \( x, y \in \mathbb{ Z }  \) such that
+        		Let \( a, b \in \mathbb{ Z }  \), there exists \( x, y \in \mathbb{ Z }  \) such that
                 \[
                     ax + by = 1
                 \]
-                then \( \gcd \left( a, b \right) = 1 \)
+                if and only if \( \gcd \left( a, b \right) = 1 \)
         	</div>
         	<div class="proof">
-                Suppose we have a \( d \in \mathbb{ Z }  \) such that \( d \mid a, b \) then we know that \( d \mid ax + by = 1 \), therefore \( d = \pm 1 \), therefore by definition \( \gcd \left( a, b \right) = 1 \)
+                \( \implies  \) Suppose we have a \( d \in \mathbb{ Z }  \) such that \( d \mid a, b \) then we know that \( d \mid ax + by = 1 \), therefore \( d = \pm 1 \), therefore by definition \( \gcd \left( a, b \right) = 1 \). \( \impliedby  \) We know this because <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-gcd-is-a-linear-combination">gcd is a linear combination</a>
         	</div>
         </div>
 
@@ -156,10 +162,13 @@
         <div class="corollary" id="corollary-coefficients-have-gcd-one">
         	<div class="title">Coefficients have GCD one</div>
         	<div class="content">
-        		Suppose that \( \gcd \left( a, b \right) = 1 \) and thus we have some \( x, y \in \mathbb{ Z }  \) such that \( ax + b y = 1 \) then \( \gcd \left( x, y \right) = 1 \)
+        		Suppose that \( \gcd \left( a, b \right) = g \) and thus we have some \( x, y \in \mathbb{ Z }  \) such that \( ax + b y = g \) then \( \gcd \left( x, y \right) = 1 \)
         	</div>
         	<div class="proof">
-        		By using \( a \) replaced by \( x \) and \( b \) replaced by \( y \) in the previous theorem.
+                \[
+                    ax + b y = g \iff \left( \frac{a}{g}  \right) x + \left( \frac{b}{g} \right) y = 1
+                \]
+                <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-if-you-can-find-a-linear-combination-that-yields-one-then-their-gcd-is-one">therefore</a> \( \gcd \left( x, y \right) = 1  \)
         	</div>
         </div>
 
@@ -230,25 +239,10 @@
         	</div>
         	<div class="proof">
                 <p>
-                    We'll deal with \( \operatorname{ cd } \left( a, b \right) = \operatorname{ cd } \left( a, b + ka \right)  \) first. \( \subseteq  \) Suppose \( d \mid a, b \) therefore \( d \mid a + k a \) as needed. \( \supseteq  \) now suppose that \( d \mid a, b + ka \) since \( d \mid a \) then \( d \mid ka \) and therefore \( d \mid  \left( b + ka \right) - ka  = b\) therefore \( d \in \operatorname{ cd } \left( a, b \right)  \)
+                     \( \subseteq  \) Suppose \( d \mid a, b \) therefore \( d \mid a + k a \) as needed. \( \supseteq  \) now suppose that \( d \mid a, b + ka \) since \( d \mid a \) then \( d \mid ka \) and <a class="knowledge-link" href="/number_theory/division.html#proposition-linearity-of-division">therefore</a> \( d \mid  \left( b + ka \right) - ka  = b\) therefore \( d \in \operatorname{ cd } \left( a, b \right)  \)
                 </p>
         	</div>
         </div>
-
-        <div class="corollary" id="corollary-add-a-multiple-of-the-other-both-ways-yields-same-common-divisors">
-        	<div class="title">Add a multiple of the Other Both ways Yields Same Common Divisors</div>
-        	<div class="content">
-                for any \( a, b, j, k \)
-                \[
-                    \operatorname{ cd } \left( a, b \right) = \operatorname{ cd } \left( a + k b, b + ja  \right)
-                \]
-        	</div>
-        	<div class="proof">
-                By the previous proposition we know that \( \operatorname{ cd } \left( a, b \right) = \operatorname{ cd } \left( a, b + ja \right)  \). Now note that \( \operatorname{ cd } \left( a, b + ja \right) = \operatorname{ cd } \left( b + ja, a \right)   \) and thus by the same proposition again
-        	</div>
-        </div>
-
-
 
 
         <div class="proposition" id="proposition-superset-divisors-implies-greater-gcd">
@@ -317,7 +311,7 @@
                 \]
         	</div>
         	<div class="proof">
-                Recall this, therefore we can show that \( \operatorname{ cd } \left( a, b \right) \subseteq \operatorname{ cd } \left( ak , b \right)  \) thus \( \gcd \left( a, b \right) \le \gcd \left( ka, b \right)  \) 
+                <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-superset-divisors-implies-greater-gcd">Recall this</a>, therefore we can show that \( \operatorname{ cd } \left( a, b \right) \subseteq \operatorname{ cd } \left( ak , b \right)  \) thus \( \gcd \left( a, b \right) \le \gcd \left( ka, b \right)  \)
         	</div>
         </div>
         

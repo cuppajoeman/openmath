@@ -79,6 +79,26 @@
         	</div>
         </div>
 
+        <div class="proposition" id="proposition-the-set-of-linear-combinations-are-all-integral-multiples-of-their-gcd">
+        	<div class="title">The Set of Linear Combinations Are All Integral Multiples of Their GCD</div>
+        	<div class="content">
+                For any \( a, b \in \mathbb{ Z }  \) the set
+                \[
+                    S : = \left\{ ax + b y: x, y \in \mathbb{ Z }  \right\}
+                \]
+                is precisely the set of all integral multiples of \( \gcd \left( a, b \right)  \)
+        	</div>
+        	<div class="proof">
+                <p>
+                    For notational ease, let \( g := \gcd \left( a, b \right)  \). <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#corollary-dividing-out-by-gcd-removes-all-common-factors">Recall</a> that \( \gcd \left( \frac{a}{g} , \frac{b}{g}   \right) = 1  \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-gcd-is-a-linear-combination">iff</a> there are some \( x, y \in \mathbb{ Z }  \) such that \( \frac{a}{g} x + \frac{b}{g} y = 1 \) if and only if \( a \left( dx \right) + b \left( dy \right) = dg \)
+                </p>
+                <p>
+                    This observation tells us that any integer multiple of \( g \) is in \( S \). Now supose we have \( ax + by \in S \), we want to show this is a multiple of \( g \), equivalently we want to show that \( g \mid ax + by \), but this is certainly true becuase \( \frac{ax + by}{g} = \left( \frac{a}{g}  \right)x + \left( \frac{b}{g}  \right) y \in \mathbb{ Z }     \) <a class="knowledge-link" href="/number_theory/division.html#corollary-divisible-implies-integer-quotient">so it does</a>
+                </p>
+        	</div>
+        </div>
+
+
 
         
 

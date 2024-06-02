@@ -61,6 +61,24 @@
             </div>
         </div>
 
+        <div class="corollary" id="corollary-geometric-summation-with-offset">
+        	<div class="title">Geometric Summation with Offset</div>
+        	<div class="content">
+        		For any \( x \in \mathbb{ R } ^ { \neq 1 }  \) and \( k \in \mathbb{ N } _ 0 \) we have
+                \[
+                    \sum _ { n = m } ^ { k  } x _ n = x ^ m \left( \frac{1 - x ^ { k - m + 1 } }{1 - x} \right)
+                \]
+        	</div>
+        	<div class="proof">
+                Once we've proven the generalized factoring for arbitrary sums then we have
+                \[
+                \sum _ { n = m } ^ { k  } x _ n = x ^ m \left( \sum _ { n = 0 } ^ { k - m + 1   }  x ^ n \right) = x ^ m \left( \frac{1 - x ^ { k - m + 1  } }{ 1 - x} \right)
+                \]
+
+        	</div>
+        </div>
+
+
         <p>
             Note that when \( x = 1 \) the sum simply yields \( k + 1 \).
         </p>
@@ -127,6 +145,23 @@
                 we get \( \lim_{k \to \infty} \frac{1 - x^{k + 1}}{1 - x} = \frac{1}{1 - x} \)
             </div>
         </div>
+
+        <div class="corollary" id="corollary-geometric-power-series-with-offset">
+        	<div class="title">Geometric Power Series with Offset</div>
+        	<div class="content">
+                For \( \left\lvert x \right\rvert \lt 1 \) we have
+                \[
+                \sum _ { n = m } ^ { \infty   } x _ n = \frac{x ^ m}{1 - x}
+                \]
+        	</div>
+        	<div class="proof">
+                By the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#corollary-geometric-summation-with-offset">geometric summation with offset</a> we know that
+                \[
+                    \sum _ { n = m } ^ { \infty   } x _ n = \lim _ { k \to \infty } x _ m \left( \frac{1 - x ^ { k - m + 1  }}{1 - x}   \right) = \frac{x ^ m}{1 - x}
+                \]
+        	</div>
+        </div>
+
 
         <div class="corollary" id="corollary-series-of-halves-is-bounded">
         	<div class="title">Series of Halves is Bounded</div>
@@ -326,14 +361,20 @@
         <div class="theorem" id="theorem-comparison-test">
         	<div class="title">Comparison Test</div>
         	<div class="content">
-        		Consider two sequences of real numbers \( \left( a _ n \right) , \left( b _ n \right)  \) with \( \lvert a _ n \rvert \le b _ n  \) for all \( n \in \mathbb{ N } _ 1  \), then if \( \left( b _ n \right)  \) is <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-summable">summable</a> then \( \left( a _ n \right)  \) is summable and
+        		Consider two sequences of real numbers \( \left( a _ n \right) , \left( b _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R }   \) with \( \lvert a _ n \rvert \le b _ n  \) for all \( n \in \mathbb{ N } _ 1  \), then if \( \left( b _ n \right)  \) is <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-summable">summable</a> then \( \left( a _ n \right)  \) is summable and
                 \[
                     \left\lvert \sum _ { n = 1 }  ^ \infty  a _ n \right\rvert \le \sum _ { n = 1 }  ^  \infty b _ n
                 \]
                 while if \( \left( a _ n \right)  \) is not summable, then \( \left( b _ n \right)  \) is not summable.
         	</div>
         	<div class="proof">
-
+                Assume our hypothesis, and we'll show that \( \left( a _ n \right)  \) is summable, to do this we'll use 2 of the cauchy criterion, so let \( \epsilon \in \mathbb{ R } ^ +  \), also since \( \left( b _ n \right)  \) is summable, by \( 3 \) of the cauchy criterion we obtain some \( N \in \mathbb{ N } _ 1 \) such that for any \( n, m \ge N \) we have \( \left\lvert \sum _ { k = n + 1  } ^ { m } b _ k \right\rvert \lt \epsilon   \), but recall the inequalities we've assumed between \( \left( a _ n \right), \left( b _ n \right)   \), which shows us that
+                \[
+                    \left\lvert \sum _ { k = n + 1  } ^ { m  } a _ k   \right\rvert \le \sum _ { n = k + 1  }  ^  m \left\lvert a _ k \right\rvert \le \sum _ { k = n + 1  } ^ { m } b _ k \lt \epsilon
+                \]
+                The first \( \le  \) follows from the <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-generalized-triangle-inequality">generalized triangle inequality</a>, the second follows from our assumed inequality. Thus \( \left( a _ n \right)  \) is summable.
+                <hr>
+                Suppose that \( \left( a _ n \right)  \) is not summable, we'll show that \( \left( b _ n \right)  \) is not summble, for if it were then by part one of the proof then \( \left( a _ n \right)  \) would be which is a contradiction.
         	</div>
         </div>
 
@@ -343,7 +384,7 @@
                 If \( \sum _ { n = 1 } ^ \infty \left\lvert a _ n \right\rvert   \) converges then so does \( \sum _ { n = 1 }  ^ \infty a _ n   \)
         	</div>
         	<div class="proof">
-                Clearly \( \left\lvert a _ n \right\rvert \le \left\lvert a _ n \right\rvert   \) for all \(  n \in \mathbb{ N } _ 1 \) and since \(  \)
+                Clearly \( \left\lvert a _ n \right\rvert \le \left\lvert a _ n \right\rvert   \) for all \(  n \in \mathbb{ N } _ 1 \) thus by considering \( b _ n = \left\lvert a _ n \right\rvert  \) in the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-comparison-test">comparison test</a> we have that \( \left( a _ n \right)  \) is summable.
         	</div>
         </div>
 
@@ -354,7 +395,6 @@
         		Suppose that \( a _ n \ge 0 \) for every \( n \in \mathbb{ N } _ 1 \) , then \( \left( a _ n \right)  \) is summable iff \( \left( S _ n \right)  \) is bounded above, where \( S _ k := \sum _ { n = 1 }  ^ k a _ n \)
         	</div>
         	<div class="proof">
-
         	</div>
         </div>
 
@@ -456,8 +496,27 @@
         		Suppose that \( a _ n \ge 0 \) for all \( n \in \mathbb{ N } _ 1 \) and let \( l = \limsup \left( \sqrt[n]{ a _ n }  \right)  \) if \( l \lt 1 \) then \( \sum _ { n = 1 }  ^ \infty  a _ n   \) converges and if \( l \gt 1 \) then \( \sum _ { n = 1 }  ^ \infty  \) diverges
         	</div>
         	<div class="proof">
-
-        	</div>
+                Suppose everything in the hypothesis is true, let's prove that \( \sum _ { n = 1 } ^ { \infty  } a _ n \) converges. Clearly we can pick an \( r \in \left( l , 1 \right)  \) since \( l \lt 1 \) and since \( \limsup \left( \sqrt[n]{ a _ n }  \right) = l  \) by using \( \epsilon = r - l \in \mathbb{ R } ^ +  \), then we know that there is some \( N \in \mathbb{ N } _ 1 \) such that for all \( n \ge N \) we have
+                \[
+                \left\lvert \sup \left( \left\{ \sqrt[k]{ a _ k }: k \ge n \right\}  \right) - l  \right\rvert \lt \epsilon
+                \]
+                since \( \sqrt[n]{ a _ n } \in \left\{ \sqrt[k]{ a _ k }: k \ge n \right\}   \) then we must have \( \sqrt[n]{ a _ n } \le \sup \left( \left\{ \sqrt[k]{ a _ k }: k \ge n \right\}  \right)   \) as it's an upper bound, thus
+                \[
+                \left\lvert \sqrt[n]{ a _ n } - l  \right\rvert \lt \left\lvert \sup \left( \left\{ \sqrt[k]{ a _ k }: k \ge n \right\}  \right) - l  \right\rvert \lt \epsilon
+                \]
+                so that \( \sqrt[n]{ a _ n } \lt l + \epsilon = l + \left( r - l \right) = r   \), in other words \( a _ n \lt r ^ n \) for all \( n \ge N \), then we construct the sequence by
+                <ul>
+                    <li>\( b _ n := a _ n \) for \( n \in \left[ 1, \ldots N - 1 \right]  \)  </li>
+                    <li>\( b _ n := r ^ n \) if \( n \ge N \)  </li>
+                </ul>
+                thus by construction we have \( \left\lvert a _ k \right\rvert = a _ k \le b _ k  \) for all \( k \in \mathbb{ N } _ 1 \) moreover we can confirm that \( \left( b _ n \right)  \) is summable directly as
+                \[
+                    \sum _ { n = 1 } ^ { \infty  } b _ n = \sum _ { n = 1 } ^ { N - 1 } b _ n + \sum _ { n = N } ^ { \infty  } r ^ n  =\sum _ { n = 1 } ^ { N - 1 } b _ n + \frac{r ^ N}{1 - r}
+                \]
+                the final equality comes from a <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#corollary-geometric-power-series-with-offset">geometric series with an offset</a> since the right hand side is the sum of two finite things then \( \left( b _ n \right)  \) is summable and thus by the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-comparison-test">comparison test</a> we conclude that \( \sum _ { n = 1 }  ^ \infty a _ n   \) converges.
+                <hr>
+                Now suppose that \(  \)
+            </div>
         </div>
 
         

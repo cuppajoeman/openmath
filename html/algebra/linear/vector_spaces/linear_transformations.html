@@ -25,27 +25,77 @@
             	</div>
             </div>
 
-            def
-
             <div class="definition" id="definition-inner-product">
             	<div class="title">Inner Product</div>
             	<div class="content">
-            		An inner product is a function \( \left\langle \cdot , \cdot  \right\rangle : V \times V \to F  \) where \( V \) is a vector space over the field \( F \) satisfying
-                    <ul>
-                        <li>Conjugate Symmetry: \( \left\langle x, y \right\rangle = \overline{ \left\langle y, x \right\rangle  }  \) </li>
-                        <li>Linearity: \( \left\langle a x + by, z   \right\rangle = a \left\langle x, z \right\rangle + b \left\langle y, z \right\rangle    \) </li>
-                        <li>Positive Definite: For any \( x \in V ^ { \neq 0 }  \) \( \left\langle x, x \right\rangle \gt 0 \) </li>
-                    </ul>
+            		An inner product is a function \( \left\langle \cdot , \cdot  \right\rangle : V \times V \to F  \) where \( V \) is a vector space over the field \( F \), it assigns to each pair \(\mathbf{v}, \mathbf{w} \in V\) a real number \(\langle\mathbf{v}, \mathbf{w}\rangle\) such that, for all \(\mathbf{u}, \mathbf{v}, \mathbf{w} \in V\) and \(\alpha \in \mathbf{F}\) and satisfies:
+
+                    <ol>
+                        <li>
+                            \(\langle\mathbf{v}, \mathbf{v}\rangle \geq 0\), with equality if and only if \(\mathbf{v}=\mathbf{0}\).
+                        </li>
+                        <li>
+                            \(\langle\mathbf{v}, \mathbf{w}\rangle=\langle\mathbf{w}, \mathbf{v}\rangle\).
+                        </li>
+                        <li>
+                           \(\langle\mathbf{u}+\mathbf{v}, \mathbf{w}\rangle=\langle\mathbf{u}, \mathbf{w}\rangle+\langle\mathbf{v}, \mathbf{w}\rangle\),
+                        </li>
+                        <li>
+                            \(\langle\alpha \mathbf{v}, \mathbf{w}\rangle=\alpha\langle\mathbf{v}, \mathbf{w}\rangle\).
+                        </li>
+                    </ol>
+
+
+            	</div>
+            </div>
+            
+            <div class="definition" id="definition-inner-product-space">
+            	<div class="title">Inner Product Space</div>
+            	<div class="content">
+            		An inner product space is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) over the field \( F \) toegether with an inner product
+                </div>
+            </div>
+
+
+            <div class="proposition" id="proposition-the-dot-product-in-Rn-forms-an-inner-product">
+            	<div class="title">The Dot Product in Rn Forms an Inner Product</div>
+            	<div class="content">
+            		The <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">dot product</a> in \( \mathbb{ R }  ^ n \) forms an inner product
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+            <div class="proposition" id="proposition-schwarz-inequality">
+                <div class="title">Schwarz Inequality</div>
+                <div class="content">
+                    For all \( x, y \in \mathbb{ R } ^ n \) we have
+                    \[
+                    \left\lvert \left\langle x, y \right\rangle  \right\rvert \le \lVert x \rVert \lVert y \rVert
+                    \]
+                    and \( \left\lvert \left\langle x, y \right\rangle  \right\rvert = \lVert x \rVert \lVert y \rVert  \) if and only if \( x, y \) are <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-collinear">collinear</a>
+                </div>
+                <div class="proof">
+
+                </div>
+            </div>
+
+            <div class="proposition" id="proposition-the-norm-satisfies-the-triangle-inequality">
+            	<div class="title">The Norm Satisfies the Triangle Inequality</div>
+            	<div class="content">
+            		For any \( x, y \in \mathbb{ R } ^ n \) we have
+                    \[
+                    \lVert x + y \rVert \le \lVert x \rVert + \lVert y \rVert
+                    \]
+            	</div>
+            	<div class="proof">
+
             	</div>
             </div>
 
 
-            <div class="definition" id="definition-inner-product-space">
-            	<div class="title">Inner Product Space</div>
-            	<div class="content">
-            		An inner product space is a    is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) over the field \( F \) toegether with an inner product
-                </div>
-            </div>
+
 
             
 
