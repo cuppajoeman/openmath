@@ -50,8 +50,8 @@
 
             <div class="content">
                 Suppose that \( p \) is <a class="knowledge-link" href=
-                "/number_theory/primes.html#definition-prime">prime</a> and \( n \in \mathbb{ Z } \) such that \( p
-                \nmid n \), then \( \gcd \left( p, n \right) = 1 \)
+                "/number_theory/primes.html#definition-prime">prime</a> and \( n \in \mathbb{ Z } \) then  \( p
+                \nmid n \) iff \( \gcd \left( p, n \right) = 1 \)
             </div>
 
             <div class="proof"></div>
@@ -153,7 +153,73 @@
         	</div>
         </div>
         
+        <div class="theorem" id="theorem-fundamental-theorem-of-algebra">
+        	<div class="title">Fundamental Theorem of Algebra</div>
+        	<div class="content">
+        		For every \( n \in \mathbb{ N } _ 2 \) can be written uniquely as
+                \[
+                    n = p _ 1 ^ { \alpha _ 1 } \cdot p _ 2 ^ { \alpha _ 2 } \cdots p _ m ^ { \alpha _ m }
+                \]
+                where \( p _ 1 \lt p _ 2 \lt  \cdots \lt p _ m \) are primes and \( \alpha  _ 1, \ldots \alpha  _ m \in \mathbb{ N } _ 1 \)
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
 
+        <div class="lemma" id="lemma-euclid">
+        	<div class="title">Euclid</div>
+        	<div class="content">
+        		For any \( a, b, p \in \mathbb{ N } _ 1 \) then if \( p \) is prime, we have
+                \[
+                    p \mid a b \implies \left( \left( p \mid a \right) \lor \left( p \mid b \right)   \right)
+                \]
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+        
+        <div class="corollary" id="corollary-if-a-prime-divides-a-product-it-divides-at-least-one-of-the-factors">
+        	<div class="title">If a Prime Divides a Product it Divides at Least One of the Factors</div>
+        	<div class="content">
+        		Suppose that \( a _ 1, \ldots a _ n \in \mathbb{ N } _ 1 \) and
+                \[
+                    p \mid \prod _ { i = 1 } ^ n a _ i
+                \]
+                then there exists a \( k \in \left[ 1, \ldots , n \right]  \) such that \( p \mid a _ k \)
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-a-divisors-of-a-product-of-primes-is-a-product-of-primes-with-smaller-powers">
+        	<div class="title">A Divisor of a Product of Primes is a Product of Primes with Smaller Powers</div>
+        	<div class="content">
+        		Suppose that
+                dm
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-gcd-and-lcm-as-prime-powers">
+        	<div class="title">GCD and LCM as Prime Powers</div>
+        	<div class="content">
+        		Suppose that \( P = \left\{ p _ 1, \ldots p _ k \right\}  \) is a collection of primes such that
+                \[
+                    a = \prod _ { p _ i \in P } p _ i ^ { \alpha _ i }  \text{ and } b = \prod _ { p _ i \in P } p _ i ^ { \beta _ i }
+                \]
+                where \( \alpha _ i, \beta _ i \in \mathbb{ N } _ 0 \), then
+                \[
+                    \gcd \left( a, b \right) = \prod _ { p _ i \in P } p _ i ^ { \min \left( \alpha _ i, \beta _ i \right)  } \text{ and } \operatorname{ lcm }  \left( a, b \right) = \prod _ { p _ i \in P } p _ i ^ { \max \left( \alpha _ i, \beta _ i \right) }
+                \]
+        	</div>
+        	<div class="proof">
+        	</div>
+        </div>
 
 
     </div>

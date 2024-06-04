@@ -59,6 +59,91 @@
             		
             	</div>
             </div>
+
+            <div class="lemma" id="lemma-a-convergent-sequence-with-finite-image-must-converge-to-a-point-in-its-image">
+            	<div class="title">A Convergent Sequence With Finite Image Must Converge to a Point in Its Image</div>
+            	<div class="content">
+            		Suppose \( \left( x _ n \right) : \mathbb{ N } _ 1 \to A  \) such that \( \left( x _ n  \right) \to x  \) then if
+                    \[
+                        \left\lvert \left\{ x _ n : n \in \mathbb{ N } _ 1 \right\}  \right\rvert \in \mathbb{ N } _ 1
+                    \]
+                    then \( x \in \left\{ x _ n : n \in \mathbb{ N } _ 1 \right\}  \)
+            	</div>
+            	<div class="proof">
+
+            	</div>
+            </div>
+
+            <div class="lemma" id="lemma-function-on-naturals-with-infinite-image-characterization">
+            	<div class="title">Function on Naturals With Infinite Image Characterization</div>
+            	<div class="content">
+            		Suppose that \( f: \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \), then \( \operatorname{ im } \left( f \right)  \) is infinite if and only if
+                    \[
+                        \forall X, Y \in \mathbb{ N } _ 1, \exists x \in \mathbb{ N } _ 1 \text{ st } x \ge X \land f \left( x \right) \ge Y
+                    \]
+            	</div>
+            	<div class="proof">
+                    <p>
+                        \( \impliedby  \) Suppose that the latter is true, we'll show that \( \operatorname{ im } \left( f \right)  \) is infinite, specifically we'll prove it is unbounded which is sufficient.
+                    </p>
+                    <p>
+                        Let \( M \in \mathbb{ N } _ 1 \) we'll prove that there is an \( x \in \mathbb{ N } _ 1\) such that \( f \left( x \right) \ge M \), by taking \( X = 1, Y = M \) we obtain an \( x _ 0 \) such that \( f \left( x _ 0 \right) \ge M  \) as per our assumption.
+                    </p>
+                    <p>
+                        \( \implies  \) Suppose that \( \operatorname{ im } \left( f \right)  \) is infinite, and we'll show that the latter holds, to do so assume the negation of the latter is true and we'll show that this leads to a contradiction, so suppose that there exists an \( X, Y \in \mathbb{ N } _ 1 \) such that for any \( x \in \mathbb{ N } _ 1 \), \( x \ge X \implies f \left( x \right) \lt Y \), that this shows is that \( \left\{ f \left( k \right): k \ge X  \right\} \subseteq \left[ 1, \ldots Y \right] \), showing that \( \left\lvert \left\{ f \left( k \right) : k \ge X \right\}  \right\rvert \le Y \)  on the other hand \( \left\{ f \left( n \right): n \in \left[ 1, \ldots X - 1 \right]   \right\}  \) is a subset of \( \mathbb{ N } _ 1 \) of size at most \( x - 1 \), therefore we conclude that
+                        \[
+                        \begin{align}
+
+                        \left\lvert \operatorname{ im } \left( f \right)  \right\rvert &=  \left\lvert \left\{ f \left( x \right) : x \in \mathbb{ N } _ 1 \right\} \right\rvert \\
+                        &= \left\lvert \left\{ f \left( n \right) : n \in \left[ 1, \ldots X - 1 \right]  \right\} \cup \left\{ f \left( k \right) : k \ge X \right\}  \right\rvert \\
+                        &\le \left( X - 1 \right) + Y
+                        \end{align}
+                        \]
+                        which is a contradiction since we assumed that \( \operatorname{ im } \left( f \right)  \) was infinite, thus we must have that with respect to the original statement the latter must hold true, as needed.
+                    </p>
+            	</div>
+            </div>
+
+
+
+            <div class="proposition" id="proposition-the-image-of-a-sequence-and-its-limit-is-closed">
+            	<div class="title">The Image of a Sequence Union and its Limit is Closed</div>
+            	<div class="content">
+                    Let \( \left( a _ n \right): \mathbb{ N } _ 1 \to \mathbb{ R } ^ k   \) be a sequence such that \( \left( a _ n \right) \to a  \) show that
+                    \[
+                        A := \left\{ a _ n : n \in \mathbb{ N } _ 1 \right\} \cup \left\{ a \right\}
+                    \]
+                    is closed.
+            	</div>
+            	<div class="proof">
+                    <p>
+                        In order to do so we have to show that \( A \) contains all of its limit points, let \( \left( x _ n \right): \mathbb{ N } _ 1 \to A \) be a sequence such that \( \left( x _ n \right) \to x  \) let's prove that \( x \in A \).
+                    </p>
+                    <p>
+                        If \( \left\{ x _ n: n \in \mathbb{ N } _  1 \right\}  \) is finite, then it converges to a point in \( \left\{ x _ n : n \in \mathbb{ N } _ 1 \right\} \subseteq A \) as needed.
+                    </p>
+                    <p>
+                        On the other hand if \( \left\{ x _ n: n \in \mathbb{ N } _ 1 \right\}  \) is infinite, then that shows that \( A \) must be infinite as well, speficially that \( \left\{ a _ n : n  \in \mathbb{ N } _ 1 \right\}  \) is infinite, moreover we can see that \( \left\{ x _ n : n \in \mathbb{ N } _ 1 \right\} \subseteq A  \), our goal will be to show that \( x = a \) which can be done by showing that for any \( \epsilon  \in \mathbb{ R } ^ +  \) we have that \( \lVert x - a \rVert \lt \epsilon \). To start things off let \( \epsilon \in \mathbb{ R } ^ +  \):
+                    </p>
+                    <p>
+                        Given \( \left( x _ n \right)  \) we can create a subsequence \( \left( y _ n \right)  \) which is the same, but it omits any element such that \( x _ i = a \), firstly note that \( \left\{ y _ n : n \in \mathbb{ N } _ 1 \right\} = \left\{ x _ n : n \in \mathbb{ N } _ 1 \right\} \setminus \left\{ a \right\}\) and thus still has infinite size. By doing this see that for any \( k \in \mathbb{ N } _ 1 \) we have that \( y _ k = a _ { f \left( k \right) }   \) where \( f: \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \) is a function (not necessarily increasing), but must have an infinite image, otherwise \( \left\{ y _ n: n \in \mathbb{ N } _ 1 \right\}  \) would be finite.
+                    </p>
+                    <p>
+                        Since \( \left( x _ n  \right) \to x  \) then we know that \( \left( y _ n \right) \to x  \) since it's subsequence. Now using \( \frac{\epsilon}{2} \), then we get some \( N ^ \prime  \in \mathbb{ N } _ 1 \) such that for any \( n \ge N ^ \prime  \) we have that \( \lVert y _ n - x \rVert = \lVert a _ { f \left( k \right)  } - x  \rVert \lt \frac{\epsilon }{2}  \)
+                    </p>
+                    <p>
+                        On the other hand we know that \( \left( a _ n \right) \to a  \) and therefore for that same choice of epsilon we obtain some \( N \in \mathbb{ N } _ 1 \) such that for any \( n \ge N \) we have that \( \lVert a _ n - a \rVert \lt  \frac{\epsilon }{2}   \).
+                    </p>
+                    <p>
+                        Now since \( f \) has infinite image, <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#lemma-function-on-naturals-with-infinite-image-characterization">then we know that</a> there is an \( x \ge N  \) such that \( f \left( x \right) \ge N ^ \prime  \) therefore we see that 
+                        \[
+                            \lVert a _ { f \left( x \right)  } - a  \rVert \lt \frac{\epsilon }{2}  \text{ and }  \lVert a _ { f \left( x \right)  } - x  \rVert \lt \frac{\epsilon }{2}
+                        \]
+                        by adding the two inequalities and moving left using the triangle inequality we obtain that \( \lVert x - a \rVert \lt \epsilon    \) so that \( x = a \), and thus \( x \in A \) so \( A \) is closed.
+                    </p>
+            	</div>
+            </div>
+
             
             <div class="definition" id="definition-closure">
             	<div class="title">Closure</div>
@@ -336,12 +421,6 @@
                     </p>
             	</div>
             </div>
-
-
-
-
-
-
 
         </div>
     </body>

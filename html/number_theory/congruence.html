@@ -106,6 +106,93 @@
             </div>
         </div>
         
+        <div class="proposition" id="proposition-">
+        	<div class="title">Sum of Two Congruent Numbers are Congruent</div>
+        	<div class="content">
+        	    Suppose that \( a \equiv b \left( \operatorname{ mod } m \right)    \) and that \( c \equiv d \left( \operatorname{ mod } m \right)  \) then we know that
+                \[
+                    a + c \equiv b + d \left( \operatorname{ mod } m \right)
+                \]
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-product-of-two-congruent-numbers-is-congruent">
+        	<div class="title">Product of Two Congruent Numbers is Congruent</div>
+        	<div class="content">
+                Suppose that \( a \equiv b \left( \operatorname{ mod } m \right)    \) and that \( c \equiv d \left( \operatorname{ mod } m \right)  \) then we know that
+                \[
+                a c \equiv b d \left( \operatorname{ mod } m \right)
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <p>
+            Note that we don't have the same theorem about division, we can observe that in general this is false, because any odd square has remainder 1, upon division by four, so that \( 5 ^ 2 \equiv 3 ^ 2 \left( \operatorname{ mod } 4 \right)  \) but we can see that \( 5 \equiv 3 \left( \operatorname{ mod } 4 \right)  \) is false.
+        </p>
+
+        <div class="proposition" id="proposition-division-by-a-common-factor-maintains-congruence">
+        	<div class="title">Division by a Common Factor Maintains Congruence</div>
+        	<div class="content">
+        		Suppose that \( a \equiv b \left( \operatorname{ mod } m \right)  \) then if \( k \mid a, b, m \) then we have that
+                \[
+                    \frac{a}{k} \equiv \frac{b}{k} \left( \operatorname{ mod } \frac{m}{k}  \right)
+                \]
+        	</div>
+        	<div class="proof">
+               Recall that \( \frac{a}{k} \equiv \frac{b}{k} \left( \operatorname{ mod } \frac{m}{k}  \right) \) iff \( \frac{m}{k} \mid \frac{a}{k} - \frac{b}{k}  \) but we know that statement is true because since \( m \mid a - b \) and we by linearity we know that \( k \mid a - b \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-a-number-divides-another-then-given-a-common-factor-their-quotients-divide-each-other">therefore</a> it holds true.
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">
+        	<div class="title">Division by a Common Factor Maintains Congruence if Mod is Divided by GCD</div>
+        	<div class="content">
+        		Suppose that \( a \equiv b \left( \operatorname{ mod } m  \right)  \) then if \( k \mid a, b \) then
+                \[
+                    \frac{a}{k} \equiv \frac{b}{k} \left( \operatorname{ mod } \frac{m}{\gcd \left( m, k \right) }   \right)
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-multiplicative-cancellation-if-mod-prime">
+        	<div class="title">Multiplicative Cancellation if Mod Prime</div>
+        	<div class="content">
+        		Suppose that \( p \) is prime and that \( ka \equiv kb \left( \operatorname{ mod } p  \right)   \) and \( p \nmid k  \)  then
+                \[
+                    a \equiv b  \left( \operatorname{ mod } p \right)
+                \]
+        	</div>
+        	<div class="proof">
+                Since \( p \nmid k \) then we know that \( \gcd \left( p, k \right) = 1 \) therefore the result follows from the previous proposition.
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-when-a-linear-modular-equation-has-a-solution">
+        	<div class="title">When a Linear Modular Equation has a Solution</div>
+        	<div class="content">
+                The equation
+                \[
+                    ax \equiv b \left( \operatorname{ mod } m  \right)
+                \]
+                has a solution iff \( \gcd \left( a, m \right) \mid b  \)
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <p>
+            Note that the above implies that the solution is unique
+        </p>
+
         <div class="definition" id="definition-modular-inverse">
             <div class="title">Modular Inverse</div>
             <div class="content">
