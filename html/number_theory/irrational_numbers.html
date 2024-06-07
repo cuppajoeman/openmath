@@ -17,6 +17,14 @@
 
 <body>
     <div class="thin-wrapper">
+        
+        <div class="definition" id="definition-irrational-number">
+        	<div class="title">Irrational Number</div>
+        	<div class="content">
+        		An irrational number is an element \( x \in \mathbb{ R } \setminus \mathbb{ Q }  \) 
+        	</div>
+        </div>
+        
     
         <div class="exercise" id="exercise-irrational-to-the-power-of-irrational-can-be-rational">
             <div class="title">
@@ -36,6 +44,55 @@
                     \sqrt{2}^{2} = 2 \), so in any case we&#39;ve found an \( a , b \) that are irrational such that \(
                     a^{b} \) is rational.
    
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-square-root-of-a-non-perfect-square-is-irrational">
+        	<div class="title">Square Root of a Non Perfect Square is Irrational</div>
+        	<div class="content">
+        		Suppose that \( n \in \mathbb{ N } _ 1 \) is not a perfect square, then \( \sqrt{ n }  \) is irrational.
+        	</div>
+        	<div class="proof">
+                Suppose for the sake of contradiction that \( \sqrt{ n }  \) was rational so that \( \sqrt{ n } = \frac{p}{q}  \) therefore \( q ^ 2 n = p ^ 2 \), since \( n \) is not a perfect square then we know that \( n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i }  \) where there is some \( j \in \mathbb{ N } _ 1 \) such that \( \alpha _ j \) is odd, now we also know that \( q ^ 2 \) is equal to \( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { 2 \beta _ i }  \) since odd plus even is still odd then we know that in the prime factorization of \( q ^ 2 n  \) the power on the \( j \)-th prime is still odd, thus \( q ^ 2n  \) is not a perfect square, but on the other hand \( p ^ 2 \) is, which is a contradiction, therefore \( \sqrt{ n }  \) must be irrational.
+        	</div>
+        </div>
+
+
+        <div class="proposition" id="proposition-there-is-a-rational-between-any-two-reals">
+            <div class="title">There is a Rational Between any Two Reals</div>
+            <div class="content">
+                For any \( x, y \in \mathbb{ R } \) such that \( x \lt y \) there exists a \( p \in \mathbb{ Q }  \) such that
+                \[
+                x \lt p \lt y
+                \]
+            </div>
+            <div class="proof">
+                <p>
+                    Since \( x \lt y \) we have \( 0 \lt y - x \) therefore by the archimediean property we have an \( n \in \mathbb{ N } _ 1 \) such that \( n \left( y - x \right) \gt 1  \)
+                </p>
+                <p>
+                    Consider the set \( X = \left\{ z \in \mathbb{ Z } : z \gt nx \right\}  \), this set is not empty because \( nx + 1 \in X \), additionally it is bounded below, and so as a subset of \( \mathbb{ Z }  \) it has a least element say \( m \) such that \( m \gt nx \) . Since it is the least element we know that \( m - 1 \le nx \), which implies that \( m \le nx + 1 \).
+                </p>
+                <p>
+                    Recall that our \( n \) satisfies \( n \left( y - x \right) \gt 1  \) therefore \( m \le nx + 1 \le nx + \left( n \left( y - x \right)  \right) = ny \), thus we have \( nx \lt m \lt ny \) and since \( n \neq 0 \) we have \( x \lt \frac{m}{n} \lt y \) as needed.
+                </p>
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-there-is-an-irrational-number-between-any-two-real-numbers">
+            <div class="title">There is an Irrational Number between any two Real Numbers</div>
+            <div class="content">
+                Suppose that \( x, y \in \mathbb{ R }  \) such that \( x \lt y \) then there is a \( p \in \mathbb{ R } \setminus \mathbb{ Q }  \) such that
+                \[
+                x \lt p \lt y
+                \]
+            </div>
+            <div class="proof">
+                If \( x \lt y \) 	then \( \sqrt{ 2 } + x \lt \sqrt{ 2 } + y \), and thus there is a rational number \( r \in \mathbb{ Q }  \) such that
+                \[
+                \sqrt{ 2 } + x \lt r \lt \sqrt{ 2 } + y
+                \]
+                and therefore \( x \lt r - \sqrt{ 2 } \lt y  \), but \( r - \sqrt{ 2 }  \) is irrational, because the sum of a rational and irrational is irrational, then we are done.
             </div>
         </div>
 

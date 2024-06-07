@@ -198,10 +198,57 @@
             <div class="content">
                 Given \( a, m \in \mathbb{ Z } \) we say that an integer \( x \in \mathbb{ Z } \) is a the modular inverse for \( a \) mod \( m \) when:
                 \[
-                    a \cdot x \equiv 1 \left( \operatorname{ mod } m \right)
+                a \cdot x \equiv 1 \left( \operatorname{ mod } m \right)
                 \]
             </div>
         </div>
+
+        <div class="corollary" id="corollary-every-non-zero-element-is-invertible-mod-a-prime">
+        	<div class="title">Every Non-Zero Element is Invertible Mod a Prime</div>
+        	<div class="content">
+        		Every \( n \in \mathbb{ N } ^ { \neq 0 }  \) is <a class="knowledge-link" href="/number_theory/congruence.html#definition-modular-inverse">invertible</a> modulo a prime.
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="theorem" id="theorem-chinese-remainder">
+        	<div class="title">Chinese Remainder</div>
+        	<div class="content">
+                Suppose that for some \( l \in \mathbb{ N } _ 1 \) we have that \( x \equiv c _ i \left( \operatorname{ mod } m _ i \right)  \) for each \( i \in \left[ 1, \ldots , l \right]  \) such that for any \( i \lt j \in \left[ 1, \ldots , l \right]  \) we have \( \gcd \left( m _ i, m _ j \right) = 1  \), then there is a unique \( x \) satisfying the above \( \left( \operatorname{ mod } \prod _ { i = 1 } ^ { l } m _ i  \right)  \)
+
+        	</div>
+        	<div class="proof">
+                <p>
+                    Set \( M = \prod _ { i = 1 } ^ { l  } m _ i  \), then clearly we have that \( M \equiv 0 \left( \operatorname{ mod } m _ i  \right)  \). Now recall the following <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-relatively-prime-factors-implies-relatively-prime-product">fact</a>, and that it can be extended to finite products by induction which shows that \( \gcd \left( \frac{M}{m _ j}, m _ j \right) = 1  \) for any \( j \in \left[ 1, \ldots , l \right]  \). Therefore we obtain a solution to the equation \( \frac{M}{m _ j} x \equiv 1 \left( \operatorname{ mod } m _ j \right)  \), let this solution be denoted by \( x _ j \).
+                </p>
+                <p>
+                    As just discussed we obtained a solution \( x _ j \) such that \( \frac{M}{m _ j} x _ j \equiv 1 \left( \operatorname{ mod } m _ j  \right) \), in other words \( \frac{M}{m _ j} x _ j c _ j \equiv c _ j \left( \operatorname{ mod } m _ j  \right)  \) and so we've found \( l \) different solutions to each of the congruence equations we required, but we need to find one solution to all of them.
+
+
+                </p>
+                <p>
+                    Note that \( \frac{M}{m _ j} \equiv 0 \left( \operatorname{ mod } m _ i  \right)  \) for any \(  i \neq j \)  so that \( \frac{M}{m _ j} x _ j c _ j \equiv 0 \left( \operatorname{ mod } m _ i  \right)  \) as well, with this fact we see that
+                    \[
+                        S := \sum _ { i = 1 } ^ { l  } \frac{M}{m _ j} x _ j c _ j
+                    \]
+                    has the following property
+                    \[
+                        S \equiv 0 + 0 + \cdots c _ j + 0 + 0 \equiv c _ j \left( \operatorname{ mod } m _ j \right)
+                    \]
+                    in other words using \( x = S \) works.
+                </p>
+
+                <hr>
+                <p>
+                    We now show that the solution is unique. Suppose that \( y \) is another solution to all of the modular equations then we'll prove that \( x \equiv y \left( \operatorname{ mod } \prod _ { i = 1 } ^ { l } m _ i  \right)  \)
+                </p>
+        	</div>
+        </div>
+
+
+
 
         <div class="proposition" id="proposition-modular-inverse-iff-gcd-1">
         	<div class="title">Modular Inverse iff GCD 1</div>

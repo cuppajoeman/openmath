@@ -27,6 +27,27 @@
                 \]
             </div>
         </div>
+        
+        <div class="definition" id="definition-set-of-primes">
+        	<div class="title">Set of Primes</div>
+        	<div class="content">
+        	    We denote the set of primes as \( \mathbb{ P }  \) 	
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-increasing-prime-function">
+        	<div class="title">Increasing Prime Function</div>
+        	<div class="content">
+        		We let the function \( p _ i: \mathbb{ N } _ 1 \to \mathbb{ P }  \) be an increasing function such that \( p _ 1 = 2 \) and there are no primes between \( p _ i \) and \( p _ { i + 1  }  \).
+        	</div>
+        </div>
+
+        <p>
+            This function looks like \( 2, 3, 5, 7, 11, 13, 17, \ldots  \)
+        </p>
+
+        
+        
 
         <div class="corollary" id="corollary-composite-iff-not-prime">
             <div class="title">
@@ -158,9 +179,9 @@
         	<div class="content">
         		For every \( n \in \mathbb{ N } _ 2 \) can be written uniquely as
                 \[
-                    n = p _ 1 ^ { \alpha _ 1 } \cdot p _ 2 ^ { \alpha _ 2 } \cdots p _ m ^ { \alpha _ m }
+                    n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i }
                 \]
-                where \( p _ 1 \lt p _ 2 \lt  \cdots \lt p _ m \) are primes and \( \alpha  _ 1, \ldots \alpha  _ m \in \mathbb{ N } _ 1 \)
+                \( \alpha  _ i \in \mathbb{ N } _ 1 \) where all but finitely many \( \alpha _ i = 0 \)
         	</div>
         	<div class="proof">
         		
@@ -220,6 +241,40 @@
         	<div class="proof">
         	</div>
         </div>
+
+        <div class="proposition" id="proposition-perfect-square-iff-every-power-in-the-prime-factorization-is-even">
+        	<div class="title">Perfect Square iff Every Power in the Prime Factorization is Even</div>
+        	<div class="content">
+        		Let \( n \in \mathbb{ N } _ 1 \) then \( n \) is a perfect square if and only if
+                \[
+                    n = \prod _ { i \in \mathbb{ N } _ 1 }  p _ i ^ { 2 \alpha _ i }
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    \( \implies  \) Suppose that \( n \) is a perfect square therefore \( n = m ^ 2 \) for some \( m \in \mathbb{ Z }  \) but we know that \( m = \prod _ { i \in \mathbb{ N } _ 1   } p _ i ^ { \beta _ i } \) therefore \( n = \left( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \beta _ i }   \right) ^ 2 = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { 2 \beta _ 2 }   \)
+                </p>
+                <p>
+                    \( \impliedby  \) We have that \( n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { 2 \alpha _ i } = \left( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i } \right) ^ 2   \) therefore \( n  \) is a perfect square.
+                </p>
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-division-and-prime-power-equivalence">
+        	<div class="title">Division and Prime Power Equivalence</div>
+        	<div class="content">
+        		Suppose that \( a, d \in \mathbb{ N } _ 2 \) such that \( a = \prod _ { i \in \mathbb{ N }  } p _ i ^ { \alpha _ i }  \) then
+                \[
+                    d \mid a \iff d = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \beta _ i }
+                \]
+                where \( \beta _ i \in \mathbb{ N } _ 0 \) and \( \beta _ i \le \alpha _ i \)
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+
 
 
     </div>
