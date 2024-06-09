@@ -176,9 +176,6 @@
         	</div>
         </div>
 
-
-        
-
         <div class="proposition" id="proposition-division-by-a-common-factor-maintains-congruence">
         	<div class="title">Division by a Common Factor Maintains Congruence</div>
         	<div class="content">
@@ -448,7 +445,6 @@
         </div>
         
 
-
         <div class="proposition" id="proposition-modular-inverse-iff-gcd-1">
         	<div class="title">Modular Inverse iff GCD 1</div>
         	<div class="content">
@@ -481,6 +477,111 @@
                 This follows by the contra-positive of <a class="knowledge-link" href="/number_theory/congruence.html#proposition-modular-inverse-has-gcd-1">the above</a>.
         	</div>
         </div>
+
+        <div class="definition" id="definition-complete-system-of-residues-modulo-n">
+        	<div class="title">Complete System of Residues Modulo n</div>
+        	<div class="content">
+        	    A collection of \( R = \left\{ r _ 1, \ldots, r _ n \right\} \subseteq \mathbb{ Z }  \) is said to be a <b>complete system of residues modulo \( n \) </b> if they are pairwise incongruent modulo \( n \), meaning that for any \( x, y \in R \), if \( x \neq y \) then \( x \not \equiv y \left( \operatorname{ mod } n  \right)  \)
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-equality-is-the-same-as-congruent-in-a-complete-system-of-residues-modulo-n">
+        	<div class="title">Equality is the Same as Congruent in a Complete System of Residues Modulo n</div>
+        	<div class="content">
+        		Suppose that \( R \subseteq \mathbb{ Z }  \) is a complete system of residues modulo \( n \), then for any \( x, y \in R \)
+                \[
+                    x = y \iff x \equiv y \left( \operatorname{ mod } n \right)
+                \]
+        	</div>
+        	<div class="proof">
+                \( \implies  \) Suppose that \( x =  y \) therefore we have that \( x \equiv y \left( \operatorname{ mod } n \right)  \). \( \impliedby  \) Suppose that \( x \equiv y \left( \operatorname{ mod } n \right)  \) we want to show that \( x = y \), but if it was that \( x \neq y \) then by the definition of complete system of residues we would have \( x \not \equiv y \left( \operatorname{ mod } n \right)  \) which would be a contradiction, therefore \( x = y \)
+        	</div>
+        </div>
+
+
+        <div class="exercise" id="exercise-complete-and-incomplete-systems-modulo-n">
+        	<div class="title">Complete and Incomplete Systems Modulo n</div>
+        	<div class="content">
+                Prove that \( 0, 2 ^ 1, \ldots, 2 ^ 9 \) is a complete system of residues modulo \( 11 \) but \( 0, 3 ^ 1, \ldots, 3 ^ 9 \) is not.
+        	</div>
+        	<div class="proof">
+                <p>
+                    Suppose for the sake of contradiction that the former was not a complete system, before doing anything else note that \( 0 \not \equiv 2 ^ z \left( \operatorname{ mod } 11 \right) \) for any \( z \in \left[ 1, \ldots 9 \right]  \) since \( 11 \nmid 2 ^ z \) and therefore instead there would exist some \( x, y \in \left[ 0, \ldots 9 \right]  \) such that \( x \neq y \) and that \( 2 ^ x \equiv 2 ^ y \left( \operatorname{ mod } 11  \right)  \) therefore \( 11 \mid 2 ^ x - 2 ^ y \) and without loss of generality assume that \( x \gt y \) then \( 2 ^ x - 2 ^ y = 2 ^ y \left( 2 ^ { x - y } - 1  \right)  \), since \( 11 \) is prime then \( 11 \mid 2 ^ y \) or \( 11 \mid 2 ^ { x - y } - 1  \), we know that \( 11 \mid 2 ^ y \) is impossible as noted before so we must have that \( 11 \mid 2 ^ { x - y } - 1  \).
+                </p>
+                <p>
+                    We'll show that \( 11  \mid 2 ^ { x - y } - 1 \) also leads to a contradiction, because if we look at \( 2 \)'s power sequence modulo \( 11 \) we see that it is \( \left( 2, 4, 8, 5, -1, -2, -4, -8, -5, 1 \right)  \) therefore since \( x - y \in \left[ 0, \ldots , 9  \right]  \) and the smallest integer such that \( 2 ^ k \equiv  1 \) is \( k = 10 \) then \( 2 ^ { x - y } \not \equiv 1 \) and thus is in contradiction with the fact that \( 11 \mid 2 ^ { x - y } - 1 \iff 2 ^ { x - y } \equiv 1 \left( \operatorname{ mod } 11  \right)   \). Therefore our assumption is false and so the former is a complete system of residues.
+                </p>
+                <hr>
+                <p>
+                    Following a similar thread we note that \( 3 ^ k \not \equiv 0 \left( \operatorname{ mod } 11  \right)  \) which is impossible by the uniqueness of the prime factorization. We want to find some \( x, y \in \left[ 0, \ldots 9 \right]  \) such that \( 3 ^ x \equiv 3 ^ y \left( \operatorname{ mod } 11  \right)  \) again without loss of generality assume that \( x \gt y \) and therefore we have \( 11 \mid 3 ^ x - 3 ^ y = 3 ^ y \left( 3 ^ { x - y } - 1  \right) \) since \( 11 \) is prime then it divides one of the factors, but as just noted the factor it divides must be \( 3 ^ { x - y } - 1  \) by looking at \( 3 \)'s power sequence modulo \( 11 \) we get some insight \( 3 , 9, 5, 4, 1, 3, 9, 5, 4, 1, \ldots  \) so if \( x - y = 5 \) then \( 11 \mid 3 ^ { x - y } - 1 \) so let \( y = 1 \) and \( x = 6 \) therefore \( 3 ^ 6 \equiv 3 ^ 1 \left( \operatorname{ mod } 11  \right)  \) and we've proven that the latter is not a complete system of residues.
+                </p>
+        	</div>
+        </div>
+        
+        <div class="proposition" id="proposition-a-complete-system-of-residues-modulo-n-hits-all-possible-residues">
+        	<div class="title">A Complete System of Residues Modulo n Hits all Possible Residues</div>
+        	<div class="content">
+        		Suppose that \( r _ 1, r _ 2, \ldots , r _ n \) is a complete system of residues modulo \( n \), then prove that for each \( r \in \left[ 0, \ldots , n - 1 \right]  \) there exists some \( i \in \left[ 1, \ldots n \right]  \) such that
+                \[
+                    r _ i \equiv r \left( \operatorname{ mod } n  \right)
+                \]
+        	</div>
+        	<div class="proof">
+                Suppose that for the sake of contradiction that was not true so that
+                \[
+                    X = \left\{ r _ i ~\%~ n: i \in \left[ 1, \ldots , n \right]  \right\} \subset \left[ 0, \ldots , n - 1 \right]
+                \]
+                therefore we deduce that \( \left\lvert X \right\rvert \lt n \) therefore there must exist some \( i, j \in \left[ 1, \ldots , n \right]  \) such that \( i \neq j \) and \( r _ i ~\%~ n = r _ j ~\%~ n \) but that's a contradiction since the \( r _ i \)'s are pairwise incongruent therefore it must be that \( X = \left[ 0, \ldots, n - 1 \right]  \) therefore for any \( r \in \left[ 0, \ldots , n - 1 \right]  \) there exists some \( r _ j \in X \) such that \( r _ j \equiv r \left( \operatorname{ mod } n  \right)  \)
+        		
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">
+        	<div class="title">p Minus one Factorial is Congruent to Minus one Mod p</div>
+        	<div class="content">
+                Suppose that \( p \in \mathbb{ N } _ 2 \) is prime, then
+                \[
+                    \left( p - 1  \right) ! \equiv -1 \left( \operatorname{ mod } p  \right)
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    Recall that \( S = \left\{ 0, \ldots , p - 1 \right\}  \) is a complete set of residues mod \( p \), and also for any \( s \in S \) since \( \gcd \left( s, p \right) = 1  \) then the collection \( T = \left\{ 0, s, \ldots s \left( p - 1 \right)  \right\}  \) is a complete system of residues mod \( p \). Since it is then there is exactly one element \( j \in X \) such that \( j \equiv 1 \left( \operatorname{ mod } p  \right)  \) specifically \( j = s t \) where \( t \in T \) so we can say that \( st \equiv 1 \left( \operatorname{ mod } p  \right)  \).
+                </p>
+                <p>
+                    In the previous paragraph we've shown the existance of a function \( f : S \to S \) such that \( x f \left( x \right) \equiv 1 \left( \operatorname{ mod } p \right)  \). We're going to prove this function is injective, that is we will prove that if \( x, y \in S \) then \( f \left( x \right) = f \left( y \right) \implies x = y \). Suppose that \( f \left( x \right) = f \left( y \right)  \) therfore \( f \left( x \right) \equiv f \left( y \right) \left( \operatorname{ mod } p \right)  \) moreover by the definition of \( f \) we know that \( x f \left( x \right) \equiv 1 \equiv y f \left( y \right) \left( \operatorname{ mod } p \right)   \) therefore we have
+                    \[
+                        x f \left( x \right) \equiv y f \left( y \right) \equiv y f \left( x \right) \left( \operatorname{ mod } p \right)
+                    \]
+                    thus since \( f \left( x \right) \in S  \) we know that \( \gcd \left( f \left( x \right), p  \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">therefore </a> \( x \equiv y \left( \operatorname{ mod } \frac{p}{1} \right)  \) so that \( x = y \) as needed. As a side note since the size of the domain is the same as the size of the range, then we know that \( f \) is a bijection.
+                </p>
+                <p>
+                    For a moment let's consider the case when \( f \left( x \right) = x \) if that were true we have \( x f \left( x \right) \equiv x ^ 2 \equiv 1 \left( \operatorname{ mod } p \right)  \) therefore \( x \equiv \pm 1 \left( \operatorname{ mod } p \right)  \) if \( x \equiv 1 \left( \operatorname{ mod } p \right)  \) this means that \( p \mid x - 1 \), if \( x - 1 \neq 0 \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">then we know that</a> \( p \le \left\lvert x - 1 \right\rvert \), since \( x \in S \) then \( x - 1 \in \left\{ -1, \ldots p - 2 \right\}  \) so that \( \left\lvert x - 1 \right\rvert \le p - 2  \) but then we deduced that \( p \le p - 2 \)  which is a contradiction so that we must have \( x - 1 = 0 \) so that \( x = 1 \). On the other hand if we know that \( x \equiv -1 \left( \operatorname{ mod } p  \right)  \) then we see that \( p \mid x + 1  \) since \( x + 1 \in \left\{ 1, \ldots , p \right\}  \) then the only possibility is that \( x + 1 = p \) which is that \( x = p - 1 \).
+                </p>
+                <p>
+                    The result of the above paragraph is that if \( f \left( x \right) = x \) then the only possibility is that \( x = 1 \) or that \( x = p - 1 \), so \( x \in \left\{ 2, \ldots , p - 2 \right\} \implies f \left( x \right) \neq x  \) and \( f \left( x \right) \in \left\{ 2, \ldots , p - 2 \right\}  \), and this function is a bijection, remaining a bijection on the restriction of the domain and range to \( \left\{ 2, \ldots , p - 2 \right\}  \).
+                </p>
+                <p>
+                    For a moment note that if \( p = 2 \) this whole question is trivial because \( \left( 2 - 1 \right) ! \equiv -1 \left( \operatorname{ mod } 2  \right)   \), therefore we can assume that \( p \ge 3 \) also this implies that \( p \) is odd, therefore when we consider the collection
+                    \[
+                        K = \left\{ 2, \ldots , p - 2 \right\}
+                    \]
+                    then since \( \left\lvert K \right\rvert = p - 2 - 2 + 1 = p - 3 \) then the size of \( K \) is even since \( p \) is odd. Let \( k _ 1 \in K \) then \( f \left( k _ 1 \right) \neq k \), Let \( K _ 1 = K \setminus \left\{ k _ 1, f \left( k _ 1 \right)  \right\} \), since \( f \) is a bijection, then by repeating this process \( l = \frac{\left\lvert K \right\rvert }{2}  \) times then \( K _ l = \emptyset  \) which is to say that \( \left\{ \left\{ k _ i, f \left( k _ i \right)  \right\}: i \in \left[ 1, \ldots, l \right]   \right\}  \) is a partition of \( K \), thus
+                    \[
+                        2 \cdots \left( p - 2 \right) = \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right)
+                    \]
+                    But we see \( \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right) \equiv  \prod _ { i = 1 } ^ { l } 1 \equiv 1  \left( \operatorname{ mod } p \right)    \) and therefore \( 2 \cdots \left(  p - 2  \right) \equiv 1 \left( \operatorname{ mod } p  \right)   \) therefore
+                    \[
+                        \left( p - 1 \right) ! \equiv  2 \cdots \left( p - 2 \right) \left( p - 1 \right) \equiv 1 \left( p - 1 \right) \equiv -1 \left( \operatorname{ mod } p \right)
+                    \]
+                    as needed.
+                </p>
+        	</div>
+        </div>
+
+        
+
+
 
     </div>
 </body>
