@@ -135,6 +135,49 @@
         <p>
             Note that we don't have the same theorem about division, we can observe that in general this is false, because any odd square has remainder 1, upon division by four, so that \( 5 ^ 2 \equiv 3 ^ 2 \left( \operatorname{ mod } 4 \right)  \) but we can see that \( 5 \equiv 3 \left( \operatorname{ mod } 4 \right)  \) is false.
         </p>
+        
+        <div class="proposition" id="proposition-congruent-numbers-raised-to-congruent-powers-may-not-be-congruent">
+        	<div class="title">Congruent Numbers raised to Congruent Powers may not be Congruent</div>
+        	<div class="content">
+        		Suppose that \( a \equiv b \left( \operatorname{ mod } n \right) \) and \( c \equiv d \left( \operatorname{ mod } n  \right)  \), then its NOT true that
+                \[
+                     a ^ c \equiv b ^ d \left( \operatorname{ mod } n  \right)
+                \]
+        	</div>
+        	<div class="proof">
+        	    Consider \( 2 \equiv 5 \left( \operatorname{ mod } 3  \right)  \) 	but then \( 2 ^ 5 \equiv 2 \) whereas \( 5 ^ 2 \equiv 1 \) so \( 2 ^ 5 \not \equiv 5 ^ 2 \left( \operatorname{ mod } 3  \right)  \)
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-if-two-numbers-are-congruent-they-are-still-congrune-t-mod-a-divisor-of-the-original-mod">
+        	<div class="title">If two Two Numbers are Congruent, they are still Congruent mod a divisor of the Original Mod</div>
+        	<div class="content">
+        		Suppose that \( a \equiv b \left( \operatorname{ mod } n  \right)  \) and \( m \mid n \) then \( a \equiv b \left( \operatorname{ mod } m \right)  \)
+        	</div>
+        	<div class="proof">
+        		Since \( a \equiv b \left( \operatorname{ mod } n  \right)  \) then we know that \( n \mid b - a \) but also \( m \mid n \) so that \( m \mid b - a \) therefore \( a \equiv b \left( \operatorname{ mod } m  \right)  \) as needed.
+        	</div>
+        </div>
+
+        <p>
+            Note that if instead we required that \( n \mid m \) then the above would not be true because we see that \( 3 \equiv 6 \left( \operatorname{ mod } 3 \right)  \) but \( 3 \not \equiv 6 \left( \operatorname{ mod } 6  \right)  \)
+        </p>
+
+        <div class="proposition" id="proposition-if-two-numbers-are-congruent-using-two-different-moduli-they-are-congruent-using-the-lcm">
+        	<div class="title">If Two Numbers are Congruent Using Two Different Moduli they are Congruent Using the LCM</div>
+        	<div class="content">
+        		Suppose that \( a \equiv b  \left( \operatorname{ mod } n  \right)  \) and that \( a \equiv b \left( \operatorname{ mod } m  \right)  \) then
+                \[
+                    a \equiv b \left( \operatorname{ mod } \operatorname{ lcm } \left( n, m \right)   \right)
+                \]
+        	</div>
+        	<div class="proof">
+        		We have that \( m, n \mid a - b \) but the definition of the LCM then states that \( lcm \left( n, m \right) \mid a - b   \)
+        	</div>
+        </div>
+
+
+        
 
         <div class="proposition" id="proposition-division-by-a-common-factor-maintains-congruence">
         	<div class="title">Division by a Common Factor Maintains Congruence</div>
@@ -247,7 +290,163 @@
         	</div>
         </div>
 
+        <div class="exercise" id="exercise-seven-divides-ones-and-threes">
+        	<div class="title">Seven Divides Ones and Threes</div>
+        	<div class="content">
+        		Show that
+                \[
+                    7 \mid \left( 111 ^ { 333 } + 333 ^ { 111 }  \right)
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    \( 111 = 7 \cdot 15 + 6 \) therefore \( 111 \equiv 6 \equiv -1 \left( \operatorname{ mod } 7 \right)  \) therefore \( 111 ^ { 2 k + 1 } \equiv -1  \) so therefore \( 111 ^ { 333 } \equiv -1 \left( \operatorname{ mod } 7  \right)  \).
+                </p>
+                <p>
+                    Now note that \( 333 \equiv 3 \left( 111 \right) \equiv 3 \left( -1 \right) \equiv -3 \left( \operatorname{ mod } 7  \right)   \), consider the following
+                    \[
+                        \begin{align}
+                            -3 ^ 1 &\equiv -3 \left( \operatorname{ mod } 7 \right) \\
+                            -3 ^ 2 &\equiv 2 \left( \operatorname{ mod }  7 \right) \\
+                            -3 ^ 3 &\equiv 1 \left( \operatorname{ mod }  7 \right)
+                        \end{align}
+                    \]
+                    therefore
+                    \[
+                        \left( -3 \right)  ^ { 3 k + i } \equiv
+                    \begin{cases}
+                        -3 &\text{ if }  i = 1 \\
+                        2 &\text{ if }  i = 2 \\
+                        1 &\text{ if }  i = 0
+                    \end{cases}
+                    \]
+                    since the sum of the digits of \( 111 = 3 \) then \( 3 \mid 111 \) and therefore \( 3 ^ { 111 } \equiv 1 \) therefore
+                    \[
+                        111 ^ { 333 } + 333 ^ { 111 } \equiv -1 + 1 \equiv 0
+                    \]
+                    <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-iff-congruent-mod-0">therefore </a> \( 7 \mid 111 ^ { 333 } + 333 ^ { 111 }  \) as needed.
+                </p>
+        	</div>
+        </div>
 
+        <div class="exercise" id="exercise-alternating-congruence-again">
+        	<div class="title">Alternating Congruence Again</div>
+        	<div class="content">
+        		Prove that
+                \[
+                    39 \mid \left( 53 ^ { 103 } + 103 ^ { 53 }  \right)
+                \]
+        	</div>
+        	<div class="proof">
+                Note that \( 53 = 39 + 14 \) thus \( 53 \equiv 14 \left( \operatorname{ mod } 39  \right)  \), looking at \( 14 ^ 2 = \left( 10 + 4 \right) 14 = 140 + 56 = 196  \), then since \( 39 \cdot 5 = \left( 40 - 1 \right) 5 = 200 - 5 = 195  \) then we see that \( 196 = 39 \cdot 5 + 1 \) so that \( 14 ^ 2 \equiv 1 \left( \operatorname{ mod } 39 \right) \) therefore we have that
+                \[
+                    14  ^ k \equiv
+                \begin{cases}
+                    14 &\text{ if } k \text{ odd }\\
+                    1 &\text{ if } k \text{ even }
+                \end{cases}
+                \]
+                therefore \( 53 ^ { 103 }  \equiv 14 ^ { 103 }  \equiv 14 \). Now we look at \( 103 = 2 \cdot 39 + 25 \) so that \( 103 \equiv 25 \) now \( 25 ^ 2 = 625 \) since we see that \( 16 \cdot 39 = 16 \left( 40 - 1 \right) = \left( 400 + 240 \right) - 16 = 640 - 16 = 624 \) then \( 625 = 16 \cdot 39 + 1 \) so that \( 25 ^ 2 \equiv 1 \) so we deduce that
+                \[
+                25  ^ k \equiv
+                \begin{cases}
+                25 &\text{ if } k \text{ odd }\\
+                1 &\text{ if } k \text{ even }
+                \end{cases}
+                \]
+                therefore \( 103 ^ { 53 }  \equiv 25 ^ { 53 }  \equiv 25 \) so then
+                \[
+                    53 ^ { 103 }  + 103 ^ { 53 }  \equiv 14 + 25 \equiv 39 \equiv 0
+                \]
+                therefore we know that \( 39 \mid  53 ^ { 103 }  + 103 ^ { 53 }  \)
+        	</div>
+        </div>
+
+        <div class="exercise" id="exercise-43-divides-a-sum-of-powers-of-6-and-7">
+        	<div class="title">43 Divides a Sum of Powers of 6 and 7</div>
+        	<div class="content">
+        		Show that
+                \[
+                    43 \mid \left( 6 ^ { n + 2 } + 7 ^ { 2 n + 1  }   \right)
+                \]
+        	</div>
+        	<div class="proof">
+                Note that
+                \[
+                    \begin{align}
+                        6 ^ 1 &\equiv 6 \left( \operatorname{ mod } 43 \right) \\
+                6 ^ 2 &\equiv 36 \left( \operatorname{ mod } 43 \right) \\
+                6 ^ 3 &\equiv 3 \cdot 36 \equiv  130 + 36 \equiv 216 \left( \operatorname{ mod } 43 \right) \\
+                    \end{align}
+                \]
+                <p>
+                    Note that \( 216 = 43 \cdot 5 + 1  \) therefore \( 6 ^ 3 \equiv 1 \left( \operatorname{ mod } 43  \right)  \) therefore the modular power sequence is given by \( \left( 6, 36, 1, 6, 36, 1, \ldots  \right)  \). Therefore if we look at \( a _ n = 6 ^ { n + 2  }   \) then \( \left( a _ n \right) = \left( 1, 6, 36, 1, 6 , 36, \ldots  \right) \)
+                </p>
+                <p>
+                    Now we'll look at \( 7 \) power sequence mod \( 43 \) we have
+                    \[
+                        \begin{align}
+                            7 &\equiv 7 \left( \operatorname{ mod } 43  \right) \\
+                    7 ^ 2 &\equiv 49 \equiv 6 \left( \operatorname{ mod } 43  \right) \\
+                    7 ^ 3 &\equiv 6 \cdot 7 \equiv 42 \equiv -1 \left( \operatorname{ mod } 43  \right) \\
+                    7 ^ 4 &\equiv -1 \cdot 7 \equiv -7 \left( \operatorname{ mod } 43  \right) \\
+                    7 ^ 5 &\equiv 7 ^ 3 7 ^ 2 \equiv \left( -1 \right) 6  \left( \operatorname{ mod } 43  \right) \\
+                    7 ^ 6 &\equiv 7 \left( -6 \right)  \equiv -42 \equiv 1 \left( \operatorname{ mod } 43  \right)
+                        \end{align}
+                    \]
+                    therefore it's power sequence mod \( 43 \) is \( \left( b _ n \right) =  \left( 7, 6, -1, -7, -6, 1, 7, 6, -1, -7, -6, 1, \ldots \right) \), therefore the power sequence of \( 7 ^ { 2n + 1 }  \) is given by \( \left( c _ n \right) =  \left( -1, -6, 7, -1, -6, 7, \ldots \right)  \), therefore \( x _ n = 6 ^ { n + 2 } + 7 ^ { 2n + 1 } \) is given by 
+                    \[
+                    \begin{align}
+                    \left( x _ n \right) &= \left( 1, 6, 36, 1, 6, 36, \ldots  \right) \\
+                    &+ \left( -1, -6, 7, -1, -6, 7, \ldots  \right) \\
+                    &= \left( 0, 0, 43, 0, 0, 43, \ldots  \right)
+                    \end{align}
+                    \]
+                    Since \( x _ n \equiv 0 \left( \operatorname{ mod } 43  \right)  \) for every \( n \) as needed.
+                </p>
+        	</div>
+        </div>
+
+        <div class="exercise" id="exercise-remainder-of-a-sum-of-power">
+        	<div class="title">Remainder of a Sum of Powers</div>
+        	<div class="content">
+                Find
+                \[
+                    \left( \sum _ { i = 1 } ^ { 100 } i ^ 5 \right)  ~\%~ 4
+                \]
+        	</div>
+        	<div class="proof">
+                For \( i \) odd, then recall that \( i ^ 2 \) is an odd perfect square and thus \( i ^ 2 ~\%~ 4 = 1 \) therefore \( i ^ 5 = i ^ 2 i ^ 2 i = i \), also when \( i \) is even, then \( i ^ 5 ~\%~ 4 = 0 \) therefore we know that
+                \[
+                \left( \sum _ { i = 1 } ^ { 100 } i ^ 5 \right)  \equiv 1 + 3 + 5 + \ldots + 2 \left( 50 \right) - 1 = 50 ^ 2
+                \]
+                using <a class="knowledge-link" href="/number_theory/induction.html#corollary-summation-of-consecutive-odd-numbers">this fact</a> since \( 50 ~\%~ 4 = 2 \) then we know that \( 50 ^ 2 ~\%~ 4 = 0 \) so we deduce that
+                \[
+                    \left( \sum _ { i = 1 } ^ { 100 } i ^ 5 \right)  ~\%~ 4 = 0
+                \]
+        	</div>
+        </div>
+        
+        <div class="exercise" id="exercise-remainder-of-a-sum-of-factorials">
+        	<div class="title">Remainder of a Sum of Factorials</div>
+        	<div class="content">
+                Determine
+                \[
+                    \left( \sum _ { i = 1 } ^ { 100 } i ! \right)  ~\%~ 15
+                \]
+        	</div>
+        	<div class="proof">
+                Observe that for any \( i \ge 5 \) we see that \( 15 = 3 \cdot 5 \mid i! \) therefore we reduce it to
+                \[
+                \left( \sum _ { i = 1 } ^ { 100 } i ! \right) \equiv \sum _ { i = 1 } ^ { 4 } i ! \left( ~\%~ 15 \right)
+                \]
+                But we know that \( 1! + 2! + 3! + 4! = 33 \equiv 3 \left( ~\%~ 15 \right)  \) so that
+                \[
+                    \left( \sum _ { i = 1 } ^ { 100 } i!  \right) \equiv 3 \left( ~\%~ 15 \right)
+                \]
+        	</div>
+        </div>
+        
 
 
         <div class="proposition" id="proposition-modular-inverse-iff-gcd-1">

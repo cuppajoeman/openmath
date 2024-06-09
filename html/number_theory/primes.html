@@ -188,6 +188,81 @@
         	</div>
         </div>
 
+        <div class="definition" id="definition-prime-power-sequence">
+        	<div class="title">Prime Power Sequence</div>
+        	<div class="content">
+        		Given any \( n \in \mathbb{ N } _ 1 \) and its prime factorization \( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { a _ i }   \) then we define
+                \[
+                \operatorname{ pps } \left( n \right) := \left( a _ 1, a _ 2, a _ 3, \ldots  \right)
+                \]
+                Note that \( \operatorname{ pps } : \mathbb{ N } _ 2 \to \left\{ \left( x _ n \right): \mathbb{ N }  _ 1 \to \mathbb{ N } _ 0  \right\}  \)
+        	</div>
+        </div>
+
+        <p>
+            Note that since each number has a unique factorization then \( \operatorname{ pps }  \) is a bijection, and so \( \operatorname{ pps } ^ { - 1  }  \) exists.
+        </p>
+
+        <div class="corollary" id="corollary-products-as-the-addition-of-power-sequences">
+        	<div class="title">Products as the Addition of Power Sequences</div>
+        	<div class="content">
+        		Suppose that \( a, b \in \mathbb{ N } _ 2 \) then 
+                \[
+                    \operatorname{ pps } \left( ab \right) = \operatorname{ pps } \left( a \right) + \operatorname{ pps } \left( b \right) 
+                \]
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+
+
+        
+        <div class="proposition" id="proposition-relatively-prime-in-terms-of-prime-factorization">
+        	<div class="title">Relatively Prime In terms of Prime Factorization</div>
+        	<div class="content">
+                \[
+                    \gcd \left( a, b \right) = 1 \iff \max \left( \operatorname{ pps } \left( a \right), \operatorname{ pps } \left( b \right)  \right) = 0
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="lemma" id="lemma-subsequence-of-a-sum-of-two-disjoint-power-sequences-is-still-a-disjoint-sum">
+        	<div class="title">Subsequence of the sum of Two Disjoint Power Sequences Is Still a Disjoint Sum</div>
+        	<div class="content">
+        		Suppose that \( \max \left( \operatorname{ pps } \left( a \right) , \operatorname{ pps } \left( b \right)  \right) = 0  \) and that  \( \left( x _ n \right) \le \operatorname{ pps } \left( a \right) + \operatorname{ pps } \left( b \right)   \) then 
+                \[
+                    \left( x _ n \right) = \left( a _ n \right) + \left( b _ n \right) 
+                \]
+                where \( \left( a _ n \right) \le \operatorname{ pps } \left( a \right)   \) and \( \left( b _ n \right) \le \operatorname{ pps } \left( b \right)   \) and \( \max \left( \left( a _ n \right), \left( b _ n \right)   \right) = 0  \)
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+
+        <div class="proposition" id="proposition-a-number-divides-a-coprime-product-iff-it-is-the-product-of-individual-divisors">
+        	<div class="title">A Number Divides a Coprime Product iff It is the product of Individual Divisors</div>
+        	<div class="content">
+        		Suppose that \( \gcd \left( a, b \right) = 1 \) then \( c \mid a b \) if and only if \( c = d _ a d _ b \) where \( d _ a, d _ b \) are divisors of \( a, b \) respectively
+        	</div>
+        	<div class="proof">
+                <p>
+                    \( \implies  \) Suppose that \( c \mid ab \) therefore \( \operatorname{ pps } \left( c \right) \le \operatorname{ pps } \left( ab \right) = \operatorname{ pps } \left( a \right) + \operatorname{ pps } \left( b \right)  \) and therefore \( \operatorname{ pps } \left( c \right) = \left( a _ n \right) + \left( b _ n \right)   \) where \( \left( a _ n \right) \le \operatorname{ pps } \left( a \right)   \) and \( \left( b _ n \right) \le \operatorname{ pps } \left( b \right)   \) where \( \max \left( \left( a _ n \right), \left( b _ n \right)   \right) = 0  \)  (by the corollary). Therefore \( c = \operatorname{ pps } ^ { - 1  } \left( a _ n \right) \operatorname{ pps } ^ { - 1 } \left( b _ n \right) \) but we know that \( \operatorname{ pps } ^ { - 1  } \left( a _ n \right) \mid a    \) and \( \operatorname{ pps } ^ { - 1  } \left( b _ n \right) \mid b   \) as needed.
+                </p>
+                <p>
+                    \( \impliedby  \) Suppose that \( c = d _ a d _ b \), since they are divisors we know that there exist \( k _ a, k _ b \in \mathbb{ Z }  \) such that \( a = k _ a d _ a \) and \( b = k _ b d _ b \) so then \( a b =  k _ a k _ b d _ a d _ b  = k _ a k _ b c\) therefore \( c \mid ab \) as needed.
+                </p>
+        	</div>
+        </div>
+
+
+
+
         <div class="lemma" id="lemma-euclid">
         	<div class="title">Euclid</div>
         	<div class="content">
@@ -263,16 +338,63 @@
         <div class="proposition" id="proposition-division-and-prime-power-equivalence">
         	<div class="title">Division and Prime Power Equivalence</div>
         	<div class="content">
-        		Suppose that \( a, d \in \mathbb{ N } _ 2 \) such that \( a = \prod _ { i \in \mathbb{ N }  } p _ i ^ { \alpha _ i }  \) then
+        		Suppose that \( a, d \in \mathbb{ N } _ 2 \) then
                 \[
-                    d \mid a \iff d = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \beta _ i }
+                    d \mid a \iff \operatorname{ pps } \left( d \right) \le \operatorname{ pps } \left( a \right)
                 \]
-                where \( \beta _ i \in \mathbb{ N } _ 0 \) and \( \beta _ i \le \alpha _ i \)
         	</div>
         	<div class="proof">
 
         	</div>
         </div>
+
+        <div class="exercise" id="exercise-every-composite-three-digit-number-must-have-a-prime-factor-less-than-or-equal-to-31">
+        	<div class="title">Every Composite Three Digit Number must have a Prime Factor Less than or Equal to 31</div>
+        	<div class="content">
+        		As per title.
+        	</div>
+        	<div class="proof">
+        		Assume that for the sake of contradiction the statement was not true, therefore there is a three digit number such that all of its prime factors are greater than 31, the next prime is \( 37 \) and so the smallest three digit number hvaing all prime factors greater than \( 31 \) would be \( 37 ^ 2 = 1369 \) which is a four digit number, thus our assumption was false, so that every three digit number must have a prime factor less than or equal to \( 31 \).
+        	</div>
+        </div>
+
+        <div class="exercise" id="exercise-lower-bound-on-primes-in-factorization-limits-the-number-of-prime-factors">
+        	<div class="title">Lower Bound on Primes in Factorization Limits the Number of Prime Factors</div>
+        	<div class="content">
+        		Let \( n \in \mathbb{ N } _ 2 \) and suppose that \( p \nmid n \) for all primes \( p \le \sqrt[3]{ n }  \), what can we conclude about the prime factorizatio of \( n \) ?
+        	</div>
+        	<div class="proof">
+                Suppose that \( n = \prod _ { i =  1 } ^ k p _ i ^ { \alpha _ i }  \), we can see that \( p _ i \mid n \) and therefore by the contrapositive of our assumption we have that \( p _ i \ge \sqrt[3]{ n }  \) therefore \( k \le 2 \) for if \( k \ge 3 \) then
+                \[
+                    \begin{align}
+                n &= \prod _ { i = 1 } ^ { k } p _ i ^ { \alpha _ i } \\
+                &\ge \prod _ { i = 1 } ^ { k } p _ i \\
+                &\ge \prod _ { i = 1 } ^ { 3 } p _ i \\
+                &\gt \sqrt[3]{ n } \sqrt[3]{ n }  \sqrt[3]{ n } \\
+                &= n
+                \end{align}
+                \]
+                so we've shown that \( n \gt n \) which is a contradiction so indeed \( k \le 2 \), therefore we conclude that the prime factorization of \( n \) has at most two different primes in it.
+        	</div>
+        </div>
+        
+        <div class="exercise" id="exercise-goldbach-equivalence">
+        	<div class="title">Goldbach Equivalence</div>
+        	<div class="content">
+        		Show that every even integer \( \gt 2 \) is the sum of two primes if and only if every integer \( \gt 5 \) is the sum of three primes
+        	</div>
+        	<div class="proof">
+        	    <p>
+                    \( \implies  \) Suppose the former, let \( n \in \mathbb{ N } _ 1 \) such that \( n \gt 5 \) if \( n \) is even, then so is \( n - 2 \) and we see  \( n - 2 \gt 2 \) and so \(  n - 2 = p _ 1 +  p _ 2 \iff n = p _ 1 + p _ 2 + 2\), otherwise use \( 3 \).
+                </p>
+                <p>
+                    \( \impliedby  \) Suppose the latter and let \( n \gt 2 \) be even, in other words \( n \ge 4 \gt 3 \) therefore \( n + 2 \) is an even number and we know that \( n + 2 \gt 5 \) therefore \( n + 2 =  p _ 1 + p _ 2 +  p _ 3 \), since \( n + 2 \) is even then so is \( p _ 1 + p _ 2 +  p _ 3 \) but the sum of three numbers is only even when exactly one is even or all are even, therefore at least one of them is even, but there is only one even prime number, and therefore without loss of generality assume that \( p _ 1 = 2 \) so we have \( n + 2 = 2 + p _ 2 + p _ 3 \) and therefore \( n = p _ 2 +  p _ 3 \) as needed.
+                </p>
+        	</div>
+        </div>
+        
+
+
 
 
 

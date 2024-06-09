@@ -353,7 +353,6 @@
         	</div>
         </div>
 
-
         <div class="proposition" id="proposition-relatively-prime-factors-implies-relatively-prime-product">
             <div class="title">Relatively Prime Factors Implies Relatively Prime Product</div>
             <div class="content">
@@ -423,6 +422,10 @@
         	</div>
         </div>
 
+        <p>
+            Similarly we may replace \( l \le m \) with \( l \mid m \) since it implies \( l \le m \).
+        </p>
+
         <div class="theorem" id="theorem-gcd-and-lcm-connection">
         	<div class="title">GCD and LCM Connection</div>
         	<div class="content">
@@ -453,6 +456,27 @@
 
 
 
+        <div class="exercise" id="exercise-divisor-function-is-a-bijection-if-relatively-prime">
+            <div class="title">Divisor Function is a Bijection if Relatively Prime</div>
+            <div class="content">
+                For \( n \in \mathbb{ N } _ 1 \) let \( D _ n \) denote its set of positive divisors \( D _ n := \left\{ a \mid n: a \in \mathbb{ N } _ 1 \right\}  \), prove that for any \( m, n \in \mathbb{ N } _ 1 \) that \( f: D _ n \times D _ m \to D _ { n m }  \) defined as
+                \[
+                    f \left( a, b \right) = ab
+                \]
+                is well defined, and is a bijection if \( \gcd \left( m, n \right) = 1  \)
+            </div>
+            <div class="proof">
+                <p>
+                    Recall that a function is well defined if given two equal inputs it cannot map to a different value, this is true simply because for any \( a, b \) \( a \cdot b \) is equal to exactly one value. Additionally note that given a divisor of \( m \) and a divisor of \( n \) then their product divides \( m n \) so under the given definition it respects the functions signature.
+                </p>
+                <p>
+                    Now suppose that \( \gcd \left( m, n \right) = 1  \) we want to prove that \( f \) is a bijection. First we show that it is injective, so suppose that \( f \left( a, b \right) = f \left( c, d \right)  \) and we will prove that \( \left( a, b \right) = \left( c, d \right)  \) the first equality we assumed really means that \( ab = cd \), but we also know that \( a, c \mid n \) and that \( b, d \mid m \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-a-divisor-of-a-coprime-number-is-also-coprime">therefore</a> we know that \( \gcd \left( a, d \right) = \gcd \left( b, c \right) = 1  \) but from the equation \( ab = cd \) we see that \( a \mid cd \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-forced-division-through-gcd">so that </a> \( a \mid c \), but on the other hand \( c \mid ab \) so that \( c \mid a \) so we conclude that \( a = c \) similarly we conclude that \( b = d \) so that \( \left( a, b \right) = \left( c, d \right)  \) as needed.
+                </p>
+                <p>
+                    Now we show that it is surjective so let \( x \in D _ { m n }  \) we need to find a \( \left( j, k \right)  \) that gets mapped to \( x \) since \( gcd \left( m, n \right) = 1 \) then we know that since \( x \mid m, n \) <a class="knowledge-link" href="/number_theory/primes.html#proposition-a-number-divides-a-coprime-product-iff-it-is-the-product-of-individual-divisors">then</a> \( x = d _ n d _ m \) where \( d _ n, d _ m \) are divisors of \( n , m \) respectively, thus \( f \left(  d _ n, d _ m \right) = x  \)
+                </p>
+            </div>
+        </div>
 
 
 
