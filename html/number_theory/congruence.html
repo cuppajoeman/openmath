@@ -192,13 +192,36 @@
         <div class="proposition" id="proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">
         	<div class="title">Division by a Common Factor Maintains Congruence if Mod is Divided by GCD</div>
         	<div class="content">
-        		Suppose that \( a \equiv b \left( \operatorname{ mod } m  \right)  \) then if \( k \mid a, b \) then
+        		Let \( a, b, m, k \in \mathbb{ Z } \) such that \( k \neq 0 \)  and suppose that \( a \equiv b \left( \operatorname{ mod } m  \right)  \) then if \( k \mid a, b \) then
                 \[
                     \frac{a}{k} \equiv \frac{b}{k} \left( \operatorname{ mod } \frac{m}{\gcd \left( m, k \right) }   \right)
                 \]
         	</div>
         	<div class="proof">
-
+                <p>
+                    Let \( g := \gcd \left( m, k \right)  \) our goal is to prove that \( \frac{m}{g} \mid \frac{a}{k} - \frac{b}{k}   \), towards this note that we have \( a \equiv b \left( \operatorname{ mod } m  \right)  \) which means that \( m \mid a - b \) so there is some \( r \in \mathbb{ Z }  \) such that \( a - b = m r \) therefore dividing by \( g \neq 0 \) we have
+                    \[
+                    \frac{a - b}{g} = \frac{m}{g} r
+                    \]
+                </p>
+                <p>
+                    Recall that we want \( k \) in the denominator, to get there we recall that \( g \mid k \) and so there is some \( j \in \mathbb{ Z }  \) such that \( k = g j \), since \(  k \neq 0 \) then \( gj \neq 0 \) so \( j \neq 0 \) thus we divide our previous equation by \( j \) to obtain
+                    \[
+                        \frac{a - b}{gj} = \left( \frac{m}{g} r \right) \frac{1}{j}   \iff \frac{a - b}{k}  = \left( \frac{m}{g} r \right) \frac{1}{j}
+                    \]
+                    Since \( k \mid a, b \) then \( k \mid a - b \) so \( \frac{a - b}{k} \in \mathbb{ Z } \) thus \( \left( \frac{m}{g} r \right) \frac{1}{j} \in \mathbb{ Z }   \) and therefore \( j \mid \frac{m}{g} r \).
+                </p>
+                <p>
+                    Note that \( j \mid k \) and \( \frac{m}{g} \mid m \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-a-divisor-of-a-coprime-number-is-also-coprime">therefore</a> \( \gcd \left( j, \frac{m}{g}  \right) = 1  \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-forced-division-through-gcd">therefore</a> \( j \mid r \) so that \( \frac{r}{j} \in \mathbb{ Z }  \) thus we have the equation
+                    \[
+                        \frac{a - b}{k} = \frac{a}{k}  - \frac{b}{k} = \frac{m}{g} \frac{r}{j}
+                    \]
+                    where we know the left hand side is an integer, \( \frac{r}{j}  \) is and so is \( \frac{m}{g}  \) therefore \( \frac{m}{g} \mid \frac{a}{k} - \frac{b}{k}  \) so that
+                    \[
+                        \frac{a}{k} \equiv \frac{b}{k} \left( \operatorname{ mod } m  \right)
+                    \]
+                    as needed.
+                </p>
         	</div>
         </div>
 
@@ -214,6 +237,29 @@
                 Since \( p \nmid k \) then we know that \( \gcd \left( p, k \right) = 1 \) therefore the result follows from the previous proposition.
         	</div>
         </div>
+        
+        <div class="proposition" id="proposition-n-consecutive-numbers-have-unique-remainders-mod-n">
+        	<div class="title">n Consecutive Numbers have Unique Remainders Mod n</div>
+        	<div class="content">
+        		For any \( m \in \mathbb{ N } _ 1 \)
+                \[
+                    \forall x, y \in \left[ 0, \ldots m - 1 \right], \left( x \neq y \iff x \not \equiv y \left( \operatorname{ mod }  m \right) \right)
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    \( \implies  \) Suppose that \( x \neq y \) but that \( x \equiv y \left( \operatorname{ mod }  m\right)  \) for the sake of contradiction, without loss of generality assume that \( x \gt y \). Since they're congruent we have
+                    \[
+                    m \mid x - y
+                    \]
+                    but <a class="knowledge-link" href="/number_theory/natural_numbers.html#proposition-subset-of-naturals-with-a-max-element-has-bounded-difference">we know that</a> \( x - y \le m - 1 - 0 = m - 1 \) but if \( m \mid x - y  \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">we have</a> \( m \le x - y \le m - 1 \) so \( m \le m - 1 \) which is impossible, therefore we must have that \( x \not \equiv y \left( \operatorname{ mod } m  \right)  \).
+                </p>
+                <p>
+                    \( \impliedby  \) Now suppose that \( x \not \equiv y  \left( \operatorname{ mod }  m \right) \) <a class="knowledge-link" href="/number_theory/congruence.html#corollary-congruence-iff-same-remainder">therefore</a> \( x ~\%~ m \neq y ~\%~ m \) but since \( x, y \in \left[ 0, \ldots, m - 1 \right]  \) then \( x = x ~\%~ m \) and \( y = y ~\%~ m \) therefore \( x \neq y \) as needed.
+                </p>
+        	</div>
+        </div>
+        
 
         <div class="proposition" id="proposition-when-a-linear-modular-equation-has-a-solution">
         	<div class="title">When a Linear Modular Equation has a Solution</div>
@@ -225,13 +271,72 @@
                 has a solution iff \( \gcd \left( a, m \right) \mid b  \)
         	</div>
         	<div class="proof">
+                Note that \( ax \equiv b \left( \operatorname{ mod }  m \right)  \) iff \( m \mid ax - b \) so there is some \( k \in \mathbb{ Z }  \) such that \( ax - b = mk \) so that \( ax - mk = b \) this has a solution <a class="knowledge-link" href="/number_theory/diophantine_equations.html#proposition-a-linear-diophantine-equation-has-solutions-if-the-gcd-of-the-coefficients-divides-the-constant">iff</a> \( \gcd \left( a, m \right) \mid b \)
+        	</div>
+        </div>
 
+        <div class="corollary" id="corollary-relatively-prime-modular-equation-has-a-solution">
+        	<div class="title">Relatively Prime Modular Equation has a Solution</div>
+        	<div class="content">
+        		Suppose that we have the equation:
+                \[
+                ax \equiv b \left( \operatorname{ mod } m \right)
+                \]
+                where \( \gcd \left( a, m \right) = 1  \) then it has a solution.
+        	</div>
+        	<div class="proof">
+                Since \( \gcd \left( a, m \right) = 1 \mid b  \) it has a solution.
         	</div>
         </div>
 
         <p>
             Note that the above implies that the solution is unique
         </p>
+        
+        <div class="corollary" id="corollary-a-linear-modular-equation-with-a-solution-has-gcd-many-solutions">
+        	<div class="title">A Linear Modular Equation with a Solution has GCD many Solutions</div>
+        	<div class="content">
+        		Suppose that
+                \[
+                    ax \equiv b \left( \operatorname{ mod } m \right)
+                \]
+                has a solution, then it has exactly \( g := \gcd \left( a, m \right)  \) solutions mod \( m \).
+        	</div>
+        	<div class="proof">
+                <p>
+                    Since it has a solution, we have an \( x _ 0 \in \mathbb{ Z }  \) such that \( a x _ 0 \equiv b \left( \operatorname{ mod } m  \right)   \), so therefore \( m \mid a x _ 0 - b \) so that \( a x _ 0 - b = m k \) for some \( k \in \mathbb{ Z }  \) therefore \( a x _ 0 + m \left( -k \right)  = b \).
+                </p>
+                <p>
+                    Recall that we have a <a class="knowledge-link" href="/number_theory/diophantine_equations.html#proposition-one-solution-yields-infinitely-many">method of obtaining more</a> solutions once we have one, and hence are given by
+                    \[
+                        \left( x _ 0, -k \right) + \left( \frac{m}{g}, \frac{a}{g}   \right) t, \text{ where } t \in \mathbb{ Z } 
+                    \]
+                    Note that for each new solution \( \overline{ x } , \overline{ y }  \) it satisfies \( a \overline{ x } + m \overline{ y } = b  \)  so that \( a \overline{ x } - b = - \overline{ y } m \) so that \( m \mid a \overline{ x } - b \) so that \( a \overline{ x } \equiv b \left( \operatorname{ mod } m \right)  \), therefore we only need to observe the \( x \) component of each of solutions obtained from the equation
+                </p>
+                <p>
+                    With this we observe the solutions:
+                    \[
+                        \ldots x _ 0 - \frac{m}{g}  , x _ 0, x _ 0 + \frac{1m}{g} , x _ 0 + \frac{2m}{g} , \ldots , x _ 0 + \frac{\left( g - 1 \right) m }{g} , x _ 0 + \frac{gm}{g} = x _ 0 + m, \ldots
+                    \]
+                    and note that for any \( t \in \mathbb{ Z }  \) such that \( t \ge g \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#theorem-quotient-remainder">then</a> \( t = qg  + r\) where \( r \in \left[ 0, \ldots g - 1 \right]  \)
+                    \[
+                        x _ 0 + \frac{tm}{g} = x _ 0 + qm  + \frac{r}{g} \equiv x _ 0 + \frac{r}{g} \left( \operatorname{ mod } m \right)
+                    \]
+                    which is to say that it is congruent to a solution of the form \( x _ 0 + \frac{jm}{g}  \) where \( j \in \left[ 0, \ldots , g - 1 \right]  \) similarly any solution that is of the form \( x _ 0 + \frac{nm}{g}  \) where \( n \lt 0 \) can be turned into one of these solutions by repetitively adding \( m \).
+                </p>
+                <p>
+                    This shows that the entire solution set mod \( m \) is given by
+                    \[
+                    x _ 0, x _ 0 + \frac{1m}{g} , x _ 0 + \frac{2m}{g} , \ldots , x _ 0 + \frac{\left( g - 1 \right) m }{g}
+                    \]
+                    we'll now verify that every pair of solutions are incongruent mod \( m \) to show that there are \( g \) total solutions.
+                </p>
+                <p>
+                    So suppose for the sake of contradiction that \( x _ 0 + \frac{lm}{g} \equiv x _ 0 + \frac{pm}{g}  \left( \operatorname{ mod } m \right)  \)  where \( l, p \in \left[ 0, \ldots , g - 1 \right]  \) and without loss of generality \( l \gt p \) so that \( m \mid \frac{lm}{g}  - \frac{pm}{g} = \frac{m}{g} \left( l - p \right)   \) since \( l, p \in \left[ 0, \ldots g - 1 \right]  \) <a class="knowledge-link" href="/number_theory/natural_numbers.html#proposition-subset-of-naturals-with-a-max-element-has-bounded-difference">then</a> \( l - p \le g - 1 \) so that \( \frac{m}{g} \left( l - p \right) \lt \frac{m}{g} g = m \) which means that \( m \) divides a number smaller than it, which is impossible so that \( x _ 0 + \frac{lm}{p} \not \equiv x _ 0 + \frac{pm}{g}   \) as needed.
+                </p>
+        	</div>
+        </div>
+        
 
         <div class="definition" id="definition-modular-inverse">
             <div class="title">Modular Inverse</div>
@@ -256,17 +361,14 @@
         <div class="theorem" id="theorem-chinese-remainder">
         	<div class="title">Chinese Remainder</div>
         	<div class="content">
-                Suppose that for some \( l \in \mathbb{ N } _ 1 \) we have that \( x \equiv c _ i \left( \operatorname{ mod } m _ i \right)  \) for each \( i \in \left[ 1, \ldots , l \right]  \) such that for any \( i \lt j \in \left[ 1, \ldots , l \right]  \) we have \( \gcd \left( m _ i, m _ j \right) = 1  \), then there is a unique \( x \) satisfying the above \( \left( \operatorname{ mod } \prod _ { i = 1 } ^ { l } m _ i  \right)  \)
-
+                Suppose that for some \( l \in \mathbb{ N } _ 1 \) we have that \( x \equiv c _ i \left( \operatorname{ mod } m _ i \right)  \) for each \( i \in \left[ 1, \ldots , l \right]  \) such that for any \( i \lt j \in \left[ 1, \ldots , l \right]  \) we have \( \gcd \left( m _ i, m _ j \right) = 1  \), then there is a unique \( x \) satisfying the modular equations \( \left( \operatorname{ mod } \prod _ { i = 1 } ^ { l } m _ i  \right)  \)
         	</div>
         	<div class="proof">
                 <p>
-                    Set \( M = \prod _ { i = 1 } ^ { l  } m _ i  \), then clearly we have that \( M \equiv 0 \left( \operatorname{ mod } m _ i  \right)  \). Now recall the following <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-relatively-prime-factors-implies-relatively-prime-product">fact</a>, and that it can be extended to finite products by induction which shows that \( \gcd \left( \frac{M}{m _ j}, m _ j \right) = 1  \) for any \( j \in \left[ 1, \ldots , l \right]  \). Therefore we obtain a solution to the equation \( \frac{M}{m _ j} x \equiv 1 \left( \operatorname{ mod } m _ j \right)  \), let this solution be denoted by \( x _ j \).
+                    Set \( M = \prod _ { i = 1 } ^ { l  } m _ i  \), then clearly we have that \( M \equiv 0 \left( \operatorname{ mod } m _ i  \right)  \). Now recall the following <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-relatively-prime-factors-implies-relatively-prime-product">fact</a>, and that it can be extended to finite products by induction which shows that \( \gcd \left( \frac{M}{m _ j}, m _ j \right) = 1  \) for any \( j \in \left[ 1, \ldots , l \right]  \). <a class="knowledge-link" href="/number_theory/congruence.html#corollary-relatively-prime-modular-equation-has-a-solution">Therefore</a> we obtain a solution to the equation \( \frac{M}{m _ j} x \equiv 1 \left( \operatorname{ mod } m _ j \right)  \), let this solution be denoted by \( x _ j \).
                 </p>
                 <p>
                     As just discussed we obtained a solution \( x _ j \) such that \( \frac{M}{m _ j} x _ j \equiv 1 \left( \operatorname{ mod } m _ j  \right) \), in other words \( \frac{M}{m _ j} x _ j c _ j \equiv c _ j \left( \operatorname{ mod } m _ j  \right)  \) and so we've found \( l \) different solutions to each of the congruence equations we required, but we need to find one solution to all of them.
-
-
                 </p>
                 <p>
                     Note that \( \frac{M}{m _ j} \equiv 0 \left( \operatorname{ mod } m _ i  \right)  \) for any \(  i \neq j \)  so that \( \frac{M}{m _ j} x _ j c _ j \equiv 0 \left( \operatorname{ mod } m _ i  \right)  \) as well, with this fact we see that

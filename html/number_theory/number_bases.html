@@ -25,6 +25,87 @@
 			</div>
 		</div>
 
+		<div class="theorem" id="theorem-every-number-has-a-base-b-representation">
+			<div class="title">Every Number has a Base \( b \) Representation</div>
+			<div class="content">
+				Let \( b \in \mathbb{ N } _ 2 \) and \( n \in \mathbb{ N } _ 0 \) then there exists a \( k \in \mathbb{ N } _ 1 \) and \( a _ 1, \ldots , a _ k \in \left[ 0, \ldots , b - 1 \right]  \) such that
+				\[
+				    n = \left( a _ k \ldots a _ 1 \right) _ b
+				\]
+			</div>
+			<div class="proof">
+				<p>
+					Let \( b \in \mathbb{ N } _ 2 \) and we continue with induction. In the base case when \( n = 0 \) then the representation \( \left( 0 \right) _ b  \) works. Now let \( j \in \mathbb{ N } _ 0 \) and and let \( i \in \left[ 0, \ldots, j \right]  \) and assume that it holds for \( i \), now we'll show it holds true for \( j + 1  \).
+				</p>
+				<p>
+					What we will try to do is extract the largest \( b ^ m \) we can from \( j + 1  \) and then use the induction hypothesis. So let \( J := \left\{ m \in \mathbb{ N } _ 1: b ^ m \le j + 1 \right\}  \), this set has a maximum element because \( j + 1  \) is an upper bound, it is because we know that \( 1 \le j + 1 \le 2 ^ { j + 1  } \le b ^ { j + 1  }  \) therefore \( j + 1 \) is indeed an upper bound to \( J \), let \( l \) be the max element of \( J \) and then by the quotient remainder theorem we have some \( q, r \in \mathbb{ Z }  \) such that
+					\[
+					    j + 1 = q b ^ l + r \text{ with } 0 \le r \lt b ^ l
+					\]
+					since \( r \lt b ^ l \le j + 1   \) then the induction hypothesis holds on \( r \) so that \( r \) has a base \( b \)  representation so that
+					\[
+					    r = \sum _ { i = 0 } ^ { p } c _ i b ^ i
+					\]
+					where \( p \lt l \), because if \( p \ge l \) then that makes \( r = \sum _ { i = 0 } ^ { p } x _ i b ^ i \ge b ^ l  \) which is a contradiction since we know that \( r \lt b ^ l \) this means that the representation is exactly
+					\[
+					    \left( q c _ p \ldots c _ 0 \right) _ b
+					\]
+				</p>
+			</div>
+		</div>
+
+		<div class="theorem" id="theorem-every-base-b-representation-is-unique">
+			<div class="title">Every Base \( b \) Representation is Unique</div>
+			<div class="content">
+				For any \( b \in \mathbb{ N } _ 2 \) and \( n \in \mathbb{ N } _ 0  \) there is exactly one base \( b \) representation of \( n \)
+			</div>
+			<div class="proof">
+				<p>
+					Let \( b \in \mathbb{ N } _ 2 \) and perform induction on \( n \). So for \( n = 0 \) we know that the representation \( \left( 0 \right) _  b \) and for any other representation where \( a \neq 0 \) then \( \left( a \right) _ b \neq 0 \) there is exactly one representation as needed.
+				</p>
+				<p>
+					Now suppose that \( n \in \mathbb{ N } _ 0 \) and that for any \( k \in \left[ 0, \ldots n \right]  \) has a unique base \( b \) representation, let's prove that \( n + 1  \) has a unique base \( b \) representation, for the sake of contradiction suppose that it has two different representations, which implies that
+					\[
+					    \sum _ { i = 0 } ^ { m } a _ i b ^  i = n + 1 = \sum _ { i = 0 } ^ { k  } c _ i b ^ i
+					\]
+					firstly we claim that \( m = k \) for if that were not the case then without loss of generality \( m \lt k \) and note the following
+					\[
+					    \begin{align}
+					        \sum _ { i = 0 } ^ { m } a _ i b ^  i &\le \sum _ { i = 0 } ^ { m } \left( b - 1 \right) b _ i \\
+					&\le \left( b - 1 \right) \sum _ { i = 0 } ^ { m } b _ i \\
+					&\le \left( b - 1 \right) \frac{b ^ { m + 1  } - 1 }{b - 1} \\
+					&= b ^ { m + 1  } - 1 \lt b ^ { m + 1 }
+					    \end{align}
+					\]
+					Note that since \( m \lt k \) we know that \( m + 1 \le k \) then we know that
+					\[
+					    b ^ { m + 1  } \le b ^ k \le \sum _ { i = 0 } ^ { k } c _ i b ^ i
+					\]
+					which is a contradiction because chaining the last few inequalities we obtain
+					\[
+					    n + 1  = \sum _ { i = 0 } ^ { m } a _ i b ^  i \lt \sum _ { i = 0 } ^ { k } c _ i b _ i = n + 1
+					\]
+					thus we deduce that \( m = k \).
+				</p>
+				<p>
+					Now we additionally claim that \( a _ m = c _ k \) for if that were not the case then without loss of generality we assume that \( a _ m \lt c _ k \) and therefore
+					\[
+					n - a _ m b ^ m = \sum _ { i = 0 } ^ { m } a _ i b ^  i - a _ m b ^ m = \sum _ { i = 0 } ^ { m - 1 } a _ i b ^ i
+					\]
+					but also
+					\[
+					\begin{align}
+					n - a _ m b ^ m &= \sum _ { i = 0 } ^ { k } c _ i b ^ i - a _ m b ^ m \\
+					&= c _ k b ^ k + \cdots  + \left( c _ m - a _ m  \right) b ^ m + \cdots + c _ 0 b ^ 0
+					\end{align}
+					\]
+					and since \( c _ m - a _ m \gt 0 \) this is valid base \( b \) representation of \( n - a _ m b ^ m \), but clearly they differ as \( a _ k \neq 0 \) and so the length of the two representations are different. This a contradiction because by our induction hypothesis they must have the same base \( b \) representation, therefore our assumption that \( n + 1 \) has two different base \( b \) representations is false and therefore by strong induction the original statement is true.
+				</p>
+			</div>
+		</div>
+
+
+
 		<div class="definition" id="definition-decimal-representation">
 			<div class="title">Decimal Representation</div>
 			<div class="content">

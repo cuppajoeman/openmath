@@ -36,14 +36,22 @@
         		\( ax + by = c \) has solutions if and only if \( \gcd \left( a, b \right) \mid c \)
         	</div>
         	<div class="proof">
-                Let \( g := \gcd \left( a, b \right)  \) then note that \( g \mid c \) iff there is some \( k \in \mathbb{ Z }  \) such that \( c = k g \) at the same time we know that there are \( x _ 0, y _ 0 \in  \mathbb{ Z  }  \) such that \( g = a x _ 0 + b y _ 0 \) iff \( gk = ak x _ 0 + b k y _ 0 \) iff \( c = a \left( k x _ 0 \right) + b \left( k y _ 0 \right)   \)
+                <p>
+                    \( \implies  \) Let \( g := \gcd \left( a, b \right)  \) and suppose that \( x _ 0, y _ 0 \) is a solution so that \( a x _ 0 + b y_ 0 = c \) since \( g \mid a, b \) <a class="knowledge-link" href="/number_theory/division.html#proposition-linearity-of-division">we know that</a> \( g \mid ax _ 0 + b y _ 0 \) therefore \( g \mid c \) as needed.
+                </p>
+                <p>
+                    \( \impliedby  \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-gcd-is-a-linear-combination">Recall</a> that we have some \( x _ 0, y _ 0 \in \mathbb{ Z }  \) such that \( \gcd \left( a, b \right) = a x _ 0 + b y _ 0 \) since \( g \mid c \) so \( c = gk \) for some \( k \in \mathbb{ Z }  \) thus multiplying our previous equation by \( k \) we obtain
+                    \[
+                        c = gk = a \left( k x _ 0 \right) + b \left( k y _ 0 \right)
+                    \]
+                </p>
         	</div>
         </div>
 
         <div class="proposition" id="proposition-one-solution-yields-infinitely-many">
         	<div class="title">One Solution Yields Infinitely Many</div>
         	<div class="content">
-        		Suppose that \( a x _ 0 + b y _ 0 = c \) is a solution, then the entire set of solutions is given by:
+        		Suppose that \( a x _ 0 + b y _ 0 = c \) is a solution and \( d := \gcd \left( a, b \right)  \) , then the entire set of solutions is given by:
                 \[
                     S := \left\{ \left( x _ 0, y _ 0 \right) + t \left( \frac{b}{d} , - \frac{a}{d}  \right) : t \in \mathbb{ Z }    \right\}
                 \]
