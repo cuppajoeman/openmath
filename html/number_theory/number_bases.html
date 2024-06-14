@@ -25,6 +25,26 @@
 			</div>
 		</div>
 
+<!--		<p>-->
+<!--			When thinking about the base representation of a number, we need to remember that these are symbols that represent the abstract idea of a number, for example you've spoken about \( 11 \) your entire life but this is not a number, this is a string which represents a number, in particular in base 10, so it represents \( 10 + 1 \) also something like \( abc = 100a + 10 b + c \).-->
+<!--		</p>-->
+
+<!--		<p>-->
+<!--			The above paragraph is ironic, because we referenced base 10, but 10 itself is already in a base 10 representation, this feels like an infinite cycle, because I described base 10 using the decimal representation 10. The way we can get ourselves out of this pickle is that first we construct the natural numbers, starting with only 0 and a successor function, then we define \( 1 = S \left( 0 \right)  \), \( 2 = S \left( 1 \right)  \), \( 3 = S \left( 2 \right)  \) and so on, eventually defining multiplication in terms of addition. Thus we define the string \( 10 \) without any base 10 representation, simply as \( S \left( \ldots S \left( 0 \right)  \right)  \).-->
+<!--		</p>-->
+<!--		-->
+<!--		<p>-->
+<!--			Now with this we can say \( \left( 10 \right) _ { 10 }  =  10 \) where the 10 between the parenthesis is the string "10" but the other ones are \( S \left( \ldots S \left( 0 \right)  \right)  \) and this no longer results in cyclic reasoning.-->
+<!--		</p>-->
+
+<!--		<p>-->
+<!--			Therefore when we look at something like \( \left( a b c \right) _ { 10 } = 100 a + 100 b + c   \) then the -->
+<!--		</p>-->
+
+<!--		<p>-->
+<!--			Over time we conflate the string "10" and \( 10 = S \left( \ldots S \left( 0 \right)  \right)  \), so when we write things like \( abc \)  we know that this references \( 100a + 10b + c \) rather than \( S \left( \ldots S \left( 0 \right)  \right)  \)-->
+<!--		</p>-->
+
 		<div class="theorem" id="theorem-every-number-has-a-base-b-representation">
 			<div class="title">Every Number has a Base \( b \) Representation</div>
 			<div class="content">
@@ -105,7 +125,6 @@
 		</div>
 
 
-
 		<div class="definition" id="definition-decimal-representation">
 			<div class="title">Decimal Representation</div>
 			<div class="content">
@@ -113,7 +132,7 @@
 			</div>
 		</div>
 
-		The decimal representation of a number is the usual way you've most likely dealt with numbers so far, for example when you write \( 123 \) you are referring to the number \( 1 \cdot 10^{2} + 2 \cdot 10^{1} + 3 \cdot 10^{0} \)
+		The decimal representation of a number is the usual way you've most likely dealt with numbers so far, for example when you write \( 123 \) you are referring to the number \( 1 \cdot 10^{2} + 2 \cdot 10^{1} + 3 \cdot 10^{0} \). Note
 
 		<div class="definition" id="definition-binary-representation">
 			<div class="title">binary representation</div>
@@ -219,17 +238,40 @@
 
 
 
-
-		<div class="proposition" id="proposition-division-by-9-rule">
-			<div class="title">division by 9 rule</div>
+		<div class="lemma" id="lemma-base-plus-minus-one-to-a-power-is-congruent-to-plus-minus-one">
+			<div class="title">Base Plus Minus One To a Power is Congruent to Plus Minus One</div>
 			<div class="content">
-				Suppose that \( a_{k - 1} a_{k - 2} \ldots a_{1} \) is the <a class="knowledge-link" href="/number_theory/number_bases.html#definition-decimal-representation">decimal representation</a> of \( n \), then \( 9 | n \) if and only if \( 9 | \sum_{i = 0}^{k - 1} a_{i} \)
+				For any \( b \in \mathbb{ N } _ 2 \) and for any \( n \in \mathbb{ N } _ 1 \) and let \( x \) be the character we use to represent \( b - 1 \) then
+				\[
+					\left( 10 ^ n \right) _ b = \left( x \ldots x \right) + 1
+				\]
 			</div>
 			<div class="proof">
-				TODO
+
 			</div>
 		</div>
-		
+
+
+
+		<div class="proposition" id="proposition-division-by-9-rule">
+			<div class="title">Division by 9 Rule</div>
+			<div class="content">
+				Suppose that \( n = \left( a _ k \ldots a _ 0 \right)  \) then \( 9 | n \) if and only if
+				\[
+				9 | \sum_{i = 0}^{k - 1} a_{i}
+				\]
+			</div>
+			<div class="proof">
+				We know that \( 10 ^ n \equiv 1 ^ n  \left( \operatorname{ mod } 10  \right)  \) and therefore
+				\[
+				    \begin{align}
+				        n &= \sum _ { i = 0 } ^ { k } a _ i 10 ^ i \\
+				&\equiv  \sum _ { i = 0 } ^ {k  } a _ i \left( \operatorname{ mod } 9 \right)
+				    \end{align}
+				\]
+			</div>
+		</div>
+
 
     </div>
 </body>

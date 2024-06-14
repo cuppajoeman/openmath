@@ -333,6 +333,32 @@
                 </p>
         	</div>
         </div>
+        
+        <div class="proposition" id="proposition-number-to-the-power-m-minus-1-divides-number-to-the-power-n-if-m-divides-n">
+        	<div class="title">Number To the Power m Minus 1 Divides Number To the Power n if m Divides n</div>
+        	<div class="content">
+        		Let \( a, m, n \in \mathbb{ N } _ 1 \) then
+                \[
+                    m \mid n \implies \left( a ^ m - 1 \right) \mid \left( a ^ n - 1 \right)
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    We have that \( n = mk \) for some \( k \in \mathbb{ Z }  \) and we want to prove that \( a ^ { mk }  - 1 = \left( a ^ m - 1 \right) j  \) for some \( j \in \mathbb{ Z }  \), a good guess would be that \( j = a ^ { \left( m - 1 \right) k  }  \) which produces \( \left( a ^ m - 1 \right) \left( a ^ { \left( m - 1 \right)k  }  \right) = a ^ { mk }  - a ^ { \left( m - 1 \right) k }     \) and so we have to get rid of the \( a ^ { \left( m - 1 \right)k  }  \) term, which inspires us to try \(  j = a ^ { \left( m - 1 \right)k   } + a ^ { \left( m - 2 \right) k  }   \) which yields
+                    \[
+                    \left( a ^ m - 1 \right) \left( a ^ { \left( m - 1 \right)k  } + a ^ { \left( m - 2 \right) k   }   \right) = a ^ { km } + a ^ { \left( m - 1 \right)k  }  - \left( a ^ { \left( m - 1 \right) k   } + a ^ { \left( m - 2 \right) k  }  \right) = a ^ { km } - a ^ { \left( m - 2 \right) k  }
+                    \]
+                </p>
+                <p>
+                    As we've just run into the same problem as last time we see that adding \( a ^ { \left( m - 3 \right) k  }  \) would remove the most recent residue term, but then leave the new residue term \( a ^ { \left( m - 3 \right) k  }  \) . Therefore formally using induction we can show that
+                    \[
+                        \left( a ^ m - 1 \right) \left( \sum _ { i = 0 } ^ { m - 1 } a ^ { ik }  \right)  =  a ^ { mk } - 1 = a ^ n  - 1
+                    \]
+                    where \( 1 \) is really the residue term \( a ^ { \left( 0 \right)k  }   \)
+                </p>
+        	</div>
+        </div>
+        
 
 
         
