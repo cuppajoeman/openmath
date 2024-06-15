@@ -64,17 +64,15 @@
             </div>
         </div>
 
-        <div class="lemma" id="lemma-a-prime-is-relatively-prime-to-anything-else">
+        <div class="lemma" id="lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">
             <div class="title">
-                A Prime is Relatively Prime to Anything Else
+                A Prime is Relatively Prime to Anything Else That is Not a Multiple of It
             </div>
-
             <div class="content">
                 Suppose that \( p \) is <a class="knowledge-link" href=
                 "/number_theory/primes.html#definition-prime">prime</a> and \( n \in \mathbb{ Z } \) then  \( p
                 \nmid n \) iff \( \gcd \left( p, n \right) = 1 \)
             </div>
-
             <div class="proof"></div>
         </div>
 
@@ -392,12 +390,246 @@
                 </p>
         	</div>
         </div>
+
+        <div class="proposition" id="proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">
+            <div class="title">p Minus one Factorial is Congruent to Minus one Mod p</div>
+            <div class="content">
+                Suppose that \( p \in \mathbb{ N } _ 2 \) is prime, then
+                \[
+                \left( p - 1  \right) ! \equiv -1 \left( \operatorname{ mod } p  \right)
+                \]
+            </div>
+            <div class="proof">
+                <p>
+                    Recall that \( S = \left\{ 0, \ldots , p - 1 \right\}  \) is a complete set of residues mod \( p \), and also for any \( s \in S \) since \( \gcd \left( s, p \right) = 1  \) then the collection \( T = \left\{ 0, s, \ldots s \left( p - 1 \right)  \right\}  \) is a complete system of residues mod \( p \). Since it is then there is exactly one element \( j \in T \) such that \( j \equiv 1 \left( \operatorname{ mod } p  \right)  \) specifically \( j = s t \) where \( t \in S \) so we can say that \( st \equiv 1 \left( \operatorname{ mod } p  \right)  \).
+                </p>
+                <p>
+                    In the previous paragraph we've shown the existance of a function \( f : S \to S \) such that \( x f \left( x \right) \equiv 1 \left( \operatorname{ mod } p \right)  \). We're going to prove this function is injective, that is we will prove that if \( x, y \in S \) then \( f \left( x \right) = f \left( y \right) \implies x = y \). Suppose that \( f \left( x \right) = f \left( y \right)  \) therfore \( f \left( x \right) \equiv f \left( y \right) \left( \operatorname{ mod } p \right)  \) moreover by the definition of \( f \) we know that \( x f \left( x \right) \equiv 1 \equiv y f \left( y \right) \left( \operatorname{ mod } p \right)   \) therefore we have
+                    \[
+                    x f \left( x \right) \equiv y f \left( y \right) \equiv y f \left( x \right) \left( \operatorname{ mod } p \right)
+                    \]
+                    thus since \( f \left( x \right) \in S  \) we know that \( \gcd \left( f \left( x \right), p  \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">therefore </a> \( x \equiv y \left( \operatorname{ mod } \frac{p}{1} \right)  \) so that \( x = y \) as needed. As a side note since the size of the domain is the same as the size of the range, then we know that \( f \) is a bijection.
+                </p>
+                <p>
+                    For a moment let's consider the case when \( f \left( x \right) = x \) if that were true we have \( x f \left( x \right) \equiv x ^ 2 \equiv 1 \left( \operatorname{ mod } p \right)  \) therefore \( x \equiv \pm 1 \left( \operatorname{ mod } p \right)  \) if \( x \equiv 1 \left( \operatorname{ mod } p \right)  \) this means that \( p \mid x - 1 \), if \( x - 1 \neq 0 \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">then we know that</a> \( p \le \left\lvert x - 1 \right\rvert \), since \( x \in S \) then \( x - 1 \in \left\{ -1, \ldots p - 2 \right\}  \) so that \( \left\lvert x - 1 \right\rvert \le p - 2  \) but then we deduced that \( p \le p - 2 \)  which is a contradiction so that we must have \( x - 1 = 0 \) so that \( x = 1 \). On the other hand if we know that \( x \equiv -1 \left( \operatorname{ mod } p  \right)  \) then we see that \( p \mid x + 1  \) since \( x + 1 \in \left\{ 1, \ldots , p \right\}  \) then the only possibility is that \( x + 1 = p \) which is that \( x = p - 1 \).
+                </p>
+                <p>
+                    The result of the above paragraph is that if \( f \left( x \right) = x \) then the only possibility is that \( x = 1 \) or that \( x = p - 1 \), so \( x \in \left\{ 2, \ldots , p - 2 \right\} \implies f \left( x \right) \neq x  \) and \( f \left( x \right) \in \left\{ 2, \ldots , p - 2 \right\}  \), and this function is a bijection, remaining a bijection on the restriction of the domain and range to \( \left\{ 2, \ldots , p - 2 \right\}  \).
+                </p>
+                <p>
+                    For a moment note that if \( p = 2 \) this whole question is trivial because \( \left( 2 - 1 \right) ! \equiv -1 \left( \operatorname{ mod } 2  \right)   \), therefore we can assume that \( p \ge 3 \) also this implies that \( p \) is odd, therefore when we consider the collection
+                    \[
+                    K = \left\{ 2, \ldots , p - 2 \right\}
+                    \]
+                    then since \( \left\lvert K \right\rvert = p - 2 - 2 + 1 = p - 3 \) then the size of \( K \) is even since \( p \) is odd. Let \( k _ 1 \in K \) then \( f \left( k _ 1 \right) \neq k \), Let \( K _ 1 = K \setminus \left\{ k _ 1, f \left( k _ 1 \right)  \right\} \), since \( f \) is a bijection, then by repeating this process \( l = \frac{\left\lvert K \right\rvert }{2}  \) times then \( K _ l = \emptyset  \) which is to say that \( \left\{ \left\{ k _ i, f \left( k _ i \right)  \right\}: i \in \left[ 1, \ldots, l \right]   \right\}  \) is a partition of \( K \), thus
+                    \[
+                    2 \cdots \left( p - 2 \right) = \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right)
+                    \]
+                    But we see \( \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right) \equiv  \prod _ { i = 1 } ^ { l } 1 \equiv 1  \left( \operatorname{ mod } p \right)    \) and therefore \( 2 \cdots \left(  p - 2  \right) \equiv 1 \left( \operatorname{ mod } p  \right)   \) therefore
+                    \[
+                    \left( p - 1 \right) ! \equiv  2 \cdots \left( p - 2 \right) \left( p - 1 \right) \equiv 1 \left( p - 1 \right) \equiv -1 \left( \operatorname{ mod } p \right)
+                    \]
+                    as needed.
+                </p>
+            </div>
+        </div>
+
+        <div class="lemma" id="lemma-fermats-helper">
+        	<div class="title">Fermats Helper</div>
+        	<div class="content">
+        		Suppose \( p \in \mathbb{ N } _ 2 \) is prime, and \( a \in \mathbb{ Z }  \)  so that \( p \nmid a \) then
+                \[
+                    a ^ { p - 1 } \equiv 1 \left( \operatorname{ mod } p \right)
+                \]
+        	</div>
+        	<div class="proof">
+                Recall that \( R = \left\{ 0, \ldots , p - 1 \right\}  \) is a complete system or resides mod \( p \), and <a class="knowledge-link" href="/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">since</a> \( \gcd \left( p, a \right) = 1  \) then so is \( A = \left\{ 0, \ldots , a \left( p - 1 \right)  \right\}  \) <a class="knowledge-link" href="/number_theory/congruence.html#corollary-product-of-non-zero-residues-yields-factorial">therefore</a>
+                \[
+                \prod _ { x \in A \setminus \left\{ 0 \right\}  } x \equiv \left( p - 1 \right) ! \left( \operatorname{ mod }  p \right)
+                \]
+                But we also know that \( \prod _ { x \in A \setminus \left\{ 0 \right\} } x = a ^ { p - 1 } \left( p - 1 \right) !  \) so we conclude that
+                \[
+                \left( p - 1 \right)! a ^ {  p - 1 } \equiv \left( p - 1 \right) ! \left( \operatorname{ mod } p \right)
+                \]
+                <a class="knowledge-link" href="/number_theory/primes.html#proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">But then</a>
+                \[
+                a ^ {  p - 1 }  \equiv 1 \left( \operatorname{ mod }  p \right)
+                \]
+        	</div>
+        </div>
+
         
+        <div class="theorem" id="theorem-fermats-little">
+        	<div class="title">Fermats Little</div>
+        	<div class="content">
+                For any \( p \in \mathbb{ N } _ 2 \) which is prime, then for any \( a \in \mathbb{ Z }  \) we have
+                \[
+                    a ^ p \equiv a \left( \operatorname{ mod } p \right)
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    Suppose \( p \mid a \) then the statement holds true as \( 0 ^ p \equiv 0 \left( \operatorname{ mod } p \right)  \). On the other hand if \( p \nmid a \) then \( a ^ {  p - 1 }  \equiv 1 \left( \operatorname{ mod }  p \right) \) so by multiplying by \( a \) we have
+                    \[
+                        a ^ p \equiv a \left( \operatorname{ mod } p  \right)
+                    \]
+                </p>
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-if-a-doesnt-divide-p-then-fermats-little-theorem-and-fermats-little-helper-are-equivalent">
+        	<div class="title">If a Doesn't Divide p Then Fermats Little Theorem and Fermats Little Helper are Equivalent</div>
+        	<div class="content">
+                Suppose that \( p \in \mathbb{ N } _ 2 \) is prime and \( a \in \mathbb{ Z }  \) such that \( p \nmid a \) then
+                \[
+                    a ^ { p - 1 } \equiv 1 \iff a ^ p \equiv a \left( \operatorname{ mod } p  \right)
+                \]
+        	</div>
+        	<div class="proof">
+                \( \implies  \)  Suppose that \( a ^ {  p - 1 } \equiv 1  \) then multiply both sides by \( a \). \( \impliedby  \) Suppose that \( a ^ p \equiv a \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">since</a> \( \gcd \left( a, p \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">then</a> \( a ^ { p - 1 }  \equiv 1 \left( \operatorname{ mod } p  \right)  \) as needed.
+        	</div>
+        </div>
+
+
+        <div class="exercise" id="exercise-almost-prime">
+        	<div class="title">Almost Prime</div>
+        	<div class="content">
+        		Show that for any \( a \in \mathbb{ Z }  \) we have
+                \[
+                    a ^ 9 \equiv a \left( \operatorname{ mod } 30 \right)
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    Recall that \( 30 = 2 \cdot 3 \cdot 5 \), what we will is that we will consider the equations \( x \equiv a \left( \operatorname{ mod } 2, 3, 5  \right)  \), trivially for each equation \( x = a \) works, and therefore by the <a class="knowledge-link" href="/number_theory/congruence.html#theorem-chinese-remainder">chinese remainder theorem</a> any other solution is congruent to \( a \) mod 30. Our goal will be to show that \( a ^ 9 \) also satisfies the equations which will allow us to deduce that
+                    \[
+                    a ^ 9 \equiv a \left( \operatorname{ mod } 30 \right)
+                    \]
+                </p>
+                <p>
+                    Lets confirm that \( a ^ 9 \equiv a \left( \operatorname{ mod } 2 \right)  \), <a class="knowledge-link" href="/number_theory/primes.html#theorem-fermats-little">we do know</a> that \( a ^ 2 \equiv a \left( \operatorname{ mod } 2  \right)  \) so that \( a ^ 9 \equiv \left( a ^ 2 \right) ^ 4 a \equiv 1 a \equiv a  \) as needed. We take a similar approach to \( a ^ 9 \) mod \( 3 \) since we know that \( a ^ 3 \equiv a \left( \operatorname{ mod } 3  \right)  \) then \( a ^ 9 = \left( a ^ 3 \right) ^ 3 \equiv a  \), finally for \( a ^ 9 \) mod \( 5 \) we have \( a ^ 9 = a ^ 5 a ^ 4 \equiv a a ^ 4 \equiv a ^ 5 \equiv a  \) as needed.
+                </p>
+                <p>
+                    Therefore we've deduced that \( x = a ^ 9 \) is also a solution, and therefore
+                    \[
+                        a ^ 9 \equiv a \left( \operatorname{ mod } 30  \right)
+                    \]
+                </p>
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-carmicheal">
+        	<div class="title">Carmichael</div>
+        	<div class="content">
+        	    We say that \( n \in \mathbb{ N } _ 1 \) is carmichael if \( a ^ n \equiv a \left( \operatorname{ mod } n  \right)  \) for every \( a \in \mathbb{ Z }  \), and \( n \) is not a prime.
+        	</div>
+        </div>
+
+        <div class="exercise" id="exercise-561-is-carmichael">
+        	<div class="title">561 is Carmichael</div>
+        	<div class="content">
+        	    As per title.
+        	</div>
+        	<div class="proof">
+                <p>
+                    Our goal is to show that for any \( a \in \mathbb{ Z }  \) we have \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 561 \right)  \), we also have to show that \( n \) is not a prime, which is true because \( 561 = 3 \cdot 11 \cdot 17 \). Refocusing on the initial goal, we will prove this is true by considering the equations \( x \equiv a \left( \operatorname{ mod } 11, 13, 17  \right)  \) and noting that \( x = a \) is a solution, and also showing that \( x = a ^ { 561 }  \)is also a solution, and therefore concluding
+                    \[
+                    a ^ { 561 } \equiv a \left( \operatorname{ mod } 3 \cdot 11 \cdot 17 \right)
+                    \]
+                    by the <a class="knowledge-link" href="/number_theory/congruence.html#theorem-chinese-remainder">chinese remainder theorem</a>.
+                </p>
+                <p>
+                    Note that if \( d \mid a \) then \( d \mid a ^ { 561 }  \) and therefore \( a ^ { 561 }  \equiv a \left( \operatorname{ mod } d  \right)  \) therefore applying that idea to \( d = 3, 11, 17 \) we see that if any of them divide \( a \) we immediately obtain \( a ^ { 561 }  \equiv a \left( \operatorname{ mod } d \right)  \).
+                </p>
+                <p>
+                    Otherwise things still work, for if \( 3 \nmid a \) then <a class="knowledge-link" href="/number_theory/primes.html#lemma-fermats-helper">we know that</a> \( a ^ 2 \equiv 1 \left( \operatorname{ mod } 3 \right)  \) since \( 560  \) is even then \( a ^ { 560 }  \equiv \left( a ^ 2 \right) ^ { 280 }  \equiv 1  \) so we have \( a ^ { 561 }  \equiv a \left( \operatorname{ mod } 3 \right)  \). Similarly if \( 11 \nmid a \) then \( a ^ { 10 } \equiv 1 \left( \operatorname{ mod } 11  \right)  \) and therefore \( a ^ { 560 } \equiv 1   \) so that \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 11  \right)  \). Finally if \( 17 \nmid a \) then we have \( a ^ { 16 }  \equiv 1 \left( \operatorname{ mod } 17  \right)  \) and \( a ^ { 560 } \equiv \left( a ^ { 16 }  \right) ^ { 35 }  \equiv 1   \) so that \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 17  \right)  \).
+                </p>
+                <p>
+                    What we've shown is that no matter what we have that \( a ^ 561 \equiv a \left( \operatorname{ mod } 3, 11, 17  \right)  \) and therefore by our original paragraph we are done.
+                </p>
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-korselts-criterion">
+        	<div class="title">Korselt's Criterion</div>
+        	<div class="content">
+        		\( n \in \mathbb{ N } _ 1 \) is <a class="knowledge-link" href="/number_theory/primes.html#definition-carmicheal">Carmichael</a> if and only if \( n \) is <a class="knowledge-link" href="/number_theory/square_free_integers.html#definition-square-free">squarefree</a> and for every prime \( p \) such that \( p \mid n \implies  p - 1 \mid n - 1 \).
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-fermats-compositeness-test">
+        	<div class="title">Fermats Compositeness Test</div>
+        	<div class="content">
+        	    Suppose \( n, a \in \mathbb{ Z }  \) such that \( \gcd \left( a, n \right) = 1  \) then if \( a ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n  \right)   \) then \( n \) is composite
+        	</div>
+        	<div class="proof">
+                Observe the contrapositive of fermats little helper which states that
+                \[
+                    a ^ { p - 1 } \not \equiv 1 \implies \left( p \mid a \lor p \text{ is not prime }  \right)
+                \]
+                from this we conclude that \( \left( p \mid a \lor p \text{ is not prime }  \right) \) but since \( \gcd \left( a, n \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-iff-congruent-mod-0">then</a> \( n \nmid a \) therefore we must conclude that \( n \) is not prime, and therefore composite.
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-pseudoprime-to-base-a">
+        	<div class="title">Pseudoprime to base \( a \)</div>
+        	<div class="content">
+        	    Suppose that \( n, a \in \mathbb{ Z }  \) and that \( a ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n  \right)   \) and \( n \) is not prime, then \( n \) is called a <b>pseudoprime</b> to base \( a \).
+        	</div>
+        </div>
+
+
+        <p>
+            Most of the time when you find that \( a ^ { n - 1  } \equiv 1 \left( \operatorname{ mod } n  \right)  \), then \( n \) is prime, that's why the ones that aren't are called pseudoprimes.
+        </p>
+
+        <div class="exercise" id="exercise-341-is-a-pseudoprime-to-base-2">
+        	<div class="title">\( 341 \) is a Pseudoprime to base \( 2 \)</div>
+        	<div class="content">
+        		As per title.
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="definition" id="definition-fermat-primality-test">
+        	<div class="title">Fermat Primality Test</div>
+        	<div class="content">
+                Let \( n \in \mathbb{ N } _ 2 \), and define the following function \( f \left( X \right)  \):
+
+                <ol>
+                    <li>if \( X = \emptyset  \) return \( T \)</li>
+                    <li>let \( a \in X \)</li>
+                    <li>
+                         if \( a ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n \right) \) return \( F \) 
+                    </li>
+                    <li>return \( f \left( X \setminus \left\{ a \right\}  \right)  \) </li>
+                </ol>
+                Let \( G = \left\{ x \in \left[ 1, \ldots,  n - 2 \right]: \gcd \left( x, n \right) = 1 \right\}  \). If \( f \left( G \right) = F  \) then \( n \) is composite, otherwise we say that \( n \) is a <b>probable prime</b>
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-every-carmichael-number-is-a-probable-prime">
+        	<div class="title">Every Carmichael Number is a Probable Prime</div>
+        	<div class="content">
+        	    Suppose \( n \in \mathbb{ N } _ 1 \) is Carmichael, then using the Fermat Primality Test, it is a probable prime.
+        	</div>
+        	<div class="proof">
+                Since \( n \) is Carmichael we know that \( a ^ n \equiv a \left( \operatorname{ mod } n  \right)  \) for any \( a \in \mathbb{ Z }  \), during the test each \( a \) has the property that \( \gcd \left( a, n \right) = 1  \) <a class="knowledge-link" href="/number_theory/primes.html#corollary-if-a-doesnt-divide-p-then-fermats-little-theorem-and-fermats-little-helper-are-equivalent">therefore</a> \( a ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n \right) \), this means at each stage in the test line 4 is reached until it terminates at line 1 and returning \( T \) therefore \( n \) is a probable prime.
+        	</div>
+        </div>
 
 
 
 
 
+
+
+ 
 
     </div>
 </body>

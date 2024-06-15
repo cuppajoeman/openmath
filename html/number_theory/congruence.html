@@ -627,63 +627,54 @@
                 \[
                     r _ i \equiv r \left( \operatorname{ mod } n  \right)
                 \]
+                Moreover this mapping \( f : R \to \left[ 0, \ldots , n - 1 \right]  \) is a bijection.
         	</div>
         	<div class="proof">
-                Suppose that for the sake of contradiction that was not true so that
+                Suppose that for the sake of contradiction that there exists some \( r \in \left[ 0, \ldots , n - 1 \right]  \) such that no \( r _ i \) was congruent to, then:
                 \[
                     X = \left\{ r _ i ~\%~ n: i \in \left[ 1, \ldots , n \right]  \right\} \subset \left[ 0, \ldots , n - 1 \right]
                 \]
                 therefore we deduce that \( \left\lvert X \right\rvert \lt n \) therefore there must exist some \( i, j \in \left[ 1, \ldots , n \right]  \) such that \( i \neq j \) and \( r _ i ~\%~ n = r _ j ~\%~ n \) but that's a contradiction since the \( r _ i \)'s are pairwise incongruent therefore it must be that \( X = \left[ 0, \ldots, n - 1 \right]  \) therefore for any \( r \in \left[ 0, \ldots , n - 1 \right]  \) there exists some \( r _ j \in X \) such that \( r _ j \equiv r \left( \operatorname{ mod } n  \right)  \)
-        		
+                <p>
+                    As per the statement the above mapping is denoted by \( f: R \to  \left[ 0, \ldots, n \right]  \) what we've shown is that \( \operatorname{ im } \left( f \right) = \left[ 0, \ldots , n - 1 \right]  \) and since \( \left\lvert \operatorname{ dom } \left( f \right) \right\rvert = \left\lvert \operatorname{ im } \left( f \right)  \right\rvert = \left\lvert \operatorname{ ran }  \left( f \right)  \right\rvert    \) then \( f \) is a bijection.
+                </p>
         	</div>
         </div>
 
-        <div class="proposition" id="proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">
-        	<div class="title">p Minus one Factorial is Congruent to Minus one Mod p</div>
+        <p>
+            Note the mapping \( f \left( r _ i \right)  \) is simply \( r _ i ~\%~ n \).
+        </p>
+
+        <div class="proposition" id="proposition-the-multiples-of-a-complete-system-of-residues-mod-n-is-still-a-complete-system-of-residues-mod-n">
+        	<div class="title">The Multiples of a Complete System of Residues Mod \( n \) is still a Complete System of Residues Mod \( n \) </div>
         	<div class="content">
-                Suppose that \( p \in \mathbb{ N } _ 2 \) is prime, then
-                \[
-                    \left( p - 1  \right) ! \equiv -1 \left( \operatorname{ mod } p  \right)
-                \]
+        		    Suppose that \( R = \left\{ r _ 1, r _ 2, \ldots r _ n \right\}  \) is a complete system of residues modulo \( n \) and \( a \in \mathbb{ Z }  \) such that \( \gcd \left( a, n \right) = 1  \) then \( A = \left\{ ar_1 , ar_2 , \ldots , ar_n \right\}   \) is a complete system of residues modulo \( n \)
         	</div>
         	<div class="proof">
-                <p>
-                    Recall that \( S = \left\{ 0, \ldots , p - 1 \right\}  \) is a complete set of residues mod \( p \), and also for any \( s \in S \) since \( \gcd \left( s, p \right) = 1  \) then the collection \( T = \left\{ 0, s, \ldots s \left( p - 1 \right)  \right\}  \) is a complete system of residues mod \( p \). Since it is then there is exactly one element \( j \in X \) such that \( j \equiv 1 \left( \operatorname{ mod } p  \right)  \) specifically \( j = s t \) where \( t \in T \) so we can say that \( st \equiv 1 \left( \operatorname{ mod } p  \right)  \).
-                </p>
-                <p>
-                    In the previous paragraph we've shown the existance of a function \( f : S \to S \) such that \( x f \left( x \right) \equiv 1 \left( \operatorname{ mod } p \right)  \). We're going to prove this function is injective, that is we will prove that if \( x, y \in S \) then \( f \left( x \right) = f \left( y \right) \implies x = y \). Suppose that \( f \left( x \right) = f \left( y \right)  \) therfore \( f \left( x \right) \equiv f \left( y \right) \left( \operatorname{ mod } p \right)  \) moreover by the definition of \( f \) we know that \( x f \left( x \right) \equiv 1 \equiv y f \left( y \right) \left( \operatorname{ mod } p \right)   \) therefore we have
-                    \[
-                        x f \left( x \right) \equiv y f \left( y \right) \equiv y f \left( x \right) \left( \operatorname{ mod } p \right)
-                    \]
-                    thus since \( f \left( x \right) \in S  \) we know that \( \gcd \left( f \left( x \right), p  \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">therefore </a> \( x \equiv y \left( \operatorname{ mod } \frac{p}{1} \right)  \) so that \( x = y \) as needed. As a side note since the size of the domain is the same as the size of the range, then we know that \( f \) is a bijection.
-                </p>
-                <p>
-                    For a moment let's consider the case when \( f \left( x \right) = x \) if that were true we have \( x f \left( x \right) \equiv x ^ 2 \equiv 1 \left( \operatorname{ mod } p \right)  \) therefore \( x \equiv \pm 1 \left( \operatorname{ mod } p \right)  \) if \( x \equiv 1 \left( \operatorname{ mod } p \right)  \) this means that \( p \mid x - 1 \), if \( x - 1 \neq 0 \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">then we know that</a> \( p \le \left\lvert x - 1 \right\rvert \), since \( x \in S \) then \( x - 1 \in \left\{ -1, \ldots p - 2 \right\}  \) so that \( \left\lvert x - 1 \right\rvert \le p - 2  \) but then we deduced that \( p \le p - 2 \)  which is a contradiction so that we must have \( x - 1 = 0 \) so that \( x = 1 \). On the other hand if we know that \( x \equiv -1 \left( \operatorname{ mod } p  \right)  \) then we see that \( p \mid x + 1  \) since \( x + 1 \in \left\{ 1, \ldots , p \right\}  \) then the only possibility is that \( x + 1 = p \) which is that \( x = p - 1 \).
-                </p>
-                <p>
-                    The result of the above paragraph is that if \( f \left( x \right) = x \) then the only possibility is that \( x = 1 \) or that \( x = p - 1 \), so \( x \in \left\{ 2, \ldots , p - 2 \right\} \implies f \left( x \right) \neq x  \) and \( f \left( x \right) \in \left\{ 2, \ldots , p - 2 \right\}  \), and this function is a bijection, remaining a bijection on the restriction of the domain and range to \( \left\{ 2, \ldots , p - 2 \right\}  \).
-                </p>
-                <p>
-                    For a moment note that if \( p = 2 \) this whole question is trivial because \( \left( 2 - 1 \right) ! \equiv -1 \left( \operatorname{ mod } 2  \right)   \), therefore we can assume that \( p \ge 3 \) also this implies that \( p \) is odd, therefore when we consider the collection
-                    \[
-                        K = \left\{ 2, \ldots , p - 2 \right\}
-                    \]
-                    then since \( \left\lvert K \right\rvert = p - 2 - 2 + 1 = p - 3 \) then the size of \( K \) is even since \( p \) is odd. Let \( k _ 1 \in K \) then \( f \left( k _ 1 \right) \neq k \), Let \( K _ 1 = K \setminus \left\{ k _ 1, f \left( k _ 1 \right)  \right\} \), since \( f \) is a bijection, then by repeating this process \( l = \frac{\left\lvert K \right\rvert }{2}  \) times then \( K _ l = \emptyset  \) which is to say that \( \left\{ \left\{ k _ i, f \left( k _ i \right)  \right\}: i \in \left[ 1, \ldots, l \right]   \right\}  \) is a partition of \( K \), thus
-                    \[
-                        2 \cdots \left( p - 2 \right) = \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right)
-                    \]
-                    But we see \( \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right) \equiv  \prod _ { i = 1 } ^ { l } 1 \equiv 1  \left( \operatorname{ mod } p \right)    \) and therefore \( 2 \cdots \left(  p - 2  \right) \equiv 1 \left( \operatorname{ mod } p  \right)   \) therefore
-                    \[
-                        \left( p - 1 \right) ! \equiv  2 \cdots \left( p - 2 \right) \left( p - 1 \right) \equiv 1 \left( p - 1 \right) \equiv -1 \left( \operatorname{ mod } p \right)
-                    \]
-                    as needed.
-                </p>
+        	    Let \( ar _ i, a r _ j \in A\) 	such that \( i \neq j \), since \( R \) is a complete system of residues, we know that \( r _ i \not \equiv r _ j \left( \operatorname{ mod } n \right)  \), now suppose for the sake of contradiction that \( a r _ i \equiv a r _ j \left( \operatorname{ mod } n \right)  \), then since \( \gcd \left( a, n \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">we have</a> \( r _ i \equiv r _ j \left( \operatorname{ mod } \frac{n}{1}   \right)  \) which is a contradiction, therefore we must have \( a r _ i \not \equiv a r _ j \left( \operatorname{ mod } n \right)   \) as needed.
         	</div>
         </div>
 
-        
-
-
+        <div class="corollary" id="corollary-product-of-non-zero-residues-yields-factorial">
+            <div class="title">Product of Non-Zero Residues Yields Factorial</div>
+            <div class="content">
+                Suppose that \( R = \left\{ r _ 1, r _ 2, \ldots r _ n \right\}  \) is a complete system of residues modulo \( n \) such that \( r _ n ~\%~ n = 0 \), then
+                \[
+                \prod _ { i = 1 } ^ { n - 1 }  r _ i \equiv \left( n - 1 \right)!  \left( \operatorname{ mod } n \right)
+                \]
+            </div>
+            <div class="proof">
+                Recall that there is a unique \( r \in \left[ 0, \ldots , n - 1 \right]  \) for each \( r _ i \) such that \( r _ i \equiv r \). In this case since we've removed \( r _ n \) then there is a unique \( r \in \left[ 1, \ldots, n - 1 \right]  \), let this mapping be denoted as \( f : R \to \left[ 1, \ldots, n \right]  \) since it is a bijection then we note that
+                \[
+                \begin{align}
+                \prod _ { i = 1 } ^ { n - 1  } r _ i &\equiv \prod _ { i = 1 } ^ { n - 1 } f \left( r _ i \right) \\
+                &\equiv \prod _ { i = 1 } ^ { n - 1  } i \\
+                &\equiv \left( n - 1 \right) !
+                \end{align}
+                \]
+                as needed.
+            </div>
+        </div>
 
     </div>
 </body>
