@@ -573,6 +573,14 @@
                 from this we conclude that \( \left( p \mid a \lor p \text{ is not prime }  \right) \) but since \( \gcd \left( a, n \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-iff-congruent-mod-0">then</a> \( n \nmid a \) therefore we must conclude that \( n \) is not prime, and therefore composite.
         	</div>
         </div>
+        
+        <div class="definition" id="definition-fermat-witness">
+        	<div class="title">Fermat Witness</div>
+        	<div class="content">
+        		If \( n, a \) passes the compositeness test, then \( a \) is said to be a <b>Fermat Witness</b> for \( n \) 
+        	</div>
+        </div>
+        
 
         <div class="definition" id="definition-pseudoprime-to-base-a">
         	<div class="title">Pseudoprime to base \( a \)</div>
@@ -622,6 +630,38 @@
                 Since \( n \) is Carmichael we know that \( a ^ n \equiv a \left( \operatorname{ mod } n  \right)  \) for any \( a \in \mathbb{ Z }  \), during the test each \( a \) has the property that \( \gcd \left( a, n \right) = 1  \) <a class="knowledge-link" href="/number_theory/primes.html#corollary-if-a-doesnt-divide-p-then-fermats-little-theorem-and-fermats-little-helper-are-equivalent">therefore</a> \( a ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n \right) \), this means at each stage in the test line 4 is reached until it terminates at line 1 and returning \( T \) therefore \( n \) is a probable prime.
         	</div>
         </div>
+        
+        
+        <div class="proposition" id="proposition-at-least-half-of-the-tested-elements-will-be-witnesses-to-a-composite-non-carmichael-number">
+        	<div class="title">At Least Half of the Tested Elements will be Witnesses to a Composite Non-Carmichael Number</div>
+        	<div class="content">
+        		Suppose that \( n \in \mathbb{ N } _ 1 \) is composite and not Carmichael and let \( G = \left\{ g \in \left[ 1, \ldots , n - 1 \right]: \gcd \left( g, n \right) = 1  \right\}  \) and \( W = \left\{ w \in G: w ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n  \right)   \right\}  \), then
+                \[
+                    \left\lvert W \right\rvert \ge \frac{\left\lvert G \right\rvert }{2}
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    To prove this true, we will consider the set \( L = \left\{ l \in G: l ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n \right)   \right\}  \), and note that \( G = L \sqcup W \) then if we are able to show that \( \left\lvert L \right\rvert \le \left\lvert W \right\rvert  \) then we have
+                    \[
+                    \left\lvert G \right\rvert \le \left\lvert L \right\rvert + \left\lvert W \right\rvert \le 2 \left\lvert W \right\rvert
+                    \]
+                    and we would deduce that \( \left\lvert W \right\rvert \ge \frac{\left\lvert G \right\rvert }{2}  \)
+                </p>
+                <p>
+                    Since \( L \subseteq \left[ 0, \ldots , n - 1 \right]  \) then all elements are incongruent mod \( n \), let \( w \in W \subseteq G \) since \( \gcd \left( w, n \right) = 1  \) then the collection of elements \( w L = \left\{ w l : l \in L \right\}  \) are also incongruent mod \( n \), since equality implies congruent, then non-congruent implies not equal, and therefore \( wL \) generates a collection of unique elements, so that \( \left\lvert L \right\rvert = \left\lvert wL \right\rvert   \).
+                </p>
+                <p>
+                    But note, given some \( wl \in wL \) we have that
+                    \[
+                        \left( wl \right) ^ { n - 1 } \equiv  w ^ { n - 1 } l ^ { n - 1 } \equiv w ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n \right)
+                    \]
+                    therefore we deduce that \( wL \subseteq W \) so then \( \left\lvert wL \right\rvert \le L \) therefore \( \left\lvert L \right\rvert \le \left\lvert W \right\rvert   \), so that by our introductory paragraph, we've proven what we needed to.
+                </p>
+        	</div>
+        </div>
+        
+        
 
 
 
