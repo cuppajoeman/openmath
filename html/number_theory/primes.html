@@ -46,8 +46,17 @@
             This function looks like \( 2, 3, 5, 7, 11, 13, 17, \ldots  \)
         </p>
 
-        
-        
+        <div class="definition" id="definition-composite">
+        	<div class="title">Composite</div>
+        	<div class="content">
+        		We say that \( n \in \mathbb{ Z } \) where \( \left\lvert n \right\rvert \ge 2  \)  is composite if there exists an \( x \in \left\{ 2, \ldots , n - 1 \right\}   \) such that \( x \mid n \)
+        	</div>
+        </div>
+
+        <p>
+            The composites union the primes is \( \mathbb{ Z } \setminus \left\{ -1, 0, 1 \right\}  \)
+        </p>
+
 
         <div class="corollary" id="corollary-composite-iff-not-prime">
             <div class="title">
@@ -434,6 +443,92 @@
             </div>
         </div>
 
+        <p>
+            The above is usually referred to "Wilsons Theorem".
+        </p>
+        
+        <div class="corollary" id="corollary-p-minus-two-factorial-is-congruent-to-one-mod-p">
+        	<div class="title">p Minus two Factorial is Congruent to One Mod p</div>
+        	<div class="content">
+                Suppose that \(  p \in \mathbb{ N } _ 2 \) is prime, then 
+                \[
+                    \left( p - 2 \right) ! \equiv 1 \pmod{ p } 
+                \]
+        	</div>
+        	<div class="proof">
+        	    Recall that \( \left( p - 1 \right) ! \equiv -1 \pmod{ p }   \) but at the same time we know that \( \left( p - 1 \right)! \equiv \left( p - 1 \right) \left( p - 2 \right) ! \equiv -1 \left( p - 2 \right) !    \) therefore multiplying both sides by \( -1 \) we obtain that 
+                \[
+                    \left( p - 2 \right) ! \equiv 1 \pmod{ p }
+                \]
+        	</div>
+        </div>
+
+        <p>
+            This allows us to conclude things like: \( 15! \equiv 1 \pmod{ 17 }  \).
+        </p>
+        
+        <div class="exercise" id="exercise-factorial-fun">
+        	<div class="title">Factorial Fun</div>
+        	<div class="content">
+        		Find the remainder when \( 4 \left( 29! \right) + 5!  \) is divided by \( 31 \) 
+        	</div>
+        	<div class="proof">
+        	    We know that \( 29! \equiv 1 \pmod{ 31 }  \) and that \( 5! = 120 \) therefore 
+                \[
+                    4 \left( 29! \right) + 5! \equiv 124 \equiv 4 \left( 31 \right) \equiv 0 \pmod{ 31 } 
+                \]
+        	</div>
+        </div>
+        
+        <div class="corollary" id="corollary-wilson-folded-in-half">
+        	<div class="title">Wilson Folded in Half</div>
+        	<div class="content">
+        		Suppose that \( p \in \mathbb{ N } _ 3 \) is prime, then 
+                \[
+                    \left[\left(\frac{p-1}{2}\right)!\right]^{2}\equiv (-1)^{\frac{p+1}{2}} \pmod{p}
+                \]
+        	</div>
+        	<div class="proof">
+                Observe that \( \frac{p - 1}{2}, \frac{p + 1 }{2}  \in \mathbb{ N } _ 1  \) since \( p \) is odd. Since \( 1 \lt p \) then we know \( 2 \lt p + 1 \lt 2p \) so that \( 1 \lt \frac{p + 1 }{2} \lt p \), similarly since \( 3 \le p \) then \( 2 \le p - 1 \lt p \) so that \( 1 \le \frac{p - 1}{2} \lt \frac{p}{2} \lt p  \), moreover \( \frac{p - 1}{2} + 1 = \frac{p + 1 }{2}  \) therefore we have:
+                \[
+                    \left( p - 1 \right) ! = 1 \cdot 2 \cdots \left( \frac{p - 1}{2}   \right) \cdot  \left( \frac{p + 1 }{2}  \right) \cdots \left( p - 1 \right) 
+                \]
+                <p>
+                    focusing on the terms that come after \( \frac{p - 1 }{2}  \) in the above product we see
+                    \[
+                    \begin{align*}
+                    \frac{p+1}{2}&\equiv -\frac{p-1}{2}\pmod{p} \\
+                    &\vdots\\
+                    p-2&\equiv -2\pmod p\\
+                    p-1&\equiv -1\pmod p
+                    \end{align*}
+                    \]
+                    that first congruence comes from the fact that \( \frac{p + 1 }{2} = p - \frac{p - 1}{2}  \), and notice that they are congruent to the negative versions of the terms in the first half of the factorial, and so we can "fold" it in half to get 
+                    \[
+                        \left( p - 1 \right) ! \equiv 1 \cdot \left( - 1 \right) \cdot 2 \cdot \left( -2 \right) \cdots \left( \frac{p - 1}{2}  \right) \left( - \frac{p - 1}{2}  \right) \pmod{p}
+                    \]
+                    Since there are exactly \( \frac{p - 1}{2}  \) negative terms we can factor a \( -1 \) out from all of them, leaving square of the consecutive numbers so that
+                    \[
+                        \left( p - 1 \right) ! \equiv \left( -1 \right) ^ { \frac{p - 1}{2}  } \left( 1 \cdot 2 \cdots \frac{p - 1}{2}  \right) ^ 2 \pmod{ p }
+                    \]
+                    by wilsons theorem we know that \( \left( p - 1 \right) ! \equiv -1  \pmod{ p }  \) therefore we have
+                    \[
+                        -1 \equiv \left( -1 \right) ^ { \frac{p - 1}{2}  } \left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \pmod{ p }
+                    \]
+                    since \( p  \) is odd, then \( p - 1 \) is even, therefore \( \left( -1 \right)  ^ { p - 1 } = 1 \), therefore
+                    \[
+                        \begin{align}
+                            -1 \left( -1 \right) ^ { \frac{p - 1}{2}  } &\equiv \left( -1 \right) ^ { \frac{p - 1}{2}  } \left( -1 \right) ^ { \frac{p - 1}{2}  }\left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \pmod{ p }\\
+                            \left( -1 \right) ^  { \frac{p - 1}{2} + \frac{2}{2}  } &\equiv \left( -1 \right) ^ { p - 1 }  \left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \pmod{ p }\\
+                            \left( -1 \right) ^ { \frac{p + 1 }{2}  } &\equiv \left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \pmod{ p }
+                    \end{align}
+                    \]
+                    as needed.
+                </p>
+        	</div>
+        </div>
+        
+
         <div class="lemma" id="lemma-fermats-helper">
         	<div class="title">Fermats Helper</div>
         	<div class="content">
@@ -457,8 +552,30 @@
                 \]
         	</div>
         </div>
-
         
+        <div class="corollary" id="corollary-fermats-helper-mod-exponent">
+        	<div class="title">Fermats Helper Mod Exponent</div>
+        	<div class="content">
+        		Suppose that \( p \in \mathbb{ N } _ 2 \) is prime, and \( a, b \in \mathbb{ Z }  \) such that \( p \nmid a \) then 
+                \[
+                   a ^ b \equiv a ^ { b ~\%~ \left( p - 1 \right)  }  \pmod{ p }
+                \]
+        	</div>
+        	<div class="proof">
+        	    By the quotient remainder theorem we know that \( b = q \left( p - 1 \right) + r  \) where \( r = b ~\%~ \left( p - 1 \right)  \) therefore
+                \[
+                \begin{align}
+                a ^ b &\equiv a ^ { q \left( p - 1 \right)  + r } \\
+                &\equiv a ^ { q \left( p - 1 \right)  }  a ^ r \\
+                &\equiv \left( a ^ { p - 1 } \right) ^ q a ^ r \\
+                &\equiv  1 ^ q a ^ r \\
+                &\equiv a ^ r \equiv a ^ { b ~\%~ \left( p - 1 \right)  } \pmod{ p }
+                \end{align}
+                \]
+                where in the 3rd last line we used fermats helper.
+        	</div>
+        </div>
+
         <div class="theorem" id="theorem-fermats-little">
         	<div class="title">Fermats Little</div>
         	<div class="content">
@@ -476,6 +593,66 @@
                 </p>
         	</div>
         </div>
+        
+        
+        <div class="exercise" id="exercise-remainder-of-power-plus-one">
+        	<div class="title">Remainder of Power Plus One</div>
+        	<div class="content">
+        		Find the remainder of \( 11 ^ { 104 } + 1 \) modulo \( 17 \)
+        	</div>
+        	<div class="proof">
+        	    Observe that by fermats helper since \( 17 \nmid 11 \) we have that \( 11 ^ { 16 } \equiv 1 \pmod{ 17 }   \) since \( 104 = 16 \cdot 6 + 8  \) then we see that
+                \[
+                    11 ^ { 104  } \equiv \left( 11 ^ 16 \right) ^ 6 \left( 11 \right) ^ 8 \equiv 11 ^ 8 \pmod{ 17 }
+                \]
+                since \( 11 ^ 2 = 121 = 17 \cdot 7 + 2 \) then \( 11 ^ 8 \equiv \left( 11 ^ 2 \right) ^ 4 \equiv 16 \equiv -1 \pmod{ 17 }   \) therefore 
+                \[
+                    11 ^ { 104 } + 1 \equiv 0 \pmod{ 17 } 
+                \]
+        	</div>
+        </div>
+
+        <div class="exercise" id="exercise-2s-and-5s">
+        	<div class="title">2's and 5's</div>
+        	<div class="content">
+        		Show that \( 2222 ^ { 5555 } + 5555 ^ { 2222 }  \) is divisible by \( 7 \)
+        	</div>
+        	<div class="proof">
+                <p>
+                    Note that in general \( AB \cdot 0101 \ldots 01 = ABAB \ldots AB \), therfore note that \( 5555 = 101 \cdot 55 \) and that \( 2222 = 101 \cdot 22 \).
+                </p>
+                <p>
+                    We use this to simplify each base mod \( 7 \), we have that
+                    \[
+                    \begin{align}
+                    5555 &\equiv 101 \cdot 55\\
+                    &\equiv \left( 7 \cdot 14 + 3 \right)   \cdot \left( 7 \cdot 7 + 6  \right) \\
+                    &\equiv -3 \pmod{ 7 }
+                    \end{align}
+                    \]
+                </p>
+                <p>
+                    also that
+                    \[
+                        \begin{align}
+                            2222 &\equiv 101 \cdot 22 \\
+                        &\equiv 3 \cdot \left( 7 \cdot 3 + 1  \right)  \\
+                    &\equiv 3
+                        \end{align}
+                    \]
+                    therefore we know that
+                    \[
+                        2222 ^ { 5555 } + 5555 ^ { 2222 } \equiv \left( -3 \right) ^ { 5555 }  + 3 ^ { 2222 } \pmod{ 7 }
+                    \]
+                    <a class="knowledge-link" href="/number_theory/primes.html#corollary-fermats-helper-mod-exponent">We will now look</a> at \( 2222 ~\%~  6 \) since we know that \( 2220 ~\%~  6 = 0 \) then \( 2222 ~\%~  6 = 2 \), we will now look at \( 5555 ~\%~ 6 \) since we know that that \( 5550 ~\%~ 6 = 0 \) then \( 5555 ~\%~ 6 = 5 \) therefore
+                    \[
+                        \left( -3 \right) ^ { 5555 } + 3 ^ { 2222 } \equiv \left( -3 \right) ^ 2  + 3 ^ { -1 } \equiv 5 + 2 \equiv 0 \pmod{ 7 } 
+                    \]
+                </p>
+        	</div>
+        </div>
+
+
 
         <div class="corollary" id="corollary-if-a-doesnt-divide-p-then-fermats-little-theorem-and-fermats-little-helper-are-equivalent">
         	<div class="title">If a Doesn't Divide p Then Fermats Little Theorem and Fermats Little Helper are Equivalent</div>
@@ -663,6 +840,25 @@
                 </p>
         	</div>
         </div>
+
+        <div class="proposition" id="proposition-fermats-factorization">
+        	<div class="title">Fermats Factorization</div>
+        	<div class="content">
+        		Suppose that \( n \in \mathbb{ N } _ 2 \) is odd, then \( n \) is composite iff there exists \( x, y \in \mathbb{ N } _ 1 \) such that
+                \[
+                n = x ^ 2 - y ^ 2
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    \( \implies  \) Since \( n \) is odd, then there is some \( k \in \mathbb{ Z }  \) such that \( n = 2k + 1  \), note that \( 2k + 1  \) is similar to \( \left( k + 1  \right) ^ 2  = k ^ 2 + 2k + 1  \) and so that \( 2k + 1  = \left( k + 1  \right) ^ 2 - k ^ 2  \) as needed.
+                </p>
+                <p>
+                    \( \impliedby  \) Suppose that \( n = x ^ 2 - y ^ 2 \) since \( n \ge 2 \) then we know \( x \gt y \) also note that \( x ^ 2 - y ^ 2 = \left( x + y \right) \left( x - y \right)   \) therefore \( \left( x + y \right) \mid n  \) and \( \left( x - y \right) \mid n  \), if \( n \) were to be prime, then \( \left( x +  y \right), \left( x - y  \right) \in \left\{ 1, n \right\}    \) since \( x + y \ge x - y  \) then we know that \( x - y = 1 \) and \( x + y = n \) therefore \( 2x = n + 1 \) so \( x = \frac{n + 1 }{2}  \) then \( y = \frac{n - 1}{2}   \)
+                </p>
+        	</div>
+        </div>
+
         
         
 
