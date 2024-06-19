@@ -164,6 +164,50 @@
         	</div>
         </div>
         
+        <div class="proposition" id="proposition-there-is-a-prime-between-n-and-n-factorial">
+        	<div class="title">There is a Prime Between n and n Factorial</div>
+        	<div class="content">
+        		For any \( n \in \mathbb{ N } _ 3 \) there is a prime number \( p  \) such that \( n \lt p \lt n! \)
+        	</div>
+        	<div class="proof">
+                Let \( N = \left\{ p \in \mathbb{ P }: p \le n  \right\}  \) since \( n \ge 3 \) then at least \( 2, 3 \in N \) so it is non-empty. Since \( n! \ge 6 \) then we know that \( n ! - 1 \in \mathbb{ N } _ 2 \) and <a class="knowledge-link" href="/number_theory/primes.html#theorem-every-number-is-divisible-by-a-prime">therefore there is a prime</a> number which divides it, say it is \( q \), for any \( p \in N \) we know that \( n ! - 1 \equiv -1 \pmod{ p }  \) therefore \( q \notin N \) thus \( q \gt n \), since \( q \mid n! - 1 \) then \( q \le n! - 1 \lt n! \) so that
+                \[
+                    n \lt q \lt n!
+                \]
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-n-minus-1-factorial-is-divisible-by-n">
+        	<div class="title">n Minus 1 Factorial is Divisible by n</div>
+        	<div class="content">
+                Let \( n \in \mathbb{ N } _ 4 \), show that if \( n \) is not a prime then we have
+                \[
+                    \left( n - 1 \right) ! \equiv
+                \begin{cases}
+                2 \pmod{ n } &\text{ if } n = 4, \\
+                0 \pmod{ n } &\text{ if } n \ge 5
+                \end{cases}
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    In the case that \( n = 4 \) then we know that \( \left( n - 1 \right) ! = 6  \) which has remainder 2 upon division by \( 4 \) as needed.
+                </p>
+                <p>
+                    On the other hand, whenever we have \( n \ge 5 \) then since \( n \) is not prime, then it is composite and therefore there exists \( a, b \in \left[ 2, \ldots , n - 1 \right]  \) such that \( n = ab \). If \( a \neq b \) then
+                    \[
+                        \left( n - 1 \right) ! = \left( n - 1 \right)  \cdots a \cdots b \cdots 2 \cdot 1
+                    \]
+                    therefore \( n = ab \mid \left( n - 1 \right) ! \) so that \( \left( n - 1 \right) ! \equiv 0 \pmod{ n }  \).
+                </p>
+                <p>
+                    On the other hand, supposing that \( a = b \) then we see that \( n = a ^ 2 \) since \( a \ge 2 \) then we know that \( a ^ 2 \ge 2a \). Actually we know more, since \( n \ge 5 \) then \( a \gt 2 \) so we can say that \( a ^ 2 \gt 2a \) so that \( n \gt 2a \)  so that \( a, 2a \) both appear in the factorials product so that \( a ^ 2 \mid \left( n - 1 \right) !  \) as needed.
+                </p>
+        	</div>
+        </div>
+
+        
+        
         <div class="proposition" id="proposition-there-are-gaps-of-arbitrary-size-between-consecutive-primes">
         	<div class="title">There are Gaps of Arbitrary Size between Consecutive Primes</div>
         	<div class="content">
@@ -737,6 +781,17 @@
         	</div>
         </div>
 
+        <div class="exercise" id="exercise-1729-is-carmichael">
+        	<div class="title">1729 is Carmichael</div>
+        	<div class="content">
+        		As per title.
+        	</div>
+        	<div class="proof">
+        		As it turns out \( 1729 = 7 \cdot 13 \cdot 9 \), therefore it is square free and since \( 6, 12, 8 \mid 1728 \) then it is carmichael
+        	</div>
+        </div>
+        
+
         <div class="proposition" id="proposition-fermats-compositeness-test">
         	<div class="title">Fermats Compositeness Test</div>
         	<div class="content">
@@ -777,7 +832,12 @@
         		As per title.
         	</div>
         	<div class="proof">
-
+                <p>
+                    Firstly we note that \( 341 \) is divisible by \( 11 \) because \( 3 - 4 + 1 = 0\) and therefore \( 341 = 11 \cdot 31 \) now we'll verify that \( 2 ^ { 340 } \equiv 1 \pmod{ 341 } \), note that \( 341 \cdot 3 = 1023 \) and since \( 2 ^ 10 = 1024 \) so that \( 1024 \equiv 1 \pmod{ 341 }  \) thus we know that \( 2 ^ 10 \equiv 1 \pmod{ 341 }  \) therefore \( 3 ^ { 340 } \equiv \left( 3 ^ 10 \right) ^ 34 \equiv 1 \pmod{ 341 }  \).
+                </p>
+                <p>
+                    On the other hand \( 3 ^ { 341 } \not \equiv 3 \pmod{ 341 }  \), we can see this is true by using the chinese remainder theorem on the equations \( x \equiv 3 \pmod{ 11 }  \) and \( x \equiv 3 \pmod{ 31 }  \) and noting that \( 341 \) solves it, but also the switch summation also solves it but the switch is not congruent to 3, so it works.
+                </p>
         	</div>
         </div>
 

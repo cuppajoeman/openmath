@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Congruence</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer>
+</script>
+</head>
+
+<body>
+    <div class="thin-wrapper">
+        
+        <div class="proposition" id="proposition-x-squared-is-congruent-to-1-iff-x-is-congruent-to-plus-or-minus-one-mod-p">
+        	<div class="title">x Squared is Congruent to 1 iff x is Congruent to Plus or Minus One Mod p</div>
+        	<div class="content">
+        		\[
+        		    x ^ 2 \equiv 1 \pmod{ p } \iff x \equiv \pm 1 \pmod{ p } 
+        		\]
+        	</div>
+        	<div class="proof">
+                <p>
+                    \( \implies  \) Suppose that \( x ^ 2 \equiv 1 \pmod{ p }  \) therefore \( p \mid x ^ 2 - 1 = \left( x + 1 \right) \left( x - 1 \right)  \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-euclid">therefore</a> \( p \mid \left( x + 1 \right)  \) or \( p \mid \left( x - 1 \right)  \) so that \( x \equiv \pm 1 \pmod{ p }  \)
+                </p>
+                <p>
+                    \( \impliedby  \) Suppose that \( x \equiv \pm 1 \pmod{ p }  \) therefore \( x ^ 2 \equiv 1 \pmod{ p }  \) as needed.
+                </p>
+        	</div>
+        </div>
+        
+        
+        <div class="proposition" id="proposition-number-of-solutions-to-x-squared-congruent-go-minus-one-mod-p">
+        	<div class="title">Number of Solutions to x Squared Congruent to Minus One Mod p</div>
+        	<div class="content">
+        	    The equation
+                \[
+                    x ^ 2 \equiv \left( -1 \right) \pmod{ p }
+                \]
+                has two solutions explicitly given by \( \pm \left( \frac{p - 1}{2}  \right)!  \)  iff \( p = 4k + 1  \)
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+
+        <div class="exercise" id="exercise-incongruent-mod-37">
+        	<div class="title">Incongruent mod 37</div>
+        	<div class="content">
+        		Obtain all incongruent solutions to the quadratic congruence
+                \[
+                    x ^ 2 \equiv -1 \pmod{ 37 }
+                \]
+        	</div>
+        	<div class="proof">
+        	    By the above we know that \( \pm 18 ! \) works.
+        	</div>
+        </div>
+
+        
+
+        <div class="proposition" id="proposition-number-of-solutions-to-a-quadratic-congruence">
+        	<div class="title">Number of Solutions to a Quadratic Congruence</div>
+        	<div class="content">
+        		\[
+                x ^ 2 \equiv 1 \pmod{ p ^ \alpha  }
+        		\]
+                <ul>
+                    <li>has two solutions if \( p \) is odd</li>
+                </ul>
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+
+    </div>
+</body>
+</html>

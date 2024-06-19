@@ -289,10 +289,33 @@
         	</div>
         </div>
 
+        <div class="definition" id="definition-modular-inverse">
+            <div class="title">Modular Inverse</div>
+            <div class="content">
+                Given \( a, m \in \mathbb{ Z } \) we say that an integer \( x \in \mathbb{ Z } \) is a the modular inverse for \( a \) mod \( m \) when:
+                \[
+                a \cdot x \equiv 1 \left( \operatorname{ mod } m \right)
+                \]
+            </div>
+        </div>
+
         <p>
-            Note that the above implies that the solution is unique
+            When a given number has an inverse we say that it is invertible.
         </p>
-        
+
+        <div class="corollary" id="corollary-every-non-zero-number-is-invertible-mod-a-prime">
+        	<div class="title">Every Non Zero Number is Invertible Mod a Prime</div>
+        	<div class="content">
+                For any \( p \in \mathbb{ P }  \) and \( a \in \left[ 1, \ldots , p - 1 \right]  \) there exists \( b \in \left[ 1, \ldots , p - 1 \right]   \) such that
+                \[
+                    ab \equiv 1 \pmod{ p }
+                \]
+        	</div>
+        	<div class="proof">
+                Consider the equation \( a x \equiv 1 \pmod{ p }  \), since \( \gcd \left( a, p \right) = 1  \) then it has a solution, as needed.
+        	</div>
+        </div>
+
         <div class="corollary" id="corollary-a-linear-modular-equation-with-a-solution-has-gcd-many-solutions">
         	<div class="title">A Linear Modular Equation with a Solution has GCD many Solutions</div>
         	<div class="content">
@@ -300,7 +323,11 @@
                 \[
                     ax \equiv b \left( \operatorname{ mod } m \right)
                 \]
-                has a solution, then it has exactly \( g := \gcd \left( a, m \right)  \) solutions mod \( m \).
+                has a solution \( x _ 0 \) , then it has exactly \( g := \gcd \left( a, m \right)  \) solutions mod \( m \). Moreover the unique solutions are given by the remainders of
+                \[
+                x _ 0, x _ 0 + \frac{1m}{g} , x _ 0 + \frac{2m}{g} , \ldots , x _ 0 + \frac{\left( g - 1 \right) m }{g}
+                \]
+                when taken mod \( m \) 
         	</div>
         	<div class="proof">
                 <p>
@@ -309,7 +336,7 @@
                 <p>
                     Recall that we have a <a class="knowledge-link" href="/number_theory/diophantine_equations.html#proposition-one-solution-yields-infinitely-many">method of obtaining more</a> solutions once we have one, and hence are given by
                     \[
-                        \left( x _ 0, -k \right) + \left( \frac{m}{g}, \frac{a}{g}   \right) t, \text{ where } t \in \mathbb{ Z } 
+                        \left( x _ 0, -k \right) + \left( \frac{m}{g},  - \frac{a}{g}   \right) t, \text{ where } t \in \mathbb{ Z }
                     \]
                     Note that for each new solution \( \overline{ x } , \overline{ y }  \) it satisfies \( a \overline{ x } + m \overline{ y } = b  \)  so that \( a \overline{ x } - b = - \overline{ y } m \) so that \( m \mid a \overline{ x } - b \) so that \( a \overline{ x } \equiv b \left( \operatorname{ mod } m \right)  \), therefore we only need to observe the \( x \) component of each of solutions obtained from the equation
                 </p>
@@ -336,27 +363,39 @@
                 </p>
         	</div>
         </div>
+
+        <p>
+            Note that modulo a prime, since the gcd is always one, then this shows that every element has a unique inverse mod p.
+        </p>
         
-
-        <div class="definition" id="definition-modular-inverse">
-            <div class="title">Modular Inverse</div>
-            <div class="content">
-                Given \( a, m \in \mathbb{ Z } \) we say that an integer \( x \in \mathbb{ Z } \) is a the modular inverse for \( a \) mod \( m \) when:
-                \[
-                a \cdot x \equiv 1 \left( \operatorname{ mod } m \right)
-                \]
-            </div>
-        </div>
-
-        <div class="corollary" id="corollary-every-non-zero-element-is-invertible-mod-a-prime">
-        	<div class="title">Every Non-Zero Element is Invertible Mod a Prime</div>
+        <div class="exercise" id="exercise-24-and-60">
+        	<div class="title">24 and 60</div>
         	<div class="content">
-        		Every \( n \in \mathbb{ N } ^ { \neq 0 }  \) is <a class="knowledge-link" href="/number_theory/congruence.html#definition-modular-inverse">invertible</a> modulo a prime.
+        		Find all incongruent solutions of the linear congruence given by
+                \[
+                    24 x \equiv 60 \pmod{ 102 }
+                \]
         	</div>
         	<div class="proof">
-
+                <p>
+                    First we verify that the above has a solution, since \( 102 = 17 \cdot 6 \), then  \( \gcd \left( 24, 102 \right) = 6 \) and so \( \gcd \left( 24, 102 \right) \mid 60  \), so we deduce that \( 24 x \equiv 60 \pmod{ 102 }  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-when-a-linear-modular-equation-has-a-solution">has a solution</a>, call it \( x _ 0 \).
+                </p>
+                <p>
+                    Since it has a solution, then we know that it actually has \( \gcd \left( 24, 102 \right) = 6  \) solutions <a class="knowledge-link" href="/number_theory/congruence.html#corollary-a-linear-modular-equation-with-a-solution-has-gcd-many-solutions">explicitly given by</a>
+                    \[
+                        x _ 0 + \left( \frac{102}{6}  \right) k
+                    \]
+                    for \( k \in \left[ 0, \ldots, 5 \right]  \). Now to actually find a solution, <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">we can divide through by</a> \( 6 \) which yields \( 4x \equiv 10 \pmod{ 17 }  \) since \( 17 \) is prime, then we know that \( 4 \) <a class="knowledge-link" href="/number_theory/congruence.html#corollary-every-non-zero-number-is-invertible-mod-a-prime">has an inverse</a>, we can see that \( -4 \) works, so that \( x \equiv -40 \equiv 11 \pmod{ 17 }  \) so our solutions are given by 
+                    \[
+                        11 + 17k 
+                    \]
+                    for \( k \in \left[ 0, \ldots , 5 \right]  \)  mod \( 102 \) 
+                </p>
         	</div>
         </div>
+        
+        
+
 
         <div class="theorem" id="theorem-chinese-remainder">
         	<div class="title">Chinese Remainder</div>
@@ -675,6 +714,79 @@
                 as needed.
             </div>
         </div>
+
+        <div class="proposition" id="proposition-there-are-22-possibilities-for-the-last-two-digits-of-a-square">
+        	<div class="title">There are 22 Possibilities for the Last Two Digits of a Square</div>
+        	<div class="content">
+        		As per title.
+        	</div>
+        	<div class="proof">
+        		We compute
+                \[
+                    \begin{align}
+                0 ^ 2 = 0 &\equiv 0 \pmod{ 100 } \\
+                1 ^ 2 = 1 &\equiv 1 \pmod{ 100 } \\
+                2 ^ 2 = 4 &\equiv 4 \pmod{ 100 } \\
+                3 ^ 2 = 9 &\equiv 9 \pmod{ 100 } \\
+                4 ^ 2 = 16 &\equiv 16 \pmod{ 100 } \\
+                5 ^ 2 = 25 &\equiv 25 \pmod{ 100 } \\
+                6 ^ 2 = 36 &\equiv 36 \pmod{ 100 } \\
+                7 ^ 2 = 49 &\equiv 49 \pmod{ 100 } \\
+                8 ^ 2 = 64 &\equiv 64 \pmod{ 100 } \\
+                9 ^ 2 = 81 &\equiv 81 \pmod{ 100 } \\
+                10 ^ 2 = 100 &\equiv 0 \pmod{ 100 } \\
+                11 ^ 2 = 121 &\equiv 21 \pmod{ 100 } \\
+                12 ^ 2 = 144 &\equiv 44 \pmod{ 100 } \\
+                13 ^ 2 = 169 &\equiv 69 \pmod{ 100 } \\
+                14 ^ 2 = 196 &\equiv 96 \pmod{ 100 } \\
+                15 ^ 2 = 225 &\equiv 25 \pmod{ 100 } \\
+                16 ^ 2 = 256 &\equiv 56 \pmod{ 100 } \\
+                17 ^ 2 = 289 &\equiv 89 \pmod{ 100 } \\
+                18 ^ 2 = 324 &\equiv 24 \pmod{ 100 } \\
+                19 ^ 2 = 361 &\equiv 61 \pmod{ 100 } \\
+                20 ^ 2 = 400 &\equiv 0 \pmod{ 100 } \\
+                21 ^ 2 = 441 &\equiv 41 \pmod{ 100 } \\
+                22 ^ 2 = 484 &\equiv 84 \pmod{ 100 } \\
+                23 ^ 2 = 529 &\equiv 29 \pmod{ 100 } \\
+                24 ^ 2 = 576 &\equiv 76 \pmod{ 100 }
+                    \end{align}
+                \]
+                this shows that there are in total there are \( 25 \) elements in the list above, 0 is counted two times two many, and 25 is counted once too many therefore there are exactly \( 22 \) unique endings in the above, and lets denote the collection of unique last two digits as \( LD \)  Notice that if we continued we would have
+                \[
+                    \begin{align}
+                25 ^ 2 = 625 &\equiv 25 \pmod{ 100 } \\
+                26 ^ 2 = 676 &\equiv 76 \pmod{ 100 } \\
+                27 ^ 2 = 729 &\equiv 29 \pmod{ 100 } \\
+                28 ^ 2 = 784 &\equiv 84 \pmod{ 100 } \\
+                29 ^ 2 = 841 &\equiv 41 \pmod{ 100 }
+                    \end{align}
+                \]
+                notice that after \( 25 \) the order in which the endings arrive is in a mirrored fashion. Notice that every time a multiple of 25 is reached some special is happening. Specifically we claim that for any \( n \in \mathbb{ N } _ 1 \) and \( k \in \left[ 1, \ldots , 24 \right]  \) we have 
+                \[
+                    \left( 25n + k \right) ^ 2  \equiv \left( 25n - k \right) ^ 2 \pmod{ 100 } 
+                \]
+                this is clear because \( \left( 25 n + k \right) ^ 2 = 25 ^ 2 n ^ 2 + 50kn + k ^ 2  \) whereas \( \left( 25 n - k \right) ^ 2 = 25 ^ 2 n ^ 2 - 50kn + k ^ 2   \) therefore
+                \[
+                    \left( 25n + k \right) ^ 2 - \left( 25n - k  \right) ^ 2 = 100kn  \equiv 0 \pmod{ 100 }
+                \]
+                this fact allows us to show that given any \( k \ge 25 \) that \( k ^ 2 ~\%~ 100 \in LD \), we do it by induction based on where it lies with respect to consecutive multiples of \( 25 \).
+                <p>
+                    We use the predicate :
+                    \[
+                        P \left( k \right) :  \forall n \in \left[ 25k ,\ldots,   25k + 24  \right], n ^ 2 ~\%~ 100 \in LD
+                    \]
+                    and show it holds true for all \( k \in \mathbb{ N } _ 1 \)
+                </p>
+                <p>
+                    For the base case \( k = 0 \) then as verified in the huge table we know that for any \(  n \in \left[ 0, \ldots 24 \right]  \) that \( n ^ 2 ~\%~ 100 \in LD \). Now onto the induction step where we assume that \( P \left( k \right)  \) holds true for some \( k \in \mathbb{ N } _ 1 \) and then we prove that \( P \left( k + 1  \right)  \) hold true, so suppose that \( n \in \left[ 25 \left( k + 1 \right), \ldots ,  25 \left( k + 1 \right) + 24   \right]  \), in other words \( n = 25 \left( k + 1 \right) + j  \) where \( j \in \left[ 0, \ldots , 24 \right]  \) if it so happens that \( j = 0 \) then \( n = 25 \left( k + 1  \right)  \) and so when you square it it ends in \( 25 \), on the other hand if \( j \in \left[ 1, \ldots , 24 \right]  \) then we know that
+                    \[
+                        (25 \left( k + 1 \right) + j) ^ 2 \equiv \left( 25 \left( k + 1 \right) - j  \right)  ^ 2
+                    \]
+                    but \( 25 \left( k + 1 \right) - j = 25k + 25 - j  \) and since \( j \ge 1 \) then by the induction hypothesis \( 25 \left( k + 1  \right) - j ~\%~ 100 \in LD \) so therefore so is \( 25 \left( k + 1  \right) + j  \) as needed.
+                </p>
+        	</div>
+        </div>
+
 
     </div>
 </body>
