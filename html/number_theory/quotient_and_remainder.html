@@ -103,9 +103,9 @@
             </div>
         </div>
 
-        <div class="definition" id="definition-divisor-function">
+        <div class="definition" id="definition-quotient-function">
             <div class="title">
-                Divisor Function
+                Quotient Function
             </div>
 
             <div class="content">
@@ -118,20 +118,18 @@
                 \]
             </div>
         </div>
-
-
-
-        <div class="proposition" id="proposition-divides-iff-zero-remainder">
-            <div class="title">Divides iff Zero Remainder</div>
-            <div class="content">
-                For any \( a, b \in \mathbb{ Z }  \)
+        
+        <div class="corollary" id="corollary-">
+        	<div class="title">Quotient Remainder using Quotient and Remainder Function</div>
+        	<div class="content">
+        	    For any \( a, b \in \mathbb{ Z }  \) such that \( b \neq 0 \) then
                 \[
-                    a \mid b \iff a ~\%~ b = 0
+                    a = b \left( a // b \right) + a ~\%~ b
                 \]
-            </div>
-            <div class="proof">
-                Note that \(  a \mid b \) iff \( b = ka = k a + 0 \) iff \( a ~//~ b = k \) and \( a ~\%~ b = 0 \). The last iff comes from the fact that there are unique integers that satisfy the equation laid out by the quotient remainder theorem.
-            </div>
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
         </div>
 
         <div class="corollary" id="corollary-specific-value-of-the-divisor-function">
@@ -145,6 +143,7 @@
 
             <div class="proof"></div>
         </div>
+
 
         <div class="corollary" id="corollary-specific-value-of-the-remainer-function">
             <div class="title">
@@ -165,21 +164,36 @@
 
             <div class="content">
                 Suppose that \( a , b \in \mathbb{N}_{1} \) such that \( a \ge b \) then <span class="knowledge-link"
-                data-href="/number_theory/division.html#definition-divisor-function">\( a / / b \ge 1 \)</span>
+                                                                                               data-href="/number_theory/division.html#definition-divisor-function">\( a / / b \ge 1 \)</span>
             </div>
 
             <div class="proof">
                 <p>For brevity define \( q = a / / b \), we know that \( a = b \cdot q + r \) with \( 0 \le r \lt b \),
-                thus far we know that \( q \in \mathbb{Z} \), though if \( q &lt; 0 \), then we know that \( b \cdot q
-                &lt; r \cdot q \le 0 \), therefore \( a = b \cdot q + r &lt; r \cdot q + r = r \left ( q + 1 \right )
-                \)</p>
+                    thus far we know that \( q \in \mathbb{Z} \), though if \( q &lt; 0 \), then we know that \( b \cdot q
+                    &lt; r \cdot q \le 0 \), therefore \( a = b \cdot q + r &lt; r \cdot q + r = r \left ( q + 1 \right )
+                    \)</p>
 
                 <p>For a contradiction assume that \( q \lt 1 \iff q \le 0 \), therefore \( r \left ( q + 1 \right )
-                \le r \left ( 0 + 1 \right ) = r \), which shows that \( a \lt r \), since \( 0 \le r \lt b \), then we
-                have \( a \lt b \) which is a contradiction because we know that \( a \ge b \).</p>
+                    \le r \left ( 0 + 1 \right ) = r \), which shows that \( a \lt r \), since \( 0 \le r \lt b \), then we
+                    have \( a \lt b \) which is a contradiction because we know that \( a \ge b \).</p>
 
                 <p>Since by assuming \( q \lt 1 \), we have a contradiction, so therefore \( q \ge 1 \), which is the
-                same as \( a / / b \ge 1 \).</p>
+                    same as \( a / / b \ge 1 \).</p>
+            </div>
+        </div>
+
+
+
+        <div class="proposition" id="proposition-divides-iff-zero-remainder">
+            <div class="title">Divides iff Zero Remainder</div>
+            <div class="content">
+                For any \( a, b \in \mathbb{ Z }  \)
+                \[
+                    a \mid b \iff a ~\%~ b = 0
+                \]
+            </div>
+            <div class="proof">
+                Note that \(  a \mid b \) iff \( b = ka = k a + 0 \) iff \( a ~//~ b = k \) and \( a ~\%~ b = 0 \). The last iff comes from the fact that there are unique integers that satisfy the equation laid out by the quotient remainder theorem.
             </div>
         </div>
 
@@ -198,15 +212,138 @@
         </div>
 
         <div class="proposition" id="proposition-exactly-one-of-any-two-consecutive-numbers-is-even">
-        	<div class="title">Exactly one of any two Consecutive Numbers is Even</div>
+            <div class="title">Exactly one of any two Consecutive Numbers is Even</div>
+            <div class="content">
+                For any \( n \in \mathbb{ Z }  \) exactly one of \( n, n + 1  \) is even (and the other odd)
+            </div>
+            <div class="proof">
+                If \( n \) is even, we are done, if \( n  \) is odd, then there is a \( k \in \mathbb{ Z }  \) such that \( n =  2k + 1  \) therefore \( n + 1 = 2 \left( k + 1  \right)  \) which is even as needed.
+            </div>
+        </div>
+
+
+
+        <div class="proposition" id="proposition-when-the-remainder-function-does-nothing">
+        	<div class="title">When the Remainder Function does Nothing</div>
         	<div class="content">
-        		For any \( n \in \mathbb{ Z }  \) exactly one of \( n, n + 1  \) is even (and the other odd)
+        		Suppose that \( m \in \mathbb{ N } _ 1 \) and that \( a \in \left[ 0, \ldots , m - 1 \right]  \) then
+                \[
+                    a ~\%~ m = a
+                \]
         	</div>
         	<div class="proof">
-                If \( n \) is even, we are done, if \( n  \) is odd, then there is a \( k \in \mathbb{ Z }  \) such that \( n =  2k + 1  \) therefore \( n + 1 = 2 \left( k + 1  \right)  \) which is even as needed.
+
         	</div>
         </div>
 
+
+        <div class="proposition" id="proposition-repeated-application-of-the-remainder-function-does-nothing">
+        	<div class="title">Repeated Application of the Remainder Function does Nothing</div>
+        	<div class="content">
+        		Suppose that \( a, m \in \mathbb{ Z }  \) such that \( m \neq 0 \) then
+                \[
+                   a ~\%~ m = \left( a ~\%~ m \right) ~\%~ m
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+
+        <div class="proposition" id="proposition-quotient-remainder-and-addition">
+        	<div class="title">Quotient Remainder and Addition</div>
+        	<div class="content">
+        		Suppose that \( a, b, m \in \mathbb{ Z } \) then
+                \[
+                    \left( a + b \right) ~\%~ m = \left( \left( a ~\%~ m \right) + \left( b ~\%~ m \right)   \right) ~\%~ m
+                \]
+                and 
+                \[
+                    \left( a + b \right)  //  m = a // m + b // m + \left( a ~\%~ m + a ~\%~ b \right) // m
+                \]
+        	</div>
+        	<div class="proof">
+                We know
+                \[
+                    a = m \left( a // m \right) + a ~\%~ m \text{ and } b = m \left( b // m \right) + b ~\%~ m
+                \]
+                therefore
+                \[
+                    a + b = m \left( \left( a // m \right) + b // m  \right) + \left( a ~\%~ m + b ~\%~ m \right)
+                \]
+                Let \( x = \left( a ~\%~ m + b ~\%~ m \right)  \), and so by the quotient remainder theorem we get some \( q _ x, r _ x \) such that
+                \[
+                    x = m q _ x + r _ x
+                \]
+                so that
+                \[
+                    a + b = m \left( \left( a // m \right) + \left( b // m \right) + q _ x   \right) + r _ x
+                \]
+                therefore \( \left( a + b \right)  ~\%~ m = r _ x \) and \( \left( a + b \right) // m = \left( a // m \right) + \left( b // m \right) + q _ x  \). Finally note that \( r _ x = \left( a ~\%~ m + b ~\%~ m \right) ~\%~ m  \) and \( q _ x = \left( a ~\%~ m + b ~\%~ m \right) //  m  \) as needed.
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-if-a-number-divides-a-sum-and-already-divides-one-of-the-summands-it-must-divide-the-other">
+        	<div class="title">If a Number Divides a Sum and Already Divides one of the Summands it Must Divide the Other</div>
+        	<div class="content">
+        		Suppose that \( d \mid a + b \) and \( d \mid a \) then \( d \mid b \)
+        	</div>
+        	<div class="proof">
+        	    We know that \( \left( a + b \right) ~\%~  d = 0 \) and that \( a ~\%~ d = 0 \) since
+                \[
+                \begin{align}
+                0 &= \left( a + b \right) ~\%~ d \\
+                &= \left( a ~\%~ b + b ~\%~ d \right) ~\%~ d \\
+                &= \left( 0 + b ~\%~ d \right) ~\%~ d \\
+                &= b ~\%~ d
+                \end{align}
+                \]
+                therefore \( d \mid b \)
+        	</div>
+        </div>
+
+
+        <div class="proposition" id="proposition-adding-multiples-of-the-divisor-never-changes-the-remainder">
+            <div class="title">Adding Multiples of the Divisor Never changes the Remainder</div>
+            <div class="content">
+                Let \( m \in \mathbb{ Z } ^ { \neq 0 }  \) and \( a, k \in \mathbb{ Z }  \) then
+                \[
+                a ~\%~ m = \left( a + k m \right) ~\%~ m
+                \]
+            </div>
+            <div class="proof">
+
+            </div>
+        </div>
+
+        <div class="proposition" id="proposition-n-factorial-plus-or-minus-one-restricts-factors">
+        	<div class="title">n Factorial Plus or Minus One Restricts Factors</div>
+        	<div class="content">
+        		Suppose \( n \in \mathbb{ N } _ 1 \) then for every  \( m \in \left[ 2, \ldots , n \right]  \)
+                \[
+                    m \nmid n! \pm  1
+                \]
+        	</div>
+        	<div class="proof">
+                <a class="knowledge-link" href="/number_theory/division.html#proposition-n-factorial-is-divisible-by-its-factors">Recall</a> that \( m \mid n! \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-divides-iff-zero-remainder">therefore</a> \( n! ~\%~ m = 0 \). But then
+                \[
+                \begin{align}
+                    \left( n! \pm 1 \right) ~\%~ m &= \left( n! ~\%~ m \pm 1 ~\%~ m \right) ~\%~ m \\
+                    &= \left(  \pm 1   ~\%~ m \right) ~\%~ m \\
+                &=  \pm 1 ~\%~ m
+                \end{align}
+                \]
+                Note that in going from the second to the third line we used <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-repeated-application-of-the-remainder-function-does-nothing">this fact</a>.
+                <p>
+                    if \( \pm = +  \) then we have \( \left( n! + 1 \right) ~\%~ m = 1  \) otherwise we have
+                    \[
+                        \left( n ! + 1 \right) ~\%~ m = -1 ~\%~ m = m - 1
+                    \]
+                    and since \( m \neq 1 \) then \( m - 1 \neq 0 \) therefore in both cases we see that \( \left( n ! + 1 \right) ~\%~ m \neq 0  \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-divides-iff-zero-remainder">therefore</a> \( m \nmid \left( n! + 1  \right) \) as needed.
+                </p>
+        	</div>
+        </div>
 
         <div class="corollary" id="corollary-every-perfect-square-has-remainder-zero-or-one-upon-division-by-four">
         	<div class="title">Every Perfect Square has Remainder Zero or One Upon Division by Four</div>

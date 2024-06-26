@@ -43,6 +43,29 @@
             </div>
         </div>
 
+        <div class="proposition" id="proposition-n-factorial-is-divisible-by-its-factors">
+        	<div class="title">n Factorial is Divisible by Its Factors</div>
+        	<div class="content">
+        	    For any \( k \in \left[ 1, \ldots, n \right]  \)
+                \[
+                    k \mid n!
+                \]
+        	</div>
+        	<div class="proof">
+
+                \[
+                    n! = 1 \cdots k \cdots n
+                \]
+                therefore
+                \[
+                    \frac{n!}{k} = 1 \cdots \left( \frac{k}{k}  \right) \cdots n \in \mathbb{ Z }
+                \]
+                so <a class="knowledge-link" href="/number_theory/division.html#corollary-divisible-implies-integer-quotient">therefore</a> \( k \mid n! \)
+
+        	</div>
+        </div>
+
+
         <div class="corollary" id="corollary-">
             <div class="title">
                 Not Divisible iff Non-Integer Quotient
@@ -145,7 +168,7 @@
         		Suppose that \( a \mid b \) therefore there is \( k \in \mathbb{ Z }  \) such that \( b = ka \), therefore multiply both sides to get \( bc = \left( kc \right) a \) and therefore \( a \mid bc \) as needed.
         	</div>
         </div>
-
+        
 
         <div class="proposition" id="proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">
             <div class="title">
@@ -225,6 +248,8 @@
         <p>
             Note that we can't quite get a partial order \( \mathbb{ Z }  \) because of the fact that \( -a \mid a \).
         </p>
+
+
 
         <div class="proposition" id="proposition-linearity-of-division">
         	<div class="title">Linearity of Division</div>

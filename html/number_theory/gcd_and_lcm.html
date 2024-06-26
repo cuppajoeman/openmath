@@ -21,7 +21,7 @@
             </div>
 
             <div class="content">
-                suppose that \( a , b \in \mathbb{Z} \) then the greatest common divsor of \( a \) and \( b \) notated
+                suppose that \( a , b \in \mathbb{Z} \) such that \( \left( a, b \right) \neq \left( 0, 0 \right)  \),  then the greatest common divisor of \( a \) and \( b \) notated
                 as \( \gcd{\left ( a , b \right )} \) is the largest positive integer that <span class="knowledge-link"
                 data-href="/number_theory/division.html#definition-divides">divides</span> each of \( a , b \)
             </div>
@@ -230,7 +230,42 @@
 
 
 
+        <div class="definition" id="definition-non-trivial-divisors">
+        	<div class="title">Non Trivial Divisors</div>
+        	<div class="content">
+        		Let \( n \in \mathbb{ Z }  \) such that \( \left\lvert n \right\rvert \ge 2  \)  then we define
+                \[
+                    \operatorname{ ntd } \left( n \right) = \left\{ d \in \mathbb{ N } _ 2 : d \mid n \right\}
+                \]
+        	</div>
+        </div>
 
+        <div class="corollary" id="corollary-non-trivial-divisors-is-a-subset-of-2-up-to-the-number">
+        	<div class="title">Non Trivial Divisors is a Subset of 2 up to The Number</div>
+        	<div class="content">
+        		For any \( n \in \mathbb{ Z }  \) such that \( \left\lvert n \right\rvert \ge 2  \) then we have
+                \[
+                    \operatorname{ ntd } \left( n \right) \subseteq \left[ 2, \ldots , n \right]
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+        
+        <div class="corollary" id="corollary-the-non-trivial-divisors-of-n-factorial-plus-or-minus-one">
+        	<div class="title">The Non Trivial Divisors of n Factorial Plus or Minus One</div>
+        	<div class="content">
+        		Suppose that \( n \in \mathbb{ N } _ 1  \) then
+                \[
+                    \operatorname{ ntd } \left( n! + 1 \right) \subseteq \left[ n + 1, \ldots , n! + 1 \right]
+                \]
+        	</div>
+        	<div class="proof">
+                Let \( d \in \operatorname{ ntd } \left( n ! + 1  \right)  \) then we know that \( d \in \left[ 2, \ldots , n! + 1  \right]  \) but if \( d \in \left[ 2, \ldots , n  \right]  \) then we <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-n-factorial-plus-or-minus-one-restricts-factors">already know that</a> \( d \nmid n! + 1 \) which is a contradiction, therefore we must have that \( d \in \left[ n + 1, \ldots n! + 1  \right]  \) as needed.
+        	</div>
+        </div>
+        
 
 
         <div class="definition" id="definition-common-divisor-set">
@@ -242,6 +277,22 @@
                 \]
         	</div>
         </div>
+        
+        <div class="corollary" id="corollary-common-divisors-as-the-intersection-of-the-non-trivial-divisors">
+        	<div class="title">Common Divisors as the Intersection of the Non Trivial Divisors</div>
+        	<div class="content">
+        		Suppose that \( a, b \in \mathbb{ Z }  \) then 
+                \[
+                    \operatorname{ cd } \left( a, b \right) = \operatorname{ ntd } \left( a \right) \cap \operatorname{ ntd } \left( b \right) \cup \left\{ 1 \right\} 
+                \]
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+
+
+        
         
         <div class="corollary" id="corollary-common-divisor-set-is-bounded-above">
         	<div class="title">Common Divisor Set is Bounded Above</div>
@@ -270,6 +321,20 @@
                 </p>
         	</div>
         </div>
+        
+        <div class="proposition" id="proposition-no-common-non-trivial-divisors-implies-relatively-prime">
+        	<div class="title">No Common Non Trivial Divisors Implies Relatively Prime</div>
+        	<div class="content">
+        		Suppose \( a, b \in \mathbb{ Z }  \) then
+                \[
+                    \operatorname{ ntd } \left( a \right) \cap \operatorname{ ntd } \left( b \right) = \emptyset \implies \gcd \left( a, b \right) = 1
+                \]
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+        
 
 
         <div class="proposition" id="proposition-superset-divisors-implies-greater-gcd">
@@ -305,7 +370,37 @@
                 Since \( \operatorname{ cd } \left( a, b \right) = \operatorname{ cd } \left( p, q \right)  \) then we know that \( \operatorname{ cd } \left( a, b \right) \subseteq \operatorname{ cd } \left( p, q \right)   \) and that \( \operatorname{ cd } \left( a, b \right) \supseteq \operatorname{ cd } \left( p, q \right)   \) so that we have \( gcd \left( a, b \right) \le \gcd \left( p, q \right)  \) and \( \gcd \left( a, b \right) \ge \gcd \left( a, b \right)  \) so that \( \gcd \left( a, b \right) = \gcd \left( p, q \right)  \) as needed.
             </div>
         </div>
+
+        <div class="corollary" id="corollary-add-a-multiple-of-the-other-yields-same-gcd">
+        	<div class="title">Add a multiple of the other Yields same GCD</div>
+        	<div class="content">
+        		For any \( a, b, k \in \mathbb{ Z }  \) we have
+                \[
+                    \gcd \left( a, b \right) = \gcd \left( a, b + ka \right)
+                \]
+        	</div>
+        	<div class="proof">
+        		<a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-adding-a-multiple-of-the-other-yields-the-same-common-divisors">Since</a> the common divisors are the same, <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#corollary-same-divisors-implies-same-gcd">then the gcd</a> of the two is the same
+        	</div>
+        </div>
         
+        <div class="proposition" id="proposition-two-consecutive-integers-are-coprime">
+        	<div class="title"></div>
+        	<div class="content">
+        	    Let \( n \in \mathbb{ Z }  \) 	then
+                \[
+                    \gcd \left( n, n + 1  \right) = 1
+                \]
+        	</div>
+        	<div class="proof">
+                Suppose that there existed some \( d \in \mathbb{ N } _ 2 \) such that \( d \mid n \) and \( d \mid n + 1  \) <a class="knowledge-link" href="/number_theory/division.html#proposition-linearity-of-division">then we would have</a> \( d \mid n + 1 - n = 1\) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-something-divides-one-then-it-is-one-or-negative-one">which implies that</a> \( d = \pm  1 \) which is a contradiction, thus the only divisor of \( n \) and \( n + 1 \) is one, so that \( \gcd \left( n, n + 1  \right) = 1  \)
+        	</div>
+        </div>
+        
+
+
+
+
 
         <div class="proposition" id="proposition-division-by-individuals-implies-division-by-product-when-gcd-is-one">
         	<div class="title">Division by Individuals Implies Division by Product when GCD is one</div>
@@ -372,6 +467,41 @@
                 \end{align}
                 \]
                 so <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-if-you-can-find-a-linear-combination-that-yields-one-then-their-gcd-is-one">therefore</a> \( \gcd \left( a, bc \right) = 1 \)
+            </div>
+        </div>
+
+        <div class="exercise" id="exercise-gcd-of-a-factorial">
+            <div class="title">GCD of a Factorial</div>
+            <div class="content">
+                Suppose that \( n \in \mathbb{ N } _ 1 \), determine
+                \[
+                \gcd \left( n! + 1 , \left( n + 1  \right)! + 1 \right)
+                \]
+            </div>
+            <div class="proof">
+                <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#corollary-add-a-multiple-of-the-other-yields-same-gcd">We know that</a>
+                \[
+                \begin{align}
+                \gcd \left( n! + 1 , \left( n + 1  \right)! + 1 \right) &= \gcd \left( n! + 1, \left( n! + 1  \right) ! + 1 - \left( n! + 1  \right)   \right) \\
+                &= \gcd \left( n! + 1, \left( n + 1 \right)! - n!   \right) \\
+                &= \gcd \left( n! + 1 , n! \left( n + 1  - 1\right)  \right)  \\
+                &= \gcd \left( n! + 1 , n! n  \right)  \\
+                \end{align}
+                \]
+                <p>
+                    Note that 
+                    \[
+                        \operatorname{ ntd } \left( n ! + 1 \right) \cap \operatorname{ ntd } \left( n \right) = \emptyset
+                    \]
+                    because \( \operatorname{ ntd } \left( n! + 1  \right) \subseteq \left[ n + 1, \ldots , n ! + 1  \right]   \) and that \( \operatorname{ ntd } \left( n \right) \subseteq \left[ 2, \ldots , n \right]   \), therefore
+                    \[
+                        \gcd \left( n! + 1 , n \right) = 1
+                    \]
+                    <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-two-consecutive-integers-are-coprime">we also know that</a> \( \gcd \left( n! + 1, n! \right) = 1  \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-relatively-prime-factors-implies-relatively-prime-product">therefore</a>
+                    \[
+                        \gcd \left( n! + 1 , n n! \right) = 1
+                    \]
+                </p>
             </div>
         </div>
 

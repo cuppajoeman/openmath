@@ -27,12 +27,25 @@
                 \]
             </div>
         </div>
-        
+
         <div class="definition" id="definition-set-of-primes">
         	<div class="title">Set of Primes</div>
         	<div class="content">
         	    We denote the set of primes as \( \mathbb{ P }  \) 	
         	</div>
+        </div>
+
+        <div class="corollary" id="corollary-if-a-prime-divides-another-they-are-equal">
+            <div class="title">If a Prime Divides Another they are Equal</div>
+            <div class="content">
+                Suppose that \( p, q \in \mathbb{ P }  \), then
+                \[
+                    p \mid q \implies p = q
+                \]
+            </div>
+            <div class="proof">
+                Since \( p \mid q \) <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">then we know that</a> \( p = 1 \) or \( p = q \) the former is impossible since \( \mathbb{ P } \subseteq \mathbb{ N } _ 2 \) therefore \( p = q \) as needed.
+            </div>
         </div>
 
         <div class="definition" id="definition-increasing-prime-function">
@@ -239,6 +252,21 @@
         	</div>
         </div>
 
+        <div class="definition" id="definition-prime-factors">
+        	<div class="title">Prime Factors</div>
+        	<div class="content">
+        		Let \( n \in \mathbb{ N } _ 2 \) and consider its prime factorization
+                \[
+                n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i }
+                \]
+                \( \alpha  _ i \in \mathbb{ N } _ 1 \) where all but finitely many \( \alpha _ i = 0 \) then we define
+                \[
+                    \operatorname{ pf } \left( n \right) = \left\{ p _ i : \alpha _ i \ge 1 \right\}
+                \]
+        	</div>
+        </div>
+
+
         <div class="definition" id="definition-prime-power-sequence">
         	<div class="title">Prime Power Sequence</div>
         	<div class="content">
@@ -267,19 +295,73 @@
         	</div>
         </div>
 
-
-        
-        <div class="proposition" id="proposition-relatively-prime-in-terms-of-prime-factorization">
-        	<div class="title">Relatively Prime In terms of Prime Factorization</div>
+        <div class="lemma" id="lemma-max-of-the-prime-power-sequence-is-0-iff-they-share-no-prime-factors">
+        	<div class="title">Max of the Prime Power Sequence is 0 iff They share no Prime Factors</div>
         	<div class="content">
+        		Let \( a, b \in \mathbb{ N } _ 2 \) then
                 \[
-                    \gcd \left( a, b \right) = 1 \iff \max \left( \operatorname{ pps } \left( a \right), \operatorname{ pps } \left( b \right)  \right) = 0
+                    \operatorname{ pf } \left( a \right) \cap \operatorname{ pf } \left( b \right) = \emptyset  \iff \max \left( \operatorname{ pps } \left( a \right), \operatorname{ pps } \left( b \right)   \right) = 0
                 \]
         	</div>
         	<div class="proof">
 
         	</div>
         </div>
+
+
+
+        
+        <div class="proposition" id="proposition-relatively-prime-in-terms-of-prime-factorization">
+        	<div class="title">Relatively Prime In terms of Prime Factorization</div>
+        	<div class="content">
+                The following are equivalent
+                <ol>
+                    <li>\( \gcd \left( a, b \right) = 1  \) </li>
+                    <li>\( \max \left( \operatorname{ pps } \left( a \right), \operatorname{ pps } \left( b \right)  \right) = 0  \) </li>
+                    <li>
+                       \( \operatorname{ pf } \left( a \right) \cap \operatorname{ pf } \left( b \right) = \emptyset   \)
+                    </li>
+                </ol>
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+        
+        <div class="exercise" id="exercise-coprime-and-5">
+        	<div class="title">Coprime and 5</div>
+        	<div class="content">
+        		Suppose that \( a, b \in \mathbb{ Z }  \) are coprime, then find all possible values of
+                \[
+                    \gcd \left( a + b, 5 ab \right)
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    Let's consider a common divisor \( d \) of \( a + b \) and \( 5 ab \) recall that there exists a \( p \in \mathbb{ P }  \) such that \( p \mid d  \) therefore by transitivity we have \( p \mid a + b \) and \( p \mid 5 ab \) in the latter case, we see that either \( p \mid 5 \) or \( p \mid a \) or \( p \mid b \).
+                </p>
+
+                <p>
+                    If \( p \mid a \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#corollary-if-a-number-divides-a-sum-and-already-divides-one-of-the-summands-it-must-divide-the-other">then we know that</a> \( p \mid b \) <a class="knowledge-link" href="/number_theory/primes.html#proposition-relatively-prime-in-terms-of-prime-factorization">but then</a> \( \gcd \left( a, b \right) \neq 1  \) which would be a contradiction, therefore \( p \nmid a \), but symmetrically \( p \nmid b \) therefore we must have that \( p \mid 5 \) <a class="knowledge-link" href="/number_theory/primes.html#corollary-if-a-prime-divides-another-they-are-equal">therefore</a> \( p = 5 \)
+                </p>
+                <p>
+                    The above says that given any prime divisor of \( d \) then it turns out that prime divisor must be \( 5 \) therefore \( d = 5 ^ k \) for some \( k \in \mathbb{ N } _ 1 \). Suppose that \( k \ge 2 \), if that's true then we have \( 5 ^ k \mid 5 ab \) and \( 5 ^ k \mid a + b \) from the former <a class="knowledge-link" href="/number_theory/division.html#proposition-if-a-number-divides-another-then-given-a-common-factor-their-quotients-divide-each-other">so we have</a> \( 5 ^ { k - 1 } \mid ab  \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-euclid">therefore</a> \( 5 ^ { k - 1  } \mid a \) or \( 5 ^ { k - 1 } \mid b  \), without loss of generality if we assume that \( 5 ^ { k - 1 } \mid a  \) then in conjunction with \( 5 ^ k \mid a + b \) we have
+                    \[
+                        j 5 ^ k = a + b = 5 ^ { k - 1 } l + b 
+                    \]
+                    therefore 
+                    \[
+                        b = 5 ^ { k - 1 } \left( j5 - l \right) 
+                    \]
+                    so that \( 5 ^ { k - 1 } \mid b \) therefore \( \gcd \left( a, b \right) \ge 5 ^ { k - 1 }  \) which is a contradiction, therefore it must be that \( k = 1 \).
+                </p>
+                <p>
+                    Therefore the only possible values of \( d \) is \( 1 \) or \( 5 \) therefore the only possible values of \( \gcd \left( a + b, 5 ab \right)  \) is \( 1 \) or \( 5 \) 
+                </p>
+
+        	</div>
+        </div>
+        
 
         <div class="lemma" id="lemma-subsequence-of-a-sum-of-two-disjoint-power-sequences-is-still-a-disjoint-sum">
         	<div class="title">Subsequence of the sum of Two Disjoint Power Sequences Is Still a Disjoint Sum</div>
