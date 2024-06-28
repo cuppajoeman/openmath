@@ -1,0 +1,195 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Clock Deltas</title>
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <script src="/js/script.js" defer=""></script>
+</head>
+
+<body>
+    <div class="thin-wrapper">
+        <div class="definition" id="definition-clock-delta-problem">
+        	<div class="title">Clock Delta Problem</div>
+        	<div class="content">
+                Suppose you have two computers on different networks with the following assumptions
+                <ul>
+                    <li>
+                        Each computer has a system time which may be different from the other, but this offset is constant. Let \( t _ c, t _ c   \) be the client and server time, then there exists some \( \Delta _ c \) such that
+                        \[
+                            t _ c + \Delta _ c \approx t _ s
+                        \]
+                    </li>
+                    <li>
+                        Each computer clock advances forward at the same rate
+                    </li>
+                    <li>
+                        The travel time from the client to server denoted by \( \vec { \mathrm{ cs }  } \) and \( \vec{\mathrm{ sc } } \) respectively, and there exists some \( \Delta _ t \) such that
+                        \[
+                            \vec { \mathrm{ cs }  } + \Delta _ t \approx \vec { \mathrm{ sc }  }
+                        \]
+                    </li>
+                </ul>
+                In the clock delta problem, you do not know the value of \( \Delta _ t \) nor \(
+                \Delta _ c \), and you must design a program which estimates these values. The program may send packets over the network with any required information.
+        	</div>
+        </div>
+
+        <p>
+            The reason for \( \Delta _ t \) is that the travel time from client to server is always the same and the travel time from the server to client is always the same, but the two times my differ (different packet routing).
+        </p>
+
+        <div class="corollary" id="corollary-time-conversion-function">
+        	<div class="title">Time Conversion Function</div>
+        	<div class="content">
+        		Suppose that \( t _ c, t _ s \) are times measured on the client and server clock respectively, then to convert the time \( t _ c \) to the servers time one has to compute
+                \[
+                    t _ c + \Delta _ t
+                \]
+                and to convert a server time to client time one has to compute
+                \[
+                    t _ s - \Delta _ t
+                \]
+        	</div>
+        	<div class="proof">
+                This follows directly from the definition of the clock delta problem as \( t _ c + \Delta _ t  = t _ s\)
+        	</div>
+        </div>
+
+
+        <p>
+            The above corollary is important because we cannot measure the elapsed time unless two times are measured on the same clock.
+        </p>
+
+        <div class="definition" id="definition-elapsed-time">
+        	<div class="title">Elapsed Time</div>
+        	<div class="content">
+        		Suppose that \( t _ 1, t _ 2 \in \mathbb{ R } ^ { \ge 0 }   \) are two times measured on the same clock , then the amount of time between the two is given by
+                \[
+                    \left\lvert t _ 2 - t _ 1  \right\rvert
+                \]
+        	</div>
+        </div>
+
+        <p>
+            Note that if \( t _ 1 \le t _ 2 \) this equation is simply \( t _ 2 - t _ 1 \)
+        </p>
+
+
+        <div class="proposition" id="proposition-isolating-for-travel-time-and-clock-deltas-from-packets">
+        	<div class="title">Isolating for Travel Time and Clock Delta From Packets</div>
+        	<div class="content">
+                Suppose that a packet is sent from the client to the server it is sent at client time \( c _ 1 \) and received at server time \( s _ 1 \), after a slight delay it sent back from the server at time \( s _ 2 \) and received on the client at client time \( c _ 2 \) then
+                \[
+                \Delta _ c = \frac{  \left( s _ 1 - c _ 1 \right) - \left( c _ 2 - s _ 2 \right)   + \Delta _ t  }{2}
+                \]
+                and
+                \[
+                \Delta _ t = \left( c _ 2 - s _ 2  \right) - \left( s _ 1 - c _ 1 \right) + 2 \Delta _ c
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    Since the travel time from client to server and server to client is constant, then we know that \( \vec { \mathrm{ cs } } \) is the amount of elapsed time from the moment the packet was sent and received, as measured on the clients clock the initial send time is \( c _ 1 \) and the received time was \( s _ 1 \) as measured on the servers clock, therefore the time that \( c _ 1 \) was sent on the servers clock is given by \( c _ 1 + \Delta _ c \) therefore the elapsed time during travel is given by
+                    \[
+                       \vec { \mathrm{ cs }  } =   s _ 1 - \left( c _ 1 + \Delta _ c \right)   =  s _ 1 - c _ 1 - \Delta _ c
+                    \]
+                    Note that the absolute values are omitted because when measured on the the same clock, the time that a packet is sent comes before when a packet is received.
+                </p>
+                <p>
+                    Similarly we can deduce that
+                    \[
+                        \vec { \mathrm{ sc }  } = c _ 2 - \left( s _ 2 - \Delta _ c \right) = c _ 2 - s _ 2 + \Delta _ c
+                    \]
+                    Since we know that \( \vec { \mathrm{ cs } }  + \Delta _ t = \vec { \mathrm{ sc } } \) then we can deduce that
+                    \[
+                        s _ 1 - c _ 1 - \Delta _ c + \Delta _ t = c _ 2 - s _ 2 + \Delta _ c
+                    \]
+                    therefore
+                    \[
+                        \Delta _ c = \frac{  \left( s _ 1 - c _ 1 \right) - \left( c _ 2 - s _ 2 \right)   + \Delta _ t  }{2}
+                    \]
+                    and
+                    \[
+                        \Delta _ t = \left( c _ 2 - s _ 2  \right) - \left( s _ 1 - c _ 1 \right) + 2 \Delta _ c
+                    \]
+                </p>
+        	</div>
+        </div>
+
+        <p>
+            The above proposition is good, but we can't isolate exactly \( \Delta _ c \) or \( \Delta _ t \) we need one to compute the other. This is when approximations start to come in, we will build up an approximation of the travel and clock delta. For each of the symbols we've mentioned let the same symbol above it with a bar represent the approximation of it, for example \( \overline{ \Delta _ c }  \) is the approximation of \( \Delta _ c \), additionally this process will be iterative, and so we'll denote the approximation after the \( i \)-th update as \( \overline{ \Delta _  c ^  i }  \)
+        </p>
+
+        <p>
+            In order to make this process tractable, we'll start by assuming that \( \overline{ \Delta _ t ^ 0 } = 0  \) which is not a horrible assumption to make, which allows us to compute that
+            \[
+                \overline{ \Delta _ c ^ 0 }  = \frac{\left( s _ 1 - c _ 1 \right) - \left( c _ 2 - s _ 2 \right) + 0  }{2}
+            \]
+        </p>
+
+        <p>
+            But the above equation also has some problems too, recall that \( c _ 1, s _ 1, s _ 2, c _ 2 \) is just a sampling of a single full pass, and since we are now on the live network there is going to be variance between any two different passes. In order to account for this, we'll average out the values in question, to kickstart this process we'll need better variables, so let \( c _ s ^ i, s _ r ^ i, s _ s ^ i, c _ r ^  i \) denote the \( i \)-th client send, server receive, server send, and client receive times all on their own clocks respectively.
+        </p>
+
+        <p>
+            With that in place, we set up the following system, the client starts by sending a packet with its current time to the server, this is the "send time" denoted by \( c _ s ^ 0 \) then the server receives the packet and gets the time which is denoted by \( s _ r ^ 0 \), then the sever waits for some fixed time  duration which we wil denoted by \( w \) and measured in seconds (to slow down the frequency of the ping/pong) and gets a new time, which is denoted by \( s _ s ^ 0 \) and sends \( \left( s _ r ^ 0, s _ s ^ 0 \right)  \) to the client.
+        </p>
+        <p>
+            When received the client stores the value \( c _ r ^ 0 \) somewhere and then puts the value \( s _ r ^ 0 - c _ s ^ 0 \) into a ring buffer which we will denote by \( RB _ { c \to s } \) which represents the a collection of time differences between the client send and server receive, note that the values stored are not actually the travel time from the client to the server because the two times are not measured on the same clock.
+        </p>
+        <p>
+            \( RB _ { c \to s } \) will have some fixed size which we will assume to be \( 1000 \), additionally there will is another ring buffer \( RB _ { s \to c }  \) of the same size in which will store \( c _ r ^ 0 - s _ s ^ 0 \). To simplify things we make the behavior of the server identical to that of the client, the benefit being that it spreads out the work-load between two computers meaning twice the number of iterations can be done in the same time.
+        </p>
+
+        <p>
+            For clarity after the value is added to the ring buffer the client then waits for \( w \) seconds and then measures \( c _ s ^ 1 \) and sends \( \left( c _ r ^ 0, c _ s ^ 1 \right)  \) to the server, then the server adds \( c _ r ^ 0 - s _ s ^ 0 \) and the process restarts. The ping and the pong continues until the ring buffers are full, which will first occur on the client because the server only starts adding to the ring buffer after its first receive, which occurs after the clients first receive.
+        </p>
+        
+        <p>
+            Once the ring buffers are full, we take the average of the ring buffers, on the client when we take the average of \( RB _ { c \to s }  \) it is given by this equation:
+            \[
+                \overline{ s _ r - c _ s }  := \frac{\sum _ { i = 0  } ^ { 999 } \left( s _ r ^ { m + i }  - c _ s ^ { m + i }  \right)}{1000}
+            \]
+            and
+            \[
+                \overline{ c _ r - s _ s } := \frac{\sum _ { i = 0 } ^ { 999  } \left( c _ r ^ { m + i } - s _ s ^ { m + i }   \right)  }{1000}
+            \]
+            for some \( m \in \mathbb{ N } _ 0 \), the purpose of \( m \) is to just denote that the index may not start at \( 0 \) because after more than \( 1000 \) client receives the ring buffer removes some of the beginning elements.
+        </p>
+        <p>
+            Now looking back to our initial value for \( \overline{ \Delta _ c ^ 0 }  \) we will use these averaged values instead to say that
+            \[
+                \overline{ \Delta _ c ^ 0 } = \frac{\left( \overline{ s _ r - c _ s } \right)  - \left( \overline{ c _ r - s _ s } \right)  + 0}{2}
+            \]
+            which will help with the variance between individual network send and receive events.
+        </p>
+
+        <p>
+            Now that we've computed an initial value for \( \overline{ \Delta _ c ^ 0 } \) we can use this to come up with an expected arrival time for the next packet we send to the server. Right before we send the packet, we get our current time
+        </p>
+
+
+
+
+        <p>
+            Now that we know \( \overline{ \Delta _ c ^ 0 }  \) we can compute
+            \[
+                \overline{  \Delta _ t ^ 1 } = \overline{ c _ r - s _ s } - \overline{ s _ r - c _ s } + 2 \overline{ \Delta _ c ^ 0 }
+            \]
+            The order of computation will be \( \overline{ \Delta _ t ^ 0 } \to \overline{ \Delta _ c ^ 0 } \to \overline{ \Delta _ t  ^ 1 } \to \overline{ \Delta _ c ^ 1 }  \ldots \) and so on each iteration we will first compute \( \Delta _ t ^ i \) and then use that to compute \( \Delta _ c ^ i \).
+        </p>
+        <p>
+            Now that the process has been bootstrapped we will continue updating our ring buffers so that \( \overline{ c _ r - s _ s }, \overline{ s _ r - c _ s }   \) are still a smoothed version of the current travel times, and at each iteration we first compute
+        </p>
+        
+
+
+
+
+    </div>
+</body>
+</html>

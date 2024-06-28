@@ -361,7 +361,6 @@
 
         	</div>
         </div>
-        
 
         <div class="lemma" id="lemma-subsequence-of-a-sum-of-two-disjoint-power-sequences-is-still-a-disjoint-sum">
         	<div class="title">Subsequence of the sum of Two Disjoint Power Sequences Is Still a Disjoint Sum</div>
@@ -983,6 +982,48 @@
         	</div>
         </div>
 
+        <div class="proposition" id="proposition-every-odd-number-is-a-difference-of-squares">
+        	<div class="title">Every Odd Number is a Difference of Squares</div>
+        	<div class="content">
+        		For any \( n \in \mathbb{ N } _ 1 \) that is odd there exists \( x, y \in \mathbb{ N } _ 1 \) such that
+                \[
+                    n =  x ^ 2 - y ^ 2
+                \]
+        	</div>
+        	<div class="proof">
+                Since \( n \) is odd, then there is some \( k \in \mathbb{ Z }  \) such that \( n = 2k + 1  \), note that \( 2k + 1  \) is similar to \( \left( k + 1  \right) ^ 2  = k ^ 2 + 2k + 1  \) and so that \( 2k + 1  = \left( k + 1  \right) ^ 2 - k ^ 2  \) as needed. Note that in this proof \( k =  \frac{n - 1}{2}  \) and \( k + 1 = \frac{n + 1 }{2}  \) so we are really saying that
+                \[
+                    n =  \left( \frac{n + 1}{2}  \right) ^ 2 + \left( \frac{n - 1}{2}  \right) ^ 2
+                \]
+        	</div>
+        </div>
+
+        <div class="lemma" id="lemma-the-sum-is-less-than-or-equal-to-the-product">
+        	<div class="title">The Sum is less than or Equal to the Product</div>
+        	<div class="content">
+        		Suppose that \( a, b \in \mathbb{ N } _ 2\)  then
+                \[
+                    a + b \le a \cdot b
+                \]
+                if \( a \lt b \) or \( b \lt a \)  then
+                \[
+                    a + b \lt a \cdot b
+                \]
+        	</div>
+        	<div class="proof">
+        	    Suppose that \( a, b \in \mathbb{ N } _ 2\) and without loss of generality assume that \( a \le b \) therefore
+                \[
+                    a + b \le b + b \le 2b \le ab
+                \]
+                Now suppose that \( a \lt b \)
+                \[
+                    a + b \lt b + b = 2b \le ab
+                \]
+        	</div>
+        </div>
+
+
+
         <div class="proposition" id="proposition-fermats-factorization">
         	<div class="title">Fermats Factorization</div>
         	<div class="content">
@@ -990,16 +1031,80 @@
                 \[
                 n = x ^ 2 - y ^ 2
                 \]
+                where \( x \neq \frac{n + 1 }{2}  \)
         	</div>
         	<div class="proof">
                 <p>
-                    \( \implies  \) Since \( n \) is odd, then there is some \( k \in \mathbb{ Z }  \) such that \( n = 2k + 1  \), note that \( 2k + 1  \) is similar to \( \left( k + 1  \right) ^ 2  = k ^ 2 + 2k + 1  \) and so that \( 2k + 1  = \left( k + 1  \right) ^ 2 - k ^ 2  \) as needed.
+                    \( \implies  \) We can't use the fact that every odd number is a difference of squares, this is because the solution to that equation was specifically \( x = \frac{n + 1}{2}  \) which is explicitly disallowed for this proposition, therefore instead we note that \( n \) is composite so there exists \( c, d \in \left[ 2, \ldots , n - 1 \right]  \) such that \( n = cd \). But at the same time, we know that
+                    \[
+                    \begin{align}
+                    \left( \frac{c + d}{2}  \right) ^ 2 - \left( \frac{c - d}{2}   \right) ^ 2 &= \frac{c ^ 2 + 2 cd + d ^ 2 - c ^ 2 + 2cd - d ^ 2}{4} = cd
+                    \end{align}
+                    \]
+                    We'll now prove that \( \frac{c + d}{2} \neq \frac{n + 1 }{2}  \). 
                 </p>
                 <p>
-                    \( \impliedby  \) Suppose that \( n = x ^ 2 - y ^ 2 \) since \( n \ge 2 \) then we know \( x \gt y \) also note that \( x ^ 2 - y ^ 2 = \left( x + y \right) \left( x - y \right)   \) therefore \( \left( x + y \right) \mid n  \) and \( \left( x - y \right) \mid n  \), if \( n \) were to be prime, then \( \left( x +  y \right), \left( x - y  \right) \in \left\{ 1, n \right\}    \) since \( x + y \ge x - y  \) then we know that \( x - y = 1 \) and \( x + y = n \) therefore \( 2x = n + 1 \) so \( x = \frac{n + 1 }{2}  \) then \( y = \frac{n - 1}{2}   \)
+                    Since \( c, d \in \mathbb{ N } _ 2 \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-the-sum-is-less-than-or-equal-to-the-product">then we know that</a> \( c + d \le c \cdot d = n \) so that \( c + d \lt n + 1 \) therefore \( \frac{c + d}{2} \neq \frac{n + 1 }{2}  \) as needed.
+                </p>
+                <p>
+                    \( \impliedby  \) Suppose that \( n = x ^ 2 - y ^ 2 \) since \( n \ge 2 \) then we know \( x \gt y \) also note that \( x ^ 2 - y ^ 2 = \left( x + y \right) \left( x - y \right)   \) therefore \( \left( x + y \right) \mid n  \) and \( \left( x - y \right) \mid n  \), if \( n \) were to be prime, then \( \left( x +  y \right), \left( x - y  \right) \in \left\{ 1, n \right\}    \) without loss of generality suppose that \( x - y = 1 \) and \( x + y = n \) therefore \( 2x = n + 1 \) so \( x = \frac{n + 1 }{2}  \) then \( y = \frac{n - 1}{2}   \) which is a contradiction, and therefore \( n \) must be composite.
                 </p>
         	</div>
         </div>
+
+        <pre>
+            <code>
+import math
+
+def fermat_factor(n):
+    assert n % 2 != 0, "Fermat's factorization method works only for odd integers."
+
+    print(f"Starting Fermat's factorization for n = {n}")
+
+    # Calculate the ceiling of the square root of n
+    x = math.ceil(math.sqrt(n))
+    print(f"Initial x (ceiling of the square root of n): {x}")
+
+    if x * x == n:
+        print(f"{n} is a perfect square. Factors are {x} and {x}.")
+        return x, x
+
+    y2 = x * x - n
+    print(f"Initial y^2 = {x}^2 - {n} = {y2}")
+
+    # Loop will always terminate because (x, y) = ((n + 1) / 2, (n - 1) / 2) is a valid solution
+    while not last_two_digits_possible_square(y2) or not is_perfect_square(y2):
+        print(f"y^2 = {y2} is not a perfect square. Incrementing y^2 and then x.")
+
+        # Update y^2 incrementally
+        y2 += 2 * x + 1  # Efficiently calculate the next y2 using (x+1)^2 = x^2 + 2x + 1
+        x += 1  # Increment x after updating y^2
+
+        print(f"New x = {x}, new y^2 = {x}^2 - {n} = {y2}")
+
+    y = int(math.isqrt(y2))
+    print(f"Found perfect square y^2 = {y2}. y = sqrt({y2}) = {y}")
+    print(f"Factors are (x - y) = {x - y} and (x + y) = {x + y}")
+
+    return (x - y, x + y)
+
+def last_two_digits_possible_square(n):
+    # Set of possible last two digits of a perfect square
+    possible_last_two_digits = {0, 1, 4, 9, 16, 25, 36, 49, 64, 81,
+                                20, 21, 24, 25, 29, 41, 44, 45, 61, 69, 84}
+    return (n % 100) in possible_last_two_digits
+
+def is_perfect_square(n):
+    # Check if the number is a perfect square
+    root = int(math.isqrt(n))
+    return root * root == n
+
+# Example usage:
+n = 5959
+factors = fermat_factor(n)
+print(f"The factors of {n} are {factors}")
+            </code>
+        </pre>
 
         
         
