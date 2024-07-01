@@ -48,6 +48,24 @@
             </div>
         </div>
 
+        <div class="proposition" id="proposition-primes-of-the-form-4k-plus-something">
+        	<div class="title">Primes of the Form 4k Plus Something</div>
+        	<div class="content">
+        		Suppose that \( p \in \mathbb{ P  } _ 3 \) then there exists some \( k \in \mathbb{ N } _ 0 \) such that
+                \[
+                    p = 4k + 1 \text{ or } p = 4k + 3
+                \]
+        	</div>
+        	<div class="proof">
+                By the <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#theorem-quotient-remainder">quotient remainder</a> theorem we have that
+                \[
+                    p = 4 q + r
+                \]
+                where \( q \in \mathbb{ Z }  \) and \( r \in \left[ 0, \ldots , q - 1 \right]  \), when \( p = 3 \) the only possibility is that \( q = 0 \) and \( r = 3 \), on the other hand for any \( p \ge 5 \) we have that \( q \ge 1 \), now if \( q = 0 \) or \( r = 2 \) then the prime is divisible by \( 2 \) and which makes \( p \) not prime, which is a contradiction, therefore \( r \in \left\{ 1, 3 \right\}  \).
+        	</div>
+        </div>
+
+
         <div class="definition" id="definition-increasing-prime-function">
         	<div class="title">Increasing Prime Function</div>
         	<div class="content">
@@ -422,6 +440,20 @@
         	</div>
         </div>
 
+        <div class="proposition" id="proposition-prime-divisors-of-a-factorial-are-bounded-by-the-argument">
+            <div class="title">Prime Divisors of a Factorial are Bounded by the Argument</div>
+            <div class="content">
+                For every \( p \in \mathbb{ P }  \) and \( n \in \mathbb{ N } _ 2 \) such that  \( p \mid n! \) then
+                \[
+                p \le n
+                \]
+            </div>
+            <div class="proof">
+                Since \( p \mid 1 \cdots n \) then there exists some \( k \in \left[ 1, \ldots , n \right]  \) such that \( p \mid k \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">therefore</a> \( p \le k \le n \) so that \( p \le n \)
+            </div>
+        </div>
+
+
         <div class="proposition" id="proposition-a-divisors-of-a-product-of-primes-is-a-product-of-primes-with-smaller-powers">
         	<div class="title">A Divisor of a Product of Primes is a Product of Primes with Smaller Powers</div>
         	<div class="content">
@@ -604,6 +636,72 @@
                 \]
         	</div>
         </div>
+
+        <div class="exercise" id="exercise-1-2-3-n-go">
+        	<div class="title">1 2 3 n go</div>
+        	<div class="content">
+        		Show that for any \( n \in \mathbb{ N } _ 2 \) then
+                \[
+                    n \mid 2 \left( n - 3 \right) ! + 1
+                \]
+                iff \( n \) is prime
+        	</div>
+        	<div class="proof">
+                Suppose that \( n \) is prime, <a class="knowledge-link" href="/number_theory/primes.html#corollary-p-minus-two-factorial-is-congruent-to-one-mod-p">therefore</a> 
+                \( \left( n - 2 \right) ! \equiv 1 \pmod{ n }  \) we also know that \( n - 2 \equiv -2 \pmod{ n }   \) therefore we know that 
+                \[
+                    \left( n - 3 \right) ! \left( -2 \right) \equiv 1 \pmod{ n }  \iff 2 \left( n - 3 \right) ! \equiv -1 \pmod{ n } 
+                \]
+                thus
+                \[
+                    2 \left( n - 3 \right) ! + 1 \equiv 0 \pmod{ n }
+                \]
+                as needed.
+                <p>
+                    For the other direction assume that \( n \mid 2 \left( n - 3 \right) ! + 1 \) therefore we know that
+                    \[
+                        2 \left( n - 3 \right) ! \equiv -1 \pmod{ n }
+                    \]
+                    by multiplying both sides by -1, re-writing the factorial and then multiplying by -1 again, we obtain that
+                    \[
+                        \left( n - 1 \right) ! \equiv -1 \pmod{ n }
+                    \]
+                    therefore by wilsons theorem we know that \( n \) is prime.
+                </p>
+        	</div>
+        </div>
+        
+        <div class="theorem" id="theorem-generalized-wilsons-theorem">
+        	<div class="title">Generalized Wilson's Theorem</div>
+        	<div class="content">
+        	    Suppose that \( p \in \mathbb{ P }  \) 	and that \( a \in \left[ 1, \ldots , p \right]  \) then we have 
+                \[
+                    \left( a - 1 \right) ! \left( p - a \right) ! \equiv \left( -1 \right) ^ a
+                \]
+        	</div>
+        	<div class="proof">
+        	    <a class="knowledge-link" href="/number_theory/primes.html#proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">We know that</a> the base case holds. Therefore we move directly to the induction step, where we assume that the statement holds true for \( k \in \mathbb{ N } _ 1 \), and we have to prove that
+                \[
+                    \left( k \right) ! \left( p - k - 1 \right) ! \equiv \left( -1 \right) ^ { k + 1  }
+                \]
+                We have that
+                \[
+                    \begin{align}
+                \left( -1 \right) ^ k &\equiv \left( k - 1 \right) ! \left( p - k \right) ! \\
+                & \equiv \left( k - 1 \right) ! \left( p - k \right) \left( p - k - 1 \right) ! \\
+                & \equiv \left( k - 1 \right) ! \left( -k \right) \left( p - k - 1 \right) ! \\
+                & \equiv \left( -1 \right) k! \left( p - k - 1 \right) ! \\
+                    \end{align}
+                \]
+                thus by multiplying both sides by \( -1 \) we obtain that 
+                \[
+                    k! \left( p - k - 1 \right) \equiv \left( -1 \right) { k + 1  }
+                \]
+                as needed.
+        	</div>
+        </div>
+        
+
         
         <div class="corollary" id="corollary-wilson-folded-in-half">
         	<div class="title">Wilson Folded in Half</div>
@@ -776,6 +874,35 @@
                 </p>
         	</div>
         </div>
+
+        <div class="exercise" id="exercise-prime-power-sum">
+        	<div class="title">Prime Power Sum</div>
+        	<div class="content">
+        	    Suppose that \( p \in \mathbb{ P } _ 3 \) then compute
+                \[
+                    \left( 1 ^ p + 2 ^ p + 3 ^ p + \cdots + \left( p - 1 \right) ^ p \right) ~\%~ p
+                \]
+        	</div>
+        	<div class="proof">
+                Since for each \( x \in \left[ 1, \ldots , p - 1 \right]  \) we know that by fermats little theorem that
+                \[
+                    x ^ p \equiv x \pmod{ p }
+                \]
+                thus we have that
+                \[
+                        \sum _ { i = 1 } ^ { p - 1  }  i ^ p \equiv \sum _ { i = 1 } ^ {  p - 1 } i \equiv \frac{\left( p - 1 \right) p  }{2} \pmod{ p } 
+                \]
+                now since \( p \in \mathbb{ P } _ 3  \) then we know that \( p - 1 \) is an even number therefore we know that \( \frac{ p - 1}{2} \in \mathbb{ Z }  \) therefore we have
+                \[
+                    \frac{\left( p - 1 \right) p }{2} \equiv \frac{p - 1}{2} p \equiv 0 \pmod{ p }
+                \]
+                which shows that
+                \[
+                \left( 1 ^ p + 2 ^ p + 3 ^ p + \cdots + \left( p - 1 \right) ^ p \right) ~\%~ p = 0
+                \]
+        	</div>
+        </div>
+
 
 
 

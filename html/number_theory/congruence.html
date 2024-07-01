@@ -176,6 +176,57 @@
         	</div>
         </div>
 
+        <div class="exercise" id="exercise-switching-prime-powers">
+        	<div class="title">Switching Prime Powers</div>
+        	<div class="content">
+                Let \( p \neq q \in \mathbb{ P }  \) then 
+                \[
+                    p ^ { q - 1 } + q ^ { p - 1 } \equiv 1 \pmod{ pq } 
+                \]
+        	</div>
+        	<div class="proof">
+                <a class="knowledge-link" href="/number_theory/primes.html#theorem-fermats-little">FLT</a> tells us that
+                \[
+                    p ^ { q - 1 } \equiv 1 \pmod{ q } \text{ and } q ^ { p - 1 } \equiv 1 \pmod{ p }
+                \]
+                but since \( p - 1, q - 1 \ge 1 \) then we know that
+                \[
+                    q ^ { p - 1 } \equiv 0 \pmod{ q } \text{ and } p ^ { q - 1 } \equiv 0 \pmod{ p }
+                \]
+                therefore we know that
+                \[
+                    p ^ { q - 1 } + q ^ { p - 1 } \equiv 1 \pmod{ q } \text{ and } q ^ { p - 1 } + p ^ { q - 1 } \equiv 1 \pmod{ p }
+                \]
+                <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#theorem-gcd-and-lcm-connection">since</a> \( \operatorname{ lcm }  \left( p, q \right) = pq \cdot \gcd \left( p, q \right)  \) and we know that \( p \neq  q  \in \mathbb{ P } \) then \( \gcd \left( p, q \right) = 1 \) so that \( \operatorname{ lcm }  \left( p, q \right) = p \cdot q \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-if-two-numbers-are-congruent-using-two-different-moduli-they-are-congruent-using-the-lcm">then we conclude that </a>
+                \[
+                    p ^ { q - 1 } + q ^ { p - 1 } \equiv 1 \pmod{ pq }
+                \]
+        	</div>
+        </div>
+        
+        <div class="exercise" id="exercise-a-p-q">
+        	<div class="title">a p q</div>
+        	<div class="content">
+        	    Suppose that \( a \in \mathbb{ Z }  \) and that \( p \neq q \in \mathbb{ P }  \), then 
+                \[
+                    a ^ { pq } - a ^ p - a ^ q + a \equiv 0 \pmod{ pq } 
+                \]
+        	</div>
+        	<div class="proof">
+                By FLT, we know that 
+                \[
+                a ^ { pq } - a ^ p - a ^ q + a \equiv \left( a ^ p  \right) ^ q - a ^ p - a ^ q + a  \equiv a ^ q - a - a ^ q + a = 0 \pmod{ p }
+                \]
+                and symetrically the same thing occurs mod \( q \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-if-two-numbers-are-congruent-using-two-different-moduli-they-are-congruent-using-the-lcm">therefore </a> 
+                \[
+                    a ^ { pq } - a ^ p - a ^ q + a \equiv 0 \pmod{ pq } 
+                \]
+        		
+        	</div>
+        </div>
+        
+
+
         <div class="proposition" id="proposition-division-by-a-common-factor-maintains-congruence">
         	<div class="title">Division by a Common Factor Maintains Congruence</div>
         	<div class="content">
@@ -302,11 +353,55 @@
         <p>
             When a given number has an inverse we say that it is invertible.
         </p>
+        
+        <div class="proposition" id="proposition-when-a-rational-can-be-converted-to-a-modular-inverse">
+        	<div class="title">When a Rational Can be Converted to a Modular Inverse</div>
+        	<div class="content">
+        		Suppose that \( a, b \in \mathbb{ Z } \) and \( m \in \mathbb{ N } _ 1 \)  such that \( b \) is invertible mod \( m \) and \( \frac{a}{b} \in \mathbb{ Z }  \) then:
+                \[
+                    a \cdot b ^ { -1 } \equiv \frac{a}{b} \pmod{ m }
+                \]
+                where the right hand side is interpreted as division of integers.
+        	</div>
+        	<div class="proof">
+        		Note that <a class="knowledge-link" href="/number_theory/division.html#corollary-divisible-implies-integer-quotient">since</a> \( b \mid a \) then there is some \( k \in \mathbb{ Z }  \) such that \( a = bk \) therefore
+                \[
+                    a \equiv bk \pmod{ p } \iff b ^ { -1 } a \equiv k \iff a b ^ { -1 } \equiv \frac{a}{b} \pmod{ p } 
+                \]
+        	</div>
+        </div>
+        
+        <div class="exercise" id="exercise-2p-choose-p">
+        	<div class="title">2p Choose p</div>
+        	<div class="content">
+        	    Prove that 
+                \[
+                    \binom{2p}{p} \equiv 2 \pmod{ p } 
+                \]
+        	</div>
+        	<div class="proof">
+        	    We have that 
+                \[
+                    \binom{2p}{p} = \frac{\left( p + 1 \right) \cdots \left( p + p - 1 \right) \left( 2p \right)  }{p!} = \frac{\left( p + 1  \right) \cdots \left( p + p - 1 \right) 2  }{\left( p - 1 \right) !} \in \mathbb{ Z } 
+                \]
+                <a class="knowledge-link" href="/number_theory/congruence.html#proposition-when-a-rational-can-be-converted-to-a-modular-inverse">therefore</a> 
+                \[
+                \begin{align}
+                \frac{\left( p + 1  \right) \cdots \left( p + p - 1 \right) 2  }{\left( p - 1 \right) !} &\equiv \left( p + 1  \right) \cdots \left( p + p - 1 \right) 2 \left[ \left( p - 1 \right) ! \right] ^ { -1 }   \\
+                &\equiv 2 \left( p - 1 \right) ! \left[ \left( p - 1 \right) ! \right] ^ { -1 } \\
+                &\equiv 2 \pmod{ p }
+                \end{align}
+                \]
+        	</div>
+        </div>
+        
+
+        
 
         <div class="corollary" id="corollary-every-non-zero-number-is-invertible-mod-a-prime">
         	<div class="title">Every Non Zero Number is Invertible Mod a Prime</div>
         	<div class="content">
-                For any \( p \in \mathbb{ P }  \) and \( a \in \left[ 1, \ldots , p - 1 \right]  \) there exists \( b \in \left[ 1, \ldots , p - 1 \right]   \) such that
+                For any \( p \in \mathbb{ P }  \) \( a \in \mathbb{ Z }  \) such that \( p \nmid a \) there exists \( b \in \left[ 1, \ldots , p - 1 \right]   \) such that
                 \[
                     ab \equiv 1 \pmod{ p }
                 \]
