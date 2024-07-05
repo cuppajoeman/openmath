@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Rubik's Cube</title>
+
+  <link rel="stylesheet" href="/styles/styles.css">
+  <script src="/js/script.js" defer></script>
+
+
+
+</head>
+<body>
+
+<div class="thin-wrapper">
+
+  <div>
+    <h1>Rubik's Cube Move Inverter</h1>
+    <input type="text" id="inputMoves" placeholder="Enter Rubik's Cube moves here">
+    <button onclick="invertMoves()">Invert Moves</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function invertMoves() {
+      const inputMoves = document.getElementById('inputMoves').value.trim();
+      const invertedMoves = invertRubiksMoves(inputMoves);
+      document.getElementById('output').innerText = invertedMoves;
+    }
+
+    function invertRubiksMoves(moves) {
+      const moveArray = moves.split(' ').filter(Boolean);
+      const reversedMoves = moveArray.reverse();
+
+      function invertMove(move) {
+        if (move.endsWith('2')) {
+          return move;
+        } else if (move.endsWith("'")) {
+          return move.slice(0, -1);
+        } else {
+          return move + "'";
+        }
+      }
+
+      const invertedMoves = reversedMoves.map(invertMove);
+      return invertedMoves.join(' ');
+    }
+  </script>
+
+
+
+
+</div>
+</body>
+</html>
