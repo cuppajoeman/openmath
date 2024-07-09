@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Limits and Continuity</title>
+    <script src="/js/script.js" defer></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+<body>
+<div class="thin-wrapper">
+    
+    <div class="definition" id="definition-limit-of-a-function">
+    	<div class="title">Limit of a Function</div>
+    	<div class="content">
+    		Let \( S \subseteq \mathbb{ R } ^ n \) and \( f : S \to \mathbb{ R } ^ m \). If \( a \) is a <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-cluster-point">cluster point</a> of \( S \) then a point \( v \in \mathbb{ R } ^ m \) is the limit of \( f \) at \( a \) if for every \( \epsilon \in \mathbb{ R } ^ +  \) there exists an \( r \in \mathbb{ R } ^ +  \) such that for any \( x \in S \) we have
+            \[
+                0 \lt \lVert x - a \rVert \lt r \implies \lVert f \left( x \right) - v  \rVert \lt \epsilon
+            \]
+            and we write
+            \[
+                \lim _ { x \to a } f \left( x \right) = v
+            \]
+    	</div>
+    </div>
+
+    The reason we want a cluster point is that if it was not a cluster point, and for example if \( S = \left\{ 1, 2, 3 \right\}  \) and we're looking at the point \( 1 \), \( f \) is the identity function, and then we claim that \( \lim _ { x \to 1 } f \left( x \right) = 1 \)  then for any epsilon we can choose \( r \) small enough so that no point in the domain other than the point \( 1 \) is in the ball, then clearly this holds true, but that's not what we wanted when we designed the idea of a limit, we want to say that points of the function are all getting close to 1, therefore without the added assumption of cluter point, the definition fails the very design we wanted it to have.
+
+    <div class="definition" id="definition-continuity-of-a-function-at-a-point">
+    	<div class="title">Continuity of a Function at a Point</div>
+    	<div class="content">
+    		Suppose that \( S \subseteq \mathbb{ R } ^ n \) and let \( f \) be a function \( f : S \to \mathbb{ R } ^ m \) we say that \( f \) is <b>continuous</b> at \( a \in S \) if for every \( \epsilon \in \mathbb{ R } ^ +  \) there is some \( r \in \mathbb{ R } ^ +  \) such that for all \( x \in S \) we have
+            \[
+                \lVert x - a \rVert \lt r \implies \lVert f \left( x \right) - f \left( a \right)  \rVert \lt \epsilon
+            \]
+    	</div>
+    </div>
+
+
+    <p>
+        The above definition looks very much like the limit of a function, but note the difference, since in the limit we force that \( 0 \lt \lVert x - a \rVert  \) this means that we don't have a positive implication for when \( x = a \), in fact in such a case the implication is trivial which means that no information is gained in that case, whereas the definition of continuity of a function at a point does not have such a case, and therefore allows for knowledge gain when \( x = a \) and in such a case we must also have that \( \lVert f \left( x  \right) - f \left( a \right)  \rVert \lt \epsilon   \), this implies that our function is actually well behaved at that point.
+    </p>
+
+    <div class="definition" id="definition-discontinuity-of-a-function-at-a-point">
+    	<div class="title">Discontinuity of a Function at a Point</div>
+    	<div class="content">
+            We say that a function is discontinuous at a point if if it is not <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuity-of-a-function-at-a-point">continuous</a> there
+    	</div>
+    </div>
+
+    <div class="exercise" id="exercise-the-characteristic-function-is-discontinuous-on-the-boundary">
+    	<div class="title">The Characteristic Function is Discontinuous on the Boundary</div>
+    	<div class="content">
+    		Let \( A \subseteq R ^ n \) then \( \chi _ A \) is discontinuous for every point in \( \partial A \)
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+
+    <div class="definition" id="definition-lipschitz">
+    	<div class="title">Lipschitz</div>
+    	<div class="content">
+            A function from \( S \subseteq \mathbb{ R } ^ n \) into \( \mathbb{ R } ^ m \) is said to be <b>Lipschitz</b> if there exists some \( C \in \mathbb{ R } ^ +   \) such that for all \( x, y \in S \)
+            \[
+                \lVert f \left( x \right) - f \left( y \right)  \rVert \le C \lVert x - y \rVert 
+            \]
+            the <b>Lipschitz constant</b> of \( f \) is the smallest \( C \) for which the condition holds.
+    	</div>
+    </div>
+    
+    <div class="proposition" id="proposition-every-lipschitz-function-is-continuous">
+    	<div class="title">Every Lipschitz Function is Continuous</div>
+    	<div class="content">
+    		As per title.
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+
+    
+
+    
+
+
+    
+
+</div>
+</body>
+</html>

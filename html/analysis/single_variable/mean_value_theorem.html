@@ -18,21 +18,21 @@
         <div class="thin-wrapper">
 
 			<div class="definition" id="definition-left-hand-limit">
-				<div class="title">left hand limit</div>
+				<div class="title">Left Hand Limit</div>
 				<div class="content">
 					We say that the limit of \( f{\left ( x \right )} \) as \( x \) approaches \( c \) from the left equals \( L \) when
 					<div class="centered-content">
-						\( \forall \epsilon \in \mathbb{R}^{\gt 0} , \exists \delta \in \mathbb{R}^{\gt 0} \text{ such that } \forall x \in \text{dom} \left ( f \right ) , c - \epsilon \lt x \lt c \Rightarrow \left | f{\left ( x \right )} - f{\left ( c \right )} \right |  \lt \epsilon \)
+						\( \forall \epsilon \in \mathbb{R}^{\gt 0} , \exists \delta \in \mathbb{R}^{\gt 0} \text{ such that } \forall x \in \text{dom} \left ( f \right ) , c - \delta \lt x \lt c \Rightarrow \left | f{\left ( x \right )} - f{\left ( c \right )} \right |  \lt \epsilon \)
 					</div>
 				</div>
 			</div>
 
 			<div class="definition" id="definition-right-hand-limit">
-				<div class="title">right hand limit</div>
+				<div class="title">Right Hand limit</div>
 				<div class="content">
 					We say that the limit of \( f{\left ( x \right )} \) as \( x \) approaches \( c \) from the right equals \( L \) when
 					<div class="centered-content">
-						\( \forall \epsilon \in \mathbb{R}^{\gt 0} , \exists \delta \in \mathbb{R}^{\gt 0} \text{ such that } \forall x \in \text{dom} \left ( f \right ) , c \lt x \lt c + \epsilon \Rightarrow \left | f{\left ( x \right )} - f{\left ( c \right )} \right |  \lt \epsilon \)
+						\( \forall \epsilon \in \mathbb{R}^{\gt 0} , \exists \delta \in \mathbb{R}^{\gt 0} \text{ such that } \forall x \in \text{dom} \left ( f \right ) , c \lt x \lt c + \delta \Rightarrow \left | f{\left ( x \right )} - f{\left ( c \right )} \right |  \lt \epsilon \)
 					</div>
 				</div>
 			</div>
@@ -46,7 +46,39 @@
 					TODO
 				</div>
 			</div>
-			
+
+			<div class="definition" id="definition-function-goes-to-infinity-at-a-point">
+				<div class="title">Function goes to Infinity at a Point From the Right</div>
+				<div class="content">
+					Suppose that \( S \subseteq \mathbb{ R } \) and that \( f: S \to \mathbb{ R }  \), is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> then if \( a \in  S \) then we say that \( f \) <b>goes to positive infinity at a point at</b> \( a \) if for every \( M \in \mathbb{ R }  \) there exists an \( \delta \in \mathbb{ R } ^ +   \) such that for all \( x \in S \)
+					\[
+					a \lt x \lt a + \delta \implies f \left( x \right)   \gt M
+					\]
+					and we write
+					\[
+					    \lim _ { x \to a ^ +  } f \left( x \right) = \infty
+					\]
+				</div>
+			</div>
+
+			<div class="proposition" id="proposition-function-goes-to-infinity-at-a-point-from-the-right-alternate-characterization">
+				<div class="title">Function goes to Infinity at a Point From the Right Alternate Characterization</div>
+				<div class="content">
+					The regular <a class="knowledge-link" href="/analysis/single_variable/mean_value_theorem.html#definition-function-goes-to-infinity-at-a-point">definition of going to infinity from the right</a> yields a new characterization:
+					\[
+					\lim _ { x \to a ^ +  } f \left( x \right) = \infty   \implies  \forall \delta, M ^ \prime  \in \mathbb{ R } ^ +, \exists x ^ \prime  \in S \text{ st } \left( a \lt x ^ \prime  \lt a + \delta ^ \prime   \land f \left( x ^ \prime  \right) \gt M ^ \prime  \right)
+					\]
+				</div>
+				<div class="proof">
+					<p>
+						Suppose that \( \lim _ { x \to a ^ +  } f \left( x \right) = \infty  \), now let \( \delta ^ \prime , M ^ \prime  \in \mathbb{ R } ^ +  \) setting \( M = M ^ \prime  \) we obtain some \( \delta \) such that for any \( x \in \left( a , a + \delta \right)  \) we have that \( f \left( x \right) \gt M \) note that we have to find an \( x ^ \prime  \in \left( a, a + \delta ^ \prime  \right)  \) therefore note that for any  \( y \in \left( a, \min \left( \delta, \delta ^ \prime  \right)   \right)  \) we have \( f \left( y \right) \gt M \) as we know that \( \left( a, a + \min \left( \delta, \delta ^ \prime  \right)   \right) \subseteq \left( a, a + \delta \right)  \), therefore take \( x ^ \prime = a + \frac{\min \left( \delta, \delta ^ \prime  \right) }{2}  \) so then we have that \( f \left( x ^ \prime  \right) \gt M  \)
+					</p>
+				</div>
+			</div>
+
+			<p>
+				Note that the above is not an if and only if as \( \frac{1}{x} \sin	\left( \frac{1}{x}  \right)   \) on the domain \( \mathbb{ R }  ^ +  \) satisfies the characterization, but does not satisfy the right hand limit as it always dips back down to zero infinitely often as we move toward zero.
+			</p>
 
 			<div class="definition" id="definition-local-maximum">
 				<div class="title">local maximum</div>
