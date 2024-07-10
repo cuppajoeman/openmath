@@ -82,6 +82,63 @@
     		
     	</div>
     </div>
+
+   <div class="definition" id="definition-lipschitz-condition-of-order-alpha">
+   	<div class="title">Lipschitz Condition of Order Alpha</div>
+   	<div class="content">
+   		Suppose that \( f: \left[ a, b \right] \to \mathbb{ R }   \) and \( \alpha  \in \mathbb{ R } ^ +  \) then if there is some \( M \in \mathbb{ R } ^ +  \) such that for any \( x, y \in \left[ a, b \right]  \) we have
+        \[
+            \left\lvert f \left( x \right) - f \left( y \right)  \right\rvert \le M \left\lvert x - y \right\rvert ^ \alpha
+        \]
+        Let \( \operatorname{ lip } \left( \alpha  \right)  \) denote the set of all functions satisfying a lipschitz condition of order \( \alpha \)
+   	</div>
+   </div>
+
+    <div class="lemma" id="lemma-base-and-exponent-in-the-range-0-to-1-inequality">
+    	<div class="title">Base and Exponent in the Range 0 to 1 Inequality</div>
+    	<div class="content">
+    	    Suppose that \( a, b \in \left( 0, 1 \right)  \) then
+            \[
+                b \lt b ^ a
+            \]
+    	</div>
+    	<div class="proof">
+
+    	</div>
+    </div>
+
+
+    <div class="exercise" id="exercise-x-to-the-alpha-is-in-lip-alpha">
+    	<div class="title">x to the Alpha is in Lip Alpha</div>
+    	<div class="content">
+    		For \( \alpha \in \left( 0, 1 \right)  \) show that \( x ^ \alpha \in \operatorname{ lip } \left( \alpha  \right)  \) where \( x ^ \alpha : \mathbb{ R } ^ + \to \mathbb{ R } ^ +   \)
+    	</div>
+    	<div class="proof">
+            Let \( x, y \in \mathbb{ R } ^ +  \) our goal is to find some \( M \in \mathbb{ R } ^ +  \) such that
+            \[
+                \left\lvert x ^ \alpha  - y ^ \alpha  \right\rvert \le M \left\lvert x - y \right\rvert ^ \alpha
+            \]
+            if \( x = y \) this is trivially true because \( 0 \le 0 \) so without loss of generality we will assume that \( x \gt y \) so that dividing by \( x ^ \alpha  \) on both sides we obtain
+            \[
+                \left\lvert 1 - \left( \frac{y}{x}  \right) ^ \alpha   \right\rvert \le M \left\lvert 1 - \frac{y}{x}  \right\rvert ^ \alpha
+            \]
+            allowing \( x ^ \alpha  \) to <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#theorem-multiplication-in-absolute-value">enter into the absolute value</a> because it is positive, and noticing that \( 1 \gt \frac{y}{x}  \), set \( \lambda := \frac{y}{x}  \) therefore we're trying to prove (also removing some redudant absolute values):
+            \[
+                1 - \lambda  ^ \alpha \le M \left( 1 - \lambda   \right) ^ \alpha
+            \]
+            so we have to prove that \( 1 \le M \left( 1 - \lambda   \right) ^ \alpha + \lambda ^ \alpha   \) by choosing a good value of \( M \), but we clearly have
+            \[
+                1 \le \left( 1 - \lambda  \right) + \lambda
+            \]
+            then since \( \left( 1 - \lambda  \right), \lambda \in \left( 0, 1 \right)   \) and \( \alpha \in \left( 0, 1 \right)  \) <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#lemma-base-and-exponent-in-the-range-0-to-1-inequality">we know that</a> \( \left( 1 - \lambda  \right) ^ \alpha \gt \left( 1 - \lambda  \right)    \) and that \( \lambda ^ \alpha \gt \lambda  \) therefore we have
+            \[
+                1 \le \left( 1 - \lambda  \right)  + \lambda \le \left( 1 - \lambda  \right)  ^ \alpha + \lambda ^ \alpha
+            \]
+            therefore a selection of \( M = 1 \) proves what we have to show.
+    	</div>
+    </div>
+
+
     
 
     
