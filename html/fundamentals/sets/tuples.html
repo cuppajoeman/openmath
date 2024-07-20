@@ -177,6 +177,104 @@
     	</div>
     </div>
 
+    <div class="definition" id="definition-sorted-in-strictly-ascending-order">
+        <div class="title">Sorted in Strictly Ascending Order</div>
+        <div class="content">
+            Suppose that \(a =  \left( a _ 1, a _ 2, \ldots , a _ n \right) \in \mathbb{ R } ^ n  \), then we say that \( a \) is <b>sorted in strictly ascending order</b> <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-a-binary-relation-holds-consecutively-on-a-tuple">when</a>
+            \[
+                \operatorname{ bop\_holds } \left( \lt , a \right)
+            \]
+        </div>
+    </div>
+    
+    <div class="definition" id="definition-a-binary-relation-holds-consecutively-on-a-tuple">
+    	<div class="title">A Binary Relation Holds Consecutively on a Tuple</div>
+    	<div class="content">
+    	    Suppose that \( \star \) is a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</a>, then we say that it <b>holds consecutively on a tuple</b> \( a = \left( a _ 1, \ldots, a _ n \right)  \) whenever we have
+            \[
+                a _ i \star a _ { i + 1 }
+            \]
+            for each \( i \in \left[ 1, \ldots , n - 1 \right]  \), we also define the <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( \operatorname{ bop\_holds }  \) as follows:
+            \[
+                \operatorname{ bop\_holds } \left( \star, a \right)  = T
+            \]
+            iff the above property holds true.
+    	</div>
+    </div>
+    
+
+    <div class="definition" id="definition-sorted-predicate">
+    	<div class="title">Sorted Tuple Predicate</div>
+    	<div class="content">
+    		Suppose that \( a \in \mathbb{ R } ^ n \) then define the  \( \operatorname{ sorted\_asc } : \mathbb{ R } ^ n \to \left\{ T, F \right\}  \) such that
+            \[
+                \operatorname{ sorted\_asc } \left( a \right) = \operatorname{ bop\_holds } \left( \le , a \right)
+            \]
+            
+    	</div>
+    </div>
+    
+    <div class="corollary" id="corollary-">
+    	<div class="title">sorted_asc Holds iff It is Sorted in Ascending Order</div>
+    	<div class="content">
+            \( \operatorname{ sorted\_asc } \left( a \right)  = T \) iff \( a \) is <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-sorted-in-ascending-order">sorted in ascending order</a>
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+
+    <div class="definition" id="definition-sorted-in-strictly-ascending-order-predicate">
+        <div class="title">Sorted in Strictly Ascending order Predicate</div>
+        <div class="content">
+            Suppose that \( a \in \mathbb{ R } ^ n \) then <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-a-binary-relation-holds-consecutively-on-a-tuple">we define</a>
+            \[
+            \operatorname{ strict\_asc\_sorted } \left( a \right) = \operatorname{ bop\_holds } \left( \lt , a \right)
+            \]
+        </div>
+    </div>
+
+    <div class="definition" id="definition-set-of-a-tuple">
+    	<div class="title">Set of a Tuple</div>
+    	<div class="content">
+    		Suppose that \( a = \left( a _ 1, \ldots , a _ n \right)  \) is a tuple, then we define the function
+            \[
+            \operatorname{ set } \left( a  \right) = \left\{ a _ i: i \in \left[ 1, \ldots , n \right]  \right\}
+            \]
+    	</div>
+    </div>
+
+    
+
+    <div class="definition" id="definition-strictly-ascending-sorting-function">
+    	<div class="title">Strictly Ascending Sorting Function</div>
+    	<div class="content">
+    		Suppose that \( a \in \mathbb{ R } ^ n \) then we define the function \( \operatorname{ strict\_asc\_sort } : \mathbb{ R } ^ n \to \mathbb{ R } ^ n \) such that if \( s = \operatorname{ strict\_asc\_sort } \left( a \right)   \) <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-sorted-in-strictly-ascending-order-predicate">then we have</a>
+            \[
+                \operatorname{ strict\_asc\_sorted }  \left( s \right) = T
+            \]
+            such that \( \left\lvert a \right\rvert = \left\lvert s \right\rvert  \) <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-set-of-a-tuple">and</a> \( \operatorname{ set } \left( a \right) = \operatorname{ set } \left( s \right)    \)
+    	</div>
+    </div>
+
+    <div class="definition" id="definition-intersection-of-two-sorted-tuples">
+        <div class="title">Intersection of Two Sorted Tuples</div>
+        <div class="content">
+            Suppose that \( a, b \in \mathbb{ R } ^ n \) then
+            \[
+            a \cap b
+            \]
+            is defined as the tuple \( s \) such that 
+            \[
+                s = \operatorname{ strict\_asc\_sort } \left( \operatorname{ concat } \left( a, b \right)  \right)
+            \]
+            using <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-strictly-ascending-sorting-function">the sorting function</a> and <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-concatenation">concatenation</a>
+        </div>
+    </div>
+
+    
+
     <div class="exercise" id="exercise-ascending-n-tuple">
         <div class="title">Ascending Tuple</div>
         <div class="content">
