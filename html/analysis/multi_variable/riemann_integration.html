@@ -76,6 +76,24 @@
 		Note that if a partition has \( k \) elements then there will be \( k - 1 \) deltas.
 	</p>
 
+	<div class="corollary" id="corollary-a-delta-sum-telescopes">
+		<div class="title">A Delta Sum Telescopes</div>
+		<div class="content">
+			Suppose that \( P = \left( x _ 1, \ldots , x _ { n + 1  }  \right)  \) is a partition of \( \left[ a, b \right]  \) then
+			\[
+				\sum _ { i = 1 } ^ { n } \Delta _ i = b - a
+			\]
+		</div>
+		<div class="proof">
+			Recall that
+			\[
+			    \sum _ { i = 1 } ^ { n  } \Delta _ i =  \sum _ { i = 1 } ^ { n	 } \left( x _ { i + 1 }  - x _ i \right) \stackrel{1}{=} x _ { n + 1  } - x _ 1 = b - a
+			\]
+			where we've used <a class="knowledge-link" href="/number_theory/induction.html#proposition-telescoping-sum">fact 1</a>.
+		</div>
+	</div>
+
+
 	<div class="definition" id="definition-mesh-of-a-partition">
 		<div class="title">Mesh of a Partition</div>
 		<div class="content">
@@ -197,6 +215,137 @@
 			then we say that \( f \) has a <b>jump discontinuity</b> at \( c \) 
 		</div>
 	</div>
+
+	<div class="lemma" id="lemma-function-difference-set-is-the-same-as-its-negative">
+		<div class="title">Function Difference Set is the Same as its Negative</div>
+		<div class="content">
+			Suppose that \( f: A \to \mathbb{ R }  \) and define \( F = \left\{ f \left( x \right) - f \left( y \right) : x, y \in A \right\}  \), then
+			\[
+			    F = -F
+			\]
+		</div>
+		<div class="proof">
+			Note that
+			\[
+			    F = \left\{ f \left( x \right) - f \left( y \right) : x, y \in A \right\} = \left\{ - \left( f \left( y \right) - f \left( x \right)  \right) : y, x \in A  \right\}  = -F
+			\]
+			as needed.
+		</div>
+	</div>
+
+	<div class="corollary" id="corollary-supremum-of-the-function-difference-set-is-the-same-with-absolute-values">
+		<div class="title">Supremum of the Function Difference Set is the Same with Absolute Values</div>
+		<div class="content">
+			Let \( f: A \to \mathbb{ R }  \) and define \( F = \left\{ f \left( x \right) - f \left( y \right) : x, y \in A \right\}  \) then
+			\[
+			    \sup \left( F \right) = \sup \left( \left\lvert F \right\rvert  \right)
+			\]
+		</div>
+		<div class="proof">
+			Recall that if \( F = -F \) <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-if-a-set-equals-its-negative-then-its-absolute-value-is-its-non-negative-half">then we know</a>
+			\[
+			    \sup \left( F \right) = \sup \left( \left\lvert F \right\rvert  \right) 
+			\]
+		</div>
+	</div>
+	
+	<div class="proposition" id="proposition-supremum-of-the-sum-of-two-functions-is-less-than-or-equal-to-the-sum-of-the-supremums">
+		<div class="title">Supremum of the Sum of Two Functions is Less than or Equal to the Sum of the Supremums</div>
+		<div class="content">
+			Suppose that \( f, g: A \to \mathbb{ R }  \) then
+			\[
+			    \sup \left( \left\{ f \left( x \right) + g \left( x \right): x \in A  \right\}  \right) \le  \sup \left( \left\{ f \left( x \right) : x \in A \right\}  \right) + \sup \left( \left\{ g \left( x \right) : x \in A \right\}  \right)
+			\]
+		</div>
+		<div class="proof">
+			<p>
+				Let \( \alpha = \sup \left( \left\{ f \left( x \right) : x \in A \right\}  \right), \beta =  \sup \left( \left\{ g \left( x \right) : x \in A \right\}  \right) \) and \( \gamma = \sup \left( \left\{ f \left( x \right) + g \left( x \right): x \in A  \right\}  \right)  \).
+			</p>
+			<p>
+				We know that for any \( x \in A \) we have that \( f \left( x \right) \le \alpha  \) and \( g \left( x \right) \le \beta \) therefore we have that \( f \left( x \right) + g \left( x \right) \le \alpha + \beta \), this proves that \( \alpha + \beta \) is an upper bound to the set \( \left\{ f \left( x \right) + g \left( x \right) : x \in A \right\}  \) therefore we have
+				\[
+				    \sup \left( \left\{ f \left( x \right) + g \left( x \right) : x \in A \right\}  \right) \le \sup \left( \left\{ f \left( x \right) : x \in A \right\}  \right) + \sup \left( \left\{ f \left( x \right) : x \in A \right\}  \right)
+				\]
+				As \( \gamma \) is the least upper bound.
+			</p>
+		</div>
+	</div>
+
+	<!--	<p>-->
+	<!--		Notice how in the above proposition the set on the left evaluates \( f, g \) at the same point, this lack of freedom is what creates the inequality, for example suppose that we have \( f \left( x \right) =  1 - g \left( x \right)  \) and that \( 0 \in g \left( A \right)  \), \( f, g \) are bounded and   and is monotone increasing, but is bounded above, so that the supremum exists, then we have -->
+	<!--		\[-->
+	<!--		    \sup \left( \left\{ f \left( x \right) + g \left( x \right) : x \in A \right\}  \right) = \sup \left( \left\{ 1 \right\}  \right) = 1-->
+	<!--		\]-->
+	<!--		whereas -->
+	<!--		\[-->
+	<!--		    \sup \left( f \left( x \right)  \right) -->
+	<!--		\]-->
+	<!--	</p>-->
+
+
+	<div class="proposition" id="proposition-supremum-of-the-sum-of-two-functions-is-the-same-as-the-sum-of-the-supremums-if-the-variables-are-independent">
+		<div class="title">Supremum of the Sum of two Functions is the Same as the Sum of the Supremums if the Variables are Independent</div>
+		<div class="content">
+			Suppose that \( f, g: A \to \mathbb{ R }  \) then
+			\[
+			    \sup \left( \left\{ f \left( x \right) + g \left( y \right): x, y \in A  \right\}  \right) = \sup \left( \left\{ f \left( x \right) : x \in A \right\}  \right) + \sup \left( \left\{ g \left( x\right) : x \in A  \right\}  \right)
+			\]
+		</div>
+		<div class="proof">
+			<p>
+				Let \( \alpha = \sup \left( \left\{ f \left( x \right) : x \in A \right\}  \right), \beta =  \sup \left( \left\{ g \left( x \right) : x \in A \right\}  \right) \) and \( \gamma = \sup \left( \left\{ f \left( x \right) + g \left( y \right): x, y \in A  \right\}  \right)  \).
+			</p>
+			<p>
+				For any \( x \in A \) we have that \( f \left( x \right) \le \alpha   \) and for any \( y \in A \) we have \( g \left( x \right) \le \beta \) thus we have
+				\[
+				    f \left( x \right) + g \left( y \right) \le \alpha + \beta
+				\]
+				so that \( \alpha + \beta \) is an upper bound of the set \( \gamma \) is supping over there fore we have that \( \gamma \le \alpha + \beta \)
+			</p>
+			<p>
+				... [TODO] not sure how to prove the other direction ...
+			</p>
+		</div>
+	</div>
+
+	<div class="proposition" id="proposition-bound-on-the-upper-minus-lower-sum-for-the-same-partition">
+		<div class="title">Bound on the Upper minus Lower Sum for The Same Partition</div>
+		<div class="content">
+			Suppose that \( f: \left[ a, b \right] \to \mathbb{ R }   \) is bounded, and let \( P = \left\{ x _ 1, \ldots , x _ { n + 1  }  \right\}   \) be a partition of \( \left[ a, b \right]  \) then we have that
+			\[
+			    U \left( f, P \right) - L \left( f, P \right) \le 2 \lVert f \rVert _ \infty \left( b - a \right)
+			\]
+		</div>
+		<div class="proof">
+			\[
+			    \begin{align}
+			        U \left( f, P \right) - L \left( f, P \right) &= \sum _ { i = 1 } ^ { n  } \left( \sup _ { x \in \left[ x _ i , x _ { i + 1  }  \right]   } f \left( x \right) - \inf \left( x \in \left[ x _ i, x _ { i + 1  }  \right] f \left( x \right)   \right)    \right) \Delta _ i  \\
+			& \stackrel{1}{=} \sum _ { i = 1 } ^ { n  } \left( \sup _ { x \in \left[ x _ i , x _ { i + 1  }  \right]   } f \left( x \right) + \sup \left( x \in \left[ x _ i, x _ { i + 1  }  \right] -f \left( x \right)   \right)    \right) \Delta _ i  \\
+			& \stackrel{2}{=} \sum _ { i = 1 } ^ { n  } \left( \sup _ { x, y \in \left[ x _ i , x _ { i + 1  }  \right]   } \left( f \left( x \right) - f \left( y \right) \right)    \right) \Delta _ i  \\
+			& \stackrel{3}{=} \sum _ { i = 1 } ^ { n  } \left( \sup _ { x, y \in \left[ x _ i , x _ { i + 1  }  \right]   }  \left( \left\lvert f \left( x \right) - f \left( y \right) \right\rvert \right)   \right) \Delta _ i  \\
+			& \stackrel{4}{\le} \sum _ { i = 1 } ^ { n  } \left( 2 \sup _ { x, y \in \left[ x _ i , x _ { i + 1  }  \right]   }  \left( \left\lvert f \left( x \right) \right\rvert \right)   \right) \Delta _ i  \\
+			& \stackrel{5}{\le} \sum _ { i = 1 } ^ { n  } \left( 2 \lVert f \rVert _ \infty \right) \Delta _ i  \\
+			&= 2 \lVert f \rVert _ \infty \sum _ { i = 1 } ^ { n  } \Delta _ i  \\
+			&\stackrel{6}{=}  2 \lVert f \rVert _ \infty \left( b - a \right)   \\
+			    \end{align}
+			\]
+			Where we've used
+			<ul>
+				<li><a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-negative-of-infimum-is-supremum-of-negatives">fact 1</a></li>
+				<li><a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#proposition-supremum-of-the-sum-of-two-functions-is-the-same-as-the-sum-of-the-supremums-if-the-variables-are-independent">fact 2</a></li>
+				<li><a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#corollary-supremum-of-the-function-difference-set-is-the-same-with-absolute-values">fact 3</a></li>
+				<li><a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#theorem-triangle-inequality">fact 4</a></li>
+				<li>fact 5: The supremum gets bigger on a superset</li>
+				<li><a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#corollary-a-delta-sum-telescopes">fact 6</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+	
+
+
 	
 
 	<div class="definition" id="definition-piecewise-continuous">

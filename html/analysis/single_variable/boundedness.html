@@ -190,18 +190,106 @@
 			</div>
 
 
-			<div class="proposition" id="proposition-negative-of-infimum-is-supremum-of-negatives">
-				<div class="title">Negative of Infimum is Supremum of Negatives</div>
+			<div class="proposition" id="proposition-a-number-is-greater-than-the-other-iff-the-difference-is-positive">
+				<div class="title">A Number is Greater than the Other iff the Difference is Positive</div>
 				<div class="content">
-					Let \( \emptyset \neq S \subseteq \mathbb{ R }  \), be bounded below, then
+					Suppose that \( a, b \in \mathbb{ R }  \) 	then
 					\[
-					    - \inf \left( S \right) = \sup \left( \left\{ -s : s \in S \right\}  \right)
+					    a \lt b \iff 0 \lt b - a
 					\]
 				</div>
 				<div class="proof">
 
 				</div>
 			</div>
+
+			<div class="corollary" id="corollary-multiplying-an-inequality-by-minus-one-flips-it">
+				<div class="title">Multiplying an Inequality by Minus One Flips it</div>
+				<div class="content">
+					Suppose that \( a, b \in \mathbb{ R }  \) then
+					\[
+					    a \lt b \iff -a \gt -b
+					\]
+				</div>
+				<div class="proof">
+					\( a \lt b \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-a-number-is-greater-than-the-other-iff-the-difference-is-positive">equivalent</a> to \( 0 \lt b - a =  \left( -a \right)  - \left( -b \right)  \) which is equivalent to \( -a \gt -b \), as needed.
+				</div>
+			</div>
+
+
+
+
+			<div class="definition" id="definition-negative-of-a-set">
+				<div class="title">Negative of a Set</div>
+				<div class="content">
+					Suppose that \( S \subseteq \mathbb{ R }  \) then we define
+					\[
+					    -S = \left\{ -s : s \in S \right\}
+					\]
+				</div>
+			</div>
+
+
+			<div class="proposition" id="proposition-negative-of-infimum-is-supremum-of-negatives">
+				<div class="title">Negative of Infimum is Supremum of Negatives</div>
+				<div class="content">
+					Let \( \emptyset \neq S \subseteq \mathbb{ R }  \), be bounded below, then
+					\[
+					    - \inf \left( S \right) = \sup \left( -S  \right)
+					\]
+				</div>
+				<div class="proof">
+					<p>
+						Define \( \alpha = \inf \left( S \right)  \) 	and \( \beta = \sup \left( -S \right)  \), by definition \( \alpha  \) is the greatest lower bound of \( S \) this means that for every \( s \in S \) we know that \( \alpha \le s \) which <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#corollary-multiplying-an-inequality-by-minus-one-flips-it">is to say that</a> \( -a \ge -s \) which shows that \( -\alpha  \) is an upper bound to the set \( -S \) therefore \( -\alpha \ge \beta \) as \( \beta \) is the least upper bound.
+					</p>
+					<p>
+						Symmetrically \( \beta \) is the least upper bound of \( -S \) which means that \( \beta \ge -s \) for every \( s \in S \) thus we have \( -\beta \le s \) so that \( - \beta \) is a lower bound of \( S \) since \( \alpha  \) is the greatest lower bound then we have that \( -\beta \le \alpha  \) so then \( \beta \ge -\alpha  \)
+					</p>
+					<p>
+						Thus from the above two paragraphs we conclude that \( \beta = - \alpha \) in other words
+						\[
+						    - \inf \left( S \right) = \sup \left( -S \right)
+						\]
+					</p>
+				</div>
+			</div>
+
+			<div class="proposition" id="proposition-if-a-set-equals-its-negative-then-its-absolute-value-is-its-non-negative-half">
+				<div class="title">If a Set Equals its Negative Then its Absolute Value is Its Non-Negative Half</div>
+				<div class="content">
+					Suppose that \( X \subseteq \mathbb{ R }  \) and that \( X = -X \) then
+					\[
+					    \left\lvert X \right\rvert = X \cap \mathbb{ R } ^ { \ge 0 }
+					\]
+				</div>
+				<div class="proof">
+					<p>
+						Let \( a \in \left\lvert X \right\rvert  \) therefore \( a = \left\lvert x \right\rvert  \) for some \( x \in X \) if \( x \lt 0 \) then \( \left\lvert x \right\rvert = -x \), since \( -X = X \) then we know that \( -x \in X \) so that \( a = \left\lvert x \right\rvert = -x \in X \) as needed.
+					</p>
+					<p>
+						Now assume that \( a \in X \cap \mathbb{ R } ^ { \ge 0 }  \), therefore \( a \in X \) and \( a \ge 0 \) since \( a \in X \) then \( a = \left\lvert a \right\rvert \in \left\lvert X \right\rvert  	 \) as needed.
+					</p>
+				</div>
+			</div>
+
+			<div class="proposition" id="proposition-">
+				<div class="title">If a Set Equals its Negative the Sup of the Absolute value and the Original Set are the Same</div>
+				<div class="content">
+					Suppose that \( X \subseteq \mathbb{ R }  \) and that \( X = -X \) then
+					\[
+						\sup \left( \left\lvert X \right\rvert  \right) = \sup \left( X \right)
+					\]
+				</div>
+				<div class="proof">
+					If \( X = \left\{ 0 \right\}  \) then this holds true trivially, otherwise \( X \) has at least one positive element or at least one negative element, suppose that it has a positive element \( p \in X \) then since \( \sup \left( X \right)  \) is an upper bound of \( X \) we know that \( \sup \left( X \right) \gt 0 \) and so we know that \( \sup \left( X \right) = \sup \left( X \cap \mathbb{ R } ^ { \ge 0 }  \right)  \), at the same time we <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-if-a-set-equals-its-negative-then-its-absolute-value-is-its-non-negative-half">already knew that</a> \( \left\lvert X \right\rvert = X \cap \mathbb{ R } ^ { \ge 0 }  \) so all in all we have
+					\[
+					    \sup \left( X \right) = \sup \left( X \cap \mathbb{ R } ^ { \ge 0 } \right) = \sup \left( \left\lvert X \right\rvert  \right)
+					\]
+					Now if \( X \) didn't have a positive element, but instead it had a negative element, then we perform the above analysis on the set \( -X \) 
+				</div>
+			</div>
+
+
 
 			
 			<div class="lemma" id="lemma-half-length-interval">
