@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Euler's Totient Function</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer>
+</script>
+</head>
+
+<body>
+    <div class="thin-wrapper">
+
+        <div class="definition" id="definition-set-of-coprime-integers">
+        	<div class="title">Set of Coprime Integers</div>
+        	<div class="content">
+        		Suppose that \( n \in \mathbb{ N } _ 1 \) then we define
+                \[
+                    \operatorname{ cop } \left( n \right) := \left\{ k \in \left[ 1, \ldots , n \right] : \gcd \left( k, n \right) = 1   \right\}
+                \]
+        	</div>
+        </div>
+
+        
+        <div class="definition" id="definition-eulers-totient-function">
+        	<div class="title">Euler's Totient Function</div>
+        	<div class="content">
+        		We define it as \( \phi : \mathbb{ N } _ 1 \to \mathbb{ C }  \) as
+                \[
+                    \phi \left( n \right) := \left\lvert \operatorname{ cop } \left( n \right)  \right\rvert
+                \]
+        	</div>
+        </div>
+
+        <div class="lemma" id="lemma-">
+        	<div class="title">Gauss' Totients Lemma</div>
+        	<div class="content">
+        	    For any \( n \in \mathbb{ N } _ 1 \) 	we have
+                \[
+                    \sum _ { d \mid n } \phi \left( d \right) = n
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+        
+        <div class="definition" id="definition-gcd-set">
+        	<div class="title">GCD Set</div>
+        	<div class="content">
+        	    We define \( G  \left( d, n \right) : \mathbb{ N _ 1 } \times \mathbb{ N } _ 1 \to \mathbb{ N } _ 1   \) as
+                \[
+                    G \left( d, n \right) := \left\{ k \in \left[ 1, \ldots , n \right]: \operatorname{ gcd } \left( k, n \right) = d  \right\}
+                \]
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-bijection-between-cops-and-gs">
+        	<div class="title">Bijection between Cops and G's</div>
+        	<div class="content">
+                Let \( d, n \in \mathbb{ N } _ 1  \) 		such that \( d \mid n \),
+                \[
+                    \left\lvert C _ d \right\rvert  = \left\lvert G \left( \frac{n}{d} , n \right)  \right\rvert
+                \]
+
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="theorem" id="theorem-euler">
+        	<div class="title">Euler's</div>
+        	<div class="content">
+        		For any \( n \in \mathbb{ N } _ 1 \) and \( a \in \operatorname{ cop } \left( n \right)  \) we have
+                \[
+                    a ^ \phi \left( n \right) \equiv 1 \pmod{ n }
+                \]
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+
+
+        \[
+        \begin{array}{c|c|c|c|c}
+        * & \varepsilon & 1 & \mu & \iota \\
+        \hline \varepsilon & \varepsilon & 1 & \mu & \iota \\
+        \hline 1 & & \tau & \varepsilon & \sigma \\
+        \hline \mu & & & ? & ? \\
+        \hline \iota & & & & \iota \tau
+        \end{array}
+        \]
+
+    </div>
+</body>
+</html>

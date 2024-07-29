@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>RSA Theory</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/script.js" defer> </script>
+</head>
+
+<body>
+    <div class="thin-wrapper">
+        
+        
+        <div class="definition" id="definition-public-key-cryptosystem">
+        	<div class="title">Public Key Cryptosystem</div>
+        	<div class="content">
+        	    A public key cryptosystem is a crypotsystem such that there are two keys, a public key which anyone can know used for encoding, and a private key which only a decoder knows .
+        	</div>
+        </div>
+
+        <p>
+            Each person has a pair of keys \( \left( e, d \right)  \), and publishes that in a directory which everyone can see, and they keep their private key \( d \) on their system.
+        </p>
+
+        <p>
+            If A wants to send a message to B, they look up B's public key in the directory and then encrypt their plaintext message using it to produce the ciphertext.
+        </p>
+
+        <p>
+            In order to decipher the message, one has to decrypt it using B's private key which means that no-one else can read messages intended for B.
+        </p>
+
+        <div class="definition" id="definition-rsa-protocol">
+        	<div class="title">RSA Protocol</div>
+        	<div class="content">
+                <p>
+                    Suppose you want to allow someone to send you a message on your computer securely using the RSA protocol, then you do the following:
+                </p>
+                <ol>
+                    <li>
+                        Start with two large primes \(p, q\). Compute \(n=p q\) and \(\phi(n)=(p-1)(q-1)\).
+                    </li>
+                    <li>
+                        Choose some \(1 \leq e \leq \phi(n)\) relatively prime to \(\phi(n)\) and compute an inverse \(d\) to \(e\) modulo \(\phi(n)\) (i.e., \(d e \equiv 1(\bmod \phi(n)))\).
+                    </li>
+                    <li>
+                        The public key is \((e, n)\), the private key is \(d\).
+                    </li>
+                    <li>
+                        From the point of view of a sender, to send a message, they take that message and break it into blocks which can be encoded as numbers \(1 \leq m \leq n\). They send each block as a ciphertext given by \(c := m^e ~\%~ n \)
+                    </li>
+                    <li>
+                        To decipher a ciphertext \(c\), compute \(m \equiv c^d(\bmod n)\).
+                    </li>
+                </ol>
+        	</div>
+        </div>
+
+
+
+        <div class="proposition" id="proposition-why-raising-the-ciphertext-to-the-power-of-the-private-key-yields-the-plaintext">
+        	<div class="title">Why Raising the Ciphertext to the Power of The Private Key Yields the Plaintext</div>
+        	<div class="content">
+        		Suppose that \( c \) is the ciphertext and \( d \) is the private key then the plaintext is given by
+                \[
+                    c ^ d ~\%~ n
+                \]
+        	</div>
+        	<div class="proof">
+                Recall that \( c = m ^ e ~\%~ n\) therefore we have that 
+                \[
+                    c ^ d \equiv \left( m ^ e \right) ^ d = m ^ { de } 
+                \]
+                At the same time we know that \( de \equiv 1 \pmod{ \phi \left( n \right)  } \) therefore \( de = 1 + k \phi \left( n \right)  \) so that 
+                \[
+                    m ^ { de } = m ^ { 1 + k \phi \left( n \right)  } = m \left( m ^ \phi \left( n \right)  \right) ^ k \equiv m \cdot 1 = m \pmod{ n } 
+                \]
+        	</div>
+        </div>
+
+
+
+        
+
+    </div>
+</body>
+</html>
