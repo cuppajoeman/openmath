@@ -8,7 +8,7 @@
 
     <title>Arithmetic Functions</title>
     <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer> </script>
+    <script src="/js/script.js" defer></script>
 </head>
 
 <body>
@@ -78,6 +78,36 @@
                 \]
         	</div>
         </div>
+
+        <div class="proposition" id="proposition-multiplicative-functions-that-map-1-to-0-are-the-constant-0-function">
+        	<div class="title">Multiplicative Functions that map 1 to 0 Are the Constant 0 Function</div>
+        	<div class="content">
+                Suppose that \( f: \mathbb{ N } _ 1 \to C \) is <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> then if  \( f \left( 1 \right) = 0 \) then we have
+                \[
+                    f \left( n \right) = 0
+                \]
+                for every \( n \in \mathbb{ N } _ 1 \)
+        	</div>
+        	<div class="proof">
+                Let \( n \in \mathbb{ N } _ 1   \) then \( f \left( n \right) = f \left( 1 \cdot n \right) = f \left( 1 \right) f \left( n \right) = 0   \) as needed.
+        	</div>
+        </div>
+
+
+        <div class="proposition" id="proposition-non-zero-multiplicative-functions-map-1-to-1">
+            <div class="title">Non-Zero Multiplicative Functions map 1 to 1</div>
+            <div class="content">
+        		Suppose that \( f: \mathbb{ N } _ 1 \to C \) is non-zero <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> then \( f \left( 1 \right) = 1 \)
+            </div>
+            <div class="proof">
+                We know that \( f \left( 1 \cdot 1  \right) = f \left( 1 \right) \cdot f \left( 1 \right)   \) so we have \( f \left( 1 \right) = f \left( 1 \right) f \left( 1 \right)  \) since \( f \left( 1 \right) \in C \) if \( f \left( 1 \right) = 0  \) <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#proposition-multiplicative-functions-that-map-1-to-0-are-the-constant-0-function">then</a> \( f \) would be the constant zero function which is a contradiction therefore \( f \left( 1 \right) \neq 0 \) so that it has a multiplicative inverse which allows us to conclude that
+                \[
+                    f \left( 1 \right) = 1
+                \]
+                by cancelling \( f \left( 1 \right)  \) from both sides
+            </div>
+        </div>
+
 
         <div class="definition" id="definition-totally-multiplicative">
             <div class="title">Totally Multiplicative</div>
