@@ -1,58 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Rubik's Cube</title>
+        <title>Rubik's Cube</title>
 
-  <link rel="stylesheet" href="/styles/styles.css">
-  <script src="/js/script.js" defer></script>
+        <link rel="stylesheet" href="/styles/styles.css" />
+        <script src="/js/script.js" defer></script>
+    </head>
+    <body>
+        <div class="thin-wrapper">
+            <p>
+                Cubies constitute the different states the rubik's cube can be
+                in. The centres of the cube never change, only the cubies are
+                mobile and are able to change state. Upon any move in the set M,
+                the cubies on that face perpendular to M rotate clockwise. This
+                affects the four sides adjacent to the move by transferring the
+                cubies on that side clockwise to the next side.
+
+                for a cube to be solved, the colours of the cubies must allign with
+                the centre (which never changes).
+
+                F B R L D F and then can say stuff like RUD and that means turn the right face clockwi
+
+                X means turn the face clockwise by looking direcctly at the face, and X' means turn the face counterclockwise whilelooking directly at the face
+
+                R U over and over you get back solved state?
+
+                what is an algorithm?:
+
+                An algorithm is a finite sequence of moves
+
+                the subalgorithm for a cubie, are the moves which change the state of the cubie
+
+                what does it mean for an algorithm to fix a cubie?
+                For after an algorithm, for a particular location on a cube to contain a cubie with the same
+                orientation and colour.
+
+                An algorithm fixes a cubie when the moves "applied to that cubie" cancel out.
+
+            </p>
+            <p></p>
+
+            <div>
+                <h1>Rubik's Cube Move Inverter</h1>
+                <input
+                    type="text"
+                    id="inputMoves"
+                    placeholder="Enter Rubik's Cube moves here"
+                />
+                <button onclick="invertMoves()">Invert Moves</button>
+                <div id="output"></div>
+            </div>
+
+            <div class="definition" id="definition-cubie">
+                <div class="title">Cubie</div>
+                <div class="content">
+                    A cubie is an atomic unit on a Rubik's Cube.
+                </div>
+            </div>
+
+            <div class="definition" id="definition-corner">
+                <div class="title"></div>
+                <div class="content"></div>
+            </div>
+
+            <div class="definition" id="definition-edge">
+                <div class="title"></div>
+                <div class="content"></div>
+            </div>
+
+            <div class="definition" id="definition-center">
+                <div class="title"></div>
+                <div class="content"></div>
+            </div>
+
+            <div class="definition" id="definition-rubiks-cube">
+                <div class="title"></div>
+                <div class="content"></div>
+            </div>
+
+            <div class="definition" id="definition-solved-cubie">
+                <div class="title"></div>
+                <div class="content"></div>
+            </div>
+
+            <div class="definition" id="definition-solved-rubiks-cube">
+                <div class="title"></div>
+                <div class="content"></div>
+            </div>
+
+            <div class="definition" id="definition-flipped-edge">
+                <div class="title"></div>
+                <div class="content"></div>
+            </div>
+
+            <div class="definition" id="definition-algorithm">
+                <div class="title">Algorithm</div>
+                <div class="content">An algorithm is a finite sequence of moves</div>
+            </div>
+
+            <div class="definition" id="definition-commutator">
+                <div class="title"></div>
+                <div class="content"></div>
+            </div>
+
+            <div class="definition" id="definition-base-moves">
+                <div class="title">Rubiks Cube Base Moves</div>
+                <div class="content">
+                    The moves of a rubiks cube \[ M = \{f, b, r, l, u, d, e\} \]
+                </div>
+            </div>
+
+            <div class="definition" id="definition-move-operator">
+                <div class="title">Move Operator</div>
+                <div class="content">
+                    We define the move operator as follows (where the ) \[
+                    \forall m \in M, m ^ 4 = e \] Also some of the elements in
+                    \(M \) commute \[ f \star b = b \star f \] \[ l \star r = r
+                    \star l \] \[ u \star d = d \star u \] aditionally the
+                    element \( e \) acts like an identity: \[ \forall m \in M, m
+                    \star e = e \star m = m \]
+                </div>
+            </div>
+
+            <div class="definition" id="definition-states-of-the-cube">
+                <div class="title">States of the Cube</div>
+                <div class="content">
+                    We define the states of the cube as a set \( G \) \[ G =
+                    \left\{\prod _ {i = 1} ^n m_i : m_i \in M \text{ and } n \in
+                    \mathbb{N}_1 \right\} \]
+                </div>
+            </div>
+
+            <p>
+                Note that any state of the cube can be thought of as an ordered
+                sequences of "moves" by reading from left to right which are
+                being applied to \( e \)
+            </p>
+
+            <div class="theorem" id="theorem-rubiks-cube-is-a-group">
+                <div class="title">The Rubiks Cube is a Group</div>
+                <div class="content">
+                    The set \(M \) along with the move operator form a group.
+                </div>
+                <div class="proof">
+                    <ul>
+                        <li>
+                            <i>Associativity</i>:<br/ >
+
+                        </li>
+                        <li>
+                            <i>Identity</i>:<br/ >
+                            Let \(g \in G\). By definition of \(G\), we know there exists \(m_1, m_2, \ldots, m_n \in M\) such that
+                            \(g = m_1 \star  m_2 \star  \ldots \star m_n\) for some \(n \in \mathbb{N}_1\).
+
+                            By definition of \(e\), \(m \star e = e \star m = m\) for all \(m \in M\). So by associativity,
+                            <br />
+                            \[
+                            \begin{aligned}
+                            e \star g &= e \star (m_1 \star  m_2 \star  \ldots \star m_n) \\
+                            &= (e \star m_1) \star  m_2 \star  \ldots \star m_n \\
+                            &= (m_1 \star e) \star  m_2 \star  \ldots \star m_n \\
+                            &= m_1 \star (e \star  m_2) \star  \ldots \star m_n \\
+                            &= m_1 \star (m_2 \star e) \star  \ldots \star m_n \\
+                            &= m_1 \star m_2 \star  \ldots (e \star m_n) \\
+                            &= m_1 \star m_2 \star  \ldots (m_n \star e) \\
+                            &= (m_1 \star  m_2 \star  \ldots \star m_n) \star e \\
+                            &= g \star e
+                            \end{aligned}
+                            \]
+
+                            Therefore, \(e\) is the identity element in \(G\).
+                        </li>
+                        <li>
+                            <i>Inversion</i>:<br/ >
+                                Let \(m \in M \subset G\). Then, \(m \star
+                           m^3 = m^4 = e\) and \(m^3 \star m = m^4 = e\). So, \(m^{-1} = m^3\).
+                            <br />
+                            <br />
+                            Let \(g \in G\). By definition of \(G\), we know there exists \(m_1, m_2, \ldots, m_n \in M\) such that
+                            \(g = m_1 \star  m_2 \star  \ldots \star m_n\) for some \(n \in \mathbb{N}_1\). Now, consider \(g^\prime = m_n^3 \star \ldots \star  m_2^3 \star m_1^3\). By associativity, we have the following.
+                            \[
+                            \begin{aligned}
+                            g \star g^\prime &= (m_1 \star  m_2 \star  \ldots \star m_n) \star (m_n^3 \star \ldots \star m_2^3 \star m_1^3) \\
+                            &= m_1 \star  m_2 \star  \ldots \star (m_n \star m_n^3) \star \ldots \star m_2^3 \star m_1^3 \\
+                            &= m_1 \star  m_2 \star  \ldots \star e \star m_{n-1}^3 \star \ldots \star m_2^3 \star m_1^3 \\
+                            &= m_1 \star  m_2 \star  \ldots \star \ldots \star m_2^3 \star m_1^3 \\
+                            \end{aligned}
+                            \]
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
 
 
-</head>
-<body>
-
-<div class="thin-wrapper">
-
-  <div>
-    <h1>Rubik's Cube Move Inverter</h1>
-    <input type="text" id="inputMoves" placeholder="Enter Rubik's Cube moves here">
-    <button onclick="invertMoves()">Invert Moves</button>
-    <div id="output"></div>
-  </div>
-
-  <script>
-    function invertMoves() {
-      const inputMoves = document.getElementById('inputMoves').value.trim();
-      const invertedMoves = invertRubiksMoves(inputMoves);
-      document.getElementById('output').innerText = invertedMoves;
-    }
-
-    function invertRubiksMoves(moves) {
-      const moveArray = moves.split(' ').filter(Boolean);
-      const reversedMoves = moveArray.reverse();
-
-      function invertMove(move) {
-        if (move.endsWith('2')) {
-          return move;
-        } else if (move.endsWith("'")) {
-          return move.slice(0, -1);
-        } else {
-          return move + "'";
-        }
-      }
-
-      const invertedMoves = reversedMoves.map(invertMove);
-      return invertedMoves.join(' ');
-    }
-  </script>
 
 
+            <div class="proposition" id="proposition-">
+                <div class="title">If a Sequence of Moves Yields the Identity then applying those Moves to the Physical Cube Means it is Solved</div>
+                <div class="content">Suppose that \( s = \prod _{i = 1} ^n m_i in G \), and suppose that \(C = \operatorname{do\_move}(E, \operatorname{move\_seq}(s))\), then
+                   \[
+                   \operatorname{do\_move}(C, \operatorname{move\_seq}(s ^ {-1})) = E
+                   \]
+                </div>
+                <div class="proof"></div>
+            </div>
 
+            <div class="corollary" id="corollary-">
+                <div class="title"></div>
+                <div class="content"></div>
+                <div class="proof"></div>
+            </div>
 
-</div>
-</body>
+            <script>
+                function invertMoves() {
+                    const inputMoves = document
+                        .getElementById("inputMoves")
+                        .value.trim();
+                    const invertedMoves = invertRubiksMoves(inputMoves);
+                    document.getElementById("output").innerText = invertedMoves;
+                }
+
+                function invertRubiksMoves(moves) {
+                    const moveArray = moves.split(" ").filter(Boolean);
+                    const reversedMoves = moveArray.reverse();
+
+                    function invertMove(move) {
+                        if (move.endsWith("2")) {
+                            return move;
+                        } else if (move.endsWith("'")) {
+                            return move.slice(0, -1);
+                        } else {
+                            return move + "'";
+                        }
+                    }
+
+                    const invertedMoves = reversedMoves.map(invertMove);
+                    return invertedMoves.join(" ");
+                }
+            </script>
+        </div>
+    </body>
 </html>

@@ -185,8 +185,7 @@
         	<div class="content">
         		Suppose that \( x _ 0 \) is a solution to \( x ^ 2 \equiv c \pmod{ p }  \) so that \( x _ 0 ^ 2 = mp + c \) for some \( m \in \mathbb{ Z }  \), then
                 <ul>
-                    <li>if \( p \mid m \) then \( x _ 0 \) is a solution to \( x ^ 2 \equiv c \pmod{ p ^ 2 }  \)   </li>
-                    <li>if \( p \nmid m \) then \( x _ 0 + \alpha p  \) (where \( \alpha \equiv (-m) \left( 2 x _ 0 \right) ^ { -1 } \pmod{ p }   \) ) is a solution to \( x ^ 2 \equiv c \pmod{ p ^ 2 }  \)   </li>
+                    <li>\( x _ 0 + \alpha p  \) (where \( \alpha \equiv (-m) \left( 2 x _ 0 \right) ^ { -1 } \pmod{ p }   \) ) is a solution to \( x ^ 2 \equiv c \pmod{ p ^ 2 }  \)   </li>
                 </ul>
         	</div>
         	<div class="proof">
@@ -216,7 +215,8 @@
                 </p>
         	</div>
         </div>
-        
+
+
         <div class="exercise" id="exercise-solutions-to-2783">
         	<div class="title">Solutions to 2783</div>
         	<div class="content">
@@ -230,6 +230,42 @@
                 Recall
         	</div>
         </div>
+        
+        <div class="lemma" id="lemma-a-number-is-a-solution-of-a-quadratic-equation-mod-a-power-of-2-iff-a-power-of-2-minus-the-number-is-as-well">
+        	<div class="title">A Number is a Solution of a Quadratic Equation mod a Power of 2 iff a Power of 2 Minus the Number is as well</div>
+        	<div class="content">
+        	    Let \( c \equiv 1 \pmod{ 8 }  \) and \( k \in \mathbb{ N } _ 3 \) then \( x _ 0 \) is a solution of \( x ^ 2 \equiv c \pmod{ 2 ^ k }  \) iff \( 2 ^ { k - 1 } - x _ 0  \) is also a solution.
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+        
+
+        <div class="proposition" id="proposition-only-numbers-congrunent-to-1-mod-8-have-quadratic-residues-mod-a-power-of-2">
+        	<div class="title">Only Numbers Congruent to 1 mod 8 Have Quadratic Residues mod a Power of 2</div>
+        	<div class="content">
+        		Let \( c \in \mathbb{ Z } _ \operatorname{ odd }  \) and \( k \in \mathbb{ N } _ 3 \) then \( x ^ 2 \equiv c \pmod{ 2 ^ k }  \) has a solution iff \( c \equiv 1 \pmod{ 8 }  \)
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+        
+        
+        <div class="proposition" id="proposition-a-quadratic-congruence-mod-a-power-of-2-has-4-solutions">
+        	<div class="title">A Quadratic Congruence mod a Power of 2 has 4 Solutions</div>
+        	<div class="content">
+        		Let \( c \equiv 1 \pmod{ 8 }  \) and \( k \in \mathbb{ N } _ 3 \) then there are exactly 4 incongruent solutions to 
+                \[
+                    x ^ 2 \equiv c \pmod{ 2 ^ k }
+                \]
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+        
         
         
 
