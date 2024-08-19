@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Weierstrass Approximation</title>
+
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <script src="../../js/script.js" defer></script>
+</head>
+<body>
+<div class="thin-wrapper">
+
+    <div class="theorem" id="theorem-weierstrass-approximation">
+    	<div class="title">Weierstrass Approximation</div>
+    	<div class="content">
+    	    Let \( f \in C \left[ a, b \right] \), then there is a sequence \( \left( p _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R } \left[ x \right]   \) that converges uniformly to \( f \) on \( \left[ a, b \right]  \) 
+    	</div>
+    	<div class="proof">
+    		
+    	</div>
+    </div>
+    
+    <div class="exercise" id="exercise-integrals-equal-zero-implies-function-is-zero">
+    	<div class="title">Integrals Equal Zero Implies Function is Zero</div>
+    	<div class="content">
+    		Suppose that \( f \in C \left[ 0, 1 \right]  \) such that \( \int _ 0 ^ 1 f \left( x \right) x ^ n dx = 0 \) for every \( n \in \mathbb{ N } _ 1 \) then \( f = 0 \) 
+    	</div>
+    	<div class="proof">
+            <p>
+                By wat, we obtain a sequence of poly's \( \left( p _ k \right)  \) that converge uniformly o \( f \).
+            </p>
+            <p>
+                We know that for any \( k \) we see that \( p _ k \left( x \right)  = \sum _ { i = 1 }  ^  {l _ k} c _ i x ^ i   \) and therefore
+            </p>
+            \[
+                \int _ 0 ^ 1 f \left( x \right) p _ k \left( x \right)  dx = \sum _ { i = 1 } ^ { l _ k } c _ i \int _ 0  ^ 1 f \left( x \right) x ^ n = 0
+            \]
+            <p>
+                Since products maintain uniform convergence, we also know that \( f \left( x \right) p _ n \left( x \right) \stackrel{\operatorname{ unif } }{\to }  f \left( x \right) ^ 2   \). And define \( H _ n : \left[ 0, 1 \right] \to \mathbb{ R }  \) as
+                \[
+                    H _ n \left( x \right) := \int _ 0 ^ x f \left( t \right) p _ n \left( t \right) dt
+                \]
+                <a class="knowledge-link" href="/analysis/single_variable/uniform_convergence_and_integration.html#theorem-integral-convergence">therefore</a> \( H _ n \stackrel{\operatorname{ unif } }{\to } H  \) where
+                \[
+                    H \left( x \right) = \int _ c ^ x f ^ 2 \left( x \right)  dx
+                \]
+                specifically when \( x = 1 \) we have that 
+                \[
+                    \int _ 0 ^ 1 f \left( x \right) p _ n \left( x \right) dx \left( = 0 \right) \stackrel{\operatorname{ unif } }{\to } \int _ 0 ^ 1 f ^ 2 \left( x \right) dx
+                \]
+                thus \( \int _ 0 ^ 1 f ^ 2 \left( x \right) dx = 0  \) so that \( f = 0 \) as needed.
+            </p>
+            
+    	</div>
+    </div>
+    
+    <div class="exercise" id="exercise-continuous-extension-on-compact-subset">
+    	<div class="title">Continuous Extension on Compact Subset</div>
+    	<div class="content">
+    		Let \( N \in \mathbb{ R }  \) and let \( K \subseteq \left[ -N, N \right]  \) be compact, then show that every continuous function \( f \) on \( X \) may be extended to a continuous function \( g \) on \( \left[ -N, N \right]  \) such that \( \lVert f \rVert _ \infty = \lVert g \rVert _ \infty  \), conclude that every continuous function on \( X \) is the uniform limit of polynomials.
+    	</div>
+    	<div class="proof">
+            <p>
+                We construct the new function \( g \) as follows, given \( p \in X \) then we define \( g \left( p \right) = f \left( p \right)  \), otherwise \( p \notin X \), note that since \( X \) is compact it's closed so that \( X ^ C \) is open, since \( p \in X ^ C \) then we know that there exists some \( \epsilon \in \mathbb{ R } ^ +  \) such that \( B \left( x, \epsilon  \right) \subseteq X ^ C  \)
+            </p>
+            <p>
+                Now define \( L = \left\{ x \in X: x \lt p \right\}  \) and \( R = \left\{ x \in X: x \gt p \right\}  \). If both \( L = R = \emptyset  \) then \( X = \left\{ p \right\}  \) and so since we assumed \( p \notin X \) that would be a contradiction, so instead one of these must be non-empty, assume that \( L \neq \emptyset  \), we claim that \( L = X \cap \left( -\infty , p - \epsilon  \right]  \), this is the case because for any element \( s \in B \left( p, \epsilon  \right)  \) it's true that \( s \notin L \), but also we do know that \( p - \epsilon \in X \), therefore \( L \) is the intersection of two closed sets and therefore closed.
+            </p>
+            <p>
+                Since \( L \) is closed then \( \sup \left( L \right) \in L \), if it's the case that \( R = \emptyset  \) then we linearly interpolate from \( f \left( \sup \left( L \right)  \right)  \) to \( 0 \)  over \( \left[ \sup \left( L \right) , N \right]  \), otherwise \( R \neq \emptyset  \) and we linearly interpolate from \( f \left( \sup \left( L \right)  \right)   \) to \( f \left( \inf \left( R \right)  \right)  \) over \( x \in \left[ \sup \left( L \right), \inf \left( R \right)   \right]  \). Note that by doing this it maintains the sup norm.
+            </p>
+            <p>
+                The function is continuous as it's a piecewise continuous and at each connection point they are continouous as the left and right limits are equal. Thus \( g \) is a continuous extension of \( f \) on \( \left[ -N, N \right]  \), due to this we can apply WAT to \( g \) to obtain a sequence of polynomials whose limit is \( g \), then by restriction the domain of the polynomails to \( X \) then these "new" ones go to \( f \).
+            </p>
+    	</div>
+    </div>
+    
+    
+    
+
+
+</div>
+</body>
+</html>
