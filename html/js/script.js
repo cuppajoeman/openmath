@@ -30,6 +30,7 @@ async function preparePage() {
     automaticallyAddMathJaxScript();
     setUpProofToggleButtons();
     addLinksToEveryPieceOfKnowledge();
+    // typesetNewMathJax();
     setUpKnowledgeLinks();
     createSystemColorModeListener();
     checkForSavedColorMode();
@@ -319,9 +320,21 @@ function setColorMode(mode) {
 
 
 function setUpKnowledgeLinks() {
+    // Select all <a> tags inside <math> tags
+    // these are created from \href{...}{math} inside of latex code
+    const mathLinks = document.querySelectorAll('math a');
+
+    // Select all elements with the class "knowledge-link"
     const collection = document.getElementsByClassName("knowledge-link");
-    for (let i = 0; i < collection.length; i++) {
-        const knowledgeLinkElement = collection[i]
+
+    // Convert both NodeList (from querySelectorAll) and HTMLCollection (from getElementsByClassName) to arrays
+    const mathLinksArray = Array.from(mathLinks);
+    const collectionArray = Array.from(collection);
+
+    // Combine the two arrays
+    const all_links = mathLinksArray.concat(collectionArray);
+    for (let i = 0; i < all_links.length; i++) {
+        const knowledgeLinkElement = all_links[i]
         setUpKnowledgeLink(knowledgeLinkElement);
     }
 }
