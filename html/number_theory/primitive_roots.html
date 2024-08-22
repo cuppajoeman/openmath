@@ -108,6 +108,75 @@
 <!--                TODO we didn't use the odd fact here, is this a problem?-->
         	</div>
         </div>
+        
+        <div class="proposition" id="proposition-order-of-a-primitive-root-mod-the-next-power">
+        	<div class="title">Order of a Primitive Root mod the next Power</div>
+        	<div class="content">
+        		Let \( p \in \mathbb{ P }  \) and \( k \in \mathbb{ N } _ 1 \) and suppose that \( a \in \operatorname{ pr } \left( p ^ k \right)  \) then 
+                \[
+                    o _ { p ^ { k + 1  }  } \left( a \right) \in \left\{ \phi \left( p ^ k \right), \phi \left( p ^ { k + 1  }  \right)   \right\}
+                \]
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+
+        <div class="corollary" id="corollary-when-a-primitive-root-remains-a-primitive-root-mod-the-next-power">
+        	<div class="title">When a Primitive Remains a Primitive Root mod the next Power</div>
+        	<div class="content">
+        		Suppose \( a \in \operatorname{ pr } \left( p ^ k \right)  \) and \( o _ { p ^ { k + 1  }  } \left( a \right) \neq o _ { p ^ k } \left( a \right)    \) then \( a \in \operatorname{ pr } \left( p ^ { k + 1  }  \right)  \)
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-every-power-of-an-odd-prime-has-a-primitive-root">
+        	<div class="title">Every Power of an odd Prime has a Primitive Root</div>
+        	<div class="content">
+        		Let \( p \in \mathbb{ P } _ 3 \) be an odd prime, then \( p ^ k \) has a primitive root for every \( k \in \mathbb{ N } _ 1 \).
+        	</div>
+        	<div class="proof">
+        		
+        	</div>
+        </div>
+
+        <div class="theorem" id="theorem-classification-of-the-existence-of-primitive-roots">
+        	<div class="title">Classification of the Existence of Primitive Roots</div>
+        	<div class="content">
+        	    Let \( n \in \mathbb{ N } _ 2 \), then \( \operatorname{ pr } \left( n \right) \neq \emptyset   \) iff \( n \in { 2, 4, p ^ k, 2 p ^ k }  \) where \( p \in \mathbb{ P } _ 3 \) and \( k \in \mathbb{ N } _ 1 \).
+        	</div>
+        	<div class="proof">
+
+        	</div>
+        </div>
+
+        <div class="proposition" id="proposition-a-number-to-the-phi-n-over-two-is-congruent-to-1-when-it-is-not-a-primitive-root">
+        	<div class="title">A Number to the Phi n over Two is Congruent to 1 When it is not a Primitive Root</div>
+        	<div class="content">
+        		Let \( n \in \mathbb{ N } _ 3 \) such that \( \operatorname{ pr } \left( n \right) = \emptyset  \), and \( c \in \operatorname{ cop } \left( n \right)   \), then we have
+                \[
+                 c ^ \frac{\phi \left( n \right) }{2} \equiv 1 \pmod{ n }
+                \]
+        	</div>
+        	<div class="proof">
+                <p>
+                    Since \( \operatorname{ pr } \left( n \right) = \emptyset  \) 	then \( n \notin \left\{ 2, 4, p ^ k, 2 p ^ k \right\}   \) for some \( p \in \mathbb{ P } _ 3 \) and \( k \in \mathbb{ N } _ 1 \).
+                </p>
+                <p>
+                    We will deal with the case when \( n = 2 ^ k \) for \( k \in \mathbb{ N } _ 3 \), we know that \( c ^ \phi \left( n \right) \equiv 1 \pmod{ n }  \) and that \( \phi \left( n \right) = \phi \left( 2 ^ k \right) = 2 ^ { k - 1 }   \) and therefore \( o _ n \left( c \right) =  2 ^ j  \) for some \( j \in \left[ 1, \ldots , k - 1 \right]  \), clearly we see \( c \notin \emptyset = \operatorname{ pr } \left( n \right)  \) and so we know that \( j \neq k - 1 \) because in that case we would have that \( o _ n \left( c \right) = \phi \left( 2 ^ { k - 1 }  \right)    \) which implies that \( \operatorname{ pr } \left( n \right) \neq \emptyset  \) which is a contradiction. This proves that \( o _ n \left( c \right) = 2 ^ j \mid 2 ^ { k + 1  } = \frac{\phi \left( n \right) }{2}     \) and therefore we have that \( c ^ \frac{\phi \left( n \right) }{2} \equiv 1 \pmod{ n }   \).
+                </p>
+                <p>
+
+                </p>
+        	</div>
+        </div>
+        
+        
+        
+        
+        
 
 
         
