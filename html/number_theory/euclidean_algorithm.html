@@ -21,7 +21,7 @@
             </div>
 
             <div class="content">
-                Let \( m , n \in \mathbb{N}_{1} \) such that \( m &gt; n \), if \( m ~\%~ n &gt; 0 \), then \( \gcd{\left
+                Let \( m , n \in \mathbb{N}_{1} \) such that \( m \gt; n \), if \( m ~\%~ n \gt; 0 \), then \( \gcd{\left
                 ( m , n \right )} = \gcd{\left ( n , m ~\%~ n \right )} \). Otherwise if \( m ~\%~ n = 0 \), then \( n | m
                 \) and \( \gcd{\left ( m , n \right )} = n \)
             </div>
@@ -29,7 +29,7 @@
             <div class="proof">
                 <p>If \( m ~\%~ n = 0 \), then \( m = \left ( m / / n \right ) \cdot n \), therefore \( \gcd{\left ( m ,
                 n \right )} = \gcd{\left ( \left ( m / / n \right ) \cdot n , n \right )} = n \), so now assume that \(
-                m ~\%~ n &gt; 0 \)</p>
+                m ~\%~ n \gt; 0 \)</p>
 
                 <p>Recall that \( m = \left ( m / / n \right ) \cdot n + m ~\%~ n \), therefore \( m - \left ( m / / n
                 \right ) \cdot n = m ~\%~ n \), so that if \( d \) divides both \( m , n \), then it must divide \( m ~\%~
@@ -48,14 +48,14 @@
             </div>
 
             <div class="content">
-                Suppose that \( x , y , b \in \mathbb{N}_{1} \) and \( x &lt; y \) with \( x + y \le b \), then \( x
-                &lt; \frac{b}{2} \)
+                Suppose that \( x , y , b \in \mathbb{N}_{1} \) and \( x \lt; y \) with \( x + y \le b \), then \( x
+                \lt; \frac{b}{2} \)
             </div>
 
             <div class="proof">
-                Suppose for the sake of contradiction that \( x \ge \frac{b}{2} \), then we know that \( y &gt; x \ge
-                \frac{b}{2} \) so therefore \( x + y \gt \frac{b}{2} + \frac{b}{2} = b \), so we have \( x + y &gt; b
-                \) which is a contradiction so that \( x &lt; \frac{b}{2} \).
+                Suppose for the sake of contradiction that \( x \ge \frac{b}{2} \), then we know that \( y \gt; x \ge
+                \frac{b}{2} \) so therefore \( x + y \gt \frac{b}{2} + \frac{b}{2} = b \), so we have \( x + y \gt; b
+                \) which is a contradiction so that \( x \lt; \frac{b}{2} \).
             </div>
         </div>
 
@@ -85,7 +85,7 @@
                 r_{2} \right ) q_{1} + r_{1} \ge \left ( r_{1} \cdot 1 + r_{2} \right ) \cdot 1 + r_{1} \ge r 1 + r 2
                 \) <span class="knowledge-link" data-href=
                 "/number_theory/division.html#lemma-bounded-sum-implies-one-less-then-half">therefore</span> \( r_{2}
-                &lt; \frac{b}{2} \) which concludes the base case</p>
+                \lt; \frac{b}{2} \) which concludes the base case</p>
 
                 <p>Now let \( k \in \mathbb{N}_{1} \) assuming that \( r_{2 k} \le \frac{b}{2^{k}} \), we want to prove
                 that \( r_{2 \left ( k + 1 \right )} = \frac{b}{2^{k + 1}} \), noting that \( 2 \left ( k + 1 \right )
@@ -94,7 +94,7 @@
                 <p>To start let&#39;s say we have an intance of the euclidean algorithm that lasts for at least \( 2 k
                 + 2 \) iterations, therefore we know that \( r_{2 k} \le \frac{b}{2^{k}} \) by our induction
                 hypothesis, additionally at the \( 2 k \)-th iteration we would have an equation of the form \( r_{2 k}
-                = r_{2 k + 1} \left ( q_{2 k + 2} \right ) + r_{2 k + 2} \), since we know that \( r_{2 k + 1} &gt;
+                = r_{2 k + 1} \left ( q_{2 k + 2} \right ) + r_{2 k + 2} \), since we know that \( r_{2 k + 1} \gt;
                 r_{2 k + 2} \), <span class="knowledge-link" data-href=
                 "/number_theory/division.html#corollary-quotient-remainder-on-positive-integer-has-positive-divisor">then</span>
                 \( q_{2 k + 2} \ge 1 \), which then shows that \( r_{2 k} = r_{2 k + 1} \left ( q_{2 k + 2} \right ) +

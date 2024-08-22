@@ -141,24 +141,24 @@
     <div class="definition" id="definition-subtype">
     	<div class="title">Subtype</div>
     	<div class="content">
-    		GIven two types S, T, we say that S is a subtype of T and write <code>S &lt;: T</code>
+    		GIven two types S, T, we say that S is a subtype of T and write <code>S \lt;: T</code>
     	</div>
     </div>
 
     <p>
-        &lt;: is similar to the subset relation, Dog &lt;: Animal.
+        \lt;: is similar to the subset relation, Dog \lt;: Animal.
     </p>
 
     <p>
-        the LSP states that if phi(t) is a property that is provoable about objects t of type T, then phi(s) should be true for objects of type S where where S &lt;: T. Note that this would be trivial for subset relation, therefore this is more general, this means that S, T need not even have the same elements. Anything provable from
+        the LSP states that if phi(t) is a property that is provoable about objects t of type T, then phi(s) should be true for objects of type S where where S \lt;: T. Note that this would be trivial for subset relation, therefore this is more general, this means that S, T need not even have the same elements. Anything provable from
     </p>
 
     <pre>
-        S &lt;: S
+        S \lt;: S
 
-        S &lt;: T T &lt;:U
+        S \lt;: T T \lt;:U
         -----------------
-        S &lt;: U
+        S \lt;: U
     </pre>
 
     <p>
@@ -166,7 +166,7 @@
     </p>
 
     <pre>
-        t : S S &lt;: T
+        t : S S \lt;: T
         ---------------
         t : T
     </pre>

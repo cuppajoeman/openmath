@@ -16,28 +16,28 @@
             <div class="definition">
                 <div class="title">increasing function</div>
                 <div class="content">
-                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is increasing if given \( x , y \in A \) with \( x < y \) we have \( f{\left ( x \right )} \le f{\left ( y \right )} \). An increasing function is also known as a non-decreasing function.
+                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is increasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \le f{\left ( y \right )} \). An increasing function is also known as a non-decreasing function.
                 </div>
             </div>
 
             <div class="definition">
                 <div class="title">strictly increasing function</div>
                 <div class="content">
-                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is strictly increasing if given \( x , y \in A \) with \( x < y \) we have \( f{\left ( x \right )} \lt f{\left ( y \right )} \). 
+                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is strictly increasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \lt f{\left ( y \right )} \). 
                 </div>
             </div>
 
             <div class="definition">
                 <div class="title">decreasing function</div>
                 <div class="content">
-                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is decreasing if given \( x , y \in A \) with \( x < y \) we have \( f{\left ( x \right )} \ge f{\left ( y \right )} \). A decreasing function is also known as a non-increasing function.
+                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is decreasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \ge f{\left ( y \right )} \). A decreasing function is also known as a non-increasing function.
                 </div>
             </div>
 
             <div class="definition">
                 <div class="title">strictly decreasing function</div>
                 <div class="content">
-                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is decreasing if given \( x , y \in A \) with \( x < y \) we have \( f{\left ( x \right )} \gt f{\left ( y \right )} \) 
+                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is decreasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \gt f{\left ( y \right )} \) 
                 </div>
             </div>
 
@@ -97,7 +97,7 @@
 						We'll show that the function is continuous, so let \( p \in I \) and we'll show that \( \lim_{y \to p} f^{- 1}{\left ( x \right )} = f^{- 1}{\left ( p \right )} \) using the epsilon delta definition.
 					</p>
 					<p>
-						Let \( \epsilon \in \mathbb{R}^{\gt 0} \), let \( x = f^{- 1}{\left ( p \right )} \) and note that \( x - \epsilon < x + \epsilon \) and therefore since \( f \) is strictly increasing we know that \( f{\left ( x - \epsilon \right )} < f{\left ( x + \epsilon \right )} \), in other words, there is some \( \delta_{1} , \delta_{2} \in \mathbb{R}^{\gt 0} \) such that \( f{\left ( x - \epsilon \right )} = p - \delta_{1} \) and \( f{\left ( x + \epsilon \right )} = p + \delta_{2} \), now take \( \delta = \min \left ( \delta_{1} , \delta_{2} \right ) \) and suppose \( \left \lvert y - p \right \rvert \lt \delta \). 
+						Let \( \epsilon \in \mathbb{R}^{\gt 0} \), let \( x = f^{- 1}{\left ( p \right )} \) and note that \( x - \epsilon \lt x + \epsilon \) and therefore since \( f \) is strictly increasing we know that \( f{\left ( x - \epsilon \right )} \lt f{\left ( x + \epsilon \right )} \), in other words, there is some \( \delta_{1} , \delta_{2} \in \mathbb{R}^{\gt 0} \) such that \( f{\left ( x - \epsilon \right )} = p - \delta_{1} \) and \( f{\left ( x + \epsilon \right )} = p + \delta_{2} \), now take \( \delta = \min \left ( \delta_{1} , \delta_{2} \right ) \) and suppose \( \left \lvert y - p \right \rvert \lt \delta \). 
 					</p>
 					<p>
 						if \( \left \lvert y - p \right \rvert \lt \delta \), then \( \delta - p \lt y \lt \delta + p \)

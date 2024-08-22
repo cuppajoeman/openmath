@@ -94,7 +94,7 @@
         	<div class="content">
         	    Let \( p \in \mathbb{ P } _ 3 \), \( k \in \mathbb{ N } _ 1 \) and \( a \in \operatorname{ pr } \left( p ^ k \right)  \) 
                 \[
-                    a \in \operatorname{ pr } \left( 2 p ^ k \right) \iff a \in \mathbb{ Z } _ \operatorname{ odd } 
+                a \in \operatorname{ pr } \left( 2 p ^ k \right) \iff a \in \mathbb{ Z } _ {\operatorname{ odd } }
                 \]
                 
         	</div>
@@ -103,7 +103,7 @@
                     Suppose that \( a \in \operatorname{ pr } \left( 2 p ^ k \right)  \) <a class="knowledge-link" href="/number_theory/primitive_roots.html#proposition-order-exists-iff-coprime">then</a> \( a \in \operatorname{ cop } \left( 2 p ^ k \right)  \), therefore \( a \) cannot be even, so that it must be odd.
                 </p>
                 <p>
-                    Now suppose that \( a \in \mathbb{ Z } _ \operatorname{ odd }  \) but for the sake of contradiction that \( a \notin \operatorname{ pr } \left( 2 p ^ k \right)  \) therefore \( m := \operatorname{ o } \left( a, 2p ^ k \right) \lt \phi \left( 2 p ^ k \right) = \phi \left( p ^ k \right) \) and \( a ^ m \equiv 1 \pmod{ 2 p ^ k }  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-if-two-numbers-are-congruent-they-are-still-congrune-t-mod-a-divisor-of-the-original-mod">then we have</a> \( a ^ m \equiv 1 \pmod{ p ^ k }  \), but \( a \in \operatorname{ pr } \left( p ^ k \right)  \) therefore \( \operatorname{ o } \left( a, p ^ k \right) = \phi \left( p ^ k \right)   \) but we have that \( m \lt \phi \left( p ^ k \right)  \) which is impossible because the order is the smallest power the yields one, but we've found a smaller one.
+                Now suppose that \( a \in \mathbb{ Z } _ {\operatorname{ odd }}  \) but for the sake of contradiction that \( a \notin \operatorname{ pr } \left( 2 p ^ k \right)  \) therefore \( m := \operatorname{ o } \left( a, 2p ^ k \right) \lt \phi \left( 2 p ^ k \right) = \phi \left( p ^ k \right) \) and \( a ^ m \equiv 1 \pmod{ 2 p ^ k }  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-if-two-numbers-are-congruent-they-are-still-congrune-t-mod-a-divisor-of-the-original-mod">then we have</a> \( a ^ m \equiv 1 \pmod{ p ^ k }  \), but \( a \in \operatorname{ pr } \left( p ^ k \right)  \) therefore \( \operatorname{ o } \left( a, p ^ k \right) = \phi \left( p ^ k \right)   \) but we have that \( m \lt \phi \left( p ^ k \right)  \) which is impossible because the order is the smallest power the yields one, but we've found a smaller one.
                 </p>
 <!--                TODO we didn't use the odd fact here, is this a problem?-->
         	</div>
