@@ -28,16 +28,8 @@ function compileAndCopy(sourceDir, outputDir) {
             const dom = new JSDOM(data);
             const document = dom.window.document;
 
-            // Example JavaScript function to manipulate the DOM
-            const buttons = document.querySelectorAll('button');
-            buttons.forEach(button => {
-              button.style.backgroundColor = 'red'; // Example modification
-            });
-
-            const elements = document.querySelectorAll('.some-class');
-            elements.forEach(el => {
-              el.textContent = 'Modified Content'; // Example modification
-            });
+              // TODO need to make this work, right now it doesn't work correctly
+              //preparePage(dom)
 
             // Extract the modified HTML content from the document
             const modifiedHTML = document.documentElement.outerHTML;
