@@ -82,14 +82,14 @@
         <div class="definition" id="definition-arbitrary-union-counting-notation">
             <div class="title">Arbitrary Union Counting Notation</div>
             <div class="content">
-                Suppose that \( a , b \in \mathbb{Z} \), with \( a < b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then  \( \bigcup_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup \mathcal{A} \)</span>
+                Suppose that \( a , b \in \mathbb{Z} \), with \( a \lt b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then  \( \bigcup_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup \mathcal{A} \)</span>
             </div>
         </div>
 
         <div class="definition" id="definition-arbitrary-intersection-counting-notation">
             <div class="title">Arbitrary Intersection Counting Notation</div>
             <div class="content">
-                Suppose that \( a , b \in \mathbb{Z} \), with \( a < b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then \( \bigcap_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap \mathcal{A} \)</span>
+                Suppose that \( a , b \in \mathbb{Z} \), with \( a \lt b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then \( \bigcap_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap \mathcal{A} \)</span>
             </div>
         </div>
 
@@ -127,17 +127,17 @@
             <div class="exercise">
                 <div class="title">partition of the integers</div>
                 <div class="content">
-                    The family \( \left \lbrace \left \lbrace p \in \mathbb{Z} : p < 0 \right \rbrace , \left \lbrace 0 \right \rbrace , \left \lbrace p \in \mathbb{Z} : p > 0 \right \rbrace \right \rbrace \) is a partition of \( \mathbb{Z} \)
+                    The family \( \left \lbrace \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace , \left \lbrace 0 \right \rbrace , \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace \right \rbrace \) is a partition of \( \mathbb{Z} \)
                 </div>
                 <div class="proof">
                     <p>
                         Note that the integers \( - 1 , 0 , 1 \) show that the empty set is not in this family. We'll now prove that it's union equals \( \mathbb{Z} \), so let \( p \in \bigcup P \), therefore \( p \) is in at least one of the sets included in \( P \), since each is a subset of \( \mathbb{Z} \), then we know \( p \in \mathbb{Z} \), for the reverse direction, we can assume that \( p \in \mathbb{Z} \), therefore we know that \( p \) is either positive, negative or zero, so that \( p \in \bigcup P \), <a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">this shows </a> \( \bigcup P = \mathbb{Z} \).
                     </p>
                     <p>
-                        To show this family is pairwise disjoint, note that \( 0 \notin \left \lbrace p \in \mathbb{Z} : p < 0 \right \rbrace \) and \( 0 \notin \left \lbrace p \in \mathbb{Z} : p > 0 \right \rbrace \), which shows us that \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p < 0 \right \rbrace = \emptyset \) and \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p > 0 \right \rbrace = \emptyset \).
+                        To show this family is pairwise disjoint, note that \( 0 \notin \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace \) and \( 0 \notin \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace \), which shows us that \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace = \emptyset \) and \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace = \emptyset \).
                     </p>
                     <p>
-                        Given any positive integer, we know it cannot be a negative integer, therefore \( \left \lbrace p \in \mathbb{Z} : p < 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p > 0 \right \rbrace = \emptyset \), thus we know that \( P \) is pairwise disjoint, which concludes the proof.
+                        Given any positive integer, we know it cannot be a negative integer, therefore \( \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace = \emptyset \), thus we know that \( P \) is pairwise disjoint, which concludes the proof.
                     </p>
                 </div>
             </div>

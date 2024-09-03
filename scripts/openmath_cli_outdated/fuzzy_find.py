@@ -4,7 +4,7 @@ from os import walk
 
 
 script_directory = os.path.dirname(os.path.realpath(__file__))
-os.chdir("../html")
+os.chdir("../../html")
 content_directory = os.getcwd()
 
 def search_content_files_for_term(search_term):

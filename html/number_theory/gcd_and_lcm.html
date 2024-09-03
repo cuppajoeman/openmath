@@ -61,10 +61,10 @@
             </div>
 
             <div class="proof">
-                <p>Define \( S := \left\{ am + bn: m, n \in \mathbb{ Z } \text{ and } am + bn &gt; 0\right\} \), we
+                <p>Define \( S := \left\{ am + bn: m, n \in \mathbb{ Z } \text{ and } am + bn \gt; 0\right\} \), we
                 first note that \( S \) cannot be empty. The only way it could be empty would be if that given any
-                choice of \( m, n \) we have \( am + bn &lt; 0 \), but if that&#39;s the case we can always see that \(
-                - \left( am + bn \right) &gt; 0 \) and note that \( - \left( am + bn \right) = a \left( -m \right) + b
+                choice of \( m, n \) we have \( am + bn \lt; 0 \), but if that&#39;s the case we can always see that \(
+                - \left( am + bn \right) \gt; 0 \) and note that \( - \left( am + bn \right) = a \left( -m \right) + b
                 \left( -n \right) \), which shows that there is an element in \( S \).</p>
 
                 <p>Since \( S \subseteq \mathbb{ N } _ 0 \), the well ordering principle tells us that there is some
@@ -73,9 +73,9 @@
 
                 <p>By the <a class="knowledge-link" href=
                 "/number_theory/division.html#theorem-quotient-remainder">quotient remainder theorem</a>, we have some
-                \( q, r \) such that \( a = qd + r \) where \( 0 \le r &lt; d \), from here we can see that \[
+                \( q, r \) such that \( a = qd + r \) where \( 0 \le r \lt; d \), from here we can see that \[
                 \begin{aligned} r &amp;= a - qd \\ &amp;= a - q \left( aj + bk \right) \\ &amp;= a \left( 1 - qj
-                \right) + b \left( qk \right) \end{aligned} \] at this point in time if \( r &gt; 0 \), then we would
+                \right) + b \left( qk \right) \end{aligned} \] at this point in time if \( r \gt; 0 \), then we would
                 have a contradiction because \( r \) would be a value smaller than \( d \) that is an element of \( S
                 \), but we assumed that \( d \) was the smallest such element. Therefore, the only way forward is that
                 \( r = 0 \)</p>

@@ -1,9 +1,10 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: openmath
 
 on:
   # Runs on pushes targeting the default branch
   push:
+    branches: ["main"]
+  pull_request:
     branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -22,6 +23,23 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        # with:
+        #   node-version: '20.x'
+      - run: cd scripts/precompiled_html_generation
+      - name: Install dependencies
+        run: npm ci
+      - name: Compile latex
+        run: node compile_latex_to_mathml.js  
+      - name: Dom adjustments
+        run: node dom_adjustments.js
+
   # Single deploy job since we're just deploying
   deploy:
     environment:
@@ -39,7 +57,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload entire repository
-          path: './html'
+          path: './dom_adjusted'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2

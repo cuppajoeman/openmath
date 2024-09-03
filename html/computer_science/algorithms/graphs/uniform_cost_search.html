@@ -52,7 +52,7 @@
     </pre>
 
     <p>
-        In general UCS is not complete, because given an infinite number of zero-weight edges deviating away from the goal state, then UCS will follow this path forever and never find the goal. On the other hand, if there exists some \( \epsilon > 0 \) such that every edge has at least this weight, then UCS will find the minimum cost solution, this is because it explores nodes in the search space in non-decreasing order of cost so it must find a minimum cost path to a goal before finding any higher cost paths leading to a goal.
+        In general UCS is not complete, because given an infinite number of zero-weight edges deviating away from the goal state, then UCS will follow this path forever and never find the goal. On the other hand, if there exists some \( \epsilon \gt 0 \) such that every edge has at least this weight, then UCS will find the minimum cost solution, this is because it explores nodes in the search space in non-decreasing order of cost so it must find a minimum cost path to a goal before finding any higher cost paths leading to a goal.
     </p>
     
     <div class="exercise" id="exercise-ucs-example-graph">
@@ -141,7 +141,7 @@
     <div class="theorem" id="theorem-ucs-runtime-and-space-complexity">
     	<div class="title">UCS Runtime</div>
     	<div class="content">
-    		Suppose that we have a directed graph with maximum branching factor \( b \) with edge weights such that there exists some \( \epsilon > 0 \) such that every edge weight is at least this amount. If \( s, g \) are two connected in the graph and let \( C ^ * \) be the minimal cost a path can have that starts from \( s \) and goes to \( g \), then the runtime and space complexity of calling UCS on \( s \) is given by
+    		Suppose that we have a directed graph with maximum branching factor \( b \) with edge weights such that there exists some \( \epsilon \gt 0 \) such that every edge weight is at least this amount. If \( s, g \) are two connected in the graph and let \( C ^ * \) be the minimal cost a path can have that starts from \( s \) and goes to \( g \), then the runtime and space complexity of calling UCS on \( s \) is given by
             \[
                 \mathcal{ O } \left( b ^ { \lfloor \frac{C ^ *}{\epsilon }  \rfloor  + 1}  \right)
             \]

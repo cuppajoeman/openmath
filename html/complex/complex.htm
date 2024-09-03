@@ -274,7 +274,7 @@
         <div class="definition">
             <div class="title">complex number to the power of another</div>
             <div class="content">
-                given \( z , w \in \mathbb{C} \) we say that \( z^{w} := e^{\Log{\left ( z \right )} \cdot w} \)
+                given \( z , w \in \mathbb{C} \) we say that \( z^{w} := e^{\operatorname{Log}{\left ( z \right )} \cdot w} \)
             </div>
         </div>
 
@@ -284,7 +284,7 @@
                 compute \( i^{i} \)
             </div>
             <div class="proof">
-                \( i^{i} = e^{\Log{\left ( i \right )} \cdot i} = e^{i \frac{\pi}{2} \cdot i} = \frac{1}{e^{\frac{\pi}{2}}} \)
+                \( i^{i} = e^{\operatorname{Log}{\left ( i \right )} \cdot i} = e^{i \frac{\pi}{2} \cdot i} = \frac{1}{e^{\frac{\pi}{2}}} \)
             </div>
         </div>
 
@@ -304,14 +304,14 @@
         <div class="definition">
             <div class="title">principal value log</div>
             <div class="content">
-                \( \Log{\left ( z \right )} \) is a branch of \( \log{\left ( z \right )} \) such that \( \mathfrak{I} \left ( \Log{\left ( z \right )} \right ) \in \left ( - \pi , \pi \right ] \)
+                \( \operatorname{Log}{\left ( z \right )} \) is a branch of \( \log{\left ( z \right )} \) such that \( \mathfrak{I} \left ( \operatorname{Log}{\left ( z \right )} \right ) \in \left ( - \pi , \pi \right ] \)
             </div>
         </div>
 
         <div class="exercise">
             <div class="title"></div>
             <div class="content">
-                \( \Log{\left ( 4 + 4 i \right )} = \Log{\left ( 4 \cdot \left ( 1 + i \right ) \right )} = \log{\left ( 4 \right )} + \Log{\left ( 1 + i \right )} = \log{\left ( 4 \right )} + \log{\left ( \sqrt{2} \right )} + i \frac{\pi}{4} = \log{\left ( 4 \cdot \sqrt{2} \right )} + i \frac{\pi}{4} \)
+                \( \operatorname{Log}{\left ( 4 + 4 i \right )} = \operatorname{Log}{\left ( 4 \cdot \left ( 1 + i \right ) \right )} = \log{\left ( 4 \right )} + \operatorname{Log}{\left ( 1 + i \right )} = \log{\left ( 4 \right )} + \log{\left ( \sqrt{2} \right )} + i \frac{\pi}{4} = \log{\left ( 4 \cdot \sqrt{2} \right )} + i \frac{\pi}{4} \)
             </div>
             <div class="proof"></div>
         </div>
@@ -350,24 +350,24 @@
         <div class="definition" id="definition-open-set">
             <div class="title">open set</div>
             <div class="content">
-                a set \( A \subseteq \mathbb{C} \) is said to be open if for every \( a \in A \), there is some \( \epsilon \in R^{> 0} \) such that \( B \left ( a , \epsilon \right ) \subseteq A \)
+                a set \( A \subseteq \mathbb{C} \) is said to be open if for every \( a \in A \), there is some \( \epsilon \in R^{\gt 0} \) such that \( B \left ( a , \epsilon \right ) \subseteq A \)
             </div>
         </div>
 
         <div class="exercise">
             <div class="title"></div>
             <div class="content">
-                Show that \( \Omega := \left \lbrace z \in \mathbb{C} : \mathfrak{I} \left ( z \right ) > 1 \right \rbrace \) is an open set
+                Show that \( \Omega := \left \lbrace z \in \mathbb{C} : \mathfrak{I} \left ( z \right ) \gt 1 \right \rbrace \) is an open set
             </div>
             <div class="proof">
                 <p>
-                    Let \( z_{\Omega} \in \Omega \), then take \( B \left ( z_{\Omega} , \mathfrak{I} \left ( z_{\omega} \right ) - 1 \right ) \), let \( z \in B \left ( z_{\Omega} , \mathfrak{I} \left ( z_{\omega} \right ) - 1 \right ) \), now we want to prove that \( z \in \Omega \), that is that \( \mathfrak{I} \left ( z \right ) > 1 \)
+                    Let \( z_{\Omega} \in \Omega \), then take \( B \left ( z_{\Omega} , \mathfrak{I} \left ( z_{\omega} \right ) - 1 \right ) \), let \( z \in B \left ( z_{\Omega} , \mathfrak{I} \left ( z_{\omega} \right ) - 1 \right ) \), now we want to prove that \( z \in \Omega \), that is that \( \mathfrak{I} \left ( z \right ) \gt 1 \)
                 </p>
                 <p>
-                    If \( \mathfrak{I} \left ( z \right ) \ge \mathfrak{I} \left ( z_{\Omega} \right ) \), then clearly \( \mathfrak{I} \left ( z \right ) > 1 \), on the other hand if \( \mathfrak{I} \left ( z \right ) < \mathfrak{I} \left ( z_{\Omega} \right ) \) we have more work to do. So assume \( \mathfrak{I} \left ( z \right ) < \mathfrak{I} \left ( z_{\Omega} \right ) \).
+                    If \( \mathfrak{I} \left ( z \right ) \ge \mathfrak{I} \left ( z_{\Omega} \right ) \), then clearly \( \mathfrak{I} \left ( z \right ) \gt 1 \), on the other hand if \( \mathfrak{I} \left ( z \right ) \lt \mathfrak{I} \left ( z_{\Omega} \right ) \) we have more work to do. So assume \( \mathfrak{I} \left ( z \right ) \lt \mathfrak{I} \left ( z_{\Omega} \right ) \).
                 </p>
                 <p>
-                    Due to the fact that \( z \) resides in a ball with radius \( \mathfrak{I} \left ( z_{\Omega} \right ) - 1 \) we can see that \( \mathfrak{I} \left ( z_{\Omega} \right ) - 1 \gt \left | z - z_{\Omega} \right |  = \left | z_{\Omega} - z \right |  \) <a href="#proposition-modulus-is-greater-than-it's-components">\( \ge \)</a> \( \left | \mathfrak{I} \left ( z_{\Omega} - z \right ) \right |  \)<a href="#proposition-imaginary-part-distributes">\( = \)</a>\( \left | \mathfrak{I} \left ( z_{\Omega} \right ) - \mathfrak{I} \left ( z \right ) \right |  \) and since \( \mathfrak{I} : \mathbb{C} \to \mathbb{R} \) and that \( \mathfrak{I} \left ( z \right ) < \mathfrak{I} \left ( z_{\Omega} \right ) \) we know that \( \mathfrak{I} \left ( z_{\Omega} \right ) - \mathfrak{I} \left ( z \right ) \gt 0 \) and thus \( \left | \mathfrak{I} \left ( z_{\Omega} \right ) - \mathfrak{I} \left ( z \right ) \right |  \)<a href="../analysis/single_variable.html#definition-absolute-value">\( = \)</a>\( \mathfrak{I} \left ( z_{\Omega} \right ) - \mathfrak{I} \left ( z \right ) \).
+                    Due to the fact that \( z \) resides in a ball with radius \( \mathfrak{I} \left ( z_{\Omega} \right ) - 1 \) we can see that \( \mathfrak{I} \left ( z_{\Omega} \right ) - 1 \gt \left | z - z_{\Omega} \right |  = \left | z_{\Omega} - z \right |  \) <a href="#proposition-modulus-is-greater-than-it's-components">\( \ge \)</a> \( \left | \mathfrak{I} \left ( z_{\Omega} - z \right ) \right |  \)<a href="#proposition-imaginary-part-distributes">\( = \)</a>\( \left | \mathfrak{I} \left ( z_{\Omega} \right ) - \mathfrak{I} \left ( z \right ) \right |  \) and since \( \mathfrak{I} : \mathbb{C} \to \mathbb{R} \) and that \( \mathfrak{I} \left ( z \right ) \lt \mathfrak{I} \left ( z_{\Omega} \right ) \) we know that \( \mathfrak{I} \left ( z_{\Omega} \right ) - \mathfrak{I} \left ( z \right ) \gt 0 \) and thus \( \left | \mathfrak{I} \left ( z_{\Omega} \right ) - \mathfrak{I} \left ( z \right ) \right |  \)<a href="../analysis/single_variable.html#definition-absolute-value">\( = \)</a>\( \mathfrak{I} \left ( z_{\Omega} \right ) - \mathfrak{I} \left ( z \right ) \).
                 </p>
                 <p>
                     By collapsing our inequalities we have that \( \mathfrak{I} \left ( z_{\Omega} \right ) - 1 \gt \mathfrak{I} \left ( z_{\Omega} \right ) - \mathfrak{I} \left ( z \right ) \) thus subtracting \( \mathfrak{I} \left ( z_{\Omega} \right ) \) from both sides and then multiplying by \( - 1 \) yields \( 1 \lt \mathfrak{I} \left ( z \right ) \) thus \( z \in \Omega \) as needed.
@@ -386,7 +386,7 @@
         <div class="exercise">
             <div class="title"></div>
             <div class="content">
-                is the image of the strip \( S = \left \lbrace z \in \mathbb{C} : - \frac{\pi}{2} < \mathcal{I} \left ( z \right ) < \frac{\pi}{2} \right \rbrace \) under \( f{\left ( z \right )} = e^{z} \) an open set?
+                is the image of the strip \( S = \left \lbrace z \in \mathbb{C} : - \frac{\pi}{2} \lt \mathcal{I} \left ( z \right ) \lt \frac{\pi}{2} \right \rbrace \) under \( f{\left ( z \right )} = e^{z} \) an open set?
             </div>
             <div class="proof">
                 <p>
@@ -469,7 +469,7 @@
 
                 <ul>
                     <li>
-                        there is some \( \theta \in \left [ 0 , 2 \pi \right ) \) and \( r > 0 \) such that:
+                        there is some \( \theta \in \left [ 0 , 2 \pi \right ) \) and \( r \gt 0 \) such that:
                     </li>
                     <li>
                         for any differentiable curve \( \gamma : \left [ 0 , 1 \right ] \to A \) that is differentiable at \( 0 \) and \( \gamma \left ( 0 \right ) = z_{0} \) and \( \gamma^{'} \left ( 0 \right ) \ne 0 \) 
@@ -651,7 +651,7 @@
         <div class="definition">
             <div class="title">reparametrization </div>
             <div class="content">
-                suppose \( \gamma : \left [ a , b \right ] \to \mathbb{C} , \overline{\gamma} : \left [ \overline{a} , \overline{b} \right ] \to \mathbb{C} \) are piecewise \( C^{1} \) curves, then \( \overline{\gamma} \) is called a reparametrization of \( \gamma \) if there is a \( C^{1} \) function \( \alpha : \left [ a , b \right ] \to \left [ \overline{a} , \overline{b} \right ] \) with \( \alpha^{'} \left ( t \right ) > 0 , \alpha \left ( a \right ) = \overline{a} \) and \( \alpha \left ( b \right ) = \overline{b} \) such that \( \gamma \left ( t \right ) = \overline{\gamma} \left ( \alpha \left ( t \right ) \right ) \)
+                suppose \( \gamma : \left [ a , b \right ] \to \mathbb{C} , \overline{\gamma} : \left [ \overline{a} , \overline{b} \right ] \to \mathbb{C} \) are piecewise \( C^{1} \) curves, then \( \overline{\gamma} \) is called a reparametrization of \( \gamma \) if there is a \( C^{1} \) function \( \alpha : \left [ a , b \right ] \to \left [ \overline{a} , \overline{b} \right ] \) with \( \alpha^{'} \left ( t \right ) \gt 0 , \alpha \left ( a \right ) = \overline{a} \) and \( \alpha \left ( b \right ) = \overline{b} \) such that \( \gamma \left ( t \right ) = \overline{\gamma} \left ( \alpha \left ( t \right ) \right ) \)
             </div>
         </div>
 
@@ -970,7 +970,7 @@
         <div class="theorem">
             <div class="title">cauchy's inequalities</div>
             <div class="content">
-                Let \( f \) be holomorphic on a region \( A \) and let \( \gamma \) be a circle with radius \( R \) and center \( z_{0} \) that lies in \( A \). Assume that the disk \( \left \lbrace z \in \mathbb{C} : \left | z - z_{0} \right |  < R \right \rbrace \) also lies in \( A \), supose that \( \left | f{\left ( z \right )} \right |  \le M \) for all \( z \) on \( \gamma \), then for any \( k \in \mathbb{N}_{0} \)
+                Let \( f \) be holomorphic on a region \( A \) and let \( \gamma \) be a circle with radius \( R \) and center \( z_{0} \) that lies in \( A \). Assume that the disk \( \left \lbrace z \in \mathbb{C} : \left | z - z_{0} \right |  \lt R \right \rbrace \) also lies in \( A \), supose that \( \left | f{\left ( z \right )} \right |  \le M \) for all \( z \) on \( \gamma \), then for any \( k \in \mathbb{N}_{0} \)
                 <div class="centered-content">
                     \( \left | f^{\left ( k \right )}{\left ( z_{0} \right )} \right |  \le \frac{k !}{R^{k}} \cdot M \)
                 </div>
@@ -1102,7 +1102,7 @@
             <div class="title">schwarz</div>
             <div class="content">
                 <p>
-                    suppose that \( f \) is holomorphic on \( A = \left \lbrace z \in \mathbb{C} : \left | z \right |  < 1 \right \rbrace \) with \( f{\left ( 0 \right )} = 0 \) and \( \left | f{\left ( z \right )} \right |  \le 1 \) for all \( z \in A \), then \( \left | f^{'}{\left ( 0 \right )} \right |  \le 1 \) and \( \left | f{\left ( z \right )} \right |  \le \left | z \right |  \).
+                    suppose that \( f \) is holomorphic on \( A = \left \lbrace z \in \mathbb{C} : \left | z \right |  \lt 1 \right \rbrace \) with \( f{\left ( 0 \right )} = 0 \) and \( \left | f{\left ( z \right )} \right |  \le 1 \) for all \( z \in A \), then \( \left | f^{'}{\left ( 0 \right )} \right |  \le 1 \) and \( \left | f{\left ( z \right )} \right |  \le \left | z \right |  \).
                 </p>
                 <p>
                    moreover if \( \left | f^{'}{\left ( 0 \right )} \right |  = 1 \) or if there is a point \( z_{0} \) other than \( 0 \) in \( A \) with \( \left | f{\left ( z_{0} \right )} \right |  = \left | z_{0} \right |  \), then there is a constant \( c \in \mathbb{C} \) where \( \left | c \right |  = 1 \) and \( f{\left ( z \right )} = c z \) for all \( z \in A \)
@@ -1142,9 +1142,9 @@
         <div class="theorem">
             <div class="title">cauchy criterion for series</div>
             <div class="content">
-                \( \sum_{k = 1}^{\infty} a_{k} \) converges iff for each \( \epsilon > 0 \), there is an \( N \) such that for all \( n \ge N \) we have
+                \( \sum_{k = 1}^{\infty} a_{k} \) converges iff for each \( \epsilon \gt 0 \), there is an \( N \) such that for all \( n \ge N \) we have
                 <div class="centered-content">
-                    \( \left | \sum_{k = n + 1}^{n + p} a_{k} \right |  < \epsilon \)
+                    \( \left | \sum_{k = n + 1}^{n + p} a_{k} \right |  \lt \epsilon \)
                 </div>
                 for every \( p \in \mathbb{N}_{1} \)
             </div>
@@ -1190,8 +1190,8 @@
             <div class="content">
                 Suppose that \( f{\left ( z \right )} = \sum_{k = 0}^{\infty} a_{k} \cdot \left ( z - z_{0} \right )^{k} \) is a power series, then there exists a unique \( r \in \mathbb{R} \cup \left \lbrace \infty \right \rbrace \) known as the radius of convergence such that:
                 <ul>
-                    <li>if \( \left \lvert z - z_{0} \right \rvert < r \) then the given power series converges</li>
-                    <li>if \( \left \lvert z - z_{0} \right \rvert > r \) then the power series diverges</li>
+                    <li>if \( \left \lvert z - z_{0} \right \rvert \lt r \) then the given power series converges</li>
+                    <li>if \( \left \lvert z - z_{0} \right \rvert \gt r \) then the power series diverges</li>
                 </ul>
             </div>
             <div class="proof"></div>
@@ -1211,7 +1211,7 @@
         <div class="lemma">
             <div class="title">abel-weierstrass</div>
             <div class="content">
-                Suppose that \( r_{0} > 0 \) and that \( \left | a_{n} \right |  r_{0}^{n} \le M \) holds for all \( n \in \mathbb{N}_{0} \), for some constant \( M \). Then for any \( r < r_{0} \), the series \( \sum_{n = 0}^{\infty} a_{n} \left ( z - z_{0} \right )^{n} \) uniformly and absolutely on the closed disk \( A_{r} = \left \lbrace z \in \mathbb{C} : \left | z - z_{0} \right |  \le r \right \rbrace \)
+                Suppose that \( r_{0} \gt 0 \) and that \( \left | a_{n} \right |  r_{0}^{n} \le M \) holds for all \( n \in \mathbb{N}_{0} \), for some constant \( M \). Then for any \( r \lt r_{0} \), the series \( \sum_{n = 0}^{\infty} a_{n} \left ( z - z_{0} \right )^{n} \) uniformly and absolutely on the closed disk \( A_{r} = \left \lbrace z \in \mathbb{C} : \left | z - z_{0} \right |  \le r \right \rbrace \)
             </div>
             <div class="proof"></div>
         </div>
@@ -1261,7 +1261,7 @@
         <div class="theorem">
             <div class="title">taylors theorem</div>
             <div class="content">
-                let \( f \) be analytic on an open set \( A \subseteq \mathbb{C} \), let \( z_{0} \in A \) and let \( A_{r} = \left \lbrace z \in \mathbb{C} : \right \rvert z - z_{0} \left \lvert < r \right \rbrace \subseteq A \), then for every \( z \in A_{r} \) the series 
+                let \( f \) be analytic on an open set \( A \subseteq \mathbb{C} \), let \( z_{0} \in A \) and let \( A_{r} = \left \lbrace z \in \mathbb{C} : \right \rvert z - z_{0} \left \lvert \lt r \right \rbrace \subseteq A \), then for every \( z \in A_{r} \) the series 
                 <p>
                     \( \sum_{n = 0}^{\infty} \frac{f^{\left ( n \right )}{\left ( z_{0} \right )}}{n !} \cdot \left ( z - z_{0} \right )^{n} \)
                 </p>
@@ -1286,7 +1286,7 @@
                 analytic iff power series
             </div>
             <div class="content">
-                Let \( A \) be a region in \( \mathbb{C} \) and let \( f \) be a complex valued function defined on \( A \). Then \( f \) is analytic on \( A \) iff for each \( z_{0} \) in \( A \) there is a number \( r > 0 \) such that the disk \( D \left ( z_{0} , r \right ) \subseteq A \) and \( f \) equals a convergent power series on \( D \left ( z_{0} , r \right ) \)
+                Let \( A \) be a region in \( \mathbb{C} \) and let \( f \) be a complex valued function defined on \( A \). Then \( f \) is analytic on \( A \) iff for each \( z_{0} \) in \( A \) there is a number \( r \gt 0 \) such that the disk \( D \left ( z_{0} , r \right ) \subseteq A \) and \( f \) equals a convergent power series on \( D \left ( z_{0} , r \right ) \)
             </div>
             <div class="proof"></div>
         </div>
@@ -1301,12 +1301,12 @@
                 <p>
                     \( f{\left ( z \right )} = \sum_{k = 0}^{\infty} \frac{f^{\left ( k \right )}{\left ( c \right )}}{k !} \left ( z - c \right )^{k} \)
                 </p>
-                for \( \left \lvert z - c \right \rvert < r \). 
+                for \( \left \lvert z - c \right \rvert \lt r \). 
                 
                 <ul>
                     <li>If \( f^{\left ( k \right )}{\left ( c \right )} = 0 \) for all \( k \), then \( f{\left ( z \right )} \) is identically \( 0 \) in \( D \left ( c , r \right ) \)</li>
                     <li>
-                        If not, then there is a smallest non-negative integer \( n \) holding \( f^{\left ( n \right )}{\left ( c \right )} \ne 0 \). If \( n = 0 \), then \( f{\left ( c \right )} \ne 0 \). If \( n > 0 \), then \( f{\left ( c \right )} = f{'} \left ( c \right ) = f{'} ' \left ( c \right ) = \ldots = f^{\left ( n - 1 \right )}{\left ( c \right )} = 0 \) but \( f^{\left ( n \right )}{\left ( c \right )} \ne 0 \) and we say that \( f \) has a zero of order \( n \) at \( c \). From algebra we know that a polynomial has a zero at \( c \) iff \( z - c \) is a factor of that polynomial. The zero has order of multiplicity \( n \) if the factor \( z - c \) occurs exactly \( n \) times. Consideration of the Taylor series shows that an analytic function has a zero at \( c \) iff \( z - c \) is a factor of that function and the multiplicity is defined in the same way. For \( z \) in \( D \left ( c , r \right ) \), then since the first \( n - 1 \) terms wer zeros then the power series becomes
+                        If not, then there is a smallest non-negative integer \( n \) holding \( f^{\left ( n \right )}{\left ( c \right )} \ne 0 \). If \( n = 0 \), then \( f{\left ( c \right )} \ne 0 \). If \( n \gt 0 \), then \( f{\left ( c \right )} = f{'} \left ( c \right ) = f{'} ' \left ( c \right ) = \ldots = f^{\left ( n - 1 \right )}{\left ( c \right )} = 0 \) but \( f^{\left ( n \right )}{\left ( c \right )} \ne 0 \) and we say that \( f \) has a zero of order \( n \) at \( c \). From algebra we know that a polynomial has a zero at \( c \) iff \( z - c \) is a factor of that polynomial. The zero has order of multiplicity \( n \) if the factor \( z - c \) occurs exactly \( n \) times. Consideration of the Taylor series shows that an analytic function has a zero at \( c \) iff \( z - c \) is a factor of that function and the multiplicity is defined in the same way. For \( z \) in \( D \left ( c , r \right ) \), then since the first \( n - 1 \) terms wer zeros then the power series becomes
                         <p>
                             \( f{\left ( z \right )} = a_{n} \cdot \left ( z - c \right )^{n} + a_{n + 1} \left ( z - c \right )^{n + 1} + + a_{n + 2} \left ( z - c \right )^{n + 2} + \ldots = \left ( z - c \right )^{n} \cdot \left [ a_{n} + a_{n + 1} \cdot \left ( z - c \right ) + a_{n + 2} \cdot \left ( z - c \right )^{2} + \ldots \right ] \)
                         </p>
@@ -1320,7 +1320,7 @@
         <div class="corollary">
             <div class="title">isolated zeros</div>
             <div class="content">
-                looking at the factorization in the last theorem, we can see that \( \phi \left ( z \right ) \) is analytic and so is continuous on \( D \left ( c , r \right ) \), since \( \phi \left ( c \right ) \ne 0 \), there is a radius \( p \) with \( 0 < p < r \) such that \( \phi \left ( z \right ) \) is never 0 for \( \left \lvert z - c \right \rvert < p \). Since \( f{\left ( z \right )} = \left ( z - c \right )^{n} \phi \left ( z \right ) \) for all \( z \in D \left ( c , p \right ) \) we conclude that \( f \) has no zeros other than \( c \) in that disk, in this sense the zeros of \( f \) are isolated.
+                looking at the factorization in the last theorem, we can see that \( \phi \left ( z \right ) \) is analytic and so is continuous on \( D \left ( c , r \right ) \), since \( \phi \left ( c \right ) \ne 0 \), there is a radius \( p \) with \( 0 \lt p \lt r \) such that \( \phi \left ( z \right ) \) is never 0 for \( \left \lvert z - c \right \rvert \lt p \). Since \( f{\left ( z \right )} = \left ( z - c \right )^{n} \phi \left ( z \right ) \) for all \( z \in D \left ( c , p \right ) \) we conclude that \( f \) has no zeros other than \( c \) in that disk, in this sense the zeros of \( f \) are isolated.
             </div>
             <div class="proof"></div>
         </div>
@@ -1328,11 +1328,11 @@
         <div class="theorem">
             <div class="title">laurent expansion theorem</div>
             <div class="content">
-                Let \( 0 \le r_{1} < r_{2} \) and \( z_{0} \in \mathbb{C} \), and consider the annulus \( A = \left \lbrace z \in \mathbb{C} \mid r_{1} < \right \rvert z - z_{0} \left \lvert < r_{2} \right \rbrace \). We allow \( r_{1} = 0 \) or \( r_{2} = \infty \) or both. Let \( f \) be analytic on the region \( A \). Then we can write
+                Let \( 0 \le r_{1} \lt r_{2} \) and \( z_{0} \in \mathbb{C} \), and consider the annulus \( A = \left \lbrace z \in \mathbb{C} \mid r_{1} \lt \right \rvert z - z_{0} \left \lvert \lt r_{2} \right \rbrace \). We allow \( r_{1} = 0 \) or \( r_{2} = \infty \) or both. Let \( f \) be analytic on the region \( A \). Then we can write
                 <p>
                     \( f{\left ( z \right )} = \sum_{n = 0}^{\infty} a_{n} \left ( z - z_{0} \right )^{n} + \sum_{n = 1}^{\infty} \frac{b_{n}}{\left ( z - z_{0} \right )^{n}} \)
                 </p>
-                where both series on the right side of the equation converge absolutely on \( A \) and uniformly in the sets of the form \( B_{p_{1} , p_{2}} = \left \lbrace z \in \mathbb{C} : p_{1} \le \right \rvert z - z_{0} \left \lvert \le p_{2} \right \rbrace \) where \( r_{1} < p_{1} < p_{2} < r_{2} \)
+                where both series on the right side of the equation converge absolutely on \( A \) and uniformly in the sets of the form \( B_{p_{1} , p_{2}} = \left \lbrace z \in \mathbb{C} : p_{1} \le \right \rvert z - z_{0} \left \lvert \le p_{2} \right \rbrace \) where \( r_{1} \lt p_{1} \lt p_{2} \lt r_{2} \)
             </div>
             <div class="proof"></div>
         </div>
@@ -1451,7 +1451,7 @@
                     </li>
                     <ul>
                         <li>
-                            There is a constant \( M > 0 \) and an integer \( k \ge 1 \) such that
+                            There is a constant \( M \gt 0 \) and an integer \( k \ge 1 \) such that
                             <div class="centered-content">
                                 \( \left | f{\left ( z \right )} \right |  \le \frac{M}{\left | z - z_{0} \right | ^{k}} \)
                             </div>
@@ -1489,7 +1489,7 @@
         </div>
 
         <div class="proposition">
-            <div class="title"></div>
+            <div class="title">x</div>
             <div class="content">
                 for any \( c \in \mathbb{C} \) the function \( f{\left ( z \right )} = \left ( z - c \right )^{k} \) for some \( k \in \mathbb{N}_{1} \) has a zero of order \( k - 1 \)
             </div>
@@ -1509,16 +1509,16 @@
             <div class="content">
                 suppose that \( f \) and \( g \) are analytic in a neighborhood of \( z_{0} \) with zeros at \( z_{0} \) of order \( n \) and \( k \) respectively, then the function \( h \left ( z \right ) = \frac{f{\left ( z \right )}}{g{\left ( z \right )}} \) satisfies the following:
                 <ol>
-                    <li>if \( k > n \), then \( h \) has a pole of order \( k - n \) at \( z_{0} \)</li>
+                    <li>if \( k \gt n \), then \( h \) has a pole of order \( k - n \) at \( z_{0} \)</li>
                     <li>if \( k = n \), then \( h \) has a removable singularity with nonzero limit at \( z_{0} \)</li>
-                    <li>if \( k < n \), then \( h \) has a removable singularity at \( z_{0} \), and setting \( h \left ( z_{0} \right ) = 0 \) produces an analytic function with a zero of order \( n - k \) at \( z_{0} \)</li>
+                    <li>if \( k \lt n \), then \( h \) has a removable singularity at \( z_{0} \), and setting \( h \left ( z_{0} \right ) = 0 \) produces an analytic function with a zero of order \( n - k \) at \( z_{0} \)</li>
                 </ol>
             </div>
             <div class="proof"></div>
         </div>
 
         <div class="exercise">
-            <div class="title"></div>
+            <div class="title">x</div>
             <div class="content">
                 show that \( \frac{1}{\left ( z - c \right )^{k}} \) has a pole of order \( k \)
             </div>
@@ -1527,7 +1527,7 @@
 
 
         <div class="exercise">
-            <div class="title"></div>
+            <div class="title">x</div>
             <div class="content">
                 prove true or false, that if \( p \left ( z \right ) , q \left ( z \right ) \) are non-constant polynomials then \( \frac{p \left ( z \right )}{q \left ( z \right )} \) has at least one pole, but since they both have zeros of order 1, at \( 0 \) then the quotient of the two functions has a removable singularity at \( 0 \) meaning that all \( b_{k} \) in it's laurent expansion are zero, and thus there is no pole
             </div>
@@ -1566,7 +1566,7 @@
 
 
         <div class="proposition">
-            <div class="title"></div>
+            <div class="title">x</div>
             <div class="content">
                 suppose that \( g{\left ( z \right )} \) has a pole of order \( k \) at \( z_{0} \) and that \( h \left ( z \right ) \) has a zero of order \( k + 1 \), then \( \frac{g{\left ( z \right )}}{h} \left ( z \right ) \) has a simple pole with
                 <div class="centered-content">
@@ -1577,7 +1577,7 @@
         </div>
 
         <div class="proposition">
-            <div class="title"></div>
+            <div class="title">x</div>
             <div class="content">
                 suppose that \( f \) has an isolated singularity at \( z_{0} \) and let \( k \in \mathbb{N}_{0} \) be the smallest such that \( \lim_{z \to z_{0}} \left ( z - z_{0} \right )^{k} f{\left ( z \right )} \) exists, then \( f{\left ( z \right )} \) has a pole of order \( k \) at \( z_{0} \) and if we let \( \phi \left ( z \right ) = \left ( z - z_{0} \right )^{k} f{\left ( z \right )} \), then \( \phi \) can be defined uniquely at \( z_{0} \) so that \( \phi \) is analytic at \( z_{0} \) and
                 <div class="centered-content">
@@ -1599,9 +1599,9 @@
         </div>
 
         <div class="exercise">
-            <div class="title"></div>
+            <div class="title">x</div>
             <div class="content">
-                suppose that \( f{\left ( z \right )} \) is analytic on the annulus \( r_{1} \gt \left | z \right |  \lt r_{2} \) and \( r_{1} < r < r_{2} \), then is it true that
+                suppose that \( f{\left ( z \right )} \) is analytic on the annulus \( r_{1} \gt \left | z \right |  \lt r_{2} \) and \( r_{1} \lt r \lt r_{2} \), then is it true that
                 <div class="centered-content">
                     \( \int_{\left | z \right |  = r} f{\left ( z \right )} dz = 2 \pi i \text{res} \left ( f , 0 \right ) \)
                 </div>
@@ -1613,7 +1613,7 @@
 
 
         <div class="exercise">
-            <div class="title"></div>
+            <div class="title">x</div>
             <div class="content">
                 compute \( \int_{\left | z \right |  = 2} e^{\frac{1}{z}} dz \)
             </div>
@@ -1645,9 +1645,9 @@
         </div>
 
         <div class="proposition">
-            <div class="title"></div>
+            <div class="title">x</div>
             <div class="content">
-                Suppose there is an \( R_{0} > 0 \) such that \( f \) is analytic \( \hat{} \)
+                Suppose there is an \( R_{0} \gt 0 \) such that \( f \) is analytic \( \hat{} \)
             </div>
             <div class="proof"></div>
         </div>
@@ -1661,7 +1661,7 @@
         </p>
 
         <p>
-            Consider when \( x > 0 \), in this situation we know that the function is defined as \( e^{\frac{- 1}{x^{2}}} \), and let's
+            Consider when \( x \gt 0 \), in this situation we know that the function is defined as \( e^{\frac{- 1}{x^{2}}} \), and let's
             try to come
             up with a generic n-th derivative.
         </p>
@@ -1743,7 +1743,7 @@
         </p>
 
         <p>
-            By the definition of the laurent expansion we know that each coefficient \( b_{k} = \frac{1}{2 \pi i} \int_{\gamma_{r}} f{\left ( \zeta \right )} \left ( \zeta - z_{0} \right )^{k - 1} d \zeta \) where \( \gamma_{r} \) is a circle in \( A \) whose interior lies in A. Since we've assumed c to be true and using the epsilon delta definition of limit, we can see that by letting \( \epsilon > 0 \), there is some \( 0 < r < 1 \) where for any point \( x \in \gamma_{r} \), we know that \( | f{\left ( x \right )} \cdot \left ( x - z_{0} \right ) \left \lvert < \epsilon \Leftrightarrow \mid f{\left ( x \right )} \right \rvert < \frac{\epsilon}{\left \lvert x - z_{0} \right \rvert} = \frac{\epsilon}{r} \), thus \( \left \lvert b_{k} \left \lvert \le \frac{1}{2 \pi} \int_{\gamma_{r}} \mid f{\left ( \zeta \right )} \right \rvert \right \rvert \zeta - z_{0} \left \lvert \hat{} \left ( k - 1 \right ) \right \rvert d \zeta \left \lvert \le \frac{1}{2} \pi \cdot \frac{\epsilon}{r} \cdot r^{k - 1} \int_{\gamma_{r}} \mid d \zeta \right \rvert = \frac{1}{2 \pi} \cdot \frac{\epsilon}{r} \cdot r^{k - 1} 2 \pi r = \epsilon \cdot r^{k - 1} \le \epsilon \) (since \( 0 < r < 1 \)) that is to say that \( b_{k} = 0 \)
+            By the definition of the laurent expansion we know that each coefficient \( b_{k} = \frac{1}{2 \pi i} \int_{\gamma_{r}} f{\left ( \zeta \right )} \left ( \zeta - z_{0} \right )^{k - 1} d \zeta \) where \( \gamma_{r} \) is a circle in \( A \) whose interior lies in A. Since we've assumed c to be true and using the epsilon delta definition of limit, we can see that by letting \( \epsilon \gt 0 \), there is some \( 0 \lt r \lt 1 \) where for any point \( x \in \gamma_{r} \), we know that \( | f{\left ( x \right )} \cdot \left ( x - z_{0} \right ) \left \lvert \lt \epsilon \Leftrightarrow \mid f{\left ( x \right )} \right \rvert \lt \frac{\epsilon}{\left \lvert x - z_{0} \right \rvert} = \frac{\epsilon}{r} \), thus \( \left \lvert b_{k} \left \lvert \le \frac{1}{2 \pi} \int_{\gamma_{r}} \mid f{\left ( \zeta \right )} \right \rvert \right \rvert \zeta - z_{0} \left \lvert \hat{} \left ( k - 1 \right ) \right \rvert d \zeta \left \lvert \le \frac{1}{2} \pi \cdot \frac{\epsilon}{r} \cdot r^{k - 1} \int_{\gamma_{r}} \mid d \zeta \right \rvert = \frac{1}{2 \pi} \cdot \frac{\epsilon}{r} \cdot r^{k - 1} 2 \pi r = \epsilon \cdot r^{k - 1} \le \epsilon \) (since \( 0 \lt r \lt 1 \)) that is to say that \( b_{k} = 0 \)
         </p>
 
         <h2>question 3</h2>
@@ -1803,7 +1803,7 @@
                     <li>use the residue theorem to compute it</li>
                 </ol>
                 <p>
-                    We can see that the following integral converges: \( \int_{1}^{\infty} \frac{1}{x^{2}} = \lim_{B \to \infty} \left ( \frac{1}{B} + \frac{1}{1} \right ) = 1 \), we can also see that for \( x \ge 1 \) \( x^{2} \le x^{6} \), so also \( x^{2} < 1 + x^{6} \) which tells us that \( \frac{1}{x^{2}} > \frac{1}{1 + x^{6}} \), therefore by the <a href="../analysis/single_variable.html#indefinite-integral-comparison-test"> indefinite integral comparison test</a> we can see that since \( \int_{1}^{\infty} \frac{1}{x^{2}} dx \) converges then so does \( \int_{1}^{\infty} \frac{1}{1 + x^{6}} dx \) also since \( \frac{1}{1 + x^{6}} \) is bounded and the set of discontinuities has zero measure on \( \left [ 0 , 1 \right ] \) and thus the integral of \( \int_{0}^{\infty} \frac{1}{1 + x^{6}} dx \) converges as well.
+                    We can see that the following integral converges: \( \int_{1}^{\infty} \frac{1}{x^{2}} = \lim_{B \to \infty} \left ( \frac{1}{B} + \frac{1}{1} \right ) = 1 \), we can also see that for \( x \ge 1 \) \( x^{2} \le x^{6} \), so also \( x^{2} \lt 1 + x^{6} \) which tells us that \( \frac{1}{x^{2}} \gt \frac{1}{1 + x^{6}} \), therefore by the <a href="../analysis/single_variable.html#indefinite-integral-comparison-test"> indefinite integral comparison test</a> we can see that since \( \int_{1}^{\infty} \frac{1}{x^{2}} dx \) converges then so does \( \int_{1}^{\infty} \frac{1}{1 + x^{6}} dx \) also since \( \frac{1}{1 + x^{6}} \) is bounded and the set of discontinuities has zero measure on \( \left [ 0 , 1 \right ] \) and thus the integral of \( \int_{0}^{\infty} \frac{1}{1 + x^{6}} dx \) converges as well.
                 </p>
                 <p>
                     Since we know it converges we can compute it as \( \int_{0}^{\infty} f{\left ( x \right )} dx = \frac{1}{2} \lim_{R \to \infty} \int_{- R}^{R} f{\left ( x \right )} dx \). The interval \( \left [ - R , R \right ] \) may be considered as a subset of \( \mathbb{C} \) and can be extended to a simple closed curve by connecting \( - R \) to \( R \) with a semi-arc \( S_{R} = \left \lbrace z \in \mathbb{C} : \left \lvert z \mid = R \text{ and } I m \left ( z \right ) \ge 0 \right \rbrace \right. \) to create the semicircle \( \left [ - R , R \right ] \cup S_{R} \)
@@ -1812,7 +1812,7 @@
                     Considering the \( \mathbb{C} \) version of original function \( g{\left ( z \right )} = \frac{1}{1 + z^{6}} \), then we know that along \( x \in \left [ - R , R \right ] \subseteq \mathbb{C} , f{\left ( x \right )} = g{\left ( x \right )} \) and that is is analytic everywhere except for when \( 1 + x^{6} = 0 \) which are the 6 roots of \( - 1 \), so solutions to \( z^{6} = - 1 \) are complex numbers on the unit circle of the form \( e^{i t} \) so we have \( e^{i 6 t} = e^{k \pi i} \) for \( k \in \left \lbrace 1 , 3 , 5 , \ldots , 11 \right \rbrace \) comparing angles we must have \( 6 t = k \pi \) so \( t = \frac{\pi k}{6} \), so solutions are \( e^{i \cdot \pi \cdot \frac{1}{6}} , e^{i \cdot \pi \cdot \frac{3}{6}} , e^{i \cdot \pi \cdot \frac{5}{6}} , e^{i \cdot \pi \cdot \frac{7}{6}} , e^{i \cdot \pi \cdot \frac{9}{6}} , e^{i \cdot \pi \cdot \frac{11}{6}} \).
                 </p>
                 <p>
-                    Only \( e^{i \cdot \pi \cdot \frac{1}{6}} , e^{i \cdot \pi \cdot \frac{3}{6}} , e^{i \cdot \pi \cdot \frac{5}{6}} \) (specified by \( z_{1} , z_{2} , z_{3} \) respectively) reside in the first two quadrants, and therefore when \( R > 1 \) they are contained within the semicircle, thus by the residue theorem we have:
+                    Only \( e^{i \cdot \pi \cdot \frac{1}{6}} , e^{i \cdot \pi \cdot \frac{3}{6}} , e^{i \cdot \pi \cdot \frac{5}{6}} \) (specified by \( z_{1} , z_{2} , z_{3} \) respectively) reside in the first two quadrants, and therefore when \( R \gt 1 \) they are contained within the semicircle, thus by the residue theorem we have:
                 </p>
                 <div class="centered-content">
                     \( \int_{C} f{\left ( z \right )} dz = 2 \pi i \left ( \text{res} \left ( f , z_{1} \right ) + \text{res} \left ( f , z_{2} \right ) + \text{res} \left ( f , z_{3} \right ) \right ) \)
@@ -1836,7 +1836,7 @@
                     \( \frac{1}{3} \pi i \left ( - i + - i \right ) = \frac{i \cdot \left ( - 2 i \right ) \cdot \pi}{3} = \frac{2 \pi}{3} \)
                 </div>
                 <p>
-                    along \( z \in S \) we know that \( \left \lvert z \right \rvert = R > 1 \) so then \( \left | \frac{1}{1 + z^{6}} \right |  = \frac{1}{1 + R^{6}} \), so by the <a href="#estimation-lemma">estimation lemma</a> we can see that \( \left | \int_{C} f{\left ( z \right )} dz \right |  \le \frac{1}{1 + R^{6}} \text{arclen} \left ( C \right ) = \frac{\pi R}{1 + R^{6}} \)
+                    along \( z \in S \) we know that \( \left \lvert z \right \rvert = R \gt 1 \) so then \( \left | \frac{1}{1 + z^{6}} \right |  = \frac{1}{1 + R^{6}} \), so by the <a href="#estimation-lemma">estimation lemma</a> we can see that \( \left | \int_{C} f{\left ( z \right )} dz \right |  \le \frac{1}{1 + R^{6}} \text{arclen} \left ( C \right ) = \frac{\pi R}{1 + R^{6}} \)
                 </p>
 
                 <p>
@@ -1876,7 +1876,7 @@
                        </div> 
                     </li>
                     <li>
-                       along the exterior path \( z = R e^{i t} = R \cos{\left ( t \right )} + i R \sin{\left ( t \right )} \), the integrand's numerator is \( 1 - e^{i z} = 1 - e^{- R \sin{\left ( t \right )} + i R \cos{\left ( t \right )}} \) since \( t \in \left [ 0 , \pi \right ] \) then we know that \( \sin{} \) stays within \( \left [ 0 , 1 \right ] \) and \( R > 0 \) so \( e^{- R \sin{\left ( t \right )}} \le 1 \), thus we can say that \( \left | 1 - e^{i z} \right |  \le 2 \) to conclude that 
+                       along the exterior path \( z = R e^{i t} = R \cos{\left ( t \right )} + i R \sin{\left ( t \right )} \), the integrand's numerator is \( 1 - e^{i z} = 1 - e^{- R \sin{\left ( t \right )} + i R \cos{\left ( t \right )}} \) since \( t \in \left [ 0 , \pi \right ] \) then we know that \( \sin{} \) stays within \( \left [ 0 , 1 \right ] \) and \( R \gt 0 \) so \( e^{- R \sin{\left ( t \right )}} \le 1 \), thus we can say that \( \left | 1 - e^{i z} \right |  \le 2 \) to conclude that 
                        <div class="centered-content">
                         \( \left | \frac{1 - e^{i z}}{z^{2}} \right |  \le \frac{2}{\left | z \right | ^{2}} \)
                        </div>
@@ -1918,7 +1918,7 @@
                     Consider the extension of the integrand to a function \( g{\left ( z \right )} = \frac{1}{\left ( z^{2} + 1 \right )^{2}} \) which makes things at least a little better as \( \left ( z^{2} + 1 \right )^{2} = \left ( z + i \right )^{2} \left ( z - i \right )^{2} \), which tells us we have poles at \( z = \pm i \).
                 </p>
                 <p>
-                    If we consider the semicircle of radius \( R \) in the upper two quadrants, so long as \( R > 1 \) \( i \) will be contained within the semicircle, note that \( - i \) will never be contained within it.
+                    If we consider the semicircle of radius \( R \) in the upper two quadrants, so long as \( R \gt 1 \) \( i \) will be contained within the semicircle, note that \( - i \) will never be contained within it.
                 </p>
                 <p>
                     Therefore using the residue theorem we can see that \( \int_{S_{R}} f{\left ( z \right )} dz = \int_{- R}^{R} f{\left ( x \right )} dx + \int_{C_{R}} f{\left ( z \right )} dz = 2 \pi i \cdot \text{res} \left ( g , i \right ) \)
