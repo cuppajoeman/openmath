@@ -21,6 +21,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
       - uses: actions/checkout@v4
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -31,6 +35,14 @@ jobs:
             node compile_latex_to_mathml.js  
             node dom_adjustments.js
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dom_adjusted'
+
   deploy:
     needs: build  # Add this line to make deploy wait for build
     environment:
@@ -38,16 +50,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: true
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: './dom_adjusted'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
