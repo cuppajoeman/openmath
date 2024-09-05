@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../styles/styles.css">
 
-
-
     <script src="../js/script.js" defer></script>
 
 </head>
@@ -146,6 +144,82 @@
 				Let \( f: X \to Y \) be a function and \( S \subseteq X \), then \( f{\left ( S \right )} := \left \lbrace y \in Y : y = f{\left ( s \right )} , \text{ for some } s \in S \right \rbrace \)
 			</div>
 		</div>
+
+		<div class="corollary" id="corollary-an-element-belongs-to-a-set-implies-its-image-belongs-to-the-image-of-the-set">
+			<div class="title">An Element Belongs to a set Implies its Image belongs to the Image of the Set</div>
+			<div class="content">
+				 \[ 
+					x \in A \implies  f \left( x \right) \in f \left( A \right)
+				\] 
+			</div>
+			<div class="proof">
+				This follows by <a class="knowledge-link" href="/fundamentals/functions.html#definition-image-of-a-set">definition</a>
+			</div>
+		</div>
+
+		<div class="corollary" id="corollary-an-element-belongs-to-a-set-iff-its-image-belongs-to-the-image-of-the-set-when-the-function-is-surjective">
+			<div class="title">An Element belongs to a Set iff its Image belongs to the Image of the Set when the Function is Surjective</div>
+			<div class="content">
+				Suppose that \( f : A \to B \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a>, then 
+				 \[ 
+					x \in A  \iff f \left( x \right) \in f \left( A \right)
+				\] 
+			</div>
+			<div class="proof">
+				The <a class="knowledge-link" href="/fundamentals/functions.html#corollary-an-element-of-a-set-is-part-of-its-image">previous corollary</a> already shows \( \implies  \) now if we suppose that \( f \left( x \right) \in f \left( A \right)   \) then there is some \( a \in A \) such that \( f \left( x \right) = f \left( a \right)   \), since \( f \) is injective, then we deduce that \( x = a \) so that \( x \in A \).
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-image-maintains-subsets">
+			<div class="title">Image Maintains Subsets</div>
+			<div class="content">
+				Suppose that \( A \subseteq B \) then we have 
+					\[
+					f \left( A \right) \subseteq f \left( B \right) 
+					\] 
+			</div>
+			<div class="proof">
+				Let \( x \in f \left( A \right)  \) so that \( x = f \left( a \right)  \) where \( a \in A \) <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-subset">we then know that </a> \( a \in B \) so therefore \( x \in f \left( B \right)  \) 
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-union-factors-through-image">
+			<div class="title">Union Factors through Image</div>
+			<div class="content">
+				\[
+					f \left( \bigcup \mathcal{ M }  \right) = \bigcup \left\{ f \left( M \right): M \in \mathcal{ M } \right\} 
+				\] 
+			</div>
+			<div class="proof">
+				\( p \in f \left( \bigcup \mathcal{ M }  \right) \) iff \( p = f \left( x \right)  \) where \( x \in \bigcup \mathcal{ M }  \) iff there exists some \( M \in \mathcal{ M }  \) such that \( x \in M \) which shows that \( f \left( x \right) \in f \left( M \right)  \) iff \( p \in \bigcup \left\{ f  { M }: M \in \mathcal{ M }    \right\}  \) as needed.
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-image-of-intersections-is-a-subset-of-the-intersection-of-the-images">
+			<div class="title">Image of the Intersection is a Subset of the Intersection of the Images</div>
+			<div class="content">
+				\[
+					f \left( \bigcap \mathcal{ M }  \right) \subseteq \bigcap \left\{ f \left( M \right) : M \in \mathcal{ M }   \right\} 
+				\] 
+			</div>
+			<div class="proof">
+				Suppose that \( p \in f \left( \bigcap \mathcal{ M }  \right)  \) iff \( p = f \left( x \right)  \) where \( x \in \bigcap \mathcal{ M }  \) iff \( M \in \mathcal{ M }  \), \( x \in M \) <a class="knowledge-link" href="/fundamentals/functions.html#corollary-an-element-belongs-to-a-set-implies-its-image-belongs-to-the-image-of-the-set">therefore</a> \( f \left( x \right) \in f \left( M \right)   \) so that \( p = f \left( x \right) \in \bigcap \left\{ f \left( M \right) : M \in \mathcal{ M }   \right\} \) 
+			</div>
+		</div>
+
+		<div class="proposition" id="proposition-image-of-intersections-equals-the-intersection-of-the-images-if-the-function-is-injective">
+			<div class="title">Image of the Intersection is Equal to the Intersection of the Images if the Function is Injective</div>
+			<div class="content">
+				Suppose that \( f \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a>, then 
+				\[
+					f \left( \bigcap \mathcal{ M }  \right) = \bigcap \left\{ f \left( M \right) : M \in \mathcal{ M }   \right\} 
+				\] 
+			</div>
+			<div class="proof">
+				<a class="knowledge-link" href="/fundamentals/functions.html#proposition-image-of-intersections-is-a-subset-of-the-intersection-of-the-images">We already know that \( \subseteq  \) holds true</a> therefore we do the other direction so suppose that \( p \in \bigcap \left\{ f \left( M \right) : M \in \mathcal{ M }   \right\}  \) therefore \( p \in f \left( M \right)  \) for all \( M \in \mathcal{ M }  \) so that there is some \( x _ M \in M  \) such that \( p = f \left( x _ M \right)  \). We note that for all \( J, K \in M \) we know that \( f \left( x _J \right) = p = f \left( x _ K \right)   \) so that by injectivity we have \( x _ J = x _ K \) let \( x ^ \prime  \) be their common value and note that \( x ^ \prime \in \bigcap \mathcal{ M }  \) and that \( p = f \left( x ^ \prime \right)  \) so that \( p \in f \left( \bigcap \mathcal{ M }  \right)  \) 
+			</div>
+		</div>
+
 		
 		<div class="definition" id="definition-inverse-image-of-a-function">
 			<div class="title">Inverse Image of a Function</div>
@@ -153,6 +227,20 @@
 				Suppose \( f{:} X \to Y \) and \( U \subseteq Y \), then \( f^{- 1}{\left ( U \right )} := \left \lbrace x \in X : f{\left ( x \right )} \in U \right \rbrace \) 
 			</div>
 		</div>
+
+		<div class="proposition" id="proposition-inverse-image-maintains-subsets">
+			<div class="title">Inverse Image Maintains Subsets</div>
+			<div class="content">
+				Suppose that \( A \subseteq B \) then we have 
+				\[
+				f ^ { -1 } \left( A \right) \subseteq f ^ { -1 } \left( B \right) 
+				\] 
+			</div>
+			<div class="proof">
+				Let \( x \in f ^ { -1 } \left( A \right)  \) so that \( f \left( x \right) \in A  \)  <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-subset">we then know that </a> \( f \left( x \right) \in B \) so therefore \( x \in f ^ { -1 } \left( B \right)  \) 
+			</div>
+		</div>
+
 		
 		<div class="proposition" id="proposition-inverse-image-of-the-range-is-the-domain">
 			<div class="title">Inverse Image of The Range is The Domain</div>
@@ -185,7 +273,9 @@
 		<div class="proposition" id="proposition-union-factors-through-inverse-image">
 			<div class="title">Union Factors through Inverse Image</div>
 			<div class="content">
-				\( f ^ { -1 } \left( \bigcup \mathcal{ M } \right) = \bigcup \left\{ f ^ { -1 } \left( M \right): M \in \mathcal{ M }  \right\}  \)
+				\[
+					f ^ { -1 } \left( \bigcup \mathcal{ M } \right) = \bigcup \left\{ f ^ { -1 } \left( M \right): M \in \mathcal{ M }  \right\}  
+				\]
 			</div>
 			<div class="proof">
 				<p>
@@ -196,6 +286,7 @@
 				</p>
 			</div>
 		</div>
+
 
 		<div class="proposition" id="proposition-set-difference-factors-through-inverse-image">
 			<div class="title">Set Difference Factors through Inverse Image</div>
@@ -489,11 +580,5 @@
 			</div>
 		</div>
 		
-
-
-
-
-
-
     </div>
 </body>
