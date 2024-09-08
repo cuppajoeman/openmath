@@ -100,6 +100,88 @@
   	</div>
   </div>
 
+  <div class="definition" id="definition-linear-operator">
+  	<div class="title">Linear Operator</div>
+  	<div class="content">
+          A linear operator is a synonym for a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> where \( T : X \to Y \) and both \( X, Y \) are normed vector spaces.
+  	</div>
+  </div>
+
+  <div class="definition" id="definition-bounded-linear-operator">
+  	<div class="title">Bounded Linear Operator</div>
+  	<div class="content">
+          Suppose that \( L : X \to Y \)  is a  <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-operator">linear operator</a>, then we say that it is bounded diff \( \exists M \in \mathbb{ R } ^ +  \) such that for any \( x \in X \), we have
+          \[
+            \lVert Lx \rVert _ Y \le M \lVert x \rVert _ X
+          \] 
+  	</div>
+  </div>
+
+  <p>
+        The intuitive meaning is that there is some scalar such that the linear operator can only increase the length of the vector by that scalar multiple. For example a linear transform that multiplies all vector by some constant, will trivially satisfy this. We can re-obtain our familiar notion of bounededness by seeing that any bounded subset of \( X \) becomes a bouneded subset of \( Y \).
+  </p>
+
+
+
+  <div class="corollary" id="corollary-continuity-of-a-linear-operator">
+  	<div class="title">Continuity of a Linear Operator</div>
+  	<div class="content">
+          Suppose that \( L : X \to Y \) is a linear operator between two normed vector spsces , then \( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuity-of-a-function-at-a-point">continuous at \( a \in X \) </a> iff \( \forall p \in X, \forall \epsilon \in \mathbb{ R } ^ + , \exists \delta \in \mathbb{ R } ^ + \text{ st }  \) 
+          \[
+            \lVert p \rVert  \lt \delta \implies \lVert L p \rVert \lt \epsilon 
+          \] 
+  	</div>
+  	<div class="proof">
+          <p>
+            \( \implies  \) Let \( \epsilon \in \mathbb{ R } ^ +  \) therefore since \( L \) is continuous we obtain some \( \delta \in \mathbb{ R } ^ +  \) such that for any \( x \in X \) if \( \lVert x - a \rVert \lt \delta   \) we have \( \lVert f \left( x \right) - f\left( a \right) \rVert \lt \epsilon  \).
+          </p>
+          <p>
+            Now let \( p \in X \) and assume that \( \lVert p \rVert \lt \delta    \)  and take \( x = p - a \) therefore we know that \( \lVert L \left( p - a \right) - L \left( a \right)   \rVert \lt \epsilon   \) which implies that \( \lVert L p \rVert \lt \epsilon   \) as needed.
+          </p>
+          <p>
+            \( \impliedby \) Now we prove that \( L \) is continuous, so let \( \epsilon \in \mathbb{ R } ^ +  \), 
+          </p>
+  	</div>
+  </div>
+
+  <div class="proposition" id="proposition-continuity-boundedness-equivalence-of-linear-operators">
+  	<div class="title">Continuity Boundedness Equivalence of Linear Operators</div>
+  	<div class="content">
+          Suppose that \( L : X \to Y \) is a linear operator then the following are equivalent so long as \( X \) is non-empty:
+          <ul>
+            <li>\( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuous-function">continuous</a></li>
+            <li>\( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuity-of-a-function-at-a-point">continuous at a point</a></li>
+            <li>\( L \) <a class="knowledge-link" href="/analysis/linear_operators.html#definition-bounded-linear-operator">is bounded</a> </li>
+          </ul>
+  	</div>
+  	<div class="proof">
+          <p>
+            Proving \( 1 \implies 2 \) is easy since \( X \) is non-empty, so we'll prove \( 2 \implies 3 \). Suppose that \( L \) is continuous at some point \( x \in X \) so by letting \( \epsilon = 1 \) we obtain some \( \delta  \) such that for any \( y \in X \) if \( \lVert x - y \rVert \lt \delta  \) then we have \( \lVert Lx - Ly \rVert \lt 1  \)
+          </p>
+          <p>
+            But then note that for any \( z \in X \) 
+            \[
+            \lVert \delta \frac{ z }{ \lVert z \rVert  } + x - x  \rVert \le \delta 
+            \] 
+            therefore we have 
+            \[
+            \lVert T \left( \delta \frac{ z }{ \lVert z \rVert  }  \right)  \rVert \le 1
+            \] 
+             to conclude 
+            \[
+            \lVert Tz \rVert \le \frac{ 1 }{ \delta  } \lVert z \rVert 
+            \] 
+            So that \( L \) is bounded.
+          </p>
+          <p>
+            \( 3 \implies 1 \) We need to show that \( L \) is continuous, and so let \( a \in X \) and \( \epsilon \in \mathbb{ R } ^ +  \), since \( L \) is bounded, we have some \( M \in \mathbb{ R } ^ +  \) such that for any \( z \in X \) we have \( \lVert Lz \rVert \le M \lVert z \rVert   \), now take \( \delta = \frac{ \epsilon  }{ M }  \) and let \( x \in X \) and assume that \( \lVert x - a \rVert \lt \delta = \frac{ \epsilon  }{ M }   \) 
+            \[
+            \lVert L \left( x - a \right)  \rVert \le M \lVert x - a \rVert \lt M \frac{ \epsilon  }{ M } = \epsilon 
+            \] 
+            so \( L \) is continuous, therefore all three statements are equivalent.
+          </p>
+  	</div>
+  </div>
 
   
 
