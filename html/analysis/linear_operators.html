@@ -1,10 +1,108 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Linear Operators</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-$END$
+<div class="thin-wrapper">
+
+  <div class="theorem" id="theorem-if-a-cauchy-sequence-has-a-convergent-subsequence-then-the-original-converges-there">
+  	<div class="title">If a Cauchy Sequence has a Convergent Subsequence, then the Original Converges There</div>
+  	<div class="content">
+      Let \( X, d \) be a metric space, then if \( \left( x _ n \right) : \mathbb{ N } _ 1 \to X \) is cauchy, and there exists a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-subsequence">subsequence</a> \( \left( x _ { \sigma \left( n \right) }   \right)  \) that converges to \( x \) then \( \left( x _ n \right) \to x  \)  as well.
+  	</div>
+  	<div class="proof">
+      Since \( \left( x _ { \sigma \left( n \right) } \right) \to x \) then given \( \epsilon \in \mathbb{ R } ^ +  \) we have some \( K \) such that for any \( k \ge K \) we have \( d \left( x _ { \sigma \left( k \right) } , x  \right) \lt \frac{\epsilon}{2}   \) since \( \left( x _ n \right)  \) is assumed cauchy then we obtain some \( N ^ \prime  \) such that for all \( n, m \ge N ^ \prime  \) we know that \( d \left( x _ n, x _ m \right) \lt \frac{\epsilon }{2} \), take \( N = N ^ \prime  \)  and let \( n \ge N \) since \( \sigma  \) is strictly increasing then there is some \( i \in \mathbb{ N } _ 1 \) such that \( \sigma \left( i \right) \ge N  \) let \( j := \max \left( i, K  \right)  \) thus we have
+      \[
+          d \left( x _ n, x \right) \le d \left( x _ n , x _ { \sigma \left( i \right) }   \right) + d \left( x _ { \sigma \left( i \right)  }, x   \right) \lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon
+      \]
+      as needed.
+    </div>
+  </div>
+  
+
+  <div class="definition" id="definition-normed-vector-space">
+  	<div class="title">Normed Vector Space</div>
+  	<div class="content">
+      A normed vector space is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) over \( K \in \left\{ \mathbb{ R } , \mathbb{ C }  \right\}  \), with a norm \( \lVert \cdot  \rVert  \) satisfying the following for any \( x, y \in V \)
+      <ul>
+        <li>Non-Negativity: \( \lVert x \rVert \ge 0 \) </li>
+        <li>Positive definiteness: \( \lVert x \rVert = 0 \implies x = 0 _ V \) </li>
+        <li>Absolute homogenity: for any \( \lambda \in K \), \( \lVert \lambda x \rVert = \left\lvert \lambda  \right\rvert \lVert x \rVert    \)   </li>
+        <li>Triangle Inequality: \( \lVert x + y \rVert \le \lVert x \rVert + \lVert y \rVert    \)  </li>
+      </ul>
+  	</div>
+  </div>
+
+  <p>
+    We will usually refer to normed vector spaces as an ordered pair \( \left( V, \lVert \cdot  \rVert  \right)  \)
+  </p>
+
+
+  <div class="definition" id="definition-complete-metric-space">
+  	<div class="title">Complete Metric Space</div>
+  	<div class="content">
+  		We say that \( \left( X, d \right)  \) is complete if every <a class="knowledge-link" href="/analysis/multi_variable/convergence_and_completeness.html#definition-cauchy-in-rn">cauchy sequence</a> is convergent.
+  	</div>
+  </div>
+
+  <div class="proposition" id="proposition-a-normed-vector-space-is-complete-iff-every-absolutely-summable-sequence-is-summable">
+  	<div class="title">A Normed Vector Space is Complete iff Every Absolutely Summable Sequence is Summable</div>
+  	<div class="content">
+  		Let \( X \) be a <a class="knowledge-link" href="/analysis/linear_operators.html#definition-normed-vector-space">normed vector space</a>, then it is <a class="knowledge-link" href="/analysis/linear_operators.html#definition-complete-metric-space">complete</a> iff every <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-absolutely-convergent-series">absolutely convergent</a> sequence is <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-summable">summable</a>.
+  	</div>
+  	<div class="proof">
+      <p>
+        \( \implies  \) Suppose that \( \sum \lVert a _ n \rVert \lt \infty   \), since \( X \) is complete, then we just have to show that \( s _ n := \sum _ { i = 1 } ^ { n  }  \) is cauchy, so let \( \epsilon \in \mathbb{ R } ^ +  \) since \( \sum \lVert a _ n \rVert \lt \infty   \) then by the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-cauchy-criterion-for-series">cauchy criterion</a> for series we know that there is some \( N ^ \prime  \) such that for all \( n, m \ge N ^ \prime  \) we have that \( \lVert \sum _ { k = n + 1  } ^ m a _ i \rVert \lt \epsilon \) but note that \( \sum _ { k = n + 1  } ^ { m  } a _ i = s _ m - s _ n  \) so select \( N = N ^ \prime  \) for any \( j, k \ge N \) we have
+        \[
+        \left\lvert s _ j - s _ k  \right\rvert = \lVert \sum _ { k = n + 1  } ^ { m } a _ i  \rVert \lt \epsilon
+        \]
+        therefore \( \left( s _ n \right)  \) is cauchy and therefore it converges so that \( \sum a _ i \lt \infty  \)
+      </p>
+      <p>
+        \( \impliedby  \) Suppose that \( \sum \lVert a _ i \rVert \lt \infty \implies \sum a _ i \lt \infty   \) now we want to prove that \( X \) is complete, so let \( \left( x _ n \right): \mathbb{ N } _ 1 \to X  \) be a cauchy sequence, and let's prove that it converges to some limit.
+      </p>
+      <p>
+        Since \( \left( x _ n \right)  \) is cauchy then we can construct the following subsequence inductively, for each \( k \in \mathbb{ N } _ 1  \) we obtain some \( M _ k \) such that for all \( n, m \ge M _ k \) we have \( \lVert x _ n - x _ m \rVert \lt \frac{1}{2 ^ k}   \). Now let \(  i \in \mathbb{ N } _ 1 \) to obtain some \( M _ i \) and also consider \( i + 1  \) to obtain \( M _ { i + 1  }  \), and in this case we will define \( N _ { i + 1 } = \max \left( M _ i, M _ { i + 1  } \right) + 1  \) and \( N _ 1 = M _ 1 \).
+      </p>
+      <p>
+        Notice that it is true that \( N _ j \lt  N _ { j + 1  }  \) (as we used +1) therefore \( x _ { N _ i }  \) is a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-subsequence">subsequence</a>, and then also note that since \( N _ j, N _ { j + 1} \ge N _ j \) we have that
+        \[
+            \lVert x _ { N _ j } - x _ { N _ { j + 1  }  }   \rVert \lt \frac{1}{2 ^ j}
+        \]
+        From here we note that
+        \[
+            x _ { N _ k } = x _ { N _ 1 } +   \sum _ { i = 1 } ^ { k - 1  } \left( x _ { N _ { i + 1  }  } - x _ { N _ i }   \right)
+        \]
+        and that \( \sum _ { i = 1 } ^ { k - 1  } \left( x _ { N _ { i + 1  }  } - x _ { N _ i }   \right) \) converges absolutely because
+        \[
+        \sum _ { i = 1 } ^ { k - 1  } \left\lvert \left( x _ { N _ { i + 1  }  } - x _ { N _ i }   \right)  \right\rvert \le \sum _ { i = 1 } ^ { k - 1  } \frac{1}{2 ^ k}
+        \]
+        and so by the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-comparison-test">comparison test</a> it converges and so \( x _ { N _ 1 } +  \sum _ { i = 1 } ^ { k - 1  } \left( x _ { N _ { i + 1  }  } - x _ { N _ i }   \right)   \) converges so that \( \left( x _ { N _ i }  \right)  \) converges, as needed.
+      </p>
+  	</div>
+  </div>
+  
+
+
+  <div class="definition" id="definition-banach-space">
+  	<div class="title">Banach Space</div>
+  	<div class="content">
+  		Every <a class="knowledge-link" href="/analysis/linear_operators.html#definition-complete-metric-space">complete</a> <a class="knowledge-link" href="/analysis/linear_operators.html#definition-normed-vector-space">normed vector space</a> is called a <b>banach space</b>.
+  	</div>
+  </div>
+
+
+  
+
+</div>
 </body>
 </html>

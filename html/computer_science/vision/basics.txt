@@ -1,0 +1,99 @@
+
+two objects are visually the same size, if the collection of light that hits your retina eminated from that object covers the same area of the back of your retina.
+
+given a square object in 3d space, if you draw the lines from the corners of the square to the area created from that onto the retina then in order to maintain the area the size of the shape has to scale up as well.
+
+
+column vector representation 
+
+x
+y
+
+Row repr
+
+[x y]
+
+trans(
+x
+y
+) = [x y]
+
+homog((x,y)) = (x, y, 1)
+
+a vector is homogenous if its last component is one, 
+
+
+homogenous 2d coordinates are unique upto a scale factor eg, 
+
+(x, y, 1) ~= (2x, 2y, 2) ~= (-5, -5y, -5)
+
+
+v1 ~= v2 iff exists some lamb != 0 st v1 = lambv2
+
+
+given a vector (a, b, c) in the standard representation it can be converted to (a/c, b/c, 1),
+
+If we look at (1, 0, 1/n) as n-> oo then the point goes to (n , 0, 0) and so limit yields (oo, 0)
+
+in that case (1000, 0, 0) also equals (oo, 0) and so these are really just directions
+
+(-1, 0, 0) = (-oo, 0) == (oo, 0) because they "meet"
+
+(1, 1, 0) is a point at diagonal infinity under this representation
+
+on the computer we say that points at infinty are those with last coordinate close to zero points at infinity are also known as ideal points
+
+
+recall that the equation of a line is given by ax + by + c = 0, that is (a, b, c) * (x, y, 1) = 0
+
+a point (s, t) is on the line iff ax + bt + c = 0 in other words (a, b, c) * (s, t, 1) = 0.
+
+if we want to model y = x then that's -x + y + 0 * 1 = 0, which is (-1, 1, 0) * (x, y, 1) = 1 and so the homogenous coordinates of the line are (-1, 1, 0)
+
+given two poitns, it defines a line, given p1 = (x1, y1, z1), p2 = (x2, y2, z2) and we want to compute l = (a, b, c), since
+p1, p2 are on l, then they both satisfy l * p1 = 0 and l * p2 = 0 and so a vector which is perpendicular to both points is the cross product so p1 x p2. 
+
+Therefore given two poitns (x1, y1), (x2, y2) then we compute the line vec as homog(x1, y1) x homog(x2, y2)
+
+know how to compute the cross product.
+
+given two lines how can we find their intersection?
+
+given l1 and l2, then their intersection point p, must be on both lines and so l1 * p = 0 and l2 * p = 0, and therefore a point which satisfies that is l1 x l2
+
+given two lines that are parallel, then they DO intersect because we are using projective geometry, and if they are like 
+
+------l1
+------l2
+
+imagine looking down the train tracks they hit even though paralelle
+
+then their intersection if (1, 0, 0), and it works out that l1 x l2 actually equals that suprisingly, therefore if we want to check if two lines are paralell we check if (l1xl2).z == 0, the direction in which they're parallel comes from the (1, 0) = parallel along the z, (0, 1) parrallel vertically, and (1, 1) is paralell diagonally.
+
+
+a 3x3 transformation matrix for the identity in homogenous system is any lamda I as scalin doesn't matter
+
+stretch along x 
+
+since al matrices have 001 as bottom row and that is maintained over the product
+
+and we say that any matrix with the 001 bottom row is called an affine transform, 
+
+given an affine matrix and multiplying it by a scalar it doesn't change the matrix, as it would scale the input fector after the transform and so it maps to the same place, and so the most general affine transform is when the bottom most row has the form 00c for some constant c.
+
+Note that lengths are not preserved, by scaling
+angles not preserved by shears
+
+but all lines in the original shape that were paralell remain paralell, though the point at which they intersect (at infinity may chnage, may go from (0, oo) to (oo, oo) or (oo, 0) by rotation
+
+given an X = MGAffine then X (x, y, 0) = (a, b, 0) and so points at infinity stay at infinity
+
+if we make the last row of a Z = MGAffine  but we modify last row to a b c where at least one of a, b is non-zero and so then points at infinity no longer stay at infinity
+
+def: any 2d transform of of homogeneous coordinates that is represented by an inverticble 3x3 matrix (homographies)
+
+recall: invertible iff det != 0, aka the transformation is a bijection
+
+lines before a homography H remain lines, so given a line (you can prove this)
+
+
