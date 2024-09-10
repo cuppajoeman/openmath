@@ -11,8 +11,6 @@
         <link rel="stylesheet" href="/styles/styles.css">
         <script src="/js/script.js" defer></script>
 
-        
-
     </head>
     <body>
 
@@ -49,23 +47,44 @@
                 </div>
             </div>
 
-			<div class="proposition" id="proposition-a-set-filled-with-open-sets-is-open">
-				<div class="title">a set filled with open sets is open</div>
-				<div class="content">
-					Let \( X \) be a <span class="knowledge-link" data-href="#definition-topology-on-a-set">topological space</span>, and \( A \subseteq X \). 
-                    Suppose that for each \( x \in A \) there is an <span class="knowledge-link" data-href="#definition-open-set">open set</span> \( U \) containing \( x \) 
-                    such that \( U \subseteq A \). Show that \( A \) is open in \( X \).
-				</div>
-				<div class="proof">
-					<p>
-						Since for each \( x \in A \), there is an open set \( U_{x} \) such that \( x \in U_{x} \subseteq A \), then \( A \) is covered by subsets, 
-                        <span class="knowledge-link" data-href="/fundamentals/sets.html#definition-union">therefore it is a union</span>, and we can write \( A = \bigcup_{x \in A} U_{x} \)
-					</p>
-					<p>
-						Since each \( U_{x} \) was assumed to be open with respect to \( X \), then an arbitrary union of them is also open with respect to \( X \), in other words \( A \) must be open.
-					</p>
-				</div>
-			</div>
+            <div class="proposition" id="proposition-a-set-filled-with-open-sets-is-open">
+                    <div class="title">a set filled with open sets is open</div>
+                    <div class="content">
+                            Let \( X \) be a <span class="knowledge-link" data-href="#definition-topology-on-a-set">topological space</span>, and \( A \subseteq X \). 
+        Suppose that for each \( x \in A \) there is an <span class="knowledge-link" data-href="#definition-open-set">open set</span> \( U \) containing \( x \) 
+        such that \( U \subseteq A \). Show that \( A \) is open in \( X \).
+                    </div>
+                    <div class="proof">
+                            <p>
+                                    Since for each \( x \in A \), there is an open set \( U_{x} \) such that \( x \in U_{x} \subseteq A \), then \( A \) is covered by subsets, <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-covered-in-subsets-is-a-union">therefore it is a union</span>, and we can write \( A = \bigcup_{x \in A} U_{x} \)
+                            </p>
+                            <p>
+                                    Since each \( U_{x} \) was assumed to be open with respect to \( X \), then an arbitrary union of them is also open with respect to \( X \), in other words \( A \) must be open.
+                            </p>
+                    </div>
+            </div>
+
+            <div class="proposition" id="proposition-the-power-set-is-a-topology">
+                    <div class="title">The Power Set is a Topology</div>
+                    <div class="content">
+                        Given a set \( X \), then \( P \left( X \right)  \) is a topology on it.
+                    </div>
+                    <div class="proof">
+                        <p>
+                            We note that \( \emptyset \subseteq X \) and \( X \subseteq X \) <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-power-set">therefore</a> we know that \( \emptyset , X \in P \left( X \right)  \).
+                        </p>
+                        <p>
+                        Now suppose that \( \mathcal{ A }   \) is a collection of sets from \( P \left( X \right)  \). Thus if we look at the union it is of the form
+                        \[
+                        \bigcup _ { A \in \mathcal{ A }  }  A
+                        \] 
+                        and since we know that each \( A \in P \left( X \right)  \) then \( A \subseteq X \) and <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-union-of-subsets-is-still-a-subset">therefore</a> it is a union of elements from \( X \) and so \( \bigcup _ { A \in \mathcal{ A }  }  A \subseteq X \) therefore \( \bigcup _ { A \in \mathcal{ A }  } \in P \left( X \right)  \) 
+                        </p>
+                        <p>
+                        Now suppose that \( \mathcal{ C }  \) is a finite collection of elements from \( P \left( X \right)  \), then <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-of-subsets-is-still-a-subset">similarly</a> we find that \( \bigcap \mathcal{ C } \subseteq X  \).
+                        </p>
+                    </div>
+            </div>
 
 
             <div class="definition" id="definition-finer-and-coarser-topologies">

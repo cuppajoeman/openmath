@@ -241,6 +241,19 @@
             </div>
         </div>
 
+        <div class="proposition" id="proposition-intersection-of-subsets-is-still-a-subset">
+            <div class="title">Intersection of Subsets is Still a Subset</div>
+            <div class="content">
+                Suppose that \( \mathcal{C} \) is a collection of subsets of \( X \), then
+                \[
+                    \bigcap \mathcal{ C } \subseteq X
+                \]
+            </div>
+            <div class="proof">
+                    Let \( x \in \bigcap_{C \in \mathcal{C}} C \), then  \( x \in U \) for each \( U \in \mathcal{C} \), focusing on a single such set \( M \in \mathcal{ C }  \)  since \( M \) must be a subset of \( X \) then x is also in \( X \). As needed
+            </div>
+        </div>
+
         <div class="proposition" id="proposition-intersection-of-supersets-is-still-a-superset">
             <div class="title">An Intersection of Supersets is still a Superset</div>
             <div class="content">
@@ -265,6 +278,25 @@
         	<div class="proof">
                 Let \( x \in \bigcap M \), then for every \( S \in M, x \in S \). Now consider any \( K \in N \), then \( K \in M \) therefore \( x \in K \) which shows that \( x \in \bigcap N \) as needed.
         	</div>
+        </div>
+
+
+        <div class="corollary" id="corollary-the-intersection-of-a-collection-of-sets-is-a-subset-of-any-set-part-of-the-intersection" >
+            <div class="title">The Intersection of a Collection of Sets Is a Subset of Any Set Part of the Intersection</div>
+            <div class="content">
+                    Suppose that \( \mathcal{ C }  \) is a collection of sets, then for any \( C \in \mathcal{ C }  \) we have:
+                    \[
+                    \bigcap \mathcal{ C } \subseteq C
+                    \] 
+            </div>
+
+            <div class="proof">
+                    Note that \( \mathcal{ C } \supseteq \left\{ C \right\}    \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-decreases-as-it-intersects-more-things">therefore we know</a> 
+                    \[
+                    \bigcap \mathcal{ C } \subseteq \bigcap \left\{ C \right\} = C
+                    \] 
+                    as needed.
+            </div>
         </div>
 
 
