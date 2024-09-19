@@ -97,6 +97,19 @@
 			</div>
 		</div>
 
+
+		<div class="proposition" id="proposition-the-subset-relation-is-transitive" >
+		    <div class="title">The Subset Relation Is Transitive</div>
+		    <div class="content">
+			Suppose that \( A, B, C \) are sets, then if \( A \subseteq B \) and \( B \subseteq C \) then \( A \subseteq C \) 
+		    </div>
+
+		    <div class="proof">
+			Suppose that \( a \in A \) then \( a \in B \) and so \( a \in C \) as needed.
+		    </div>
+		</div>
+		
+
 		<div class="definition" id="definition-equivalence-relation">
 			<div class="title">Equivalence Relation</div>
 			<div class="content">
@@ -149,6 +162,18 @@
 				<p>
 					A partial order is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> denoted by \( \le \) on a set \( X \) such that \( \le \) is <a class="knowledge-link" href="/fundamentals/relations.html#definition-reflexive-relation">reflexive</a>, <a class="knowledge-link" href="/fundamentals/relations.html#definition-anti-symmetric-relation">anti-symmetric</a> and <a class="knowledge-link" href="/fundamentals/relations.html#definition-transitive-relation">transitive relation</a>.
 				</p>
+		    </div>
+		</div>
+
+
+		<div class="proposition" id="proposition-the-subset-relation-is-a-partial-order" >
+		    <div class="title">The Subset Relation Is a Partial Order</div>
+		    <div class="content">
+			Suppose that \( \mathcal{ X }  \) is a set of sets, then \( \left( \mathcal{ X }, \subseteq   \right)  \) is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-partial-order">partial order</a>
+		    </div>
+
+		    <div class="proof">
+			It is true that for any set \( X \in \mathcal{ X }  \) we have \( X \subseteq X \), thus it is reflexive, also we know that if \( A, B \in \mathcal{ X }  \) then if \( A \subseteq B \) and \( B \subseteq A \) <a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">we have</a> \( A = B \) so it is anti symmetric, finally we already know it is <a class="knowledge-link" href="/fundamentals/relations.html#proposition-the-subset-relation-is-transitive">transitive</a>.
 		    </div>
 		</div>
 		
@@ -219,6 +244,42 @@
 				Suppose that there are two smallest elements \( a, b \in S\) since \( a \) is the smallest then \( a \le b \) and since \( b \) is the smallest then \( b \le a \) by transitivity \( a = b \) and so the smallest element is unique.
 			</div>
 		</div>
+
+	
+		<div class="definition" id="definition-interval">
+		    <div class="title">Interval</div>
+		    <div class="content">
+			Suppose that \( \left( S, \le \right)   \) is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-partial-order">partial order</a>, then a subset \( A \subseteq S \) is defined to be an interval if:
+			\[
+			\forall x, y \in A, \forall t \in S : x \leq t \leq y \implies t \in A.
+			\]
+			and we denote \( A = \left( x, y \right)  \) 
+		    </div>
+		</div>
+
+
+		<div class="theorem" id="theorem-intersection-of-intervals">
+		    <div class="title">Intersection of Intervals</div>
+		    <div class="content">
+			The intersection of any collection of intervals in a general ordered set is also an interval.
+		    </div>
+		    <div class="proof">
+			<p>
+				Let \( \mathcal{ I }  \) be a collection of intervals in \( S \), let's prove \( A := \bigcap \mathcal{ A } \) is also an interval.
+			</p>
+			<p>
+			     Suppose \( x, y \in A \) and \( x \leq t \leq y \) for some \( t \in S \). We must show that \( t \in A \). Since \( x \) and \( y \) are in \( A \), and \( A \) is the intersection of all \( A_i \), it follows that:
+			    \[
+			    x \in A_i \text{ and } y \in A_i \text{ for all } i \in I.
+			    \]
+			</p>
+			<p>
+			    Since each \( A_i \) is an interval, for every \( i \in I \) we have \( x \leq t \leq y \implies t \in A_i. \) so that 
+			    \( t \in A_i \text{ for all } i \in I \) consequently, \( t \in \bigcap_{i \in I} A_i = A \).
+			</p>
+		    </div>
+		</div>
+
 
     </div>
 </body>
