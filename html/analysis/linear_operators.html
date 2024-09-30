@@ -232,12 +232,12 @@
     <div class="definition" id="definition-hilbert-space" >
         <div class="title">Hilbert Space</div>
         <div class="content">
-          A hilbert space is a vector space \( \mathfrak{ h }  \) such that \( \mathfrak{ h }  \) is a   <a class="knowledge-link" href="/analysis/linear_operators.html#definition-banach-space">Banach space</a> with an associated norm.
+          A hilbert space is a real or complex <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-inner-product-space">inner product space</a> that is also a complete metric space with respect to the norm \( \lVert x \rVert = \sqrt{\langle x, x \rangle}  \). In other words the vector space under discussion is a <a class="knowledge-link" href="/analysis/linear_operators.html#definition-banach-space">Banach space</a>.
         </div>
     </div>
 
     <p>
-     a hilbert space that doesn't have a full norm, but just
+       a hilbert space that doesn't have a full norm, but just a 
     </p>
 
 
@@ -279,6 +279,36 @@
         </div>
     </div>
 
+    <div class="definition" id="definition-orthogonal-projection" >
+        <div class="title">Orthogonal Projection</div>
+        <div class="content">
+          For a vector \( v \) and a closed convex subset of a hilbert space, we denote \( v _U \) to denote this distance minimizing element of \( U \) called the <b>orthogonal projection</b> of \( v \) onto \( U \).
+        </div>
+    </div>
+
+
+    <div class="definition" id="definition-orthogonal-complement-of-an-inner-product-space" >
+        <div class="title">Orthogonal Complement of an Inner Product Space</div>
+        <div class="content">
+          For a subset \( U \) of an <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-inner-product-space">inner product space</a> \( V \) then we use \( U ^ \bot \) to denote the space of vectors orthogonal of vectors orthogonal to \( U \) called the <b>orthogonal complement</b> of \( u \) 
+        </div>
+    </div>
+
+
+    <div class="definition" id="definition-functional" >
+        <div class="title">Functional</div>
+        <div class="content">
+          Given a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( \left( V, F \right)  \) 
+        </div>
+    </div>
+
+
+      adding definition of dense and then proof in 2.1
+
+
+
+
+
 
 
       in a hilbert space if you have a closed subspace then it always has a complementary subspace
@@ -291,6 +321,42 @@
       if you have two inner products on a vector space and they turn them into a hilbert space and if they hav
 
       the given a hilbertspace then the number of elements in a ahilbert space basis is unique, so we prove that the number for here is the same as the number fo rhere, so the way you do it is that the humbe rof elements in a basis ais the same number of elements in a dense subset of the hilbert space, and you look at the smallest cardinal number in thedencse set and that's tthe number of elements in the basis, and so once you have the two orthanomral basis for the two bases
+
+      given a hilbert space H and a bounded operators T = T* in B(H) bounded operator, polynomials are functions in the operator too, and there's something mysterious about them in the first instance, you have a varaible x in the first but then you can plug in an operator to a polynomial, so suppose that p in C[x] (complex coeffiecients), suppose that ||T|| <= 1, then what you do is that you say that ||p(t)|| <= eps for t in [-1, 1], then if we change t to T then we also know that ||p(T)|| <= eps (that's the spectral theorem, because once you know it's its fairly clear sailing)
+
+
+      the tutorial
+
+      suppose we have some field k and a vector space over k
+
+      C* (* is an ivoluation) an algebra is a ring with addition, multiplication, and a norm
+
+      gelfands theorem : If A is a commutative unital C*-algebra, then A =~ C(X) = {f: X -> C: f cts} for some compact hausdorff X.
+
+      C0(R) = {f : R -> C : f cts and lim(fx) x -> oo = lim x -> -oo f(x) = 0 }
+
+      modules are like vector spaces, and modules/k are precicely vector spaces / k, but modules don't always have a basis, but recall that a basis would be a subset B of M st B is lin indep (in a module this means given m1, m2 in B, then the solution to the equation r1m1 + r2m2 = 0 the same way we do in vector spaces), and forall m in M, we can find finitely many elements such that it is a linear comb of them.
+
+      given a banach space over C, then the dimension is not aleph 0
+
+      consider l^oo (N) = {(x1, x2, ...) that are bounded}, the a basis could be e1, e2, ... and we would guess this is a basis for l^oo, but the problem is that we have an infinite sum, and so we need an infinite sum to exists and htus need converergence but we don't have a norm.
+
+      so we have another idea which is the shauder basis, the {e_i}'s form a shauder basis for l^w, but this depends on the norm in the space,  given a banach space over C it has an uncountable hamel basis.
+
+      Exercise produce the dimension of X over C in a caoniacal way
+
+      a banach space is a hilbert space iff the inner product satisfies the paralellogram law.
+
+      From any ellipse you get an inner product, suppose it has major axis a and minor axis b then the inner product is given by ||(x, y)||^2 = (x/a)^2 + (y/b)^2 then the equation is given by 
+
+      <., .>: VxV -> R: symmetric biliear forms, is degenerate iff for every x, there is a y such that <x, y> >0 
+        Thm Riesz lemma ||<*, x>||_H* = ||x||_H
+
+      add the 
+
+
+
+
 
 </div>
 </body>

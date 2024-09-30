@@ -14,100 +14,123 @@
 		
 		
     </head>
-    <body>
-
         <div class="thin-wrapper">
-
-			<div class="definition" id="definition-intersected-topology">
-				<div class="title">intersected topology</div>
-				<div class="content">
-					
-					Let \( X \) be a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a> with toplogy \( \mathcal{T} \). If \( Y \) is a subset of \( X \), then we define the the toplogy \( \mathcal{T} \) intersected with \( Y \) as the set
-					<div class="centered-content">
-						\( T_{\cap Y} := \left \lbrace Y \cap U : U \in \mathcal{T} \right \rbrace \)
-					</div>
+		<div class="definition" id="definition-intersected-topology">
+			<div class="title">intersected topology</div>
+			<div class="content">
+				
+				Let \( X \) be a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a> with toplogy \( \mathcal{T} \). If \( Y \) is a subset of \( X \), then we define the the toplogy \( \mathcal{T} \) intersected with \( Y \) as the set
+				<div class="centered-content">
+					\( T_{\cap Y} := \left \lbrace Y \cap U : U \in \mathcal{T} \right \rbrace \)
 				</div>
 			</div>
+		</div>
 
-			<div class="proposition" id="proposition-intersected-topology-is-a-topology">
-				<div class="title">intersected topology is a topology</div>
+		<div class="proposition" id="proposition-intersected-topology-is-a-topology">
+			<div class="title">intersected topology is a topology</div>
+			<div class="content">
+					The set <span class="knowledge-link" data-href="/topology/subspace_topology.html#definition-intersected-topology">\( T_{\cap Y} \)</span> is a topology on \( Y \)
+			</div>
+			<div class="proof">
+				<p>
+					<a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">We'll show</a> that \( \emptyset \) and \( Y \) are elements of \( T_{\cap Y} \), this can be seen as since \( \emptyset \in T \), then \( Y \cap \emptyset = \emptyset \in T_{\cap Y} \) and also since \( Y \subseteq X \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">then</a> \( Y \cap X = Y \) so \( Y \in T_{\cap Y} \) 
+				</p>
+				<p>
+					Now we want to prove that \( T_{\cap Y} \) is closed under arbitrary unions, which we know <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-factors-from-intersection">because</a> \( \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) = \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \). Similarly we can see that it's closed under finite intersections <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-factors-from-intersection">as</a> \( \left ( U_{1} \cap Y \right ) \cap \ldots \cap \left ( U_{n} \cap Y \right ) = \left ( U_{1} \cap \ldots \cap U_{n} \right ) \cap Y \).
+				</p>
+				<p>
+					Therefore we know that \( T_{\cap Y} \) is a topology.
+				</p>
+			</div>
+		</div>
+		
+
+
+		<div class="definition" id="definition-subspace-topology">
+			<div class="title">subspace topology</div>
+			<div class="content">
+				Since <a class="knowledge-link" href="/topology/subspace_topology.html#proposition-intersected-topology-is-a-topology">\( T_{\cap Y} \) forms a topology</a>, we will denote it by \( \mathcal{T}_{\cap Y} \) and call it the subspace topology and that \( Y \) is a subspace of \( X \)
+			</div>
+		</div>	
+
+		<div class="proposition" id="proposition-basis-for-the-subspace-topology">
+			<div class="title">basis for the subspace topology</div>
+			<div class="content">
+				Suppose that \( \mathcal{B} \) is a basis for the topology of \( X \), then \( M := \left \lbrace Y \cap B : B \in \mathcal{B} \right \rbrace \) is a basis and it generates \( \mathcal{T}_{\cap Y} \) 
+			</div>
+			<div class="proof">
+				<p>
+				To prove this statement true, we'll use the handy <a class="knowledge-link" href="/topology/topological_spaces.html#theorem-basis-criterion">basis criterion</a>
+				</p>
+				<p>
+				First note that given any element \( Y \cap B \in M \), we know that it is open with respect to \( \mathcal{T}_{\cap Y} \), <a class="knowledge-link" href="/topology/topological_spaces.html#corollary-basis-elements-are-open-in-a-generated-topology">because </a>\( B \) is open with respect to \( X \)
+				</p>
+				<p>
+					Now let \( Y \cap U \) be an open set of \( Y \) which means that \( U \) is open in \( X \). Let \( p \in Y \cap U \) , since \( p \in U \) , \( U \) is open in \( X \) and \( \mathcal{B} \) is a basis for \( X \) then we know there is some \( B \in \mathcal{B} \) such that \( p \in B \subseteq U \) if that's the case then we know that \( p \in Y \cap B \subseteq Y \cap U \), noting that \( Y \cap B \in M \), therefore we know that \( M \) is a basis and it is for \( Y \)
+				</p>
+			</div>
+		</div>
+		
+		<div class="lemma" id="lemma-open-in-a-subspace-implies-open">
+			<div class="title">open in a subspace implies open</div>
+			<div class="content">
+				Suppose that \( Y \) is a subspace of \( X \) and also that \( Y \) is open in \( X \), then any set that's open in \( Y \) is also open in \( X \)
+			</div>
+			<div class="proof">
+				Suppose that \( U \) is open in \( Y \), thus there is some \( V \) open in \( X \) such that \( U = Y \cap V \), but since \( Y \) is open in \( X \), then as a finite intersection of open elements, then \( U \) is also open in \( X \), as needed.
+			</div>
+		</div>
+
+		<div id="theorem-TODO">
+			<div class="theorem">
+				<div class="title">TODO</div>
 				<div class="content">
-						The set <span class="knowledge-link" data-href="/topology/subspace_topology.html#definition-intersected-topology">\( T_{\cap Y} \)</span> is a topology on \( Y \)
+					Suppose that \( A \) is a subspace of \( X \) and \( B \) is a subspace of \( Y \), then the product topology on \( A \times B \) is the same as the topology \( A \times B \) has as a subspace of \( X \times Y \)
 				</div>
 				<div class="proof">
 					<p>
-						<a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">We'll show</a> that \( \emptyset \) and \( Y \) are elements of \( T_{\cap Y} \), this can be seen as since \( \emptyset \in T \), then \( Y \cap \emptyset = \emptyset \in T_{\cap Y} \) and also since \( Y \subseteq X \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">then</a> \( Y \cap X = Y \) so \( Y \in T_{\cap Y} \) 
+						We will show that the two topologies are equal by showing that the basis that generate them are equal.
 					</p>
 					<p>
-						Now we want to prove that \( T_{\cap Y} \) is closed under arbitrary unions, which we know <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-factors-from-intersection">because</a> \( \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) = \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \). Similarly we can see that it's closed under finite intersections <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-factors-from-intersection">as</a> \( \left ( U_{1} \cap Y \right ) \cap \ldots \cap \left ( U_{n} \cap Y \right ) = \left ( U_{1} \cap \ldots \cap U_{n} \right ) \cap Y \).
+						Given the subspace \( A \) of \( X \) and \( B \) of \( Y \), then the product topology of \( A \times B \) has a basis of elements of the form \( \left ( A \cap U \right ) \times \left ( B \cap V \right ) \) where \( U , V \) are open in \( X , Y \) respectively.
 					</p>
 					<p>
-						Therefore we know that \( T_{\cap Y} \) is a topology.
+						On the other hand ,an open set in \( X \times Y \) is of the form \( U \times V \) where \( U , V \) are open in \( X , Y \) respectively, thus a basis element for \( A \times B \) (as a subspace of \( X \times Y \))is a set of the form \( \left ( A \times B \right ) \cap \left ( U \times V \right ) \).
 					</p>
-				</div>
+					<p>
+						Now to connect the two recall thqt \( \left ( A \cap U \right ) \times \left ( B \cap V \right ) = \left ( A \times B \right ) \cap \left ( U \times V \right ) \). So given a set, it is in the first basis if and only if it is in the second basis, meaning that the two bases are equal, and thus they generate the same topology.
+					</p>
 			</div>
-			
+		
+		</div>
 
+		
+		<div class="exercise" id="exercise-lines-intersected-with-boxes" >
+		    <div class="title">Lines Intersected With Boxes</div>
+		    <div class="content">
+			If \( L \) is a straight line in the plane, describe the topology \( L \) inherits as a subspace of \( \mathbb{ R } _ \ell \times \mathbb{ R }  \) and as a subspace of \( \mathbb{ R } _ \ell \times \mathbb{ R } _ \ell \) 
+		    </div>
 
-			<div class="definition" id="definition-subspace-topology">
-				<div class="title">subspace topology</div>
-				<div class="content">
-					Since <a class="knowledge-link" href="/topology/subspace_topology.html#proposition-intersected-topology-is-a-topology">\( T_{\cap Y} \) forms a topology</a>, we will denote it by \( \mathcal{T}_{\cap Y} \) and call it the subspace topology and that \( Y \) is a subspace of \( X \)
-				</div>
-			</div>	
-
-			<div class="proposition" id="proposition-basis-for-the-subspace-topology">
-				<div class="title">basis for the subspace topology</div>
-				<div class="content">
-					Suppose that \( \mathcal{B} \) is a basis for the topology of \( X \), then \( M := \left \lbrace Y \cap B : B \in \mathcal{B} \right \rbrace \) is a basis and it generates \( \mathcal{T}_{\cap Y} \) 
-				</div>
-				<div class="proof">
+ }    <div class="proof">
+			Since we know that a basis for \( \mathbb{ R } _ \ell \times \mathbb{ R } \) are the sets of the form \( \left\{ [a, b) \times \left( c, d \right)  \right\}  \) thus we know that the basis for the subspace \( L \) are those basis elements intersected with \( L \), for the moment supposing that \( L \) is a line which is not vertical, then given a basis element \( B \)  there are a few possibilities for the non-empty intersections:
+			<ul>
+				<li>\( L \) hits the left wall of  \( B \), then the intersection is a half open interval</li>
+				<li>\( L \) does not hit the left wall of  \( B \)</li>
+				<ul>
+					<li>\( L \) hits the top and right, or bottom and right wall, the intersection results in an open interval</li>
+				</ul>
+			</ul>
+			<p>Finally note that it's impossible for the line to hit a corner of the square as the open intervals stop that from occuring, therefore the above enumerates all possibilties for a non-vertical line. In other words the basis for this subspace are the open intervals and the half open intervals, since we already know that the standard topology is a subspace of the lower limit topology, this simply generates the lower limit topology, formally we could show that there is a homeomorphism between them by finding the intersection with the x axis, then doing a rotation, but since we are describing, we will not go so far. 
+			</p>
 					<p>
-					To prove this statement true, we'll use the handy <a class="knowledge-link" href="/topology/topological_spaces.html#theorem-basis-criterion">basis criterion</a>
+When \( L \) is vertical, so that \( L = \left\{ \left( x_0, t \right) : t \in \mathbb{ R } \right\}  \) it's not hard to see that the map \( f \left( \left( x_0, t \right)  \right) = t \) and its inverse define a homeomorphism because open sets in \( L \) are all just intervals, and \( f \) pulls those back to the same interval in \( R \) (the other direction is similar) and so the vertical line subspace is the standard topology.</p>
+			</hr>
+			<p>
+				Now if we consider \( \mathbb{ R } _ \ell \times \mathbb{ R } _ \ell \), and look at the line again, if \( L \) has positive slope then we get the lower limit topology as we get a basis as the half open intervals, if it is vertical or horizontal, then similarly to the above above, we get the factors, in this case the lower limit topology elsewise the slope is negative and it ends up being the discrete topology, that's because every single point set on \( L \) is open, to see why, given a single point \( \left( x, y \right)  \) then it equals \( L \cap [x , x + 1) \times [y, y + 1) = \left\{ \left( x, y \right)  \right\}  \) thus we have all singletons, so the discrete topology.
 					</p>
-					<p>
-					First note that given any element \( Y \cap B \in M \), we know that it is open with respect to \( \mathcal{T}_{\cap Y} \), <a class="knowledge-link" href="/topology/topological_spaces.html#corollary-basis-elements-are-open-in-a-generated-topology">because </a>\( B \) is open with respect to \( X \)
-					</p>
-					<p>
-						Now let \( Y \cap U \) be an open set of \( Y \) which means that \( U \) is open in \( X \). Let \( p \in Y \cap U \) , since \( p \in U \) , \( U \) is open in \( X \) and \( \mathcal{B} \) is a basis for \( X \) then we know there is some \( B \in \mathcal{B} \) such that \( p \in B \subseteq U \) if that's the case then we know that \( p \in Y \cap B \subseteq Y \cap U \), noting that \( Y \cap B \in M \), therefore we know that \( M \) is a basis and it is for \( Y \)
-					</p>
-				</div>
-			</div>
-			
-			<div class="lemma" id="lemma-open-in-a-subspace-implies-open">
-				<div class="title">open in a subspace implies open</div>
-				<div class="content">
-					Suppose that \( Y \) is a subspace of \( X \) and also that \( Y \) is open in \( X \), then any set that's open in \( Y \) is also open in \( X \)
-				</div>
-				<div class="proof">
-					Suppose that \( U \) is open in \( Y \), thus there is some \( V \) open in \( X \) such that \( U = Y \cap V \), but since \( Y \) is open in \( X \), then as a finite intersection of open elements, then \( U \) is also open in \( X \), as needed.
-				</div>
-			</div>
+		    </div>
 
-			<div id="theorem-TODO">
-				<div class="theorem">
-					<div class="title">TODO</div>
-					<div class="content">
-						Suppose that \( A \) is a subspace of \( X \) and \( B \) is a subspace of \( Y \), then the product topology on \( A \times B \) is the same as the topology \( A \times B \) has as a subspace of \( X \times Y \)
-					</div>
-					<div class="proof">
-						<p>
-							We will show that the two topologies are equal by showing that the basis that generate them are equal.
-						</p>
-						<p>
-							Given the subspace \( A \) of \( X \) and \( B \) of \( Y \), then the product topology of \( A \times B \) has a basis of elements of the form \( \left ( A \cap U \right ) \times \left ( B \cap V \right ) \) where \( U , V \) are open in \( X , Y \) respectively.
-						</p>
-						<p>
-							On the other hand ,an open set in \( X \times Y \) is of the form \( U \times V \) where \( U , V \) are open in \( X , Y \) respectively, thus a basis element for \( A \times B \) (as a subspace of \( X \times Y \))is a set of the form \( \left ( A \times B \right ) \cap \left ( U \times V \right ) \).
-						</p>
-						<p>
-							Now to connect the two recall thqt \( \left ( A \cap U \right ) \times \left ( B \cap V \right ) = \left ( A \times B \right ) \cap \left ( U \times V \right ) \). So given a set, it is in the first basis if and only if it is in the second basis, meaning that the two bases are equal, and thus they generate the same topology.
-						</p>
-				</div>
-			
-			</div>
-			
-			
+		</div>
 
 
 			

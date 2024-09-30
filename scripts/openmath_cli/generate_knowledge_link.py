@@ -2,9 +2,13 @@ import os
 import re
 import subprocess
 import pyperclip
+import time
+import threading
 
 # Directory containing the HTML files
 HTML_DIR = "../../html"
+IDLE_TIMEOUT = 10  # Timeout in seconds for automatic refresh
+MOD_CHECK_INTERVAL = 2  # Time interval to check for file modifications
 
 def find_ids_in_html_files(directory):
     """Finds all IDs in the HTML files within the given directory."""
@@ -46,34 +50,72 @@ def search_for_ids(id_entries):
         print("Error during fzf execution:", e)
         return None
 
+def check_for_changes(directory, last_mod_times):
+    """Checks for modifications in the directory."""
+    current_mod_times = {}
+    for root, _, files in os.walk(directory):
+        for file in files:
+            if file.endswith('.html'):
+                file_path = os.path.join(root, file)
+                current_mod_times[file_path] = os.path.getmtime(file_path)
+    
+    # If the last modification times differ from the current ones, refresh is needed
+    if current_mod_times != last_mod_times:
+        return current_mod_times, True
+    return last_mod_times, False
+
+def monitor_directory(directory, idle_event, id_entries):
+    """Monitors the directory for changes and triggers an automatic refresh."""
+    last_mod_times = {}
+    while not idle_event.is_set():
+        last_mod_times, changed = check_for_changes(directory, last_mod_times)
+        if changed:
+            print("Directory content changed. Refreshing ID list...")
+            id_entries.clear()
+            id_entries.extend(find_ids_in_html_files(directory))
+            idle_event.set()  # Trigger refresh immediately after change detection
+        time.sleep(MOD_CHECK_INTERVAL)
+
+def idle_timer(idle_event):
+    """Sets an event after the user has been idle for a certain time."""
+    idle_event.wait(IDLE_TIMEOUT)
+    if not idle_event.is_set():
+        print(f"No input detected for {IDLE_TIMEOUT} seconds. Automatically refreshing search.")
+        idle_event.set()
+
 def main():
-    # Find all IDs in the HTML files
     id_entries = find_ids_in_html_files(HTML_DIR)
 
+    # Event to track user activity or directory change
+    idle_event = threading.Event()
+
+    # Start monitoring the directory for changes in a separate thread
+    monitor_thread = threading.Thread(target=monitor_directory, args=(HTML_DIR, idle_event, id_entries))
+    monitor_thread.daemon = True  # Ensure thread closes when main program exits
+    monitor_thread.start()
+
     while True:
+        idle_event.clear()
+
+        # Start a timer for auto-refresh when the user is idle
+        timer_thread = threading.Thread(target=idle_timer, args=(idle_event,))
+        timer_thread.start()
+
         selected = search_for_ids(id_entries)
 
+        idle_event.set()  # Stop the idle timer since user input was detected
+
         if selected:
-            # Extract the file path and ID from the selected output
             match = re.search(r'^(.*):([^:]+)$', selected)
             if match:
                 file_path = match.group(1)
                 id_name = match.group(2)
-
-                # Generate the knowledge link
                 generate_knowledge_link(id_name, file_path)
-            
-            # Prompt the user if they want to do another search
-            next_action = input("Do you want to do another search? Type 'ano' to search again, or 'quit' to exit: ").strip().lower()
-            if next_action == 'quit':
-                print("Exiting script.")
-                break
-            elif next_action != 'ano':
-                print("Invalid input. Exiting script.")
-                break
         else:
             print("No selection made or fzf was closed.")
-            break
+        
+        # Automatically restart search without asking
+        print("Restarting search...")
 
 if __name__ == "__main__":
     main()

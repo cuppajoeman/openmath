@@ -1,5 +1,13 @@
-MINOR_WORDS = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'nor', 'of', 'on', 'or', 'so', 'the', 'to', 'up', 'yet'}
+import sys
 
+# Try to import pyperclip, exit if not installed
+try:
+    import pyperclip
+except ImportError:
+    print("The 'pyperclip' package is required but not installed. Please install it using 'pip install pyperclip'.")
+    sys.exit(1)
+
+MINOR_WORDS = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'nor', 'of', 'on', 'or', 'so', 'the', 'to', 'up', 'yet'}
 
 def title_case(title: str) -> str:
     """
@@ -24,7 +32,6 @@ def title_case(title: str) -> str:
             title_cased_words.append(word.lower())
 
     return ' '.join(title_cased_words)
-
 
 def generate_html(entry_type: str, title: str) -> str:
     """
@@ -60,7 +67,6 @@ def generate_html(entry_type: str, title: str) -> str:
     html += "</div>"
     return html.strip()
 
-
 def get_entry_type() -> str:
     """
     Prompts the user to select an entry type from a predefined list.
@@ -83,7 +89,6 @@ def get_entry_type() -> str:
         except ValueError:
             print("Please enter a valid number.")
 
-
 def get_title() -> str:
     """
     Prompts the user to input the title for the entry.
@@ -94,11 +99,10 @@ def get_title() -> str:
     """
     return input("Enter the title for the entry (it will be automatically converted to title case): ")
 
-
 def main() -> None:
     """
     Main function to generate HTML interactively by prompting the user for entry type and title.
-    It allows the user to keep generating HTML snippets until they choose to stop.
+    It automatically copies the generated HTML to the clipboard and assumes the user always wants to create another entry.
     """
     print("HTML Boilerplate Generator")
 
@@ -113,11 +117,9 @@ def main() -> None:
         print(html)
         print("\n---\n")
 
-        # Ask if the user wants to create another one
-        repeat = input("Do you want to create another entry? (y/n): ").strip().lower()
-        if repeat != 'y':
-            break
-
+        # Copy HTML to clipboard
+        pyperclip.copy(html)
+        print("The HTML has been copied to the clipboard.")
 
 if __name__ == "__main__":
     main()
