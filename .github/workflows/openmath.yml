@@ -35,6 +35,10 @@ jobs:
         run: |
           pip install beautifulsoup4
 
+      - name: Install latex2mathml
+        run: |
+          pip install latex2mathml
+
       - name: Run Custom Script
         run: |
           cd scripts/precompiled_html_generation_new/
