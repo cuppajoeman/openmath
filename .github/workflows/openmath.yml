@@ -51,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: '../../../generated_html'
+          path: 'generated_html'
 
   deploy:
     needs: build  # Wait for the build job to complete
