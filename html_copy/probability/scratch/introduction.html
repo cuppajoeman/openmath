@@ -1,0 +1,62 @@
+<div class="definition" id="definition-system">
+    <div class="title">
+        System
+    </div>
+    <div class="content">
+        Let \( \Omega \) be a sample space, then a system \( W \) is an object that generates outcomes \( w \) from the sample space \( \Omega \). \( W : w _ 1, w _ 2, \ldots , w _ n, \ldots \)
+    </div>
+</div>
+<p>If you're throwing a dice on a table, then the entire universe could be the system, and then it generates the outcome say \( 1 \) when you roll it.</p>
+<p>A system \( W \) should be thought as a finite list of rules that when followed results in the creation of something physically observable</p>
+<div class="definition" id="definition-sample-mean">
+    <div class="title">
+        Sample Mean
+    </div>
+    <div class="content">
+        Let \( g : \Omega \to \mathbb{ R } \) be
+    </div>
+</div>
+<div class="definition" id="definition-random-system">
+    <div class="title">
+        Random System
+    </div>
+    <div class="content">
+        A system \( W \) is said to be a <b>random system</b> when
+        <ul>
+            <li>\( \left( \widehat{E} _ n g \left( W \right) \right) \) converges</li>
+            <li>It always converges to the same value given a different realization \( w _ 1, w _ 2 \)</li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-continuous-uniform-distribution-on-the-unit-interval">
+    <div class="title">
+        Continuous Uniform Distribution on the Unit Interval
+    </div>
+    <div class="content">
+        The random variable \( U \) is said to have a continuous uniform distribution on the unit interval when
+    </div>
+</div>
+<div class="definition" id="definition-mean">
+    <div class="title">
+        Mean
+    </div>
+    <div class="content">
+        Suppose that \( S \) is a set such that \( \lvert S \rvert = n \) then we
+    </div>
+</div>
+<div class="proposition" id="proposition-">
+    <div class="title">
+        Union
+    </div>
+    <div class="content">
+        \[ P \left( A \cup B \right) = P \left( A \right) + P \left( B \right) - P \left( A \cap B \right) \]
+    </div>
+    <div class="proof"></div>
+</div>bayes \[ P \left( A | B \right) = \frac{P \left( A \cap B \right) }{P \left( B \right) } \] therefore we know that \[ P \left( A \cap B \right) = P \left( b \right) \cdot P \left( A | B \right) \] so we can deduce that \[ P \left( A | B \right) = \frac{P \left( A \cap B \right) }{P \left( B \right) } = \frac{P jj}{} \] then we have the law of total probability which states that if \( B _ 1, B _ 2, \ldots \) is a partition of our sample space \( \Omega \) then for any event \( A \) we have that \[ P \left( A \right) = P \left( A \cap \left( \bigcup B _ i \right) \right) = P \left( \bigcup \left( A \cap B _ i \right) \right) = \ldots \text{ disjoint and become zero } = \sum _ i P \left( A \cap B _ i \right) = \sum _ iP \left( A | B _ i \right) \cdot P \left( B _ i \right) \]
+<p>Conditional indpencence, , suppose that we have a coin c1 with 0.5 for heads, and c2 with 0.9 for heads, so if we have these two coins, then if we know we're flipping coin c1, then we know the probability is 0.5. So we have that \( P \left( H | C _ 1 \right) = 0.5 \) and \( P \left( H | C _ 2 \right) = 0. \).</p>
+<p>If a person randomly picks a coin (and uses it for the rest of the time) an tosses it 6 times, can you guess the picked coni by observing the tosses of the coin? Well if it's</p>
+<p>Suppose that we have H T T H T H, as a result of our tosses. Let toss denote this sequence, note that there is a</p>\[ \begin{align} P \left( C _ 1 | Toss \right) &amp;= \frac{P \left( C _ 2 \cap Toss \right) }{ P \left( Toss \right) } \\ \end{align} \]
+<p>We found that \( P \left( C1 | Toss \right) = 0.95 \) and that \( P \left( C2 | Toss \right) = 0.05 \). Note that we can generalize this idead for \( n \) coins.</p>
+<p>We had two models for each coin, then we observed the coin toss, and we were able to have a probabilty of which model is used. Note that the denominator of \( P \left( C _ i | Toss \right) \) are all the same, which means we can compute</p>\[ \frac{P \left( C _ 50 | Toss \right)}{P \left( C _ 90 | Toss \right) } \]
+<p>If the probability of each is the same, then this divisionis one, if the value is less than 1, then \( C _ 90 \) is more likely model, otherwise the value is greater than one, and then we know . The above is the Frequentist approach</p>
+<p>\( 2 ^ q \) is the amount of data in table required, and \( q \) is the number of things it depends on, which is good because we can have \( n \cdot 2 ^ q \) being less than \( 2 ^ n \)</p>

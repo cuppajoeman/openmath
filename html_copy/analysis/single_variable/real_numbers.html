@@ -1,0 +1,67 @@
+<div class="definition" id="definition-rational-sequence">
+    <div class="title">
+        Rational Sequence
+    </div>
+    <div class="content">
+        A rational sequence \( \left( a _ n \right) \) is a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> such that \( a _ n \in \mathbb{ Q } \)
+    </div>
+</div>
+<div class="definition" id="definition-cauchy-sequence">
+    <div class="title">
+        Cauchy Sequence
+    </div>
+    <div class="content">
+        Let \( \left( a _ n \right) \) be a <a class="knowledge-link" href="/analysis/single_variable/real_numbers.html#definition-rational-sequence">rational sequence</a>. We say that \( \left( a _ n \right) \) is a cauchy sequence if for any \( \epsilon \in \mathbb{ R } ^ + \) there exists some \( N \in \mathbb{ N } _ 0 \) such that for every \( n, m \ge N \) \[ \lvert a _ n - a _ m \rvert \le \epsilon \]
+    </div>
+</div>
+<div class="proposition" id="proposition-a-convergent-rational-sequence-is-cauchy">
+    <div class="title">
+        A Convergent Rational Sequence is Cauchy
+    </div>
+    <div class="content">
+        Suppose that \( a _ n \to L \) for some \( L \in \mathbb{ R } \), then \( \left( a _ n \right) \) is cauchy
+    </div>
+    <div class="proof">
+        Let \( \epsilon \in \mathbb{ R } ^ + \) since \( \left( a _ n \right) \) converges to \( q \) then we know that there exists some \( M \in \mathbb{ N } _ 0 \) such that for any \( n \ge N \) we have that \( \lvert a _ n - L \rvert \lt \frac{\epsilon }{2} \), take \( N = M \) and let \( n, m \ge M \) then we have \[ \lvert a _ n - a _ m \rvert = \lvert \left( a _ n - L \right) - \left( a _ m - L \right) \rvert \le \lvert a _ n - L \rvert + \lvert a _ m - q \rvert \lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon \] where we've used the <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#theorem-triangle-inequality">triangle inequality</a>
+    </div>
+</div>
+<div class="proposition" id="proposition-a-cauchy-sequence-is-bounded">
+    <div class="title">
+        A Cauchy Sequence is Bounded
+    </div>
+    <div class="content">
+        If \( \left( a _ n \right) \) is a <a class="knowledge-link" href="/analysis/single_variable/real_numbers.html#definition-cauchy-sequence">cauchy sequence</a>, then there exists some \( M \in \mathbb{ Q } \) such that \( \lvert a _ n \rvert \le M \)
+    </div>
+    <div class="proof">
+        <p>Since \( \left( a _ n \right) \) is cauchy then with \( \epsilon = 1 \) we get an \( N \in \mathbb{ N } _ 0 \) such that for any \( m, n \ge N \) we have that \( \lvert a _ n - a _ m \rvert \lt 1 \). Specificially since \( N + 1 \ge N \) then we would know that \( \lvert a _ { N + 1 } - a _ m \rvert \le 1 \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">which is the same as</a> \[ a _ { N + 1 } -1 \lt a _ n \lt a _ { N + 1 } + 1 \] <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-value-between-implies-its-value-is-less-than-the-max-of-the-others">so that</a> \( \lvert a _ n \rvert \le \max \left( \lvert a _ { N + 1 } - 1 \rvert, \lvert a _ { N + 1 } + 1 \rvert \right) \)</p>
+        <p>Therefore set \[ M = \max \left( \lvert a _ 0 \rvert, \lvert a _ 1 \rvert, \ldots , \lvert a _ N \rvert, \lvert a _ { N + 1 } - 1 \rvert, \lvert a _ { N + 1 } + 1 \rvert \right) \] With this, let \( k \in \mathbb{ N } _ 0 \) then we know that if \( k \le N \) then \( \lvert a _ k \rvert \le M \) as they are directly included in our maximum, on the other hand if \( k \gt N \) then \( \lvert a _ k \rvert \lt \max \left( \lvert a _ { N + 1 } - 1 \rvert, \lvert a _ { N + 1 } + 1 \rvert \right) \le M \) and therefore \( \left( a _ n \right) \) is bounded.</p>
+    </div>
+</div>
+<div class="definition" id="definition-the-collection-of-all-cauchy-sequences">
+    <div class="title">
+        The Collection of All Cauchy Sequence
+    </div>
+    <div class="content">
+        We use the notation \( \mathcal{ C } _ \mathbb{ Q } \) to denote the set of all <a class="knowledge-link" href="/analysis/single_variable/real_numbers.html#definition-cauchy-sequence">cauchy sequences</a> of rational numbers
+    </div>
+</div>
+<div class="definition" id="definition-cauchy-subtraction-relation">
+    <div class="title">
+        Cauchy Subtraction Relation
+    </div>
+    <div class="content">
+        Let \( \left( a _ n \right), \left( b _ n \right) \in \mathcal{ C } _ \mathbb{ Q } \), and we define the relation such that they are related if \( a _ n - b _ n \to 0 \)
+    </div>
+</div>
+<div class="proposition" id="proposition-the-cauchy-subtraction-relation-is-an-equivalence-relation">
+    <div class="title">
+        The Cauchy Subtraction Relation is an Equivalence Relation
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/real_numbers.html#definition-cauchy-subtraction-relation">cauchy subtraction relation</a> is an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</a>
+    </div>
+    <div class="proof">
+        <p>Let \( \left( a _ n \right), \left( b _ n \right), \left( c _ n \right) \in \mathcal{ C } _ \mathbb{ Q } \), let's show that the relation is reflexive, first we have to show that \( a _ n - a _ n \to 0 \) the sequence \( a _ n - a _ n \) is zero for every index so it trivially tends to 0.</p>
+        <p>To show that the relation is symmetric we assume that \( a _ n - b _ n \to 0 \), and we must show that \( b _ n - a _ n \to 0 \), so let \( \epsilon \in \mathbb{ R } ^ + \), so we get some \( N \in \mathbb{ N } _ 0 \) such that for all \( n \ge \mathbb{ N } _ 0 \) we have that \( \lvert a _ n - b _ n \rvert \lt \epsilon \) but since we can move things around inside of the absolute value bars we get \( \lvert b _ n - a _ n \rvert \lt \epsilon \) as needed.</p>
+    </div>
+</div>

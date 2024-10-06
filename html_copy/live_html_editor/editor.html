@@ -1,0 +1,109 @@
+<div id="navbar">
+    <button id="run-button">Run</button>
+    <div class="dropdown">
+        <button class="menu-button">Insert Element</button> <!-- Dark-themed button -->
+        <div class="dropdown-content">
+            <a class="insert-content" data-type="definition">Definition</a> <!-- No submenu -->
+             <a class="insert-content" data-type="knowledge-link">Knowledge Link</a> <!-- No submenu -->
+            <div class="dropdown-submenu">
+                <a href="#more" class="submenu-trigger">Statement With Proof</a> <!-- This is a submenu trigger -->
+                <div class="dropdown-submenu-content">
+                    <!-- First nested submenu -->
+                    <a class="insert-content" data-type="theorem">Theorem</a> <!-- No submenu -->
+                     <a class="insert-content" data-type="proposition">Proposition</a> <!-- No submenu -->
+                     <a class="insert-content" data-type="lemma">Lemma</a> <!-- No submenu -->
+                     <a class="insert-content" data-type="corollary">Corollary</a> <!-- No submenu -->
+                     <a class="insert-content" data-type="exercise">Exercise</a> <!-- No submenu -->
+                </div>
+            </div>
+            <div class="dropdown-submenu">
+                <a href="#more" class="submenu-trigger">MathJax</a> <!-- This is a submenu trigger -->
+                <div class="dropdown-submenu-content">
+                    <!-- First nested submenu -->
+                    <a class="insert-content" data-type="theorem">Inline Math</a> <!-- No submenu -->
+                     <a class="insert-content" data-type="proposition">Display Math</a> <!-- No submenu -->
+                     <a class="insert-content" data-type="lemma">Lemma</a> <!-- No submenu -->
+                    <div class="dropdown-submenu">
+                        <a href="#more" class="submenu-trigger">Common</a> <!-- This is a submenu trigger -->
+                        <div class="dropdown-submenu-content">
+                            <!-- First nested submenu -->
+                            <a class="insert-content" data-type="theorem">Set</a> <!-- No submenu -->
+                             <a class="insert-content" data-type="proposition">Fraction</a> <!-- No submenu -->
+                             <a class="insert-content" data-type="lemma">Summation</a> <!-- No submenu -->
+                             <a class="insert-content" data-type="lemma">Product</a> <!-- No submenu -->
+                             <a class="insert-content" data-type="lemma">Union</a> <!-- No submenu -->
+                             <a class="insert-content" data-type="lemma">Intersection</a> <!-- No submenu -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><button id="publish-changes-button">Request Changes</button> <button id="open-modal">Help</button> <button id="back-button">Go Back</button>
+    <div style="position: absolute; left: 50%; transform: translateX(-50%);">
+        openmath editor
+    </div>
+</div><!-- <button>Copy Element</button> -->
+<div style="position: absolute; left: 50%; transform: translateX(-50%);">
+    openmath editor
+</div><!-- modal for information -->
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+        <!-- Modal header with centered title and close button -->
+        <div class="modal-header">
+            <h3>openmath editor</h3><!-- Centered title -->
+            <button class="close-btn close-modal">×</button> <!-- Close button in the top-right corner -->
+        </div>
+        <div class="modal-body">
+            <p>Welcome to the openmath editor. Up until now the only way people could edit openmath to do major edits was by cloning the files to the computer, modifying them and then making a pull request. This editor was created to reduce the barrier of entry to making changes on openmath.</p>
+            <hr>
+            <div class="centered-content">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/s_sOLHXbLPA?si=zjkk-pYoRpLLAu2u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <hr>
+            <h4>fast insertion menu</h4>
+            <p>Simply press <b>shift+I</b> to toggle it, and search for the latex command you want to enter, use tab to select it and then enter to insert it into the document at the last position you were at.</p>
+            <hr>
+            <h4>editing</h4>
+            <p>To modify the files simply change anything that already exists in the left source code panel.</p>
+            <p>To create a new definition go to the <code>Copy Element</code> dropdown, and select <code>definition</code>. This copies a blank definition to your clipboard which you can paste into the editor panel.</p>
+            <p>Likewise to create a theorem, proposition, lemma, corollary or exercise you can use the copy dropdown to select the correct one.</p>
+            <p>One of the most powerful tools on openmath is the knowledge link, which allows you to link to other places on the site and it can be expanded in-line. Simply copy the knowledge link from the copy menu, then navigate to the location of the knowledge you'd like to link to and use that as the href tag.</p>
+            <hr>
+            <h4>request changes</h4>
+            <p>After you've made your edits, click the request changes file. This immediately copies all the text in the left input box to your clipboard and opens the respective page you just edited on github. Next simply paste the contents of your clipboard to overwrite the previous content on the page and follow the steps given to you by github.</p>
+            <h4>stuck</h4>
+            <p>If you're still stuck, then feel free to reach out on our <a href="https://discord.com/invite/Yztnzcsmqg">discord server</a>.</p>
+        </div>
+    </div>
+</div><!-- modal latex insertion -->
+<dialog class="modal-overlay" id="fast-insert-modal">
+    <div class="modal-content">
+        <!-- Modal header with centered title and close button -->
+        <div class="modal-header">
+            <h3>Latex Insertion (type, then use tab to navigate)</h3><!-- Centered title -->
+            <button class="close-btn close-modal">×</button> <!-- Close button in the top-right corner -->
+        </div>
+        <div class="modal-body">
+            <div class="centered-content">
+                <input type="text" id="fast-insert-modal-search-bar" onkeyup="update_ui_with_search_results(this.value)" onkeydown="update_ui_with_search_results(this.value)">
+            </div>
+            <div id="search_results"></div>
+        </div>
+    </div>
+</dialog><!-- Flexbox container for the split-screen -->
+<div id="split-screen">
+    <!-- Left panel with a text area -->
+    <div class="left-panel">
+        <textarea id="input-textarea" spellcheck="false"></textarea>
+    </div><!-- Right panel with an iframe -->
+    <div class="right-panel">
+        <iframe id="output-iframe" name="output-iframe"></iframe>
+    </div>
+</div><!-- (A) -->
+<script src='html-tidy-js/beautify-html.js'></script> <!-- (B) -->
+ 
+<script src="textarea_editor.js"></script> 
+<script src="editor.js"></script> 
+<script src="modal/modal.js"></script> 
+<script src="fast-latex-insertion/fuzzysort.js"></script> 
+<script src="fast-latex-insertion/update_ui_with_search_results.js"></script>

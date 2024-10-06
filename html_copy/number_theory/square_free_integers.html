@@ -1,0 +1,57 @@
+<div class="definition" id="definition-square-free">
+    <div class="title">
+        Square Free
+    </div>
+    <div class="content">
+        An integer \( f \in \mathbb{ Z } ^ { \neq 0 } \) is said to be square free if there is no \( k \in \mathbb{ N } _ 1 \) such that \[ k ^ 2 \mid f \]
+    </div>
+</div>
+<div class="corollary" id="corollary-square-free-division-characterization">
+    <div class="title">
+        Square Free Division Characterization
+    </div>
+    <div class="content">
+        \( f \in \mathbb{ Z } ^ { \neq 0 } \) is square free iff for any \( k \in \mathbb{ Z } \) \[ k ^ 2 \mid f \implies k \in \left\{ 1, -1 \right\} \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-divisor-of-square-free-product-is-divisor-of-other">
+    <div class="title">
+        Divisor of Square Free Product is Divisor of Other
+    </div>
+    <div class="content">
+        Suppose that \( f \in \mathbb{ Z } ^ { \neq 0 } \) if \( f \) is square free then \[ a ^ 2 \mid f b ^ 2 \implies a \mid b \] for any \( a, b \in \mathbb{ Z } \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-if-a-square-free-number-divides-a-square-then-it-divides-the-square-root">
+    <div class="title">
+        If a Square Free Number Divides a Square then It divides the Square Root
+    </div>
+    <div class="content">
+        Suppose \( f \in \mathbb{ Z } ^ { \neq 0 } \), if \( f \) is square free then \[ f \mid a ^ 2 \implies f \mid a \]
+    </div>
+    <div class="proof">
+        Suppose that \( f \mid a ^ 2 \), then we have \( f ^ 2 \mid f a ^ 2 \) <a class="knowledge-link" href="/number_theory/square_free_integers.html#proposition-divisor-of-square-free-product-is-divisor-of-other">therefore</a> we have that \( f \mid a \)
+    </div>
+</div>
+<div class="proposition" id="proposition-if-a-square-free-number-divides-the-nth-power-then-it-divides-the-nth-square-root">
+    <div class="title">
+        If a Square Free Number Divides the Nth Power then it Divides the Nth Square Root
+    </div>
+    <div class="content">
+        Suppose that \( f \in \mathbb{ Z } ^ { \neq 0 } \) is square free then \[ f \mid a ^ n \implies f \mid a \] for any \( n \in \mathbb{ N } _ 1 \)
+    </div>
+    <div class="proof">
+        We assume that \( f \mid a ^ n \), now if \( n = 1 \) we are done, otherwise \( n \ge 2 \) and therefore we know that \( 2n \ge 2 + n \) so that \( 2n - 2 \ge n \ge 2\), thus we have that \( f \mid a ^ { 2 \left( n - 1 \right) } \) therefore by assumption we know that \( f \mid a ^ { n - 1 } \), if \( n - 1 = 1 \) we are done, otherwise \( n - 1 \ge 2 \) and we repeat this process finitely many times until \( n - j = 1 \) at which point we've deduced that \( f \mid n \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-power-of-a-square-free-number-divides-the-power-of-a-number-implies-the-square-free-number-divides-the-other">
+    <div class="title">
+        Power of a Square free Number Divides the Power of a Number Implies the Square Free Number Divides the Other
+    </div>
+    <div class="content">
+        Suppose \( f \in \mathbb{ Z } ^ { \neq 0 } \) is square free, then \[ f ^ f \mid a ^ a \implies f \mid a \] for any \( a \in \mathbb{ N } _ 1 \)
+    </div>
+    <div class="proof"></div>
+</div>

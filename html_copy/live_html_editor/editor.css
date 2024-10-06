@@ -1,0 +1,102 @@
+/* Reset body and html padding/margin */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure body takes up the entire viewport */
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Fixed navbar at the top with centered title and left-aligned buttons */
+#navbar {
+    position: fixed; /* Fixes the navbar to the top */
+    top: 0;
+    width: 100%; /* Navbar should be full width */
+    background-color: #333; /* Background color */
+    color: white; /* Text color */
+    padding: 10px; /* Padding for the navbar */
+    box-sizing: border-box; /* Include padding in the width/height */
+    z-index: 1; /* Keep the navbar on top */
+    display: flex; /* Flexbox for alignment */
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center; /* Vertical alignment */
+}
+
+/* Button styles in the navbar */
+#navbar button {
+    background-color: #555; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* No border for a clean look */
+    padding: 10px 20px; /* Padding around the text */
+    margin: 0 5px; /* Margin between buttons */
+    cursor: pointer; /* Change cursor to pointer */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+/* Button hover effect */
+#navbar button:hover {
+    background-color: #777; /* Change background color on hover */
+}
+
+/* a hovering section of the website for info */
+.modal {
+  background: green;
+  position: absolute;
+    z-index: 1000; /* on top of everything */
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Flexbox container for the split-screen */
+#split-screen {
+    display: flex; /* Flexbox for horizontal alignment */
+    height: 100vh; /* Full height initially */
+    overflow: hidden; /* Prevent unwanted scrollbars */
+    box-sizing: border-box; /* Ensure consistent sizing */
+}
+
+/* Left panel with a text area */
+.left-panel {
+    flex: 1; /* Take up half the space */
+    padding: 10px; /* Padding to avoid textarea touching edges */
+    background-color: rgb(70, 70, 70);; /* Background color */
+    box-sizing: border-box; /* Include padding in sizing */
+}
+
+/* Right panel with an iframe */
+.right-panel {
+    flex: 1; /* Take up half the space */
+    padding: 0; /* No padding to ensure iframe fills the space */
+    box-sizing: border-box; /* Include padding in sizing */
+    position: relative; /* Necessary to allow child positioning */
+}
+
+/* Style the text area to fill the space */
+#input-textarea {
+    width: 100%; /* Fill the entire width */
+    height: 100%; /* Fill the entire height */
+    resize: none; /* Prevent resizing */
+    border: none; /* No border for a clean look */
+    box-sizing: border-box; /* Include padding in size */
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+
+/* Style the iframe to fill the space */
+#output-iframe {
+    position: absolute; /* Absolute position within the right panel */
+    top: 0; /* Start at the top */
+    left: 0; /* Start at the left edge */
+    width: 100%; /* Fill the entire width */
+    height: 100%; /* Fill the entire height */
+    border: none; /* No border for a clean look */
+}
+
+/* used to center the video in the help modal */
+.centered-content {
+    display: block;
+    text-align: center;
+    margin: 2em;
+}

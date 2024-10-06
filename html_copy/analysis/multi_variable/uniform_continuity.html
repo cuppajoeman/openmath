@@ -1,0 +1,31 @@
+<div class="definition" id="definition-uniformly-continuous-function">
+    <div class="title">
+        Uniformly Continuous Function
+    </div>
+    <div class="content">
+        We say that \( f : S \subseteq \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) is <b>uniformly continuous</b> if for every \( \epsilon \in \mathbb{ R } ^ + \) there exists some \( r \in \mathbb{ R } ^ + \) such that for every \( x, a \in S \) we have \[ \lVert x - a \rVert \lt r \implies \lVert f \left( x \right) - f \left( a \right) \rVert \lt \epsilon \]
+    </div>
+</div>
+<div class="proposition" id="proposition-every-lipschitz-function-is-uniformly-continuous">
+    <div class="title">
+        Every Lipschitz function is Uniformly Continuous
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-going-to-infinity-implies-not-uniformly-continuous">
+    <div class="title">
+        Going to Infinity Implies not Uniformly Continuous
+    </div>
+    <div class="content">
+        Suppose that \( f \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuity-of-a-function-at-a-point">continuous</a> on \( \left( 0, 1 \right) \) and that \( \lim _ { x \to 0 ^ + } f \left( x \right) = \infty \) show that \( f \) is not uniformly continuous
+    </div>
+    <div class="proof">
+        <p>Suppose for the sake of contradiction that \( f \) is uniformly continuous and take \( \epsilon = 1 \) therefore we obtain some \( r \in \mathbb{ R } ^ + \) such that for any \( x, a \in S \) if \( \left\lvert x - a \right\rvert \lt r \) implies that \( \left\lvert f \left( x \right) - f \left( a \right) \right\rvert \lt \epsilon = 1 \).</p>
+        <p>Note that this implies that for any \( a, b \in \left( 0, r \right) \) we have \( \left\lvert f \left( a \right) - f \left( b \right) \right\rvert \lt 1 \) clearly this will lead to nonsense as it blows up around \( 0 \) and so we should be able to find two points whose vertical distance is greater or equal to \( 1 \).</p>
+        <p>To do this let \( x \in \left( 0, r \right) \), since we know that \( \lim _ { x \to 0 ^ + } f \left( x \right) = \infty \) <a class="knowledge-link" href="/analysis/single_variable/mean_value_theorem.html#proposition-function-goes-to-infinity-at-a-point-from-the-right-alternate-characterization">therefore</a> by taking \( \delta = r, M = f \left( x \right) + 1 \) we obtain some \( a \in \left( 0, r \right) \) such that \( f \left( a \right) \gt M = f \left( x \right) + 1 \) therefore we have that \( f \left( a \right) - f \left( x \right) \gt 1 \) which implies that \[ 1 \gt \left\lvert f \left( a \right) - f \left( x \right) \right\rvert = \left\lvert f \left( x \right) - f \left( a \right) \right\rvert \] which is a contradiction, so that \( f \) is uniformly continuous.</p>
+    </div>
+</div>
+<p>The above prove never used the fact that \( f \) was continuous, is there a problem with it or can that assumption be removed?</p>

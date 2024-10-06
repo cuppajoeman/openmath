@@ -1,3 +1,6 @@
 [submodule "html/live_html_editor/html-tidy-js"]
 	path = html/live_html_editor/html-tidy-js
 	url = git@github.com:simple-web-tools/html-tidy-js.git
+[submodule "scripts/precompiled_html_generation_new/fast-html"]
+	path = scripts/precompiled_html_generation_new/fast-html
+	url = git@github.com:simple-web-tools/fast-html.git

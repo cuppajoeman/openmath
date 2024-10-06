@@ -1,0 +1,65 @@
+<div class="exercise" id="exercise-extending-to-a-field-with-four-elements">
+    <div class="title">
+        Extending to a Field with Four Elements
+    </div>
+    <div class="content">
+        Use Kronecker's Theorem to construct a field with four elements by adjoining a suitable root of \( x ^ 4 -x \) to \( \mathbb{ Z } _ 2 ^ \% \)
+    </div>
+    <div class="proof">
+        <p>First we note that \( \overline{ 0 } , \overline{ 1 } \in \mathbb{ Z } _ 2 ^ \% \) are roots of the given polynomial and that we have the following factorization. \[ x ^ 4 - x = x \left( x ^ 3 - 1 \right) = x \left( x - 1 \right) \left( x ^ 2 + x + 1 \right) \]</p>
+        <p>We observe that in \( \mathbb{ Z } _ 2 ^ \% \) that \( p \left( x \right) = x ^ 2 + x + 1 \) is irreducible, by explicitly plugging in the two possible values for \( x \), therefore \( E := \mathbb{ Z } _ 2 ^ \% / \left( p \left( x \right) \right) _ \diamond \) is a field containing \( \mathbb{ Z } _ 2 ^ \% \) and a root of \( p \left( x \right) \), specifically \( \theta := X + \left( p \left( x \right) \right) _ \diamond \), where we note that \( \theta ^ 2 + \theta + 1 = 0 \), we also then note that \( \left( \theta + 1 \right) ^ 2 + \left( \theta + 1 \right) + 1 = \theta ^ 2 + 2 \theta + 1 + \theta + 1 + 1 = \theta ^ 2 + \theta + 1 = 0 \) so that \( \theta + 1 \) is also a root.</p>
+        <p>So far we know that \( E \) contains the elements \( 0, 1, \theta, \theta + 1 \), but we actually note is has no more elements through the addition and multiplication tables:</p>Addition: \[ \begin{array}{c|cccc} + & 0& 1& \theta & \theta + 1 \\ \hline 0& 0 & 1 & \theta & \theta + 1 \\ 1 & 1 & 0 & \theta + 1 & \theta \\ \theta & \theta & \theta + 1 & 0 & 1 \\ \theta + 1 & \theta + 1 & \theta & 1 & 0 \end{array} \] Multiplication: \[ \begin{array}{c|cccc} \cdot & 0 & 1 & \theta & \theta + 1 \\ \hline 0 & 0 & 0 & 0 & 0 \\ 1 & 0 & 1 & \theta & \theta + 1 \\ \theta & 0 & \theta & \theta + 1 & 1 \\ \theta + 1 & 0 & \theta + 1 & 1 & \theta \end{array} \]
+    </div>
+</div>
+<div class="proposition" id="proposition-a-field-with-four-elements-is-not-isomorphic-to-a-subfield-of-a-field-with-8">
+    <div class="title">
+        A Field with Four elements is not Isomorphic to a subfield of a field with 8
+    </div>
+    <div class="content">
+        A field with four elements is not ismorphic to a subfield of a field with 8 elements
+    </div>
+    <div class="proof">
+        <p>Suppose that \( E, F \) are fields with \( 4 \) and \( 8 \) elements respectively, then let \( E _ U \) denote the set of elements in \( E \) which are units, since it's a field, then every non-zero element has an inverse, so then \( E _ U \) has \( 3 \) elements, symetrically \( F _ U \) has 7 elements. Moreover note that \( E _ U, F _ U \) are multiplicative groups.</p>
+        <p>Suppose for the sake of contradiction that \( E \) was isomorphic to some subfield of \( F \). In this case we note that \( E _ U \) must be a subgroup of \( F _ U \), this is because \( E \) is a subfield, of \( F \), but then by Lagranges theorem, we should have that the order of \( E _ U \) divides \( F _ U \), but clearly \( 3 \) does not divide \( 7 \), therefore our assumption was incorrect, so we know that \( E \) cannot be isomorphic to any subfield of \( F \).</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-">
+    <div class="title"></div>
+    <div class="content">
+        Let \( F = \mathbb{ Z } _ 2 ^ \% \) and let \( f (x) = x ^ 3 + x ^ 2 + 1 \in F [x] \) . Suppose a is a root of \( f (x) \) in some extension \( E \) of \( F \) . Let \( F (a) \) denote smallest subfield of \( E \) containing \( F \) and \( a \)
+        <ul>
+            <li>How many elements does \( F (a) \) have?</li>
+            <li>Express each element of \( F (a) \) in terms of \( a \)</li>
+            <li>Write out the multiplication table for \( F (a) \)</li>
+        </ul>Hint: note that \( a, a ^ 2, a ^ 3, \ldots \) are all in \( F (a) \) but that \( a ^ 3 \) can be expressed in terms of \( a \) and \( a ^ 2 \) since \( a ^ 3 +a ^ 2 + 1 = 0 \)
+    </div>
+    <div class="proof">
+        <p>We'll first note that \( F \left( a \right) \cong F \left[ x \right] / \left( f \left( x \right) \right) _ \diamond \), this can be seen by the isomorphism which can be constructed by using the evaluation map at \( a \) (which can be seen to be well defined for cosets). Therefore since we know there are \( 8 \) elements in the latter, then we know there are 8 elements in \( F \left( a \right) \)</p>
+        <p>For each coset from \( F \left[ x \right] / \left( f \left( x \right) \right) _ \diamond \) is of the form \( c _ 2 x _ 2 + c _ 1 x ^ 1 + c _ 0 \) where \( c _ i \in \mathbb{ Z } _ 2 ^ \% \), and so for each evaluation, we obtain an element of \( F \left( a \right) \), namely we get the following \( 0, 1, a, a + 1 , a ^ 2, a ^2 + a, a^2 + a + 1 \)</p>
+        <p>Note that the multiplication table can be obtained, but will take a while, we can cut down on half of our work by realizing that it is a field and so the table will be symmetric down the diagonal.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-">
+    <div class="title"></div>
+    <div class="content">
+        Let \( F = \mathbb{ Z } _ 2 ^ \% \) and let \( f (x) = x ^ 4 + x + 1 ∈ F [x] \) . Suppose \( a \) is a root of \( f (x) \) in some extension \( E \) of \( F \) . Write \( f (x) \) as a product of linear factors in \( E[x] \) . Hint: check that \( a + 1 \) is also a root of \( f (x) \)
+    </div>
+    <div class="proof">
+        <p>In order for this to be true, we would need to be able to have all roots existing in the extension \( E \), we now go along this path.</p>
+        <p>We know that \( a \) is a root, therefore we deduce that \( a ^ 4 = a + 1\), this is beneficial as it will allow us to reduce any power that is greater or equal to \( 4 \). We'll first note that if \( p \) is prime, then for any \( k \in \left[ 1 \ldots p - 1 \right] \) we have that \( p \mid \binom{p}{k} \), therefore in the context of \( \mathbb{ Z } _ p ^ \% \) when we expand \( \left( x + y \right) ^ n \), we can ignore all terms execept for the first and last, therefore we obtain \[ \left( a + 1 \right) ^ 4 + \left( a + 1 \right) + 1 = a ^ 4 + 1 + \left( a + 1 \right) + 1 = a ^ 4 + a + 1 = 0 \] Similarly we note that \( a ^ 2 \) is a root because \[ \left( a ^ 2 \right) ^ 4 + a ^ 2 + 1 = \left( a ^ 4 \right) ^ 2 + a ^ 2 + 1 = \left( a + 1 \right) ^ 2 + a ^ 2 + 1 = \left( a ^ 2 + 1 \right) + \left( a ^ 2 + 1\right) = 0 \] We don't have to check \( a ^ 4 \) because we already did as it equals \( a + 1 \). Finally note that \( a ^ 8 \) is a root because \[ \left( a ^ 8 \right) ^ 4 + a ^ 8 + 1 = \left( a + 1 \right) ^ 8 + a ^ 8 + 1 = a ^ 8 + 1 + a ^ 8 + 1 = 0 \] We would continue like this but we see that \( a ^ { 16 } = \left( a ^ 4 \right) ^ 4 = \left( a + 1 \right) ^ 4 = a ^ 4 + 1 = a \), so it cycles back after this point. Anyways we've found all four roots, so we have \[ f \left( x \right) = \left( x - a \right) \left( x - a ^ 2 \right) \left( x - a ^ 4 \right) \left( x - a ^ 8 \right) \]</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-double-kronecker">
+    <div class="title">
+        Double Kronecker
+    </div>
+    <div class="content">
+        Use Kronecker’s theorem to construct a field with eight elements by adjoining suitable roots of \( x ^ 8 − x \) to \( \mathbb{ Z } _ 2 ^ \% \) . Hint: \( x ^ 8 − x = x(x − 1)(x ^ 3 + x ^ 2 + 1)(x ^ 3 + x + 1) \) over \( \mathbb{ Z } _ 2 ^ \% \)
+    </div>
+    <div class="proof">
+        We note that indeed \[ x ^ 8 − x = x(x − 1)(x ^ 3 + x ^ 2 + 1)(x ^ 3 + x + 1) \] And that since the polynomial \( x ^ 3 + x ^ 2 + 1 \) was previously seen to be irreducible in \( \mathbb{ Z } _ 2 ^ \% \), and we can easily verify that \( x ^ 3 + x + 1 \) is irreducible by checking roots.
+        <p>Therefore we know that \( \mathbb{ Z } _ 2 ^ \% \left[ x \right] / \left( x ^ 3 + x + 1 \right) _ \diamond \) is a field containing \( \mathbb{ Z } _ 2 ^ \% \) and a root \( a \) of \( x ^ 3 + x + 1 \).</p>
+        <p>Notice that this field has order \( 8 \), meaning that it's multiplicative group has order \( 7 \). Which means that given any element \( x \) in the multiplicative group we know \( x ^ 7 = 1\), and since \( x ^ 8 - x = x \left( x ^ 7 - 1 \right) \) we can conclude that it is also a root to the polynomial.</p>
+        <p>Therefore we can say that no matter which irredicible polynomial we choose to use Kronecker's on, the extension will contain all \( 8 \) roots.</p>
+    </div>
+</div>

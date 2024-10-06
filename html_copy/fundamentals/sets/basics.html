@@ -1,0 +1,153 @@
+<div class="definition" id="definition-set">
+    <div class="title">
+        set
+    </div>
+    <div class="content">
+        A set is a collection of distinct objects which we call elements of the set. A set can have a finite number of elements or infinitely many elements.
+    </div>
+</div>
+<div class="definition" id="definition-declaration-of-a-finite-set">
+    <div class="title">
+        declaration of a finite set
+    </div>
+    <div class="content">
+        We may declare a finite <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> by listing it's elements between curly braces like so \( \left \lbrace a , b , c , d \right \rbrace \) or \( \left \lbrace 1 , 2 , 3 , 41 \right \rbrace \)
+    </div>
+</div>Suppose we wrote out the set \( \left \lbrace a , b , c , d \right \rbrace \) and then later on realized that \( a = b = c = d \), then this set is simply \( \left \lbrace a , a , a , a \right \rbrace \), which we define to just be \( \left \lbrace a \right \rbrace \). Therefore we allow duplicates when declaring a set, but realize the set it generates has no such duplicate, so \( \left \lbrace 1 , 1 , 1 \right \rbrace = \left \lbrace 1 , 1 \right \rbrace = \left \lbrace 1 \right \rbrace \)
+<div class="definition" id="definition-set-builder-notation">
+    <div class="title">
+        set builder notation
+    </div>
+    <div class="content">
+        Suppose that \( P \left ( x \right ) \) represents a statement which depends on the variable \( x \), then we define \( \left \lbrace x \in S : P \left ( x \right ) \right \rbrace \) to be the set of elements of \( S \) such that the statement \( P \) holds true.
+    </div>
+</div>
+<div class="definition" id="definition-empty-set">
+    <div class="title">
+        Empty Set
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> with no elements is called the empty set and is denoted by \( \emptyset \)
+    </div>
+</div>
+<div class="definition" id="definition-element-of">
+    <div class="title">
+        element of
+    </div>
+    <div class="content">
+        Suppose that \( a \) is an element of a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> \( S \), then we write \( a \in S \)
+    </div>
+</div>
+<div class="definition" id="definition-set-equality">
+    <div class="title">
+        set equality
+    </div>
+    <div class="content">
+        Given two sets \( A , B \), we say that \( A \) and \( B \) are equal and write \( A = B \) when <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-element-of">\( x \in A \)</a> if and only if \( x \in B \)
+    </div>
+</div>
+<div class="definition" id="definition-family-of-sets">
+    <div class="title">
+        Family of Sets
+    </div>
+    <div class="content">
+        We denote a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> whose elements are also sets by a family of sets to avoid the unwieldy statement: "set of sets"
+    </div>
+</div>
+<div class="definition" id="definition-subset">
+    <div class="title">
+        subset
+    </div>
+    <div class="content">
+        Given the sets \( A , B \), we say that \( A \) is a subset of \( B \) when for every <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-element-of">\( a \in A \)</a>, \( a \) is also in \( B \). When this is the case we write \( A \subseteq B \)
+    </div>
+</div>
+<div class="definition" id="definition-superset">
+    <div class="title">
+        superset
+    </div>
+    <div class="content">
+        Given the sets \( A , B \), we say that \( A \) is a superset of \( B \) when for every <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-element-of">\( b \in B \)</a>, \( b \) is also in \( A \). When this is the case we write \( A \supseteq B \)
+    </div>
+</div>
+<div class="proposition" id="proposition-set-equality-by-subsets">
+    <div class="title">
+        set equality by subsets
+    </div>
+    <div class="content">
+        Suppose that \( A , B \) are sets such that <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-subset">\( A \subseteq B \)</a> and \( B \subseteq A \), then <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set-equality">\( A = B \)</a>
+    </div>
+    <div class="proof">
+        <p>We will show the sets are equal using the <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set-equality">definition of set equality</a>.</p>
+        <p>To show that a bi-implication is true, we have to prove both directions. So first suppose that \( x \in A \), then since \( A \subseteq B \), \( x \in B \). For the other direction suppose that \( x \in B \), then since \( B \subseteq A \) then \( x \in A \). Therefore we know that \( x \in A \) if and only if \( x \in B \) as needed.</p>
+    </div>
+</div>
+<div class="definition" id="definition-rationals">
+    <div class="title">
+        rationals
+    </div>
+    <div class="content">
+        The integers are the <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> \( \mathbb{Q} := \left \lbrace \frac{p}{q} : p , q \in \mathbb{Z} , q \ne 0 \right \rbrace \)
+        <p>note: <i>The symbol for rationals can be remebered as they are \( \mathbb{Q} \)uotients</i></p>
+    </div>
+</div>
+<div class="definition" id="definition-integers">
+    <div class="title">
+        integers
+    </div>
+    <div class="content">
+        The integers are the <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> \( \mathbb{Z} := \left \lbrace \ldots , - 3 , - 2 , - 1 , 0 , 1 , 2 , 3 , \ldots \right \rbrace \)
+        <p>note: <i>The symbol for integers can be remembered as the word for number in German is \( \mathbb{Z} \)ahlen</i></p>
+    </div>
+</div>
+<div class="definition" id="definition-natural-numbers-0">
+    <div class="title">
+        Natural Numbers 0
+    </div>
+    <div class="content">
+        We define \( \mathbb{N}_{0} := \left \lbrace 0 , 1 , 2 , 3 , 4 , \ldots \right \rbrace \)
+    </div>
+</div>
+<div class="definition" id="definition-finite-integer-set">
+    <div class="title">
+        Finite Integer Set
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ Z } \), then the notation \( \left\{ a, \ldots b \right\} \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> \( X \) such that for any \( x \in \mathbb{ Z } \) if \( a \le x \le b \) then \( x \in X \).
+    </div>
+</div>
+<div class="corollary" id="corollary-empty-integer-set">
+    <div class="title">
+        Empty Integer Set
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ Z } \) such that \( a \gt b \) then \( \left\{ a, \ldots b \right\} = \emptyset \)
+    </div>
+    <div class="proof">
+        \( \left\{ a, \ldots b \right\} \) is <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-finite-integer-set">defined as</a> the set \( X \) such that \( x \in \mathbb{ X } \) iff \( x \in \mathbb{ Z } \) and \( a \le x \le b \) but this is impossible for if there were any such \( x \) then by transitivity we have that \( a \le b \) which is impossible.
+    </div>
+</div>
+<div class="definition" id="definition-natural-numbers-1">
+    <div class="title">
+        Natural Numbers 1
+    </div>
+    <div class="content">
+        We define \( \mathbb{N}_{1} := \left \lbrace 1 , 2 , 3 , 4 , \ldots \right \rbrace \)
+    </div>
+</div>
+<div class="definition" id="definition-natural-numbers-up-to-n">
+    <div class="title">
+        Natural Numbers up to n
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{N}_1 \), then we define \( [n] := \{1, 2, \ldots, n\} \)
+    </div>
+</div>
+<div class="definition" id="definition-power-set">
+    <div class="title">
+        power set
+    </div>
+    <div class="content">
+        Given a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> \( X \) we define the power set of <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-subset">subsets</a> \( X \) as \( P \left ( X \right ) := \left \lbrace S : S \subseteq X \right \rbrace \)
+    </div>
+</div>

@@ -1,0 +1,64 @@
+/* Dark theme for modal background */
+.modal-overlay {
+  display: none;
+  position: fixed;
+    z-index: 1000; /* on top of everything */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content with relative sizing */
+.modal-content {
+  background: #333; /* Dark gray */
+  color: #f5f5f5;  /* Light text for contrast */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  width: 50%; /* Modal width relative to window size */
+  max-width: 800px; /* Maximum width */
+  max-height: 500px; /* Maximum width */
+  overflow-y: scroll; /* Make modal scrollable */
+  position: relative; /* For absolute positioning of the close button */
+    z-index: 1000; /* on top of everything */
+}
+
+/* Header section with centered title and separating line */
+.modal-header {
+  text-align: center; /* Centered title */
+  padding-bottom: 10px; /* Spacing below the title */
+  border-bottom: 1px solid #666; /* Line to separate header and content */
+  display: flex;
+  justify-content: center;
+}
+
+/* Dark theme for close button */
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #f5f5f5; /* Light color for visibility */
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute; /* Position close button in top-right corner */
+  top: 10px;
+  right: 10px;
+}
+
+/* Hover effect for close button */
+.close-btn:hover {
+  color: #ff4c4c; /* Red to indicate closure */
+}
+
+/* Style for the "Open Modal" button */
+/* button { */
+/*   background: #333; */
+/*   color: #f5f5f5; */
+/*   padding: 10px; */
+/*   border: none; */
+/*   border-radius: 5px; */
+/*   cursor: pointer; */
+/* } */

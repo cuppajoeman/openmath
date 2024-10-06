@@ -1,0 +1,105 @@
+Box[Char] get() [pointer to void* get() { return this.t; } ] set() [void set(void *t) { this.t = t; } ]
+<p>How do we have dynamictype templates? We store the type as a pointer to the type so that every object has a fixed size. this allows us to polymorphism. Because given a genric type how will we be able to know the size of something at compile time?</p>
+<p>In java all fields that are typed generically are stored by reference. When we use void* we are losing type information and this is denoted by type erasure</p>
+<p>The approach that c++ takes is to "copy and paste" the abstrat data definition for every type varaible, as if the programmer had manually written distinct "box containing a Char" and "box containing a Doulbe" dat definitions. This is like a macro, this means that <code>Box[Char]</code> and <code>Box[Double]</code> will have different sizes, eg Box[Char] = 1 + 2 * 8 = 17 (1 char + 2 function pointers) and Box[Double]: 8 + 2 * 8 = 24, but note that things might be padded to better sizes.</p>
+<p>With the first approach you know that all of the boxes have the same size, whereas in the c++ approach is more efficient because we don't have one level of indirection with a pointer, everything is in the object, the downside being that two different objects have different sizes.</p>
+<p>When we do parametric polymorphism, we make a universal quantification saying "for any type a, Box a is a type". But perhaps we want to do more: "assert that it implements some interface".</p>
+<p>Typeclases, adhoc polymorphism, subclasses (inheritance). Suppose that \( \pi \left( t \right) \) is a predicate that consumes a type and produces a boolean</p>
+<div class="definition" id="definition-">
+    <div class="title">
+        Qualified Type
+    </div>
+    <div class="content">
+        We say that a polymorphic type \( Q \) if a particular t satisfies \( \pi \left( t \right) \)
+    </div>
+</div>
+<p>For example, we can use qualified types to add constraints to the addition function</p>
+<pre>
+        (+): forall t , pi(t) =&gt; t -&gt; t -&gt; t where pi(t) = (t == Integer || t == Double)
+    </pre>
+<div class="definition" id="definition-ad-hoc-polymorphism">
+    <div class="title">
+        Ad-Hoc Polymorphism
+    </div>
+    <div class="content">
+        If a polymorphic value exhibits different behavoirs when viewed from different
+    </div>
+</div>
+<p>One way of doing this is by doing method overloading with different arguments like this:</p>
+<pre>
+        bar(int i, int j) {
+            return i + j;
+        }
+
+        bar(double i, double j) {
+            return i + j;
+        }
+    </pre>
+<div class="definition" id="definition-typeclass">
+    <div class="title">
+        Typeclass
+    </div>
+    <div class="content">
+        A typeclass is a family of types (the instances of the classes) with associated functions defined for each instance of the class.
+    </div>
+</div>
+<p>In haskell <code>(Show mybool)</code> asserts that mybool must be an instance of Show. Note that mybool is a type here, which is a new concept because in OOP instances meant objects of a type, whereas here instances of a typeclass are types.</p>
+<pre>
+        -- typeclass declaration, (if a type a satisfies this json constraint then it has prodvided an impl of toJSON)
+        class JSON a where  (A: a is a type variable, and defines JSON a which determins if a is a JSOn type)
+            toJSON :: a -&gt; String
+
+        -- Bool (define an instance of a type class)
+        instance JSON Bool where
+            toJSON True = "true"  (a function of type boolean to string using pattern matching)
+            toJSON False = "false"
+
+        instance JSON a =&gt; JSON [a] where  (B)
+            toJSON l = "[" ++ (concat ...
+
+        ghci
+        *Main :t toJSON
+        toJSON :: JSON a =&gt; a -&gt; String (if a has type JSON, then toJSON is a function from type a to String)
+
+
+    </pre>
+<p>{-# OVERLAPPABLE #-} allows us to clobber another type class instance declaration.</p>
+<pre>
+        instance JSON Char where
+            toJSON = "world"
+
+        toJSON "hello" (notice that now either A or B could be used)
+    </pre>
+<p>In general Haskell will try to pick the more precise one, which is A because String is literally [Char] whereas the other is a generic [a] which could work for any type.</p>
+<p>We induce a typeclass hierarchy because when we have a qualified type, we're literally just specifying a subset of the elements of a given type, that's what induces the hierarchy.</p>
+<h2>Subtyping</h2>
+<pre>
+        int i = 42;
+        float f = i;
+    </pre>
+<p>The above is fine in c++, it does implicit conversion by simply turning 42 to 42.0</p>
+<p>In OOP we can give the child class instead of a parent class in general.</p>
+<div class="definition" id="definition-subtype">
+    <div class="title">
+        Subtype
+    </div>
+    <div class="content">
+        GIven two types S, T, we say that S is a subtype of T and write <code>S \lt;: T</code>
+    </div>
+</div>
+<p>\lt;: is similar to the subset relation, Dog \lt;: Animal.</p>
+<p>the LSP states that if phi(t) is a property that is provoable about objects t of type T, then phi(s) should be true for objects of type S where where S \lt;: T. Note that this would be trivial for subset relation, therefore this is more general, this means that S, T need not even have the same elements. Anything provable from</p>
+<pre>
+        S \lt;: S
+
+        S \lt;: T T \lt;:U
+        -----------------
+        S \lt;: U
+    </pre>
+<p>Rule of subsumption, aka typing rules</p>
+<pre>
+        t : S S \lt;: T
+        ---------------
+        t : T
+    </pre>
+<p>Top and Bottom types</p>

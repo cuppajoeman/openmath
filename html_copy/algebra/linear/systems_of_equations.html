@@ -1,0 +1,53 @@
+<div class="definition" id="definition-homogeneous-system-of-equations">
+    <div class="title">
+        Homogeneous System of Equations
+    </div>
+    <div class="content">
+        A system of equations is called homoegenous if each of the contstant terms is equal to 0. A homogeneous system therefore has the form: \[ \begin{aligned} a_{11} x_1 + a_{12} x_2 + \ldots + a_{1n}x_n &amp;= 0 \\ a_{12} x_1 + a_{22} x_2 + \ldots + a_{2n}x_n &amp;= 0 \\ \vdots \\ a_{m1} x_1 + a_{m2} x_2 + \ldots + a_{mn}x_n &amp;= 0 \\ \end{aligned} \] where \(a_{ij}\) are coefficients and \(x_j\) are variables
+    </div>
+</div>
+<div class="proposition" id="proposition-matrix-encoding-of-a-system-of-equations">
+    <div class="title">
+        Encoding a system of Equations into Matrix Vector Multiplication
+    </div>
+    <div class="content">
+        The solution set of the following system of equations is the same as the solution set for \(Ax = b\)
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="definition" id="definition-solution-space-of-a-homogeneous-system-of-equations">
+    <div class="title">
+        Solution space of a homogeneous system of equations
+    </div>
+    <div class="content">
+        Given a homogenous system of equations embedded in \( Ax = 0 \), where \( A \) is an \(m \times n \) matrix. We Define the solution space to be \(S = \{ x \in \mathbb{R}^n : Ax = 0\} \)
+    </div>
+</div>
+<div class="proposition" id="proposition-solution-space-is-a-subspace">
+    <div class="title">
+        The solution space of a homogeneous system of equations forms a subspace
+    </div>
+    <div class="content">
+        of \( \mathbb{R}^n \)
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="exercise" id="exercise-basis-for-a-solution-space">
+    <div class="title">
+        Basis for a Solution Space
+    </div>
+    <div class="content">
+        Find a basis for the solution space of the following matrix encoded system of equations \[ \begin{bmatrix} 2 & 4 & -2 & 0 \\ 3 & 6 & -3 & 0 \\ 5 & 8 & -8 & 1 \end{bmatrix} \vec{v} = \vec{0} \]
+    </div>
+    <div class="proof">
+        <p>The matrix can be row reduced to the following form:</p>\[ \begin{bmatrix} 1 & 0 & -4 & 1 \\ 0 & 1 & \frac{3}{2} & - \frac{1}{2} \\ 0 & 0 & 0 & 0 \end{bmatrix} \]
+        <p>Which represents the following system of equations</p>\[ \begin{aligned} 1x + 0y + -4 z + 1w &amp;= 0 \\ 0x + 1y + \frac{3}{2}z - \frac{1}{2}w &amp;= 0 \\ 0x + 0y + 0z + 0w &amp;= 0 \end{aligned} \]
+        <p>Since \( z \) and \( w \) are free variables, we let \( s, t \in \mathbb{R} \) and set \(z = s\) and \(w = t\) , now using back substitution, we can deduce the following</p>\[ \begin{aligned} 0x + 1y + \frac{3}{2}z - \frac{1}{2}t = 0 &amp;\implies y = \frac{1}{2}t - \frac{3}{2}s \\ 1x + 0y + -4 z + 1w = 0 &amp;\implies x = 4s - t\\ \end{aligned} \]
+        <p>Therefore the solution set is given by</p>\[ \left \{ \begin{bmatrix} 4s - t \\ - \frac{3}{2}s + \frac{1}{2}t \\ s \\ t \end{bmatrix} : s, t \in \mathbb{R} \right\} = \left \{ s \begin{bmatrix} 4 \\ - \frac{3}{2} \\ 1 \\ 0 \end{bmatrix} + t \begin{bmatrix} -1 \\ \frac{1}{2} \\ 0 \\ 1 \end{bmatrix} : s, t \in \mathbb{R} \right\} \]
+        <p>It can be confirmed that the two vectors \( \vec{v_1} = \begin{bmatrix} -1 \\ \frac{1}{2} \\ 0 \\ 1 \end{bmatrix}\) and \( \vec{v_2} = \begin{bmatrix} 4 \\ - \frac{3}{2} \\ 1 \\ 0 \end{bmatrix} \) are linearly independent due to the non-matching zero in the third component, thus the solution space can be written as \( \operatorname{span} ( \{ \vec{v_1}, \vec{v_2} \} ) \), therefore a possible basis for the solution set is \( ( \vec{v_1}, \vec{v_2} ) \).</p>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="corollary" id="corollary-sign-of-the-derivative-tells-us-about monotonicity">
+    <div class="title">
+        Sign of the Derivative Tells us about Monotonicity
+    </div>
+    <div class="content">
+        Let \( f \) be differentiable on \( \left[ a, b \right] \) then if for all \( x \in \left( a, b \right) \) we have:
+        <ul>
+            <li>\( f ^ \prime \left( x \right) = 0 \) then \( f \) is constant</li>
+            <li>\( f ^ \prime \left( x \right) \gt 0 \) then \( f \) is strictly increasing</li>
+            <li>\( f ^ \prime \left( x \right) \lt 0 \) then \( f \) is strictly decreasing</li>
+            <li>\( f ^ \prime \left( x \right) \ge 0 \) then \( f \) is increasing</li>
+            <li>\( f ^ \prime \left( x \right) \le 0 \) then \( f \) is decreasing</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-matching-derivatives-implies-differing-by-a-constant">
+    <div class="title">
+        Matching Derivatives Implies Differing by a Constant
+    </div>
+    <div class="content">
+        Suppose that \( f, g : \mathbb{ R } \to \mathbb{ R } \) and that \( f ^ \prime \left( x \right) = g ^ \prime \left( x \right) \) for all \( x \in \left( a, b \right) \) then show that \[ g \left( x \right) = f \left( x \right) + c \] for some \( c \in \mathbb{ R } \)
+    </div>
+    <div class="proof">
+        Observe that we have \( f ^ \prime \left( x \right) - g ^ \prime \left( x \right) = 0 \) and therefore \( f - g \) is constant so that there is some \( c \in \mathbb{ R } \) such that \( f \left( x \right) - g \left( x \right) = c \) so we have \[ f \left( x \right) = g \left( x \right) + c \] as needed.
+    </div>
+</div>
+<div class="exercise" id="exercise-non-zero-derivative-implies-locally-one-to-one">
+    <div class="title">
+        Non-Zero Derivative Implies Locally One-to-One
+    </div>
+    <div class="content">
+        Suppose that \( f: \left( a, b \right) \to \mathbb{ R } \) has continuous derivative on \( \left( a, b \right) \). If \( f ^ \prime \left( x _ 0 \right) \neq 0 \) prove that there is an interval \( \left( a, c \right) \) containing \( x _ 0 \) such that \( f \) is one to one on \( \left( a, c \right) \)
+    </div>
+    <div class="proof">
+        Without loss of generality assume that \( f \left( x _ 0 \right) \gt 0 \) and recall that \( \mathbb{ R } ^ + \) is an open set, therefore since \( f ^ \prime \) is continuous <a class="knowledge-link" href="/analysis/multi_variable/properties_of_continuous_functions.html#theorem-sequential-and-open-set-equivalences-for-continuity">then we know that</a> \( V := \left( f ^ \prime \right) ^ { -1 } \left( \mathbb{ R } ^ + \right) \) is open and since \( f ^ \prime \left( x _ 0 \right) \gt 0 \) then \( x _ 0 \in V \) therefore there exists some \( x _ 0 \in \left( c, d \right) \subseteq V = \left( f ^ \prime \right) ^ { -1 } \left( \mathbb{ R } ^ + \right) \) therefore \( f ^ \prime \left( \left( c, d \right) \right) \subseteq \mathbb{ R } ^ + \) <a class="knowledge-link" href="/analysis/multi_variable/mean_value_theorem.html#corollary-sign-of-the-derivative-tells-us-about%20monotonicity">so that</a> \( f \) is strictly increasing on \( \left( c, d \right) \) so that it is injective, as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-rolles-and-zeros">
+    <div class="title">
+        Rolles and Zeros
+    </div>
+    <div class="content">
+        Suppose \( f: \left[ a, b \right] \to \mathbb{ R } \) and \( f \) is differentiable on \( \left( a, b \right) \), suppose that \( f \) has \( n \in \mathbb{ N } _ 2 \) zeros in the interval \( \left[ a, b \right] \) then \( f ^ \prime \) has at least \( n - 1 \) zeros on \( \left( a, b \right) \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-n-th-derivative-has-a-zero-condition">
+    <div class="title">
+        Nth Derivative has a Zero Condition
+    </div>
+    <div class="content">
+        Suppose that \( f \in C ^ n \) and that \( f \) has \( n + 1 \) zeros, then \( f ^ \left( n \right) \) has a zero
+    </div>
+    <div class="proof">
+        Induction using the previous corollary.
+    </div>
+</div>
+<div class="exercise" id="exercise-forced-limit-of-the-derivative">
+    <div class="title">
+        Forced Limit of the Derivative
+    </div>
+    <div class="content">
+        Suppose that \( f \) is continuous on the interval \( \left[ a, b \right] \) and is differentiable at all points of \( \left( a, b \right) \) except possibly at the single point \( x _ 0 \in \left( a, b \right) \). Show that if \( \lim _ { x \to x _ 0 } f ^ \prime \left( x \right) \) exists (and denote its value by \( L \)) , show that \( f ^ \prime \left( x _ 0 \right) \) exists and \( f ^ \prime \left( x _ 0 \right) = \lim _ { x \to x _ 0 } f ^ \prime \left( x \right) \)
+    </div>
+    <div class="proof">
+        <p>In order to show that \( f ^ \prime \left( x _ 0 \right) \) exists we can show that the <a class="knowledge-link" href="/analysis/single_variable/mean_value_theorem.html#theorem-limit-exists-iff-left-and-right-exist-and-agree">right and left limits exist and are equal</a>.</p>
+        <p>Consider \( \lim _ { h \to 0 ^ + } \frac{f \left( x _ 0 + h \right) - f \left( x _ 0 \right) }{h} \), for any \( h \in \mathbb{ R } ^ + \) such that \( x _ 0 + h \lt b \) we consider the interval \( \left[ x _ 0, x _ 0 + h \right] \) since \( f \) is continuous here, then there exists some \( c _ h \in \left( x _ 0, x _ 0 + h \right) \) such that \[ f ^ \prime \left( c _ h \right) = \frac{f \left( x _ 0 + h \right) - f \left( x \right) }{h} \] Note that as \( h \to 0 \) then \( c _ 0 \to x _ 0 \) therfore we have \[ L = \lim _ { c _ h \to x _ 0 } f \prime \left( c \right) = \lim _ { h \to 0 ^ + } \frac{f \left( x _ 0 + h \right) - f \left( x \right) }{h} \] we can do the same thing from the left to show that both sides of the limit are equal and both equal \( L \) as needed.</p>
+    </div>
+</div>

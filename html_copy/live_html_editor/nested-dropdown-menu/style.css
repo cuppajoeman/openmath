@@ -1,0 +1,56 @@
+/* Dropdown styling */
+.dropdown {
+    position: relative; /* Allows nested elements to be positioned absolutely within */
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute; /* Allows it to escape navbar boundaries */
+    background-color: #333; /* Dark background */
+    min-width: 160px; /* Minimum width for the dropdown */
+    z-index: 101; /* High z-index to ensure it appears above other content */
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block; /* Reveals dropdown on hover */
+}
+
+/* Styling for dropdown links */
+.dropdown-content a {
+    color: white; /* Light text */
+    padding: 12px 16px; /* Padding for dropdown links */
+    text-decoration: none; /* No underline */
+    display: block; /* Block layout */
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #444; /* Slightly lighter on hover */
+}
+
+/* Submenu structure with arrows for submenu triggers */
+.dropdown-submenu {
+    position: relative; /* Needed for absolute positioning of submenu content */
+}
+
+.dropdown-submenu > .submenu-trigger::after {
+    content: "▶"; /* Arrow indicating a submenu */
+    float: right;
+}
+
+/* Submenu content, positioned to the right */
+.dropdown-submenu-content {
+    display: none; /* Hidden by default */
+    position: absolute; /* Allows it to escape navbar boundaries */
+    left: 100%; /* Positioning for expanding to the right */
+    top: 0;
+    background-color: #333; /* Dark background */
+    z-index: 102; /* High enough to ensure it appears above other content */
+    min-width: 160px; /* Minimum width for the submenu */
+}
+
+/* Show only the immediate submenu on hover */
+.dropdown-submenu:hover > .dropdown-submenu-content {
+    display: block; /* Reveals submenu content on hover */
+}

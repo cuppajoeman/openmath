@@ -1,0 +1,256 @@
+<div class="proposition" id="proposition-well-ordering-principle">
+    <div class="title">
+        Well Ordering Principle
+    </div>
+    <div class="content">
+        Given an subset \( S \subseteq \mathbb{ N } _ 1 \), if \( S \neq \emptyset \) then \( S \) has a minimum value
+    </div>
+    <div class="proof">
+        Taken as an axiom.
+    </div>
+</div>
+<div class="proposition" id="proposition-empty-negation-set-means-true-for-everything">
+    <div class="title">
+        Empty Negation Set means True for Everything
+    </div>
+    <div class="content">
+        Let \( P \) be a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> then for any \( X \subseteq \operatorname{ dom } \left( P \right) \) \[ C := \left\{ x \in X : \neg P \left( x \right) \right\} = \emptyset \] implies that \( \forall x \in X, P \left( x \right) \)
+    </div>
+    <div class="proof">
+        Let \( a \in X \), suppose that \( \neg P \left( a \right) \) for a contradiction, but then \( a \in C \) so that \( C \neq \emptyset \) which is a contradiction, so we know that \( P \left( a \right) \) as needed.
+    </div>
+</div>
+<div class="exercise" id="exercise-triangular-numbers-with-the-well-ordering-principle">
+    <div class="title">
+        Triangular Numbers with the Well Ordering Principle
+    </div>
+    <div class="content">
+        Prove that \[ 1 + 2 + 3 + \cdots + n = \frac{n \left( n + 1 \right) }{2} \]
+    </div>
+    <div class="proof">
+        <p>Let \( P \left( n \right) \) be the predicate which claims that \( 1 + 2 + 3 + \cdots + n = \frac{n \left( n + 1 \right) }{2} \), and define the set \( C = \left\{ n \in \mathbb{ N } _ 1: \neg P \left( n \right) \right\} \), by showing that this set is empty, <a class="knowledge-link" href="/number_theory/induction.html#proposition-empty-negation-set-means-true-for-everything">then it holds true</a> for all \( n \in \mathbb{ N } _ 1 \).</p>
+        <p>Therefore by contradiction assume that the set \( C \) is not empty, thus by the well ordering principle it has a smallest element \( m \in C \), note that \( m \ge 2 \) because \( P \left( 1 \right) \) holds therefore \( m - 1 \notin C \cap \mathbb{ N } _ 0 \) which means that \( P \left( m - 1 \right) \) which implies that \( 1 + 2 + \cdots + \left( m - 1 \right) = \frac{\left( m - 1 \right) m }{2} \) then by simply adding \( m \) to both sides we get that \[ 1 + 2 + \cdots + m = \frac{m ^ 2 - m + 2m}{2} = \frac{m ^ 2 + m}{2 } = \frac{m \left( m + 1 \right) }{2 } \] so thefore \( P \left( m \right) \) holds, which is a contradiction so therefore \( S = \emptyset \) as needed.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-there-is-not-an-infinitely-strictly-decreasing-sequence-of-natural-numbers">
+    <div class="title">
+        There is Not an Infinitely Strictly Decreasing Sequence of Natural Numbers
+    </div>
+    <div class="content">
+        There does not exist a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> \( x _ 1 \gt x _ 2 \gt \ldots \) in the natural numbers.
+    </div>
+    <div class="proof">
+        Suppose for the sake of contradiction that such a sequence did exist, and let \( S \) be the set of values of the sequence, by definition \( S \subseteq \mathbb{ N } _ 0 \) we assumed our sequence has at least one value and therefore \( S \neq \emptyset \) and so by the well ordering principle it has a least element say \( x _ k \) for \( k \in \mathbb{ N } _ 0 \) but then we know that \( x _ k \gt x _ { k + 1 } \) which is a contradiction, so such as sequence must not exist.
+    </div>
+</div>
+<div class="proposition" id="proposition-archimedean-property">
+    <div class="title">
+        Archimedean Property
+    </div>
+    <div class="content">
+        For any \( x, y \in \mathbb{ N } _ 1 \) there is some \( n \in \mathbb{ N } _ 1 \) such that \[ n x \ge y \]
+    </div>
+    <div class="proof">
+        Take \( n = y \), since \( x \in \mathbb{ N } _ 1 \) then \( 1 \le x \) so that \[ y = y \left( 1 \right) \le y x = nx \]
+    </div>
+</div>
+<div class="theorem" id="theorem-induction">
+    <div class="title">
+        Induction
+    </div>
+    <div class="content">
+        Suppose we have a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : \mathbb{ N } _ 0 \to \left\{ T, F \right\} \), then if we know that
+        <ul>
+            <li>\( P \left( 0 \right) \)</li>
+            <li>For any \( k \in \mathbb{ N } _ 0, P \left( k \right) \implies P \left( k + 1 \right) \)</li>
+        </ul>then \( P \left( n \right) \) holds for every \( n \in \mathbb{ N } _ 0 \)
+    </div>
+    <div class="proof">
+        <p>Let \( S := \left\{ n \in \mathbb{ N } _ 0: \neg P \left( n \right) \right\} \) if the principle of induction holds true, then this set must be empty, assume for the sake of contradiction that it is non-empty.</p>
+        <p>If this set is not empty then we have some \( a \in \mathbb{ N } _ 0 \) such that \( \neg P \left( a \right) \) holds true, therefore by <a class="knowledge-link" href="/number_theory/induction.html#proposition-well-ordering-principle">the well ordering principle</a> we know that \( S \) has a minimal element, which we will denote by \( m \) and note that \( m \ge 1 \) because \( P \left( 0 \right) \) holds true , so that so that \( m - 1 \in \mathbb{ N } _ 0 \) and it is minimal so that \( m - 1 \notin S \) so by definition of \( S \) it means that \( P \left( m - 1\right) \) holds true, but then by the second property of induction we obtain that \( P \left( m \right) \) holds true, so therefore \( m \notin S \) which is a contradiction.</p>
+        <p>Therefore since by assuming that \( S \) is non-empty we get a contradiction, it must mean that \( S \) is empty, which means that for every \( n \in \mathbb{ N } _ 0 \) we have that \( P \left( n \right) \) holds true, as needed.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-there-is-a-source-and-a-sink">
+    <div class="title">
+        There is a Source and a Sink
+    </div>
+    <div class="content">
+        Suppose you are in a country where all roads between any two cities are on-way and when you leave a city you cannot return to it again. Prove that there exists a city into which all roads enter and a city from which all roads exit.
+    </div>
+    <div class="proof">
+        <p>Let \( P \left( n \right) \) be the predicate that the statement holds true on a graph with \( n \) vertices. We will show this is true via <a class="knowledge-link" href="/number_theory/induction.html#theorem-induction">induction</a> over \( \mathbb{ N } _ 2 \).</p>
+        <p>For the base case, we have two vertices \( s, t \) , if there are no edges between them it holds vacuously, note that the only other case is that there is one edge, because if there were two then they could only be formed of the edges \( \left( s, t \right) , \left( t, s \right) \) which would contradict that there is no way to return back to a city you were previously at. Therefore without loss of generality assume that the only edge is \( \left( s, t \right) \), in that case the statement holds true because \( t \) is the city into which all roads enter and \( s \) is the city from which all roads exit.</p>
+        <p>For the induction step assume the prediate holds true for \( k \in \mathbb{ N } _ 2 \) and we'll prove that it holds true on \( k + 1 \), so supposing we have a graph with \( k + 1 \) nodes, let's obtain the graph by removing one vertex \( x \) and all edges it's involved in, by induction this subgraph has an \( s, t \) such that all roads enter \( s \) and all roads exit \( t \), specifically note that this implies that the edge \( \left( x, s \right) \) and \( \left( t, x \right) \) exist in the original graph that contained \( x \).</p>
+        <p>Note that by re-adding in \( x \) the property would be maintained unless \( x \) had an edge \( \left( s , x \right) \), but this would be impossible because the graph has the property that when you leave a city you cannot return to it again, but if we have \( \left( x, s \right), \left( s, x \right) \) the path \( x - s - x \) contradicts this fact, similarly if an edge \( \left( x, t \right) \) existed we also get this contradiction, therefore such edges must not exist which shows that the predicate holds true on the graph containing \( x \) by using \( s \) as the sink and \( t \) as the source.</p>
+    </div>
+</div>
+<div class="definition" id="definition-triangular-number">
+    <div class="title">
+        Triangular Number
+    </div>
+    <div class="content">
+        We define the triangular numbers by
+        <ul>
+            <li>\( T _ 1 = 1 \)</li>
+            <li>\( T _ n = T _ { n - 1 } + n \)</li>
+        </ul>
+    </div>
+</div>
+<p>They are called triangular numbers because by stacking dots of consecutive integers it forms a triangle.</p>
+<div class="corollary" id="corollary-formula-for-the-triangular-numbers">
+    <div class="title">
+        Formula for the Triangular Numbers
+    </div>
+    <div class="content">
+        For any \( n \in \mathbb{ N } _ 1 \) we have that \[ T _ n = \frac{n \cdot \left( n + 1 \right) }{2} \]
+    </div>
+    <div class="proof">
+        <p>By definition we know that \( T _ 1 = 1 \), by the equation we get \( \frac{1 \cdot 2}{2} = 1 \), therefore the base case holds true.</p>
+        <p>Let \( k \in \mathbb{ N } _ 1 \) and assume that \( T _ k = \frac{k \cdot \left( k + 1 \right) }{2 } \), let's show that \( T _ { k + 1 } = \frac{\left( k + 1 \right) \cdot \left( k + 2 \right) }{2 } \). \[ \begin{align} T _ { k + 1 } &amp;= T _ k + \left( k + 1 \right) \\ &amp;= \frac{k ^ 2 + k}{2 } + \frac{2k 2}{2} \\ &amp;= \frac{k ^ 2 + 3k 2k}{2} \\ &amp;= \frac{\left( k + 1 \right) \left( k + 2 \right) }{2 } \end{align} \]</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-telescoping-sum">
+    <div class="title">
+        Telescoping Sum
+    </div>
+    <div class="content">
+        Let \( \left( a _ n \right) \) be a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> of real numbers, then \[ \sum _ { k = 1 } ^ n \left( a _ { k + 1 } - a _ k \right) = a _ { n + 1 } - a _ 1 \] for any \( n \in \mathbb{ N } _ 1 \)
+    </div>
+    <div class="proof">
+        <p>We show this true by induction over \( \mathbb{ N } _ 1 \) so for the base case note that \( \sum _ { k = 1 } ^ 1 \left( a _ k - 1 - a _ k \right) = a _ 2 - a _ 1 \) as needed.</p>
+        <p>Now suppose that it holds true for \( j \in \mathbb{ N } _ 1 \) and now let's prove that \[ \sum _ { k = 1 } ^ { j + 1 } \left( a _ { k + 1 } - a _ k \right) = a _ { \left( j + 1 \right) + 1 } - a _ 1 \] but observe that \[ \begin{align} \sum _ { k = 1 } ^ { j + 1 } \left( a _ { k + 1 } - a _ k \right) &amp;= \sum _ { k = 1 } ^ { j } \left( a _ { k + 1 } - a _ k \right) + \left( a _ { j + 2 } - a _ { j + 1 } \right) \\ &amp;= \left( a _ { j + 1 } - a _ 1 \right) + a _ { j + 2 } - a _ { j + 1 } \\ &amp;= a _ { j + 2 } - a _ 1 \end{align} \]</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-">
+    <div class="title">
+        Formula for n-term arithmetic Progression
+    </div>
+    <div class="content">
+        Let \( a, d \in \mathbb{ R } \), then \[ a + \left( a + d \right) + \left( a + 2d \right) + \cdots + \left( a + \left( n - 1 \right)d \right) = \frac{n \left( 2a + \left( n - 1 \right)d \right) }{2} \] for every \( n \in \mathbb{ N } _ 1 \)
+    </div>
+    <div class="proof">
+        <p>By do it by induction, for the base case we need to verify that \[ a = \frac{1 \left( 2a + 0d \right) }{2} \] which is true because the right hand side simplifies to \( a \).</p>
+        <p>Now suppose the formula holds true for \( k \in \mathbb{ N } _ 1 \) and we'll show it holds true for \( k + 1 \). \[ \begin{align} a + \left( a + d \right) + \left( a + 2d \right) + \cdots + \left( a + \left( \left( k + 1 \right) - 1 \right)d \right) &amp;= a + \left( a + d \right) + \left( a + 2d \right) + \cdots + \left( a + \left( k - 1 \right)d \right) + \left( a + kd \right)\\ &amp;= \frac{k \left( 2a + \left( k - 1 \right)d \right) }{2} + \left( a + kd \right) \\ &amp;= \frac{k \left( 2a + \left( k - 1 \right)d \right) + 2a + 2kd }{2}\\ \end{align} \]</p>
+        <p>For a moment let's focus on the numerator, we want to show that the numerator is equal to \( \left( k + 1 \right) \left( 2a + kd \right) = k \left( 2a + kd \right) + \left( 2 a + kd \right) \), towards this goal notice that \[ \begin{align} k \left( 2a + \left( k - 1 \right) d \right) + 2a + 2kd &amp;= 2ka + k ^ 2 d - kd + 2a + 2kd \\ &amp;= 2ka + k ^ 2 d + 2a + kd \\ &amp;= k \left( 2a + kd \right) + 2a + kd \\ &amp;= \left( k + 1 \right) \left( 2a + kd \right) \end{align} \] and so the numerator is correct and the entire formula holds true.</p>
+    </div>
+</div>
+<p>With \( a = d = 1 \) then we get the sequence \( 1 , 3, 5, 7, \ldots \) (the triangular numbers) which recovers the formula for the triangular numbers that was discovered earlier.</p>
+<div class="corollary" id="corollary-summation-of-consecutive-odd-numbers">
+    <div class="title">
+        Summation of Consecutive Odd Numbers
+    </div>
+    <div class="content">
+        \[ 1 + 3 + 5 + \ldots + \left( 2n - 1 \right) = n ^ 2 \]
+    </div>
+    <div class="proof">
+        We have an arithmetic progression where \( a = 1 \) and \( d = 2 \), therefore its value is given by \[ \frac{n \left( 2 + \left( n - 1 \right)2 \right) }{2} = n ^ 2 \]
+    </div>
+</div>
+<div class="proposition" id="proposition-sum-of-the-squares-of-consecutive-integers">
+    <div class="title">
+        Sum of the Squares of Consecutive Integers
+    </div>
+    <div class="content">
+        \[ 1 ^ 2 + 2 ^ 2 + 3 ^ 2 + \cdots + n ^ 2 = \frac{n \left( n + 1 \right) \left( 2n + 1 \right) }{6} \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="lemma" id="lemma-multiplying-by-a-non-negative-constant-retains-inequality">
+    <div class="title">
+        Multiplying by a non Negative Constant Retains Inequality
+    </div>
+    <div class="content">
+        Suppose that \( a \ge b \in \mathbb{ R } \) and that \( c \in \mathbb{ R } ^ { \gt 0 } \) then \[ a c \ge b c \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-the-square-of-a-real-number-is-non-negative">
+    <div class="title">
+        The Square of a Real Number is Non-Negative
+    </div>
+    <div class="content">
+        For any \( x \in \mathbb{ R } \) \[ x ^ 2 \ge 0 \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-bernoullis-inequality">
+    <div class="title">
+        Bernouilli's Inequality
+    </div>
+    <div class="content">
+        For any \( x \in \left( -1, \infty \right) \) and \( n \in \mathbb{ N } _ 0 \) we have \[ \left( 1 + x \right) ^ n \ge 1 + nx \]
+    </div>
+    <div class="proof">
+        <p>Let \( n = 0 \), then we have that \( \left( 1 + x \right) ^ 0 = 1 \) and \( 1 + 0x = 1 \) so the inequality holds true.</p>
+        <p>Suppose the inequality holds true for \( k \in \mathbb{ N } _ 0 \), we'd like to show it holds true for \( k + 1 \) which is to say that \( 1 + \left( k + 1 \right) x \le \left( 1 + x \right) ^ { k + 1 } \), on the other hand see that: \[ \begin{align} \left( 1 + x \right) ^ k &amp;= \left( 1 + x \right) ^ { k + 1 } \\ &amp;= \left( 1 + x \right) ^ k \left( 1 + x \right) \\ &amp;\ge \left( 1 + kx \right) \left( 1 + x \right) \\ &amp;= 1 + \left( k + 1 \right) x + k x ^ 2 \\ &amp;\ge 1 + \left( k + 1 \right) x \end{align} \] To get the third line we used the induction hypothesis along <a class="knowledge-link" href="/number_theory/induction.html#lemma-multiplying-by-a-non-negative-constant-retains-inequality">with this fact</a> because we know that \( x + 1 \gt 0 \) since \( x \in \left( -1, \infty \right) \) , to get to the last line we used <a class="knowledge-link" href="/number_theory/induction.html#proposition-the-square-of-a-real-number-is-non-negative">this fact</a></p>
+    </div>
+</div>
+<div class="theorem" id="theorem-strong-induction">
+    <div class="title">
+        Strong Induction
+    </div>
+    <div class="content">
+        Suppose we have a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : \mathbb{ N } _ 0 \to \left\{ T, F \right\} \), then if we know that for every \( k \in \mathbb{ N } _ 0 \) \[ \left( P \left( 0 \right) \land \cdots \land P \left( k - 1 \right) \right) \implies P \left( k \right) \] then for every \( n \in \mathbb{ N } _ 0 \) we have that \( P \left( n \right) \) holds true.
+    </div>
+    <div class="proof">
+        <p>Let \( Q \left( n \right) \) be the predicate that \( P \left( j \right) \) holds true for \( 0 \le j \le n \). We want to prove that \( Q \left( 0 \right) \) holds true, which is equivalent to \( P \left( 0 \right) \) being true. Observe that for \( k = 0 \) the assumption of strong induction states that \[ \left( P \left( 0 \right) \land \cdots \land P \left( -1 \right) \right) \implies P \left( 0 \right) \] but <a class="knowledge-link" href="/fundamentals/logic.html#corollary-arbitrary-and-indexed-notation-with-reversed-integers-is-true">we know that</a> \( P \left( 0 \right) \land \cdots \land P \left( -1 \right) \) holds true, <a class="knowledge-link" href="/fundamentals/logic.html#proposition-forced-consequence">therefore</a> \( P \left( 0 \right) \) holds.</p>
+        <p>Let \( k \in \mathbb{ N } _ 0 \) and assume that \( Q \left( k \right) \) holds true, therefore \( P \left( j \right) \) holds true for \( 1 \le j \le k \) since \( P \) satisfies the property stated in the statement we are trying to prove, we get that \( P \left( k + 1 \right) \) holds, which shows that \( Q \left( k + 1 \right) \) is true.</p>
+        <p>Therefore by the <a class="knowledge-link" href="/number_theory/induction.html#theorem-induction">principle of induction</a> we see that \( Q \left( n \right) \) holds true for every \( n \in \mathbb{ N } _ 0 \), this implies that \( P \left( n \right) \) holds true for every \( n \in \mathbb{ N } _ 0 \) as well, therefore the statement of strong induction is proven.</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-strong-induction-implies-the-well-ordering-principle">
+    <div class="title">
+        Strong Induction Implies The Well Ordering Principle
+    </div>
+    <div class="content">
+        <a class="knowledge-link" href="/number_theory/induction.html#theorem-strong-induction">Strong induction</a> implies <a class="knowledge-link" href="/number_theory/induction.html#proposition-well-ordering-principle">the well ordering principle</a>
+    </div>
+    <div class="proof">
+        <p>Assume the strong induction holds, we want to prove that given any non-empty set \( S \subseteq \mathbb{ N } _ 0 \) then it has a minimum element, we will show this is true by the <a class="knowledge-link" href="/fundamentals/logic.html#proposition-contrapositive">contrapositive</a>, so assume that \( S \) has no min element and we'll show that \( S \) is empty.</p>
+        <p>Let \( P \left( n \right) \) be the predicate which claims that \( n \notin S \). Since \( S \) is bounded below by \( 0 \) then if \( 0 \in S \) then it would be the least element, so \( 0 \notin S \), which shows that \( P \left( 0 \right) \) holds.</p>
+        <p>Let \( k \in \mathbb{ N } _ 0 \) and that \( p \left( 0 \right) \land \cdots \land p \left( k \right) \) hold true, note that this means that \( 0, 1, \ldots k \notin S \), we'll show that \( p \left( k + 1 \right) \) is true. For contradiction suppose that it does not, which means that \( k + 1 \in S \), but since nothing before it is in the set, then that would make it the minimum element, but \( S \) has no minimum element, given this contradiction we know that \( k + 1 \notin S \) and therefore \( P \left( k + 1 \right) \) is true, thus by strong induction, we know that \( P \left( n \right) \) holds true for all \( n \in \mathbb{ N } _ 0 \) and therefore since no element is in \( S \) is it empty, as needed.</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-the-well-ordering-principle-induction-and-strong-induction-are-equivalent">
+    <div class="title">
+        The Well Ordering Principle, Induction and Strong Induction are Equivalent
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        Let \( A \) be the statement of the well ordering principle, \( B \) that of induction and \( C \) of strong induction. Since we've proven \( A \implies B \), \( B \implies C \) and \( C \implies A \), then this induces a connected directed graph, and thus all statements are equivalent.
+    </div>
+</div>
+<div class="proposition" id="proposition-finite-induction">
+    <div class="title">
+        Finite Induction
+    </div>
+    <div class="content">
+        Suppose we have a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : \mathbb{ N } _ 0 \to \left\{ T, F \right\} \) , then if
+        <ul>
+            <li>\( P \left( 0 \right) \)</li>
+            <li>For any \( k \in \left\{ 0, \ldots j - 1 \right\} , P \left( k \right) \implies P \left( k + 1 \right) \)</li>
+        </ul>then \( P \left( n \right) \) holds for every \( n \in \left\{ 0, \ldots , j \right\} \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-upward-downward-induction">
+    <div class="title">
+        Upward Downward Induction
+    </div>
+    <div class="content">
+        Let \(P: \mathbb{N} _ 0 \rightarrow\{\mathrm{T}, \mathrm{F}\}\) be a predicate such that:
+        <ol>
+            <li>\(P(n)\) is true for infinitely many \(n \in \mathbb{N} _ 0\); and</li>
+            <li>For every \(n \geq 1\) the implication \(P(n) \Longrightarrow P(n-1)\) is true</li>
+        </ol>then \(\forall n \in \mathbb{N} \cdot P(n)\).
+    </div>
+    <div class="proof">
+        <p>Note that if \( P \left( 0 \right) \land P \left( 1 \right) \land \cdots \land P \left( l \right) \) holds true for \( l \in \mathbb{ N } _ 0 \) then we would be able to conclude that \( P \left( n \right) \) for all \( n \in \mathbb{ N } _ 0 \), let's prove that this statement is true.</p>
+        <p>Let \( l \in \mathbb{ N } _ 0 \) since \( P \left( n \right) \) holds true for infinitely many values then there exists some \( l ^ \prime \in \mathbb{ N } _ 0 \) such that \( l ^ \prime \gt l \) such that \( P \left( l ^ \prime \right) \). Now consider the new predicate defined by \( Q \left( n \right) := P \left( l ^ \prime - n \right) \), note that if \( Q \left( n \right) \) holds true for values \( \left\{ l ^ \prime , l ^ \prime - 1, \ldots 0 \right\} \) then \( P \left( n \right) \) holds true on the values \( \left\{ 0, \ldots l ^ \prime \right\} \) which is what we're trying to prove.</p>
+        <p>Therefore we'll prove that \( Q \) holds on \( \left\{ 0, \ldots l ^ \prime \right\} \) via <a class="knowledge-link" href="/number_theory/induction.html#proposition-finite-induction">finite induction</a>. Note that \( Q \left( 0 \right) \) holds true as it is \( P \left( l ^ \prime - 0 \right) = P \left( l ^ \prime \right) \), let \( k \in \left\{ 0, \ldots , l ^ \prime - 1 \right\} \) and assume \( Q \left( k \right) \) holds true, which is to say that \( P \left( l ^ \prime - k \right) \) is true, let's prove that \( Q \left( k + 1 \right) \) holds true, which is to say that we must prove that \( P \left( l ^ \prime - k - 1 \right) \) holds true.</p>
+        <p>Since \( l ^ \prime - k \ge l ^ \prime - \left( l ^ \prime - 1 \right) = 1 \) then by the second property of \( P \) since we know that \( P \left( l ^ \prime - k \right) \) holds true, then we know that \( P \left( l ^ \prime - \left( k + 1 \right) \right) = P \left( l ^ \prime - k - 1 \right) \) holds true, so that \( Q \left( k + 1 \right) \) holds true, therefore by finite induction, see that \( Q \left( n \right) \) holds on the set \( \left\{ 0, \ldots , l ^ \prime \right\} \) and therefore \( P \) holds on the set \( \left\{ 0, \ldots , l ^ \prime \right\} \) as well, which is what we were trying to show, and thus \( P \left( n \right) \) holds true for all \( n \in \mathbb{ N } _ 0 \) .</p>
+    </div>
+</div>

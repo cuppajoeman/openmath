@@ -1,0 +1,313 @@
+
+<div class="theorem" id="theorem-if-a-cauchy-sequence-has-a-convergent-subsequence-then-the-original-converges-there">
+<div class="title">If a Cauchy Sequence has a Convergent Subsequence, then the Original Converges There</div>
+<div class="content">
+        Let \( X, d \) be a metric space, then if \( \left( x _ n \right) : \mathbb{ N } _ 1 \to X \) is cauchy, and there exists a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-subsequence">subsequence</a> \( \left( x _ { \sigma \left( n \right) }   \right)  \) that converges to \( x \) then \( \left( x _ n \right) \to x  \)  as well.
+          </div>
+<div class="proof">
+        Since \( \left( x _ { \sigma \left( n \right) } \right) \to x \) then given \( \epsilon \in \mathbb{ R } ^ +  \) we have some \( K \) such that for any \( k \ge K \) we have \( d \left( x _ { \sigma \left( k \right) } , x  \right) \lt \frac{\epsilon}{2}   \) since \( \left( x _ n \right)  \) is assumed cauchy then we obtain some \( N ^ \prime  \) such that for all \( n, m \ge N ^ \prime  \) we know that \( d \left( x _ n, x _ m \right) \lt \frac{\epsilon }{2} \), take \( N = N ^ \prime  \)  and let \( n \ge N \) since \( \sigma  \) is strictly increasing then there is some \( i \in \mathbb{ N } _ 1 \) such that \( \sigma \left( i \right) \ge N  \) let \( j := \max \left( i, K  \right)  \) thus we have
+        \[
+            d \left( x _ n, x \right) \le d \left( x _ n , x _ { \sigma \left( i \right) }   \right) + d \left( x _ { \sigma \left( i \right)  }, x   \right) \lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon
+        \]
+        as needed.
+      </div>
+</div>
+<div class="definition" id="definition-normed-vector-space">
+<div class="title">Normed Vector Space</div>
+<div class="content">
+        A normed vector space is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) over \( K \in \left\{ \mathbb{ R } , \mathbb{ C }  \right\}  \), with a norm \( \lVert \cdot  \rVert  \) satisfying the following for any \( x, y \in V \)
+        <ul>
+<li>Non-Negativity: \( \lVert x \rVert \ge 0 \) </li>
+<li>Positive definiteness: \( \lVert x \rVert = 0 \implies x = 0 _ V \) </li>
+<li>Absolute homogenity: for any \( \lambda \in K \), \( \lVert \lambda x \rVert = \left\lvert \lambda  \right\rvert \lVert x \rVert    \)   </li>
+<li>Triangle Inequality: \( \lVert x + y \rVert \le \lVert x \rVert + \lVert y \rVert    \)  </li>
+</ul>
+</div>
+</div>
+<p>
+      We will usually refer to normed vector spaces as an ordered pair \( \left( V, \lVert \cdot  \rVert  \right)  \)
+    </p>
+<div class="definition" id="definition-complete-metric-space">
+<div class="title">Complete Metric Space</div>
+<div class="content">
+                  We say that \( \left( X, d \right)  \) is complete if every <a class="knowledge-link" href="/analysis/multi_variable/convergence_and_completeness.html#definition-cauchy-in-rn">cauchy sequence</a> is convergent.
+          </div>
+</div>
+<div class="proposition" id="proposition-a-normed-vector-space-is-complete-iff-every-absolutely-summable-sequence-is-summable">
+<div class="title">A Normed Vector Space is Complete iff Every Absolutely Summable Sequence is Summable</div>
+<div class="content">
+                  Let \( X \) be a <a class="knowledge-link" href="/analysis/linear_operators.html#definition-normed-vector-space">normed vector space</a>, then it is <a class="knowledge-link" href="/analysis/linear_operators.html#definition-complete-metric-space">complete</a> iff every <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-absolutely-convergent-series">absolutely convergent</a> sequence is <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-summable">summable</a>.
+          </div>
+<div class="proof">
+<p>
+          \( \implies  \) Suppose that \( \sum \lVert a _ n \rVert \lt \infty   \), since \( X \) is complete, then we just have to show that \( s _ n := \sum _ { i = 1 } ^ { n  }  \) is cauchy, so let \( \epsilon \in \mathbb{ R } ^ +  \) since \( \sum \lVert a _ n \rVert \lt \infty   \) then by the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-cauchy-criterion-for-series">cauchy criterion</a> for series we know that there is some \( N ^ \prime  \) such that for all \( n, m \ge N ^ \prime  \) we have that \( \lVert \sum _ { k = n + 1  } ^ m a _ i \rVert \lt \epsilon \) but note that \( \sum _ { k = n + 1  } ^ { m  } a _ i = s _ m - s _ n  \) so select \( N = N ^ \prime  \) for any \( j, k \ge N \) we have
+          \[
+          \left\lvert s _ j - s _ k  \right\rvert = \lVert \sum _ { k = n + 1  } ^ { m } a _ i  \rVert \lt \epsilon
+          \]
+          therefore \( \left( s _ n \right)  \) is cauchy and therefore it converges so that \( \sum a _ i \lt \infty  \)
+        </p>
+<p>
+          \( \impliedby  \) Suppose that \( \sum \lVert a _ i \rVert \lt \infty \implies \sum a _ i \lt \infty   \) now we want to prove that \( X \) is complete, so let \( \left( x _ n \right): \mathbb{ N } _ 1 \to X  \) be a cauchy sequence, and let's prove that it converges to some limit.
+        </p>
+<p>
+          Since \( \left( x _ n \right)  \) is cauchy then we can construct the following subsequence inductively, for each \( k \in \mathbb{ N } _ 1  \) we obtain some \( M _ k \) such that for all \( n, m \ge M _ k \) we have \( \lVert x _ n - x _ m \rVert \lt \frac{1}{2 ^ k}   \). Now let \(  i \in \mathbb{ N } _ 1 \) to obtain some \( M _ i \) and also consider \( i + 1  \) to obtain \( M _ { i + 1  }  \), and in this case we will define \( N _ { i + 1 } = \max \left( M _ i, M _ { i + 1  } \right) + 1  \) and \( N _ 1 = M _ 1 \).
+        </p>
+<p>
+          Notice that it is true that \( N _ j \lt  N _ { j + 1  }  \) (as we used +1) therefore \( x _ { N _ i }  \) is a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-subsequence">subsequence</a>, and then also note that since \( N _ j, N _ { j + 1} \ge N _ j \) we have that
+          \[
+              \lVert x _ { N _ j } - x _ { N _ { j + 1  }  }   \rVert \lt \frac{1}{2 ^ j}
+          \]
+          From here we note that
+          \[
+              x _ { N _ k } = x _ { N _ 1 } +   \sum _ { i = 1 } ^ { k - 1  } \left( x _ { N _ { i + 1  }  } - x _ { N _ i }   \right)
+          \]
+          and that \( \sum _ { i = 1 } ^ { k - 1  } \left( x _ { N _ { i + 1  }  } - x _ { N _ i }   \right) \) converges absolutely because
+          \[
+          \sum _ { i = 1 } ^ { k - 1  } \left\lvert \left( x _ { N _ { i + 1  }  } - x _ { N _ i }   \right)  \right\rvert \le \sum _ { i = 1 } ^ { k - 1  } \frac{1}{2 ^ k}
+          \]
+          and so by the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-comparison-test">comparison test</a> it converges and so \( x _ { N _ 1 } +  \sum _ { i = 1 } ^ { k - 1  } \left( x _ { N _ { i + 1  }  } - x _ { N _ i }   \right)   \) converges so that \( \left( x _ { N _ i }  \right)  \) converges, as needed.
+        </p>
+</div>
+</div>
+<div class="definition" id="definition-banach-space">
+<div class="title">Banach Space</div>
+<div class="content">
+                  Every <a class="knowledge-link" href="/analysis/linear_operators.html#definition-complete-metric-space">complete</a> <a class="knowledge-link" href="/analysis/linear_operators.html#definition-normed-vector-space">normed vector space</a> is called a <b>banach space</b>.
+          </div>
+</div>
+<div class="definition" id="definition-linear-operator">
+<div class="title">Linear Operator</div>
+<div class="content">
+            A linear operator is a synonym for a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> where \( T : X \to Y \) and both \( X, Y \) are normed vector spaces.
+          </div>
+</div>
+<div class="definition" id="definition-bounded-linear-operator">
+<div class="title">Bounded Linear Operator</div>
+<div class="content">
+            Suppose that \( L : X \to Y \)  is a  <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-operator">linear operator</a>, then we say that it is bounded diff \( \exists M \in \mathbb{ R } ^ +  \) such that for any \( x \in X \), we have
+            \[
+              \lVert Lx \rVert _ Y \le M \lVert x \rVert _ X
+            \] 
+          </div>
+</div>
+<p>
+          The intuitive meaning is that there is some scalar such that the linear operator can only increase the length of the vector by that scalar multiple. For example a linear transform that multiplies all vector by some constant, will trivially satisfy this. We can re-obtain our familiar notion of bounededness by seeing that any bounded subset of \( X \) becomes a bouneded subset of \( Y \).
+    </p>
+<div class="corollary" id="corollary-continuity-of-a-linear-operator">
+<div class="title">Continuity of a Linear Operator</div>
+<div class="content">
+            Suppose that \( L : X \to Y \) is a linear operator between two normed vector spsces , then \( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuity-of-a-function-at-a-point">continuous at \( a \in X \) </a> iff \( \forall p \in X, \forall \epsilon \in \mathbb{ R } ^ + , \exists \delta \in \mathbb{ R } ^ + \text{ st }  \) 
+            \[
+              \lVert p \rVert  \lt \delta \implies \lVert L p \rVert \lt \epsilon 
+            \] 
+          </div>
+<div class="proof">
+<p>
+              \( \implies  \) Let \( \epsilon \in \mathbb{ R } ^ +  \) therefore since \( L \) is continuous we obtain some \( \delta \in \mathbb{ R } ^ +  \) such that for any \( x \in X \) if \( \lVert x - a \rVert \lt \delta   \) we have \( \lVert f \left( x \right) - f\left( a \right) \rVert \lt \epsilon  \).
+            </p>
+<p>
+              Now let \( p \in X \) and assume that \( \lVert p \rVert \lt \delta    \)  and take \( x = p - a \) therefore we know that \( \lVert L \left( p - a \right) - L \left( a \right)   \rVert \lt \epsilon   \) which implies that \( \lVert L p \rVert \lt \epsilon   \) as needed.
+            </p>
+<p>
+              \( \impliedby \) Now we prove that \( L \) is continuous, so let \( \epsilon \in \mathbb{ R } ^ +  \), 
+            </p>
+</div>
+</div>
+<div class="proposition" id="proposition-continuity-boundedness-equivalence-of-linear-operators">
+<div class="title">Continuity Boundedness Equivalence of Linear Operators</div>
+<div class="content">
+            Suppose that \( L : X \to Y \) is a linear operator then the following are equivalent so long as \( X \) is non-empty:
+            <ul>
+<li>\( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuous-function">continuous</a></li>
+<li>\( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuity-of-a-function-at-a-point">continuous at a point</a></li>
+<li>\( L \) <a class="knowledge-link" href="/analysis/linear_operators.html#definition-bounded-linear-operator">is bounded</a> </li>
+</ul>
+</div>
+<div class="proof">
+<p>
+              Proving \( 1 \implies 2 \) is easy since \( X \) is non-empty, so we'll prove \( 2 \implies 3 \). Suppose that \( L \) is continuous at some point \( x \in X \) so by letting \( \epsilon = 1 \) we obtain some \( \delta  \) such that for any \( y \in X \) if \( \lVert x - y \rVert \lt \delta  \) then we have \( \lVert Lx - Ly \rVert \lt 1  \)
+            </p>
+<p>
+              But then note that for any \( z \in X \) 
+              \[
+              \lVert \delta \frac{ z }{ \lVert z \rVert  } + x - x  \rVert \le \delta 
+              \] 
+              therefore we have 
+              \[
+              \lVert L \left( \delta \frac{ z }{ \lVert z \rVert  }  + x \right) - L \left( x \right)   \rVert  = \lVert L \left( \delta \frac{ z }{ \lVert z \rVert  }  \right)  \rVert \le 1
+              \] 
+               to conclude 
+              \[
+              \lVert Tz \rVert \le \frac{ 1 }{ \delta  } \lVert z \rVert 
+              \] 
+              So that \( L \) is bounded.
+            </p>
+<p>
+              \( 3 \implies 1 \) We need to show that \( L \) is continuous, and so let \( a \in X \) and \( \epsilon \in \mathbb{ R } ^ +  \), since \( L \) is bounded, we have some \( M \in \mathbb{ R } ^ +  \) such that for any \( z \in X \) we have \( \lVert Lz \rVert \le M \lVert z \rVert   \), now take \( \delta = \frac{ \epsilon  }{ M }  \) and let \( x \in X \) and assume that \( \lVert x - a \rVert \lt \delta = \frac{ \epsilon  }{ M }   \) 
+              \[
+              \lVert L \left( x - a \right)  \rVert \le M \lVert x - a \rVert \lt M \frac{ \epsilon  }{ M } = \epsilon 
+              \] 
+              so \( L \) is continuous, therefore all three statements are equivalent.
+            </p>
+</div>
+</div>
+<div class="definition" id="definition-automorphism">
+<div class="title">Automorphism</div>
+<div class="content">
+            Let \( F \) be a field, then an automorphism of \( F \) is a bijection from \( F \)  to itself that preserves the operations of addition and multiplication. 
+        </div>
+</div>
+<div class="definition" id="definition-sesquilinear-form">
+<div class="title">Sesquilinear Form</div>
+<div class="content">
+            A sesquilinear form on a vector space \(V\) over a field \(F\) is a map
+            \[
+            \langle \cdot , \cdot \rangle: V \times V \rightarrow F
+            \]
+              that is linear in the right argument and almost linear in the left, which is to say:
+              <ul>
+<li> \( \left\langle v_1, c w_1\right\rangle=c\left\langle v_1, w_1\right\rangle \) </li>
+<li> \( \left\langle v_1, w_1+w_2\right\rangle=\left\langle v_1, w_1\right\rangle+\left\langle v_1, w_2\right\rangle \) </li>
+<li> \( \left\langle c v_1, w_1\right\rangle=\bar{c}\left\langle v_1, w_1\right\rangle \) </li>
+<li> \( \left\langle v_1+v_2, w_1\right\rangle=\left\langle v_1, w_1\right\rangle+\left\langle v_2, w_1\right\rangle
+     \) </li>
+</ul>
+</div>
+</div>
+<div class="definition" id="definition-adjoint-of-a-sesquilinear-form">
+<div class="title">Adjoint of a Sesquilinear Form</div>
+<div class="content">
+            Given a sesquilinear form, \( \left( \cdot , \cdot  \right)  \) then we define the adjoint form as 
+            \[
+            \left( x \mid y \right) ^ * = \left( \bar y \mid \bar x \right) 
+            \] 
+        </div>
+</div>
+<div class="definition" id="definition-self-adjoint-sesquilinear-form">
+<div class="title">Self Adjoint Sesquilinear Form</div>
+<div class="content">
+            We say that a sesquilinear form is self adjoint diff:
+            \[
+              \left( x \mid  y \right) = \left( x \mid y \right) ^ *
+            \] 
+        </div>
+</div>
+<div class="definition" id="definition-hilbert-space">
+<div class="title">Hilbert Space</div>
+<div class="content">
+          A hilbert space is a real or complex <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-inner-product-space">inner product space</a> that is also a complete metric space with respect to the norm \( \lVert x \rVert = \sqrt{\langle x, x \rangle}  \). In other words the vector space under discussion is a <a class="knowledge-link" href="/analysis/linear_operators.html#definition-banach-space">Banach space</a>.
+        </div>
+</div>
+<p>
+       a hilbert space that doesn't have a full norm, but just a 
+    </p>
+<div class="definition" id="definition-convex-set">
+<div class="title">Convex Set</div>
+<div class="content">
+            A convex set is a subset \( C \) of a vector space such that for any two points \( x, y \in C \), the line segment connecting \( x \) and \( y \) is entirely contained within \( C \). Formally, for all \( \lambda \in [0, 1] \), the point 
+          \[ 
+          \lambda x + (1 - \lambda) y \in C 
+          \].
+        </div>
+</div>
+<div class="lemma" id="lemma-a-convex-subset-of-a-hilbert-space-has-a-unique-closest-element-to-a-point-in-the-hilbert-space">
+<div class="title">A Convex Subset of a Hilbert Space Has a Unique Closest Element to a Point in the Hilbert Space</div>
+<div class="content">
+          If \( C \) is a closed, nonempty, convex subset of a hilbert space \( H \), then for every \( y \in H \) there is a unique \( x \in C \) that minimizes the distance from \( y \) to \( C \) 
+        </div>
+<div class="proof">
+            Let \( C \) be a subset as specified above, and let \( y \in H \), finding the closest point in \( C \) to \( y \) is equivalent to finding the closest point in \( D = C - y \) to \( 0 \), which is simpler to solve, so we prove this equivalent statement. Now set \( p = \inf \left( \left\{ \lVert x \rVert : x \in D \right\}  \right)  \), , and note from the parallelogram law we have that for any \( x, y \in D \) 
+          \[
+            \lVert x - y \rVert  ^  2 = 2 \left( \lVert x \rVert ^ 2 + \lVert y \rVert ^  2   \right)  - \lVert x + y  \rVert ^ 2
+          \] 
+          Note that <a class="knowledge-link" href="/analysis/linear_operators.html#definition-convex-set">since</a> \( \frac{ 1 }{ 2 } x + \frac{ 1 }{ 2 } y \in D  \) then we know that \( \lVert \frac{ 1 }{ 2 } x + \frac{ 1 }{ 2 } y \rVert \ge p \) so that \( \lVert x + y \rVert \ge 2 p  \) in otherwords from the previous equality we obtain 
+          \[
+          \lVert x - y \rVert ^ 2 \le 2 \left( \lVert x \rVert ^ 2 + \lVert y \rVert ^  2   \right) - 4p ^2
+          \] 
+          Now as \( p \) is the infimum ,then we can find a sequence \( \left( x _ n \right) : \mathbb{ N } _1 \to D  \) such that \( \lVert x _ n \rVert \to p  \) and more specifically \( \lVert x _n  \rVert ^ 2 \to p ^2  \) , we'll show that \( x _ n \) is <a class="knowledge-link" href="/analysis/single_variable/real_numbers.html#definition-cauchy-sequence">cauchy</a>, to do so let \( \epsilon \in \mathbb{ R } ^ +  \) then since \( \lVert x  _ n \rVert ^ 2 \to p ^ 2  \) then we obtain some \( N ^ \prime  \) such that for any \( k \ge N ^ \prime  \) we have \( \lVert x _ k \rVert \lt p ^ 2 + \epsilon   \), now in our context we take \( N = N ^ \prime  \) and let \( n, m \ge N \) therefore we have that:
+          \[
+          \lVert x _ n - x _ m  \rVert ^ 2 \le 2 \left( \lVert x _n  \rVert ^ 2 + \lVert y _ m \rVert ^  2   \right) - 4p ^2 \le 2 \left( \left( p ^ 2 + \epsilon  \right) + \left( p ^ 2 + \epsilon  \right)   \right)  - 4p ^ 2 = 4\epsilon 
+          \] 
+          where we could then say \( \lVert x _ m - x _n \rVert \lt 2 \sqrt{ \epsilon  }   \) therefore \( x _ n  \) is cauchy, and thus \( x _ n \) converges to some point \( y \in H \), but since \( D \) is closed then also \( y \in D \), moreover we know that \( \lVert y \rVert = \lim _ { n \to \infty  } \lVert x _ n \rVert = p    \), thus we've shown that such a smallest element in \( D \) exists. To show it unique, then suppose there were two \( u, v \in D \) that were the smallest, but then revisiting our old inequality we have:
+          \[
+          \lVert u - v \rVert \le 2 \left( \lVert u \rVert ^ 2 + \lVert v \rVert ^  2   \right) - 4p ^2 = 2 \left( p ^ 2 + p ^  2   \right) - 4p ^2 = 0
+          \] 
+          so we deduce \( u = v \) 
+        </div>
+</div>
+<div class="definition" id="definition-orthogonal-projection">
+<div class="title">Orthogonal Projection</div>
+<div class="content">
+          For a vector \( v \) and a closed convex subset of a hilbert space, we denote \( v _U \) to denote this distance minimizing element of \( U \) called the <b>orthogonal projection</b> of \( v \) onto \( U \).
+        </div>
+</div>
+<div class="definition" id="definition-orthogonal-complement-of-an-inner-product-space">
+<div class="title">Orthogonal Complement of an Inner Product Space</div>
+<div class="content">
+          For a subset \( U \) of an <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-inner-product-space">inner product space</a> \( V \) then we use \( U ^ \bot \) to denote the space of vectors orthogonal of vectors orthogonal to \( U \) called the <b>orthogonal complement</b> of \( u \) 
+        </div>
+</div>
+<div class="definition" id="definition-functional">
+<div class="title">Functional</div>
+<div class="content">
+          Given a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( \left( V, F \right)  \) 
+        </div>
+</div>
+
+
+      adding definition of dense and then proof in 2.1
+
+
+
+
+
+
+
+      in a hilbert space if you have a closed subspace then it always has a complementary subspace
+      equilvalenlty thereis an orthoganal complement
+
+      in linear algebra a a complementary subspace is one that is orgnaogonzl one and the union is the entire space, that's one of the the fundamental theorems in hilbert space theory
+
+      any closed convex set in a hilbert space, and a point which is not in the space, then there is a unique closest point in the convex set to the point. (prove this one)
+
+      if you have two inner products on a vector space and they turn them into a hilbert space and if they hav
+
+      the given a hilbertspace then the number of elements in a ahilbert space basis is unique, so we prove that the number for here is the same as the number fo rhere, so the way you do it is that the humbe rof elements in a basis ais the same number of elements in a dense subset of the hilbert space, and you look at the smallest cardinal number in thedencse set and that's tthe number of elements in the basis, and so once you have the two orthanomral basis for the two bases
+
+      given a hilbert space H and a bounded operators T = T* in B(H) bounded operator, polynomials are functions in the operator too, and there's something mysterious about them in the first instance, you have a varaible x in the first but then you can plug in an operator to a polynomial, so suppose that p in C[x] (complex coeffiecients), suppose that ||T|| &lt;= 1, then what you do is that you say that ||p(t)|| &lt;= eps for t in [-1, 1], then if we change t to T then we also know that ||p(T)|| &lt;= eps (that's the spectral theorem, because once you know it's its fairly clear sailing)
+
+
+      the tutorial
+
+      suppose we have some field k and a vector space over k
+
+      C* (* is an ivoluation) an algebra is a ring with addition, multiplication, and a norm
+
+      gelfands theorem : If A is a commutative unital C*-algebra, then A =~ C(X) = {f: X -&gt; C: f cts} for some compact hausdorff X.
+
+      C0(R) = {f : R -&gt; C : f cts and lim(fx) x -&gt; oo = lim x -&gt; -oo f(x) = 0 }
+
+      modules are like vector spaces, and modules/k are precicely vector spaces / k, but modules don't always have a basis, but recall that a basis would be a subset B of M st B is lin indep (in a module this means given m1, m2 in B, then the solution to the equation r1m1 + r2m2 = 0 the same way we do in vector spaces), and forall m in M, we can find finitely many elements such that it is a linear comb of them.
+
+      given a banach space over C, then the dimension is not aleph 0
+
+      consider l^oo (N) = {(x1, x2, ...) that are bounded}, the a basis could be e1, e2, ... and we would guess this is a basis for l^oo, but the problem is that we have an infinite sum, and so we need an infinite sum to exists and htus need converergence but we don't have a norm.
+
+      so we have another idea which is the shauder basis, the {e_i}'s form a shauder basis for l^w, but this depends on the norm in the space,  given a banach space over C it has an uncountable hamel basis.
+
+      Exercise produce the dimension of X over C in a caoniacal way
+
+      a banach space is a hilbert space iff the inner product satisfies the paralellogram law.
+
+      From any ellipse you get an inner product, suppose it has major axis a and minor axis b then the inner product is given by ||(x, y)||^2 = (x/a)^2 + (y/b)^2 then the equation is given by 
+
+      &lt;., .&gt;: VxV -&gt; R: symmetric biliear forms, is degenerate iff for every x, there is a y such that <x, y=""> &gt;0 
+        Thm Riesz lemma ||&lt;*, x&gt;||_H* = ||x||_H
+
+      add the 
+
+
+
+
+
+</x,>

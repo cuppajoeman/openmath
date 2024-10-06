@@ -1,0 +1,253 @@
+<div class="definition" id="definition-continuous-function">
+    <div class="title">
+        Continuous Function
+    </div>
+    <div class="content">
+        Let \( X, Y \) be <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological spaces</a>, a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f: X \rightarrow Y \) is said to be continuous iff for each open subset \( V \) of \( Y \), <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">\( f ^{ -1 } \left( V \right) \)</a> is an open set of \( X \)
+    </div>
+</div>
+<div class="proposition" id="proposition-continuous-iff-every-basis-element-is-open">
+    <div class="title">
+        Continuous iff Every Basis Element is Open
+    </div>
+    <div class="content">
+        Suppose that \( f : X \rightarrow Y \) is a function and \( \mathcal{ T }_Y \) is <a class="knowledge-link" href="/topology/basis.html#definition-topology-generated-by-a-basis">generated</a> by a basis \( \mathcal{ B } \), then \( f \) is continuous if every basis element \( f ^ { -1 } \left( B \right) \) is open in \( Y \)
+    </div>
+    <div class="proof">
+        <p>Let \( U \) be open in \( Y \), we want to prove that \( f ^ { -1 } \left( U \right) \) is an open set. Since \( U \) is open then <a class="knowledge-link" href="/topology/topological_spaces.html#theorem-topology-generated-by-a-basis-consists-of-unions">we know that</a> \( U = \bigcup \mathcal{ C } \) where \( \mathcal{ C } \subseteq \mathcal{ B } \).</p>
+        <p>By noting that \( f ^ { -1 } \left( U \right) = f ^ { -1 } \left( \bigcup \mathcal{ C } \right) \) <a class="knowledge-link" href="/fundamentals/functions.html#proposition-union-factors-through-inverse-image">\( = \)</a> \( \bigcup \left\{ f ^ { -1 } \left( C \right) : C \in \mathcal{ C } \right\} \), since \( \mathcal{ C } \subseteq \mathcal{ B } \), then every element \( C \) is a basis element, and thus \( f ^ { -1 } \left( C \right) \) is an open set by our assumption, therefore as it is an arbitrary union of open sets, <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">we can see that</a> \( f ^ { -1 } \left( U \right) \) is an open set, as needed</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-the-set-of-points-where-a-function-is-larger-than-the-other-is-open">
+    <div class="title">
+        The Set of Points Where a Function Is Larger Than the Other Is Open
+    </div>
+    <div class="content">
+        Let \( Y \) be a set with the <a class="knowledge-link" href="/topology/order_topology.html#definition-the-order-topology">order topology</a>, and \( f, g : X \to Y \) then the set \[ A = \left\{ x : f \left( x \right) \gt g \left( x \right) \right\} \] is open in \( X \)
+    </div>
+    <div class="proof">
+        Let \( p \in A \) now let's an open set around \( x \) contained in \( A \). Since \( p \in A \) then we know that \( f \left( p \right) \gt g \left( p \right) \) therefore since \( Y \) is hausdorff then we know that there are disjoint neiborhoods \( U, V \) of \( g \left( p \right), f \left( p \right) \) respectively such that \( \forall u, v \in U, V \) we have \( u \lt v \). Since \( f, g \) are continuous we also knot that \( S = g ^ { -1 } \left( U \right) \cap f ^ { -1 } \left( V \right) \) is open in \( X \), if \( s \in S \) then we know that \( g \left( s \right) \in U \) and that \( f \left( s \right) \in V \) and so \( g \left( s \right) \lt f \left( s \right) \) therefore \( s \in A \) so that \( S \subseteq A \) and therefore it is open.
+    </div>
+</div>
+<p>Note that as a corollary to this we know that the set \( \left\{ x \in X : f \left( x \right) \le g \left( x \right) \right\} \) is closed.</p>
+<div class="corollary" id="corollary-the-min-function-of-two-functions-is-continuous">
+    <div class="title">
+        The Min Function of Two Functions Is Continuous
+    </div>
+    <div class="content">
+        Suppose \( Y \) is the order topology and that \( f, g: X \to Y \) are continuous, then the function \( h : X \to Y \) defined as \[ h \left( x \right) = \min \left\{ f \left( x \right), g\left( x \right) \right\} \] is continuous
+    </div>
+    <div class="proof">
+        <p>Let \( A = \left\{ x \in X : f \left( x \right) \le g \left( x \right) \right\} \) and \( B = \left\{ x \in X : g \left( x \right) \le f \left( x \right) \right\} \) which we know are closed, and thus \( A \cap B \) is also closed, moreover we know that \( A \cap B = \left\{ x \in X : f \left( x \right) = g \left( x \right) \right\} \) but also that \( A \cup B = X \) in order to use the pasting lemma we need to restrict our functions \( f, g \) to \( f ^ \prime , g ^ \prime \) so that \( f ^ \prime : A \to Y \) and \( f ^ \prime : B \to Y \) (which we know are continuous as a restriction of a continuous function).</p>
+        <p>With these functions we can notice that \[ h \left( x \right) = \min \left\{ f \left( x \right), g \left( x \right) \right\} = \begin{cases} f ^ \prime \left( x \right) &amp;\text{ if } x \in A \\ g ^ \prime \left( x \right) &amp;\text{ if } x \in B \end{cases} \] thus by invoking the pasting lemma we conclude that \( h \left( x \right) \) is a continuous function which is what we wanted to show.</p>
+    </div>
+</div>
+<div class="definition" id="definition-finite-to-one">
+    <div class="title">
+        Finite to One
+    </div>
+    <div class="content">
+        Given a function \( f : X \to Y \) we say that it is finite to one diff for every \( y \in Y \) \[ \left\lvert f ^ { -1 } \left( \left\{ y \right\} \right) \right\rvert \lt \infty \]
+    </div>
+</div>
+<div class="exercise" id="exercise-a-function-is-continuous-when-taken-with-the-finite-complement-topology-iff-it-is-constant-or-finite-one-to-one">
+    <div class="title">
+        A Function Is Continuous When Taken With the Finite Complement Topology Iff It Is Constant or Finite One to One
+    </div>
+    <div class="content">
+        Suppose that \( f : X \to Y \) where \( X, Y \) are taken with the <a class="knowledge-link" href="/topology/topological_spaces.html#proposition-the-finite-complement-topology">finite complement topology</a>. Then \( f \) is continuous iff it is <a class="knowledge-link" href="/fundamentals/functions.html#definition-constant-function">constant</a> or finite to one.
+    </div>
+    <div class="proof">
+        <p>Suppose that \( f \) is continuous, then it's either true or false that \( f \) is constant, if \( f \) is constant then the proof is done, so let's suppose that it is not constant, so we must prove it is finite one to one, let \( y \in Y \), <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#corollary-double-set-difference-cancels-for-subsets">since</a> \( Y \setminus \left( Y \setminus \left\{ y \right\} \right) = \left\{ y \right\} \) this shows that \( Y \setminus \left\{ y \right\} \) is open in \( Y \) therefore \( f ^ { -1 } \left( Y \setminus \left\{ y \right\} \right) \) which <a class="knowledge-link" href="/fundamentals/functions.html#proposition-set-difference-factors-through-inverse-image">equals</a> \( f ^ { -1 } \left( Y \right) \setminus f ^ { -1 } \left( \left\{ y \right\} \right) \) but also <a class="knowledge-link" href="/fundamentals/functions.html#proposition-inverse-image-of-the-range-is-the-domain">equals</a> \( X \setminus f ^ { -1 } \left( \left\{ y \right\} \right) \) is an open set. Since it is, this implies that \( f ^ { -1 } \left( \left\{ y \right\} \right) \) is either finite or all of \( X \), but since \( f \) is not constant, then it cannot be all of \( X \) therefore we know that \( f ^ { -1 } \left( \left\{ y \right\} \right) \) is finite, showing that \( f \) is finite to one.</p>
+        <p>Now if \( f \) is constant, then suppose \( f \left( x \right) = c \) for any \( x \in X \) therefore if we're given an open \( V \) in \( Y \) then if \( c \in V \) then \( f ^ { -1 } \left( V \right) = X \) and if not then \( f ^ { -1 }\left( V \right) = \emptyset \), in either case the inverse image is open. On the other hand if \( f \) is not constant, we shall prove \( f \) is finite to one, then still supposing that \( V \) was open in \( Y \) then that means that \( Y \setminus V \) is finite or \( V = \emptyset \) (But in that case \( f ^ { -1 } \left( \emptyset \right) = \emptyset \) which is open in \( X \)), so supposing that that difference was finite, then we know that \( f ^ { -1 } \left( Y \setminus V \right) = \bigcup _ { p \in Y \setminus V } f ^ { -1 } \left( p \right) \) which is a finite union of finite sets and thus finite, but we also know that \( f ^ { -1 } \left( Y \setminus V \right) = X \setminus f ^ { -1 } \left( V \right) \) therefore \( f ^ { -1 } \left( V \right) \) is open in \( X \) which is exactly what we wanted to prove.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-continuous-iff-every-subbasis-element-is-open">
+    <div class="title">
+        Continuous iff Every Subbasis Element is Open
+    </div>
+    <div class="content">
+        Suppose that \( f : X \rightarrow Y \) is a function and \( \mathcal{ T }_Y \) is <a class="knowledge-link" href="/topology/basis.html#definition-topology-generated-by-a-subbasis">generated</a> by a subbasis \( \mathcal{ S } \), then \( f \) is continuous if every subbasis element \( f ^ { -1 } \left( S \right) \) is open in \( X \)
+    </div>
+    <div class="proof">
+        <p>Since \( \mathcal{ T }_Y \) is generated by \( S \), this means that \( \mathcal{ T }_Y = \mathcal{ T }_{ \mathcal{B}_S } \) where \( \mathcal{ B }_S \) is the basis generated by \( S \) therefore to verify that this function is continuous <a class="knowledge-link" href="/topology/continuous_functions.html#proposition-continuous-iff-every-basis-element-is-open">all we have to do is check</a> that every basis element \( B \in \mathcal{ B }_S \) has the property that \( f ^ { -1 } \left( B \right) \) is open with respect to \( X \)</p>
+        <p><a class="knowledge-link" href="/topology/basis.html#proposition-intersections-of-subbasis-elements-forms-a-basis">We know</a> \( B = S_1 \cap S_2 \cap \ldots \cap S_k \) for some \( k \in \mathbb{ N }_1 \), therefore we want to know if \( f ^ { -1 } \left( S_1 \cap S_2 \cap \ldots \cap S_k \right) \) is open, since we know that the <a class="knowledge-link" href="/fundamentals/functions.html#proposition-intersection-factors-through-inverse-image">intersection factors through the inverse image</a> then we can re-write this as \( \bigcap _ { i = 1 } ^ { k } f ^ { -1 } \left( S_i \right) \).</p>
+        <p>Our initial assumption was that given any \( S \in \mathcal{ S } \) that \( f ^ { -1 } \left( S \right) \) was open, thus specifically for our \( S_1, \ldots , S_k \) their inverse images should also be open, therefore \( \bigcap _ { i = 1 } ^ { k } f ^ { -1 } \left( S_i \right) \) is a finite intersection of open sets of \( X \) <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">thus it is open</a>, which shows that \( f \) is continuous.</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-continuous-implies-image-closure-expansion">
+    <div class="title">
+        Continuous Implies Image Closure Expansion
+    </div>
+    <div class="content">
+        Suppose that <a class="knowledge-link" href="/topology/continuous_functions.html#definition-continuous-function">\( f \) is continuous</a>, then given any subset \( A \) of \( X \), we have that \( f \left( \overline{ A } \right) \subseteq \overline{ f \left( A \right) } \)
+    </div>
+    <div class="proof">
+        <p>Suppose that \( f \) is continuous, and suppose that \( A \subseteq X \), we want to show that \( f \left( \overline{ A } \right) \subseteq \overline{ f \left( A \right) } \), we start by assuming that \( p \in f \left( \overline{ A } \right) \), which means that \( p = f \left( a \right) \) where \( a \in \overline{ A } \), we now want to prove that \( p \in \overline{ f \left( A \right) } \), one way of going about this <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">would be to show</a> that every <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-neighborhood">neighborhood</a> of \( p \) intersects \( f \left( A \right) \), which we will do.</p>
+        <p>So let \( V \) be a neighborhood of \( p \), by definition we know \( V \subseteq Y \), then we know that \( f ^ { -1 } \left( V \right) \) is an open set since \( f \) is continuous, since \(p = f \left( a \right) \), then \( V \) is also a neighborhood of \( f \left( a \right) \), therefore clearly \( f \left( a \right) \in V \), that is \( a \in f ^ { -1 } \left( V \right) \).</p>
+        <p>We assumed that \( a \in \overline{ A } \), which is equivalent to every neighborhood of \( a \) intersecting \( A \), we know that \( f ^ { -1 } \left( V \right) \) is an open set containing \( a \), which makes it a neighborhood of \( a \), and thus it must intersect with \( A \) at some point \( b \), then \( f \left( b \right) \in V \), at the same time we know that \( b \in A \) as well, so that \( f \left( b \right) \in f \left( A \right) \), thus \( f \left( b \right) \in V \cap f \left( A \right) \) showing that the neighborhood intersects \( f \left( A \right) \), therefore this shows that \( p \in \overline{ f \left( A \right) } \), as needed.</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-closure-expansion-implies-closed-inverse-image">
+    <div class="title">
+        Closure Expansion Implies Closed Inverse Image
+    </div>
+    <div class="content">
+        Suppose that for every subset \( A \subseteq X \), we have \( f \left( \overline{ A } \right) \subseteq \overline{ f \left( A \right) } \), then for every <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-closed-set">closed</a> set \( B \) of \( Y \), \( f ^ { -1 } \left( B \right) \) is closed in \( X \)
+    </div>
+    <div class="proof">
+        <p>Let \( B \subseteq Y \) be a closed set of \( Y \), we want to prove that \( A = f ^ { -1 } \left( B \right) \) is a closed set of \( X \), which is <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-sets-equal-their-closure">equivalent to</a> \( A = \overline{ A } \), therefore we will prove this instead.</p>
+        <p><a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-interior-is-smaller-closure-is-bigger">We already know</a> \( A \subseteq \overline{ A } \), so all we need to show is that \( \overline{ A } \subseteq A \), so let \( x \in \overline{ A } \), and we want to prove that \( x \in A = f ^ { -1 } \left( B \right) \), in other words we want to show that \( f \left( x \right) \in B \).</p>
+        <p>Before we continue, we should realize that \( A \) is a subset of \( X \), therefore our assumption applies, which tells us \( f \left( \overline{ A } \right) = \overline{ f \left( A \right) } \), since \( A = f ^ { -1 } \left( B \right) \), <a class="knowledge-link" href="/fundamentals/functions.html#proposition-image-of-the-inverse-image">we can conclude</a> that \( f \left( \overline{ A } \right) \subseteq B \).</p>
+        <p>Since \( x \in \overline{ A } \), then \( f \left( x \right) \in f \left( \overline{ A } \right) \), but then by our previous paragraph, we know that \( f \left( x \right) \in B \), as needed.</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-closed-inverse-image-implies-continuous">
+    <div class="title">
+        Closed Inverse Image Implies Continuous
+    </div>
+    <div class="content">
+        Suppose that for every closed \( B \) in \( Y \), \( f ^ { -1 } \left( B \right) \) is closed in \( X \), then \( f \) is continuous
+    </div>
+    <div class="proof">
+        <p>Let \( V \) be an open set of \( Y \), we want to show that \( f ^ { -1 } \left( V \right) \) is an open set of \( X \), set \( B = Y \setminus V \).</p>
+        <p>Since \( V \) was open, then \( B \) is closed, and thus \( f ^ { -1 } \left( B \right) \) is a closed set. But note this: \[ \begin{align} f ^ { -1 } \left( B \right) &amp;= f ^ { -1 } \left( Y \setminus V \right) \\ &amp;= f ^ { -1 } \left( Y \right) \setminus f ^ { -1 } \left( V \right) \tag{$\alpha$} \\ &amp;= X \setminus f ^ { -1 } \left( V \right) \tag{$\beta$} \end{align} \]</p>Where we've used the facts:
+        <ul>
+            <li>
+                <a class="knowledge-link" href="/fundamentals/functions.html#proposition-set-difference-factors-through-inverse-image">\( \alpha \)</a>
+            </li>
+            <li>
+                <a class="knowledge-link" href="/fundamentals/functions.html#proposition-inverse-image-of-the-range-is-the-domain">\( \beta \)</a>
+            </li>
+        </ul>
+        <p>The conclusion from the above was that \( f ^ { -1 } \left( B \right) = X \setminus f ^ { -1 } \left( V \right) \), from our assumption we knew that \( f ^ { -1 } \left( V \right) \) was a closed, set, which makes \( f ^ { -1 } \left( B \right) \) an open set, which is what we set out to prove.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-continuous-iff-every-neighborhood-contains-the-image-of-another -neighborhood">
+    <div class="title">
+        Continuous iff Every Neighborhood Contains the Image of another Neighborhood
+    </div>
+    <div class="content">
+        \( f \) is continuous iff for every \( x \in X\) and neighborhood \( V \) of \( f \left( x \right) \), there is a neighborhood \( U \) of \( x \) such that \( f \left( U \right) \subseteq V \)
+    </div>
+    <div class="proof">
+        <p>\( \implies \) Let \( x \in X \) and suppose \( V \) is a neighborhood of \( f \left( x \right) \), then \( f ^ { -1 } \left( V \right) \) is an open set since \( f \) was assumed continuous, it also must contain \( x \), this is because \( f \left( x \right) \in V \), making \( f ^ { -1 } \left( V \right) \) a neighborhood of \( x \), <a class="knowledge-link" href="/fundamentals/functions.html#proposition-image-of-the-inverse-image">we also know</a> \( f \left( f ^ { -1 } \left( V \right) \right) \subseteq V \), as needed.</p>
+        <p>\( \impliedby \) Suppose \( V \) is open in \( Y \), if \( f ^ { -1 } \left( V \right) = \emptyset \), we are done, thus we can find some element \( x \in f ^ { -1 } \left( V \right) \), making \( V \) a neighborhood of \( f \left( x \right) \), thus by assumption, we get some neighborhood \( U _ x \) such that \( f \left( U _ x \right) \subseteq V \), this by definition means that for any \( p \in U _ x \), we know \( f \left( p \right) \in V \), or that \( p \in f ^ { -1 } \left( V \right) \), which shows that \( U _ x \subseteq f ^ { -1 } \left( V \right) \).</p>
+        <p>Since this is true for every point \( x \in f ^ { -1 } \left( V \right) \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-covered-in-subsets-is-a-union">since</a> \( \bigcup _ { x \in f ^ { -1 } \left( V \right) } U _ x = f ^ { -1 } \left( V \right) \), then \( f ^ { -1 } \left( V \right) \) can be written as an arbitrary union of open sets, and thus it is open, as needed.</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-">
+    <div class="title">
+        Continuous, Image Closure Expansion, Closed Inverse Image, Nested Neighborhoods Equivalence
+    </div>
+    <div class="content">
+        Let \( X, Y \) be topological spaces, let \( f: X \rightarrow Y \), then the following are equivalent:
+        <ol>
+            <li>\( f \) is continuous</li>
+            <li>For every subset \( A \) of \( X \), \( f \left( \overline{ A } \right) \subseteq \overline{ f \left( A \right) } \)</li>
+            <li>For every closed set \( B \) of \( Y \), \( f ^ { -1 } \left( B \right) \) is closed in \( X \)</li>
+            <li>For each \( x \in X \) and each neighborhood \( V \) of \( f \left( x \right) \), there is a neighborhood \( U \) of \( x \) such that \( f \left( U \right) \subseteq V \)</li>
+        </ol>
+    </div>
+    <div class="proof">
+        <p>We've shown that <a class="knowledge-link" href="/topology/continuous_functions.html#lemma-continuous-implies-image-closure-expansion">\( 1 \implies 2 \)</a> , <a class="knowledge-link" href="/topology/continuous_functions.html#lemma-closure-expansion-implies-closed-inverse-image">\( 2 \implies 3 \)</a>, <a class="knowledge-link" href="/topology/continuous_functions.html#lemma-closed-inverse-image-implies-continuous">\( 3 \implies 4 \)</a> and <a class="knowledge-link" href="/topology/continuous_functions.html#proposition-continuous-iff-every-neighborhood-contains-the-image-of-another%20-neighborhood">\( 4 \iff 1 \)</a>, this induces directed graph that is weakly connected and has a cycle, therefore it is connected, which means that all statements are equivalent.</p>
+    </div>
+</div>
+<div class="definition" id="definition-homeomorphism">
+    <div class="title">
+        Homeomorphism
+    </div>
+    <div class="content">
+        Let \( X, Y \) be topological spaces, and let \( f: X \rightarrow Y \) be a bijection. If the function \( f \) and it's inverse function \( f ^ { -1 } : Y \rightarrow X \) are <a class="knowledge-link" href="/topology/continuous_functions.html#definition-continuous-function">continuous</a>, then \( f \) is called a <b>homeomorphism</b>
+    </div>
+</div>
+<div class="proposition" id="proposition-homeomorphism-set-and-its-image-are-open-equivalence">
+    <div class="title">
+        Homeomorphism Set and it's Image are Open Equivalence
+    </div>
+    <div class="content">
+        Suppose that \( f \) is a bijection, then \( f \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> iff the following is true: \( f \left( U \right) \) is open in \( Y \) iff \( U \) is open in \( X \)
+    </div>
+    <div class="proof">
+        <p>Suppose that \( f \) is a homeomorphism, and that \( U \) is a subset of \( X \), assume \( f \left( U \right) \) is open in \( Y \) , we'll prove that \( U \) is open in \( X \), since \( f \) is continuous, then we know that \( f ^ { -1 } \left( f \left( U \right) \right) \) is an open set of \( X \), since \( f \) is a bijection, this means it's injective and thus \( f ^ { -1 } \left( f \left( U \right) \right) = U \) as needed.</p>
+        <p>Now suppose that \( U \) is open in \( X \), since we know that \( f ^ { -1 } \) is continuous this means that \( \left( f ^ { -1 } \right) ^ { -1 } \left( U \right) \) is an open set of \( Y \), <a class="knowledge-link" href="/fundamentals/functions.html#exercise-inverse-image-of-the-inverse-function-is-the-image">we've shown</a> that \( \left( f ^ { -1 } \right) ^ { -1 } \left( U \right) = f \left( U \right) \), thus, we've just shown that \( f \left( U \right) \) is an open set of \( Y \), this concludes</p>
+        <p>At this point we've proven the main rightward implication. The other direction is quite a lot easier. We have to show that both \( f \) and \( f ^ { -1 } \) are continuous.</p>
+        <p>Suppose that \( V \) is an open set of \( Y \), we want to show that \( f ^ { -1 } \left( V \right) \) is an open set of \( X \), which is true iff \( f \left( f ^ { -1 } \left( V \right) \right) \) is an open set of \( Y \), since \( f \) is surjective, then \( f \left( f ^ { -1 } \left( V \right) \right) = V \) making it an open set of \( Y \), which shows that \( f ^ { -1 } \left( V \right) \) is an open set of \( X \)</p>
+        <p>Now suppose that \( U \) is an open set of \( X \) , our goal will be to show that \( \left( f ^ { -1 } \right) ^ { -1 } \left( U \right) \) is an open set of \( Y \), as seen previously \( \left( f ^ { -1 } \right) ^ { -1 } \left( U \right) = f \left( U \right) \), and since \( U \) was open in \( X \), by our assmption we know that \( f \left( U \right) \) is open in \( Y \), this concludes the proof.</p>
+    </div>
+</div>
+<div class="definition" id="definition-imbedding">
+    <div class="title">
+        Imbedding
+    </div>
+    <div class="content">
+        Suppose that \( f: X \rightarrow Y \) is an <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a> <a class="knowledge-link" href="/topology/continuous_functions.html#definition-continuous-function">continuous</a> function, with \( X \) and \( Y \) topological spaces. By setting \( Z = f \left( X \right) \) as a <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace</a> of \( Y \), if \( f ^ \prime : X \rightarrow Z \) obtained by restricting the range of \( f \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a>, then we say that the original \( f \) is an <b>imbedding</b> of \( X \) in \( Y \)
+    </div>
+</div>
+<div class="proposition" id="proposition-constant-functions-are-continuous">
+    <div class="title">
+        Constant Functions are Continuous
+    </div>
+    <div class="content">
+        Let \( X, Y \) be topological spaces and suppose that \( p \in Y \), if \( f: X \rightarrow Y \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-constant-function">constant</a> with value \( p \), then \( f \) is continuous
+    </div>
+    <div class="proof">
+        Suppose that \( V \subseteq Y \), if \( p \in V \), then \( f ^ { -1 } \left( V \right) = X \), otherwise \( p \notin V \) so \( f ^ { -1 } \left( V \right) = \emptyset \), in either case we have an open set of \( X \).
+    </div>
+</div>
+<div class="proposition" id="proposition-inclusion-is-continuous">
+    <div class="title">
+        Inclusion is Continuous
+    </div>
+    <div class="content">
+        Suppose that \( A \) is a <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace</a> of \( X \), then the <a class="knowledge-link" href="/fundamentals/functions.html#definition-inclusion-function">inclusion function</a> \( \iota: A \rightarrow X \) is continuous.
+    </div>
+    <div class="proof">
+        Let \( U \) be an open set of \( X \), then \( \iota ^ { -1 } \left( U \right) = U \cap A \), which by definition is open in the subspace topology of \( A \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-compositions-of-continuous-functions-are-continuous">
+    <div class="title">
+        Compositions of Continuous Functions are Continuous
+    </div>
+    <div class="content">
+        Suppose that \( f : X \rightarrow Y \) and \( g: Y \rightarrow Z \) are continuous then the map \( g \circ f : X \to Z \) is continuous
+    </div>
+    <div class="proof">
+        <p>Let \( U \) be open in \( Z \), we want to prove that \( \left( g \circ f \right) ^ { -1 } \left( U \right) \) is an open set of \( X \).</p>
+        <p>To start if we look at \( \left( g \circ f \right) ^ { -1 } \left( U \right) \), we know this is equal to \( f ^ { -1 } \left( g ^ { -1 } \left( U \right) \right) \), thus since \( g \) is continuous we know that \( S := g ^ { -1 } \left( U \right) \) is an open set of \( Y \) and then \( f ^ { -1 } \left( S \right) \) is open in \( X \) since \( f \) was continuous, this shows that \( g \circ f \) is continuous</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-domain-restriction-is-continuous">
+    <div class="title">
+        Domain Restriction is Continuous
+    </div>
+    <div class="content">
+        If \( f : X \to Y \) is continuous and if \( A \) is a subspace of \( X \), then the restricted function \( f \restriction A : A \to Y \) is continuous
+    </div>
+    <div class="proof">
+        <a class="knowledge-link" href="/fundamentals/functions.html#proposition-restriction-equals-inclusion-composed-with-original">We note that</a> \( f \restriction A = f \circ \iota \), therefore as the composition of two continuous functions, <a class="knowledge-link" href="/topology/continuous_functions.html#proposition-compositions-of-continuous-functions-are-continuous">we know that</a> \( f \restriction A \) is continuous
+    </div>
+</div>
+<div class="proposition" id="proposition-restricting-range-maintains-continuity">
+    <div class="title">
+        Restricting the Range maintains Continuity
+    </div>
+    <div class="content">
+        Suppose that \( f : X \to Y \) is continuous. If \( Z \) is a subspace of \( Y \) containing \( f \left( X \right) \), then the function \( g: X \to Z \) obtained by restricting the range is continuous
+    </div>
+    <div class="proof">
+        To show continuity we start by assuming that \( B \) is open in \( Z \), therefore \( B = Z \cap U \) where \( U \) is open in \( Y \)
+    </div>
+</div>
+<div class="lemma" id="lemma-pasting">
+    <div class="title">
+        Pasting
+    </div>
+    <div class="content">
+        Let \( X = A \cup B \) where \( A, B \) are closed in \( X \). Let \( f : A \to Y \) and \( g : B \to Y \) be continuous. If \( f \left( x \right) = g \left( x \right) \) for every \( x \in A \cap B \) then \( f \) and \( g \) combine to give a continuous function \( h :X \to Y \) defined as \[ h \left( x \right) = \begin{cases} f \left( x \right) &amp;\text{ if } x \in A \\ g \left( x \right) &amp;\text{ if } x \in B \end{cases} \]
+    </div>
+    <div class="proof">
+        Let \( C \) be a closed subset of \( Y \) then we know that \( h ^ { -1 } \left( C \right) = f ^ { -1 } \left( C \right) \cup g ^ { -1 } \left( C \right) \) but since \( f, g \) were continuous then their inverse images are also closed, therefore as \( h ^ { -1 } \left( C \right) \) is a union of two closed sets we deduce that it is closed as well showing that \( h \) is continuous.
+    </div>
+</div>

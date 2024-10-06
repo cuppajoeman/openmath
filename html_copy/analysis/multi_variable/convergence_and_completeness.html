@@ -1,0 +1,89 @@
+<div class="definition" id="definition-converges-in-Rn">
+    <div class="title">
+        Converges in Rn
+    </div>
+    <div class="content">
+        A sequence \( \left( x _ n \right): \mathbb{ N } _ 1 \to \mathbb{ R } ^ n \) is said to <b>converge</b> to \( a \in \mathbb{ R } ^ n \) if for every \( \epsilon \in \mathbb{ R } ^ + \) there is an integer \( N \) such that for all \( k \ge N \) we have \[ \lVert x _ k - a \rVert \lt \epsilon \] and in this case we write \( \lim _ { k \to \infty } x _ k = a \)
+    </div>
+</div>
+<div class="corollary" id="corollary-convergence-iff-limit-gets-arbitrarily-close-to-a-point">
+    <div class="title">
+        Convergence iff Limit gets arbitrarily Close to a Point
+    </div>
+    <div class="content">
+        \[ \lim _ { k \to \infty } x _ k = a \iff \lim _ { k \to \infty } \lVert x _ k - a \rVert = 0 \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-a-sequence-in-Rn-converges-to-a-point-iff-each-component-converges">
+    <div class="title">
+        A Sequence in Rn Converges to a Point iff Each Component Converges
+    </div>
+    <div class="content">
+        Suppose that we have the sequence \( \left( x _ k \right): \mathbb{ N } _ 1 \to \mathbb{ R } ^ n \), then \[ \lim _ { k \to \infty } x _ k = a \iff \lim _ { k \to \infty } x _ { k, i } = a _ i \] for \( i \in \left[ 1, \ldots , n \right] \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-cauchy-in-rn">
+    <div class="title">
+        Cauchy in Rn
+    </div>
+    <div class="content">
+        We say that a sequence \( \left( x _ k \right) : \mathbb{ N } _ 1 \to \mathbb{ R } ^ n \) is cauchy if for every \( \epsilon \in \mathbb{ R } ^ + \) there is an \( N \in \mathbb{ N } _ 1 \) such that for all \( k, l \ge n \) we have \[ \lVert x _ l - x _ k \rVert \lt \epsilon \]
+    </div>
+</div>
+<div class="definition" id="definition-complete-set-in-Rn">
+    <div class="title">
+        Complete Set in \( \mathbb{ R } ^ n \)
+    </div>
+    <div class="content">
+        Given \( S \subseteq \mathbb{ R } ^ n \) is <b>complete</b> if every cauchy sequence of points in \( S \) converges to a point in \( S \).
+    </div>
+</div>
+<div class="lemma" id="lemma-less-than-or-equal-to-iff-less-than-or-equal-to-with-epsilon">
+    <div class="title">
+        Less Than or Equal to Iff Less Than Or Equal to With Epsilon
+    </div>
+    <div class="content">
+        For any \( x, y \in \mathbb{ R } \) the statement \( x \le y \) is equivalent to \[ \forall \epsilon \in \mathbb{ R } ^ + , x \lt y + \epsilon \]
+    </div>
+    <div class="proof">
+        <p>\( \implies \) Suppose that \( x \le y \) then let \( \epsilon \in \mathbb{ R } ^ + \) thus we know that \( x \le y \lt y + \epsilon \) so then \( x \lt y + \epsilon \).</p>
+        <p>\( \impliedby \) Suppose the latter, we'll prove the former, but for the sake of contradiction, assume that \( x \gt y \), but then we know that \[ y \le y + \left( \frac{x - y}{2} \right) \le x \] but on the other hand by considering \( \epsilon = \frac{x - y}{2} \) we see that \( x \lt y + \left( \frac{x - y}{2} \right) \) this is a contradiction because we cannot have \( \alpha \le x \) and \( \alpha \gt x \) at the same time. Thus we must have \( x \le y \)</p>
+    </div>
+</div>
+<p>Note that the same holds for strict inequalities because \( x \lt y \implies x \le y \)</p>
+<div class="exercise" id="exercise-closed-balls-are-complete">
+    <div class="title">
+        Closed Balls are Complete
+    </div>
+    <div class="content">
+        Show that for any \( p \in \mathbb{ R } ^ n \) and \( r \in \mathbb{ R } ^ + \), that \( \overline{ B \left( p, r \right) } \) is complete.
+    </div>
+    <div class="proof">
+        <p>Suppose that \( \left( a _ n \right) : \mathbb{ N } _ 1 \to \overline{ B \left( p, r \right) } \) converges to some point \( c \), we'll prove that \( c \in \overline{ B \left( p, r \right) } \). To show that \( c \in \overline{ B \left( p, r \right) } \) one has to prove that \( \lVert p - c \rVert \le r \).</p>
+        <p>Since \( \left( a _ n \right) \to c \), we know: \[ \forall \epsilon \in \mathbb{ R } ^ + , \exists N \in \mathbb{ N } _ 1, \text{ st } \forall n \in \mathbb{ N } _ 1, n \ge N \implies \lVert a _ n - c \rVert \lt \epsilon \]</p>
+        <p>Focusing on the last inequality we also have that \[ \lVert p - c \rVert \le \lVert p - c \rVert + \lVert a _ n - c \rVert \lt \epsilon + r \] Thus we can conclude that for any \( \epsilon \in \mathbb{ R } ^ + \) we have \( \lVert p - c \rVert \lt \epsilon + r \), <a class="knowledge-link" href="/analysis/multi_variable/convergence_and_completeness.html#lemma-less-than-or-equal-to-iff-less-than-or-equal-to-with-epsilon">therefore</a> we have \( \lVert p - c \rVert \lt r \) as needed.</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-Rn-is-complete">
+    <div class="title">
+        \( \mathbb{ R } ^ n \) is Complete
+    </div>
+    <div class="content">
+        Every cauchy sequence in \( \mathbb{ R } ^ n \) converges to a point in \( \mathbb{ R } ^ n \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-">
+    <div class="title">
+        If a Sequence in \( \mathbb{ R } ^ n \) Converges, Then their Norms Converge
+    </div>
+    <div class="content">
+        \[ \lim _ { n \to \infty } x _ n = a \implies \lim _ { n \to \infty } \lVert x _ n \rVert = \lVert a \rVert \]
+    </div>
+    <div class="proof">
+        Suppose the former, let \( \epsilon \in \mathbb{ R } ^ + \) therefore we obtain an \( N ^ \prime \in \mathbb{ N } _ 1 \) such that \( \lVert x _ n - a \rVert \lt \epsilon \) for any \( n \ge N ^ \prime \), take \( N = N ^ \prime \) recall that we need to show that for any \( k \ge N \) we have that \( \left\lvert \lVert x _ n \rVert - \lVert a \rVert \right\rvert \lt \epsilon \), but due to the reverse triangle inequality we have \[ \left\lvert \lVert x _ n \rVert - \lVert a \rVert \right\rvert \le \lVert x _ n - a \rVert \lt \epsilon \] we get exactly what we needed.
+    </div>
+</div>
+<p>We can observe that the converse is false, simply by taking \( x _ n = e _ i \) for all \( n \in \mathbb{ N } _ 1 \) and then for any \( e _ k \) where \( i \neq k \) we have that \( \lim _ { n \to \infty } \lVert e _ i \rVert = \lVert e _ k \rVert \) simply because the norm of the one-hot vectors is always one, but clearly \( e _ i \neq e _ k \).</p>

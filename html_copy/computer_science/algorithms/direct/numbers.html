@@ -1,0 +1,4 @@
+<div class="code-file" data-file-name="implementation/count_digits.cpp"></div>
+<p>What's kind of funny about the above code is that by assuming it is correct, then the number of iterations is equal to how many digits are in the number in the given base, which turns out to be \( \left\lfloor \log _ b \left( n \right) \right\rfloor + 1 \), which we proved <a class="knowledge-link" href="/number_theory/number_bases.html#proposition-number-of-digits-required-in-a-base-2-representation">here</a>. Therefore we can reduce the above algorithm to a \( \Theta \left( 1 \right) \) runtime solution as follows</p>
+<div class="code-file" data-file-name="implementation/count_digits_fast.cpp"></div>
+<p>Now the runtime of this function is equivalent to two calls of the function <code>log</code> from <code>math.h</code>. Read the following <a href="https://stackoverflow.com/a/7317571/6660685">discussion</a> to understand the runtime of these functions.</p>

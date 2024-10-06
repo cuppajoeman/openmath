@@ -1,0 +1,70 @@
+<div class="definition" id="definition-job">
+    <div class="title">
+        Job
+    </div>
+    <div class="content">
+        A Job \( J \) is a half closed half open interval \( [ s _ J, f _ J ) \subseteq \mathbb{ R } \), we say that \( s _ J \) is it's start time and \( f _ J \) is it's finishing time.
+    </div>
+</div>
+<div class="definition" id="definition-job-compatibility-for-two-jobs">
+    <div class="title">
+        Job Compatibility for Two Jobs
+    </div>
+    <div class="content">
+        We say that two jobs \( I, J \) are comptible iff \( I \cap J \neq \emptyset \)
+    </div>
+</div>
+<p>Note that two jobs where the finish time of one equals the start time of the other are still compatible</p>
+<div class="definition" id="definition-job-compatibility">
+    <div class="title">
+        Job Compatibility
+    </div>
+    <div class="content">
+        Suppose that \( \mathcal{ J } \) is a collection of jobs then we say that \( \mathcal{ J } \)'s jobs are compatible iff for any \( I, J \in \mathcal{ J } \) such that \( I \neq J \) they are <a class="knowledge-link" href="/computer_science/algorithms/greedy/interval_scheduling.html#definition-job-compatibility-for-two-jobs">compatible</a>.
+    </div>
+</div>
+<div class="definition" id="definition-interval-scheduling-problem">
+    <div class="title">
+        Interval Scheduling Problem
+    </div>
+    <div class="content">
+        Suppose that \( \mathcal{ J } \) is a collection of <a class="knowledge-link" href="/computer_science/algorithms/greedy/interval_scheduling.html#definition-job">jobs</a>, find the largest subset \( \mathcal{ S } \subseteq \mathcal{ J } \) such that \( \mathcal{ S } \)'s jobs are compatible.
+    </div>
+</div>
+<p>When trying to solve a problem using a greedy approach one can usually consider a collection of finite natural orderings that a normal human may guess. For example, for the interval scheduling problem we could consider the following approaches. Where we start with some element, and then iteratively try to add new elements so long as the new element is compatible and using some heuristic.</p>
+<ul>
+    <li>Earliest Start Time</li>
+    <li>Earliest Finish Time</li>
+    <li>Shortest Interval</li>
+    <li>Fewest Conflicts</li>
+</ul>
+<p>For earliest start time we can see that it does not work via this counter example</p>
+<div class="centered-content"><img alt="" src="earliest_finish_time_counter_example.svg" width="300px"></div>
+<p>Shortest Interval Counter Example</p>
+<div class="centered-content"><img alt="" src="shortest_interval.svg" width="300px"></div>
+<p>TODO: Earliest finish time implementation</p>
+<p>It turns out that adding valid jobs based on earliest finish time yields an optimal solution</p>
+<div class="lemma" id="lemma-earliest-finish-time-adding-criterion">
+    <div class="title">
+        Earliest Finish Time Adding Criterion
+    </div>
+    <div class="content">
+        Suppose that EFT run on a set of jobs \( J \) and is paused during iteration. If it's solution thus far is \( S = \left( s _ 1, s _ 2, \ldots , s _ k \right) \), and there is at least one job in \( a \in J \setminus S \), such that \( S \cup \left\{ a \right\} \) is compatible, then after this iteration EFT will increase it's solution by exactly one job.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-earliest-finish-time-is-optimal">
+    <div class="title">
+        Earliest Finish Time is Optimal
+    </div>
+    <div class="content"></div>
+    <div class="proof">
+        <p>Suppose that we are given jobs \( J = \left( j _ 1, j _ 2, j _ 3, ..., j _ w \right) \) EFT selects jobs \( S := \left( s _ 1, s _ 2, \ldots s _ k \right) \). Recall that an optimal solution is one that maximizes the number of scheduled jobs, suppose the optimal solutions all have length \( m \). Before continuing we should note that \( k \lt m \), this is because \( S \) is not optimal</p>
+        <p>Let \( \operatorname{ opt } \left( J \right) \) be the collection of optimal solutions (note that it is finite), and for each \( O \in \operatorname{ opt } \left( J \right) \), there is some \( l \in [1 \ldots k] \) such that for every \( j \in [ 1 \ldots l ], s _ j = o _ j \) and \( s _ { l + 1 } \neq o _ { l + 1 } \), we will denote this value by \( M _ O \). Note that this formalizes the idea of two tuples matching up to a certain index.</p>
+        <p>The above defines \( f : \operatorname{ opt } \left( J \right) \to \mathbb{ N } _ 0 \) as \( f \left( O \right) := M _ O \). In english language, \( f \) maps an optimal solution, to the index that it matches up to with respect to EFT's solution. Let \( r := \max \left( f \left( \operatorname{ opt } \left( J \right) \right) \right) \), then let \( O ^ \star \in f ^ { -1 } \left( r \right) \) be an optimal solution that matches with \( S _ \mathrm{ EFT } \) for the longest.</p>
+        <p>It's possible that \( r = k \), if that's true then we know that for every \( i \in [ 1 \ldots k ] , s _ i = o _ i \). Let \( m \ge j \gt k \), then note that \( o _ j \) has the property that \( S \cup \left\{ o _ j \right\} \) is compatible, therefore since \( o _ j \in J \setminus S \), then by the lemma, EFT would have extended it's solution by one on the iteration after it added \( s _ k \) producing a solution on the next iteration of \( S = \left( s _ 1, \ldots , s _ k , x \right) \) where \( x \in J \), but clearly now we have \( S \neq S \), which is a contradiction, thus we know \( r \neq k \)</p>
+        <p>We are sure that \( k \lt r \) is not true because \( S \) only has \( k \) indices. So for sure \( r \lt k \), by the way \( r \) was defined this means that for every \( j \in [ 1 \ldots r ] , s _ j = o _ j \), but that \( s _ { r + 1 } \neq o _ { r + 1 } \). Note that since \( s _ { r + 1} \neq o _ { r + 1 } \) and ETF adds by earliest finishing time, we must have that \( f _ { s _ { r + 1 } } \le f _ { o _ { r + 1 } } \), since that's true we know that \( \left\{ s _ { r + 1 }, o _ { r + 2 }, \ldots o _ m \right\} \) is compatible, therefore \( \left( o _ 1, o _ 2, \ldots , o _ r, s _ { r + 1 }, \ldots, o _ m \right) \) is an optimal solution that matches with \( S \) for \( r + 1 \) indices. This is impossible, because the maximum number of indices an optimal solution could match was \( r \).</p>
+        <p>Our assumption was that ETF doesn't produce an optimal solution, and we obtained a contradiction.</p>
+    </div>
+</div>
+<p>Note that in the above proof it's important to realize that if \( S \) was optimal then \( k = m \) and \( r = k \), and then in the latter part of the proof we wouldn't be able to talk about \( s _ { r + 1 } \) because it would be an invalid index.</p>

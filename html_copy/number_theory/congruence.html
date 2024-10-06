@@ -1,0 +1,446 @@
+<div class="definition" id="definition-congruence">
+    <div class="title">
+        Congruence
+    </div>
+    <div class="content">
+        Fix an integer \( m \) called the modulus, then say \( a \equiv b \left ( \operatorname{mod} m \right ) \) if and only if \( m | b - a \)
+    </div>
+</div>
+<p>It is not immediately clear why we prefer the above definition, it's most important property follows below:</p>
+<div class="corollary" id="corollary-congruence-iff-same-remainder">
+    <div class="title">
+        congruence iff same remainder
+    </div>
+    <div class="content">
+        \( a , b \in \mathbb{Z} \) are congruent modulo \( m \) if and only if <span class="knowledge-link" data-href="/number_theory/division.html#definition-remainder-function">\( a \% m \)</span> \( = b \% m \)
+        <p>note: <i>this means that \( a \) and \( b \) have the same remainder upon division by \( m \)</i></p>
+    </div>
+    <div class="proof">
+        <p>Suppose that \( a \equiv b \left ( \operatorname{mod} m \right ) \), so we know \( m | b - a \), then we can write \( b = k_{b} m + r_{b} \) and \( a = k_{a} m + r_{a} \) so that \( b - a = m \cdot \left ( k_{b} + k_{a} \right ) + k_{b} - k_{a} \) <span class="knowledge-link" data-href="/number_theory/division.html#proposition-forced-division-of-sum">thus</span> \( m | k_{b} - k_{a} \).</p>
+        <p>Notice that \( 0 \le k_{a} , k_{b} \lt \left | m \right | \) also we know that \( k_{a} \ne k_{b} \) therefore \( k_{b} - k_{a} \ne 0 \) so then \( - \left | m \right | \lt k_{b} - k_{a} \lt \left | m \right | \)</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-congruence-commutes">
+    <div class="title">
+        Congruence Commutes
+    </div>
+    <div class="content">
+        Let \( a, b, m \in \mathbb{ Z } \) then \[ a \equiv b \left( \operatorname{ mod } m \right) \iff b \equiv a \left( \operatorname{ mod } m \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-division-iff-congruent-mod-0">
+    <div class="title">
+        Division iff Congruent Mod 0
+    </div>
+    <div class="content">
+        Let \( a, b \in \mathbb{ Z } \) such that \( a \neq 0 \), then \[ a \mid b \iff b \equiv 0 \left( \operatorname{ mod } a \right) \]
+    </div>
+    <div class="proof">
+        \( a \mid b \) if and only if \( a \mid b - 0 \) <a class="knowledge-link" href="/number_theory/congruence.html#definition-congruence">iff</a> \( 0 \equiv b \left( \operatorname{ mod } a \right) \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-congruence-commutes">iff</a> \( b \equiv 0 \left( \operatorname{ mod } a \right) \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-congruence-is-transitive">
+    <div class="title">
+        Congruence is Transitive
+    </div>
+    <div class="content">
+        Let \(a, b, c, m \in \mathbb{Z} \) such that \( a \equiv b \left( \operatorname{ mod } m \right) \) and \( b \equiv c \left( \operatorname{ mod } m \right) \), then we have that \[ a \equiv c \left( \operatorname{ mod } m \right) \]
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="proposition" id="proposition-">
+    <div class="title">
+        Sum of Two Congruent Numbers are Congruent
+    </div>
+    <div class="content">
+        Suppose that \( a \equiv b \left( \operatorname{ mod } m \right) \) and that \( c \equiv d \left( \operatorname{ mod } m \right) \) then we know that \[ a + c \equiv b + d \left( \operatorname{ mod } m \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-product-of-two-congruent-numbers-is-congruent">
+    <div class="title">
+        Product of Two Congruent Numbers is Congruent
+    </div>
+    <div class="content">
+        Suppose that \( a \equiv b \left( \operatorname{ mod } m \right) \) and that \( c \equiv d \left( \operatorname{ mod } m \right) \) then we know that \[ a c \equiv b d \left( \operatorname{ mod } m \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<p>Note that we don't have the same theorem about division, we can observe that in general this is false, because any odd square has remainder 1, upon division by four, so that \( 5 ^ 2 \equiv 3 ^ 2 \left( \operatorname{ mod } 4 \right) \) but we can see that \( 5 \equiv 3 \left( \operatorname{ mod } 4 \right) \) is false.</p>
+<div class="proposition" id="proposition-congruent-numbers-raised-to-congruent-powers-may-not-be-congruent">
+    <div class="title">
+        Congruent Numbers raised to Congruent Powers may not be Congruent
+    </div>
+    <div class="content">
+        Suppose that \( a \equiv b \left( \operatorname{ mod } n \right) \) and \( c \equiv d \left( \operatorname{ mod } n \right) \), then its NOT true that \[ a ^ c \equiv b ^ d \left( \operatorname{ mod } n \right) \]
+    </div>
+    <div class="proof">
+        Consider \( 2 \equiv 5 \left( \operatorname{ mod } 3 \right) \) but then \( 2 ^ 5 \equiv 2 \) whereas \( 5 ^ 2 \equiv 1 \) so \( 2 ^ 5 \not \equiv 5 ^ 2 \left( \operatorname{ mod } 3 \right) \)
+    </div>
+</div>
+<div class="proposition" id="proposition-if-two-numbers-are-congruent-they-are-still-congrune-t-mod-a-divisor-of-the-original-mod">
+    <div class="title">
+        If two Two Numbers are Congruent, they are still Congruent mod a divisor of the Original Mod
+    </div>
+    <div class="content">
+        Suppose that \( a \equiv b \left( \operatorname{ mod } n \right) \) and \( m \mid n \) then \( a \equiv b \left( \operatorname{ mod } m \right) \)
+    </div>
+    <div class="proof">
+        Since \( a \equiv b \left( \operatorname{ mod } n \right) \) then we know that \( n \mid b - a \) but also \( m \mid n \) so that \( m \mid b - a \) therefore \( a \equiv b \left( \operatorname{ mod } m \right) \) as needed.
+    </div>
+</div>
+<p>Note that if instead we required that \( n \mid m \) then the above would not be true because we see that \( 3 \equiv 6 \left( \operatorname{ mod } 3 \right) \) but \( 3 \not \equiv 6 \left( \operatorname{ mod } 6 \right) \)</p>
+<div class="proposition" id="proposition-if-two-numbers-are-congruent-using-two-different-moduli-they-are-congruent-using-the-lcm">
+    <div class="title">
+        If Two Numbers are Congruent Using Two Different Moduli they are Congruent Using the LCM
+    </div>
+    <div class="content">
+        Suppose that \( a \equiv b \left( \operatorname{ mod } n \right) \) and that \( a \equiv b \left( \operatorname{ mod } m \right) \) then \[ a \equiv b \left( \operatorname{ mod } \operatorname{ lcm } \left( n, m \right) \right) \]
+    </div>
+    <div class="proof">
+        We have that \( m, n \mid a - b \) but the definition of the LCM then states that \( lcm \left( n, m \right) \mid a - b \)
+    </div>
+</div>
+<div class="exercise" id="exercise-switching-prime-powers">
+    <div class="title">
+        Switching Prime Powers
+    </div>
+    <div class="content">
+        Let \( p \neq q \in \mathbb{ P } \) then \[ p ^ { q - 1 } + q ^ { p - 1 } \equiv 1 \pmod{ pq } \]
+    </div>
+    <div class="proof">
+        <a class="knowledge-link" href="/number_theory/primes.html#theorem-fermats-little">FLT</a> tells us that \[ p ^ { q - 1 } \equiv 1 \pmod{ q } \text{ and } q ^ { p - 1 } \equiv 1 \pmod{ p } \] but since \( p - 1, q - 1 \ge 1 \) then we know that \[ q ^ { p - 1 } \equiv 0 \pmod{ q } \text{ and } p ^ { q - 1 } \equiv 0 \pmod{ p } \] therefore we know that \[ p ^ { q - 1 } + q ^ { p - 1 } \equiv 1 \pmod{ q } \text{ and } q ^ { p - 1 } + p ^ { q - 1 } \equiv 1 \pmod{ p } \] <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#theorem-gcd-and-lcm-connection">since</a> \( \operatorname{ lcm } \left( p, q \right) = pq \cdot \gcd \left( p, q \right) \) and we know that \( p \neq q \in \mathbb{ P } \) then \( \gcd \left( p, q \right) = 1 \) so that \( \operatorname{ lcm } \left( p, q \right) = p \cdot q \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-if-two-numbers-are-congruent-using-two-different-moduli-they-are-congruent-using-the-lcm">then we conclude that</a> \[ p ^ { q - 1 } + q ^ { p - 1 } \equiv 1 \pmod{ pq } \]
+    </div>
+</div>
+<div class="exercise" id="exercise-a-p-q">
+    <div class="title">
+        a p q
+    </div>
+    <div class="content">
+        Suppose that \( a \in \mathbb{ Z } \) and that \( p \neq q \in \mathbb{ P } \), then \[ a ^ { pq } - a ^ p - a ^ q + a \equiv 0 \pmod{ pq } \]
+    </div>
+    <div class="proof">
+        By FLT, we know that \[ a ^ { pq } - a ^ p - a ^ q + a \equiv \left( a ^ p \right) ^ q - a ^ p - a ^ q + a \equiv a ^ q - a - a ^ q + a = 0 \pmod{ p } \] and symetrically the same thing occurs mod \( q \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-if-two-numbers-are-congruent-using-two-different-moduli-they-are-congruent-using-the-lcm">therefore</a> \[ a ^ { pq } - a ^ p - a ^ q + a \equiv 0 \pmod{ pq } \]
+    </div>
+</div>
+<div class="proposition" id="proposition-division-by-a-common-factor-maintains-congruence">
+    <div class="title">
+        Division by a Common Factor Maintains Congruence
+    </div>
+    <div class="content">
+        Suppose that \( a \equiv b \left( \operatorname{ mod } m \right) \) then if \( k \mid a, b, m \) then we have that \[ \frac{a}{k} \equiv \frac{b}{k} \left( \operatorname{ mod } \frac{m}{k} \right) \]
+    </div>
+    <div class="proof">
+        Recall that \( \frac{a}{k} \equiv \frac{b}{k} \left( \operatorname{ mod } \frac{m}{k} \right) \) iff \( \frac{m}{k} \mid \frac{a}{k} - \frac{b}{k} \) but we know that statement is true because since \( m \mid a - b \) and we by linearity we know that \( k \mid a - b \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-a-number-divides-another-then-given-a-common-factor-their-quotients-divide-each-other">therefore</a> it holds true.
+    </div>
+</div>
+<div class="proposition" id="proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">
+    <div class="title">
+        Division by a Common Factor Maintains Congruence if Mod is Divided by GCD
+    </div>
+    <div class="content">
+        Let \( a, b, m, k \in \mathbb{ Z } \) such that \( k \neq 0 \) and suppose that \( a \equiv b \left( \operatorname{ mod } m \right) \) then if \( k \mid a, b \) then \[ \frac{a}{k} \equiv \frac{b}{k} \left( \operatorname{ mod } \frac{m}{\gcd \left( m, k \right) } \right) \]
+    </div>
+    <div class="proof">
+        <p>Let \( g := \gcd \left( m, k \right) \) our goal is to prove that \( \frac{m}{g} \mid \frac{a}{k} - \frac{b}{k} \), towards this note that we have \( a \equiv b \left( \operatorname{ mod } m \right) \) which means that \( m \mid a - b \) so there is some \( r \in \mathbb{ Z } \) such that \( a - b = m r \) therefore dividing by \( g \neq 0 \) we have \[ \frac{a - b}{g} = \frac{m}{g} r \]</p>
+        <p>Recall that we want \( k \) in the denominator, to get there we recall that \( g \mid k \) and so there is some \( j \in \mathbb{ Z } \) such that \( k = g j \), since \( k \neq 0 \) then \( gj \neq 0 \) so \( j \neq 0 \) thus we divide our previous equation by \( j \) to obtain \[ \frac{a - b}{gj} = \left( \frac{m}{g} r \right) \frac{1}{j} \iff \frac{a - b}{k} = \left( \frac{m}{g} r \right) \frac{1}{j} \] Since \( k \mid a, b \) then \( k \mid a - b \) so \( \frac{a - b}{k} \in \mathbb{ Z } \) thus \( \left( \frac{m}{g} r \right) \frac{1}{j} \in \mathbb{ Z } \) and therefore \( j \mid \frac{m}{g} r \).</p>
+        <p>Note that \( j \mid k \) and \( \frac{m}{g} \mid m \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-a-divisor-of-a-coprime-number-is-also-coprime">therefore</a> \( \gcd \left( j, \frac{m}{g} \right) = 1 \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-forced-division-through-gcd">therefore</a> \( j \mid r \) so that \( \frac{r}{j} \in \mathbb{ Z } \) thus we have the equation \[ \frac{a - b}{k} = \frac{a}{k} - \frac{b}{k} = \frac{m}{g} \frac{r}{j} \] where we know the left hand side is an integer, \( \frac{r}{j} \) is and so is \( \frac{m}{g} \) therefore \( \frac{m}{g} \mid \frac{a}{k} - \frac{b}{k} \) so that \[ \frac{a}{k} \equiv \frac{b}{k} \left( \operatorname{ mod } m \right) \] as needed.</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-multiplicative-cancellation-if-mod-prime">
+    <div class="title">
+        Multiplicative Cancellation if Mod Prime
+    </div>
+    <div class="content">
+        Suppose that \( p \) is prime and that \( ka \equiv kb \left( \operatorname{ mod } p \right) \) and \( p \nmid k \) then \[ a \equiv b \left( \operatorname{ mod } p \right) \]
+    </div>
+    <div class="proof">
+        Since \( p \nmid k \) then we know that \( \gcd \left( p, k \right) = 1 \) therefore the result follows from the previous proposition.
+    </div>
+</div>
+<div class="proposition" id="proposition-n-consecutive-numbers-have-unique-remainders-mod-n">
+    <div class="title">
+        n Consecutive Numbers have Unique Remainders Mod n
+    </div>
+    <div class="content">
+        For any \( m \in \mathbb{ N } _ 1 \) \[ \forall x, y \in \left[ 0, \ldots m - 1 \right], \left( x \neq y \iff x \not \equiv y \left( \operatorname{ mod } m \right) \right) \]
+    </div>
+    <div class="proof">
+        <p>\( \implies \) Suppose that \( x \neq y \) but that \( x \equiv y \left( \operatorname{ mod } m\right) \) for the sake of contradiction, without loss of generality assume that \( x \gt y \). Since they're congruent we have \[ m \mid x - y \] but <a class="knowledge-link" href="/number_theory/natural_numbers.html#proposition-subset-of-naturals-with-a-max-element-has-bounded-difference">we know that</a> \( x - y \le m - 1 - 0 = m - 1 \) but if \( m \mid x - y \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">we have</a> \( m \le x - y \le m - 1 \) so \( m \le m - 1 \) which is impossible, therefore we must have that \( x \not \equiv y \left( \operatorname{ mod } m \right) \).</p>
+        <p>\( \impliedby \) Now suppose that \( x \not \equiv y \left( \operatorname{ mod } m \right) \) <a class="knowledge-link" href="/number_theory/congruence.html#corollary-congruence-iff-same-remainder">therefore</a> \( x ~\%~ m \neq y ~\%~ m \) but since \( x, y \in \left[ 0, \ldots, m - 1 \right] \) then \( x = x ~\%~ m \) and \( y = y ~\%~ m \) therefore \( x \neq y \) as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-when-a-linear-modular-equation-has-a-solution">
+    <div class="title">
+        When a Linear Modular Equation has a Solution
+    </div>
+    <div class="content">
+        The equation \[ ax \equiv b \left( \operatorname{ mod } m \right) \] has a solution iff \( \gcd \left( a, m \right) \mid b \)
+    </div>
+    <div class="proof">
+        Note that \( ax \equiv b \left( \operatorname{ mod } m \right) \) iff \( m \mid ax - b \) so there is some \( k \in \mathbb{ Z } \) such that \( ax - b = mk \) so that \( ax - mk = b \) this has a solution <a class="knowledge-link" href="/number_theory/diophantine_equations.html#proposition-a-linear-diophantine-equation-has-solutions-if-the-gcd-of-the-coefficients-divides-the-constant">iff</a> \( \gcd \left( a, m \right) \mid b \)
+    </div>
+</div>
+<div class="corollary" id="corollary-relatively-prime-modular-equation-has-a-solution">
+    <div class="title">
+        Relatively Prime Modular Equation has a Solution
+    </div>
+    <div class="content">
+        Suppose that we have the equation: \[ ax \equiv b \left( \operatorname{ mod } m \right) \] where \( \gcd \left( a, m \right) = 1 \) then it has a solution.
+    </div>
+    <div class="proof">
+        Since \( \gcd \left( a, m \right) = 1 \mid b \) it has a solution.
+    </div>
+</div>
+<div class="definition" id="definition-modular-inverse">
+    <div class="title">
+        Modular Inverse
+    </div>
+    <div class="content">
+        Given \( a, m \in \mathbb{ Z } \) we say that an integer \( x \in \mathbb{ Z } \) is a the modular inverse for \( a \) mod \( m \) when: \[ a \cdot x \equiv 1 \left( \operatorname{ mod } m \right) \]
+    </div>
+</div>
+<p>When a given number has an inverse we say that it is invertible.</p>
+<div class="proposition" id="proposition-when-a-rational-can-be-converted-to-a-modular-inverse">
+    <div class="title">
+        When a Rational Can be Converted to a Modular Inverse
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ Z } \) and \( m \in \mathbb{ N } _ 1 \) such that \( b \) is invertible mod \( m \) and \( \frac{a}{b} \in \mathbb{ Z } \) then: \[ a \cdot b ^ { -1 } \equiv \frac{a}{b} \pmod{ m } \] where the right hand side is interpreted as division of integers.
+    </div>
+    <div class="proof">
+        Note that <a class="knowledge-link" href="/number_theory/division.html#corollary-divisible-implies-integer-quotient">since</a> \( b \mid a \) then there is some \( k \in \mathbb{ Z } \) such that \( a = bk \) therefore \[ a \equiv bk \pmod{ p } \iff b ^ { -1 } a \equiv k \iff a b ^ { -1 } \equiv \frac{a}{b} \pmod{ p } \]
+    </div>
+</div>
+<div class="exercise" id="exercise-2p-choose-p">
+    <div class="title">
+        2p Choose p
+    </div>
+    <div class="content">
+        Prove that \[ \binom{2p}{p} \equiv 2 \pmod{ p } \]
+    </div>
+    <div class="proof">
+        We have that \[ \binom{2p}{p} = \frac{\left( p + 1 \right) \cdots \left( p + p - 1 \right) \left( 2p \right) }{p!} = \frac{\left( p + 1 \right) \cdots \left( p + p - 1 \right) 2 }{\left( p - 1 \right) !} \in \mathbb{ Z } \] <a class="knowledge-link" href="/number_theory/congruence.html#proposition-when-a-rational-can-be-converted-to-a-modular-inverse">therefore</a> \[ \begin{align} \frac{\left( p + 1 \right) \cdots \left( p + p - 1 \right) 2 }{\left( p - 1 \right) !} &amp;\equiv \left( p + 1 \right) \cdots \left( p + p - 1 \right) 2 \left[ \left( p - 1 \right) ! \right] ^ { -1 } \\ &amp;\equiv 2 \left( p - 1 \right) ! \left[ \left( p - 1 \right) ! \right] ^ { -1 } \\ &amp;\equiv 2 \pmod{ p } \end{align} \]
+    </div>
+</div>
+<div class="corollary" id="corollary-every-non-zero-number-is-invertible-mod-a-prime">
+    <div class="title">
+        Every Non Zero Number is Invertible Mod a Prime
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ P } \) \( a \in \mathbb{ Z } \) such that \( p \nmid a \) there exists \( b \in \left[ 1, \ldots , p - 1 \right] \) such that \[ ab \equiv 1 \pmod{ p } \]
+    </div>
+    <div class="proof">
+        Consider the equation \( a x \equiv 1 \pmod{ p } \), since \( \gcd \left( a, p \right) = 1 \) then it has a solution, as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-a-linear-modular-equation-with-a-solution-has-gcd-many-solutions">
+    <div class="title">
+        A Linear Modular Equation with a Solution has GCD many Solutions
+    </div>
+    <div class="content">
+        Suppose that \[ ax \equiv b \left( \operatorname{ mod } m \right) \] has a solution \( x _ 0 \) , then it has exactly \( g := \gcd \left( a, m \right) \) solutions mod \( m \). Moreover the unique solutions are given by the remainders of \[ x _ 0, x _ 0 + \frac{1m}{g} , x _ 0 + \frac{2m}{g} , \ldots , x _ 0 + \frac{\left( g - 1 \right) m }{g} \] when taken mod \( m \)
+    </div>
+    <div class="proof">
+        <p>Since it has a solution, we have an \( x _ 0 \in \mathbb{ Z } \) such that \( a x _ 0 \equiv b \left( \operatorname{ mod } m \right) \), so therefore \( m \mid a x _ 0 - b \) so that \( a x _ 0 - b = m k \) for some \( k \in \mathbb{ Z } \) therefore \( a x _ 0 + m \left( -k \right) = b \).</p>
+        <p>Recall that we have a <a class="knowledge-link" href="/number_theory/diophantine_equations.html#proposition-one-solution-yields-infinitely-many">method of obtaining more</a> solutions once we have one, and hence are given by \[ \left( x _ 0, -k \right) + \left( \frac{m}{g}, - \frac{a}{g} \right) t, \text{ where } t \in \mathbb{ Z } \] Note that for each new solution \( \overline{ x } , \overline{ y } \) it satisfies \( a \overline{ x } + m \overline{ y } = b \) so that \( a \overline{ x } - b = - \overline{ y } m \) so that \( m \mid a \overline{ x } - b \) so that \( a \overline{ x } \equiv b \left( \operatorname{ mod } m \right) \), therefore we only need to observe the \( x \) component of each of solutions obtained from the equation</p>
+        <p>With this we observe the solutions: \[ \ldots x _ 0 - \frac{m}{g} , x _ 0, x _ 0 + \frac{1m}{g} , x _ 0 + \frac{2m}{g} , \ldots , x _ 0 + \frac{\left( g - 1 \right) m }{g} , x _ 0 + \frac{gm}{g} = x _ 0 + m, \ldots \] and note that for any \( t \in \mathbb{ Z } \) such that \( t \ge g \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#theorem-quotient-remainder">then</a> \( t = qg + r\) where \( r \in \left[ 0, \ldots g - 1 \right] \) \[ x _ 0 + \frac{tm}{g} = x _ 0 + qm + \frac{r}{g} \equiv x _ 0 + \frac{r}{g} \left( \operatorname{ mod } m \right) \] which is to say that it is congruent to a solution of the form \( x _ 0 + \frac{jm}{g} \) where \( j \in \left[ 0, \ldots , g - 1 \right] \) similarly any solution that is of the form \( x _ 0 + \frac{nm}{g} \) where \( n \lt 0 \) can be turned into one of these solutions by repetitively adding \( m \).</p>
+        <p>This shows that the entire solution set mod \( m \) is given by \[ x _ 0, x _ 0 + \frac{1m}{g} , x _ 0 + \frac{2m}{g} , \ldots , x _ 0 + \frac{\left( g - 1 \right) m }{g} \] we'll now verify that every pair of solutions are incongruent mod \( m \) to show that there are \( g \) total solutions.</p>
+        <p>So suppose for the sake of contradiction that \( x _ 0 + \frac{lm}{g} \equiv x _ 0 + \frac{pm}{g} \left( \operatorname{ mod } m \right) \) where \( l, p \in \left[ 0, \ldots , g - 1 \right] \) and without loss of generality \( l \gt p \) so that \( m \mid \frac{lm}{g} - \frac{pm}{g} = \frac{m}{g} \left( l - p \right) \) since \( l, p \in \left[ 0, \ldots g - 1 \right] \) <a class="knowledge-link" href="/number_theory/natural_numbers.html#proposition-subset-of-naturals-with-a-max-element-has-bounded-difference">then</a> \( l - p \le g - 1 \) so that \( \frac{m}{g} \left( l - p \right) \lt \frac{m}{g} g = m \) which means that \( m \) divides a number smaller than it, which is impossible so that \( x _ 0 + \frac{lm}{p} \not \equiv x _ 0 + \frac{pm}{g} \) as needed.</p>
+    </div>
+</div>
+<p>Note that modulo a prime, since the gcd is always one, then this shows that every element has a unique inverse mod p.</p>
+<div class="exercise" id="exercise-24-and-60">
+    <div class="title">
+        24 and 60
+    </div>
+    <div class="content">
+        Find all incongruent solutions of the linear congruence given by \[ 24 x \equiv 60 \pmod{ 102 } \]
+    </div>
+    <div class="proof">
+        <p>First we verify that the above has a solution, since \( 102 = 17 \cdot 6 \), then \( \gcd \left( 24, 102 \right) = 6 \) and so \( \gcd \left( 24, 102 \right) \mid 60 \), so we deduce that \( 24 x \equiv 60 \pmod{ 102 } \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-when-a-linear-modular-equation-has-a-solution">has a solution</a>, call it \( x _ 0 \).</p>
+        <p>Since it has a solution, then we know that it actually has \( \gcd \left( 24, 102 \right) = 6 \) solutions <a class="knowledge-link" href="/number_theory/congruence.html#corollary-a-linear-modular-equation-with-a-solution-has-gcd-many-solutions">explicitly given by</a> \[ x _ 0 + \left( \frac{102}{6} \right) k \] for \( k \in \left[ 0, \ldots, 5 \right] \). Now to actually find a solution, <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">we can divide through by</a> \( 6 \) which yields \( 4x \equiv 10 \pmod{ 17 } \) since \( 17 \) is prime, then we know that \( 4 \) <a class="knowledge-link" href="/number_theory/congruence.html#corollary-every-non-zero-number-is-invertible-mod-a-prime">has an inverse</a>, we can see that \( -4 \) works, so that \( x \equiv -40 \equiv 11 \pmod{ 17 } \) so our solutions are given by \[ 11 + 17k \] for \( k \in \left[ 0, \ldots , 5 \right] \) mod \( 102 \)</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-chinese-remainder">
+    <div class="title">
+        Chinese Remainder
+    </div>
+    <div class="content">
+        Suppose that for some \( l \in \mathbb{ N } _ 1 \) we have that \( x \equiv c _ i \left( \operatorname{ mod } m _ i \right) \) for each \( i \in \left[ 1, \ldots , l \right] \) such that for any \( i \lt j \in \left[ 1, \ldots , l \right] \) we have \( \gcd \left( m _ i, m _ j \right) = 1 \), then there is a unique \( x \) satisfying the modular equations \( \left( \operatorname{ mod } \prod _ { i = 1 } ^ { l } m _ i \right) \)
+    </div>
+    <div class="proof">
+        <p>Set \( M = \prod _ { i = 1 } ^ { l } m _ i \), then clearly we have that \( M \equiv 0 \left( \operatorname{ mod } m _ i \right) \). Now recall the following <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-relatively-prime-factors-implies-relatively-prime-product">fact</a>, and that it can be extended to finite products by induction which shows that \( \gcd \left( \frac{M}{m _ j}, m _ j \right) = 1 \) for any \( j \in \left[ 1, \ldots , l \right] \). <a class="knowledge-link" href="/number_theory/congruence.html#corollary-relatively-prime-modular-equation-has-a-solution">Therefore</a> we obtain a solution to the equation \( \frac{M}{m _ j} x \equiv 1 \left( \operatorname{ mod } m _ j \right) \), let this solution be denoted by \( x _ j \).</p>
+        <p>As just discussed we obtained a solution \( x _ j \) such that \( \frac{M}{m _ j} x _ j \equiv 1 \left( \operatorname{ mod } m _ j \right) \), in other words \( \frac{M}{m _ j} x _ j c _ j \equiv c _ j \left( \operatorname{ mod } m _ j \right) \) and so we've found \( l \) different solutions to each of the congruence equations we required, but we need to find one solution to all of them.</p>
+        <p>Note that \( \frac{M}{m _ j} \equiv 0 \left( \operatorname{ mod } m _ i \right) \) for any \( i \neq j \) so that \( \frac{M}{m _ j} x _ j c _ j \equiv 0 \left( \operatorname{ mod } m _ i \right) \) as well, with this fact we see that \[ S := \sum _ { i = 1 } ^ { l } \frac{M}{m _ j} x _ j c _ j \] has the following property \[ S \equiv 0 + 0 + \cdots c _ j + 0 + 0 \equiv c _ j \left( \operatorname{ mod } m _ j \right) \] in other words using \( x = S \) works.</p>
+        <hr>
+        <p>We now show that the solution is unique. Suppose that \( y \) is another solution to all of the modular equations then we'll prove that \( x \equiv y \left( \operatorname{ mod } \prod _ { i = 1 } ^ { l } m _ i \right) \)</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-seven-divides-ones-and-threes">
+    <div class="title">
+        Seven Divides Ones and Threes
+    </div>
+    <div class="content">
+        Show that \[ 7 \mid \left( 111 ^ { 333 } + 333 ^ { 111 } \right) \]
+    </div>
+    <div class="proof">
+        <p>\( 111 = 7 \cdot 15 + 6 \) therefore \( 111 \equiv 6 \equiv -1 \left( \operatorname{ mod } 7 \right) \) therefore \( 111 ^ { 2 k + 1 } \equiv -1 \) so therefore \( 111 ^ { 333 } \equiv -1 \left( \operatorname{ mod } 7 \right) \).</p>
+        <p>Now note that \( 333 \equiv 3 \left( 111 \right) \equiv 3 \left( -1 \right) \equiv -3 \left( \operatorname{ mod } 7 \right) \), consider the following \[ \begin{align} -3 ^ 1 &amp;\equiv -3 \left( \operatorname{ mod } 7 \right) \\ -3 ^ 2 &amp;\equiv 2 \left( \operatorname{ mod } 7 \right) \\ -3 ^ 3 &amp;\equiv 1 \left( \operatorname{ mod } 7 \right) \end{align} \] therefore \[ \left( -3 \right) ^ { 3 k + i } \equiv \begin{cases} -3 &amp;\text{ if } i = 1 \\ 2 &amp;\text{ if } i = 2 \\ 1 &amp;\text{ if } i = 0 \end{cases} \] since the sum of the digits of \( 111 = 3 \) then \( 3 \mid 111 \) and therefore \( 3 ^ { 111 } \equiv 1 \) therefore \[ 111 ^ { 333 } + 333 ^ { 111 } \equiv -1 + 1 \equiv 0 \] <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-iff-congruent-mod-0">therefore</a> \( 7 \mid 111 ^ { 333 } + 333 ^ { 111 } \) as needed.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-alternating-congruence-again">
+    <div class="title">
+        Alternating Congruence Again
+    </div>
+    <div class="content">
+        Prove that \[ 39 \mid \left( 53 ^ { 103 } + 103 ^ { 53 } \right) \]
+    </div>
+    <div class="proof">
+        Note that \( 53 = 39 + 14 \) thus \( 53 \equiv 14 \left( \operatorname{ mod } 39 \right) \), looking at \( 14 ^ 2 = \left( 10 + 4 \right) 14 = 140 + 56 = 196 \), then since \( 39 \cdot 5 = \left( 40 - 1 \right) 5 = 200 - 5 = 195 \) then we see that \( 196 = 39 \cdot 5 + 1 \) so that \( 14 ^ 2 \equiv 1 \left( \operatorname{ mod } 39 \right) \) therefore we have that \[ 14 ^ k \equiv \begin{cases} 14 &amp;\text{ if } k \text{ odd }\\ 1 &amp;\text{ if } k \text{ even } \end{cases} \] therefore \( 53 ^ { 103 } \equiv 14 ^ { 103 } \equiv 14 \). Now we look at \( 103 = 2 \cdot 39 + 25 \) so that \( 103 \equiv 25 \) now \( 25 ^ 2 = 625 \) since we see that \( 16 \cdot 39 = 16 \left( 40 - 1 \right) = \left( 400 + 240 \right) - 16 = 640 - 16 = 624 \) then \( 625 = 16 \cdot 39 + 1 \) so that \( 25 ^ 2 \equiv 1 \) so we deduce that \[ 25 ^ k \equiv \begin{cases} 25 &amp;\text{ if } k \text{ odd }\\ 1 &amp;\text{ if } k \text{ even } \end{cases} \] therefore \( 103 ^ { 53 } \equiv 25 ^ { 53 } \equiv 25 \) so then \[ 53 ^ { 103 } + 103 ^ { 53 } \equiv 14 + 25 \equiv 39 \equiv 0 \] therefore we know that \( 39 \mid 53 ^ { 103 } + 103 ^ { 53 } \)
+    </div>
+</div>
+<div class="exercise" id="exercise-43-divides-a-sum-of-powers-of-6-and-7">
+    <div class="title">
+        43 Divides a Sum of Powers of 6 and 7
+    </div>
+    <div class="content">
+        Show that \[ 43 \mid \left( 6 ^ { n + 2 } + 7 ^ { 2 n + 1 } \right) \]
+    </div>
+    <div class="proof">
+        Note that \[ \begin{align} 6 ^ 1 &amp;\equiv 6 \left( \operatorname{ mod } 43 \right) \\ 6 ^ 2 &amp;\equiv 36 \left( \operatorname{ mod } 43 \right) \\ 6 ^ 3 &amp;\equiv 3 \cdot 36 \equiv 130 + 36 \equiv 216 \left( \operatorname{ mod } 43 \right) \\ \end{align} \]
+        <p>Note that \( 216 = 43 \cdot 5 + 1 \) therefore \( 6 ^ 3 \equiv 1 \left( \operatorname{ mod } 43 \right) \) therefore the modular power sequence is given by \( \left( 6, 36, 1, 6, 36, 1, \ldots \right) \). Therefore if we look at \( a _ n = 6 ^ { n + 2 } \) then \( \left( a _ n \right) = \left( 1, 6, 36, 1, 6 , 36, \ldots \right) \)</p>
+        <p>Now we'll look at \( 7 \) power sequence mod \( 43 \) we have \[ \begin{align} 7 &amp;\equiv 7 \left( \operatorname{ mod } 43 \right) \\ 7 ^ 2 &amp;\equiv 49 \equiv 6 \left( \operatorname{ mod } 43 \right) \\ 7 ^ 3 &amp;\equiv 6 \cdot 7 \equiv 42 \equiv -1 \left( \operatorname{ mod } 43 \right) \\ 7 ^ 4 &amp;\equiv -1 \cdot 7 \equiv -7 \left( \operatorname{ mod } 43 \right) \\ 7 ^ 5 &amp;\equiv 7 ^ 3 7 ^ 2 \equiv \left( -1 \right) 6 \left( \operatorname{ mod } 43 \right) \\ 7 ^ 6 &amp;\equiv 7 \left( -6 \right) \equiv -42 \equiv 1 \left( \operatorname{ mod } 43 \right) \end{align} \] therefore it's power sequence mod \( 43 \) is \( \left( b _ n \right) = \left( 7, 6, -1, -7, -6, 1, 7, 6, -1, -7, -6, 1, \ldots \right) \), therefore the power sequence of \( 7 ^ { 2n + 1 } \) is given by \( \left( c _ n \right) = \left( -1, -6, 7, -1, -6, 7, \ldots \right) \), therefore \( x _ n = 6 ^ { n + 2 } + 7 ^ { 2n + 1 } \) is given by \[ \begin{align} \left( x _ n \right) &amp;= \left( 1, 6, 36, 1, 6, 36, \ldots \right) \\ &amp;+ \left( -1, -6, 7, -1, -6, 7, \ldots \right) \\ &amp;= \left( 0, 0, 43, 0, 0, 43, \ldots \right) \end{align} \] Since \( x _ n \equiv 0 \left( \operatorname{ mod } 43 \right) \) for every \( n \) as needed.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-remainder-of-a-sum-of-power">
+    <div class="title">
+        Remainder of a Sum of Powers
+    </div>
+    <div class="content">
+        Find \[ \left( \sum _ { i = 1 } ^ { 100 } i ^ 5 \right) ~\%~ 4 \]
+    </div>
+    <div class="proof">
+        For \( i \) odd, then recall that \( i ^ 2 \) is an odd perfect square and thus \( i ^ 2 ~\%~ 4 = 1 \) therefore \( i ^ 5 = i ^ 2 i ^ 2 i = i \), also when \( i \) is even, then \( i ^ 5 ~\%~ 4 = 0 \) therefore we know that \[ \left( \sum _ { i = 1 } ^ { 100 } i ^ 5 \right) \equiv 1 + 3 + 5 + \ldots + 2 \left( 50 \right) - 1 = 50 ^ 2 \] using <a class="knowledge-link" href="/number_theory/induction.html#corollary-summation-of-consecutive-odd-numbers">this fact</a> since \( 50 ~\%~ 4 = 2 \) then we know that \( 50 ^ 2 ~\%~ 4 = 0 \) so we deduce that \[ \left( \sum _ { i = 1 } ^ { 100 } i ^ 5 \right) ~\%~ 4 = 0 \]
+    </div>
+</div>
+<div class="exercise" id="exercise-remainder-of-a-sum-of-factorials">
+    <div class="title">
+        Remainder of a Sum of Factorials
+    </div>
+    <div class="content">
+        Determine \[ \left( \sum _ { i = 1 } ^ { 100 } i ! \right) ~\%~ 15 \]
+    </div>
+    <div class="proof">
+        Observe that for any \( i \ge 5 \) we see that \( 15 = 3 \cdot 5 \mid i! \) therefore we reduce it to \[ \left( \sum _ { i = 1 } ^ { 100 } i ! \right) \equiv \sum _ { i = 1 } ^ { 4 } i ! \left( ~\%~ 15 \right) \] But we know that \( 1! + 2! + 3! + 4! = 33 \equiv 3 \left( ~\%~ 15 \right) \) so that \[ \left( \sum _ { i = 1 } ^ { 100 } i! \right) \equiv 3 \left( ~\%~ 15 \right) \]
+    </div>
+</div>
+<div class="proposition" id="proposition-modular-inverse-iff-gcd-1">
+    <div class="title">
+        Modular Inverse iff GCD 1
+    </div>
+    <div class="content">
+        Suppose that \( a, m \in \mathbb{ Z } \) and that \( a \) has a modular inverse mod \( m \), iff \( \gcd \left( a, m \right) = 1 \).
+    </div>
+    <div class="proof">
+        <p>\( \implies \) We know that \( a \cdot x \equiv 1 \left( \operatorname{ mod } m \right) \) therefore by definition \( m \mid \left( 1 - a \cdot x \right) \) therefore \( 1 - a x = k \cdot m \) for some \( k \in \mathbb{ Z } \).</p>
+        <p>Therefore \( x a - k m = 1 \), so now suppose that \( g = \gcd \left( a, m \right) \), so by definition \( g \mid a \) and \( g \mid m \) so that \( g \mid x a - k m = 1 \) which implies that \( g = 1 \) as needed.</p>
+        <hr>
+        <p>\( \impliedby \) <a class="knowledge-link" href="/number_theory/division.html#proposition-gcd-is-a-linear-combination">We have some</a> \( s, t \in \mathbb{ Z } \) such that \( 1 = \gcd \left( a, m \right) = as + mt \) so that \( 1 - as = mt \) which means that \( m \mid 1 - as \) so that by definition we have that \[ as \equiv 1 \left( \operatorname{ mod } m \right) \] which means that \( s \) is \( a \)'s inverse mod \( m \).</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-not-relatively-prime-implies-no-inverse">
+    <div class="title">
+        Not Relatively Prime iff No Modular Inverse
+    </div>
+    <div class="content">
+        \( \gcd \left( a, m \right) \neq 1 \) iff \( a \) doesn't have an inverse mod \( m \)
+    </div>
+    <div class="proof">
+        This follows by the contra-positive of <a class="knowledge-link" href="/number_theory/congruence.html#proposition-modular-inverse-has-gcd-1">the above</a>.
+    </div>
+</div>
+<div class="definition" id="definition-complete-system-of-residues-modulo-n">
+    <div class="title">
+        Complete System of Residues Modulo n
+    </div>
+    <div class="content">
+        A collection of \( R = \left\{ r _ 1, \ldots, r _ n \right\} \subseteq \mathbb{ Z } \) is said to be a <b>complete system of residues modulo \( n \)</b> if they are pairwise incongruent modulo \( n \), meaning that for any \( x, y \in R \), if \( x \neq y \) then \( x \not \equiv y \left( \operatorname{ mod } n \right) \)
+    </div>
+</div>
+<div class="corollary" id="corollary-equality-is-the-same-as-congruent-in-a-complete-system-of-residues-modulo-n">
+    <div class="title">
+        Equality is the Same as Congruent in a Complete System of Residues Modulo n
+    </div>
+    <div class="content">
+        Suppose that \( R \subseteq \mathbb{ Z } \) is a complete system of residues modulo \( n \), then for any \( x, y \in R \) \[ x = y \iff x \equiv y \left( \operatorname{ mod } n \right) \]
+    </div>
+    <div class="proof">
+        \( \implies \) Suppose that \( x = y \) therefore we have that \( x \equiv y \left( \operatorname{ mod } n \right) \). \( \impliedby \) Suppose that \( x \equiv y \left( \operatorname{ mod } n \right) \) we want to show that \( x = y \), but if it was that \( x \neq y \) then by the definition of complete system of residues we would have \( x \not \equiv y \left( \operatorname{ mod } n \right) \) which would be a contradiction, therefore \( x = y \)
+    </div>
+</div>
+<div class="exercise" id="exercise-complete-and-incomplete-systems-modulo-n">
+    <div class="title">
+        Complete and Incomplete Systems Modulo n
+    </div>
+    <div class="content">
+        Prove that \( 0, 2 ^ 1, \ldots, 2 ^ 9 \) is a complete system of residues modulo \( 11 \) but \( 0, 3 ^ 1, \ldots, 3 ^ 9 \) is not.
+    </div>
+    <div class="proof">
+        <p>Suppose for the sake of contradiction that the former was not a complete system, before doing anything else note that \( 0 \not \equiv 2 ^ z \left( \operatorname{ mod } 11 \right) \) for any \( z \in \left[ 1, \ldots 9 \right] \) since \( 11 \nmid 2 ^ z \) and therefore instead there would exist some \( x, y \in \left[ 0, \ldots 9 \right] \) such that \( x \neq y \) and that \( 2 ^ x \equiv 2 ^ y \left( \operatorname{ mod } 11 \right) \) therefore \( 11 \mid 2 ^ x - 2 ^ y \) and without loss of generality assume that \( x \gt y \) then \( 2 ^ x - 2 ^ y = 2 ^ y \left( 2 ^ { x - y } - 1 \right) \), since \( 11 \) is prime then \( 11 \mid 2 ^ y \) or \( 11 \mid 2 ^ { x - y } - 1 \), we know that \( 11 \mid 2 ^ y \) is impossible as noted before so we must have that \( 11 \mid 2 ^ { x - y } - 1 \).</p>
+        <p>We'll show that \( 11 \mid 2 ^ { x - y } - 1 \) also leads to a contradiction, because if we look at \( 2 \)'s power sequence modulo \( 11 \) we see that it is \( \left( 2, 4, 8, 5, -1, -2, -4, -8, -5, 1 \right) \) therefore since \( x - y \in \left[ 0, \ldots , 9 \right] \) and the smallest integer such that \( 2 ^ k \equiv 1 \) is \( k = 10 \) then \( 2 ^ { x - y } \not \equiv 1 \) and thus is in contradiction with the fact that \( 11 \mid 2 ^ { x - y } - 1 \iff 2 ^ { x - y } \equiv 1 \left( \operatorname{ mod } 11 \right) \). Therefore our assumption is false and so the former is a complete system of residues.</p>
+        <hr>
+        <p>Following a similar thread we note that \( 3 ^ k \not \equiv 0 \left( \operatorname{ mod } 11 \right) \) which is impossible by the uniqueness of the prime factorization. We want to find some \( x, y \in \left[ 0, \ldots 9 \right] \) such that \( 3 ^ x \equiv 3 ^ y \left( \operatorname{ mod } 11 \right) \) again without loss of generality assume that \( x \gt y \) and therefore we have \( 11 \mid 3 ^ x - 3 ^ y = 3 ^ y \left( 3 ^ { x - y } - 1 \right) \) since \( 11 \) is prime then it divides one of the factors, but as just noted the factor it divides must be \( 3 ^ { x - y } - 1 \) by looking at \( 3 \)'s power sequence modulo \( 11 \) we get some insight \( 3 , 9, 5, 4, 1, 3, 9, 5, 4, 1, \ldots \) so if \( x - y = 5 \) then \( 11 \mid 3 ^ { x - y } - 1 \) so let \( y = 1 \) and \( x = 6 \) therefore \( 3 ^ 6 \equiv 3 ^ 1 \left( \operatorname{ mod } 11 \right) \) and we've proven that the latter is not a complete system of residues.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-a-complete-system-of-residues-modulo-n-hits-all-possible-residues">
+    <div class="title">
+        A Complete System of Residues Modulo n Hits all Possible Residues
+    </div>
+    <div class="content">
+        Suppose that \( r _ 1, r _ 2, \ldots , r _ n \) is a complete system of residues modulo \( n \), then prove that for each \( r \in \left[ 0, \ldots , n - 1 \right] \) there exists some \( i \in \left[ 1, \ldots n \right] \) such that \[ r _ i \equiv r \left( \operatorname{ mod } n \right) \] Moreover this mapping \( f : R \to \left[ 0, \ldots , n - 1 \right] \) is a bijection.
+    </div>
+    <div class="proof">
+        Suppose that for the sake of contradiction that there exists some \( r \in \left[ 0, \ldots , n - 1 \right] \) such that no \( r _ i \) was congruent to, then: \[ X = \left\{ r _ i ~\%~ n: i \in \left[ 1, \ldots , n \right] \right\} \subset \left[ 0, \ldots , n - 1 \right] \] therefore we deduce that \( \left\lvert X \right\rvert \lt n \) therefore there must exist some \( i, j \in \left[ 1, \ldots , n \right] \) such that \( i \neq j \) and \( r _ i ~\%~ n = r _ j ~\%~ n \) but that's a contradiction since the \( r _ i \)'s are pairwise incongruent therefore it must be that \( X = \left[ 0, \ldots, n - 1 \right] \) therefore for any \( r \in \left[ 0, \ldots , n - 1 \right] \) there exists some \( r _ j \in X \) such that \( r _ j \equiv r \left( \operatorname{ mod } n \right) \)
+        <p>As per the statement the above mapping is denoted by \( f: R \to \left[ 0, \ldots, n \right] \) what we've shown is that \( \operatorname{ im } \left( f \right) = \left[ 0, \ldots , n - 1 \right] \) and since \( \left\lvert \operatorname{ dom } \left( f \right) \right\rvert = \left\lvert \operatorname{ im } \left( f \right) \right\rvert = \left\lvert \operatorname{ ran } \left( f \right) \right\rvert \) then \( f \) is a bijection.</p>
+    </div>
+</div>
+<p>Note the mapping \( f \left( r _ i \right) \) is simply \( r _ i ~\%~ n \).</p>
+<div class="proposition" id="proposition-the-multiples-of-a-complete-system-of-residues-mod-n-is-still-a-complete-system-of-residues-mod-n">
+    <div class="title">
+        The Multiples of a Complete System of Residues Mod \( n \) is still a Complete System of Residues Mod \( n \)
+    </div>
+    <div class="content">
+        Suppose that \( R = \left\{ r _ 1, r _ 2, \ldots r _ n \right\} \) is a complete system of residues modulo \( n \) and \( a \in \mathbb{ Z } \) such that \( \gcd \left( a, n \right) = 1 \) then \( A = \left\{ ar_1 , ar_2 , \ldots , ar_n \right\} \) is a complete system of residues modulo \( n \)
+    </div>
+    <div class="proof">
+        Let \( ar _ i, a r _ j \in A\) such that \( i \neq j \), since \( R \) is a complete system of residues, we know that \( r _ i \not \equiv r _ j \left( \operatorname{ mod } n \right) \), now suppose for the sake of contradiction that \( a r _ i \equiv a r _ j \left( \operatorname{ mod } n \right) \), then since \( \gcd \left( a, n \right) = 1 \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">we have</a> \( r _ i \equiv r _ j \left( \operatorname{ mod } \frac{n}{1} \right) \) which is a contradiction, therefore we must have \( a r _ i \not \equiv a r _ j \left( \operatorname{ mod } n \right) \) as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-product-of-non-zero-residues-yields-factorial">
+    <div class="title">
+        Product of Non-Zero Residues Yields Factorial
+    </div>
+    <div class="content">
+        Suppose that \( R = \left\{ r _ 1, r _ 2, \ldots r _ n \right\} \) is a complete system of residues modulo \( n \) such that \( r _ n ~\%~ n = 0 \), then \[ \prod _ { i = 1 } ^ { n - 1 } r _ i \equiv \left( n - 1 \right)! \left( \operatorname{ mod } n \right) \]
+    </div>
+    <div class="proof">
+        Recall that there is a unique \( r \in \left[ 0, \ldots , n - 1 \right] \) for each \( r _ i \) such that \( r _ i \equiv r \). In this case since we've removed \( r _ n \) then there is a unique \( r \in \left[ 1, \ldots, n - 1 \right] \), let this mapping be denoted as \( f : R \to \left[ 1, \ldots, n \right] \) since it is a bijection then we note that \[ \begin{align} \prod _ { i = 1 } ^ { n - 1 } r _ i &amp;\equiv \prod _ { i = 1 } ^ { n - 1 } f \left( r _ i \right) \\ &amp;\equiv \prod _ { i = 1 } ^ { n - 1 } i \\ &amp;\equiv \left( n - 1 \right) ! \end{align} \] as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-there-are-22-possibilities-for-the-last-two-digits-of-a-square">
+    <div class="title">
+        There are 22 Possibilities for the Last Two Digits of a Square
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        We compute \[ \begin{align} 0 ^ 2 = 0 &amp;\equiv 0 \pmod{ 100 } \\ 1 ^ 2 = 1 &amp;\equiv 1 \pmod{ 100 } \\ 2 ^ 2 = 4 &amp;\equiv 4 \pmod{ 100 } \\ 3 ^ 2 = 9 &amp;\equiv 9 \pmod{ 100 } \\ 4 ^ 2 = 16 &amp;\equiv 16 \pmod{ 100 } \\ 5 ^ 2 = 25 &amp;\equiv 25 \pmod{ 100 } \\ 6 ^ 2 = 36 &amp;\equiv 36 \pmod{ 100 } \\ 7 ^ 2 = 49 &amp;\equiv 49 \pmod{ 100 } \\ 8 ^ 2 = 64 &amp;\equiv 64 \pmod{ 100 } \\ 9 ^ 2 = 81 &amp;\equiv 81 \pmod{ 100 } \\ 10 ^ 2 = 100 &amp;\equiv 0 \pmod{ 100 } \\ 11 ^ 2 = 121 &amp;\equiv 21 \pmod{ 100 } \\ 12 ^ 2 = 144 &amp;\equiv 44 \pmod{ 100 } \\ 13 ^ 2 = 169 &amp;\equiv 69 \pmod{ 100 } \\ 14 ^ 2 = 196 &amp;\equiv 96 \pmod{ 100 } \\ 15 ^ 2 = 225 &amp;\equiv 25 \pmod{ 100 } \\ 16 ^ 2 = 256 &amp;\equiv 56 \pmod{ 100 } \\ 17 ^ 2 = 289 &amp;\equiv 89 \pmod{ 100 } \\ 18 ^ 2 = 324 &amp;\equiv 24 \pmod{ 100 } \\ 19 ^ 2 = 361 &amp;\equiv 61 \pmod{ 100 } \\ 20 ^ 2 = 400 &amp;\equiv 0 \pmod{ 100 } \\ 21 ^ 2 = 441 &amp;\equiv 41 \pmod{ 100 } \\ 22 ^ 2 = 484 &amp;\equiv 84 \pmod{ 100 } \\ 23 ^ 2 = 529 &amp;\equiv 29 \pmod{ 100 } \\ 24 ^ 2 = 576 &amp;\equiv 76 \pmod{ 100 } \end{align} \] this shows that there are in total there are \( 25 \) elements in the list above, 0 is counted two times two many, and 25 is counted once too many therefore there are exactly \( 22 \) unique endings in the above, and lets denote the collection of unique last two digits as \( LD \) Notice that if we continued we would have \[ \begin{align} 25 ^ 2 = 625 &amp;\equiv 25 \pmod{ 100 } \\ 26 ^ 2 = 676 &amp;\equiv 76 \pmod{ 100 } \\ 27 ^ 2 = 729 &amp;\equiv 29 \pmod{ 100 } \\ 28 ^ 2 = 784 &amp;\equiv 84 \pmod{ 100 } \\ 29 ^ 2 = 841 &amp;\equiv 41 \pmod{ 100 } \end{align} \] notice that after \( 25 \) the order in which the endings arrive is in a mirrored fashion. Notice that every time a multiple of 25 is reached some special is happening. Specifically we claim that for any \( n \in \mathbb{ N } _ 1 \) and \( k \in \left[ 1, \ldots , 24 \right] \) we have \[ \left( 25n + k \right) ^ 2 \equiv \left( 25n - k \right) ^ 2 \pmod{ 100 } \] this is clear because \( \left( 25 n + k \right) ^ 2 = 25 ^ 2 n ^ 2 + 50kn + k ^ 2 \) whereas \( \left( 25 n - k \right) ^ 2 = 25 ^ 2 n ^ 2 - 50kn + k ^ 2 \) therefore \[ \left( 25n + k \right) ^ 2 - \left( 25n - k \right) ^ 2 = 100kn \equiv 0 \pmod{ 100 } \] this fact allows us to show that given any \( k \ge 25 \) that \( k ^ 2 ~\%~ 100 \in LD \), we do it by induction based on where it lies with respect to consecutive multiples of \( 25 \).
+        <p>We use the predicate : \[ P \left( k \right) : \forall n \in \left[ 25k ,\ldots, 25k + 24 \right], n ^ 2 ~\%~ 100 \in LD \] and show it holds true for all \( k \in \mathbb{ N } _ 1 \)</p>
+        <p>For the base case \( k = 0 \) then as verified in the huge table we know that for any \( n \in \left[ 0, \ldots 24 \right] \) that \( n ^ 2 ~\%~ 100 \in LD \). Now onto the induction step where we assume that \( P \left( k \right) \) holds true for some \( k \in \mathbb{ N } _ 1 \) and then we prove that \( P \left( k + 1 \right) \) hold true, so suppose that \( n \in \left[ 25 \left( k + 1 \right), \ldots , 25 \left( k + 1 \right) + 24 \right] \), in other words \( n = 25 \left( k + 1 \right) + j \) where \( j \in \left[ 0, \ldots , 24 \right] \) if it so happens that \( j = 0 \) then \( n = 25 \left( k + 1 \right) \) and so when you square it it ends in \( 25 \), on the other hand if \( j \in \left[ 1, \ldots , 24 \right] \) then we know that \[ (25 \left( k + 1 \right) + j) ^ 2 \equiv \left( 25 \left( k + 1 \right) - j \right) ^ 2 \] but \( 25 \left( k + 1 \right) - j = 25k + 25 - j \) and since \( j \ge 1 \) then by the induction hypothesis \( 25 \left( k + 1 \right) - j ~\%~ 100 \in LD \) so therefore so is \( 25 \left( k + 1 \right) + j \) as needed.</p>
+    </div>
+</div>

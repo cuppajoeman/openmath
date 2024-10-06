@@ -1,0 +1,46 @@
+<p>Depth limited search is a modification of DFS where we only ever add paths of length \( D \) or less to the stack for further graph exploration.</p>
+<pre>
+        def DLS(start, is_goal, max_depth):
+            """
+            starts DLS on a given start node and searches up to a given depth
+            also returns if it has ignored any nodes due to the depth constraint
+            """
+
+
+            frontier = Stack()
+            frontier.insert(start) #frontier must be a stack for DFS
+            at_least_one_vertex_ignored = false
+
+            while not frontier.empty():
+                p = frontier.extract() #remove node from frontier
+                if is_goal(p):
+                    return (p, at_least_one_vertex_ignored)
+                if length(p) &lt; maxd: #Only successors if length(d) &lt; maxd
+                    for succ in p.sucessors:
+                        frontier.insert(succ)
+                else:
+                    at_least_one_vertex_ignored = true
+
+            return (null, at_least_one_vertex_ignored)
+    </pre>
+<h1>Iterative Deepening</h1>
+<p>Starting at depth \( d = 0 \) we iteratively increase the depth limit and run DLS. We stop if a solution is found, or if DLS returned null, and not a single vertex was ignored. In the latter case, having no vertex ignored means that the entire graph was explored and no solution was found, so no solution exists.</p>
+<pre>
+        def IDS(start, is_goal):
+            max_depth = 0
+            while true:
+                (p, at_least_one_vertex_ignored) = DLS(start, is_goal, max_depth)
+                if p:
+                    return p # goal node
+                else:
+                    if at_least_one_vertex_ignored:
+                        max_depth += 1
+                    else:
+                        return fail
+    </pre>
+<p>Now note that if a solution exists it will be found because running DFS on a finite graph will always explore all nodes, and the solution exists within a finite graph obtained by removing all nodes who's depth exceed the goal's depth. It will also find the shortest length solution since we iterate our depth by one starting from one.</p>
+<p>Note that in practice we may increment our depth by more than one, like 50. [TODO what are the implications of this]</p>
+<p>The time comlpexity of this algorithm can be seen as follows, suppose that the goal node exists at some depth \( d \), therefore <code>max_depth</code> will take on the values \( 0, 1, 2, \ldots d \) before finding the goal node. Note that this means there are going to be many calls which have overlapping work, for exmaple, every time you call DLS, we will always expand the first node in the graph, which takes \( b \) steps, precisely we will do that \( d + 1 \) times, every node in the next layer of the graph will be fully explored \( d \) times, and the layer after that will be explored exactly \( d - 1 \) times.</p>
+<p>We know that the algorithm will fully explore those nodes because if there is no solution DLS will continue until the stack is empty, only when a solution exists, it may not entirely explore a finite graph. Also in the worst case a solution is the last thing to be expanded which means that even when running DLS with depth \( d \) we will still fully explore the graph aside from the goal node which is why we will still fully explore every other node at most once even when the goal is in the graph. Therefore an upper bound on the time complexity is given by</p>\[ \left( d + 1 \right) b ^ 0 + d b + \left( d - 1 \right) b ^ 2 + \ldots + b ^ d \in \mathcal{ O } \left( b ^ d \right) \]
+<p>The space complexity still stays the same as DFS because we still only keep one branch in the queue at once, giving it space complexity of</p>\[ \mathcal{ O } \left( b d \right) \]
+<p>Note that the time complexity of IDS can be better than BFS since it doesn't explore any nodes past the goal's depth. Recall that in the worst case BFS will end up expanding every node in the goal layer (aside from the goal), which made it's time complexity \( \mathcal{ O } \left( b ^ { d + 1 } \right) \)</p>

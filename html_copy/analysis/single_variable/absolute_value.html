@@ -1,0 +1,281 @@
+<div class="definition" id="definition-negative-real-number">
+    <div class="title">
+        Negative Real Number
+    </div>
+    <div class="content">
+        We say that \( x \in \mathbb{ R } \) is negative when \[ x \lt 0 \]
+    </div>
+</div>
+<div class="definition" id="definition-positive-real-number">
+    <div class="title">
+        Positive Real Number
+    </div>
+    <div class="content">
+        We say that \( x \in \mathbb{ R } \) is positive when \[ 0 \lt x \]
+    </div>
+</div>
+<div class="corollary" id="corollary-a-negative-number-is-smaller-than-a-positive-one">
+    <div class="title">
+        A Negative Number is Smaller than a Positive One
+    </div>
+    <div class="content">
+        Suppose that \( a \lt 0 \) and that \( b \gt 0 \) then \[ a \lt b \]
+    </div>
+    <div class="proof">
+        This follows because \( \lt \) is <a class="knowledge-link" href="/fundamentals/relations.html#definition-transitive-relation">transitive</a>.
+    </div>
+</div>
+<div class="proposition" id="proposition-multiplying-by--1-inverts-the-sign">
+    <div class="title">
+        Multiplying by -1 Inverts the Sign
+    </div>
+    <div class="content">
+        Suppose \( x \in \mathbb{ R } \) is positive iff \( -x \) is negative
+    </div>
+    <div class="proof">
+        Observe that \( x \ge 0 \) iff \( x + \left( -x \right) \ge 0 + \left( -x \right) \) iff \( 0 \ge -x \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-negative-zero-is-zero">
+    <div class="title">
+        Negative Zero is Zero
+    </div>
+    <div class="content">
+        For \( 0 \in \mathbb{ R } \) we have that \( -0 = 0 \)
+    </div>
+    <div class="proof">
+        Since \( 0 \) is an identity element with respect to \( + \) then \( x + 0 = x \), specifically for \( x = 0 \) by definition this means that \( -0 = 0 \) as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-a-positive-number-is-greater-than-the-negative-version-of-itself">
+    <div class="title">
+        A Positive Number is Greater than the Negative Version of Itself
+    </div>
+    <div class="content">
+        Suppose \( x \in \mathbb{ R } \) where \( x \ge 0 \) then \( x \ge -x \)
+    </div>
+    <div class="proof">
+        If \( x = 0 \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-negative-zero-is-zero">then</a> \( 0 = -0 \) so trivially \( 0 \ge -0 \). On the other hand if \( x \gt 0 \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-multiplying-by--1-inverts-the-sign">then</a> \( 0 \ge -x \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-a-negative-number-is-smaller-than-a-positive-one">therefore</a> \( x \ge -x \)
+    </div>
+</div>
+<div class="proposition" id="proposition-multiplying-by--1-changes-the-inequality-direction">
+    <div class="title">
+        Multiplying by -1 Changes the Inequality Direction
+    </div>
+    <div class="content">
+        For any \( x, y \in \mathbb{ R } \) \[ x \ge y \iff -x \le -y \]
+    </div>
+    <div class="proof">
+        Observe that \( x \ge y \) is the same as \( x - y \ge 0 \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-multiplying-by--1-inverts-the-sign">is the same as</a> \( 0 \ge y - x \) is the same as \( -x \le -y \) as needed.
+    </div>
+</div>
+<div class="definition" id="definition-absolute-value">
+    <div class="title">
+        Absolute Value
+    </div>
+    <div class="content">
+        the absolute value function \( \left \lvert \cdot \right \rvert : \mathbb{R} \to \mathbb{R}^{\ge 0} \) is defined by
+        <div class="centered-content">
+            \( \left | x \right | = \left \lbrace \begin{matrix} x \text{ if } x \ge 0 \\ - x \text{ if } x \lt; 0 \end{matrix} \right . \)
+        </div>
+    </div>
+</div>
+<div class="proposition" id="proposition-absolute-value-differs-by-sign">
+    <div class="title">
+        Absolute Value Differs By Sign
+    </div>
+    <div class="content">
+        \[ \forall x \in \mathbb{R} , x = \left | x \right | \vee x = - \left | x \right | \]
+    </div>
+    <div class="proof">
+        Let \( x \in \mathbb{R} \) if \( x \gt; 0 \), then \( x = \left | x \right | \) by definition, if \( x \lt; 0 \), then \( \left | x \right | = - x \), or rather \( x = - \left | x \right | \)
+    </div>
+</div>
+<div class="proposition" id="proposition-absolute-value-equals-max-of-itself-and-its-negation">
+    <div class="title">
+        Absolute Value Equals Max of Itself and it's Negation
+    </div>
+    <div class="content">
+        Let \( x \in \mathbb{ R } \) then \[ \lvert x \rvert = \max \left( x, -x \right) \]
+    </div>
+    <div class="proof">
+        <p>Recall the definition of \( \max \left( x, -x \right) \) which is that it's value is \( x \) if \( x \ge -x \) and \( -x \) if \( x \le -x \). Suppose that \( x \ge 0 \) then \( \lvert x \rvert = x \) and <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-a-positive-number-is-greater-than-the-negative-version-of-itself">since</a> \( x \ge -x \) then we know that \( \max \left( x, -x \right) = x \) and so in this case we see that \( \lvert x \rvert = \max \left( x \right) \).</p>
+        <p>Now in the case that \( x \lt 0 \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-multiplying-by--1-inverts-the-sign">then</a> \( -x \gt 0 \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-a-positive-number-is-greater-than-the-negative-version-of-itself">and therefore</a> \( -x \gt x \) therefore \( \max \left( x, -x \right) = -x \) and since \( x \lt 0 \) then \( \lvert x \rvert = -x \).</p>
+        <p>Therefore it's been verified in any case so that \( \lvert x \rvert = \max \left( x, -x \right) \).</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-multiplication-in-absolute-value">
+    <div class="title">
+        Multiplication in Absolute Value
+    </div>
+    <div class="content">
+        \[ \left \lvert x \cdot y \mid = \right \rvert x \left \lvert \cdot \mid y \right \rvert \]
+    </div>
+    <div class="proof">
+        <ul>
+            <li>If both \( x , y \) are positive then \( \left | x \cdot y \right | = x \cdot y = \left | x \right | \cdot \left | y \right | \)</li>
+            <li>if both \( x , y \) are negative, then their product is positive so it follows as above</li>
+            <li>if one of \( x , y \) is positive and the other negative, without loss of generality assume that \( x \lt; 0 \) and \( y \gt; 0 \)then their product is negative so \( \left | x \cdot y \right | = - 1 \cdot x \cdot y = \left | x \right | \cdot \left | y \right | \)</li>
+            <li>if any one of \( x , y \) is zero, then \( \left | x \cdot y \right | = 0 = \left | x \right | \cdot \left | y \right | \)</li>
+        </ul>
+    </div>
+</div>
+<div class="proposition" id="proposition-value-between-positive-and-negative-equivalence">
+    <div class="title">
+        Value Between Positive and Negative Equivalence
+    </div>
+    <div class="content">
+        Let \( a, x \in \mathbb{ R } \) where \( x \ge 0 \) \[ -x \le a \le x \iff \lvert a \rvert \le x \]
+    </div>
+    <div class="proof">
+        <p>\( \implies \) we want to prove that \( \lvert a \rvert \le x \). Case one, if \( a \ge 0 \) then \( \lvert a \rvert = a \) and since we already know that \( a \le x \) then we obtain that \( \lvert a \rvert \le x \) as needed. In the second case if \( a \lt 0 \) then \( \lvert a \rvert = -a \) so we want to show that \( -a \le x \) which is the same as \( a \ge -x \) which we know by assumption as well.</p>
+        <p>\( \impliedby \) Suppose that \( \lvert a \rvert \le x \) if \( a \ge 0 \) then \( \lvert a \rvert = a \) and so we're really assuming that \( a \le x \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-multiplying-by--1-changes-the-inequality-direction">therefore</a> \( -a \ge -x \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-a-positive-number-is-greater-than-the-negative-version-of-itself">since</a> \( a \ge -a \) then by chaining inequalities we get \( x \ge a \ge -a \ge -x \) which implies \( x \ge a \ge -x \) as needed. Now for the case of \( a \le 0 \) then we've assumed that \( -a \le x \) now \( -a \) is positive and by symmetrically following our previous case with \( -a \) in place of \( a \) we see that \( x \ge -a \ge a \ge -x \) and so \( x \ge a \ge -x \) again, as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-maximum-is-always-bigger-than-its-arguments">
+    <div class="title">
+        Maximum is Always Bigger than It's arguments
+    </div>
+    <div class="content">
+        Let \( x, y \in \mathbb{ R } \) then \[ x \le \max \left( x, y \right) \text{ and } y \le \max \left( x, y \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-value-between-implies-its-value-is-less-than-the-max-of-the-others">
+    <div class="title">
+        Value Between Implies It's Absolute Value is Less than the Max of the Others
+    </div>
+    <div class="content">
+        Suppose that \( a \le b \le c \) then \( \lvert b \rvert \le \max \left( \lvert a \rvert , \lvert c \rvert \right) \)
+    </div>
+    <div class="proof">
+        Let's recall that \( c \le \lvert c \rvert \le \max \left( \lvert c \rvert , \lvert a \rvert \right) \), and on the other hand that \( a \ge - \lvert a \rvert \ge - \max \left( \lvert a \rvert, \lvert c \rvert \right) \) combining inequalities, that says \[ - \max \left( \lvert a \rvert , \lvert c \rvert \right) \le b \le \max \left( \lvert a \rvert , \lvert c \rvert \right) \] <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-value-between-positive-and-negative-equivalence">therefore</a> \[ \lvert b \rvert \le \lvert \max \left( \lvert a \rvert, \lvert c \rvert \right) \rvert = \max \left( \lvert a \rvert , \lvert c \rvert \right) \] as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-absolute-value-bounds-distance">
+    <div class="title">
+        Absolute Value Bounds Distance
+    </div>
+    <div class="content">
+        Suppose that \( a, b, c \in \mathbb{ R } \) with \( c \ge 0 \) then \[ \lvert a - b \rvert \le c \iff b - c \le a \le b + c \]
+    </div>
+    <div class="proof">
+        We know that \( \lvert a - b \rvert \le c \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-value-between-positive-and-negative-equivalence">iff</a> \( -c \le a - b \le c \) which is the same as \( b - c \le a \le b + c \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-absolute-value-greater-inequality">
+    <div class="title">
+        absolute value greater inequality
+    </div>
+    <div class="content">
+        Suppose that \( x \in \mathbb{R} \) and that \( c \in \mathbb{R} \) such that \( \left | c \right | \ge 1 \) then \( \left | x \right | \le \left | c x \right | \)
+    </div>
+    <div class="proof">
+        Since \( 1 \lt \left | c \right | \) then \( 1 \cdot \left | x \right | \le \left | c \right | \cdot \left | x \right | = \left | c x \right | \)
+    </div>
+</div>
+<div class="proposition" id="proposition-absolute-value-equality">
+    <div class="title">
+        absolute value equality
+    </div>
+    <div class="content">
+        Suppose that \( a , b \in \mathbb{Z} \) and that \( \left | a \right | = \left | b \right | \), then \( a = b \) or \( a = - b \)
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="proposition" id="proposition-TODO">
+    <div class="title">
+        not equal range
+    </div>
+    <div class="content">
+        Suppose that \( a , b \in \mathbb{Z} \) then if \( - \left | b \right | \lt a \lt \left | b \right | \) then \( a \ne b \)
+    </div>
+    <div class="proof">
+        Suppose that \( a = b \) for contradiction, then \( - \left | a \right | \lt a \lt \left | a \right | \) , <span class="knowledge-link" data-href="/analysis/single_variable/absolute_value.html#proposition-absolute-value-differs-by-sign">but either</span> \( a = \left | a \right | \) or \( a = - \left | a \right | \), so this yields a contradiction.
+    </div>
+</div>
+<div class="corollary" id="corollary-changing-sign-doesnt-change-absolute-value">
+    <div class="title">
+        changing sign doesn't change absolute value
+    </div>
+    <div class="content">
+        \( \forall x \in \mathbb{R} , | x \left \lvert = \mid - x \right \rvert \)
+    </div>
+    <div class="proof">
+        Let \( x \in \mathbb{R} \) <span class="knowledge-link" data-href="/analysis/single_variable/absolute_value.html#theorem-multiplication-in-absolute-value">then</span> \( \left | - x \right | = \left | - 1 \cdot x \right | = \left | - 1 \right | \cdot \left | x \right | = 1 \cdot \left | x \right | = \left | x \right | \)
+    </div>
+</div>
+<div class="corollary" id="absolute-value-is-greater-than-itself">
+    <div class="title">
+        absolute value is greater than itself
+    </div>
+    <div class="content">
+        \( \forall x \in \mathbb{R} , x \le \left \lvert x \right \rvert \)
+    </div>
+    <div class="proof">
+        <ul>
+            <li>if \( x \gt; 0 \) then \( \left | x \right | = x \)</li>
+            <li>if \( x \lt; 0 \) then \( \left | x \right | = - x \) so \( \left | x \right | \ge - x \gt; x \) this is true since \( x \lt; 0 \) and \( 0 \lt; - x \)</li>
+        </ul>
+    </div>
+</div>
+<div class="corollary" id="corollary-absolute-value-is-greater-than-the-negative-version-of-itself">
+    <div class="title">
+        absolute value is greater than the negative version of itself
+    </div>
+    <div class="content">
+        \( \forall x \in \mathbb{R} , - x \le \left \lvert x \right \rvert \)
+    </div>
+    <div class="proof">
+        using the fact \( y \lt; \left | y \right | \) and subbing in \( - x \) we obtain the result
+    </div>
+</div>
+<div class="corollary" id="corollary-inverse-absolute-value">
+    <div class="title"></div>
+    <div class="content">
+        \( \left \lvert a \right \rvert^{- 1} = \left \lvert \frac{1}{a} \right \rvert \)
+    </div>
+    <div class="proof">
+        \( \left \lvert a \right \rvert \cdot \left \lvert \frac{1}{a} \mid = \right \rvert a \cdot \frac{1}{a} \left \lvert = \mid 1 \right \rvert = 1 \)
+    </div>
+</div>
+<div class="corollary" id="corollary-inverse-triangle-inequality">
+    <div class="title"></div>
+        \[ \left \lvert x + y \right \rvert \le \left | \left | x \right | + \left | y \right | \right | \]
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="theorem" id="theorem-triangle-inequality">
+    <div class="title">
+        Triangle Inequality
+    </div>
+    <div class="content">
+        Suppose that \( x, y \in \mathbb{ R } \), then we have \[ \lvert x + y \rvert \le \lvert x \rvert + \lvert y \rvert \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-generalized-triangle-inequality">
+    <div class="title">
+        Generalized Triangle Inequality
+    </div>
+    <div class="content">
+        Suppose that \( X \subseteq \mathbb{ R } \) is finite then \[ \left\lvert \sum X \right\rvert \le \sum _ { x \in X } \left\lvert x \right\rvert \]
+    </div>
+    <div class="proof">
+        We prove it true by induction based on the size of \( X \). Base case \( \left\lvert X \right\rvert = 2 \) is covered by the regular triangle inequality. Now suppose that it holds true for \( \left\lvert Y \right\rvert = k \) we'll show it holds true for \( \left\lvert Z \right\rvert = k + 1 \), let \( z \in Z \), then we have \( \left\lvert \sum \left( Z \setminus \left\{ z \right\} \right) \right\rvert \le \sum _ { a \in Z \setminus \left\{ z \right\} } \left\lvert a \right\rvert \) since \( \left\lvert Z \setminus \left\{ z \right\} \right\rvert = k \). Now by the regular triangle inequality we obtain that \[ \begin{align} \left\lvert \sum Z \right\rvert &amp;= \left\lvert \sum \left( Z \setminus \left\{ z \right\} \right) + z \right\rvert \\ &amp;\le \left\lvert \sum \left( Z \setminus \left\{ z \right\} \right) \right\rvert + \left\lvert z \right\rvert \\ &amp;\le \sum _ { a \in Z \setminus \left\{ z \right\} } \left\lvert a \right\rvert + \left\lvert z \right\rvert \\ &amp;= \sum _ { z \in Z } \left\lvert z \right\rvert \end{align} \]
+    </div>
+</div>
+<div class="proposition" id="proposition-isolate-absolute-value-inequality">
+    <div class="title">
+        Isolate Absolute value Inequality
+    </div>
+    <div class="content">
+        Let \( a, b, c \in \mathbb{ R } \) then \( \lvert a - b \rvert \le c \) implies that \( \lvert a \rvert \le c + \lvert b \rvert \)
+    </div>
+    <div class="proof">
+        We have the following: \[ \begin{gather} \lvert a - b \rvert \le c \\ \Updownarrow \\ \lvert a - b \rvert + \lvert b \rvert \le c + \lvert b \rvert \\ \Updownarrow \\ \lvert a - b + b \rvert \le \lvert a - b \rvert + \lvert b \rvert \le c + \lvert b \rvert\\ \Updownarrow \\ \lvert a \rvert \le c + \lvert b \rvert \end{gather} \] Where in the second last line we used the triangle inequality
+    </div>
+</div>

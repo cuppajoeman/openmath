@@ -1,0 +1,208 @@
+<div class="definition" id="definition-the-quaternions">
+    <div class="title">
+        The Quaternions
+    </div>
+    <div class="content">
+        The collection of <b>quaternions</b> are: \[ \mathbb{ H } := \left\{ a + b \mathbf{ i } + c \mathbf{ j }+ d \mathbf{ k } \right\} \] where \( a, b, c, d \in \mathbb{ R } \) and \( \mathbf{ i } ^ 2 = \mathbf{ j } ^ 2 = \mathbf{ k } ^ 2 = \mathbf{ ijk }= -1 \)
+    </div>
+</div>
+<div class="definition" id="definition-quaternion-scalar-part">
+    <div class="title">
+        Real Part of the Quaternion
+    </div>
+    <div class="content">
+        Given a quaternion \(q = a + bi + cj + dk\), we say that \(a\) is the scalar part of the quaternion (or real part), and is denoted by \( r \left( q \right) \)
+    </div>
+</div>
+<div class="definition" id="definition-quaternion-vector-part">
+    <div class="title">
+        Vector Part of the Quaternion
+    </div>
+    <div class="content">
+        Given a quaternion \(q = a + bi + cj + dk\), we say that \(bi + cj + dk\) is the vector part of the quaternion, and is denoted by \( v \left( q \right) \)
+    </div>
+</div>
+<p>Note that we think of the vector part of a quaternion as an element of \( \mathbb{ R } ^ 3 \) , and so it inherits all the operations from that space, such as equality, as noted in the next corollary.</p>
+<div class="corollary" id="corollary-equality-by-vector-and-real-equality">
+    <div class="title">
+        Conjugation Distributes
+    </div>
+    <div class="content">
+        For any \( p, q \in \mathbb{ H } \) we have \[ p = q \iff \left( r\left( p \right) = r\left( q \right) \land v\left( p \right) = v\left( q \right) \right) \]
+    </div>
+    <div class="proof">
+        Suppose that \( p = a + bi + cj + dk \) and \( q = u + xi + yj + zk \) then \( p = q \) if and only if \( a = u \) , \( b = x \) , \( c = y \) , \( d = z \) which is true if and only if \( r\left( p \right) = r\left( q \right) \) and \( v\left( p \right) = v\left( q \right) \), as needed.
+    </div>
+</div>
+<div class="definition" id="definition-quaternion-addition">
+    <div class="title">
+        Quaternion Addition
+    </div>
+    <div class="content">
+        \[ (a_1+b_1\mathbf i + c_1\mathbf j + d_1\mathbf k) + (a_2 + b_2\mathbf i + c_2\mathbf j + d_2\mathbf k) = (a_1 + a_2) + (b_1 + b_2)\mathbf i + (c_1 + c_2)\mathbf j + (d_1 + d_2) \mathbf k, \]
+    </div>
+</div>
+<div class="corollary" id="corollary-conjugation-is-additive">
+    <div class="title">
+        Conjugation is Additive
+    </div>
+    <div class="content">
+        Suppose that \( p, q \in \mathbb{ H } \) then \[ \overline{ p + q } = \overline{ p } + \overline{ q } \]
+    </div>
+    <div class="proof">
+        Suppose that \( p = a + bi + cj + dk \) and \( q = u + xi + yj + zk \) then \[ \begin{align} \overline{ p + q } &amp;= \overline{ \left( a + u \right) + \left( b + x \right) i + \left( c + y \right) j + \left( d + z \right) } \\ &amp;= \left( a + u \right) - \left( b + x \right) i - \left( c + y \right) j - \left( d + z \right) \\ &amp;= a - bi - cj - dk + u - xi - yj - zk \\ &amp;= \overline{ p } + \overline{ q } \end{align} \]
+    </div>
+</div>
+<div class="definition" id="definition-scalar-quaternion-multiplication">
+    <div class="title">
+        Scalar Quaternion Multiplication
+    </div>
+    <div class="content">
+        \[ \lambda(a + b\,\mathbf i + c\,\mathbf j + d\,\mathbf k) = \lambda a + (\lambda b)\,\mathbf i + (\lambda c)\,\mathbf j + (\lambda d)\,\mathbf k. \]
+    </div>
+</div>
+<div class="definition" id="definition-identity-quaternion">
+    <div class="title">
+        Identity Quaternion
+    </div>
+    <div class="content">
+        \[ e := i + j + k \]
+    </div>
+</div>
+<div class="definition" id="definition-conjugate-quaternion">
+    <div class="title">
+        Conjugate Quaternion
+    </div>
+    <div class="content">
+        Given the quaternion \( q = a + b \mathbf{ i }+ c \mathbf{ j } + d \mathbf{ k } \), it's conjugate is given by \[ \overline{ q } := a - b \mathbf{ i }- c \mathbf{ j } - d \mathbf{ k } \]
+    </div>
+</div>
+<div class="corollary" id="corollary-vector-part-of-the-conjugate-is-minus-1-times-the-original">
+    <div class="title">
+        Vector part of the Conjugate is minus 1 Times the Original
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ H } \) we have \[ v \left( \overline{ p } \right) = -1 v \left( p \right) \]
+    </div>
+    <div class="proof">
+        Suppose that \( p = a + bi + cj + dk \) \[ v \left( \overline{ p } \right) = -bi + -cj + -dk = \left( -1 \right) v \left( p \right) \] as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-real-part-of-the-conjugate-doesnt-change">
+    <div class="title">
+        Real part of the Conjugate doesn't Change
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ H } \) we have \[ r \left( \overline{ p } \right) = r \left( p \right) \]
+    </div>
+    <div class="proof">
+        Suppose that \( p = a + bi + cj + dk \) \[ r \left( \overline{ p } \right) = a = r \left( p \right) \] as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-conjugate-doesnt-change-the-real-part">
+    <div class="title">
+        Conjugate Doesn't change the Real Part
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ H } \), such that \( v\left( p \right) = 0 \), then \[ \overline{ p } = p \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-conjugate-only-applies-to-vector-part">
+    <div class="title">
+        Conjugate only Applies to Vector Part
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ H } \) we have \[ \overline{ p } = r\left( p \right) - v\left( p \right) \]
+    </div>
+    <div class="proof">
+        \[ \overline{ p } = \overline{ r \left( p \right) + v\left( p \right) } = r\left( p \right) - v\left( p \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-pure-quaternion">
+    <div class="title">
+        Pure Quaternion
+    </div>
+    <div class="content">
+        A quaternion \( p \in \mathbb{ H } \) is said to be pure, deiff \( r\left( p \right) = 0 \)
+    </div>
+</div>
+<div class="definition" id="definition-product-of-two-quaternions">
+    <div class="title">
+        Product of Two Quaternions
+    </div>
+    <div class="content">
+        Suppose that \( p, q \in \mathbb{ H } \), then we define \[ p q := r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) + r \left( p \right) v\left( q \right) + r\left( q \right) v\left( p \right) + v \left( p \right) \times v \left( q \right) \]
+    </div>
+</div>
+<div class="corollary" id="corollary-product-commutes-in-the-real-part">
+    <div class="title">
+        Product Commutes in the Real Part
+    </div>
+    <div class="content">
+        For any \( p, q \in \mathbb{ H } \) we have \[ r \left( pq \right) = r\left( qp \right) \]
+    </div>
+    <div class="proof">
+        \[ r\left( pq \right) = r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) = r \left( q \right) r \left( p \right) - v\left( q \right) \cdot v\left( p \right) = r\left( qp \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-dot-product-of-two-quaternions">
+    <div class="title">
+        Dot Product of Two Quaternions
+    </div>
+    <div class="content">
+        Suppose that \( p, q \in \mathbb{H} \), then we define \[ p \cdot q := \operatorname{re}(p) \operatorname{re}(q) + \operatorname{v}(p) \cdot \operatorname{v}(q) \]
+    </div>
+</div>
+<div class="lemma" id="lemma-conjugation-is-a-homomorphism-in-the-real-part">
+    <div class="title">
+        Conjugation is a Homomorphism in the Real Part
+    </div>
+    <div class="content">
+        For any \( p, q \in \mathbb{ H } \) we have \[ r \left( \overline{ pq } \right) = r\left( \overline{ p } ~ \overline{ q } \right) \]
+    </div>
+    <div class="proof">
+        First of all, we know <a class="knowledge-link" href="/algebra/quaternions.html#corollary-real-part-of-the-conjugate-doesnt-change">conjugation doesn't change the real part</a>, so we have: \[ r \left( \overline{ pq } \right) = r\left( pq \right) = r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) \] and then we know that \[ r \left( \overline{ p } ~ \overline{ q } \right) = r \left( \overline{ p } \right) r \left( \overline{ q } \right) - v\left( \overline{ p } \right) \cdot v\left( \overline{ q } \right) \] Since <a class="knowledge-link" href="/algebra/quaternions.html#corollary-vector-part-of-the-conjugate-is-minus-1-times-the-original">minus comes out of the vector part</a>, and constants can get pulled out of the dot product we have that \[ r \left( \overline{ p } \right) r \left( \overline{ q } \right) - v\left( \overline{ p } \right) \cdot v\left( \overline{ q } \right) = r\left( p \right) r \left( q \right) - \left( - 1 \right) \left( - 1 \right) v\left( p \right) \cdot v\left( q \right) = r\left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) \] therefore we have that \( r\left( \overline{ pq } \right) = r\left( \overline{ p } ~ \overline{ q } \right) \)
+    </div>
+</div>
+<div class="lemma" id="lemma-conjugation-swaps-order-in-vector-part">
+    <div class="title">
+        Conjugation Swaps Order in the Vector Part
+    </div>
+    <div class="content">
+        For any \( p, q \in \mathbb{ H } \) we have \[ v \left( \overline{ pq } \right) = v\left( \overline{ q } ~ \overline{ p } \right) \]
+    </div>
+    <div class="proof">
+        We recall <a class="knowledge-link" href="/algebra/quaternions.html#corollary-conjugate-only-applies-to-vector-part">that</a>, and so \[ v \left( \overline{ pq } \right) = v \left( r\left( pq \right) - v\left( pq \right) \right) = -v\left( pq \right) \] and then we know that \[ \begin{align} v\left( \overline{ q } ~ \overline{ p } \right) &amp;= r \left( \overline{ q } \right) v\left( \overline{ p } \right) + r\left( \overline{ p } \right) v\left( \overline{ q } \right) + v \left( \overline{ q } \right) \times v \left( \overline{ p } \right) \\ &amp;= - r \left( q \right) v\left( p \right) - r\left( p \right) v\left( q \right) + v \left( \overline{ q } \right) \times v \left( \overline{ p } \right) \\ &amp;= - r \left( q \right) v\left( p \right) - r\left( p \right) v\left( q \right) + \left( -1 \right) \left( -1 \right) v \left( q \right) \times v \left( p \right) \\ &amp;= - r\left( p \right) v\left( q \right) - r \left( q \right) v \left( p \right) - v\left( p \right) \times v \left( q \right) \\ &amp;= - v\left( qp \right) \end{align} \] as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-conjugation-distributes-by-swapping">
+    <div class="title">
+        Conjugation Distributes by Swapping
+    </div>
+    <div class="content">
+        For any \( p, q \in \mathbb{ H } \) we have \[ \overline{ pq } = \overline{ q } ~ \overline{ p } \]
+    </div>
+    <div class="proof">
+        We show they are <a class="knowledge-link" href="/algebra/quaternions.html#corollary-equality-by-vector-and-real-equality">equal</a>: \[ r\left( \overline{ pq } \right) = r\left( \overline{ p } ~ \overline{ q } \right) = r\left( \overline{ q } ~ \overline{ p } \right) \] and then we <a class="knowledge-link" href="/algebra/quaternions.html#lemma-conjugation-swaps-order-in-vector-part">recall</a> \( v\left( \overline{ pq } \right) = v\left( \overline{ q } ~ \overline{ p } \right) \), so that \( \overline{ pq } = \overline{ q } ~ \overline{ p } \)
+    </div>
+</div><!--  https://planetmath.org/proofofrodriguesrotationformula -->
+<!--  https://math.stackexchange.com/questions/704094/product-of-reflections-is-a-rotation-by-elementary-vector-methods -->
+<div class="proposition" id="proposition-dot-product-and-regular-product-commute">
+    <div class="title">
+        Dot Product and Regular Product Commute
+    </div>
+    <div class="content">
+        Suppose that \( p, q \in \mathbb{H} \), then we define \[ \left( pq \right) \cdot \left( pr \right) = \left( p \cdot p \right) \left( q \cdot r \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-quaternion-times-its-conjugate-equation">
+    <div class="title">
+        Quaternion times its Conjugate Equation
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{H} \), then we have: \[ q \overline{ q } = \left( q \cdot q \right) e \]
+    </div>
+    <div class="proof"></div>
+</div>
