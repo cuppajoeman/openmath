@@ -1,89 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Uniform Convergence and Continuity</title>
-
-    <link rel="stylesheet" href="../../styles/styles.css">
-    <script src="../../js/script.js" defer></script>
-</head>
-<body>
-<div class="thin-wrapper">
-
-	<div class="theorem" id="theorem-uniform-convergence-equivalence-in-terms-of-lim-sup">
-		<div class="title">Uniform Convergence Equivalence In Terms of Lim Sup</div>
-		<div class="content">
-			Suppose that \( S \subseteq \mathbb{ R } ^ n \) and a sequence of functions \( \left( f _ k \right) : \mathbb{ N } _ 1 \to C \left( S , \mathbb{ R } ^ m \right)  \), then \( f _ k \to f \) if and only if eventualy we have \( f _ k - f \in C _ b \left( S, R ^ m \right)  \) for all \(  k \) sufficiently large and 
-			\[
-			    \lim _ { k \to \infty  } \lVert f _ k - f \rVert _ \infty = 0
-			\]
-		</div>
-		<div class="proof">
-			
-		</div>
-	</div>
-	
-
-
-	<div class="theorem" id="theorem-dinis">
-		<div class="title">Dini's</div>
-		<div class="content">
-			If \( f \) and \( f _ n \) are continuous functions on \( \left[ a, b \right]  \) such that \( f _ n \ge f _ { n + 1  }   \) for all \( n \in \mathbb{ N } _ 1 \) and if \( f _ n \stackrel{\operatorname{ pw } }{\to } f \) then
-			\[
-			    f _ n \stackrel{\operatorname{ unif } }{\to } f
-			\]
-		</div>
-		<div class="proof">
-
-			<p>
-				We first prove that for any \( x _ 0 \in \left[ a, b \right]  \) and \( \epsilon \in \mathbb{ R } ^ +  \) there exists some integer \( N \in \mathbb{ N } _ 1 \) and \( r \in \mathbb{ R } ^ +  \)  such that 
-				\[
-				    \left\lvert x - x _ 0 \right\rvert \le r \implies \left\lvert g _ N \left( x \right)   \right\rvert \le \epsilon
-				\]
-				where \( g _ n \left( x \right) = f \left( x \right)  - f _ n \left( x \right)   \)
-			</p>
-			<p>
-				This follows from a few facts, we first start with continuity of \( f, f _ n \),  specifically at \( x _ 0 \) and therefore using \( \epsilon  \) we obtain some \( \delta _ 1 \in \mathbb{ R } ^ +  \) such that \( f \left( B \left( x _ 0, \delta _ 1 \right) \right) \subseteq B \left( g _ n \left( x _ 0 \right), \epsilon   \right)    \), similarly we have a \( \delta _ 2 \in \mathbb{ R } ^ +  \) such that \( f \left( B \left( x _ 0, \delta _ 2 \right)  \right) \subseteq B \left( f \left( x _ 0	 \right), \epsilon  \right)  \), then also we know that since \( f _ n \stackrel{\operatorname{ pw } }{ \to } f  \) then since it's true at \( x _ 0 \) and using \( \epsilon  \) we obtain some \( K \in \mathbb{ N } _ 1 \) such that for all \( n \in \mathbb{ N } _ K \) we have \( \left\lvert f _ n \left( x _ 0 \right)  \right\rvert - f \left( x _ 0 \right)  \le \epsilon   \)
-			</p>
-			<p>
-				Now we combine using the triangle inequality, so let \( \epsilon  \in \mathbb{ R } ^ +  \) , then let \( r = \min \left( \delta _ 1, \delta _ 2 \right)  \) so that we obtain the inequalities mentioned in the previous paragraph, and we get some \( K \in \mathbb{ N } _ 1 \) as mentioned in the previous paragrah, then
-				\[
-				\begin{align}
-				\left\lvert g _ K \left( x \right)  \right\rvert &= \left\lvert f \left( x \right) - f _ K \left( x \right)  \right\rvert \\
-				&\le \left\lvert f \left( x \right)  - f \left( x _ 0 \right)  \right\rvert + \left\lvert f \left( x _ 0 \right) - f _ K \left( x _ 0 \right)   \right\rvert + \left\lvert f _ K \left( x _ 0 \right) - f _ K \left( x  \right)   \right\rvert  \\
-				&\le 3 \epsilon
-				\end{align}
-				\]
-			</p>
-			<p>
-				With that out of the way suppose for the sake of contradiction that \( f _ n \) doesn't convege uniformly to \( f \), since \( f - f _ n \) is eventually bounded then this is equivalent to
-				\[
-				    \lim _ { n \to \infty  } \lVert f - f _ n  \rVert _ \infty = d \in \mathbb{ R } ^ +
-				\]
-			</p>
-			<p>
-				Since \( g _ n \) is continuous as the sum of continuous functions and has compact domain then by EVT, we know that it attains its max and min, and therefore there exists a \( x _ k \in \left[ a, b \right] \) such that \( \lVert f - f _ k \rVert _ \infty = g _ k \left( x _ k \right)    \), so we have \( \lim  _ { k \to \infty  } g _ k \left( x _ k \right) = d  \), and note that this means that for any \( \epsilon ^ \prime  \in \mathbb{ R } ^ +  \) there is some \( J \in \mathbb{ N } _ 1 \) such that for all \( j \in \mathbb{ N } _ J \) we have \( \left\lvert g _ j \left( x _ j \right) - d   \right\rvert \lt \epsilon ^ \prime    \)  which implies that \( d - \epsilon ^ \prime  \le g _ j \left( x _ j \right)  \).
-			</p>
-			<p>
-				Since \( x _ k \) is in a compact set it has a convergent subsequence \( x _ { n _ k } \to x \in \left[ a, b \right]  \). Now recall the fact we proved initially, by using \( d - \epsilon   \) we know that there is some \( N \in \mathbb{ N } _ 1 \) such that \( g _ N \left( x \right) \lt d - \epsilon   \), now at the same time the inequality discussed in the previous paragraph also holds on the subsequence (this is because if a sequence goes somewhere, then any subsequence must also go there), namely we have some \( J \in \mathbb{ N } _ 1 \) such that for all \(  j \in \mathbb{ N } _ J \)
-				\[
-				   	d - \epsilon  \le g _ { n _ j }  \left( x _ { n _ j }  \right)
-				\]
-				but then there is some \( i \) such that \( n _ i \gt \max \left(N , J  \right)  \) and therefore \( g _ i \lt g _ N \) and so chaining inequalities we have
-				\[
-				    d - \epsilon \le g _ { n _ i }  \left( x _ { x _ i }  \right) \le g _ N \left( x \right) \le d - \epsilon
-				\]
-				which is a contradiction, and therefore \( f _ n \stackrel{\operatorname{ unif } }{ \to } f  \)
-			</p>
-		</div>
-	</div>
-	
-
-	
-
+<div class="theorem" id="theorem-uniform-convergence-equivalence-in-terms-of-lim-sup">
+    <div class="title">
+        Uniform Convergence Equivalence In Terms of Lim Sup
+    </div>
+    <div class="content">
+        Suppose that \( S \subseteq \mathbb{ R } ^ n \) and a sequence of functions \( \left( f _ k \right) : \mathbb{ N } _ 1 \to C \left( S , \mathbb{ R } ^ m \right) \), then \( f _ k \to f \) if and only if eventualy we have \( f _ k - f \in C _ b \left( S, R ^ m \right) \) for all \( k \) sufficiently large and \[ \lim _ { k \to \infty } \lVert f _ k - f \rVert _ \infty = 0 \]
+    </div>
+    <div class="proof"></div>
 </div>
-</body>
-</html>
+<div class="theorem" id="theorem-dinis">
+    <div class="title">
+        Dini's
+    </div>
+    <div class="content">
+        If \( f \) and \( f _ n \) are continuous functions on \( \left[ a, b \right] \) such that \( f _ n \ge f _ { n + 1 } \) for all \( n \in \mathbb{ N } _ 1 \) and if \( f _ n \stackrel{\operatorname{ pw } }{\to } f \) then \[ f _ n \stackrel{\operatorname{ unif } }{\to } f \]
+    </div>
+    <div class="proof">
+        <p>We first prove that for any \( x _ 0 \in \left[ a, b \right] \) and \( \epsilon \in \mathbb{ R } ^ + \) there exists some integer \( N \in \mathbb{ N } _ 1 \) and \( r \in \mathbb{ R } ^ + \) such that \[ \left\lvert x - x _ 0 \right\rvert \le r \implies \left\lvert g _ N \left( x \right) \right\rvert \le \epsilon \] where \( g _ n \left( x \right) = f \left( x \right) - f _ n \left( x \right) \)</p>
+        <p>This follows from a few facts, we first start with continuity of \( f, f _ n \), specifically at \( x _ 0 \) and therefore using \( \epsilon \) we obtain some \( \delta _ 1 \in \mathbb{ R } ^ + \) such that \( f \left( B \left( x _ 0, \delta _ 1 \right) \right) \subseteq B \left( g _ n \left( x _ 0 \right), \epsilon \right) \), similarly we have a \( \delta _ 2 \in \mathbb{ R } ^ + \) such that \( f \left( B \left( x _ 0, \delta _ 2 \right) \right) \subseteq B \left( f \left( x _ 0 \right), \epsilon \right) \), then also we know that since \( f _ n \stackrel{\operatorname{ pw } }{ \to } f \) then since it's true at \( x _ 0 \) and using \( \epsilon \) we obtain some \( K \in \mathbb{ N } _ 1 \) such that for all \( n \in \mathbb{ N } _ K \) we have \( \left\lvert f _ n \left( x _ 0 \right) \right\rvert - f \left( x _ 0 \right) \le \epsilon \)</p>
+        <p>Now we combine using the triangle inequality, so let \( \epsilon \in \mathbb{ R } ^ + \) , then let \( r = \min \left( \delta _ 1, \delta _ 2 \right) \) so that we obtain the inequalities mentioned in the previous paragraph, and we get some \( K \in \mathbb{ N } _ 1 \) as mentioned in the previous paragrah, then \[ \begin{align} \left\lvert g _ K \left( x \right) \right\rvert &amp;= \left\lvert f \left( x \right) - f _ K \left( x \right) \right\rvert \\ &amp;\le \left\lvert f \left( x \right) - f \left( x _ 0 \right) \right\rvert + \left\lvert f \left( x _ 0 \right) - f _ K \left( x _ 0 \right) \right\rvert + \left\lvert f _ K \left( x _ 0 \right) - f _ K \left( x \right) \right\rvert \\ &amp;\le 3 \epsilon \end{align} \]</p>
+        <p>With that out of the way suppose for the sake of contradiction that \( f _ n \) doesn't convege uniformly to \( f \), since \( f - f _ n \) is eventually bounded then this is equivalent to \[ \lim _ { n \to \infty } \lVert f - f _ n \rVert _ \infty = d \in \mathbb{ R } ^ + \]</p>
+        <p>Since \( g _ n \) is continuous as the sum of continuous functions and has compact domain then by EVT, we know that it attains its max and min, and therefore there exists a \( x _ k \in \left[ a, b \right] \) such that \( \lVert f - f _ k \rVert _ \infty = g _ k \left( x _ k \right) \), so we have \( \lim _ { k \to \infty } g _ k \left( x _ k \right) = d \), and note that this means that for any \( \epsilon ^ \prime \in \mathbb{ R } ^ + \) there is some \( J \in \mathbb{ N } _ 1 \) such that for all \( j \in \mathbb{ N } _ J \) we have \( \left\lvert g _ j \left( x _ j \right) - d \right\rvert \lt \epsilon ^ \prime \) which implies that \( d - \epsilon ^ \prime \le g _ j \left( x _ j \right) \).</p>
+        <p>Since \( x _ k \) is in a compact set it has a convergent subsequence \( x _ { n _ k } \to x \in \left[ a, b \right] \). Now recall the fact we proved initially, by using \( d - \epsilon \) we know that there is some \( N \in \mathbb{ N } _ 1 \) such that \( g _ N \left( x \right) \lt d - \epsilon \), now at the same time the inequality discussed in the previous paragraph also holds on the subsequence (this is because if a sequence goes somewhere, then any subsequence must also go there), namely we have some \( J \in \mathbb{ N } _ 1 \) such that for all \( j \in \mathbb{ N } _ J \) \[ d - \epsilon \le g _ { n _ j } \left( x _ { n _ j } \right) \] but then there is some \( i \) such that \( n _ i \gt \max \left(N , J \right) \) and therefore \( g _ i \lt g _ N \) and so chaining inequalities we have \[ d - \epsilon \le g _ { n _ i } \left( x _ { x _ i } \right) \le g _ N \left( x \right) \le d - \epsilon \] which is a contradiction, and therefore \( f _ n \stackrel{\operatorname{ unif } }{ \to } f \)</p>
+    </div>
+</div>

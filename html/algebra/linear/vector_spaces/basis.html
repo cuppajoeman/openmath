@@ -1,219 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Basis</title>
-
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-</head>
-<body>
-<div class="thin-wrapper">
-
-    <div class="definition">
-        <div class="title">basis</div>
-        <div class="content">
-            if the vector space is denoted by \( X \), then for ease we will denote the basis by a calligraphic version of that character \( \mathcal{X} \)
-        </div>
+<div class="definition">
+    <div class="title">
+        basis
     </div>
-
-    <div class="definition">
-        <div class="title">representation in a basis</div>
-        <div class="content">
-            <p>
-                Let \( \mathcal{B} = \left \lbrace b_{1} , \ldots , b_{n} \right \rbrace \) be a basis for a subspace \( V \) and let \( v \in V \). The representation of \( v \) in the basis notated by \( \text{wam} \left ( v , \mathcal{B} \right ) \) is the matrix:
-            </p>
-            <div class="centered-content">
-                \( \text{wam} \left ( v , \mathcal{B} \right ) = \left [ \begin{matrix} a_{1} \\ \vdots \\ a_{k} \end{matrix} \right ] \)
-            </div>
-            <p>
-                where \( v = \sum_{i = 1}^{k} a_{i} b_{i} \), note that \( \text{wam} \left ( \cdot , \mathcal{B} \right ) : V \to M_{k \times 1} \left ( \mathbb{R} \right ) \) and wam is an acronym for "written as matrix".  We can also define the inverse function \( \text{wav} \left ( \cdot , \mathcal{B} \right ) : M_{k \times 1} \left ( \mathbb{R} \right ) \to V \). Which stands for "written as vector"
-            </p>
-
-            <p>
-                If a basis is clear by context, then we may omit it and write \( \text{wam} \left ( v \right ) \) or \( \text{wav} \left ( v \right ) \).
-            </p>
-
-        </div>
+    <div class="content">
+        if the vector space is denoted by \( X \), then for ease we will denote the basis by a calligraphic version of that character \( \mathcal{X} \)
     </div>
-
-    <div class="corollary">
-        <div class="title">generating a unit column matrix</div>
-        <div class="content">
-            Given a vector space \( V \) with basis \( \mathcal{V} = \left \lbrace v 1 , \ldots , v_{k} \right \rbrace \), then for each element \( i \in \left [ k \right ] \), \( \text{wam} \left ( v_{i} , \mathcal{V} \right ) = e_{i} \)
-        </div>
-        <div class="proof">
-            \( v_{i} = 0 v_{1} + \ldots + 1 v_{i} + \ldots + 0 v_{k} \) therefore by the definition of \( w a m \) we have \( w a m \left ( v_{i} , \mathcal{V} \right ) = e_{i} \)
-        </div>
-    </div>
-
-
-    <div class="definition">
-        <div class="title">uniquely determined</div>
-        <div class="content">
-            Given a vector space \( V \) of dimension \( k \) we say that a vector \( x \) is uniquely determined, when there exists only one collection of constants \( c_{1} , \ldots , c_{k} \) such that \( x = \sum_{i = 1}^{k} c_{i} \cdot v_{i} \) where each \( v_{i} \) is a basis element for the basis of \( V \)
-        </div>
-    </div>
-
-    <div class="theorem" id="basis-implies-unique-representation">
-        <div class="title">basis implies unique representation</div>
-        <div class="content">
-            suppose that \( V \) is a vector space and let \( S \) be a non-empty subset of \( V \). Then \( S \) is a basis of \( V \) if and only if every vector \( x \in V \) can be represented uniquely as a linear combination of the vectors in \( S \)
-        </div>
-        <div class="proof">
-            TODO
-        </div>
-    </div>
-
-    <div class="theorem">
-        <div class="title">
-            something
-        </div>
-        <div class="content">
-            Let \( T : V \to W \) be a linear transformation between two vector spaces with \( \dim \left ( V \right ) = k \) \( \dim \left ( W \right ) = l \) with \( k , l \in \mathbb{Z}^{+} \).  Supposing that \( \left \lbrace v_{1} , \ldots , v_{k} \right \rbrace \) and \( \left \lbrace w_{1} , \ldots , w_{l} \right \rbrace \) are the respective bases, then \( T : V \to W \) is uniquely determined by the \( l \cdot k \) scalars used to express \( T \left ( v_{j} \right ) \) for each \( j \in \left [ k \right ] \) in terms of \( \left \lbrace w_{1} , \ldots , w_{l} \right \rbrace \)
-        </div>
-        <div class="proof">
-            <p>
-                To show that the linear transformation is uniquely determined by these scalars, we will try to use the fact that elements in each vector space are already uniquely determined by their own constants and go from there.
-            </p>
-
-            <p>
-                Let \( v_{j} \) be one of the basis vectors for \( V \), then consider \( T \left ( v_{j} \right ) \in W \) since it's a vector in \( W \) it can be written as a linear combination of the basis vectors in \( W \), so that \( T \left ( v_{j} \right ) = \sum_{i = 1}^{l} a_{i} w_{i} \).
-            </p>
-
-            <p>
-                Now given a generic \( x \in V \) which is not necessarily a basis vector, we can represent it as follows \( T \left ( x \right ) = T \left ( \sum_{j = 1}^{k} c_{j} v_{j} \right ) = \sum_{j = 1}^{k} c_{j} T \left ( v_{j} \right ) \) recalling from our previosu paragraph, we can see that \( \sum_{j = 1}^{k} \left ( c_{j} \sum_{i = 1}^{l} a_{i} w_{i} \right ) = \sum_{j = 1}^{k} \sum_{i = 1}^{l} c_{j} a_{i} w_{i} \).
-            </p>
-
-            <p>
-                The lets us conclude that \( T \left ( x \right ) = \sum_{j = 1}^{k} \sum_{i = 1}^{l} c_{j} a_{i} w_{i} \) and that \( T \) is uniquely determined by these \( l \cdot k \) constants
-            </p>
-        </div>
-    </div>
-
-
-    <div class="theorem">
-        <div class="title">matrix representation of a transformation</div>
-        <div class="content">
-            Let \( T : V \to W \) be a linear transformation, then there exists a matrix \( M_{T} \) such that
-            <div class="centered-content">
-                \( \text{wav} \left ( M_{T} \text{wam} \left ( v \right ) \right ) = T v \)
-            </div>
-            for any \( v \in V \)
-        </div>
-        <div class="proof">
-            <p>
-                To see what the matrix is, we can try to figure out what it's columns are.
-            </p>
-            <p>
-                Recall that we can extract the column of a matrix using the column extraction method discussed earlier
-
-
-            </p>
-            <p>
-                To be successful at that we need to generate a unit column matrix. We can do so by plugging in \( v_{k} \in \mathcal{V} \) into the above equation which yields: \( T v_{k} = \text{wav} \left ( M_{T} \text{wam} \left ( v_{k} , \mathcal{V} \right ) \right ) = \text{wav} \left ( M_{T} e_{k} \right ) = \text{wav} \left ( \left ( M_{T} \right )_{\left .  \right |} , k \right \rbrace ) \)
-            </p>
-            <p>
-                Thus \( \text{wam} \left ( T v_{k} \right ) = \left ( M_{T} \right )_{\left .  \right |} , k \rbrace \), so the columns of \( M_{T} \) are \( T v_{k} \) written as a column matrices. Graphically we have
-            </p>
-            <div class="centered-content">
-                \( M_{T} = \left [ \begin{matrix} \uparrow & \uparrow & \uparrow & \uparrow \\ \text{wam} \left ( T v_{1} \right ) & \text{wam} \left ( T v_{2} \right ) & \ldots & \text{wam} \left ( T v_{k} \right ) \\ \downarrow & \downarrow & \downarrow & \downarrow \end{matrix} \right ] \)
-            </div>
-        </div>
-    </div>
-
-    <div class="definition">
-        <div class="title">change of basis matrix</div>
-        <div class="content">
-            let \( \mathcal{V} = \left \lbrace v_{1} , \ldots , v_{k} \right \rbrace \) and \( \mathcal{W} = \left \lbrace w_{1} , \ldots , w_{1} \right \rbrace \) be bases for a vector space \( V \) and \( v \) be an arbitrary element of \( V \).  Then the matrix \( M_{\mathcal{V} \to \mathcal{W}} \) such that :
-            <div class="centered-content">
-                \( M_{\mathcal{V} \to \mathcal{W}} \text{wam} \left ( v , \mathcal{V} \right ) = \text{wam} \left ( v , \mathcal{W} \right ) \)
-            </div>
-            is called the change of basis matrix from \( \mathcal{V} \) to \( \mathcal{W} \)
-        </div>
-    </div>
-
-    <div class="proposition">
-        <div class="title"></div>
-        <div class="content">
-            Suppose that we have an ordered, linearly independent set \( S : ( s_1, \ldots s_k) \) for some \(k \le n \) of vectors in a finite dimensional vector space \( V \), then it can be extended to a basis of \( V \)
-        </div>
-        <div class="proof">
-            By fixing any new basis of \( V \) (TODO: prove that for any vector space there is always a basis that spans it) \( b_1, \ldots b_n \), then by concatenating it with \(S\) we obtain \( ( s_1, ..., s_k, b_1, ..., b_n ) \). Then for each \( i \in [n] \) (in order) (TODO: this is an algorithm), remove \(v_i\) from the ordered set iff \( v_i \) is in the span of all the earlier elements in the set. In particular, once we have checked and kept \( n - k \) of the \(v - i \) (TODO: say why that's guarenteed), we can discard the remaining \( v_i \), leaving a basis:
-            \[
-            (s_1, ..., s_k, v_{i_1}, , \ldots v_{i_{n - k}} )
-            \]
-        </div>
-    </div>
-
-    <div class="proposition">
-        <div class="title">Every Vector Space has a Basis</div>
-        <div class="content"></div>
-        <div class="proof">
-            TODO
-<!--            https://math.stackexchange.com/questions/189693/every-vector-space-has-a-basis-proof-using-zorns-lemma-in-linear-algebra-->
-<!--            https://math.stackexchange.com/questions/466879/prove-that-every-vector-space-has-a-basis-->
-<!--            https://math.stackexchange.com/questions/4085932/proof-that-every-vector-space-has-a-basis-->
-<!--            https://math.stackexchange.com/questions/2785769/proof-of-every-finite-dimensional-vector-space-has-a-finite-basis-->
-        </div>
-    </div>
-
-    <div class="exercise">
-        <div class="title">Extending a Basis</div>
-        <div class="content">
-            Extend the ordered set
-            \[
-            \left(
-            \begin{bmatrix} -2 \\ -2 \\ 3 \\ 0 \end{bmatrix}, \begin{bmatrix} -4 \\ -3 \\ 6 \\ 0 \end{bmatrix}
-            \right)
-            \]
-            to a basis of \( \mathbb{R}^4 \)
-        </div>
-        <div class="proof">
-            <p>
-                First of all note that these two vectors must be linearly independent, if they were dependent, then the by comparing the first component of these two vectors we would see that the second is twice the first, whereas comparing the second component would tell us that the second vector is \( \frac{3}{2} \) times the first vector, which is a contradiction, so they must be linearly dependent.
-            </p>
-            <p>
-                Since the standard basis for \( \mathbb{R}^4 \) clearly spans it (by it's very definition), then we would also know that
-                \[
-                \left(
-                \begin{bmatrix} -2 \\ -2 \\ 3 \\ 0 \end{bmatrix}, \begin{bmatrix} -4 \\ -3 \\ 6 \\ 0 \end{bmatrix},
-                \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
-                \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix},
-                \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix},
-                \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
-                \right)
-                \]
-                spans all of \( \mathbb{R}^4 \), but cannot be a linearly indpenedent set because it would be impossible to have five linearly independent vectors in \( \mathbb{R}^4 \) (TODO: prove why),
-            </p>
-            <p>
-                Now we can use the casting out method to determine which of the column vectors are linearly dependent on the other vectors, we start by putting all the column vectors as the columns of a matrix and then row reduce, which yields
-            </p>
-            \[
-            \begin{bmatrix}
-            1 & 0 & 0 & -\frac{1}{2} & 10 & 0 \\
-            0 & 1 & 0 & \frac{1}{4} & -\frac{29}{6} & 0 \\
-            0 & 0 & 1 & 0 & \frac{2}{3} & 0 \\
-            0 & 0 & 0 & 0 & 0 & 1
-            \end{bmatrix},
-            \]
-            <p>
-                By the casting out method, we know that since the fourth and fifth columns are non-pivot columns and therefore the vectors \( \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix} \) can be cast out, leaving us with the basis:
-            </p>
-            \[
-            \left(
-            \begin{bmatrix} -2 \\ -2 \\ 3 \\ 0 \end{bmatrix}, \begin{bmatrix} -4 \\ -3 \\ 6 \\ 0 \end{bmatrix},
-            \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix},
-            \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix},
-            \right)
-            \]
-
-        </div>
-    </div>
-
 </div>
-</body>
-</html>
+<div class="definition">
+    <div class="title">
+        representation in a basis
+    </div>
+    <div class="content">
+        <p>Let \( \mathcal{B} = \left \lbrace b_{1} , \ldots , b_{n} \right \rbrace \) be a basis for a subspace \( V \) and let \( v \in V \). The representation of \( v \) in the basis notated by \( \text{wam} \left ( v , \mathcal{B} \right ) \) is the matrix:</p>
+        <div class="centered-content">
+            \( \text{wam} \left ( v , \mathcal{B} \right ) = \left [ \begin{matrix} a_{1} \\ \vdots \\ a_{k} \end{matrix} \right ] \)
+        </div>
+        <p>where \( v = \sum_{i = 1}^{k} a_{i} b_{i} \), note that \( \text{wam} \left ( \cdot , \mathcal{B} \right ) : V \to M_{k \times 1} \left ( \mathbb{R} \right ) \) and wam is an acronym for "written as matrix". We can also define the inverse function \( \text{wav} \left ( \cdot , \mathcal{B} \right ) : M_{k \times 1} \left ( \mathbb{R} \right ) \to V \). Which stands for "written as vector"</p>
+        <p>If a basis is clear by context, then we may omit it and write \( \text{wam} \left ( v \right ) \) or \( \text{wav} \left ( v \right ) \).</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-generating-a-unit-column-matrix">
+    <div class="title">
+        generating a unit column matrix
+    </div>
+    <div class="content">
+        Given a vector space \( V \) with basis \( \mathcal{V} = \left \lbrace v 1 , \ldots , v_{k} \right \rbrace \), then for each element \( i \in \left [ k \right ] \), \( \text{wam} \left ( v_{i} , \mathcal{V} \right ) = e_{i} \)
+    </div>
+    <div class="proof">
+        \( v_{i} = 0 v_{1} + \ldots + 1 v_{i} + \ldots + 0 v_{k} \) therefore by the definition of \( w a m \) we have \( w a m \left ( v_{i} , \mathcal{V} \right ) = e_{i} \)
+    </div>
+</div>
+<div class="definition">
+    <div class="title">
+        uniquely determined
+    </div>
+    <div class="content">
+        Given a vector space \( V \) of dimension \( k \) we say that a vector \( x \) is uniquely determined, when there exists only one collection of constants \( c_{1} , \ldots , c_{k} \) such that \( x = \sum_{i = 1}^{k} c_{i} \cdot v_{i} \) where each \( v_{i} \) is a basis element for the basis of \( V \)
+    </div>
+</div>
+<div class="theorem" id="basis-implies-unique-representation">
+    <div class="title">
+        basis implies unique representation
+    </div>
+    <div class="content">
+        suppose that \( V \) is a vector space and let \( S \) be a non-empty subset of \( V \). Then \( S \) is a basis of \( V \) if and only if every vector \( x \in V \) can be represented uniquely as a linear combination of the vectors in \( S \)
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="theorem" id="theorem-unique-determination">
+    <div class="title">
+        something
+    </div>
+    <div class="content">
+        Let \( T : V \to W \) be a linear transformation between two vector spaces with \( \dim \left ( V \right ) = k \) \( \dim \left ( W \right ) = l \) with \( k , l \in \mathbb{Z}^{+} \). Supposing that \( \left \lbrace v_{1} , \ldots , v_{k} \right \rbrace \) and \( \left \lbrace w_{1} , \ldots , w_{l} \right \rbrace \) are the respective bases, then \( T : V \to W \) is uniquely determined by the \( l \cdot k \) scalars used to express \( T \left ( v_{j} \right ) \) for each \( j \in \left [ k \right ] \) in terms of \( \left \lbrace w_{1} , \ldots , w_{l} \right \rbrace \)
+    </div>
+    <div class="proof">
+        <p>To show that the linear transformation is uniquely determined by these scalars, we will try to use the fact that elements in each vector space are already uniquely determined by their own constants and go from there.</p>
+        <p>Let \( v_{j} \) be one of the basis vectors for \( V \), then consider \( T \left ( v_{j} \right ) \in W \) since it's a vector in \( W \) it can be written as a linear combination of the basis vectors in \( W \), so that \( T \left ( v_{j} \right ) = \sum_{i = 1}^{l} a_{i} w_{i} \).</p>
+        <p>Now given a generic \( x \in V \) which is not necessarily a basis vector, we can represent it as follows \( T \left ( x \right ) = T \left ( \sum_{j = 1}^{k} c_{j} v_{j} \right ) = \sum_{j = 1}^{k} c_{j} T \left ( v_{j} \right ) \) recalling from our previosu paragraph, we can see that \( \sum_{j = 1}^{k} \left ( c_{j} \sum_{i = 1}^{l} a_{i} w_{i} \right ) = \sum_{j = 1}^{k} \sum_{i = 1}^{l} c_{j} a_{i} w_{i} \).</p>
+        <p>The lets us conclude that \( T \left ( x \right ) = \sum_{j = 1}^{k} \sum_{i = 1}^{l} c_{j} a_{i} w_{i} \) and that \( T \) is uniquely determined by these \( l \cdot k \) constants</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-matrix-representation-of-a-transformation">
+    <div class="title">
+        matrix representation of a transformation
+    </div>
+    <div class="content">
+        Let \( T : V \to W \) be a linear transformation, then there exists a matrix \( M_{T} \) such that
+        <div class="centered-content">
+            \( \text{wav} \left ( M_{T} \text{wam} \left ( v \right ) \right ) = T v \)
+        </div>for any \( v \in V \)
+    </div>
+    <div class="proof">
+        <p>To see what the matrix is, we can try to figure out what it's columns are.</p>
+        <p>Recall that we can extract the column of a matrix using the column extraction method discussed earlier</p>
+        <p>To be successful at that we need to generate a unit column matrix. We can do so by plugging in \( v_{k} \in \mathcal{V} \) into the above equation which yields: \( T v_{k} = \text{wav} \left ( M_{T} \text{wam} \left ( v_{k} , \mathcal{V} \right ) \right ) = \text{wav} \left ( M_{T} e_{k} \right ) = \text{wav} \left ( \left ( M_{T} \right )_{\left . \right |} , k \right \rbrace ) \)</p>
+        <p>Thus \( \text{wam} \left ( T v_{k} \right ) = \left ( M_{T} \right )_{\left . \right |} , k \rbrace \), so the columns of \( M_{T} \) are \( T v_{k} \) written as a column matrices. Graphically we have</p>
+        <div class="centered-content">
+            \( M_{T} = \left [ \begin{matrix} \uparrow & \uparrow & \uparrow & \uparrow \\ \text{wam} \left ( T v_{1} \right ) & \text{wam} \left ( T v_{2} \right ) & \ldots & \text{wam} \left ( T v_{k} \right ) \\ \downarrow & \downarrow & \downarrow & \downarrow \end{matrix} \right ] \)
+        </div>
+    </div>
+</div>
+<div class="definition">
+    <div class="title">
+        change of basis matrix
+    </div>
+    <div class="content">
+        let \( \mathcal{V} = \left \lbrace v_{1} , \ldots , v_{k} \right \rbrace \) and \( \mathcal{W} = \left \lbrace w_{1} , \ldots , w_{1} \right \rbrace \) be bases for a vector space \( V \) and \( v \) be an arbitrary element of \( V \). Then the matrix \( M_{\mathcal{V} \to \mathcal{W}} \) such that :
+        <div class="centered-content">
+            \( M_{\mathcal{V} \to \mathcal{W}} \text{wam} \left ( v , \mathcal{V} \right ) = \text{wam} \left ( v , \mathcal{W} \right ) \)
+        </div>is called the change of basis matrix from \( \mathcal{V} \) to \( \mathcal{W} \)
+    </div>
+</div>
+<div class="proposition" id="proposition-linear-idependent-set-expansion-to-basis">
+    <div class="title"></div>
+    <div class="content">
+        Suppose that we have an ordered, linearly independent set \( S : ( s_1, \ldots s_k) \) for some \(k \le n \) of vectors in a finite dimensional vector space \( V \), then it can be extended to a basis of \( V \)
+    </div>
+    <div class="proof">
+        By fixing any new basis of \( V \) (TODO: prove that for any vector space there is always a basis that spans it) \( b_1, \ldots b_n \), then by concatenating it with \(S\) we obtain \( ( s_1, ..., s_k, b_1, ..., b_n ) \). Then for each \( i \in [n] \) (in order) (TODO: this is an algorithm), remove \(v_i\) from the ordered set iff \( v_i \) is in the span of all the earlier elements in the set. In particular, once we have checked and kept \( n - k \) of the \(v - i \) (TODO: say why that's guarenteed), we can discard the remaining \( v_i \), leaving a basis: \[ (s_1, ..., s_k, v_{i_1}, , \ldots v_{i_{n - k}} ) \]
+    </div>
+</div>
+<div class="proposition" id="proposition-every-vector-space-has-a-basis">
+    <div class="title">
+        Every Vector Space has a Basis
+    </div>
+    <div class="content"></div>
+    <div class="proof">
+        TODO <!--            https://math.stackexchange.com/questions/189693/every-vector-space-has-a-basis-proof-using-zorns-lemma-in-linear-algebra-->
+         <!--            https://math.stackexchange.com/questions/466879/prove-that-every-vector-space-has-a-basis-->
+         <!--            https://math.stackexchange.com/questions/4085932/proof-that-every-vector-space-has-a-basis-->
+         <!--            https://math.stackexchange.com/questions/2785769/proof-of-every-finite-dimensional-vector-space-has-a-finite-basis-->
+    </div>
+</div>
+<div class="exercise" id="exercise-extending-a-basis">
+    <div class="title">
+        Extending a Basis
+    </div>
+    <div class="content">
+        Extend the ordered set \[ \left( \begin{bmatrix} -2 \\ -2 \\ 3 \\ 0 \end{bmatrix}, \begin{bmatrix} -4 \\ -3 \\ 6 \\ 0 \end{bmatrix} \right) \] to a basis of \( \mathbb{R}^4 \)
+    </div>
+    <div class="proof">
+        <p>First of all note that these two vectors must be linearly independent, if they were dependent, then the by comparing the first component of these two vectors we would see that the second is twice the first, whereas comparing the second component would tell us that the second vector is \( \frac{3}{2} \) times the first vector, which is a contradiction, so they must be linearly dependent.</p>
+        <p>Since the standard basis for \( \mathbb{R}^4 \) clearly spans it (by it's very definition), then we would also know that \[ \left( \begin{bmatrix} -2 \\ -2 \\ 3 \\ 0 \end{bmatrix}, \begin{bmatrix} -4 \\ -3 \\ 6 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}, \right) \] spans all of \( \mathbb{R}^4 \), but cannot be a linearly indpenedent set because it would be impossible to have five linearly independent vectors in \( \mathbb{R}^4 \) (TODO: prove why),</p>
+        <p>Now we can use the casting out method to determine which of the column vectors are linearly dependent on the other vectors, we start by putting all the column vectors as the columns of a matrix and then row reduce, which yields</p>\[ \begin{bmatrix} 1 & 0 & 0 & -\frac{1}{2} & 10 & 0 \\ 0 & 1 & 0 & \frac{1}{4} & -\frac{29}{6} & 0 \\ 0 & 0 & 1 & 0 & \frac{2}{3} & 0 \\ 0 & 0 & 0 & 0 & 0 & 1 \end{bmatrix}, \]
+        <p>By the casting out method, we know that since the fourth and fifth columns are non-pivot columns and therefore the vectors \( \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix} \) can be cast out, leaving us with the basis:</p>\[ \left( \begin{bmatrix} -2 \\ -2 \\ 3 \\ 0 \end{bmatrix}, \begin{bmatrix} -4 \\ -3 \\ 6 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}, \right) \]
+    </div>
+</div>

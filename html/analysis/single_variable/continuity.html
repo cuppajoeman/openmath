@@ -1,58 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>continuity</title>
-        <link rel="stylesheet" href="../../styles/styles.css">
-        <script src="../../js/script.js" defer></script>
-
-
-		
-
-    </head>
-    <body>
-        <div class="thin-wrapper">
-
-			<div class="definition" id="definition-continuity-of-a-function-at-a-point">
-				<div class="title">continuity of a function at a point</div>
-				<div class="content">
-					We say that a function \( f{:} A \to \mathbb{R} \) is continuous at \( a \) when <span class="knowledge-link" data-href="/analysis/single_variable.html#definition-limit-of-a-function-at-a-point">\( \lim_{x \to a} f{\left ( x \right )} = f{\left ( a \right )} \)</span> 
-				</div>
-			</div>
-
-			<div class="definition" id="definition-continuous-function">
-				<div class="title">continuous function</div>
-				<div class="content">
-					a function \( f{:} A \to \mathbb{R} \) is continuous, when it is <span class="knowledge-link" data-href="/analysis/single_variable/continuity.html#definition-continuity-of-a-function-at-a-point">continuous at each point \( a \in A \)</span>
-				</div>
-			</div>
-
-			<div class="exercise" id="exercise-continuity-equivalence">
-				<div class="title">continuity equivalence</div>
-				<div class="content">
-					\( f \) is <span class="knowledge-link" data-href="/analysis/single_variable/continuity.html#definition-continuity-of-a-function-at-a-point">continuous</span> at \( a \) if and only if \( \lim_{h \to 0} f{\left ( a + h \right )} = f{\left ( a \right )} \)
-				</div>
-
-				<div class="proof">
-
-					<p>
-						Assume that \( f \) is continuous at \( a \),  now we will prove that \( \lim_{h \to 0} f{\left ( a + h \right )} = f{\left ( a \right )} \). To show this limit exists, we refer the the definition of  <span class="knowledge-link" data-href="/analysis\single_variable.html#definition-limit-of-a-function-at-a-point">limit of a function</span>. So let \( \epsilon \in \mathbb{R}^{\gt 0} \), then since \( f \) is continuous at \( a \) then we know there is some \( \delta_{c} \in \mathbb{R}^{\gt 0} \) such that \( \forall x \in d o m \left ( f \right ) , \left | x - a \right |  \lt \delta_{c} \implies \left | f{\left ( x \right )} - f{\left ( a \right )} \right |  \lt \epsilon \).
-					</p>
-					<p>
-						We need to prove that there is some \( \delta \in \mathbb{R}^{\gt 0} \) such that \( \forall h \in d o m \left ( f \right ) , \left | h - 0 \right |  \lt \delta \implies \left | f{\left ( a + h \right )} - f{\left ( a \right )} \right |  \lt \epsilon \), so suppose that \( h \in \text{dom} \left ( f \right ) \), thus we can also consider the value of \( h + a \in \text{dom} \left ( f \right ) \). Thus by the assumption of continuity, as it holds for all \( x \) in \( \text{dom} \left ( f \right ) \) then \( \left | \left ( h + a \right ) - a \right |  \lt \delta_{c} \implies \left | f{\left ( a + h \right )} - f{\left ( a \right )} \right |  \lt \epsilon \), therefore taking \( \delta = \delta_{c} \) will complete this direction of the proof.
-					</p>
-					<p>
-						Now we work in the other direction, first assuming that  \( \lim_{h \to 0} f{\left ( a + h \right )} = f{\left ( a \right )} \) and trying to show that \( f \) is continuous at \( a \), so let \( \epsilon_{c} \in \mathbb{R}^{\gt 0} \), thus since the aformentioned limit exists, then we have some \( \delta \in \mathbb{R}^{\gt 0} \) such that \( \forall h \in \text{dom} \left ( f \right ) , \left | h - 0 \right |  \lt \delta \implies \left | f{\left ( h + a \right )} - f{\left ( a \right )} \right |  \lt \epsilon_{c} \).
-					</p>
-					<p>
-						Working in s similar fashion as in our first direction, we consider the value \( x - a \in \text{dom} \left ( f \right ) \), since the latter statement in the previous paragraph is for all \( h \in \text{dom} \left ( f \right ) \), we can consider \( h = x - a \), which says that \( \left | x - a - 0 \right |  \lt \delta \implies \left | f{\left ( x - a + a \right )} - f{\left ( a \right )} \right |  \lt \epsilon_{c} \) which is equivalent to \( \left | x - a \right |  \lt \delta \implies \left | f{\left ( x \right )} - f{\left ( a \right )} \right |  \lt \epsilon_{c} \), which is exactly what we wanted to prove.
-					</p>
-				</div>
-			</div>
-			
-
-        </div>
-    </body>
-</html>
+<div class="definition" id="definition-continuity-of-a-function-at-a-point">
+    <div class="title">
+        continuity of a function at a point
+    </div>
+    <div class="content">
+        We say that a function \( f{:} A \to \mathbb{R} \) is continuous at \( a \) when <span class="knowledge-link" data-href="/analysis/single_variable.html#definition-limit-of-a-function-at-a-point">\( \lim_{x \to a} f{\left ( x \right )} = f{\left ( a \right )} \)</span>
+    </div>
+</div>
+<div class="definition" id="definition-continuous-function">
+    <div class="title">
+        continuous function
+    </div>
+    <div class="content">
+        a function \( f{:} A \to \mathbb{R} \) is continuous, when it is <span class="knowledge-link" data-href="/analysis/single_variable/continuity.html#definition-continuity-of-a-function-at-a-point">continuous at each point \( a \in A \)</span>
+    </div>
+</div>
+<div class="exercise" id="exercise-continuity-equivalence">
+    <div class="title">
+        continuity equivalence
+    </div>
+    <div class="content">
+        \( f \) is <span class="knowledge-link" data-href="/analysis/single_variable/continuity.html#definition-continuity-of-a-function-at-a-point">continuous</span> at \( a \) if and only if \( \lim_{h \to 0} f{\left ( a + h \right )} = f{\left ( a \right )} \)
+    </div>
+    <div class="proof">
+        <p>Assume that \( f \) is continuous at \( a \), now we will prove that \( \lim_{h \to 0} f{\left ( a + h \right )} = f{\left ( a \right )} \). To show this limit exists, we refer the the definition of <span class="knowledge-link" data-href="/analysis\single_variable.html#definition-limit-of-a-function-at-a-point">limit of a function</span>. So let \( \epsilon \in \mathbb{R}^{\gt 0} \), then since \( f \) is continuous at \( a \) then we know there is some \( \delta_{c} \in \mathbb{R}^{\gt 0} \) such that \( \forall x \in d o m \left ( f \right ) , \left | x - a \right | \lt \delta_{c} \implies \left | f{\left ( x \right )} - f{\left ( a \right )} \right | \lt \epsilon \).</p>
+        <p>We need to prove that there is some \( \delta \in \mathbb{R}^{\gt 0} \) such that \( \forall h \in d o m \left ( f \right ) , \left | h - 0 \right | \lt \delta \implies \left | f{\left ( a + h \right )} - f{\left ( a \right )} \right | \lt \epsilon \), so suppose that \( h \in \text{dom} \left ( f \right ) \), thus we can also consider the value of \( h + a \in \text{dom} \left ( f \right ) \). Thus by the assumption of continuity, as it holds for all \( x \) in \( \text{dom} \left ( f \right ) \) then \( \left | \left ( h + a \right ) - a \right | \lt \delta_{c} \implies \left | f{\left ( a + h \right )} - f{\left ( a \right )} \right | \lt \epsilon \), therefore taking \( \delta = \delta_{c} \) will complete this direction of the proof.</p>
+        <p>Now we work in the other direction, first assuming that \( \lim_{h \to 0} f{\left ( a + h \right )} = f{\left ( a \right )} \) and trying to show that \( f \) is continuous at \( a \), so let \( \epsilon_{c} \in \mathbb{R}^{\gt 0} \), thus since the aformentioned limit exists, then we have some \( \delta \in \mathbb{R}^{\gt 0} \) such that \( \forall h \in \text{dom} \left ( f \right ) , \left | h - 0 \right | \lt \delta \implies \left | f{\left ( h + a \right )} - f{\left ( a \right )} \right | \lt \epsilon_{c} \).</p>
+        <p>Working in s similar fashion as in our first direction, we consider the value \( x - a \in \text{dom} \left ( f \right ) \), since the latter statement in the previous paragraph is for all \( h \in \text{dom} \left ( f \right ) \), we can consider \( h = x - a \), which says that \( \left | x - a - 0 \right | \lt \delta \implies \left | f{\left ( x - a + a \right )} - f{\left ( a \right )} \right | \lt \epsilon_{c} \) which is equivalent to \( \left | x - a \right | \lt \delta \implies \left | f{\left ( x \right )} - f{\left ( a \right )} \right | \lt \epsilon_{c} \), which is exactly what we wanted to prove.</p>
+    </div>
+</div>

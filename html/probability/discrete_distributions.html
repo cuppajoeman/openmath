@@ -1,137 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Discrete Distributions</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js"></script>
-</head>
-<body>
-
-<div class="thin-wrapper">
-
-    <div class="definition" id="definition-probability-mass-function">
-    	<div class="title">Probability Mass Function</div>
-    	<div class="content">
-    		Suppose that \( X \) is a discrete random varaible, then the <b>probability mass function</b> of \( X \) is defined by the function \( p : \mathbb{ R } \to \left[ 0, 1 \right]  \)
-            \[
-                p _ X \left( x \right) = P \left( X = x \right)
-            \]
-    	</div>
+<div class="definition" id="definition-probability-mass-function">
+    <div class="title">
+        Probability Mass Function
     </div>
-
-
-    <div class="definition" id="definition-bernoulli-random-variable">
-        <div class="title">Bernoulli Random Variable</div>
-        <div class="content">
-            We say that a random variable \( X \) is a <b>Bernoulli random varaible</b> iff there is some \( p \in \left[ 0, 1 \right]  \)
-            \[
-            P \left( X = 1 \right) = p \qquad \text{ and } \qquad P \left( X = 0 \right) = 1 - p
-            \]
-            we denote this symbolically as \( X \sim \operatorname{ bern } \left( p \right)  \)
-        </div>
+    <div class="content">
+        Suppose that \( X \) is a discrete random varaible, then the <b>probability mass function</b> of \( X \) is defined by the function \( p : \mathbb{ R } \to \left[ 0, 1 \right] \) \[ p _ X \left( x \right) = P \left( X = x \right) \]
     </div>
-
-    <div class="corollary" id="corollary-expected-value-of-a-bernoulli-random-variable">
-        <div class="title">Expected Value of a Bernoulli Random Variable</div>
-        <div class="content">
-            Suppose \( X \sim \operatorname{ bern } \left( p \right)   \) then
-            \[
-            E \left( X \right) = p
-            \]
-        </div>
-        <div class="proof">
-
-            \[
-            E \left( X \right) = P \left( X = 1 \right) \cdot 1 + P \left( X = 0 \right) \cdot 0 = p \cdot 1
-            \]
-        </div>
+</div>
+<div class="definition" id="definition-bernoulli-random-variable">
+    <div class="title">
+        Bernoulli Random Variable
     </div>
-
-
-
-    <div class="definition" id="definition-binomial-distribution">
-        <div class="title">Binomial Distribution</div>
-        <div class="content">
-            The random varialbe \( X \) is said to have a binomial distribution on \( n \) trials, with probability of success per trial \( p \) iff
-            \[
-            X \stackrel{d}{=} Z _ 1 + Z _ 2 + \cdots + Z _ n
-            \]
-            where \( Z _ 1, \ldots , Z _ n \text{ IID } Z _ i \sim \operatorname{ bern } \left( p \right)  \) 
-        </div>
+    <div class="content">
+        We say that a random variable \( X \) is a <b>Bernoulli random varaible</b> iff there is some \( p \in \left[ 0, 1 \right] \) \[ P \left( X = 1 \right) = p \qquad \text{ and } \qquad P \left( X = 0 \right) = 1 - p \] we denote this symbolically as \( X \sim \operatorname{ bern } \left( p \right) \)
     </div>
-
-    <div class="corollary" id="corollary-expected-value-of-the-binomial-distribution">
-    	<div class="title">Expected Value of the Binomial Distribution</div>
-    	<div class="content">
-    		Suppose that \( X \sim \operatorname{ binom } \left( n, p \right)  \) then
-            \[
-                E \left( X \right) = np
-            \]
-    	</div>
-    	<div class="proof">
-
-    	</div>
+</div>
+<div class="corollary" id="corollary-expected-value-of-a-bernoulli-random-variable">
+    <div class="title">
+        Expected Value of a Bernoulli Random Variable
     </div>
-    
-    <div class="proposition" id="proposition-probability-mass-function-of-the-binomial-distribution">
-    	<div class="title">Probability Mass Function of the Binomial Distribution</div>
-    	<div class="content">
-    		Suppose \( X \sim \operatorname{ binom } \left( n, p \right)   \) then 
-            \[
-                p _ X \left( k \right) = \binom{n}{k} p ^ k \left( 1 - p \right)  ^ { n - k } 
-            \]
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
+    <div class="content">
+        Suppose \( X \sim \operatorname{ bern } \left( p \right) \) then \[ E \left( X \right) = p \]
     </div>
-
-    <p>
-        Note that \( p _  X \left( k \right)  \) represents the probability of getting exactly \( k \) successes in \( n \) independent Bernouilli trials each with the same probability.
-    </p>
-    
-    <div class="exercise" id="exercise-coin-counting">
-    	<div class="title">Coin Counting</div>
-    	<div class="content">
-    		A coin is tossed 12 times and 7 heads occur
-            <ul>
-                <li>Determine the probability that the 7th head occurs on the 12th toss given that there are exactly 7 heads in these 12 tosses</li>
-                <li>Now determine the probability that the 6th head occurs on the 9th toss given that there are exactly 7 heads in the first 12 tosses</li>
-                <li>Finally determine the probability that the 2nd head toss occurs on the 4th toss and the 6th head occurs on the 9th toss given that there are exactly 7 heads in the first 12 tosses</li>
-            </ul>
-    	</div>
-    	<div class="proof">
-            <p>
-               Let \( A \)  be the event that the 7th head is on the 12th toss, and \( B \) the event that there are exactly 7 heads in these 12 tosses. In this case our goal is to determine \( P \left( A \mid B \right) = \frac{P \left( A \cap B \right) }{P \left( B \right) }   \), note that the event \( A \) is equal to \( X = k \) where \( X \sim \operatorname{ binom } \left( 12, \frac{1}{2}   \right)  \), and thus \( P \left( X = 7 \right) = \binom{12}{7} \left( \frac{1}{2}  \right) ^ 7 \left( \frac{1}{2}  \right) ^ 5    \).
-            </p>
-            <p>
-                Let's now try to compute \( P \left( A \cap B \right)  \) which is the probability of getting the 7th head on the 12th toss and exactly 7 heads in those 12 tosses. Note that by getting the 7th head on the 12th toss means that in the first 11 tosses exactly 6 heads occurred in any order, and then independently of that you do your last toss so that 
-                \[
-                    P \left( A \cap B \right) =  \left( \binom{11}{6} \left( \frac{1}{2}  \right) ^ 6 \left( \frac{1}{2} \right)  ^ 5  \right) \cdot \frac{1}{2}
-                \]
-            </p>
-            <p>
-                Now that we've computed the values of \( P \left( A \cap B \right)  \) along with \( P \left( B \right)  \) we divide them to get the answer.
-            </p>
-            <hr>
-            <p>
-                Let's take a similar approach where this time \( C, D \) are the events that the 6th head is on 9th toss and there exactly 7 heads in these 12 tosses respectively, so that our goal is to compute \( P \left( C \mid D \right)  \). Recall that we can compute that via \( P \left( C \mid D \right) = \frac{P \left( C \cap D \right) }{P \left( D \right) }   \), but we know what \( P \left( D \right)  \) is from our previous answer, as that was \( P \left( B \right)  \), therefore we just need a way to compute \( P \left( C \cap D \right)  \).
-            </p>
-            <p>
-                \( P \left( C \cap D \right)  \) is the probability that the 6th head is on the 9th toss and there are exactly 7 heads in 12 tosses. We can break this up into two parts, the first being that you have to get exactly 5 heads in the first 8 tosses, then land another head on the 9th toss and then get exactly 1 head in the last 3 tosses, therefore this probability is given by
-                \[
-                    \left( \binom{8}{5} \left( \frac{1}{2}  \right) ^ 5 \left( \frac{1}{2}  \right) ^ 3   \right) \cdot \frac{1}{2} \cdot \left( \binom{3}{1} \left( \frac{1}{2}  \right) ^ 1 \left( \frac{1}{2}  \right) ^ 2   \right)
-                \]
-            </p>
-            <hr>
-            <p>
-                Similarly to the previous two questions, we use the definition of conditional probability to write it as a fraction, we will only need to focus on the numerator which is the probability that the 2nd head occurs on the 4th toss and the 6th head occurs on the 9th toss and that there are exactly 7 heads in the first 12 tosses. It can be handled similarly to the above by splitting it into separate binomial computations.
-            </p>
-    	</div>
+    <div class="proof">
+        \[ E \left( X \right) = P \left( X = 1 \right) \cdot 1 + P \left( X = 0 \right) \cdot 0 = p \cdot 1 \]
     </div>
-
-<!--    <div class="definition" id="definition-bernouilli-distribution">-->
+</div>
+<div class="definition" id="definition-binomial-distribution">
+    <div class="title">
+        Binomial Distribution
+    </div>
+    <div class="content">
+        The random varialbe \( X \) is said to have a binomial distribution on \( n \) trials, with probability of success per trial \( p \) iff \[ X \stackrel{d}{=} Z _ 1 + Z _ 2 + \cdots + Z _ n \] where \( Z _ 1, \ldots , Z _ n \text{ IID } Z _ i \sim \operatorname{ bern } \left( p \right) \)
+    </div>
+</div>
+<div class="corollary" id="corollary-expected-value-of-the-binomial-distribution">
+    <div class="title">
+        Expected Value of the Binomial Distribution
+    </div>
+    <div class="content">
+        Suppose that \( X \sim \operatorname{ binom } \left( n, p \right) \) then \[ E \left( X \right) = np \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-probability-mass-function-of-the-binomial-distribution">
+    <div class="title">
+        Probability Mass Function of the Binomial Distribution
+    </div>
+    <div class="content">
+        Suppose \( X \sim \operatorname{ binom } \left( n, p \right) \) then \[ p _ X \left( k \right) = \binom{n}{k} p ^ k \left( 1 - p \right) ^ { n - k } \]
+    </div>
+    <div class="proof"></div>
+</div>
+<p>Note that \( p _ X \left( k \right) \) represents the probability of getting exactly \( k \) successes in \( n \) independent Bernouilli trials each with the same probability.</p>
+<div class="exercise" id="exercise-coin-counting">
+    <div class="title">
+        Coin Counting
+    </div>
+    <div class="content">
+        A coin is tossed 12 times and 7 heads occur
+        <ul>
+            <li>Determine the probability that the 7th head occurs on the 12th toss given that there are exactly 7 heads in these 12 tosses</li>
+            <li>Now determine the probability that the 6th head occurs on the 9th toss given that there are exactly 7 heads in the first 12 tosses</li>
+            <li>Finally determine the probability that the 2nd head toss occurs on the 4th toss and the 6th head occurs on the 9th toss given that there are exactly 7 heads in the first 12 tosses</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>Let \( A \) be the event that the 7th head is on the 12th toss, and \( B \) the event that there are exactly 7 heads in these 12 tosses. In this case our goal is to determine \( P \left( A \mid B \right) = \frac{P \left( A \cap B \right) }{P \left( B \right) } \), note that the event \( A \) is equal to \( X = k \) where \( X \sim \operatorname{ binom } \left( 12, \frac{1}{2} \right) \), and thus \( P \left( X = 7 \right) = \binom{12}{7} \left( \frac{1}{2} \right) ^ 7 \left( \frac{1}{2} \right) ^ 5 \).</p>
+        <p>Let's now try to compute \( P \left( A \cap B \right) \) which is the probability of getting the 7th head on the 12th toss and exactly 7 heads in those 12 tosses. Note that by getting the 7th head on the 12th toss means that in the first 11 tosses exactly 6 heads occurred in any order, and then independently of that you do your last toss so that \[ P \left( A \cap B \right) = \left( \binom{11}{6} \left( \frac{1}{2} \right) ^ 6 \left( \frac{1}{2} \right) ^ 5 \right) \cdot \frac{1}{2} \]</p>
+        <p>Now that we've computed the values of \( P \left( A \cap B \right) \) along with \( P \left( B \right) \) we divide them to get the answer.</p>
+        <hr>
+        <p>Let's take a similar approach where this time \( C, D \) are the events that the 6th head is on 9th toss and there exactly 7 heads in these 12 tosses respectively, so that our goal is to compute \( P \left( C \mid D \right) \). Recall that we can compute that via \( P \left( C \mid D \right) = \frac{P \left( C \cap D \right) }{P \left( D \right) } \), but we know what \( P \left( D \right) \) is from our previous answer, as that was \( P \left( B \right) \), therefore we just need a way to compute \( P \left( C \cap D \right) \).</p>
+        <p>\( P \left( C \cap D \right) \) is the probability that the 6th head is on the 9th toss and there are exactly 7 heads in 12 tosses. We can break this up into two parts, the first being that you have to get exactly 5 heads in the first 8 tosses, then land another head on the 9th toss and then get exactly 1 head in the last 3 tosses, therefore this probability is given by \[ \left( \binom{8}{5} \left( \frac{1}{2} \right) ^ 5 \left( \frac{1}{2} \right) ^ 3 \right) \cdot \frac{1}{2} \cdot \left( \binom{3}{1} \left( \frac{1}{2} \right) ^ 1 \left( \frac{1}{2} \right) ^ 2 \right) \]</p>
+        <hr>
+        <p>Similarly to the previous two questions, we use the definition of conditional probability to write it as a fraction, we will only need to focus on the numerator which is the probability that the 2nd head occurs on the 4th toss and the 6th head occurs on the 9th toss and that there are exactly 7 heads in the first 12 tosses. It can be handled similarly to the above by splitting it into separate binomial computations.</p>
+    </div>
+</div><!--    <div class="definition" id="definition-bernouilli-distribution">-->
 <!--        <div class="title">Bernouilli Distribution</div>-->
 <!--        <div class="content">-->
 <!--            We say that a random variable \( X \) is said to have the Bernouilli distribution, and write \( X \sim \operatorname{ Bernouilli } \left( \theta \right)  \) whenever-->
@@ -140,374 +83,185 @@
 <!--            \]-->
 <!--        </div>-->
 <!--    </div>-->
-
-    <p>
-        Consider flipping a coin that has probability \( \theta \) of coming up heads and \( 1 - \theta \) of coming up tails, then the random variable which evalutes to 1 if the coin is heads, and 0 if the coin is tails has the bernouilli distribution
-    </p>
-
-    <div class="definition" id="definition-poisson-distribution">
-    	<div class="title">Poisson Distribution</div>
-    	<div class="content">
-    		The random variable \( N \) is said to have a <b>poisson distribution</b> with average number of successes \( \lambda \in \mathbb{ R } ^ { \gt 0 }  \) iff
-            \[
-                P \left( N = k \right) = e ^ { - \lambda  } \frac{\lambda ^ k}{k !}
-            \]
-            where \( k \in \mathbb{ N } _ 0 \). We write \( N \sim \operatorname{ pois } \left( \lambda  \right)  \)
-    	</div>
+<p>Consider flipping a coin that has probability \( \theta \) of coming up heads and \( 1 - \theta \) of coming up tails, then the random variable which evalutes to 1 if the coin is heads, and 0 if the coin is tails has the bernouilli distribution</p>
+<div class="definition" id="definition-poisson-distribution">
+    <div class="title">
+        Poisson Distribution
     </div>
-
-    <div class="theorem" id="theorem-poisson-as-a-limit-of-binomial">
-    	<div class="title">Poisson as a Limit of Binomial</div>
-    	<div class="content">
-
-            For any \(  i \in \mathbb{ N }  \) suppose we have some \( p _ i \in \left[ 0, 1 \right]  \), then define \( \lambda _ i = i \cdot p _ i  \). Moreover suppose we have some \( X _ i \sim \operatorname{ binom } \left( i, p _ i \right)   \). If \( \lim _ { k \to \infty  } \lambda _ k \) exists denote it by \( \lambda  \) and we have:
-            \[
-                P \left( N =  k \right) = \lim _ { n \to \infty  } P \left( X _ i = k \right)
-            \]
-            where \( N \sim \operatorname{ pois } \left( \lambda  \right)  \)
-
-    	</div>
-    	<div class="proof">
-            \[
-                \begin{align}
-                    P \left( X _ n = k \right) &= \binom{n}{k} p _ n ^ k \left( 1 - p _ n \right) ^ {  n - k } \\
-            &= \binom{n}{k} \left( \frac{\lambda _ n }{n}  \right)  ^ k \left( 1 - \frac{\lambda _ n }{n}  \right) ^ {  n - k } \\
-            &= \frac{n \left( n - 1 \right) \cdots \left( n - k + 1 \right) }{k \left( k - 1 \right) \cdots 1} \left( \frac{\lambda _ n}{n}  \right) ^ k \left( 1 - \frac{\lambda _ n}{n}  \right) ^ { n - k }  \\
-            &= \left( 1 - \frac{\lambda _ n}{n}  \right) ^ n \frac{\lambda _ n ^ k}{k!}  \cdot \left( \frac{\frac{n \left( n - 1 \right) \cdots \left( n - k - 1 \right)  }{ n ^ k} }{ \left( 1 - \frac{\lambda _ n}{n}  \right) ^ k }  \right) \\
-            &= \left( 1 - \frac{\lambda _ n}{n}  \right) ^ n \frac{\lambda _ n ^ k}{k!}  \cdot \left( \frac{\left( 1 - \frac{1}{n}  \right) \cdots \left( 1 - \frac{k - 1}{n}  \right) }{ \left( 1 - \frac{\lambda _ n}{n}  \right) \cdots \left( 1 - \frac{\lambda _ n}{n}  \right)  }  \right)
-                \end{align}
-            \]
-            
-            Note that as \( n \to \infty  \) we see that \( 1 - \frac{\lambda _ n}{ n} \to 1 \) and \( 1 - \frac{x}{n} \to  1 \) where \( x \in \mathbb{ R }  \) so that
-            \[
-            \left( \frac{\left( 1 - \frac{1}{n}  \right) \cdots \left( 1 - \frac{k - 1}{n}  \right) }{ \left( 1 - \frac{\lambda _ n}{n}  \right) \cdots \left( 1 - \frac{\lambda _ n}{n}  \right)  }  \right) \to 1
-            \]
-            therefore as \( n \to \infty  \) we have that
-            \[
-                P \left( X _ n = k \right) \to e ^ { - \lambda  } \frac{\lambda ^ k}{k !}
-            \]
-    	</div>
+    <div class="content">
+        The random variable \( N \) is said to have a <b>poisson distribution</b> with average number of successes \( \lambda \in \mathbb{ R } ^ { \gt 0 } \) iff \[ P \left( N = k \right) = e ^ { - \lambda } \frac{\lambda ^ k}{k !} \] where \( k \in \mathbb{ N } _ 0 \). We write \( N \sim \operatorname{ pois } \left( \lambda \right) \)
     </div>
-
-    <p>
-        This also allows us to compute a binomial with a large \( n \) by approximating it with a poisson.
-    </p>
-
-    <div class="definition" id="definition-number-of-trials-until-success-as-a-random-variable">
-    	<div class="title">Number of Trials until Success as a Random Variable</div>
-    	<div class="content">
-            Suppose we have \( \left( Z _ n \right), n \in \mathbb{ N } _ 1  \) such that \( Z _ i \sim \operatorname{ bern } \left( p \right)  \), then we may recursively define the function \( T _ i : \mathbb{ N } _ 1 \to \mathbb{ N } _ 1  \) as
-            \[
-                T _ 1 = \min \left( \left\{ n \in \mathbb{ N } : Z _ n = 1 \right\}  \right)
-            \]
-            and for any \(  k \ge 2 \)
-            \[
-                T _ k = \min \left( \left\{ n \in \mathbb{ N } _ 1 : Z _ n = 1 \right\} \setminus \left\{ T _ 1, \ldots T _ { k - 1 }  \right\}   \right)
-            \]
-            where \( T _ k \) is said to count the number of trials required until and include the \( k \)-th success.
-    	</div>
-    </div>
-
-    <p>
-        To best understand the above definition consider the sequence \( \left( Z _ n = 1 \right), n \in \mathbb{ N } _ 1  \) which may be of the form \( \left( 0, 0, 1, 0, 1, 0, 0, 1, \ldots \right)  \) and note that \( T _ 1 = \min \left( \left\{ 3, 5, 8 \right\}  \right) = 3  \), to determine \( T _ 2 \) we have \( \min \left( \left\{ 3, 5, 8 \right\} \setminus \left\{ 3 \right\}  \right) = 5 \) and so on. In this way the formula removes the previous \( k - 1 \) instances to find the \( k \)th instance.
-    </p>
-
-    <div class="proposition" id="proposition-t-sub-k-equivalence">
-    	<div class="title">\( T _ k = n \) Equivalence</div>
-    	<div class="content">
-            For any \( n \in \mathbb{ N } _ 1  \) we have:
-            \[
-                T _ k = n \iff \sum _ { i = 1 }  ^  {  n- 1 } Z _ i = k - 1 \land Z _ n = 1
-            \]
-    	</div>
-    	<div class="proof">
-            
-    	</div>
-    </div>
-
-
-
-    <div class="definition" id="definition-negative-binomial">
-    	<div class="title">Negative Binomial</div>
-    	<div class="content">
-    		The random variable \( Y \) is said to have a <b>negative binomial</b> distribution on \( k \) successes each with probability \( p \) iff 
-            \[
-                Y \stackrel{d}{=} T _ k
-            \]
-            and we denote this as \( Y \sim \operatorname{ negbin } \left( k, p \right)  \) 
-    	</div>
-    </div>
-    
-    <div class="proposition" id="proposition-probability-mass-function-of-the-negative-binomial-distribution">
-    	<div class="title">Probability Mass Function of the Negative Binomial Distribution</div>
-    	<div class="content">
-    		Suppose that \( Y \sim \operatorname{ negbin } \left( k, p \right)  \) for \( k \in \mathbb{ N } _ 1 \), \( p \in \left( 0, 1 \right]  \)  then for any \( n \in \left\{ k, k + 1, k + 2, \ldots  \right\}   \)
-            \[
-                P \left( Y = n \right) = \binom{n - 1}{k - 1} p ^ k \left( 1 - p \right) ^ { n - k }
-            \]
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
-    </div>
-
-    <div class="definition" id="definition-geometric-distribution">
-    	<div class="title">Geometric Distribution</div>
-    	<div class="content">
-    		We say that the random variable \( W \) has a geometric distribution denoted by \( W \sim \operatorname{ geo } \left( p \right)  \) where \( p \in \left( 0, 1 \right]  \) when
-            \[
-                W \stackrel{d}{=} T _ 1
-            \]
-    	</div>
-    </div>
-
-    
-    
-
-    <div class="exercise" id="exercise-large-number-of-tossed-coins">
-    	<div class="title">Large Number of Tossed Coins</div>
-    	<div class="content">
-            A coin is tossed 1000 statistically independent times and exactly 3 heads occurs.
-            <ul>
-                <li>
-                    If we toss it 1000 times more, and let \(N\) denote the number of heads we might get this time, estimate the probability that \(N\) is anywhere between 1 and 5. [hint: \(e^3 \approx 20.1\)]
-                </li>
-                <li>
-                    Suppose now we toss the coin \(1000 x\) times and let \(N_x\) denote the number of heads in \(1000 x\) tosses and \(T_1\) the random number of trials until we obtain the first head. How large does \(x\) have to be so that \(P\left(T_1 \gt x\right)=1 / 2\) ?
-                </li>
-                <li>
-                    Now determine the probability that the \(2 n d\) head occurs between 750 and 1250 tosses.
-                </li>
-            </ul>
-    	</div>
-    	<div class="proof">
-            <p>
-                This situation is perfectly modelled by the binomial distribution, (\( N \sim \operatorname{ binom } \left( 1000, \frac{1}{2}  \right)   \) ) it's just that it's hard to compute the binomial distribution for large values. Therefore we can employ an approximation using the poisson distribution as discussed previously, we want to know \( P \left( N \in \left\{ 1, 2, 3, 4, 5 \right\}  \right) = P \left( N = 1 \right) + P \left( N = 2 \right) + P \left( N = 3 \right) + P \left( N = 4 \right) + P \left( N = 5 \right)     \) and we can approximate each such value, using \( \lambda = 1000 \cdot \frac{1}{2} = 500 \)
-            </p>
-            <ul>
-                <li>\( P \left( N = 1 \right) \approx e ^ { - 500 } \frac{500 ^ 1}{1}  \) </li>
-                <li>\( P \left( N = 2 \right) \approx e ^ { - 500 } \frac{500 ^ 2}{2}  \) </li>
-                <li>...</li>
-                <li>\( P \left( N = 5 \right) \approx e ^ { - 500 } \frac{500 ^ 5}{5}  \) </li>
-            </ul>
-            <p>
-                Therefore by adding all these numbers together we obtain an estimation on the probability of \( N \) being anywhere between 1 and 5.
-            </p>
-            <hr>
-            <p>
-                We want to determine a value for \( x \) such that \( P \left( T _ 1 \gt x \right) = \frac{1}{2}   \), to understand this concretely if \( x = 5 \) then \( P \left( T _ 1 \gt 5 \right)  \) asks "what is the probability of getting our first head after 5 tosses of the coin")
-            </p>
-
-    	</div>
-    </div>
-
-    <div class="exercise" id="exercise-poisson-process">
-    	<div class="title">Poisson Process</div>
-    	<div class="content">
-            Suppose that \(\left(T_n, n \in \mathbb{N}\right)\) is a poisson process with \(T_n \sim G\left(n, \lambda^{-1}\right)\) and let \(\quad U=\frac{T_3}{T_8} \quad \& \quad V=\frac{T_3}{T_8-T_3} . \quad\) Determine the following.
-            <ul>
-                <li>
-                    \(E U\) and \(\sigma(U)\).
-                </li>
-                <li>
-                    \(E V\) and \(\sigma(V)\).
-                </li>
-                <li>
-                    \(P( U \gt 1 / 2)\).
-                </li>
-            </ul>
-    	</div>
-    	<div class="proof">
-            Recall that \( E \left( T _ n \right) = \frac{n}{\lambda }   \) as this is the formula for the expected value for the gamma distribution. Also if a random varaible \( X \sim \operatorname{ gamma } \left( p, \theta  \right)  \) then we have \( E \left( X ^ { -1 }  \right) = \frac{1}{\theta \left( p - 1 \right) }   \) if \( p \gt 1 \). Thus we have 
-            \[
-                E \left( \frac{T _ 8}{T _ 3}  \right) = E \left( T _ 8 \cdot \frac{1}{T _ 3} \right)
-            \]
-
-            Since the sequence \( T _ n \) is IID (why is that idk) then we can say
-            \[
-                E \left( T _ 8 \cdot \frac{1}{T _ 3}  \right) = E \left( T _ 8 \right) \cdot E \left( \frac{1}{T _ 3} \right) = \frac{8}{\lambda } \cdot \frac{1}{\frac{1}{\lambda } \left( 3 - 1 \right) } = 4
-            \]
-
-    	</div>
-    </div>
-    
-    
-    <div class="proposition" id="proposition-fundamental-properties-of-covariance">
-    	<div class="title">Fundamental Properties of Covariance</div>
-    	<div class="content">
-    		Let \( X, Y, Z \) be random variables and \( c \in \mathbb{ R }  \) then we have
-            <ul>
-                <li>\( \operatorname{ Var }  \left( X \right) = \operatorname{ Cov } \left( X, X \right)  \) </li>
-                <li>\( \operatorname{ Cov } \left( c X, Y \right) = c \cdot \operatorname{ Cov } \left( X, Y \right) = \operatorname{ Cov } \left( X, c Y \right)   \) </li>
-                <li>\( \operatorname{ Cov } \left( X + Y, Z \right) = \operatorname{ Cov } \left( X, Z \right) + \operatorname{ Cov } \left( Y, Z \right)  \) </li>
-                <li>\( \operatorname{ Cov } \left( X, Y + Z \right) = \operatorname{ Cov } \left( X, Y \right) + \operatorname{ Cov } \left( X, Z \right)    \) </li>
-                <li>\( \operatorname{ Cov } \left( X, Y \right) = \operatorname{ Cov } \left( Y, X \right)  \) </li>
-                <li>\( \operatorname{ Cov } \left( X, c \right) = 0 \) </li>
-            </ul>
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
-    </div>
-    
-    
-    <div class="exercise" id="exercise-covariance-equations">
-    	<div class="title">Covariance Equations</div>
-    	<div class="content">
-            For any \(\mathbb{R}\)-valued \(X\) and \(Y\) and any scalars \(s\) and \(t\) consider the simple difference \(W=Y-(s+t X)\). But, if \(E W=0=\operatorname{cov}(X, W)\) this will determine \(s\) and \(t\).
-            <ul>
-                <li>
-                    Assuming that \(E X=E Y=\operatorname{var} X=\operatorname{var} X=1\) and \(\operatorname{cov}(X, Y)=1 / 2\) determine two simultaneous equations thus to obtain the unique \(\alpha\) and \(\beta\) such that
-                    \[
-                    Y=\alpha+\beta X+W \quad \text { and } \quad E \left( W \right) =0=\operatorname{cov}(X, W) .
-                    \]
-                </li>
-                <li>
-                    Now supposing that \(X \sim \operatorname{gamma}(p=3, \theta=2)\) and \(Y=X^{-1}\), determine \(\alpha\) and \(\beta\)
-                </li>
-                <li>
-                    For the assumptions in b), determine the correlation coefficient \(\rho(\alpha+\beta X, Y)\).
-                </li>
-            </ul>
-    	</div>
-    	<div class="proof">
-            Before doing anything else we consider the following 
-            \[
-            \begin{align}
-            \operatorname{ Cov } \left( Y, W \right) &= \operatorname{ Cov } \left( Y, Y - \left( s + t X \right)  \right) \\
-            &= \operatorname{ Cov } \left( Y, Y \right) - \operatorname{ Cov } \left( Y, s + tX \right) \\
-            &= \operatorname{ Var } \left( Y \right)  - t \operatorname{ Cov } \left( Y, X \right) \\
-            &= 1  - t \frac{1}{2}  \\
-            \end{align}
-            \]
-            We did this because we knew that the properties of co-variance would result in some expression where some of the sub-expressions are the same as the ones we know information about.
-            One thing that we require is that \( E \left( W \right) = 0  \), we see that
-            \[
-                E \left( W \right) = E \left( Y - \left( s + t X \right)  \right) = E \left( Y \right) - s - t E \left( X \right) = 0
-            \]
-            So we conclude that \( s = E \left( Y \right) - t E \left( X \right)  \). We also need that \( \operatorname{ Cov } \left( X, W \right) = 0 \) that is to say
-            \[
-            \begin{align}
-            \operatorname{ Cov } \left( X, W \right) &= \operatorname{ Cov } \left( X, Y - \left( s + t X \right)  \right) \\
-            &= \operatorname{ Cov } \left( X, Y  \right) - \operatorname{ Cov } \left( X, s + tX \right)  \\
-            &= \operatorname{ Cov } \left( X, Y \right) - \left( 0 + t \operatorname{ Cov } \left( X, X \right)  \right) \\
-            &= \operatorname{ Cov } \left( X, Y \right) - t \operatorname{ Var } \left( X \right) \\
-            &= 0
-            \end{align}
-            \]
-            in that we have \( t = \frac{\operatorname{ Cov } \left( X, Y \right) }{\operatorname{ Var  } \left( X \right) } = \frac{1}{2}  \) by our assumptions. This also allows us to deduce that \( s = E \left( Y \right) - \frac{1}{2} E \left( X \right)  \) therefore we can now observe that
-            \[
-                \begin{align}
-                    Y &= W + \left( s + t X \right) \\
-            &= W + \left(E \left( Y \right) - \frac{1}{2} E \left( X \right) + \left( \frac{1}{2}  \right) X   \right) \\
-            &= \left( E \left( Y \right) - \frac{1}{2} E \left( X \right)  \right)  + \frac{1}{2} X + W \\
-                \end{align}
-            \]
-            so that \( \alpha = \left( E \left( Y \right) - \frac{1}{2} E \left( X \right)  \right)  \) and \( \beta = \frac{1}{2}  \).
-    	</div>
-    </div>
-    
-    <div class="exercise" id="exercise-sum-of-bernoulli">
-    	<div class="title">Sum of Bernoulli</div>
-    	<div class="content">
-    	    Suppose that \( Z _ i \) IID \( \operatorname{ bern } \left( p = \frac{1}{4}  \right)  \) for \(  i \in \mathbb{ N } _ 1 \), determine the following
-            <ul>
-                <li>
-                    \( P \left( Z _ 1 + Z _ 2 = 0 \cap Z _ 3 + Z _ 4  = 1 \cap Z _ 5 + Z _ 6 = 2 \right)  \)
-                </li>
-                <li>
-                    \( P \left( Z _ 1 = 0 \cap Z _ 2 + Z _ 4 = 1 \mid \sum _ { i = 6 }  ^ { 6 } Z _ i = 3 \right) \)
-                </li>
-            </ul>
-    	</div>
-    	<div class="proof">
-            <p>
-                Recall that if \( X, Y \sim \operatorname{ bern } \left( p \right)   \) then we know that \( X + Y \sim \operatorname{ bin } \left( 2, \frac{1}{4}  \right)  \). Therefore we can use the binomial formula when trying to compute \( P \left( X + Y = k \right)  \) for some integer \( k \). In our specific question we note that the given events are independent (todo explain why), and thus we have 
-                \[
-                \begin{align}
-                P \left( Z _ 1 + Z _ 2 = 0 \cap Z _ 3 + Z _ 4  = 1 \cap Z _ 5 + Z _ 6 = 2 \right) &= P \left( Z _ 1 +  Z _ 2 = 0 \right)  \cdot P \left( Z _ 3 + Z _ 4 = 1 \right) \cdot P \left( Z _ 5 + Z _ 6 = 2 \right) \\
-                &= \binom{2}{0} \left( \frac{3}{4}  \right) ^ 2 \cdot \binom{2}{1} \left( \frac{1}{4}  \right) \left( \frac{3}{4}  \right) \cdot \binom{2}{2} \left( \frac{1}{4}  \right) ^ 2 \\
-                &= \frac{9}{16} \cdot \frac{6}{16} \cdot \frac{1}{16} \\
-                &= \frac{3 ^ 3}{2 ^ { 11 } }
-                \end{align}
-                \]
-            </p>
-            <hr>
-            <p>
-                To determine this quantity we first use the definition of conditional probability and then employ the same strategy as above.
-            </p>
-    	</div>
-    </div>
-    
-    <div class="exercise" id="exercise-geometric-expectation">
-    	<div class="title">Geometric Expectation</div>
-    	<div class="content">
-    		Suppose that \( X \mid N \sim \operatorname{ bin } \left( N, \frac{3}{5}  \right)  \) and that \( N \sim \operatorname{ geo } \left( \frac{2}{3}  \right)  \)
-            <ul>
-                <li>For the varaible \( N \) obtain \( E \left( N \right)  \) and \( E \left( N \cdot \left( N - 1 \right)  \right)  \)  </li>
-            </ul>
-    	</div>
-    	<div class="proof">
-    		<p>
-                Recall that for \( N \sim \operatorname{ geo } \left( \frac{2}{3}  \right)  \) we know that \( P \left( N = n \right) = p q ^ { n - 1 }   \) and an easy way to remember that is that geo is the distribution of how many trials are required before the first success. Note that in this case \( p = \frac{2}{3}  \) and \( q = 1 - p = \frac{1}{3}  \). Now let's try to compute the expected value: 
-                \[
-                \begin{align}
-                E \left( N \right) &= \sum _ { n = 1 }  ^  \infty n \cdot P \left( N = n \right) \\
-                &= \sum _ { n = 1 }  ^  \infty n \cdot p q ^ { n - 1 } \\
-                &= p \sum _ { n = 1 }  ^  \infty n q ^ { n - 1 } \\
-                &= p \left( \frac{d}{dq} \left( \frac{1}{1 - q}  \right)  \right) \\
-                &= p \cdot \frac{1}{\left( 1 - q \right) ^ 2} \\
-                &= p \cdot \frac{1}{p ^ 2} \\
-                &= \frac{1}{p} \\
-                &= \frac{3}{2} 
-                \end{align}
-                \]
-            </p>
-            <p>
-                Taking a look at \( E \left( N \cdot \left( N - 1 \right)  \right)  \) then we have
-                \[
-                \begin{align}
-                    E \left( N \cdot \left( N - 1 \right)  \right) &= \sum _ { n = 2 }  ^  \infty n \cdot \left( n - 1 \right) \cdot  p q ^ { n - 1 } \\
-                &= pq \sum _ { n = 2 }  ^  \infty n \left( n - 1 \right) q ^ { n - 2 } \\
-                &= pq \left( \frac{d ^ 2}{dq ^ 2} \left( \frac{1}{1 - q}  \right)  \right) \\
-                &= pq \frac{2}{\left( 1 - q \right) ^ 3}\\
-                &= \frac{2q}{p ^ 2} \\
-                &= \frac{2 / 3}{ \left( 2 / 3 \right) ^ 2 } = \frac{3}{2} 
-                \end{align}
-                \]
-            </p>
-    	</div>
-    </div>
-    
-    <div class="exercise" id="exercise-poisson-quotient">
-    	<div class="title">Poisson Quotient</div>
-    	<div class="content">
-    		Suppose that \( T _ n, n \in \mathbb{ N } _ 1 \) is a poisson process where we know that \( T _ n \sim \operatorname{ gamma }\left( n, \frac{1}{5}  \right)   \) and let \( U = \frac{T _ 2}{T _ 5}  \) and \( V = \frac{T _ 2}{T _ 5 - T _ 2}  \)
-    	</div>
-    	<div class="proof">
-            <p>
-                Observe that the random variable \( U \) satisfies \( U = \frac{T _ 2}{ T _ 5} = \frac{T _ 2}{ T _ 2 + T _ 3}   \) meaning that \( U \sim \operatorname{ beta } \left( 2, 3 \right) \), and then we have
-                \[
-                    E \left( U \right) = E \left( \frac{T _ 2}{T _ 5}   \right) = \frac{E \left( T _ 2 \right) }{ E \left( T _ 5 \right) } = \frac{2 / \lambda }{5 / \lambda } = \frac{2}{5} 
-                \]
-            </p>
-            <hr>
-            <p>
-
-            </p>
-
-    	</div>
-    </div>
-    
-    
-
-    
-    
-    
-
-
-
 </div>
-
-</body>
-</html>
+<div class="theorem" id="theorem-poisson-as-a-limit-of-binomial">
+    <div class="title">
+        Poisson as a Limit of Binomial
+    </div>
+    <div class="content">
+        For any \( i \in \mathbb{ N } \) suppose we have some \( p _ i \in \left[ 0, 1 \right] \), then define \( \lambda _ i = i \cdot p _ i \). Moreover suppose we have some \( X _ i \sim \operatorname{ binom } \left( i, p _ i \right) \). If \( \lim _ { k \to \infty } \lambda _ k \) exists denote it by \( \lambda \) and we have: \[ P \left( N = k \right) = \lim _ { n \to \infty } P \left( X _ i = k \right) \] where \( N \sim \operatorname{ pois } \left( \lambda \right) \)
+    </div>
+    <div class="proof">
+        \[ \begin{align} P \left( X _ n = k \right) &amp;= \binom{n}{k} p _ n ^ k \left( 1 - p _ n \right) ^ { n - k } \\ &amp;= \binom{n}{k} \left( \frac{\lambda _ n }{n} \right) ^ k \left( 1 - \frac{\lambda _ n }{n} \right) ^ { n - k } \\ &amp;= \frac{n \left( n - 1 \right) \cdots \left( n - k + 1 \right) }{k \left( k - 1 \right) \cdots 1} \left( \frac{\lambda _ n}{n} \right) ^ k \left( 1 - \frac{\lambda _ n}{n} \right) ^ { n - k } \\ &amp;= \left( 1 - \frac{\lambda _ n}{n} \right) ^ n \frac{\lambda _ n ^ k}{k!} \cdot \left( \frac{\frac{n \left( n - 1 \right) \cdots \left( n - k - 1 \right) }{ n ^ k} }{ \left( 1 - \frac{\lambda _ n}{n} \right) ^ k } \right) \\ &amp;= \left( 1 - \frac{\lambda _ n}{n} \right) ^ n \frac{\lambda _ n ^ k}{k!} \cdot \left( \frac{\left( 1 - \frac{1}{n} \right) \cdots \left( 1 - \frac{k - 1}{n} \right) }{ \left( 1 - \frac{\lambda _ n}{n} \right) \cdots \left( 1 - \frac{\lambda _ n}{n} \right) } \right) \end{align} \] Note that as \( n \to \infty \) we see that \( 1 - \frac{\lambda _ n}{ n} \to 1 \) and \( 1 - \frac{x}{n} \to 1 \) where \( x \in \mathbb{ R } \) so that \[ \left( \frac{\left( 1 - \frac{1}{n} \right) \cdots \left( 1 - \frac{k - 1}{n} \right) }{ \left( 1 - \frac{\lambda _ n}{n} \right) \cdots \left( 1 - \frac{\lambda _ n}{n} \right) } \right) \to 1 \] therefore as \( n \to \infty \) we have that \[ P \left( X _ n = k \right) \to e ^ { - \lambda } \frac{\lambda ^ k}{k !} \]
+    </div>
+</div>
+<p>This also allows us to compute a binomial with a large \( n \) by approximating it with a poisson.</p>
+<div class="definition" id="definition-number-of-trials-until-success-as-a-random-variable">
+    <div class="title">
+        Number of Trials until Success as a Random Variable
+    </div>
+    <div class="content">
+        Suppose we have \( \left( Z _ n \right), n \in \mathbb{ N } _ 1 \) such that \( Z _ i \sim \operatorname{ bern } \left( p \right) \), then we may recursively define the function \( T _ i : \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \) as \[ T _ 1 = \min \left( \left\{ n \in \mathbb{ N } : Z _ n = 1 \right\} \right) \] and for any \( k \ge 2 \) \[ T _ k = \min \left( \left\{ n \in \mathbb{ N } _ 1 : Z _ n = 1 \right\} \setminus \left\{ T _ 1, \ldots T _ { k - 1 } \right\} \right) \] where \( T _ k \) is said to count the number of trials required until and include the \( k \)-th success.
+    </div>
+</div>
+<p>To best understand the above definition consider the sequence \( \left( Z _ n = 1 \right), n \in \mathbb{ N } _ 1 \) which may be of the form \( \left( 0, 0, 1, 0, 1, 0, 0, 1, \ldots \right) \) and note that \( T _ 1 = \min \left( \left\{ 3, 5, 8 \right\} \right) = 3 \), to determine \( T _ 2 \) we have \( \min \left( \left\{ 3, 5, 8 \right\} \setminus \left\{ 3 \right\} \right) = 5 \) and so on. In this way the formula removes the previous \( k - 1 \) instances to find the \( k \)th instance.</p>
+<div class="proposition" id="proposition-t-sub-k-equivalence">
+    <div class="title">
+        \( T _ k = n \) Equivalence
+    </div>
+    <div class="content">
+        For any \( n \in \mathbb{ N } _ 1 \) we have: \[ T _ k = n \iff \sum _ { i = 1 } ^ { n- 1 } Z _ i = k - 1 \land Z _ n = 1 \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-negative-binomial">
+    <div class="title">
+        Negative Binomial
+    </div>
+    <div class="content">
+        The random variable \( Y \) is said to have a <b>negative binomial</b> distribution on \( k \) successes each with probability \( p \) iff \[ Y \stackrel{d}{=} T _ k \] and we denote this as \( Y \sim \operatorname{ negbin } \left( k, p \right) \)
+    </div>
+</div>
+<div class="proposition" id="proposition-probability-mass-function-of-the-negative-binomial-distribution">
+    <div class="title">
+        Probability Mass Function of the Negative Binomial Distribution
+    </div>
+    <div class="content">
+        Suppose that \( Y \sim \operatorname{ negbin } \left( k, p \right) \) for \( k \in \mathbb{ N } _ 1 \), \( p \in \left( 0, 1 \right] \) then for any \( n \in \left\{ k, k + 1, k + 2, \ldots \right\} \) \[ P \left( Y = n \right) = \binom{n - 1}{k - 1} p ^ k \left( 1 - p \right) ^ { n - k } \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-geometric-distribution">
+    <div class="title">
+        Geometric Distribution
+    </div>
+    <div class="content">
+        We say that the random variable \( W \) has a geometric distribution denoted by \( W \sim \operatorname{ geo } \left( p \right) \) where \( p \in \left( 0, 1 \right] \) when \[ W \stackrel{d}{=} T _ 1 \]
+    </div>
+</div>
+<div class="exercise" id="exercise-large-number-of-tossed-coins">
+    <div class="title">
+        Large Number of Tossed Coins
+    </div>
+    <div class="content">
+        A coin is tossed 1000 statistically independent times and exactly 3 heads occurs.
+        <ul>
+            <li>If we toss it 1000 times more, and let \(N\) denote the number of heads we might get this time, estimate the probability that \(N\) is anywhere between 1 and 5. [hint: \(e^3 \approx 20.1\)]</li>
+            <li>Suppose now we toss the coin \(1000 x\) times and let \(N_x\) denote the number of heads in \(1000 x\) tosses and \(T_1\) the random number of trials until we obtain the first head. How large does \(x\) have to be so that \(P\left(T_1 \gt x\right)=1 / 2\) ?</li>
+            <li>Now determine the probability that the \(2 n d\) head occurs between 750 and 1250 tosses.</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>This situation is perfectly modelled by the binomial distribution, (\( N \sim \operatorname{ binom } \left( 1000, \frac{1}{2} \right) \) ) it's just that it's hard to compute the binomial distribution for large values. Therefore we can employ an approximation using the poisson distribution as discussed previously, we want to know \( P \left( N \in \left\{ 1, 2, 3, 4, 5 \right\} \right) = P \left( N = 1 \right) + P \left( N = 2 \right) + P \left( N = 3 \right) + P \left( N = 4 \right) + P \left( N = 5 \right) \) and we can approximate each such value, using \( \lambda = 1000 \cdot \frac{1}{2} = 500 \)</p>
+        <ul>
+            <li>\( P \left( N = 1 \right) \approx e ^ { - 500 } \frac{500 ^ 1}{1} \)</li>
+            <li>\( P \left( N = 2 \right) \approx e ^ { - 500 } \frac{500 ^ 2}{2} \)</li>
+            <li>...</li>
+            <li>\( P \left( N = 5 \right) \approx e ^ { - 500 } \frac{500 ^ 5}{5} \)</li>
+        </ul>
+        <p>Therefore by adding all these numbers together we obtain an estimation on the probability of \( N \) being anywhere between 1 and 5.</p>
+        <hr>
+        <p>We want to determine a value for \( x \) such that \( P \left( T _ 1 \gt x \right) = \frac{1}{2} \), to understand this concretely if \( x = 5 \) then \( P \left( T _ 1 \gt 5 \right) \) asks "what is the probability of getting our first head after 5 tosses of the coin")</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-poisson-process">
+    <div class="title">
+        Poisson Process
+    </div>
+    <div class="content">
+        Suppose that \(\left(T_n, n \in \mathbb{N}\right)\) is a poisson process with \(T_n \sim G\left(n, \lambda^{-1}\right)\) and let \(\quad U=\frac{T_3}{T_8} \quad \& \quad V=\frac{T_3}{T_8-T_3} . \quad\) Determine the following.
+        <ul>
+            <li>\(E U\) and \(\sigma(U)\).</li>
+            <li>\(E V\) and \(\sigma(V)\).</li>
+            <li>\(P( U \gt 1 / 2)\).</li>
+        </ul>
+    </div>
+    <div class="proof">
+        Recall that \( E \left( T _ n \right) = \frac{n}{\lambda } \) as this is the formula for the expected value for the gamma distribution. Also if a random varaible \( X \sim \operatorname{ gamma } \left( p, \theta \right) \) then we have \( E \left( X ^ { -1 } \right) = \frac{1}{\theta \left( p - 1 \right) } \) if \( p \gt 1 \). Thus we have \[ E \left( \frac{T _ 8}{T _ 3} \right) = E \left( T _ 8 \cdot \frac{1}{T _ 3} \right) \] Since the sequence \( T _ n \) is IID (why is that idk) then we can say \[ E \left( T _ 8 \cdot \frac{1}{T _ 3} \right) = E \left( T _ 8 \right) \cdot E \left( \frac{1}{T _ 3} \right) = \frac{8}{\lambda } \cdot \frac{1}{\frac{1}{\lambda } \left( 3 - 1 \right) } = 4 \]
+    </div>
+</div>
+<div class="proposition" id="proposition-fundamental-properties-of-covariance">
+    <div class="title">
+        Fundamental Properties of Covariance
+    </div>
+    <div class="content">
+        Let \( X, Y, Z \) be random variables and \( c \in \mathbb{ R } \) then we have
+        <ul>
+            <li>\( \operatorname{ Var } \left( X \right) = \operatorname{ Cov } \left( X, X \right) \)</li>
+            <li>\( \operatorname{ Cov } \left( c X, Y \right) = c \cdot \operatorname{ Cov } \left( X, Y \right) = \operatorname{ Cov } \left( X, c Y \right) \)</li>
+            <li>\( \operatorname{ Cov } \left( X + Y, Z \right) = \operatorname{ Cov } \left( X, Z \right) + \operatorname{ Cov } \left( Y, Z \right) \)</li>
+            <li>\( \operatorname{ Cov } \left( X, Y + Z \right) = \operatorname{ Cov } \left( X, Y \right) + \operatorname{ Cov } \left( X, Z \right) \)</li>
+            <li>\( \operatorname{ Cov } \left( X, Y \right) = \operatorname{ Cov } \left( Y, X \right) \)</li>
+            <li>\( \operatorname{ Cov } \left( X, c \right) = 0 \)</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-covariance-equations">
+    <div class="title">
+        Covariance Equations
+    </div>
+    <div class="content">
+        For any \(\mathbb{R}\)-valued \(X\) and \(Y\) and any scalars \(s\) and \(t\) consider the simple difference \(W=Y-(s+t X)\). But, if \(E W=0=\operatorname{cov}(X, W)\) this will determine \(s\) and \(t\).
+        <ul>
+            <li>Assuming that \(E X=E Y=\operatorname{var} X=\operatorname{var} X=1\) and \(\operatorname{cov}(X, Y)=1 / 2\) determine two simultaneous equations thus to obtain the unique \(\alpha\) and \(\beta\) such that \[ Y=\alpha+\beta X+W \quad \text { and } \quad E \left( W \right) =0=\operatorname{cov}(X, W) . \]</li>
+            <li>Now supposing that \(X \sim \operatorname{gamma}(p=3, \theta=2)\) and \(Y=X^{-1}\), determine \(\alpha\) and \(\beta\)</li>
+            <li>For the assumptions in b), determine the correlation coefficient \(\rho(\alpha+\beta X, Y)\).</li>
+        </ul>
+    </div>
+    <div class="proof">
+        Before doing anything else we consider the following \[ \begin{align} \operatorname{ Cov } \left( Y, W \right) &amp;= \operatorname{ Cov } \left( Y, Y - \left( s + t X \right) \right) \\ &amp;= \operatorname{ Cov } \left( Y, Y \right) - \operatorname{ Cov } \left( Y, s + tX \right) \\ &amp;= \operatorname{ Var } \left( Y \right) - t \operatorname{ Cov } \left( Y, X \right) \\ &amp;= 1 - t \frac{1}{2} \\ \end{align} \] We did this because we knew that the properties of co-variance would result in some expression where some of the sub-expressions are the same as the ones we know information about. One thing that we require is that \( E \left( W \right) = 0 \), we see that \[ E \left( W \right) = E \left( Y - \left( s + t X \right) \right) = E \left( Y \right) - s - t E \left( X \right) = 0 \] So we conclude that \( s = E \left( Y \right) - t E \left( X \right) \). We also need that \( \operatorname{ Cov } \left( X, W \right) = 0 \) that is to say \[ \begin{align} \operatorname{ Cov } \left( X, W \right) &amp;= \operatorname{ Cov } \left( X, Y - \left( s + t X \right) \right) \\ &amp;= \operatorname{ Cov } \left( X, Y \right) - \operatorname{ Cov } \left( X, s + tX \right) \\ &amp;= \operatorname{ Cov } \left( X, Y \right) - \left( 0 + t \operatorname{ Cov } \left( X, X \right) \right) \\ &amp;= \operatorname{ Cov } \left( X, Y \right) - t \operatorname{ Var } \left( X \right) \\ &amp;= 0 \end{align} \] in that we have \( t = \frac{\operatorname{ Cov } \left( X, Y \right) }{\operatorname{ Var } \left( X \right) } = \frac{1}{2} \) by our assumptions. This also allows us to deduce that \( s = E \left( Y \right) - \frac{1}{2} E \left( X \right) \) therefore we can now observe that \[ \begin{align} Y &amp;= W + \left( s + t X \right) \\ &amp;= W + \left(E \left( Y \right) - \frac{1}{2} E \left( X \right) + \left( \frac{1}{2} \right) X \right) \\ &amp;= \left( E \left( Y \right) - \frac{1}{2} E \left( X \right) \right) + \frac{1}{2} X + W \\ \end{align} \] so that \( \alpha = \left( E \left( Y \right) - \frac{1}{2} E \left( X \right) \right) \) and \( \beta = \frac{1}{2} \).
+    </div>
+</div>
+<div class="exercise" id="exercise-sum-of-bernoulli">
+    <div class="title">
+        Sum of Bernoulli
+    </div>
+    <div class="content">
+        Suppose that \( Z _ i \) IID \( \operatorname{ bern } \left( p = \frac{1}{4} \right) \) for \( i \in \mathbb{ N } _ 1 \), determine the following
+        <ul>
+            <li>\( P \left( Z _ 1 + Z _ 2 = 0 \cap Z _ 3 + Z _ 4 = 1 \cap Z _ 5 + Z _ 6 = 2 \right) \)</li>
+            <li>\( P \left( Z _ 1 = 0 \cap Z _ 2 + Z _ 4 = 1 \mid \sum _ { i = 6 } ^ { 6 } Z _ i = 3 \right) \)</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>Recall that if \( X, Y \sim \operatorname{ bern } \left( p \right) \) then we know that \( X + Y \sim \operatorname{ bin } \left( 2, \frac{1}{4} \right) \). Therefore we can use the binomial formula when trying to compute \( P \left( X + Y = k \right) \) for some integer \( k \). In our specific question we note that the given events are independent (todo explain why), and thus we have \[ \begin{align} P \left( Z _ 1 + Z _ 2 = 0 \cap Z _ 3 + Z _ 4 = 1 \cap Z _ 5 + Z _ 6 = 2 \right) &amp;= P \left( Z _ 1 + Z _ 2 = 0 \right) \cdot P \left( Z _ 3 + Z _ 4 = 1 \right) \cdot P \left( Z _ 5 + Z _ 6 = 2 \right) \\ &amp;= \binom{2}{0} \left( \frac{3}{4} \right) ^ 2 \cdot \binom{2}{1} \left( \frac{1}{4} \right) \left( \frac{3}{4} \right) \cdot \binom{2}{2} \left( \frac{1}{4} \right) ^ 2 \\ &amp;= \frac{9}{16} \cdot \frac{6}{16} \cdot \frac{1}{16} \\ &amp;= \frac{3 ^ 3}{2 ^ { 11 } } \end{align} \]</p>
+        <hr>
+        <p>To determine this quantity we first use the definition of conditional probability and then employ the same strategy as above.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-geometric-expectation">
+    <div class="title">
+        Geometric Expectation
+    </div>
+    <div class="content">
+        Suppose that \( X \mid N \sim \operatorname{ bin } \left( N, \frac{3}{5} \right) \) and that \( N \sim \operatorname{ geo } \left( \frac{2}{3} \right) \)
+        <ul>
+            <li>For the varaible \( N \) obtain \( E \left( N \right) \) and \( E \left( N \cdot \left( N - 1 \right) \right) \)</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>Recall that for \( N \sim \operatorname{ geo } \left( \frac{2}{3} \right) \) we know that \( P \left( N = n \right) = p q ^ { n - 1 } \) and an easy way to remember that is that geo is the distribution of how many trials are required before the first success. Note that in this case \( p = \frac{2}{3} \) and \( q = 1 - p = \frac{1}{3} \). Now let's try to compute the expected value: \[ \begin{align} E \left( N \right) &amp;= \sum _ { n = 1 } ^ \infty n \cdot P \left( N = n \right) \\ &amp;= \sum _ { n = 1 } ^ \infty n \cdot p q ^ { n - 1 } \\ &amp;= p \sum _ { n = 1 } ^ \infty n q ^ { n - 1 } \\ &amp;= p \left( \frac{d}{dq} \left( \frac{1}{1 - q} \right) \right) \\ &amp;= p \cdot \frac{1}{\left( 1 - q \right) ^ 2} \\ &amp;= p \cdot \frac{1}{p ^ 2} \\ &amp;= \frac{1}{p} \\ &amp;= \frac{3}{2} \end{align} \]</p>
+        <p>Taking a look at \( E \left( N \cdot \left( N - 1 \right) \right) \) then we have \[ \begin{align} E \left( N \cdot \left( N - 1 \right) \right) &amp;= \sum _ { n = 2 } ^ \infty n \cdot \left( n - 1 \right) \cdot p q ^ { n - 1 } \\ &amp;= pq \sum _ { n = 2 } ^ \infty n \left( n - 1 \right) q ^ { n - 2 } \\ &amp;= pq \left( \frac{d ^ 2}{dq ^ 2} \left( \frac{1}{1 - q} \right) \right) \\ &amp;= pq \frac{2}{\left( 1 - q \right) ^ 3}\\ &amp;= \frac{2q}{p ^ 2} \\ &amp;= \frac{2 / 3}{ \left( 2 / 3 \right) ^ 2 } = \frac{3}{2} \end{align} \]</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-poisson-quotient">
+    <div class="title">
+        Poisson Quotient
+    </div>
+    <div class="content">
+        Suppose that \( T _ n, n \in \mathbb{ N } _ 1 \) is a poisson process where we know that \( T _ n \sim \operatorname{ gamma }\left( n, \frac{1}{5} \right) \) and let \( U = \frac{T _ 2}{T _ 5} \) and \( V = \frac{T _ 2}{T _ 5 - T _ 2} \)
+    </div>
+    <div class="proof">
+        <p>Observe that the random variable \( U \) satisfies \( U = \frac{T _ 2}{ T _ 5} = \frac{T _ 2}{ T _ 2 + T _ 3} \) meaning that \( U \sim \operatorname{ beta } \left( 2, 3 \right) \), and then we have \[ E \left( U \right) = E \left( \frac{T _ 2}{T _ 5} \right) = \frac{E \left( T _ 2 \right) }{ E \left( T _ 5 \right) } = \frac{2 / \lambda }{5 / \lambda } = \frac{2}{5} \]</p>
+        <hr>
+    </div>
+</div>

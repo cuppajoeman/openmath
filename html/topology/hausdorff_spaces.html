@@ -1,65 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		
-        <title>Hausdorff Spaces</title>
-		
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="/styles/styles.css">
-        <script src="/js/script.js" defer></script>
-		
-		
-    </head>
-    <body>
-        <div class="thin-wrapper">
-
-			<div class="definition" id="definition-convergence">
-				<div class="title">Convergence</div>
-				<div class="content">
-					Suppose that \( \left( \mathcal{ T }, X \right)  \)	is a topological space, then a sequence of points \( \left( x_n \right) \) in \( X \) is said to converge to the point \( c \in X \) provided that for each <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-neighborhood">neighborhood</a> of \( c \), there exists some \( N \in \mathbb { N }_1 \) such that for all \( n \ge N \), we have \( x_n \in U \)
-				</div>
-			</div>
-			
-			<div class="definition" id="definition-hausdorff-space">
-				<div class="title">Hausdorff Space</div>
-				<div class="content">
-					A topological space \( X \) is called a Hausdorff space if for each pair of points \( x_1, x_2 \) of distinct points of \( X \), there exist neighborhoods \( U_1, U_2 \) of \( x_1, x_2 \) respectively that are <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-disjoint-sets">disjoint</a>
-				</div>
-			</div>
-			
-			<div class="proposition" id="proposition-every-one-point-set-is-closed-in-a-hausdorff-space">
-				<div class="title">Every one point set is Closed in a Hausdorff Space</div>
-				<div class="content">
-					Suppose that \( p \in X \) where \( X \) is a <a class="knowledge-link" href="/topology/hausdorff_spaces.html#definition-hausdorff-space">Hausdorff space</a>, then \( \left\{ p \right\} \) is closed
-				</div>
-				<div class="proof">
-					<p>
-						We will show that \( \left\{ p \right\} \) is closed <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-sets-equal-their-closure">by showing</a> \( \left\{ p \right\} = \overline{ \left\{ p \right\} } \)
-					</p>
-					<p>
-						Suppose that \( y \in X \) and \( y \neq p \), since \( X \) was Hausdorff, we get \( U_p, U_y \) disjoint neighborhoods. Since \( U_y \cap U_p = \emptyset \) , since \( U_p \supseteq \left\{ p \right\} \), then \( U_y \cap \left\{ p \right\} = \emptyset \) <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">therefore</a> \( y \notin \overline{ \left\{ p \right\} } \).
-					</p>
-					<p>
-						Since \( \left\{ p \right\} \subseteq \overline{ \left\{ p \right\} } \), then we know \( p \in \overline{ \left\{ p \right\} } \), so therefore \( \overline{ \left\{ p \right\} } = \left\{ p \right\} \) as needed.
-					</p>
-				</div>
-			</div>
-
-			<div class="corollary" id="corollary-finite-sets-are-closed-in-a-hausdorff-space">
-				<div class="title">Every Finite Set is Closed in a Hausdorff Space</div>
-				<div class="content">
-
-				</div>
-				<div class="proof">
-
-				</div>
-			</div>
-
-
-
-        </div>
-    </body>
-</html>
+<div class="definition" id="definition-convergence">
+    <div class="title">
+        Convergence
+    </div>
+    <div class="content">
+        Suppose that \( \left( \mathcal{ T }, X \right) \) is a topological space, then a sequence of points \( \left( x_n \right) \) in \( X \) is said to converge to the point \( c \in X \) provided that for each <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-neighborhood">neighborhood</a> of \( c \), there exists some \( N \in \mathbb { N }_1 \) such that for all \( n \ge N \), we have \( x_n \in U \)
+    </div>
+</div>
+<div class="definition" id="definition-hausdorff-space">
+    <div class="title">
+        Hausdorff Space
+    </div>
+    <div class="content">
+        A topological space \( X \) is called a Hausdorff space if for each pair of points \( x_1, x_2 \) of distinct points of \( X \), there exist neighborhoods \( U_1, U_2 \) of \( x_1, x_2 \) respectively that are <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-disjoint-sets">disjoint</a>
+    </div>
+</div>
+<div class="definition" id="definition-t2-space">
+    <div class="title">T2 Space</div>
+    <div class="content">
+        A \( T_2 \) space is a <a class="knowledge-link" href="/topology/hausdorff_spaces.html#definition-hausdorff-space">hausdorff space</a>
+    </div>
+</div>
+<div class="proposition" id="proposition-every-one-point-set-is-closed-in-a-hausdorff-space">
+    <div class="title">
+        Every one point set is Closed in a Hausdorff Space
+    </div>
+    <div class="content">
+        Suppose that \( p \in X \) where \( X \) is a <a class="knowledge-link" href="/topology/hausdorff_spaces.html#definition-hausdorff-space">Hausdorff space</a>, then \( \left\{ p \right\} \) is closed
+    </div>
+    <div class="proof">
+        <p>We will show that \( \left\{ p \right\} \) is closed <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-sets-equal-their-closure">by showing</a> \( \left\{ p \right\} = \overline{ \left\{ p \right\} } \)</p>
+        <p>Suppose that \( y \in X \) and \( y \neq p \), since \( X \) was Hausdorff, we get \( U_p, U_y \) disjoint neighborhoods. Since \( U_y \cap U_p = \emptyset \) , since \( U_p \supseteq \left\{ p \right\} \), then \( U_y \cap \left\{ p \right\} = \emptyset \) <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">therefore</a> \( y \notin \overline{ \left\{ p \right\} } \).</p>
+        <p>Since \( \left\{ p \right\} \subseteq \overline{ \left\{ p \right\} } \), then we know \( p \in \overline{ \left\{ p \right\} } \), so therefore \( \overline{ \left\{ p \right\} } = \left\{ p \right\} \) as needed.</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-finite-sets-are-closed-in-a-hausdorff-space">
+    <div class="title">
+        Every Finite Set is Closed in a Hausdorff Space
+    </div>
+    <div class="content"></div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-a-topological-space-is-hausdorff-iff-the-diagonal-is-closed">
+    <div class="title">
+        A Topological Space Is Hausdorff Iff the Diagonal Is Closed
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a topological space, then \( X \) is hausdorff iff \( \Delta = \left\{ \left( x, x \right): x \in X \right\} \) is closed in \( X \times X \)
+    </div>
+    <div class="proof">
+        <p>Suppose that \( \Delta \) is closed in \( X \times X \), now let \( x \neq y \in X \), if we consider the point \( p = \left( x, y \right) \in X \times X \) then we know that \( p \notin \Delta \), therefore \( p \in X \times X \setminus \Delta \), since \( \Delta \) was closed, then we know that \( X \times X \setminus \Delta \) is open, and therefore since \( p \) is in there, then there exists a basis element \( U \times V \) where \( U, V \) are open in \( X \) which contains \( p \) and is a subset of \( X \times X \setminus \Delta \). To show that the space is hausdorff it remains to show that \( U \cap V = \emptyset \), so suppose for the sake of contradiction that there was an element \( d \in U \cap V \) which implies that since \( \left( d, d \right) \in U \times V \) but \( U \times V \subseteq X \times X \setminus \Delta \) which shows that such an element \( d \) is impossible to exist, and therefore we must have \( U \cap V = \emptyset \)</p>
+        <p>Now suppose that \( X \) is hausdorff, let's prove that \( \Delta \) is closed in \( X \times X \), so we will prove that \( X \times X \setminus \Delta \) is open, so let \( p \in X \times X \setminus \Delta \), we have \( p = \left( x, y \right) \) where \( x \neq y \in X \) therefore since \( X \) is hausdorff then we get open neighborhoods \( U, V \) of \( x, y \) respectively that are disjoint, so that \( U \cap V = \emptyset \) this shows that \( \left( U \times V \right) \cap \Delta = \emptyset \) as if it was not empty, then \( U, V \) would no longer be disjoint, therefore we know that \( p \in U \times V \subseteq X \times X \setminus \Delta \), so that \( X \times X \setminus \Delta \) is open and thus \( \Delta \) is closed, as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-pairwise-disjoint-sets-for-a-collection-of-points-in-a-hausdorff-space">
+    <div class="title">
+        Pairwise Disjoint Sets for a Collection of Points in a Hausdorff Space
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a hausdorff space, and that \( x_1, \ldots, x _n \) are distinct elements of \( X \) then there exists open sets \( U_1, \ldots, U_n \) in \( X \) that are <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-pairwise-disjoint-sets">pairwise disjoint</a> where \( x _i \in U_i \)
+    </div>
+    <div class="proof">
+        <p>For the base case of \( n = 2 \) it follows directly from the definition of a hausdorff space, now let \( k \in \mathbb{ N } _2 \) and suppose that the statement holds true on \( k \) elements, now we'll show that it holds true on \( k + 1 \) elements. Let \( C = { x_1, \ldots, x_{k + 1} } \) be the \( k + 1 \) elements, let \( C_i = C \setminus \left\{ x_i \right\} \), which produces a set of size \( k \) on which we know the induction hypothesis holds true, and therefore we obtain \( U _ { 1, i }, \ldots , U _ {k, i} \) disjoint open sets such that \( x_j \in U_{j, i} \) for all \( j \neq i \) and lets call the family of these sets by the mask of \( C_i \)</p>
+        <p>By iterating \( i \) over \( 1, \ldots k + 1 \) then we can form smaller open sets around each \( x _ j \) by taking \( \bigcap _ i U _ { j, i} \), they are open as they are finite intersections of open sets, and we can show that they pairwise disjoint, for consider any \( a \neq b \in [1, \ldots , n] \) and consider \( \bigcap _i U_{a, i} \) and \( \bigcap _i U_{b, i} \), since \( k + 1 \ge 3 \) then we can consider some \( m \in [1, \ldots , k + 1] \) such that \( m \neq a \) and \( m \neq b \) then consider the \( m \)-th mask, \( U_{1, m}, \ldots U_{k, m} \) of \( C_m \) as noted in the previous paragraph the induction hypothesis shows these are pairwise disjoint, additionally we know that \( \bigcap _i U_{a, i} \subseteq U_{a, m} \) and that \( \bigcup _i U_{b, i} \subseteq U_{b, m} \) (this is because they are part of the intersection), now since \( U_{a, m} \) and \( U_{b, m} \) are disjoint then are the intersections in question, thus we've shown that the sets \( \left\{ x \in [1, \ldots , k + 1]: \bigcup _i U_{x, i} \right\} \) are pairwise disjoint and cover \( x _1, \ldots , x_{k + 1} \), as needed, therefore by the principle of induction this holds true for all \( n \in \mathbb{ N } _ 2 \)</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-every-ordered-set-with-the-order-topology-is-hausdorff">
+    <div class="title">
+        Every Ordered Set With the Order Topology Is Hausdorff
+    </div>
+    <div class="content">
+        Suppose that \( Y_&lt; \) is the <a class="knowledge-link" href="/topology/order_topology.html#definition-the-order-topology">order topology</a>, then \( Y \) is <a class="knowledge-link" href="/topology/hausdorff_spaces.html#definition-hausdorff-space">hausdorff</a>, moreover given \( a, b \in Y \) and their disjoint neihborhoods, \( U, V \) then we have that for any \( u, v \in U, V \) respectively that \( u \lt v \)
+    </div>
+    <div class="proof">
+        <p>Let \( a, b \in Y \) and assume that \( a \lt b \).</p>
+        <p>Case 1: \( Y \) contains no smallest or largest element, then there exists some \( j, k \in Y \) such that \( j \lt a \) and \( b \lt k \) now if there is no \( y \in Y \) such that \( a \lt y \lt b \) then consider \( U = \left( j, b \right), V = \left( a, k \right) \), we can see that \( a \in U, b \in V \) and that \( U \cap V = \emptyset \), also consider any \( u, v \in U, V \) this implies that \( u = a \) or \( u \lt a \) and that \( v = b \) or \( v \gt b \) in any case we know that \( u \lt v \). If there was some \( y \) between \( a, b \) then we let \( U = \left( j, y \right), V = \left( y, k \right) \).</p>
+        <p>Case 2: \( Y \) contains a smallest element but no largest element, if it turns out that \( a \) is not the smallest element, then suppose that \( s \lt a \) is, since there is no largest element then we know that there is an element \( k \) such that \( b \lt k \), if there is no \( y \) between \( a, b \) then the sets \( U = [s, b) \) \( V = \left( a, k \right) \), if there is a \( y \) we take \( U = [s, y], V = (y, b) \). If it turned out that \( a \) was the smallest element, we adjust the above with syntactically replacing \( s \) with \( a \).</p>
+        <p>Case 3: \( Y \) contains a largest and smallest element if neither of \( a, b \) are the largest or smallest element then we obtain \( j, k \) which are and follow the case 1 construction, if exactly one of \( a, b \) is the largest or smallest element, then we proceed with the case 2 construction, finally when \( a, b \) are the smallest and largest element respectively, then again if there is some \( y \) between \( a, b \) then we can use \( U = [a, y), V = (y, b] \) otherwise we use \( U = [a, b), V = (a, b] \) .</p>
+        <p>Thus we've proven that in any case \( a, b \) had open sets containing them that were disjoint.</p>
+    </div>
+</div>

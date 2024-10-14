@@ -1,72 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Power Series</title>
-
-    <link rel="stylesheet" href="../../styles/styles.css">
-    <script src="../../js/script.js" defer></script>
-</head>
-<body>
-<div class="thin-wrapper">
-
-
-
-	<div class="proposition" id="proposition-term-by-term-operations-on-series">
-		<div class="title">Term by Term Operations on Series</div>
-		<div class="content">
-			If \( f \left( x \right) = \sum _ { n = 0 } ^ { \infty   } a _ n x ^ n  \) has radius of convergence \( M \in \mathbb{ R } ^ +  \), then \( f \) is differentiable on \( \left( -M , M \right)  \) and the following are true:
-			<ul>
-				<li>
-					\( \sum _ { n = 1 } ^ { \infty   } n a _ n x ^ { n - 1 }   \) has radius of convergence \( M \) such that for any \( x \in \left( -M , M \right)  \) we have
-					\[
-					f ^ \prime  \left( x \right) = \sum _ { n = 1 } ^ { \infty   } n a _ n x ^ { n - 1 }
-					\]
-				</li>
-				<li>
-					\( \sum _ { n = 0 } ^ { \infty   } \frac{a _ n}{n + 1 }  x ^ { n + 1  }  \) has radius of convergence \( M \) such that for any \( x \in \left( -M , M \right)  \) we have: 
-					\[
-					    \int _ 0 ^ x f \left( t \right) dt	= \sum _ { n = 0 } ^ { \infty   }  \frac{a _ n}{n + 1 }x ^ { n + 1  }
-					\]
-
-
-				</li>
-			</ul>
-
-		</div>
-		<div class="proof">
-			
-		</div>
-	</div>
-
-	<div class="theorem" id="theorem-hadamard">
-		<div class="title">Hadamard</div>
-		<div class="content">
-			Given a power series \( \sum _ { n = 0 } ^ { \infty   } a _ n x ^ n \) then either there exists a set \( C \) such that the series converges for any \( x \in C \) and diverges otherwise. \( C \) is either of the form \( \left[ -M, M \right]  \) or \( \mathbb{ R }  \) itself, such that
-			<ul>
-				<li>For each \( \left[ a, b \right] \subseteq C \) the series converges uniformly</li>
-				<li>If \( \alpha = \limsup _ { n \to \infty  } \left\lvert a _ n \right\rvert ^ \frac{1}{n}    \), then </li>
-			</ul>
-			\[
-			C =
-			\begin{cases}
-			\mathbb{ R } & \text{ if }  \alpha = 0 \\
-			\emptyset  & \text{ if } \alpha = + \infty \\
-			\left[ -\frac{1}{\alpha }, \frac{1}{\alpha }  \right] & \text{ if } \alpha \in \mathbb{ R } ^ +
-			\end{cases}
-			\]
-		</div>
-		<div class="proof">
-			
-		</div>
-	</div>
-	
-	
-
-	
+<div class="proposition" id="proposition-term-by-term-operations-on-series">
+    <div class="title">
+        Term by Term Operations on Series
+    </div>
+    <div class="content">
+        If \( f \left( x \right) = \sum _ { n = 0 } ^ { \infty } a _ n x ^ n \) has radius of convergence \( M \in \mathbb{ R } ^ + \), then \( f \) is differentiable on \( \left( -M , M \right) \) and the following are true:
+        <ul>
+            <li>\( \sum _ { n = 1 } ^ { \infty } n a _ n x ^ { n - 1 } \) has radius of convergence \( M \) such that for any \( x \in \left( -M , M \right) \) we have \[ f ^ \prime \left( x \right) = \sum _ { n = 1 } ^ { \infty } n a _ n x ^ { n - 1 } \]</li>
+            <li>\( \sum _ { n = 0 } ^ { \infty } \frac{a _ n}{n + 1 } x ^ { n + 1 } \) has radius of convergence \( M \) such that for any \( x \in \left( -M , M \right) \) we have: \[ \int _ 0 ^ x f \left( t \right) dt = \sum _ { n = 0 } ^ { \infty } \frac{a _ n}{n + 1 }x ^ { n + 1 } \]</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
 </div>
-</body>
-</html>
+<div class="theorem" id="theorem-hadamard">
+    <div class="title">
+        Hadamard
+    </div>
+    <div class="content">
+        Given a power series \( \sum _ { n = 0 } ^ { \infty } a _ n x ^ n \) then either there exists a set \( C \) such that the series converges for any \( x \in C \) and diverges otherwise. \( C \) is either of the form \( \left[ -M, M \right] \) or \( \mathbb{ R } \) itself, such that
+        <ul>
+            <li>For each \( \left[ a, b \right] \subseteq C \) the series converges uniformly</li>
+            <li>If \( \alpha = \limsup _ { n \to \infty } \left\lvert a _ n \right\rvert ^ \frac{1}{n} \), then</li>
+        </ul>\[ C = \begin{cases} \mathbb{ R } & \text{ if } \alpha = 0 \\ \emptyset & \text{ if } \alpha = + \infty \\ \left[ -\frac{1}{\alpha }, \frac{1}{\alpha } \right] & \text{ if } \alpha \in \mathbb{ R } ^ + \end{cases} \]
+    </div>
+    <div class="proof"></div>
+</div>

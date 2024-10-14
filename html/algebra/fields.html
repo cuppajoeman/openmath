@@ -1,135 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Fields</title>
-
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-
-</head>
-<body>
-<div class="thin-wrapper">
-
-    <div class="definition" id="definition-field">
-    	<div class="title">Field</div>
-    	<div class="content">
-            A <b>field</b> is a set \( F \) with two binary operations \( \oplus, \otimes \) such that for any \( a, b, c \in F \) we have
-            <ol>
-                <li>\( \oplus, \otimes \) are both associative and commutative</li>
-                <li>Identities: There exist identity elements \( 0 _ F \neq 1 _ F \in F\) for \( \oplus \) and \( \otimes \) respectively</li>
-                <li>Additive Inverses: There exists an \( -a \in F \) such that \( a \oplus -a = 0 _ F \) </li>
-                <li>Multiplicative Inverses: If \( a \neq 0 \) there exists an \( a ^ { -1 } \in F \) such that \( a \otimes a ^ { -1 } = 1 _ F  \)  </li>
-                <li>Distributivity: \( \otimes \) <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-distributivity">distributes into</a> \( \oplus \)  </li>
-            </ol>
-    	</div>
+<div class="definition" id="definition-field">
+    <div class="title">
+        Field
     </div>
-
-    <div class="proposition" id="proposition-complex-numbers-form-a-field">
-        <div class="title">The Complex Numbers Form a Field</div>
-        <div class="content">
-            The complex numbers with their standard addition and multiplication form a field
-        </div>
-        <div class="proof">
-
-        </div>
+    <div class="content">
+        A <b>field</b> is a set \( F \) with two binary operations \( \oplus, \otimes \) such that for any \( a, b, c \in F \) we have
+        <ol>
+            <li>\( \oplus, \otimes \) are both associative and commutative</li>
+            <li>Identities: There exist identity elements \( 0 _ F \neq 1 _ F \in F\) for \( \oplus \) and \( \otimes \) respectively</li>
+            <li>Additive Inverses: There exists an \( -a \in F \) such that \( a \oplus -a = 0 _ F \)</li>
+            <li>Multiplicative Inverses: If \( a \neq 0 \) there exists an \( a ^ { -1 } \in F \) such that \( a \otimes a ^ { -1 } = 1 _ F \)</li>
+            <li>Distributivity: \( \otimes \) <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-distributivity">distributes into</a> \( \oplus \)
+            </li>
+        </ol>
     </div>
-
-    <div class="corollary" id="corollary-a-field-is-a-crone">
-    	<div class="title">A Field is a Crone</div>
-    	<div class="content">
-    		Suppose that \( F \) is a field, then \( F \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-crone">crone</a>
-    	</div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-
-
-    <div class="corollary" id="corollary-a-crone-with-multiplicative-inverses-is-a-field">
-    	<div class="title">A Crone with Multiplicative Inverses is a Field</div>
-    	<div class="content">
-            Suppose that \( \left( R, \oplus, \otimes \right)  \) is a non-zero <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-crone">crone</a> then if for every \( a \neq 0 \), there is an \( a \otimes a ^ { -1 } = 1 _ R \) then \( R \) is a field
-    	</div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-
-<!--    TODO rename this left distributivity and add definition for right distributivity -->
-    <div class="proposition" id="proposition-field-implies-domain">
-    	<div class="title">Field Implies Domain</div>
-    	<div class="content">
-    		Suppose that \( F \) is a <a class="knowledge-link" href="/algebra/fields.html#definition-field">field</a>, then \( F \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-domain">domain</a>
-    	</div>
-    	<div class="proof">
-            <p>
-                We already know that since \( F \) is a field then \( F \) is a crone, so one way would be just showing that it's a domain through <a class="knowledge-link" href="/algebra/galois_theory/rings.html#corollary-product-zero-implies-factor-zero-domain-equivalence">this characterization</a> of a domain
-            </p>
-            <p>
-                Suppose that \( x, y \in F \) and assume that \( x \otimes y = 0 _ F \), if \( x = 0 _ R \), we've proven the statement, if \( x \neq 0 _ R \), then since \( F \) has multiplicative inverses for non-zero elements we know that \( x ^ { -1 } \otimes x \otimes y = x ^ { -1 } 0 _ R = 0 _ R \), thus after cancellation and multiplication by one we have \( y = 0 _ R \) as needed.
-            </p>
-    	</div>
-    </div>
-    
-    <div class="definition" id="definition-finite-extension-of-the-rationals">
-    	<div class="title">Finite Extension of the Rationals</div>
-    	<div class="content">
-    		We define the set for any \( x \in \mathbb{ R }  \) as
-            \[
-                \mathbb{ Q } \left( x \right) := \left\{ a + bx : a, b \in \mathbb{ Q }  \right\} \subseteq \mathbb{ R } 
-            \]
-    	</div>
-    </div>
-
-    <div class="proposition" id="proposition-multiplicative-inverse-in-a-finite-extension-of-the-rationals">
-    	<div class="title">Multiplicative Inverse in a Finite Extension of the Rationals</div>
-    	<div class="content">
-            Suppose that \( p \) is prime and that \( x + y \sqrt p \in \mathbb{ Q } \left( \sqrt p \right)   \), such that \(  x + y \sqrt p \neq 0 \), then it's multiplicative inverse can be written as \( a + b \sqrt p \) for some \( a, b \in \mathbb{ Q }  \) 
-    	</div>
-    	<div class="proof">
-    	    Since \( x + y \sqrt p \in \mathbb{ R } \), and it's non-zero, then in \( \mathbb{ R }  \) we have an inverse: \( 1 / \left( x + y \sqrt p \right)  \), we can then rationalize that as follows 
-            \[
-                \begin{align}
-                    \frac{1}{x + y \sqrt p} &=  \frac{1}{x + y \sqrt p} \cdot \frac{x - y \sqrt p}{x - y \sqrt p}  \\
-                    &= \frac{x - y \sqrt p}{x ^ 2  - y  ^ 2 p}
-                \end{align}
-            \]
-            <p>
-                Now let's observe the denominator \( x ^ 2 - y ^ 2 p \), if this equals zero, then we have the following \( \left( \frac{x}{y} \right) ^ 2 = p  \) note that division is justified since \( y \neq 0 \) from the fact that \( x + y \sqrt p \) was non-zero. For this equation to make any sense we require that \( \left( \frac{x}{y} \right) ^ 2 \) be an integer, which isn't necessarily the case and if it's not the case we've reached a contradiction.
-            </p>
-            <p>
-                Perhaps \( \left( \frac{x}{y} \right) ^ 2 \) is an integer (non-zero), in that case we're saying that there exists some integer \( a \) such that \( a ^ 2 = p  \), but this is a contradiction as clearly the square of any non-zero integer is not prime, thus our original assumption that \( x ^ 2 - y ^ 2 p = 0 \) is false, and thus we can safely write our multiplicative inverse as
-            </p>
-            \[
-                \frac{x}{x ^ 2 - y ^ 2 p}  - \frac{y}{x ^ 2 - y ^ 2 p} \sqrt p
-            \]
-    	</div>
-    </div>
-    
-    
-
-
-   <div class="proposition" id="proposition-the-integers-mod-a-prime-form-a-field">
-   	<div class="title">The Integers mod a Prime Form a Field</div>
-   	<div class="content">
-   	    \( \mathbb{ Z } / \mathbb{ Z } _ n  \) is a field if and only if \( n \) is <a class="knowledge-link" href="/number_theory/division.html#definition-prime">prime</a>.
-   	</div>
-   	<div class="proof">
-        <p>
-            \( \impliedby \) Suppose that \( n  \) is prime, we recall that \( \mathbb{ Z } / n \mathbb{ Z }  \) is a crone. <a class="knowledge-link" href="/algebra/fields.html#corollary-a-crone-with-multiplicative-inverses-is-a-field">Therefore</a> to show it's a field we have to show it has multiplicative inverses, so let \( \overline{ a } \in \mathbb{ Z  } / n \mathbb{ Z } \setminus \left\{ \overline{ 0 } \right\}   \). Since \( \overline{ a } \neq \overline{ 0 }  \) then \( a \not\equiv 0 \left( \operatorname{ mod } n \right)  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-iff-congruent-mod-0">therefore</a> \( n \nmid a \) <a class="knowledge-link" href="/number_theory/division.html#lemma-a-prime-is-relatively-prime-to-anything-else">thus</a> \( \gcd \left( n, a \right) = 1 \) and <a class="knowledge-link" href="/number_theory/division.html#proposition-gcd-is-a-linear-combination">we must have</a> \( s, t \in \mathbb{ Z }  \) such that \( 1 = n s + at \), taking this equation mod \( n \) we see that \( at \equiv 1 \left( \operatorname{ mod } n \right)  \) in otherwords \( \overline{ a } \overline{ t } = \overline{ 1 }  \) so that \( \overline{ t }  \) is \( \overline{ a }  \)'s multiplicative inverse so that \( \mathbb{ Z } / n \mathbb{ Z }  \) is a field.
-        </p>
-        <p>
-            \( \implies  \) We use the contrapositive so assume that \( n \) is not prime, <a class="knowledge-link" href="/number_theory/division.html#corollary-composite-iff-not-prime">therefore</a> \( n \) is composite, so we have \( n = a b \) for some \( a, b \in { 1, ... n - 1 }    \) so clearly \( \overline{ a } \neq \overline{ 0 }   \) and \( \overline{ b } \neq \overline{ 0 }  \) but at the same time \( n | ab  \) therefore \( \overline{ a } \overline{ b } = \overline{ 0 }  \), which shows that \( \mathbb{ Z } / n \mathbb{ Z }  \) is not a domain, <a class="knowledge-link" href="/algebra/fields.html#proposition-field-implies-domain">therefore</a> it cannot be a field, as needed for the contrapositive, so the original implication holds true
-        </p>
-   	</div>
-   </div>
-    
-
-
 </div>
-</body>
-</html>
+<div class="proposition" id="proposition-complex-numbers-form-a-field">
+    <div class="title">
+        The Complex Numbers Form a Field
+    </div>
+    <div class="content">
+        The complex numbers with their standard addition and multiplication form a field
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-a-field-is-a-crone">
+    <div class="title">
+        A Field is a Crone
+    </div>
+    <div class="content">
+        Suppose that \( F \) is a field, then \( F \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-crone">crone</a>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-a-crone-with-multiplicative-inverses-is-a-field">
+    <div class="title">
+        A Crone with Multiplicative Inverses is a Field
+    </div>
+    <div class="content">
+        Suppose that \( \left( R, \oplus, \otimes \right) \) is a non-zero <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-crone">crone</a> then if for every \( a \neq 0 \), there is an \( a \otimes a ^ { -1 } = 1 _ R \) then \( R \) is a field
+    </div>
+    <div class="proof"></div>
+</div><!--    TODO rename this left distributivity and add definition for right distributivity -->
+<div class="proposition" id="proposition-field-implies-domain">
+    <div class="title">
+        Field Implies Domain
+    </div>
+    <div class="content">
+        Suppose that \( F \) is a <a class="knowledge-link" href="/algebra/fields.html#definition-field">field</a>, then \( F \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-domain">domain</a>
+    </div>
+    <div class="proof">
+        <p>We already know that since \( F \) is a field then \( F \) is a crone, so one way would be just showing that it's a domain through <a class="knowledge-link" href="/algebra/galois_theory/rings.html#corollary-product-zero-implies-factor-zero-domain-equivalence">this characterization</a> of a domain</p>
+        <p>Suppose that \( x, y \in F \) and assume that \( x \otimes y = 0 _ F \), if \( x = 0 _ R \), we've proven the statement, if \( x \neq 0 _ R \), then since \( F \) has multiplicative inverses for non-zero elements we know that \( x ^ { -1 } \otimes x \otimes y = x ^ { -1 } 0 _ R = 0 _ R \), thus after cancellation and multiplication by one we have \( y = 0 _ R \) as needed.</p>
+    </div>
+</div>
+<div class="definition" id="definition-finite-extension-of-the-rationals">
+    <div class="title">
+        Finite Extension of the Rationals
+    </div>
+    <div class="content">
+        We define the set for any \( x \in \mathbb{ R } \) as \[ \mathbb{ Q } \left( x \right) := \left\{ a + bx : a, b \in \mathbb{ Q } \right\} \subseteq \mathbb{ R } \]
+    </div>
+</div>
+<div class="proposition" id="proposition-multiplicative-inverse-in-a-finite-extension-of-the-rationals">
+    <div class="title">
+        Multiplicative Inverse in a Finite Extension of the Rationals
+    </div>
+    <div class="content">
+        Suppose that \( p \) is prime and that \( x + y \sqrt p \in \mathbb{ Q } \left( \sqrt p \right) \), such that \( x + y \sqrt p \neq 0 \), then it's multiplicative inverse can be written as \( a + b \sqrt p \) for some \( a, b \in \mathbb{ Q } \)
+    </div>
+    <div class="proof">
+        Since \( x + y \sqrt p \in \mathbb{ R } \), and it's non-zero, then in \( \mathbb{ R } \) we have an inverse: \( 1 / \left( x + y \sqrt p \right) \), we can then rationalize that as follows \[ \begin{align} \frac{1}{x + y \sqrt p} &amp;= \frac{1}{x + y \sqrt p} \cdot \frac{x - y \sqrt p}{x - y \sqrt p} \\ &amp;= \frac{x - y \sqrt p}{x ^ 2 - y ^ 2 p} \end{align} \]
+        <p>Now let's observe the denominator \( x ^ 2 - y ^ 2 p \), if this equals zero, then we have the following \( \left( \frac{x}{y} \right) ^ 2 = p \) note that division is justified since \( y \neq 0 \) from the fact that \( x + y \sqrt p \) was non-zero. For this equation to make any sense we require that \( \left( \frac{x}{y} \right) ^ 2 \) be an integer, which isn't necessarily the case and if it's not the case we've reached a contradiction.</p>
+        <p>Perhaps \( \left( \frac{x}{y} \right) ^ 2 \) is an integer (non-zero), in that case we're saying that there exists some integer \( a \) such that \( a ^ 2 = p \), but this is a contradiction as clearly the square of any non-zero integer is not prime, thus our original assumption that \( x ^ 2 - y ^ 2 p = 0 \) is false, and thus we can safely write our multiplicative inverse as</p>\[ \frac{x}{x ^ 2 - y ^ 2 p} - \frac{y}{x ^ 2 - y ^ 2 p} \sqrt p \]
+    </div>
+</div>
+<div class="proposition" id="proposition-the-integers-mod-a-prime-form-a-field">
+    <div class="title">
+        The Integers mod a Prime Form a Field
+    </div>
+    <div class="content">
+        \( \mathbb{ Z } / \mathbb{ Z } _ n \) is a field if and only if \( n \) is <a class="knowledge-link" href="/number_theory/division.html#definition-prime">prime</a>.
+    </div>
+    <div class="proof">
+        <p>\( \impliedby \) Suppose that \( n \) is prime, we recall that \( \mathbb{ Z } / n \mathbb{ Z } \) is a crone. <a class="knowledge-link" href="/algebra/fields.html#corollary-a-crone-with-multiplicative-inverses-is-a-field">Therefore</a> to show it's a field we have to show it has multiplicative inverses, so let \( \overline{ a } \in \mathbb{ Z } / n \mathbb{ Z } \setminus \left\{ \overline{ 0 } \right\} \). Since \( \overline{ a } \neq \overline{ 0 } \) then \( a \not\equiv 0 \left( \operatorname{ mod } n \right) \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-iff-congruent-mod-0">therefore</a> \( n \nmid a \) <a class="knowledge-link" href="/number_theory/division.html#lemma-a-prime-is-relatively-prime-to-anything-else">thus</a> \( \gcd \left( n, a \right) = 1 \) and <a class="knowledge-link" href="/number_theory/division.html#proposition-gcd-is-a-linear-combination">we must have</a> \( s, t \in \mathbb{ Z } \) such that \( 1 = n s + at \), taking this equation mod \( n \) we see that \( at \equiv 1 \left( \operatorname{ mod } n \right) \) in otherwords \( \overline{ a } \overline{ t } = \overline{ 1 } \) so that \( \overline{ t } \) is \( \overline{ a } \)'s multiplicative inverse so that \( \mathbb{ Z } / n \mathbb{ Z } \) is a field.</p>
+        <p>\( \implies \) We use the contrapositive so assume that \( n \) is not prime, <a class="knowledge-link" href="/number_theory/division.html#corollary-composite-iff-not-prime">therefore</a> \( n \) is composite, so we have \( n = a b \) for some \( a, b \in { 1, ... n - 1 } \) so clearly \( \overline{ a } \neq \overline{ 0 } \) and \( \overline{ b } \neq \overline{ 0 } \) but at the same time \( n | ab \) therefore \( \overline{ a } \overline{ b } = \overline{ 0 } \), which shows that \( \mathbb{ Z } / n \mathbb{ Z } \) is not a domain, <a class="knowledge-link" href="/algebra/fields.html#proposition-field-implies-domain">therefore</a> it cannot be a field, as needed for the contrapositive, so the original implication holds true</p>
+    </div>
+</div>

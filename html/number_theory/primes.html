@@ -1,1185 +1,679 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Primes</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer>
-</script>
-</head>
-
-<body>
-    <div class="thin-wrapper">
-
-        <div class="definition" id="definition-prime">
-            <div class="title">
-                Prime
-            </div>
-
-            <div class="content">
-                A number \( p \in \mathbb{N}_{2} \) is said to be prime if it&#39;s only divisors are \( 1 \) and \( p \) symbolically that is
-                \[
-                    \forall d \in \mathbb{ N } _ 1, \left( d \mid p \right) \implies d \in \left\{ 1, p \right\}
-                \]
-            </div>
-        </div>
-
-        <div class="definition" id="definition-set-of-primes">
-        	<div class="title">Set of Primes</div>
-        	<div class="content">
-        	    We denote the set of primes as \( \mathbb{ P }  \) 	
-        	</div>
-        </div>
-
-        <div class="corollary" id="corollary-if-a-prime-divides-another-they-are-equal">
-            <div class="title">If a Prime Divides Another they are Equal</div>
-            <div class="content">
-                Suppose that \( p, q \in \mathbb{ P }  \), then
-                \[
-                    p \mid q \implies p = q
-                \]
-            </div>
-            <div class="proof">
-                Since \( p \mid q \) <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">then we know that</a> \( p = 1 \) or \( p = q \) the former is impossible since \( \mathbb{ P } \subseteq \mathbb{ N } _ 2 \) therefore \( p = q \) as needed.
-            </div>
-        </div>
-
-        <div class="proposition" id="proposition-primes-of-the-form-4k-plus-something">
-        	<div class="title">Primes of the Form 4k Plus Something</div>
-        	<div class="content">
-        		Suppose that \( p \in \mathbb{ P  } _ 3 \) then there exists some \( k \in \mathbb{ N } _ 0 \) such that
-                \[
-                    p = 4k + 1 \text{ or } p = 4k + 3
-                \]
-        	</div>
-        	<div class="proof">
-                By the <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#theorem-quotient-remainder">quotient remainder</a> theorem we have that
-                \[
-                    p = 4 q + r
-                \]
-                where \( q \in \mathbb{ Z }  \) and \( r \in \left[ 0, \ldots , q - 1 \right]  \), when \( p = 3 \) the only possibility is that \( q = 0 \) and \( r = 3 \), on the other hand for any \( p \ge 5 \) we have that \( q \ge 1 \), now if \( q = 0 \) or \( r = 2 \) then the prime is divisible by \( 2 \) and which makes \( p \) not prime, which is a contradiction, therefore \( r \in \left\{ 1, 3 \right\}  \).
-        	</div>
-        </div>
-
-
-        <div class="definition" id="definition-increasing-prime-function">
-        	<div class="title">Increasing Prime Function</div>
-        	<div class="content">
-        		We let the function \( p _ i: \mathbb{ N } _ 1 \to \mathbb{ P }  \) be an increasing function such that \( p _ 1 = 2 \) and there are no primes between \( p _ i \) and \( p _ { i + 1  }  \).
-        	</div>
-        </div>
-
-        <p>
-            This function looks like \( 2, 3, 5, 7, 11, 13, 17, \ldots  \)
-        </p>
-
-        <div class="definition" id="definition-composite">
-        	<div class="title">Composite</div>
-        	<div class="content">
-        		We say that \( n \in \mathbb{ Z } \) where \( \left\lvert n \right\rvert \ge 2  \)  is composite if there exists an \( x \in \left\{ 2, \ldots , n - 1 \right\}   \) such that \( x \mid n \)
-        	</div>
-        </div>
-
-        <p>
-            The composites union the primes is \( \mathbb{ Z } \setminus \left\{ -1, 0, 1 \right\}  \)
-        </p>
-
-
-        <div class="corollary" id="corollary-composite-iff-not-prime">
-            <div class="title">
-                Composite iff Not Prime
-            </div>
-
-            <div class="content">
-                Let \( a \in \mathbb{ N } _ 1 \) then \( a \) is composite iff \( a \) is not prime
-            </div>
-
-            <div class="proof">
-                We know that it&#39;s always true that \( a \mid a \) and \( 1 \mid a \) therefore if \( a \) is not
-                prime iff it has some other divisor other than \( 1 \) or \( a \) iff \( a \) is composite
-            </div>
-        </div>
-
-        <div class="lemma" id="lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">
-            <div class="title">
-                A Prime is Relatively Prime to Anything Else That is Not a Multiple of It
-            </div>
-            <div class="content">
-                Suppose that \( p \) is <a class="knowledge-link" href=
-                "/number_theory/primes.html#definition-prime">prime</a> and \( n \in \mathbb{ Z } \) then  \( p
-                \nmid n \) iff \( \gcd \left( p, n \right) = 1 \)
-            </div>
-            <div class="proof"></div>
-        </div>
-
-        <div class="proposition" id="proposition-a-prime-divisor-of-a-product-divides-at-least-one">
-            <div class="title">
-                A Prime Divisor of a Product Divides at Least One
-            </div>
-
-            <div class="content">
-                If \( p, a, b \in \mathbb{ Z } \) and we know \( p \) is <a class="knowledge-link" href=
-                "/number_theory/primes.html#definition-prime">prime</a> and \( p \mid ab \) then \( p \mid a \) or \(
-                p \mid b \).
-            </div>
-
-            <div class="proof">
-                If \( p \) were to divide \( a \), the proof is over so we assume that it does not. <a class=
-                "knowledge-link" href=
-                "/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else">therefore</a> \( \gcd
-                \left( p, a \right) = 1 \) <a class="knowledge-link" href=
-                "/number_theory/primes.html#corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">and
-                then</a> \( 1 = as + pt \), then \( b = \left( ab \right) s + ptb = \left( k \cdot p \right) s + ptb
-                \), so then \( p \) divides the right hand side, therefore \( p \mid b \), as needed.
-            </div>
-        </div>
-
-        <div class="theorem" id="theorem-every-number-is-divisible-by-a-prime">
-        	<div class="title">Every Number is Divisible by a Prime</div>
-        	<div class="content">
-        		For any \( n \in \mathbb{ N } _ 2 \) there is a <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">prime</a> \( p \) such that \( p \mid n \)
-        	</div>
-        	<div class="proof">
-                <p>
-                    To show existance we will use the <a class="knowledge-link" href="/number_theory/induction.html#proposition-well-ordering-principle">well ordering principle</a> so consider the set
-                    \[
-                    S := \left\{ c \in \mathbb{ N } _ 2 : c \mid n \right\}
-                    \]
-                    observe that \( n \in S \) so therefore \( S \neq \emptyset  \) and therefore by the well ordering principle it has a least element \( p \in S \) therefore by the definition of \( S \) we know that \( p \mid n \), lets show that \( p \) is prime.
-                </p>
-                <p>
-                    Let \( d \in \mathbb{ N } _ 1, d \mid p \) if \( d = 1  \), then \( d \in \left\{ 1, p \right\}  \) so all is well, on the other hand if \( d \gt 1 \) so that \( d \in \mathbb{ N } _ 2 \) then since we already knew that \( p \mid n \) and that <a class="knowledge-link" href="/number_theory/division.html#proposition-division-is-transitive">division is transitive</a> then we know that \( d \mid n \) which means that \( d \in S \), since \( p \) is the minimal element of \( S \) then \( p \le d \) at the same time since \( d \mid p \) then <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">we know that</a> \( d \le p \), thus since \( \le  \) is <a class="knowledge-link" href="/fundamentals/relations.html#definition-anti-symmetric-relation">anti-symmetric</a>, then \( d = p \).
-                </p>
-                <p>
-                    Thus \( p \) is prime, and \( p \mid n \) as needed.
-                </p>
-        	</div>
-        </div>
-
-
-        <div class="proposition" id="proposition-every-number-is-a-product-of-primes">
-        	<div class="title">Every Number is a Product of Primes</div>
-        	<div class="content">
-                For every \( n \in \mathbb{ N } _ 2 \)
-                \[
-                    n := p _ 1 \cdot p _ 2 \cdot \cdots \cdot p _ k
-                \]
-                for some \( k \in \mathbb{ N } _ 1 \)
-        	</div>
-        	<div class="proof">
-                <p>
-                    We prove the statement true via strong induction, for the base case of \( n = 2 \) we see that \( p _ 1 = 2 \) works, namely that \( 2 = 2 \).
-                </p>
-                <p>
-
-                    Now suppose for some \( j \in \mathbb{ N } _ 2  \) the statement we'd like to prove holds for \( \left\{ 2, \ldots , j \right\}  \) we'll prove that the statement holds true for \( j + 1 \), so consider \( j + 1 \), if it is prime, then we are done, as we can take it as the singleton product, elsewise it is not prime, and <a class="knowledge-link" href="/number_theory/primes.html#corollary-composite-iff-not-prime">therefore it is composite</a> so we get \( a, b \in \mathbb{ N } _ 2 \) such that \( a b = j + 1 \) by our induction hypothesis we know that the statement holds true for \( a, b \) and thus we get \( a = p _ 1 \cdot \cdots \cdot p _ n \) and \( b = q _ 1 \cdot \cdots \cdot q _ m \) for some \( m, n \in \mathbb{ N } _ 1 \), thus \( j + 1 = p _ 1 \cdots p _ n q _ 1 \cdots q _ m \) so that \( j + 1 \) is the product of \( m + n \) primes as needed.
-                </p>
-        	</div>
-        </div>
-
-        <div class="theorem" id="theorem-there-are-infinitely-many-primes">
-        	<div class="title">There are Infinitely Many Primes</div>
-        	<div class="content">
-        		As per title.
-        	</div>
-        	<div class="proof">
-        		Suppose that there were finitely many primes, and we listed all of them here: \( p _ 1, \ldots p _ k \) for \( k \in \mathbb{ N } _ 1 \) and consider
-                \[
-                    M := p _ 1 \cdots  p _ k + 1
-                \]
-                For every \( i \in \left[ 1, k \right]  \) we have that \( M ~\%~ p _ i = 1 \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-divides-iff-zero-remainder">therefore</a> \( p _ i \nmid P \), at the same time \( M \) must be divisible by some prime \( p ^ \prime  \) but clearly \( p ^ \prime  \neq p _ i \) for any \( i \in \left[ 1, k \right]  \) or else \( M ~\%~ p _ i = 0 \) which would be a contradiction, since it's not equal to any of the primes we listed, this is a contradiction because we know that it contained all primes, therefore our assumption is incorrect and there must be infinitely many primes.
-        	</div>
-        </div>
-        
-        <div class="proposition" id="proposition-there-is-a-prime-between-n-and-n-factorial">
-        	<div class="title">There is a Prime Between n and n Factorial</div>
-        	<div class="content">
-        		For any \( n \in \mathbb{ N } _ 3 \) there is a prime number \( p  \) such that \( n \lt p \lt n! \)
-        	</div>
-        	<div class="proof">
-                Let \( N = \left\{ p \in \mathbb{ P }: p \le n  \right\}  \) since \( n \ge 3 \) then at least \( 2, 3 \in N \) so it is non-empty. Since \( n! \ge 6 \) then we know that \( n ! - 1 \in \mathbb{ N } _ 2 \) and <a class="knowledge-link" href="/number_theory/primes.html#theorem-every-number-is-divisible-by-a-prime">therefore there is a prime</a> number which divides it, say it is \( q \), for any \( p \in N \) we know that \( n ! - 1 \equiv -1 \pmod{ p }  \) therefore \( q \notin N \) thus \( q \gt n \), since \( q \mid n! - 1 \) then \( q \le n! - 1 \lt n! \) so that
-                \[
-                    n \lt q \lt n!
-                \]
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-n-minus-1-factorial-is-divisible-by-n">
-        	<div class="title">n Minus 1 Factorial is Divisible by n</div>
-        	<div class="content">
-                Let \( n \in \mathbb{ N } _ 4 \), show that if \( n \) is not a prime then we have
-                \[
-                    \left( n - 1 \right) ! \equiv
-                \begin{cases}
-                2 \pmod{ n } &\text{ if } n = 4, \\
-                0 \pmod{ n } &\text{ if } n \ge 5
-                \end{cases}
-                \]
-        	</div>
-        	<div class="proof">
-                <p>
-                    In the case that \( n = 4 \) then we know that \( \left( n - 1 \right) ! = 6  \) which has remainder 2 upon division by \( 4 \) as needed.
-                </p>
-                <p>
-                    On the other hand, whenever we have \( n \ge 5 \) then since \( n \) is not prime, then it is composite and therefore there exists \( a, b \in \left[ 2, \ldots , n - 1 \right]  \) such that \( n = ab \). If \( a \neq b \) then
-                    \[
-                        \left( n - 1 \right) ! = \left( n - 1 \right)  \cdots a \cdots b \cdots 2 \cdot 1
-                    \]
-                    therefore \( n = ab \mid \left( n - 1 \right) ! \) so that \( \left( n - 1 \right) ! \equiv 0 \pmod{ n }  \).
-                </p>
-                <p>
-                    On the other hand, supposing that \( a = b \) then we see that \( n = a ^ 2 \) since \( a \ge 2 \) then we know that \( a ^ 2 \ge 2a \). Actually we know more, since \( n \ge 5 \) then \( a \gt 2 \) so we can say that \( a ^ 2 \gt 2a \) so that \( n \gt 2a \)  so that \( a, 2a \) both appear in the factorials product so that \( a ^ 2 \mid \left( n - 1 \right) !  \) as needed.
-                </p>
-        	</div>
-        </div>
-
-        
-        
-        <div class="proposition" id="proposition-there-are-gaps-of-arbitrary-size-between-consecutive-primes">
-        	<div class="title">There are Gaps of Arbitrary Size between Consecutive Primes</div>
-        	<div class="content">
-                Suppose that \( \left( p _ 1, p _ 2, p _ 2 , \ldots  \right)  \) is an increasing sequence of all the primes, then for every \( m \in \mathbb{ N } _ 1 \) there exists an \( N \in \mathbb{ N } _ 1 \) such that
-                \[
-                    p _ { N + 1 } - p _ { N } \ge m
-                \]
-        	</div>
-        	<div class="proof">
-        	    Let \( m \in \mathbb{ N } _ 1 \), consider the following numbers
-                \[
-                    \left( m + 1 \right) ! + 2, \left( m + 1  \right) ! + 3, \ldots , \left( m + 1 \right) ! + \left( m + 1 \right)
-                \]
-                <a class="knowledge-link" href="/combinatorics/basics.html#proposition-the-number-of-integers-between-two-integers-inclusive">since there are</a> \( \left( m + 1 \right) - 2 + 1 = m \) numbers here, and for each element of the form \( \left( m + 1 \right) ! + i  \) we know that \( i \mid \left( m + 1 \right)! + i  \) since \( i \in \mathbb{ N } _ 2 \) this makes it composite, and thus not prime, thus take \( N \) as the greatest index such that \( p _ N \lt \left( m + 1 \right) ! + 2  \) thus the gap between \( p _ N \) and \( p _ { N + 1  }  \) must be at least \( m \) as needed.
-        	</div>
-        </div>
-        
-        <div class="theorem" id="theorem-fundamental-theorem-of-algebra">
-        	<div class="title">Fundamental Theorem of Algebra</div>
-        	<div class="content">
-        		For every \( n \in \mathbb{ N } _ 2 \) can be written uniquely as
-                \[
-                    n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i }
-                \]
-                \( \alpha  _ i \in \mathbb{ N } _ 1 \) where all but finitely many \( \alpha _ i = 0 \)
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-
-        <div class="definition" id="definition-prime-factors">
-        	<div class="title">Prime Factors</div>
-        	<div class="content">
-        		Let \( n \in \mathbb{ N } _ 2 \) and consider its prime factorization
-                \[
-                n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i }
-                \]
-                \( \alpha  _ i \in \mathbb{ N } _ 1 \) where all but finitely many \( \alpha _ i = 0 \) then we define
-                \[
-                    \operatorname{ pf } \left( n \right) = \left\{ p _ i : \alpha _ i \ge 1 \right\}
-                \]
-        	</div>
-        </div>
-
-
-        <div class="definition" id="definition-prime-power-sequence">
-        	<div class="title">Prime Power Sequence</div>
-        	<div class="content">
-        		Given any \( n \in \mathbb{ N } _ 1 \) and its prime factorization \( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { a _ i }   \) then we define
-                \[
-                \operatorname{ pps } \left( n \right) := \left( a _ 1, a _ 2, a _ 3, \ldots  \right)
-                \]
-                Note that \( \operatorname{ pps } : \mathbb{ N } _ 2 \to \left\{ \left( x _ n \right): \mathbb{ N }  _ 1 \to \mathbb{ N } _ 0  \right\}  \)
-        	</div>
-        </div>
-
-        <p>
-            Note that since each number has a unique factorization then \( \operatorname{ pps }  \) is a bijection, and so \( \operatorname{ pps } ^ { - 1  }  \) exists.
-        </p>
-
-        <div class="corollary" id="corollary-products-as-the-addition-of-power-sequences">
-        	<div class="title">Products as the Addition of Power Sequences</div>
-        	<div class="content">
-        		Suppose that \( a, b \in \mathbb{ N } _ 2 \) then 
-                \[
-                    \operatorname{ pps } \left( ab \right) = \operatorname{ pps } \left( a \right) + \operatorname{ pps } \left( b \right) 
-                \]
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-
-        <div class="lemma" id="lemma-max-of-the-prime-power-sequence-is-0-iff-they-share-no-prime-factors">
-        	<div class="title">Max of the Prime Power Sequence is 0 iff They share no Prime Factors</div>
-        	<div class="content">
-        		Let \( a, b \in \mathbb{ N } _ 2 \) then
-                \[
-                    \operatorname{ pf } \left( a \right) \cap \operatorname{ pf } \left( b \right) = \emptyset  \iff \max \left( \operatorname{ pps } \left( a \right), \operatorname{ pps } \left( b \right)   \right) = 0
-                \]
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-
-
-        
-        <div class="proposition" id="proposition-relatively-prime-in-terms-of-prime-factorization">
-        	<div class="title">Relatively Prime In terms of Prime Factorization</div>
-        	<div class="content">
-                The following are equivalent
-                <ol>
-                    <li>\( \gcd \left( a, b \right) = 1  \) </li>
-                    <li>\( \max \left( \operatorname{ pps } \left( a \right), \operatorname{ pps } \left( b \right)  \right) = 0  \) </li>
-                    <li>
-                       \( \operatorname{ pf } \left( a \right) \cap \operatorname{ pf } \left( b \right) = \emptyset   \)
-                    </li>
-                </ol>
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-        
-        <div class="exercise" id="exercise-coprime-and-5">
-        	<div class="title">Coprime and 5</div>
-        	<div class="content">
-        		Suppose that \( a, b \in \mathbb{ Z }  \) are coprime, then find all possible values of
-                \[
-                    \gcd \left( a + b, 5 ab \right)
-                \]
-        	</div>
-        	<div class="proof">
-                <p>
-                    Let's consider a common divisor \( d \) of \( a + b \) and \( 5 ab \) recall that there exists a \( p \in \mathbb{ P }  \) such that \( p \mid d  \) therefore by transitivity we have \( p \mid a + b \) and \( p \mid 5 ab \) in the latter case, we see that either \( p \mid 5 \) or \( p \mid a \) or \( p \mid b \).
-                </p>
-
-                <p>
-                    If \( p \mid a \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#corollary-if-a-number-divides-a-sum-and-already-divides-one-of-the-summands-it-must-divide-the-other">then we know that</a> \( p \mid b \) <a class="knowledge-link" href="/number_theory/primes.html#proposition-relatively-prime-in-terms-of-prime-factorization">but then</a> \( \gcd \left( a, b \right) \neq 1  \) which would be a contradiction, therefore \( p \nmid a \), but symmetrically \( p \nmid b \) therefore we must have that \( p \mid 5 \) <a class="knowledge-link" href="/number_theory/primes.html#corollary-if-a-prime-divides-another-they-are-equal">therefore</a> \( p = 5 \)
-                </p>
-                <p>
-                    The above says that given any prime divisor of \( d \) then it turns out that prime divisor must be \( 5 \) therefore \( d = 5 ^ k \) for some \( k \in \mathbb{ N } _ 1 \). Suppose that \( k \ge 2 \), if that's true then we have \( 5 ^ k \mid 5 ab \) and \( 5 ^ k \mid a + b \) from the former <a class="knowledge-link" href="/number_theory/division.html#proposition-if-a-number-divides-another-then-given-a-common-factor-their-quotients-divide-each-other">so we have</a> \( 5 ^ { k - 1 } \mid ab  \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-euclid">therefore</a> \( 5 ^ { k - 1  } \mid a \) or \( 5 ^ { k - 1 } \mid b  \), without loss of generality if we assume that \( 5 ^ { k - 1 } \mid a  \) then in conjunction with \( 5 ^ k \mid a + b \) we have
-                    \[
-                        j 5 ^ k = a + b = 5 ^ { k - 1 } l + b 
-                    \]
-                    therefore 
-                    \[
-                        b = 5 ^ { k - 1 } \left( j5 - l \right) 
-                    \]
-                    so that \( 5 ^ { k - 1 } \mid b \) therefore \( \gcd \left( a, b \right) \ge 5 ^ { k - 1 }  \) which is a contradiction, therefore it must be that \( k = 1 \).
-                </p>
-                <p>
-                    Therefore the only possible values of \( d \) is \( 1 \) or \( 5 \) therefore the only possible values of \( \gcd \left( a + b, 5 ab \right)  \) is \( 1 \) or \( 5 \) 
-                </p>
-
-        	</div>
-        </div>
-
-        <div class="lemma" id="lemma-subsequence-of-a-sum-of-two-disjoint-power-sequences-is-still-a-disjoint-sum">
-        	<div class="title">Subsequence of the sum of Two Disjoint Power Sequences Is Still a Disjoint Sum</div>
-        	<div class="content">
-        		Suppose that \( \max \left( \operatorname{ pps } \left( a \right) , \operatorname{ pps } \left( b \right)  \right) = 0  \) and that  \( \left( x _ n \right) \le \operatorname{ pps } \left( a \right) + \operatorname{ pps } \left( b \right)   \) then 
-                \[
-                    \left( x _ n \right) = \left( a _ n \right) + \left( b _ n \right) 
-                \]
-                where \( \left( a _ n \right) \le \operatorname{ pps } \left( a \right)   \) and \( \left( b _ n \right) \le \operatorname{ pps } \left( b \right)   \) and \( \max \left( \left( a _ n \right), \left( b _ n \right)   \right) = 0  \)
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-
-        <div class="proposition" id="proposition-a-number-divides-a-coprime-product-iff-it-is-the-product-of-individual-divisors">
-        	<div class="title">A Number Divides a Coprime Product iff It is the product of Individual Divisors</div>
-        	<div class="content">
-        		Suppose that \( \gcd \left( a, b \right) = 1 \) then \( c \mid a b \) if and only if \( c = d _ a d _ b \) where \( d _ a, d _ b \) are divisors of \( a, b \) respectively
-        	</div>
-        	<div class="proof">
-                <p>
-                    \( \implies  \) Suppose that \( c \mid ab \) therefore \( \operatorname{ pps } \left( c \right) \le \operatorname{ pps } \left( ab \right) = \operatorname{ pps } \left( a \right) + \operatorname{ pps } \left( b \right)  \) and therefore \( \operatorname{ pps } \left( c \right) = \left( a _ n \right) + \left( b _ n \right)   \) where \( \left( a _ n \right) \le \operatorname{ pps } \left( a \right)   \) and \( \left( b _ n \right) \le \operatorname{ pps } \left( b \right)   \) where \( \max \left( \left( a _ n \right), \left( b _ n \right)   \right) = 0  \)  (by the corollary). Therefore \( c = \operatorname{ pps } ^ { - 1  } \left( a _ n \right) \operatorname{ pps } ^ { - 1 } \left( b _ n \right) \) but we know that \( \operatorname{ pps } ^ { - 1  } \left( a _ n \right) \mid a    \) and \( \operatorname{ pps } ^ { - 1  } \left( b _ n \right) \mid b   \) as needed.
-                </p>
-                <p>
-                    \( \impliedby  \) Suppose that \( c = d _ a d _ b \), since they are divisors we know that there exist \( k _ a, k _ b \in \mathbb{ Z }  \) such that \( a = k _ a d _ a \) and \( b = k _ b d _ b \) so then \( a b =  k _ a k _ b d _ a d _ b  = k _ a k _ b c\) therefore \( c \mid ab \) as needed.
-                </p>
-        	</div>
-        </div>
-
-
-
-
-        <div class="lemma" id="lemma-euclid">
-        	<div class="title">Euclid</div>
-        	<div class="content">
-        		For any \( a, b, p \in \mathbb{ N } _ 1 \) then if \( p \) is prime, we have
-                \[
-                    p \mid a b \implies \left( \left( p \mid a \right) \lor \left( p \mid b \right)   \right)
-                \]
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-        <div class="corollary" id="corollary-if-a-prime-divides-a-product-it-divides-at-least-one-of-the-factors">
-        	<div class="title">If a Prime Divides a Product it Divides at Least One of the Factors</div>
-        	<div class="content">
-        		Suppose that \( a _ 1, \ldots a _ n \in \mathbb{ N } _ 1 \) and
-                \[
-                    p \mid \prod _ { i = 1 } ^ n a _ i
-                \]
-                then there exists a \( k \in \left[ 1, \ldots , n \right]  \) such that \( p \mid a _ k \)
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-prime-divisors-of-a-factorial-are-bounded-by-the-argument">
-            <div class="title">Prime Divisors of a Factorial are Bounded by the Argument</div>
-            <div class="content">
-                For every \( p \in \mathbb{ P }  \) and \( n \in \mathbb{ N } _ 2 \) such that  \( p \mid n! \) then
-                \[
-                p \le n
-                \]
-            </div>
-            <div class="proof">
-                Since \( p \mid 1 \cdots n \) then there exists some \( k \in \left[ 1, \ldots , n \right]  \) such that \( p \mid k \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">therefore</a> \( p \le k \le n \) so that \( p \le n \)
-            </div>
-        </div>
-
-
-        <div class="proposition" id="proposition-a-divisors-of-a-product-of-primes-is-a-product-of-primes-with-smaller-powers">
-        	<div class="title">A Divisor of a Product of Primes is a Product of Primes with Smaller Powers</div>
-        	<div class="content">
-        		Suppose that
-                dm
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-gcd-and-lcm-as-prime-powers">
-        	<div class="title">GCD and LCM as Prime Powers</div>
-        	<div class="content">
-        		Suppose that \( P = \left\{ p _ 1, \ldots p _ k \right\}  \) is a collection of primes such that
-                \[
-                    a = \prod _ { p _ i \in P } p _ i ^ { \alpha _ i }  \text{ and } b = \prod _ { p _ i \in P } p _ i ^ { \beta _ i }
-                \]
-                where \( \alpha _ i, \beta _ i \in \mathbb{ N } _ 0 \), then
-                \[
-                    \gcd \left( a, b \right) = \prod _ { p _ i \in P } p _ i ^ { \min \left( \alpha _ i, \beta _ i \right)  } \text{ and } \operatorname{ lcm }  \left( a, b \right) = \prod _ { p _ i \in P } p _ i ^ { \max \left( \alpha _ i, \beta _ i \right) }
-                \]
-        	</div>
-        	<div class="proof">
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-perfect-square-iff-every-power-in-the-prime-factorization-is-even">
-        	<div class="title">Perfect Square iff Every Power in the Prime Factorization is Even</div>
-        	<div class="content">
-        		Let \( n \in \mathbb{ N } _ 1 \) then \( n \) is a perfect square if and only if
-                \[
-                    n = \prod _ { i \in \mathbb{ N } _ 1 }  p _ i ^ { 2 \alpha _ i }
-                \]
-        	</div>
-        	<div class="proof">
-                <p>
-                    \( \implies  \) Suppose that \( n \) is a perfect square therefore \( n = m ^ 2 \) for some \( m \in \mathbb{ Z }  \) but we know that \( m = \prod _ { i \in \mathbb{ N } _ 1   } p _ i ^ { \beta _ i } \) therefore \( n = \left( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \beta _ i }   \right) ^ 2 = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { 2 \beta _ 2 }   \)
-                </p>
-                <p>
-                    \( \impliedby  \) We have that \( n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { 2 \alpha _ i } = \left( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i } \right) ^ 2   \) therefore \( n  \) is a perfect square.
-                </p>
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-division-and-prime-power-equivalence">
-        	<div class="title">Division and Prime Power Equivalence</div>
-        	<div class="content">
-        		Suppose that \( a, d \in \mathbb{ N } _ 2 \) then
-                \[
-                    d \mid a \iff \operatorname{ pps } \left( d \right) \le \operatorname{ pps } \left( a \right)
-                \]
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-every-composite-three-digit-number-must-have-a-prime-factor-less-than-or-equal-to-31">
-        	<div class="title">Every Composite Three Digit Number must have a Prime Factor Less than or Equal to 31</div>
-        	<div class="content">
-        		As per title.
-        	</div>
-        	<div class="proof">
-        		Assume that for the sake of contradiction the statement was not true, therefore there is a three digit number such that all of its prime factors are greater than 31, the next prime is \( 37 \) and so the smallest three digit number hvaing all prime factors greater than \( 31 \) would be \( 37 ^ 2 = 1369 \) which is a four digit number, thus our assumption was false, so that every three digit number must have a prime factor less than or equal to \( 31 \).
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-lower-bound-on-primes-in-factorization-limits-the-number-of-prime-factors">
-        	<div class="title">Lower Bound on Primes in Factorization Limits the Number of Prime Factors</div>
-        	<div class="content">
-        		Let \( n \in \mathbb{ N } _ 2 \) and suppose that \( p \nmid n \) for all primes \( p \le \sqrt[3]{ n }  \), what can we conclude about the prime factorizatio of \( n \) ?
-        	</div>
-        	<div class="proof">
-                Suppose that \( n = \prod _ { i =  1 } ^ k p _ i ^ { \alpha _ i }  \), we can see that \( p _ i \mid n \) and therefore by the contrapositive of our assumption we have that \( p _ i \ge \sqrt[3]{ n }  \) therefore \( k \le 2 \) for if \( k \ge 3 \) then
-                \[
-                    \begin{align}
-                n &= \prod _ { i = 1 } ^ { k } p _ i ^ { \alpha _ i } \\
-                &\ge \prod _ { i = 1 } ^ { k } p _ i \\
-                &\ge \prod _ { i = 1 } ^ { 3 } p _ i \\
-                &\gt \sqrt[3]{ n } \sqrt[3]{ n }  \sqrt[3]{ n } \\
-                &= n
-                \end{align}
-                \]
-                so we've shown that \( n \gt n \) which is a contradiction so indeed \( k \le 2 \), therefore we conclude that the prime factorization of \( n \) has at most two different primes in it.
-        	</div>
-        </div>
-        
-        <div class="exercise" id="exercise-goldbach-equivalence">
-        	<div class="title">Goldbach Equivalence</div>
-        	<div class="content">
-        		Show that every even integer \( \gt 2 \) is the sum of two primes if and only if every integer \( \gt 5 \) is the sum of three primes
-        	</div>
-        	<div class="proof">
-        	    <p>
-                    \( \implies  \) Suppose the former, let \( n \in \mathbb{ N } _ 1 \) such that \( n \gt 5 \) if \( n \) is even, then so is \( n - 2 \) and we see  \( n - 2 \gt 2 \) and so \(  n - 2 = p _ 1 +  p _ 2 \iff n = p _ 1 + p _ 2 + 2\), otherwise use \( 3 \).
-                </p>
-                <p>
-                    \( \impliedby  \) Suppose the latter and let \( n \gt 2 \) be even, in other words \( n \ge 4 \gt 3 \) therefore \( n + 2 \) is an even number and we know that \( n + 2 \gt 5 \) therefore \( n + 2 =  p _ 1 + p _ 2 +  p _ 3 \), since \( n + 2 \) is even then so is \( p _ 1 + p _ 2 +  p _ 3 \) but the sum of three numbers is only even when exactly one is even or all are even, therefore at least one of them is even, but there is only one even prime number, and therefore without loss of generality assume that \( p _ 1 = 2 \) so we have \( n + 2 = 2 + p _ 2 + p _ 3 \) and therefore \( n = p _ 2 +  p _ 3 \) as needed.
-                </p>
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">
-            <div class="title">p Minus one Factorial is Congruent to Minus one Mod p</div>
-            <div class="content">
-                Suppose that \( p \in \mathbb{ N } _ 2 \) is prime, then
-                \[
-                \left( p - 1  \right) ! \equiv -1 \left( \operatorname{ mod } p  \right)
-                \]
-            </div>
-            <div class="proof">
-                <p>
-                    Recall that \( S = \left\{ 0, \ldots , p - 1 \right\}  \) is a complete set of residues mod \( p \), and also for any \( s \in S \) since \( \gcd \left( s, p \right) = 1  \) then the collection \( T = \left\{ 0, s, \ldots s \left( p - 1 \right)  \right\}  \) is a complete system of residues mod \( p \). Since it is then there is exactly one element \( j \in T \) such that \( j \equiv 1 \left( \operatorname{ mod } p  \right)  \) specifically \( j = s t \) where \( t \in S \) so we can say that \( st \equiv 1 \left( \operatorname{ mod } p  \right)  \).
-                </p>
-                <p>
-                    In the previous paragraph we've shown the existance of a function \( f : S \to S \) such that \( x f \left( x \right) \equiv 1 \left( \operatorname{ mod } p \right)  \). We're going to prove this function is injective, that is we will prove that if \( x, y \in S \) then \( f \left( x \right) = f \left( y \right) \implies x = y \). Suppose that \( f \left( x \right) = f \left( y \right)  \) therfore \( f \left( x \right) \equiv f \left( y \right) \left( \operatorname{ mod } p \right)  \) moreover by the definition of \( f \) we know that \( x f \left( x \right) \equiv 1 \equiv y f \left( y \right) \left( \operatorname{ mod } p \right)   \) therefore we have
-                    \[
-                    x f \left( x \right) \equiv y f \left( y \right) \equiv y f \left( x \right) \left( \operatorname{ mod } p \right)
-                    \]
-                    thus since \( f \left( x \right) \in S  \) we know that \( \gcd \left( f \left( x \right), p  \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">therefore </a> \( x \equiv y \left( \operatorname{ mod } \frac{p}{1} \right)  \) so that \( x = y \) as needed. As a side note since the size of the domain is the same as the size of the range, then we know that \( f \) is a bijection.
-                </p>
-                <p>
-                    For a moment let's consider the case when \( f \left( x \right) = x \) if that were true we have \( x f \left( x \right) \equiv x ^ 2 \equiv 1 \left( \operatorname{ mod } p \right)  \) therefore \( x \equiv \pm 1 \left( \operatorname{ mod } p \right)  \) if \( x \equiv 1 \left( \operatorname{ mod } p \right)  \) this means that \( p \mid x - 1 \), if \( x - 1 \neq 0 \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">then we know that</a> \( p \le \left\lvert x - 1 \right\rvert \), since \( x \in S \) then \( x - 1 \in \left\{ -1, \ldots p - 2 \right\}  \) so that \( \left\lvert x - 1 \right\rvert \le p - 2  \) but then we deduced that \( p \le p - 2 \)  which is a contradiction so that we must have \( x - 1 = 0 \) so that \( x = 1 \). On the other hand if we know that \( x \equiv -1 \left( \operatorname{ mod } p  \right)  \) then we see that \( p \mid x + 1  \) since \( x + 1 \in \left\{ 1, \ldots , p \right\}  \) then the only possibility is that \( x + 1 = p \) which is that \( x = p - 1 \).
-                </p>
-                <p>
-                    The result of the above paragraph is that if \( f \left( x \right) = x \) then the only possibility is that \( x = 1 \) or that \( x = p - 1 \), so \( x \in \left\{ 2, \ldots , p - 2 \right\} \implies f \left( x \right) \neq x  \) and \( f \left( x \right) \in \left\{ 2, \ldots , p - 2 \right\}  \), and this function is a bijection, remaining a bijection on the restriction of the domain and range to \( \left\{ 2, \ldots , p - 2 \right\}  \).
-                </p>
-                <p>
-                    For a moment note that if \( p = 2 \) this whole question is trivial because \( \left( 2 - 1 \right) ! \equiv -1 \left( \operatorname{ mod } 2  \right)   \), therefore we can assume that \( p \ge 3 \) also this implies that \( p \) is odd, therefore when we consider the collection
-                    \[
-                    K = \left\{ 2, \ldots , p - 2 \right\}
-                    \]
-                    then since \( \left\lvert K \right\rvert = p - 2 - 2 + 1 = p - 3 \) then the size of \( K \) is even since \( p \) is odd. Let \( k _ 1 \in K \) then \( f \left( k _ 1 \right) \neq k \), Let \( K _ 1 = K \setminus \left\{ k _ 1, f \left( k _ 1 \right)  \right\} \), since \( f \) is a bijection, then by repeating this process \( l = \frac{\left\lvert K \right\rvert }{2}  \) times then \( K _ l = \emptyset  \) which is to say that \( \left\{ \left\{ k _ i, f \left( k _ i \right)  \right\}: i \in \left[ 1, \ldots, l \right]   \right\}  \) is a partition of \( K \), thus
-                    \[
-                    2 \cdots \left( p - 2 \right) = \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right)
-                    \]
-                    But we see \( \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right) \equiv  \prod _ { i = 1 } ^ { l } 1 \equiv 1  \left( \operatorname{ mod } p \right)    \) and therefore \( 2 \cdots \left(  p - 2  \right) \equiv 1 \left( \operatorname{ mod } p  \right)   \) therefore
-                    \[
-                    \left( p - 1 \right) ! \equiv  2 \cdots \left( p - 2 \right) \left( p - 1 \right) \equiv 1 \left( p - 1 \right) \equiv -1 \left( \operatorname{ mod } p \right)
-                    \]
-                    as needed.
-                </p>
-            </div>
-        </div>
-
-        <p>
-            The above is usually referred to "Wilsons Theorem".
-        </p>
-        
-        <div class="corollary" id="corollary-p-minus-two-factorial-is-congruent-to-one-mod-p">
-        	<div class="title">p Minus two Factorial is Congruent to One Mod p</div>
-        	<div class="content">
-                Suppose that \(  p \in \mathbb{ N } _ 2 \) is prime, then 
-                \[
-                    \left( p - 2 \right) ! \equiv 1 \pmod{ p } 
-                \]
-        	</div>
-        	<div class="proof">
-        	    Recall that \( \left( p - 1 \right) ! \equiv -1 \pmod{ p }   \) but at the same time we know that \( \left( p - 1 \right)! \equiv \left( p - 1 \right) \left( p - 2 \right) ! \equiv -1 \left( p - 2 \right) !    \) therefore multiplying both sides by \( -1 \) we obtain that 
-                \[
-                    \left( p - 2 \right) ! \equiv 1 \pmod{ p }
-                \]
-        	</div>
-        </div>
-
-        <p>
-            This allows us to conclude things like: \( 15! \equiv 1 \pmod{ 17 }  \).
-        </p>
-        
-        <div class="exercise" id="exercise-factorial-fun">
-        	<div class="title">Factorial Fun</div>
-        	<div class="content">
-        		Find the remainder when \( 4 \left( 29! \right) + 5!  \) is divided by \( 31 \) 
-        	</div>
-        	<div class="proof">
-        	    We know that \( 29! \equiv 1 \pmod{ 31 }  \) and that \( 5! = 120 \) therefore 
-                \[
-                    4 \left( 29! \right) + 5! \equiv 124 \equiv 4 \left( 31 \right) \equiv 0 \pmod{ 31 } 
-                \]
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-1-2-3-n-go">
-        	<div class="title">1 2 3 n go</div>
-        	<div class="content">
-        		Show that for any \( n \in \mathbb{ N } _ 2 \) then
-                \[
-                    n \mid 2 \left( n - 3 \right) ! + 1
-                \]
-                iff \( n \) is prime
-        	</div>
-        	<div class="proof">
-                Suppose that \( n \) is prime, <a class="knowledge-link" href="/number_theory/primes.html#corollary-p-minus-two-factorial-is-congruent-to-one-mod-p">therefore</a> 
-                \( \left( n - 2 \right) ! \equiv 1 \pmod{ n }  \) we also know that \( n - 2 \equiv -2 \pmod{ n }   \) therefore we know that 
-                \[
-                    \left( n - 3 \right) ! \left( -2 \right) \equiv 1 \pmod{ n }  \iff 2 \left( n - 3 \right) ! \equiv -1 \pmod{ n } 
-                \]
-                thus
-                \[
-                    2 \left( n - 3 \right) ! + 1 \equiv 0 \pmod{ n }
-                \]
-                as needed.
-                <p>
-                    For the other direction assume that \( n \mid 2 \left( n - 3 \right) ! + 1 \) therefore we know that
-                    \[
-                        2 \left( n - 3 \right) ! \equiv -1 \pmod{ n }
-                    \]
-                    by multiplying both sides by -1, re-writing the factorial and then multiplying by -1 again, we obtain that
-                    \[
-                        \left( n - 1 \right) ! \equiv -1 \pmod{ n }
-                    \]
-                    therefore by wilsons theorem we know that \( n \) is prime.
-                </p>
-        	</div>
-        </div>
-        
-        <div class="theorem" id="theorem-generalized-wilsons-theorem">
-        	<div class="title">Generalized Wilson's Theorem</div>
-        	<div class="content">
-        	    Suppose that \( p \in \mathbb{ P }  \) 	and that \( a \in \left[ 1, \ldots , p \right]  \) then we have 
-                \[
-                    \left( a - 1 \right) ! \left( p - a \right) ! \equiv \left( -1 \right) ^ a
-                \]
-        	</div>
-        	<div class="proof">
-        	    <a class="knowledge-link" href="/number_theory/primes.html#proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">We know that</a> the base case holds. Therefore we move directly to the induction step, where we assume that the statement holds true for \( k \in \mathbb{ N } _ 1 \), and we have to prove that
-                \[
-                    \left( k \right) ! \left( p - k - 1 \right) ! \equiv \left( -1 \right) ^ { k + 1  }
-                \]
-                We have that
-                \[
-                    \begin{align}
-                \left( -1 \right) ^ k &\equiv \left( k - 1 \right) ! \left( p - k \right) ! \\
-                & \equiv \left( k - 1 \right) ! \left( p - k \right) \left( p - k - 1 \right) ! \\
-                & \equiv \left( k - 1 \right) ! \left( -k \right) \left( p - k - 1 \right) ! \\
-                & \equiv \left( -1 \right) k! \left( p - k - 1 \right) ! \\
-                    \end{align}
-                \]
-                thus by multiplying both sides by \( -1 \) we obtain that 
-                \[
-                    k! \left( p - k - 1 \right) \equiv \left( -1 \right) { k + 1  }
-                \]
-                as needed.
-        	</div>
-        </div>
-        
-
-        
-        <div class="corollary" id="corollary-wilson-folded-in-half">
-        	<div class="title">Wilson Folded in Half</div>
-        	<div class="content">
-        		Suppose that \( p \in \mathbb{ N } _ 3 \) is prime, then 
-                \[
-                    \left[\left(\frac{p-1}{2}\right)!\right]^{2}\equiv (-1)^{\frac{p+1}{2}} \pmod{p}
-                \]
-        	</div>
-        	<div class="proof">
-                Observe that \( \frac{p - 1}{2}, \frac{p + 1 }{2}  \in \mathbb{ N } _ 1  \) since \( p \) is odd. Since \( 1 \lt p \) then we know \( 2 \lt p + 1 \lt 2p \) so that \( 1 \lt \frac{p + 1 }{2} \lt p \), similarly since \( 3 \le p \) then \( 2 \le p - 1 \lt p \) so that \( 1 \le \frac{p - 1}{2} \lt \frac{p}{2} \lt p  \), moreover \( \frac{p - 1}{2} + 1 = \frac{p + 1 }{2}  \) therefore we have:
-                \[
-                    \left( p - 1 \right) ! = 1 \cdot 2 \cdots \left( \frac{p - 1}{2}   \right) \cdot  \left( \frac{p + 1 }{2}  \right) \cdots \left( p - 1 \right) 
-                \]
-                <p>
-                    focusing on the terms that come after \( \frac{p - 1 }{2}  \) in the above product we see
-                    \[
-                    \begin{align*}
-                    \frac{p+1}{2}&\equiv -\frac{p-1}{2}\pmod{p} \\
-                    &\vdots\\
-                    p-2&\equiv -2\pmod p\\
-                    p-1&\equiv -1\pmod p
-                    \end{align*}
-                    \]
-                    that first congruence comes from the fact that \( \frac{p + 1 }{2} = p - \frac{p - 1}{2}  \), and notice that they are congruent to the negative versions of the terms in the first half of the factorial, and so we can "fold" it in half to get 
-                    \[
-                        \left( p - 1 \right) ! \equiv 1 \cdot \left( - 1 \right) \cdot 2 \cdot \left( -2 \right) \cdots \left( \frac{p - 1}{2}  \right) \left( - \frac{p - 1}{2}  \right) \pmod{p}
-                    \]
-                    Since there are exactly \( \frac{p - 1}{2}  \) negative terms we can factor a \( -1 \) out from all of them, leaving square of the consecutive numbers so that
-                    \[
-                        \left( p - 1 \right) ! \equiv \left( -1 \right) ^ { \frac{p - 1}{2}  } \left( 1 \cdot 2 \cdots \frac{p - 1}{2}  \right) ^ 2 \pmod{ p }
-                    \]
-                    by wilsons theorem we know that \( \left( p - 1 \right) ! \equiv -1  \pmod{ p }  \) therefore we have
-                    \[
-                        -1 \equiv \left( -1 \right) ^ { \frac{p - 1}{2}  } \left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \pmod{ p }
-                    \]
-                    since \( p  \) is odd, then \( p - 1 \) is even, therefore \( \left( -1 \right)  ^ { p - 1 } = 1 \), therefore
-                    \[
-                        \begin{align}
-                            -1 \left( -1 \right) ^ { \frac{p - 1}{2}  } &\equiv \left( -1 \right) ^ { \frac{p - 1}{2}  } \left( -1 \right) ^ { \frac{p - 1}{2}  }\left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \pmod{ p }\\
-                            \left( -1 \right) ^  { \frac{p - 1}{2} + \frac{2}{2}  } &\equiv \left( -1 \right) ^ { p - 1 }  \left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \pmod{ p }\\
-                            \left( -1 \right) ^ { \frac{p + 1 }{2}  } &\equiv \left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \pmod{ p }
-                    \end{align}
-                    \]
-                    as needed.
-                </p>
-        	</div>
-        </div>
-        
-
-        <div class="lemma" id="lemma-fermats-helper">
-        	<div class="title">Fermats Helper</div>
-        	<div class="content">
-        		Suppose \( p \in \mathbb{ N } _ 2 \) is prime, and \( a \in \mathbb{ Z }  \)  so that \( p \nmid a \) then
-                \[
-                    a ^ { p - 1 } \equiv 1 \left( \operatorname{ mod } p \right)
-                \]
-        	</div>
-        	<div class="proof">
-                Recall that \( R = \left\{ 0, \ldots , p - 1 \right\}  \) is a complete system or resides mod \( p \), and <a class="knowledge-link" href="/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">since</a> \( \gcd \left( p, a \right) = 1  \) then so is \( A = \left\{ 0, \ldots , a \left( p - 1 \right)  \right\}  \) <a class="knowledge-link" href="/number_theory/congruence.html#corollary-product-of-non-zero-residues-yields-factorial">therefore</a>
-                \[
-                \prod _ { x \in A \setminus \left\{ 0 \right\}  } x \equiv \left( p - 1 \right) ! \left( \operatorname{ mod }  p \right)
-                \]
-                But we also know that \( \prod _ { x \in A \setminus \left\{ 0 \right\} } x = a ^ { p - 1 } \left( p - 1 \right) !  \) so we conclude that
-                \[
-                \left( p - 1 \right)! a ^ {  p - 1 } \equiv \left( p - 1 \right) ! \left( \operatorname{ mod } p \right)
-                \]
-                <a class="knowledge-link" href="/number_theory/primes.html#proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">But then</a>
-                \[
-                a ^ {  p - 1 }  \equiv 1 \left( \operatorname{ mod }  p \right)
-                \]
-        	</div>
-        </div>
-        
-        <div class="corollary" id="corollary-fermats-helper-mod-exponent">
-        	<div class="title">Fermats Helper Mod Exponent</div>
-        	<div class="content">
-        		Suppose that \( p \in \mathbb{ N } _ 2 \) is prime, and \( a, b \in \mathbb{ Z }  \) such that \( p \nmid a \) then 
-                \[
-                   a ^ b \equiv a ^ { b ~\%~ \left( p - 1 \right)  }  \pmod{ p }
-                \]
-        	</div>
-        	<div class="proof">
-        	    By the quotient remainder theorem we know that \( b = q \left( p - 1 \right) + r  \) where \( r = b ~\%~ \left( p - 1 \right)  \) therefore
-                \[
-                \begin{align}
-                a ^ b &\equiv a ^ { q \left( p - 1 \right)  + r } \\
-                &\equiv a ^ { q \left( p - 1 \right)  }  a ^ r \\
-                &\equiv \left( a ^ { p - 1 } \right) ^ q a ^ r \\
-                &\equiv  1 ^ q a ^ r \\
-                &\equiv a ^ r \equiv a ^ { b ~\%~ \left( p - 1 \right)  } \pmod{ p }
-                \end{align}
-                \]
-                where in the 3rd last line we used fermats helper.
-        	</div>
-        </div>
-
-        <div class="theorem" id="theorem-fermats-little">
-        	<div class="title">Fermats Little</div>
-        	<div class="content">
-                For any \( p \in \mathbb{ N } _ 2 \) which is prime, then for any \( a \in \mathbb{ Z }  \) we have
-                \[
-                    a ^ p \equiv a \left( \operatorname{ mod } p \right)
-                \]
-        	</div>
-        	<div class="proof">
-                <p>
-                    Suppose \( p \mid a \) then the statement holds true as \( 0 ^ p \equiv 0 \left( \operatorname{ mod } p \right)  \). On the other hand if \( p \nmid a \) then \( a ^ {  p - 1 }  \equiv 1 \left( \operatorname{ mod }  p \right) \) so by multiplying by \( a \) we have
-                    \[
-                        a ^ p \equiv a \left( \operatorname{ mod } p  \right)
-                    \]
-                </p>
-        	</div>
-        </div>
-        
-        
-        <div class="exercise" id="exercise-remainder-of-power-plus-one">
-        	<div class="title">Remainder of Power Plus One</div>
-        	<div class="content">
-        		Find the remainder of \( 11 ^ { 104 } + 1 \) modulo \( 17 \)
-        	</div>
-        	<div class="proof">
-        	    Observe that by fermats helper since \( 17 \nmid 11 \) we have that \( 11 ^ { 16 } \equiv 1 \pmod{ 17 }   \) since \( 104 = 16 \cdot 6 + 8  \) then we see that
-                \[
-                    11 ^ { 104  } \equiv \left( 11 ^ 16 \right) ^ 6 \left( 11 \right) ^ 8 \equiv 11 ^ 8 \pmod{ 17 }
-                \]
-                since \( 11 ^ 2 = 121 = 17 \cdot 7 + 2 \) then \( 11 ^ 8 \equiv \left( 11 ^ 2 \right) ^ 4 \equiv 16 \equiv -1 \pmod{ 17 }   \) therefore 
-                \[
-                    11 ^ { 104 } + 1 \equiv 0 \pmod{ 17 } 
-                \]
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-2s-and-5s">
-        	<div class="title">2's and 5's</div>
-        	<div class="content">
-        		Show that \( 2222 ^ { 5555 } + 5555 ^ { 2222 }  \) is divisible by \( 7 \)
-        	</div>
-        	<div class="proof">
-                <p>
-                    Note that in general \( AB \cdot 0101 \ldots 01 = ABAB \ldots AB \), therfore note that \( 5555 = 101 \cdot 55 \) and that \( 2222 = 101 \cdot 22 \).
-                </p>
-                <p>
-                    We use this to simplify each base mod \( 7 \), we have that
-                    \[
-                    \begin{align}
-                    5555 &\equiv 101 \cdot 55\\
-                    &\equiv \left( 7 \cdot 14 + 3 \right)   \cdot \left( 7 \cdot 7 + 6  \right) \\
-                    &\equiv -3 \pmod{ 7 }
-                    \end{align}
-                    \]
-                </p>
-                <p>
-                    also that
-                    \[
-                        \begin{align}
-                            2222 &\equiv 101 \cdot 22 \\
-                        &\equiv 3 \cdot \left( 7 \cdot 3 + 1  \right)  \\
-                    &\equiv 3
-                        \end{align}
-                    \]
-                    therefore we know that
-                    \[
-                        2222 ^ { 5555 } + 5555 ^ { 2222 } \equiv \left( -3 \right) ^ { 5555 }  + 3 ^ { 2222 } \pmod{ 7 }
-                    \]
-                    <a class="knowledge-link" href="/number_theory/primes.html#corollary-fermats-helper-mod-exponent">We will now look</a> at \( 2222 ~\%~  6 \) since we know that \( 2220 ~\%~  6 = 0 \) then \( 2222 ~\%~  6 = 2 \), we will now look at \( 5555 ~\%~ 6 \) since we know that that \( 5550 ~\%~ 6 = 0 \) then \( 5555 ~\%~ 6 = 5 \) therefore
-                    \[
-                        \left( -3 \right) ^ { 5555 } + 3 ^ { 2222 } \equiv \left( -3 \right) ^ 2  + 3 ^ { -1 } \equiv 5 + 2 \equiv 0 \pmod{ 7 } 
-                    \]
-                </p>
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-prime-power-sum">
-        	<div class="title">Prime Power Sum</div>
-        	<div class="content">
-        	    Suppose that \( p \in \mathbb{ P } _ 3 \) then compute
-                \[
-                    \left( 1 ^ p + 2 ^ p + 3 ^ p + \cdots + \left( p - 1 \right) ^ p \right) ~\%~ p
-                \]
-        	</div>
-        	<div class="proof">
-                Since for each \( x \in \left[ 1, \ldots , p - 1 \right]  \) we know that by fermats little theorem that
-                \[
-                    x ^ p \equiv x \pmod{ p }
-                \]
-                thus we have that
-                \[
-                        \sum _ { i = 1 } ^ { p - 1  }  i ^ p \equiv \sum _ { i = 1 } ^ {  p - 1 } i \equiv \frac{\left( p - 1 \right) p  }{2} \pmod{ p } 
-                \]
-                now since \( p \in \mathbb{ P } _ 3  \) then we know that \( p - 1 \) is an even number therefore we know that \( \frac{ p - 1}{2} \in \mathbb{ Z }  \) therefore we have
-                \[
-                    \frac{\left( p - 1 \right) p }{2} \equiv \frac{p - 1}{2} p \equiv 0 \pmod{ p }
-                \]
-                which shows that
-                \[
-                \left( 1 ^ p + 2 ^ p + 3 ^ p + \cdots + \left( p - 1 \right) ^ p \right) ~\%~ p = 0
-                \]
-        	</div>
-        </div>
-
-
-
-
-        <div class="corollary" id="corollary-if-a-doesnt-divide-p-then-fermats-little-theorem-and-fermats-little-helper-are-equivalent">
-        	<div class="title">If a Doesn't Divide p Then Fermats Little Theorem and Fermats Little Helper are Equivalent</div>
-        	<div class="content">
-                Suppose that \( p \in \mathbb{ N } _ 2 \) is prime and \( a \in \mathbb{ Z }  \) such that \( p \nmid a \) then
-                \[
-                    a ^ { p - 1 } \equiv 1 \iff a ^ p \equiv a \left( \operatorname{ mod } p  \right)
-                \]
-        	</div>
-        	<div class="proof">
-                \( \implies  \)  Suppose that \( a ^ {  p - 1 } \equiv 1  \) then multiply both sides by \( a \). \( \impliedby  \) Suppose that \( a ^ p \equiv a \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">since</a> \( \gcd \left( a, p \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">then</a> \( a ^ { p - 1 }  \equiv 1 \left( \operatorname{ mod } p  \right)  \) as needed.
-        	</div>
-        </div>
-
-
-        <div class="exercise" id="exercise-almost-prime">
-        	<div class="title">Almost Prime</div>
-        	<div class="content">
-        		Show that for any \( a \in \mathbb{ Z }  \) we have
-                \[
-                    a ^ 9 \equiv a \left( \operatorname{ mod } 30 \right)
-                \]
-        	</div>
-        	<div class="proof">
-                <p>
-                    Recall that \( 30 = 2 \cdot 3 \cdot 5 \), what we will is that we will consider the equations \( x \equiv a \left( \operatorname{ mod } 2, 3, 5  \right)  \), trivially for each equation \( x = a \) works, and therefore by the <a class="knowledge-link" href="/number_theory/congruence.html#theorem-chinese-remainder">chinese remainder theorem</a> any other solution is congruent to \( a \) mod 30. Our goal will be to show that \( a ^ 9 \) also satisfies the equations which will allow us to deduce that
-                    \[
-                    a ^ 9 \equiv a \left( \operatorname{ mod } 30 \right)
-                    \]
-                </p>
-                <p>
-                    Lets confirm that \( a ^ 9 \equiv a \left( \operatorname{ mod } 2 \right)  \), <a class="knowledge-link" href="/number_theory/primes.html#theorem-fermats-little">we do know</a> that \( a ^ 2 \equiv a \left( \operatorname{ mod } 2  \right)  \) so that \( a ^ 9 \equiv \left( a ^ 2 \right) ^ 4 a \equiv 1 a \equiv a  \) as needed. We take a similar approach to \( a ^ 9 \) mod \( 3 \) since we know that \( a ^ 3 \equiv a \left( \operatorname{ mod } 3  \right)  \) then \( a ^ 9 = \left( a ^ 3 \right) ^ 3 \equiv a  \), finally for \( a ^ 9 \) mod \( 5 \) we have \( a ^ 9 = a ^ 5 a ^ 4 \equiv a a ^ 4 \equiv a ^ 5 \equiv a  \) as needed.
-                </p>
-                <p>
-                    Therefore we've deduced that \( x = a ^ 9 \) is also a solution, and therefore
-                    \[
-                        a ^ 9 \equiv a \left( \operatorname{ mod } 30  \right)
-                    \]
-                </p>
-        	</div>
-        </div>
-
-        <div class="definition" id="definition-carmicheal">
-        	<div class="title">Carmichael</div>
-        	<div class="content">
-        	    We say that \( n \in \mathbb{ N } _ 1 \) is carmichael if \( a ^ n \equiv a \left( \operatorname{ mod } n  \right)  \) for every \( a \in \mathbb{ Z }  \), and \( n \) is not a prime.
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-561-is-carmichael">
-        	<div class="title">561 is Carmichael</div>
-        	<div class="content">
-        	    As per title.
-        	</div>
-        	<div class="proof">
-                <p>
-                    Our goal is to show that for any \( a \in \mathbb{ Z }  \) we have \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 561 \right)  \), we also have to show that \( n \) is not a prime, which is true because \( 561 = 3 \cdot 11 \cdot 17 \). Refocusing on the initial goal, we will prove this is true by considering the equations \( x \equiv a \left( \operatorname{ mod } 11, 13, 17  \right)  \) and noting that \( x = a \) is a solution, and also showing that \( x = a ^ { 561 }  \)is also a solution, and therefore concluding
-                    \[
-                    a ^ { 561 } \equiv a \left( \operatorname{ mod } 3 \cdot 11 \cdot 17 \right)
-                    \]
-                    by the <a class="knowledge-link" href="/number_theory/congruence.html#theorem-chinese-remainder">chinese remainder theorem</a>.
-                </p>
-                <p>
-                    Note that if \( d \mid a \) then \( d \mid a ^ { 561 }  \) and therefore \( a ^ { 561 }  \equiv a \left( \operatorname{ mod } d  \right)  \) therefore applying that idea to \( d = 3, 11, 17 \) we see that if any of them divide \( a \) we immediately obtain \( a ^ { 561 }  \equiv a \left( \operatorname{ mod } d \right)  \).
-                </p>
-                <p>
-                    Otherwise things still work, for if \( 3 \nmid a \) then <a class="knowledge-link" href="/number_theory/primes.html#lemma-fermats-helper">we know that</a> \( a ^ 2 \equiv 1 \left( \operatorname{ mod } 3 \right)  \) since \( 560  \) is even then \( a ^ { 560 }  \equiv \left( a ^ 2 \right) ^ { 280 }  \equiv 1  \) so we have \( a ^ { 561 }  \equiv a \left( \operatorname{ mod } 3 \right)  \). Similarly if \( 11 \nmid a \) then \( a ^ { 10 } \equiv 1 \left( \operatorname{ mod } 11  \right)  \) and therefore \( a ^ { 560 } \equiv 1   \) so that \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 11  \right)  \). Finally if \( 17 \nmid a \) then we have \( a ^ { 16 }  \equiv 1 \left( \operatorname{ mod } 17  \right)  \) and \( a ^ { 560 } \equiv \left( a ^ { 16 }  \right) ^ { 35 }  \equiv 1   \) so that \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 17  \right)  \).
-                </p>
-                <p>
-                    What we've shown is that no matter what we have that \( a ^ 561 \equiv a \left( \operatorname{ mod } 3, 11, 17  \right)  \) and therefore by our original paragraph we are done.
-                </p>
-        	</div>
-        </div>
-
-        <div class="corollary" id="corollary-korselts-criterion">
-        	<div class="title">Korselt's Criterion</div>
-        	<div class="content">
-        		\( n \in \mathbb{ N } _ 1 \) is <a class="knowledge-link" href="/number_theory/primes.html#definition-carmicheal">Carmichael</a> if and only if \( n \) is <a class="knowledge-link" href="/number_theory/square_free_integers.html#definition-square-free">squarefree</a> and for every prime \( p \) such that \( p \mid n \implies  p - 1 \mid n - 1 \).
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-1729-is-carmichael">
-        	<div class="title">1729 is Carmichael</div>
-        	<div class="content">
-        		As per title.
-        	</div>
-        	<div class="proof">
-        		As it turns out \( 1729 = 7 \cdot 13 \cdot 9 \), therefore it is square free and since \( 6, 12, 8 \mid 1728 \) then it is carmichael
-        	</div>
-        </div>
-        
-
-        <div class="proposition" id="proposition-fermats-compositeness-test">
-        	<div class="title">Fermats Compositeness Test</div>
-        	<div class="content">
-        	    Suppose \( n, a \in \mathbb{ Z }  \) such that \( \gcd \left( a, n \right) = 1  \) then if \( a ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n  \right)   \) then \( n \) is composite
-        	</div>
-        	<div class="proof">
-                Observe the contrapositive of fermats little helper which states that
-                \[
-                    a ^ { p - 1 } \not \equiv 1 \implies \left( p \mid a \lor p \text{ is not prime }  \right)
-                \]
-                from this we conclude that \( \left( p \mid a \lor p \text{ is not prime }  \right) \) but since \( \gcd \left( a, n \right) = 1  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-iff-congruent-mod-0">then</a> \( n \nmid a \) therefore we must conclude that \( n \) is not prime, and therefore composite.
-        	</div>
-        </div>
-        
-        <div class="definition" id="definition-fermat-witness">
-        	<div class="title">Fermat Witness</div>
-        	<div class="content">
-        		If \( n, a \) passes the compositeness test, then \( a \) is said to be a <b>Fermat Witness</b> for \( n \) 
-        	</div>
-        </div>
-        
-
-        <div class="definition" id="definition-pseudoprime-to-base-a">
-        	<div class="title">Pseudoprime to base \( a \)</div>
-        	<div class="content">
-        	    Suppose that \( n, a \in \mathbb{ Z }  \) and that \( a ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n  \right)   \) and \( n \) is not prime, then \( n \) is called a <b>pseudoprime</b> to base \( a \).
-        	</div>
-        </div>
-
-
-        <p>
-            Most of the time when you find that \( a ^ { n - 1  } \equiv 1 \left( \operatorname{ mod } n  \right)  \), then \( n \) is prime, that's why the ones that aren't are called pseudoprimes.
-        </p>
-
-        <div class="exercise" id="exercise-341-is-a-pseudoprime-to-base-2">
-        	<div class="title">\( 341 \) is a Pseudoprime to base \( 2 \)</div>
-        	<div class="content">
-        		As per title.
-        	</div>
-        	<div class="proof">
-                <p>
-                    Firstly we note that \( 341 \) is divisible by \( 11 \) because \( 3 - 4 + 1 = 0\) and therefore \( 341 = 11 \cdot 31 \) now we'll verify that \( 2 ^ { 340 } \equiv 1 \pmod{ 341 } \), note that \( 341 \cdot 3 = 1023 \) and since \( 2 ^ 10 = 1024 \) so that \( 1024 \equiv 1 \pmod{ 341 }  \) thus we know that \( 2 ^ 10 \equiv 1 \pmod{ 341 }  \) therefore \( 3 ^ { 340 } \equiv \left( 3 ^ 10 \right) ^ 34 \equiv 1 \pmod{ 341 }  \).
-                </p>
-                <p>
-                    On the other hand \( 3 ^ { 341 } \not \equiv 3 \pmod{ 341 }  \), we can see this is true by using the chinese remainder theorem on the equations \( x \equiv 3 \pmod{ 11 }  \) and \( x \equiv 3 \pmod{ 31 }  \) and noting that \( 341 \) solves it, but also the switch summation also solves it but the switch is not congruent to 3, so it works.
-                </p>
-        	</div>
-        </div>
-
-        <div class="definition" id="definition-fermat-primality-test">
-        	<div class="title">Fermat Primality Test</div>
-        	<div class="content">
-                Let \( n \in \mathbb{ N } _ 2 \), and define the following function \( f \left( X \right)  \):
-
-                <ol>
-                    <li>if \( X = \emptyset  \) return \( T \)</li>
-                    <li>let \( a \in X \)</li>
-                    <li>
-                         if \( a ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n \right) \) return \( F \) 
-                    </li>
-                    <li>return \( f \left( X \setminus \left\{ a \right\}  \right)  \) </li>
-                </ol>
-                Let \( G = \left\{ x \in \left[ 1, \ldots,  n - 2 \right]: \gcd \left( x, n \right) = 1 \right\}  \). If \( f \left( G \right) = F  \) then \( n \) is composite, otherwise we say that \( n \) is a <b>probable prime</b>
-        	</div>
-        </div>
-
-        <div class="corollary" id="corollary-every-carmichael-number-is-a-probable-prime">
-        	<div class="title">Every Carmichael Number is a Probable Prime</div>
-        	<div class="content">
-        	    Suppose \( n \in \mathbb{ N } _ 1 \) is Carmichael, then using the Fermat Primality Test, it is a probable prime.
-        	</div>
-        	<div class="proof">
-                Since \( n \) is Carmichael we know that \( a ^ n \equiv a \left( \operatorname{ mod } n  \right)  \) for any \( a \in \mathbb{ Z }  \), during the test each \( a \) has the property that \( \gcd \left( a, n \right) = 1  \) <a class="knowledge-link" href="/number_theory/primes.html#corollary-if-a-doesnt-divide-p-then-fermats-little-theorem-and-fermats-little-helper-are-equivalent">therefore</a> \( a ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n \right) \), this means at each stage in the test line 4 is reached until it terminates at line 1 and returning \( T \) therefore \( n \) is a probable prime.
-        	</div>
-        </div>
-        
-        
-        <div class="proposition" id="proposition-at-least-half-of-the-tested-elements-will-be-witnesses-to-a-composite-non-carmichael-number">
-        	<div class="title">At Least Half of the Tested Elements will be Witnesses to a Composite Non-Carmichael Number</div>
-        	<div class="content">
-        		Suppose that \( n \in \mathbb{ N } _ 1 \) is composite and not Carmichael and let \( G = \left\{ g \in \left[ 1, \ldots , n - 1 \right]: \gcd \left( g, n \right) = 1  \right\}  \) and \( W = \left\{ w \in G: w ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n  \right)   \right\}  \), then
-                \[
-                    \left\lvert W \right\rvert \ge \frac{\left\lvert G \right\rvert }{2}
-                \]
-        	</div>
-        	<div class="proof">
-                <p>
-                    To prove this true, we will consider the set \( L = \left\{ l \in G: l ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n \right)   \right\}  \), and note that \( G = L \sqcup W \) then if we are able to show that \( \left\lvert L \right\rvert \le \left\lvert W \right\rvert  \) then we have
-                    \[
-                    \left\lvert G \right\rvert \le \left\lvert L \right\rvert + \left\lvert W \right\rvert \le 2 \left\lvert W \right\rvert
-                    \]
-                    and we would deduce that \( \left\lvert W \right\rvert \ge \frac{\left\lvert G \right\rvert }{2}  \)
-                </p>
-                <p>
-                    Since \( L \subseteq \left[ 0, \ldots , n - 1 \right]  \) then all elements are incongruent mod \( n \), let \( w \in W \subseteq G \) this can be done because \( W \) is non-empty as \( n \) is not carmichael so that there exists an element \( g \in G \) such that \( g ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n  \right)  \).
-                </p>
-                <p>
-                    Since \( \gcd \left( w, n \right) = 1  \) then the collection of elements \( w L = \left\{ w l : l \in L \right\}  \) are also incongruent mod \( n \), since equality implies congruent, then non-congruent implies not equal, and therefore \( wL \) generates a collection of unique elements, so that \( \left\lvert L \right\rvert = \left\lvert wL \right\rvert   \).
-                </p>
-                <p>
-                    But note, given some \( wl \in wL \) we have that
-                    \[
-                        \left( wl \right) ^ { n - 1 } \equiv  w ^ { n - 1 } l ^ { n - 1 } \equiv w ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n \right)
-                    \]
-                    therefore we deduce that \( wL \subseteq W \) so then \( \left\lvert wL \right\rvert \le L \) therefore \( \left\lvert L \right\rvert \le \left\lvert W \right\rvert   \), so that by our introductory paragraph, we've proven what we needed to.
-                </p>
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-every-odd-number-is-a-difference-of-squares">
-        	<div class="title">Every Odd Number is a Difference of Squares</div>
-        	<div class="content">
-        		For any \( n \in \mathbb{ N } _ 1 \) that is odd there exists \( x, y \in \mathbb{ N } _ 1 \) such that
-                \[
-                    n =  x ^ 2 - y ^ 2
-                \]
-        	</div>
-        	<div class="proof">
-                Since \( n \) is odd, then there is some \( k \in \mathbb{ Z }  \) such that \( n = 2k + 1  \), note that \( 2k + 1  \) is similar to \( \left( k + 1  \right) ^ 2  = k ^ 2 + 2k + 1  \) and so that \( 2k + 1  = \left( k + 1  \right) ^ 2 - k ^ 2  \) as needed. Note that in this proof \( k =  \frac{n - 1}{2}  \) and \( k + 1 = \frac{n + 1 }{2}  \) so we are really saying that
-                \[
-                    n =  \left( \frac{n + 1}{2}  \right) ^ 2 + \left( \frac{n - 1}{2}  \right) ^ 2
-                \]
-        	</div>
-        </div>
-
-        <div class="lemma" id="lemma-the-sum-is-less-than-or-equal-to-the-product">
-        	<div class="title">The Sum is less than or Equal to the Product</div>
-        	<div class="content">
-        		Suppose that \( a, b \in \mathbb{ N } _ 2\)  then
-                \[
-                    a + b \le a \cdot b
-                \]
-                if \( a \lt b \) or \( b \lt a \)  then
-                \[
-                    a + b \lt a \cdot b
-                \]
-        	</div>
-        	<div class="proof">
-        	    Suppose that \( a, b \in \mathbb{ N } _ 2\) and without loss of generality assume that \( a \le b \) therefore
-                \[
-                    a + b \le b + b \le 2b \le ab
-                \]
-                Now suppose that \( a \lt b \)
-                \[
-                    a + b \lt b + b = 2b \le ab
-                \]
-        	</div>
-        </div>
-
-
-
-        <div class="proposition" id="proposition-fermats-factorization">
-        	<div class="title">Fermats Factorization</div>
-        	<div class="content">
-        		Suppose that \( n \in \mathbb{ N } _ 2 \) is odd, then \( n \) is composite iff there exists \( x, y \in \mathbb{ N } _ 1 \) such that
-                \[
-                n = x ^ 2 - y ^ 2
-                \]
-                where \( x \neq \frac{n + 1 }{2}  \)
-        	</div>
-        	<div class="proof">
-                <p>
-                    \( \implies  \) We can't use the fact that every odd number is a difference of squares, this is because the solution to that equation was specifically \( x = \frac{n + 1}{2}  \) which is explicitly disallowed for this proposition, therefore instead we note that \( n \) is composite so there exists \( c, d \in \left[ 2, \ldots , n - 1 \right]  \) such that \( n = cd \). But at the same time, we know that
-                    \[
-                    \begin{align}
-                    \left( \frac{c + d}{2}  \right) ^ 2 - \left( \frac{c - d}{2}   \right) ^ 2 &= \frac{c ^ 2 + 2 cd + d ^ 2 - c ^ 2 + 2cd - d ^ 2}{4} = cd
-                    \end{align}
-                    \]
-                    We'll now prove that \( \frac{c + d}{2} \neq \frac{n + 1 }{2}  \). 
-                </p>
-                <p>
-                    Since \( c, d \in \mathbb{ N } _ 2 \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-the-sum-is-less-than-or-equal-to-the-product">then we know that</a> \( c + d \le c \cdot d = n \) so that \( c + d \lt n + 1 \) therefore \( \frac{c + d}{2} \neq \frac{n + 1 }{2}  \) as needed.
-                </p>
-                <p>
-                    \( \impliedby  \) Suppose that \( n = x ^ 2 - y ^ 2 \) since \( n \ge 2 \) then we know \( x \gt y \) also note that \( x ^ 2 - y ^ 2 = \left( x + y \right) \left( x - y \right)   \) therefore \( \left( x + y \right) \mid n  \) and \( \left( x - y \right) \mid n  \), if \( n \) were to be prime, then \( \left( x +  y \right), \left( x - y  \right) \in \left\{ 1, n \right\}    \) without loss of generality suppose that \( x - y = 1 \) and \( x + y = n \) therefore \( 2x = n + 1 \) so \( x = \frac{n + 1 }{2}  \) then \( y = \frac{n - 1}{2}   \) which is a contradiction, and therefore \( n \) must be composite.
-                </p>
-        	</div>
-        </div>
-
-        <pre>
+<div class="definition" id="definition-prime">
+    <div class="title">
+        Prime
+    </div>
+    <div class="content">
+        A number \( p \in \mathbb{N}_{2} \) is said to be prime if it's only divisors are \( 1 \) and \( p \) symbolically that is \[ \forall d \in \mathbb{ N } _ 1, \left( d \mid p \right) \implies d \in \left\{ 1, p \right\} \]
+    </div>
+</div>
+<div class="definition" id="definition-set-of-primes">
+    <div class="title">
+        Set of Primes
+    </div>
+    <div class="content">
+        We denote the set of primes as \( \mathbb{ P } \)
+    </div>
+</div>
+<div class="corollary" id="corollary-if-a-prime-divides-another-they-are-equal">
+    <div class="title">
+        If a Prime Divides Another they are Equal
+    </div>
+    <div class="content">
+        Suppose that \( p, q \in \mathbb{ P } \), then \[ p \mid q \implies p = q \]
+    </div>
+    <div class="proof">
+        Since \( p \mid q \) <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">then we know that</a> \( p = 1 \) or \( p = q \) the former is impossible since \( \mathbb{ P } \subseteq \mathbb{ N } _ 2 \) therefore \( p = q \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-primes-of-the-form-4k-plus-something">
+    <div class="title">
+        Primes of the Form 4k Plus Something
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{ P } _ 3 \) then there exists some \( k \in \mathbb{ N } _ 0 \) such that \[ p = 4k + 1 \text{ or } p = 4k + 3 \]
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#theorem-quotient-remainder">quotient remainder</a> theorem we have that \[ p = 4 q + r \] where \( q \in \mathbb{ Z } \) and \( r \in \left[ 0, \ldots , q - 1 \right] \), when \( p = 3 \) the only possibility is that \( q = 0 \) and \( r = 3 \), on the other hand for any \( p \ge 5 \) we have that \( q \ge 1 \), now if \( q = 0 \) or \( r = 2 \) then the prime is divisible by \( 2 \) and which makes \( p \) not prime, which is a contradiction, therefore \( r \in \left\{ 1, 3 \right\} \).
+    </div>
+</div>
+<div class="definition" id="definition-increasing-prime-function">
+    <div class="title">
+        Increasing Prime Function
+    </div>
+    <div class="content">
+        We let the function \( p _ i: \mathbb{ N } _ 1 \to \mathbb{ P } \) be an increasing function such that \( p _ 1 = 2 \) and there are no primes between \( p _ i \) and \( p _ { i + 1 } \).
+    </div>
+</div>
+<p>This function looks like \( 2, 3, 5, 7, 11, 13, 17, \ldots \)</p>
+<div class="definition" id="definition-composite">
+    <div class="title">
+        Composite
+    </div>
+    <div class="content">
+        We say that \( n \in \mathbb{ Z } \) where \( \left\lvert n \right\rvert \ge 2 \) is composite if there exists an \( x \in \left\{ 2, \ldots , n - 1 \right\} \) such that \( x \mid n \)
+    </div>
+</div>
+<p>The composites union the primes is \( \mathbb{ Z } \setminus \left\{ -1, 0, 1 \right\} \)</p>
+<div class="corollary" id="corollary-composite-iff-not-prime">
+    <div class="title">
+        Composite iff Not Prime
+    </div>
+    <div class="content">
+        Let \( a \in \mathbb{ N } _ 1 \) then \( a \) is composite iff \( a \) is not prime
+    </div>
+    <div class="proof">
+        We know that it's always true that \( a \mid a \) and \( 1 \mid a \) therefore if \( a \) is not prime iff it has some other divisor other than \( 1 \) or \( a \) iff \( a \) is composite
+    </div>
+</div>
+<div class="lemma" id="lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">
+    <div class="title">
+        A Prime is Relatively Prime to Anything Else That is Not a Multiple of It
+    </div>
+    <div class="content">
+        Suppose that \( p \) is <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">prime</a> and \( n \in \mathbb{ Z } \) then \( p \nmid n \) iff \( \gcd \left( p, n \right) = 1 \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-a-prime-divisor-of-a-product-divides-at-least-one">
+    <div class="title">
+        A Prime Divisor of a Product Divides at Least One
+    </div>
+    <div class="content">
+        If \( p, a, b \in \mathbb{ Z } \) and we know \( p \) is <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">prime</a> and \( p \mid ab \) then \( p \mid a \) or \( p \mid b \).
+    </div>
+    <div class="proof">
+        If \( p \) were to divide \( a \), the proof is over so we assume that it does not. <a class="knowledge-link" href="/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else">therefore</a> \( \gcd \left( p, a \right) = 1 \) <a class="knowledge-link" href="/number_theory/primes.html#corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">and then</a> \( 1 = as + pt \), then \( b = \left( ab \right) s + ptb = \left( k \cdot p \right) s + ptb \), so then \( p \) divides the right hand side, therefore \( p \mid b \), as needed.
+    </div>
+</div>
+<div class="theorem" id="theorem-every-number-is-divisible-by-a-prime">
+    <div class="title">
+        Every Number is Divisible by a Prime
+    </div>
+    <div class="content">
+        For any \( n \in \mathbb{ N } _ 2 \) there is a <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">prime</a> \( p \) such that \( p \mid n \)
+    </div>
+    <div class="proof">
+        <p>To show existance we will use the <a class="knowledge-link" href="/number_theory/induction.html#proposition-well-ordering-principle">well ordering principle</a> so consider the set \[ S := \left\{ c \in \mathbb{ N } _ 2 : c \mid n \right\} \] observe that \( n \in S \) so therefore \( S \neq \emptyset \) and therefore by the well ordering principle it has a least element \( p \in S \) therefore by the definition of \( S \) we know that \( p \mid n \), lets show that \( p \) is prime.</p>
+        <p>Let \( d \in \mathbb{ N } _ 1, d \mid p \) if \( d = 1 \), then \( d \in \left\{ 1, p \right\} \) so all is well, on the other hand if \( d \gt 1 \) so that \( d \in \mathbb{ N } _ 2 \) then since we already knew that \( p \mid n \) and that <a class="knowledge-link" href="/number_theory/division.html#proposition-division-is-transitive">division is transitive</a> then we know that \( d \mid n \) which means that \( d \in S \), since \( p \) is the minimal element of \( S \) then \( p \le d \) at the same time since \( d \mid p \) then <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">we know that</a> \( d \le p \), thus since \( \le \) is <a class="knowledge-link" href="/fundamentals/relations.html#definition-anti-symmetric-relation">anti-symmetric</a>, then \( d = p \).</p>
+        <p>Thus \( p \) is prime, and \( p \mid n \) as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-every-number-is-a-product-of-primes">
+    <div class="title">
+        Every Number is a Product of Primes
+    </div>
+    <div class="content">
+        For every \( n \in \mathbb{ N } _ 2 \) \[ n := p _ 1 \cdot p _ 2 \cdot \cdots \cdot p _ k \] for some \( k \in \mathbb{ N } _ 1 \)
+    </div>
+    <div class="proof">
+        <p>We prove the statement true via strong induction, for the base case of \( n = 2 \) we see that \( p _ 1 = 2 \) works, namely that \( 2 = 2 \).</p>
+        <p>Now suppose for some \( j \in \mathbb{ N } _ 2 \) the statement we'd like to prove holds for \( \left\{ 2, \ldots , j \right\} \) we'll prove that the statement holds true for \( j + 1 \), so consider \( j + 1 \), if it is prime, then we are done, as we can take it as the singleton product, elsewise it is not prime, and <a class="knowledge-link" href="/number_theory/primes.html#corollary-composite-iff-not-prime">therefore it is composite</a> so we get \( a, b \in \mathbb{ N } _ 2 \) such that \( a b = j + 1 \) by our induction hypothesis we know that the statement holds true for \( a, b \) and thus we get \( a = p _ 1 \cdot \cdots \cdot p _ n \) and \( b = q _ 1 \cdot \cdots \cdot q _ m \) for some \( m, n \in \mathbb{ N } _ 1 \), thus \( j + 1 = p _ 1 \cdots p _ n q _ 1 \cdots q _ m \) so that \( j + 1 \) is the product of \( m + n \) primes as needed.</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-there-are-infinitely-many-primes">
+    <div class="title">
+        There are Infinitely Many Primes
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        Suppose that there were finitely many primes, and we listed all of them here: \( p _ 1, \ldots p _ k \) for \( k \in \mathbb{ N } _ 1 \) and consider \[ M := p _ 1 \cdots p _ k + 1 \] For every \( i \in \left[ 1, k \right] \) we have that \( M ~\%~ p _ i = 1 \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-divides-iff-zero-remainder">therefore</a> \( p _ i \nmid P \), at the same time \( M \) must be divisible by some prime \( p ^ \prime \) but clearly \( p ^ \prime \neq p _ i \) for any \( i \in \left[ 1, k \right] \) or else \( M ~\%~ p _ i = 0 \) which would be a contradiction, since it's not equal to any of the primes we listed, this is a contradiction because we know that it contained all primes, therefore our assumption is incorrect and there must be infinitely many primes.
+    </div>
+</div>
+<div class="proposition" id="proposition-there-is-a-prime-between-n-and-n-factorial">
+    <div class="title">
+        There is a Prime Between n and n Factorial
+    </div>
+    <div class="content">
+        For any \( n \in \mathbb{ N } _ 3 \) there is a prime number \( p \) such that \( n \lt p \lt n! \)
+    </div>
+    <div class="proof">
+        Let \( N = \left\{ p \in \mathbb{ P }: p \le n \right\} \) since \( n \ge 3 \) then at least \( 2, 3 \in N \) so it is non-empty. Since \( n! \ge 6 \) then we know that \( n ! - 1 \in \mathbb{ N } _ 2 \) and <a class="knowledge-link" href="/number_theory/primes.html#theorem-every-number-is-divisible-by-a-prime">therefore there is a prime</a> number which divides it, say it is \( q \), for any \( p \in N \) we know that \( n ! - 1 \equiv -1 \pmod{ p } \) therefore \( q \notin N \) thus \( q \gt n \), since \( q \mid n! - 1 \) then \( q \le n! - 1 \lt n! \) so that \[ n \lt q \lt n! \]
+    </div>
+</div>
+<div class="proposition" id="proposition-n-minus-1-factorial-is-divisible-by-n">
+    <div class="title">
+        n Minus 1 Factorial is Divisible by n
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{ N } _ 4 \), show that if \( n \) is not a prime then we have \[ \left( n - 1 \right) ! \equiv \begin{cases} 2 \pmod{ n } &amp;\text{ if } n = 4, \\ 0 \pmod{ n } &amp;\text{ if } n \ge 5 \end{cases} \]
+    </div>
+    <div class="proof">
+        <p>In the case that \( n = 4 \) then we know that \( \left( n - 1 \right) ! = 6 \) which has remainder 2 upon division by \( 4 \) as needed.</p>
+        <p>On the other hand, whenever we have \( n \ge 5 \) then since \( n \) is not prime, then it is composite and therefore there exists \( a, b \in \left[ 2, \ldots , n - 1 \right] \) such that \( n = ab \). If \( a \neq b \) then \[ \left( n - 1 \right) ! = \left( n - 1 \right) \cdots a \cdots b \cdots 2 \cdot 1 \] therefore \( n = ab \mid \left( n - 1 \right) ! \) so that \( \left( n - 1 \right) ! \equiv 0 \pmod{ n } \).</p>
+        <p>On the other hand, supposing that \( a = b \) then we see that \( n = a ^ 2 \) since \( a \ge 2 \) then we know that \( a ^ 2 \ge 2a \). Actually we know more, since \( n \ge 5 \) then \( a \gt 2 \) so we can say that \( a ^ 2 \gt 2a \) so that \( n \gt 2a \) so that \( a, 2a \) both appear in the factorials product so that \( a ^ 2 \mid \left( n - 1 \right) ! \) as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-there-are-gaps-of-arbitrary-size-between-consecutive-primes">
+    <div class="title">
+        There are Gaps of Arbitrary Size between Consecutive Primes
+    </div>
+    <div class="content">
+        Suppose that \( \left( p _ 1, p _ 2, p _ 2 , \ldots \right) \) is an increasing sequence of all the primes, then for every \( m \in \mathbb{ N } _ 1 \) there exists an \( N \in \mathbb{ N } _ 1 \) such that \[ p _ { N + 1 } - p _ { N } \ge m \]
+    </div>
+    <div class="proof">
+        Let \( m \in \mathbb{ N } _ 1 \), consider the following numbers \[ \left( m + 1 \right) ! + 2, \left( m + 1 \right) ! + 3, \ldots , \left( m + 1 \right) ! + \left( m + 1 \right) \] <a class="knowledge-link" href="/combinatorics/basics.html#proposition-the-number-of-integers-between-two-integers-inclusive">since there are</a> \( \left( m + 1 \right) - 2 + 1 = m \) numbers here, and for each element of the form \( \left( m + 1 \right) ! + i \) we know that \( i \mid \left( m + 1 \right)! + i \) since \( i \in \mathbb{ N } _ 2 \) this makes it composite, and thus not prime, thus take \( N \) as the greatest index such that \( p _ N \lt \left( m + 1 \right) ! + 2 \) thus the gap between \( p _ N \) and \( p _ { N + 1 } \) must be at least \( m \) as needed.
+    </div>
+</div>
+<div class="theorem" id="theorem-fundamental-theorem-of-algebra">
+    <div class="title">
+        Fundamental Theorem of Algebra
+    </div>
+    <div class="content">
+        For every \( n \in \mathbb{ N } _ 2 \) can be written uniquely as \[ n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i } \] \( \alpha _ i \in \mathbb{ N } _ 1 \) where all but finitely many \( \alpha _ i = 0 \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-prime-factors">
+    <div class="title">
+        Prime Factors
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{ N } _ 2 \) and consider its prime factorization \[ n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i } \] \( \alpha _ i \in \mathbb{ N } _ 1 \) where all but finitely many \( \alpha _ i = 0 \) then we define \[ \operatorname{ pf } \left( n \right) = \left\{ p _ i : \alpha _ i \ge 1 \right\} \]
+    </div>
+</div>
+<div class="definition" id="definition-prime-power-sequence">
+    <div class="title">
+        Prime Power Sequence
+    </div>
+    <div class="content">
+        Given any \( n \in \mathbb{ N } _ 1 \) and its prime factorization \( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { a _ i } \) then we define \[ \operatorname{ pps } \left( n \right) := \left( a _ 1, a _ 2, a _ 3, \ldots \right) \] Note that \( \operatorname{ pps } : \mathbb{ N } _ 2 \to \left\{ \left( x _ n \right): \mathbb{ N } _ 1 \to \mathbb{ N } _ 0 \right\} \)
+    </div>
+</div>
+<p>Note that since each number has a unique factorization then \( \operatorname{ pps } \) is a bijection, and so \( \operatorname{ pps } ^ { - 1 } \) exists.</p>
+<div class="corollary" id="corollary-products-as-the-addition-of-power-sequences">
+    <div class="title">
+        Products as the Addition of Power Sequences
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ N } _ 2 \) then \[ \operatorname{ pps } \left( ab \right) = \operatorname{ pps } \left( a \right) + \operatorname{ pps } \left( b \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="lemma" id="lemma-max-of-the-prime-power-sequence-is-0-iff-they-share-no-prime-factors">
+    <div class="title">
+        Max of the Prime Power Sequence is 0 iff They share no Prime Factors
+    </div>
+    <div class="content">
+        Let \( a, b \in \mathbb{ N } _ 2 \) then \[ \operatorname{ pf } \left( a \right) \cap \operatorname{ pf } \left( b \right) = \emptyset \iff \max \left( \operatorname{ pps } \left( a \right), \operatorname{ pps } \left( b \right) \right) = 0 \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-relatively-prime-in-terms-of-prime-factorization">
+    <div class="title">
+        Relatively Prime In terms of Prime Factorization
+    </div>
+    <div class="content">
+        The following are equivalent
+        <ol>
+            <li>\( \gcd \left( a, b \right) = 1 \)</li>
+            <li>\( \max \left( \operatorname{ pps } \left( a \right), \operatorname{ pps } \left( b \right) \right) = 0 \)</li>
+            <li>\( \operatorname{ pf } \left( a \right) \cap \operatorname{ pf } \left( b \right) = \emptyset \)</li>
+        </ol>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-coprime-and-5">
+    <div class="title">
+        Coprime and 5
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ Z } \) are coprime, then find all possible values of \[ \gcd \left( a + b, 5 ab \right) \]
+    </div>
+    <div class="proof">
+        <p>Let's consider a common divisor \( d \) of \( a + b \) and \( 5 ab \) recall that there exists a \( p \in \mathbb{ P } \) such that \( p \mid d \) therefore by transitivity we have \( p \mid a + b \) and \( p \mid 5 ab \) in the latter case, we see that either \( p \mid 5 \) or \( p \mid a \) or \( p \mid b \).</p>
+        <p>If \( p \mid a \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#corollary-if-a-number-divides-a-sum-and-already-divides-one-of-the-summands-it-must-divide-the-other">then we know that</a> \( p \mid b \) <a class="knowledge-link" href="/number_theory/primes.html#proposition-relatively-prime-in-terms-of-prime-factorization">but then</a> \( \gcd \left( a, b \right) \neq 1 \) which would be a contradiction, therefore \( p \nmid a \), but symmetrically \( p \nmid b \) therefore we must have that \( p \mid 5 \) <a class="knowledge-link" href="/number_theory/primes.html#corollary-if-a-prime-divides-another-they-are-equal">therefore</a> \( p = 5 \)</p>
+        <p>The above says that given any prime divisor of \( d \) then it turns out that prime divisor must be \( 5 \) therefore \( d = 5 ^ k \) for some \( k \in \mathbb{ N } _ 1 \). Suppose that \( k \ge 2 \), if that's true then we have \( 5 ^ k \mid 5 ab \) and \( 5 ^ k \mid a + b \) from the former <a class="knowledge-link" href="/number_theory/division.html#proposition-if-a-number-divides-another-then-given-a-common-factor-their-quotients-divide-each-other">so we have</a> \( 5 ^ { k - 1 } \mid ab \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-euclid">therefore</a> \( 5 ^ { k - 1 } \mid a \) or \( 5 ^ { k - 1 } \mid b \), without loss of generality if we assume that \( 5 ^ { k - 1 } \mid a \) then in conjunction with \( 5 ^ k \mid a + b \) we have \[ j 5 ^ k = a + b = 5 ^ { k - 1 } l + b \] therefore \[ b = 5 ^ { k - 1 } \left( j5 - l \right) \] so that \( 5 ^ { k - 1 } \mid b \) therefore \( \gcd \left( a, b \right) \ge 5 ^ { k - 1 } \) which is a contradiction, therefore it must be that \( k = 1 \).</p>
+        <p>Therefore the only possible values of \( d \) is \( 1 \) or \( 5 \) therefore the only possible values of \( \gcd \left( a + b, 5 ab \right) \) is \( 1 \) or \( 5 \)</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-subsequence-of-a-sum-of-two-disjoint-power-sequences-is-still-a-disjoint-sum">
+    <div class="title">
+        Subsequence of the sum of Two Disjoint Power Sequences Is Still a Disjoint Sum
+    </div>
+    <div class="content">
+        Suppose that \( \max \left( \operatorname{ pps } \left( a \right) , \operatorname{ pps } \left( b \right) \right) = 0 \) and that \( \left( x _ n \right) \le \operatorname{ pps } \left( a \right) + \operatorname{ pps } \left( b \right) \) then \[ \left( x _ n \right) = \left( a _ n \right) + \left( b _ n \right) \] where \( \left( a _ n \right) \le \operatorname{ pps } \left( a \right) \) and \( \left( b _ n \right) \le \operatorname{ pps } \left( b \right) \) and \( \max \left( \left( a _ n \right), \left( b _ n \right) \right) = 0 \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-a-number-divides-a-coprime-product-iff-it-is-the-product-of-individual-divisors">
+    <div class="title">
+        A Number Divides a Coprime Product iff It is the product of Individual Divisors
+    </div>
+    <div class="content">
+        Suppose that \( \gcd \left( a, b \right) = 1 \) then \( c \mid a b \) if and only if \( c = d _ a d _ b \) where \( d _ a, d _ b \) are divisors of \( a, b \) respectively
+    </div>
+    <div class="proof">
+        <p>\( \implies \) Suppose that \( c \mid ab \) therefore \( \operatorname{ pps } \left( c \right) \le \operatorname{ pps } \left( ab \right) = \operatorname{ pps } \left( a \right) + \operatorname{ pps } \left( b \right) \) and therefore \( \operatorname{ pps } \left( c \right) = \left( a _ n \right) + \left( b _ n \right) \) where \( \left( a _ n \right) \le \operatorname{ pps } \left( a \right) \) and \( \left( b _ n \right) \le \operatorname{ pps } \left( b \right) \) where \( \max \left( \left( a _ n \right), \left( b _ n \right) \right) = 0 \) (by the corollary). Therefore \( c = \operatorname{ pps } ^ { - 1 } \left( a _ n \right) \operatorname{ pps } ^ { - 1 } \left( b _ n \right) \) but we know that \( \operatorname{ pps } ^ { - 1 } \left( a _ n \right) \mid a \) and \( \operatorname{ pps } ^ { - 1 } \left( b _ n \right) \mid b \) as needed.</p>
+        <p>\( \impliedby \) Suppose that \( c = d _ a d _ b \), since they are divisors we know that there exist \( k _ a, k _ b \in \mathbb{ Z } \) such that \( a = k _ a d _ a \) and \( b = k _ b d _ b \) so then \( a b = k _ a k _ b d _ a d _ b = k _ a k _ b c\) therefore \( c \mid ab \) as needed.</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-euclid">
+    <div class="title">
+        Euclid
+    </div>
+    <div class="content">
+        For any \( a, b, p \in \mathbb{ N } _ 1 \) then if \( p \) is prime, we have \[ p \mid a b \implies \left( \left( p \mid a \right) \lor \left( p \mid b \right) \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-if-a-prime-divides-a-product-it-divides-at-least-one-of-the-factors">
+    <div class="title">
+        If a Prime Divides a Product it Divides at Least One of the Factors
+    </div>
+    <div class="content">
+        Suppose that \( a _ 1, \ldots a _ n \in \mathbb{ N } _ 1 \) and \[ p \mid \prod _ { i = 1 } ^ n a _ i \] then there exists a \( k \in \left[ 1, \ldots , n \right] \) such that \( p \mid a _ k \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-prime-divisors-of-a-factorial-are-bounded-by-the-argument">
+    <div class="title">
+        Prime Divisors of a Factorial are Bounded by the Argument
+    </div>
+    <div class="content">
+        For every \( p \in \mathbb{ P } \) and \( n \in \mathbb{ N } _ 2 \) such that \( p \mid n! \) then \[ p \le n \]
+    </div>
+    <div class="proof">
+        Since \( p \mid 1 \cdots n \) then there exists some \( k \in \left[ 1, \ldots , n \right] \) such that \( p \mid k \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">therefore</a> \( p \le k \le n \) so that \( p \le n \)
+    </div>
+</div>
+<div class="proposition" id="proposition-a-divisors-of-a-product-of-primes-is-a-product-of-primes-with-smaller-powers">
+    <div class="title">
+        A Divisor of a Product of Primes is a Product of Primes with Smaller Powers
+    </div>
+    <div class="content">
+        Suppose that dm
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-gcd-and-lcm-as-prime-powers">
+    <div class="title">
+        GCD and LCM as Prime Powers
+    </div>
+    <div class="content">
+        Suppose that \( P = \left\{ p _ 1, \ldots p _ k \right\} \) is a collection of primes such that \[ a = \prod _ { p _ i \in P } p _ i ^ { \alpha _ i } \text{ and } b = \prod _ { p _ i \in P } p _ i ^ { \beta _ i } \] where \( \alpha _ i, \beta _ i \in \mathbb{ N } _ 0 \), then \[ \gcd \left( a, b \right) = \prod _ { p _ i \in P } p _ i ^ { \min \left( \alpha _ i, \beta _ i \right) } \text{ and } \operatorname{ lcm } \left( a, b \right) = \prod _ { p _ i \in P } p _ i ^ { \max \left( \alpha _ i, \beta _ i \right) } \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-perfect-square-iff-every-power-in-the-prime-factorization-is-even">
+    <div class="title">
+        Perfect Square iff Every Power in the Prime Factorization is Even
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{ N } _ 1 \) then \( n \) is a perfect square if and only if \[ n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { 2 \alpha _ i } \]
+    </div>
+    <div class="proof">
+        <p>\( \implies \) Suppose that \( n \) is a perfect square therefore \( n = m ^ 2 \) for some \( m \in \mathbb{ Z } \) but we know that \( m = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \beta _ i } \) therefore \( n = \left( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \beta _ i } \right) ^ 2 = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { 2 \beta _ 2 } \)</p>
+        <p>\( \impliedby \) We have that \( n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { 2 \alpha _ i } = \left( \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i } \right) ^ 2 \) therefore \( n \) is a perfect square.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-division-and-prime-power-equivalence">
+    <div class="title">
+        Division and Prime Power Equivalence
+    </div>
+    <div class="content">
+        Suppose that \( a, d \in \mathbb{ N } _ 2 \) then \[ d \mid a \iff \operatorname{ pps } \left( d \right) \le \operatorname{ pps } \left( a \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-every-composite-three-digit-number-must-have-a-prime-factor-less-than-or-equal-to-31">
+    <div class="title">
+        Every Composite Three Digit Number must have a Prime Factor Less than or Equal to 31
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        Assume that for the sake of contradiction the statement was not true, therefore there is a three digit number such that all of its prime factors are greater than 31, the next prime is \( 37 \) and so the smallest three digit number hvaing all prime factors greater than \( 31 \) would be \( 37 ^ 2 = 1369 \) which is a four digit number, thus our assumption was false, so that every three digit number must have a prime factor less than or equal to \( 31 \).
+    </div>
+</div>
+<div class="exercise" id="exercise-lower-bound-on-primes-in-factorization-limits-the-number-of-prime-factors">
+    <div class="title">
+        Lower Bound on Primes in Factorization Limits the Number of Prime Factors
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{ N } _ 2 \) and suppose that \( p \nmid n \) for all primes \( p \le \sqrt[3]{ n } \), what can we conclude about the prime factorizatio of \( n \) ?
+    </div>
+    <div class="proof">
+        Suppose that \( n = \prod _ { i = 1 } ^ k p _ i ^ { \alpha _ i } \), we can see that \( p _ i \mid n \) and therefore by the contrapositive of our assumption we have that \( p _ i \ge \sqrt[3]{ n } \) therefore \( k \le 2 \) for if \( k \ge 3 \) then \[ \begin{align} n &amp;= \prod _ { i = 1 } ^ { k } p _ i ^ { \alpha _ i } \\ &amp;\ge \prod _ { i = 1 } ^ { k } p _ i \\ &amp;\ge \prod _ { i = 1 } ^ { 3 } p _ i \\ &amp;\gt \sqrt[3]{ n } \sqrt[3]{ n } \sqrt[3]{ n } \\ &amp;= n \end{align} \] so we've shown that \( n \gt n \) which is a contradiction so indeed \( k \le 2 \), therefore we conclude that the prime factorization of \( n \) has at most two different primes in it.
+    </div>
+</div>
+<div class="exercise" id="exercise-goldbach-equivalence">
+    <div class="title">
+        Goldbach Equivalence
+    </div>
+    <div class="content">
+        Show that every even integer \( \gt 2 \) is the sum of two primes if and only if every integer \( \gt 5 \) is the sum of three primes
+    </div>
+    <div class="proof">
+        <p>\( \implies \) Suppose the former, let \( n \in \mathbb{ N } _ 1 \) such that \( n \gt 5 \) if \( n \) is even, then so is \( n - 2 \) and we see \( n - 2 \gt 2 \) and so \( n - 2 = p _ 1 + p _ 2 \iff n = p _ 1 + p _ 2 + 2\), otherwise use \( 3 \).</p>
+        <p>\( \impliedby \) Suppose the latter and let \( n \gt 2 \) be even, in other words \( n \ge 4 \gt 3 \) therefore \( n + 2 \) is an even number and we know that \( n + 2 \gt 5 \) therefore \( n + 2 = p _ 1 + p _ 2 + p _ 3 \), since \( n + 2 \) is even then so is \( p _ 1 + p _ 2 + p _ 3 \) but the sum of three numbers is only even when exactly one is even or all are even, therefore at least one of them is even, but there is only one even prime number, and therefore without loss of generality assume that \( p _ 1 = 2 \) so we have \( n + 2 = 2 + p _ 2 + p _ 3 \) and therefore \( n = p _ 2 + p _ 3 \) as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">
+    <div class="title">
+        p Minus one Factorial is Congruent to Minus one Mod p
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{ N } _ 2 \) is prime, then \[ \left( p - 1 \right) ! \equiv -1 \left( \operatorname{ mod } p \right) \]
+    </div>
+    <div class="proof">
+        <p>Recall that \( S = \left\{ 0, \ldots , p - 1 \right\} \) is a complete set of residues mod \( p \), and also for any \( s \in S \) since \( \gcd \left( s, p \right) = 1 \) then the collection \( T = \left\{ 0, s, \ldots s \left( p - 1 \right) \right\} \) is a complete system of residues mod \( p \). Since it is then there is exactly one element \( j \in T \) such that \( j \equiv 1 \left( \operatorname{ mod } p \right) \) specifically \( j = s t \) where \( t \in S \) so we can say that \( st \equiv 1 \left( \operatorname{ mod } p \right) \).</p>
+        <p>In the previous paragraph we've shown the existance of a function \( f : S \to S \) such that \( x f \left( x \right) \equiv 1 \left( \operatorname{ mod } p \right) \). We're going to prove this function is injective, that is we will prove that if \( x, y \in S \) then \( f \left( x \right) = f \left( y \right) \implies x = y \). Suppose that \( f \left( x \right) = f \left( y \right) \) therfore \( f \left( x \right) \equiv f \left( y \right) \left( \operatorname{ mod } p \right) \) moreover by the definition of \( f \) we know that \( x f \left( x \right) \equiv 1 \equiv y f \left( y \right) \left( \operatorname{ mod } p \right) \) therefore we have \[ x f \left( x \right) \equiv y f \left( y \right) \equiv y f \left( x \right) \left( \operatorname{ mod } p \right) \] thus since \( f \left( x \right) \in S \) we know that \( \gcd \left( f \left( x \right), p \right) = 1 \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">therefore</a> \( x \equiv y \left( \operatorname{ mod } \frac{p}{1} \right) \) so that \( x = y \) as needed. As a side note since the size of the domain is the same as the size of the range, then we know that \( f \) is a bijection.</p>
+        <p>For a moment let's consider the case when \( f \left( x \right) = x \) if that were true we have \( x f \left( x \right) \equiv x ^ 2 \equiv 1 \left( \operatorname{ mod } p \right) \) therefore \( x \equiv \pm 1 \left( \operatorname{ mod } p \right) \) if \( x \equiv 1 \left( \operatorname{ mod } p \right) \) this means that \( p \mid x - 1 \), if \( x - 1 \neq 0 \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">then we know that</a> \( p \le \left\lvert x - 1 \right\rvert \), since \( x \in S \) then \( x - 1 \in \left\{ -1, \ldots p - 2 \right\} \) so that \( \left\lvert x - 1 \right\rvert \le p - 2 \) but then we deduced that \( p \le p - 2 \) which is a contradiction so that we must have \( x - 1 = 0 \) so that \( x = 1 \). On the other hand if we know that \( x \equiv -1 \left( \operatorname{ mod } p \right) \) then we see that \( p \mid x + 1 \) since \( x + 1 \in \left\{ 1, \ldots , p \right\} \) then the only possibility is that \( x + 1 = p \) which is that \( x = p - 1 \).</p>
+        <p>The result of the above paragraph is that if \( f \left( x \right) = x \) then the only possibility is that \( x = 1 \) or that \( x = p - 1 \), so \( x \in \left\{ 2, \ldots , p - 2 \right\} \implies f \left( x \right) \neq x \) and \( f \left( x \right) \in \left\{ 2, \ldots , p - 2 \right\} \), and this function is a bijection, remaining a bijection on the restriction of the domain and range to \( \left\{ 2, \ldots , p - 2 \right\} \).</p>
+        <p>For a moment note that if \( p = 2 \) this whole question is trivial because \( \left( 2 - 1 \right) ! \equiv -1 \left( \operatorname{ mod } 2 \right) \), therefore we can assume that \( p \ge 3 \) also this implies that \( p \) is odd, therefore when we consider the collection \[ K = \left\{ 2, \ldots , p - 2 \right\} \] then since \( \left\lvert K \right\rvert = p - 2 - 2 + 1 = p - 3 \) then the size of \( K \) is even since \( p \) is odd. Let \( k _ 1 \in K \) then \( f \left( k _ 1 \right) \neq k \), Let \( K _ 1 = K \setminus \left\{ k _ 1, f \left( k _ 1 \right) \right\} \), since \( f \) is a bijection, then by repeating this process \( l = \frac{\left\lvert K \right\rvert }{2} \) times then \( K _ l = \emptyset \) which is to say that \( \left\{ \left\{ k _ i, f \left( k _ i \right) \right\}: i \in \left[ 1, \ldots, l \right] \right\} \) is a partition of \( K \), thus \[ 2 \cdots \left( p - 2 \right) = \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right) \] But we see \( \prod _ { i = 1 } ^ { l } k _ i f \left( k _ i \right) \equiv \prod _ { i = 1 } ^ { l } 1 \equiv 1 \left( \operatorname{ mod } p \right) \) and therefore \( 2 \cdots \left( p - 2 \right) \equiv 1 \left( \operatorname{ mod } p \right) \) therefore \[ \left( p - 1 \right) ! \equiv 2 \cdots \left( p - 2 \right) \left( p - 1 \right) \equiv 1 \left( p - 1 \right) \equiv -1 \left( \operatorname{ mod } p \right) \] as needed.</p>
+    </div>
+</div>
+<p>The above is usually referred to "Wilsons Theorem".</p>
+<div class="corollary" id="corollary-p-minus-two-factorial-is-congruent-to-one-mod-p">
+    <div class="title">
+        p Minus two Factorial is Congruent to One Mod p
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{ N } _ 2 \) is prime, then \[ \left( p - 2 \right) ! \equiv 1 \pmod{ p } \]
+    </div>
+    <div class="proof">
+        Recall that \( \left( p - 1 \right) ! \equiv -1 \pmod{ p } \) but at the same time we know that \( \left( p - 1 \right)! \equiv \left( p - 1 \right) \left( p - 2 \right) ! \equiv -1 \left( p - 2 \right) ! \) therefore multiplying both sides by \( -1 \) we obtain that \[ \left( p - 2 \right) ! \equiv 1 \pmod{ p } \]
+    </div>
+</div>
+<p>This allows us to conclude things like: \( 15! \equiv 1 \pmod{ 17 } \).</p>
+<div class="exercise" id="exercise-factorial-fun">
+    <div class="title">
+        Factorial Fun
+    </div>
+    <div class="content">
+        Find the remainder when \( 4 \left( 29! \right) + 5! \) is divided by \( 31 \)
+    </div>
+    <div class="proof">
+        We know that \( 29! \equiv 1 \pmod{ 31 } \) and that \( 5! = 120 \) therefore \[ 4 \left( 29! \right) + 5! \equiv 124 \equiv 4 \left( 31 \right) \equiv 0 \pmod{ 31 } \]
+    </div>
+</div>
+<div class="exercise" id="exercise-1-2-3-n-go">
+    <div class="title">
+        1 2 3 n go
+    </div>
+    <div class="content">
+        Show that for any \( n \in \mathbb{ N } _ 2 \) then \[ n \mid 2 \left( n - 3 \right) ! + 1 \] iff \( n \) is prime
+    </div>
+    <div class="proof">
+        Suppose that \( n \) is prime, <a class="knowledge-link" href="/number_theory/primes.html#corollary-p-minus-two-factorial-is-congruent-to-one-mod-p">therefore</a> \( \left( n - 2 \right) ! \equiv 1 \pmod{ n } \) we also know that \( n - 2 \equiv -2 \pmod{ n } \) therefore we know that \[ \left( n - 3 \right) ! \left( -2 \right) \equiv 1 \pmod{ n } \iff 2 \left( n - 3 \right) ! \equiv -1 \pmod{ n } \] thus \[ 2 \left( n - 3 \right) ! + 1 \equiv 0 \pmod{ n } \] as needed.
+        <p>For the other direction assume that \( n \mid 2 \left( n - 3 \right) ! + 1 \) therefore we know that \[ 2 \left( n - 3 \right) ! \equiv -1 \pmod{ n } \] by multiplying both sides by -1, re-writing the factorial and then multiplying by -1 again, we obtain that \[ \left( n - 1 \right) ! \equiv -1 \pmod{ n } \] therefore by wilsons theorem we know that \( n \) is prime.</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-generalized-wilsons-theorem">
+    <div class="title">
+        Generalized Wilson's Theorem
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{ P } \) and that \( a \in \left[ 1, \ldots , p \right] \) then we have \[ \left( a - 1 \right) ! \left( p - a \right) ! \equiv \left( -1 \right) ^ a \]
+    </div>
+    <div class="proof">
+        <a class="knowledge-link" href="/number_theory/primes.html#proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">We know that</a> the base case holds. Therefore we move directly to the induction step, where we assume that the statement holds true for \( k \in \mathbb{ N } _ 1 \), and we have to prove that \[ \left( k \right) ! \left( p - k - 1 \right) ! \equiv \left( -1 \right) ^ { k + 1 } \] We have that \[ \begin{align} \left( -1 \right) ^ k &amp;\equiv \left( k - 1 \right) ! \left( p - k \right) ! \\ & \equiv \left( k - 1 \right) ! \left( p - k \right) \left( p - k - 1 \right) ! \\ & \equiv \left( k - 1 \right) ! \left( -k \right) \left( p - k - 1 \right) ! \\ & \equiv \left( -1 \right) k! \left( p - k - 1 \right) ! \\ \end{align} \] thus by multiplying both sides by \( -1 \) we obtain that \[ k! \left( p - k - 1 \right) \equiv \left( -1 \right) { k + 1 } \] as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-wilson-folded-in-half">
+    <div class="title">
+        Wilson Folded in Half
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{ N } _ 3 \) is prime, then \[ \left[\left(\frac{p-1}{2}\right)!\right]^{2}\equiv (-1)^{\frac{p+1}{2}} \pmod{p} \]
+    </div>
+    <div class="proof">
+        Observe that \( \frac{p - 1}{2}, \frac{p + 1 }{2} \in \mathbb{ N } _ 1 \) since \( p \) is odd. Since \( 1 \lt p \) then we know \( 2 \lt p + 1 \lt 2p \) so that \( 1 \lt \frac{p + 1 }{2} \lt p \), similarly since \( 3 \le p \) then \( 2 \le p - 1 \lt p \) so that \( 1 \le \frac{p - 1}{2} \lt \frac{p}{2} \lt p \), moreover \( \frac{p - 1}{2} + 1 = \frac{p + 1 }{2} \) therefore we have: \[ \left( p - 1 \right) ! = 1 \cdot 2 \cdots \left( \frac{p - 1}{2} \right) \cdot \left( \frac{p + 1 }{2} \right) \cdots \left( p - 1 \right) \]
+        <p>focusing on the terms that come after \( \frac{p - 1 }{2} \) in the above product we see \[ \begin{align*} \frac{p+1}{2}&amp;\equiv -\frac{p-1}{2}\pmod{p} \\ &amp;\vdots\\ p-2&amp;\equiv -2\pmod p\\ p-1&amp;\equiv -1\pmod p \end{align*} \] that first congruence comes from the fact that \( \frac{p + 1 }{2} = p - \frac{p - 1}{2} \), and notice that they are congruent to the negative versions of the terms in the first half of the factorial, and so we can "fold" it in half to get \[ \left( p - 1 \right) ! \equiv 1 \cdot \left( - 1 \right) \cdot 2 \cdot \left( -2 \right) \cdots \left( \frac{p - 1}{2} \right) \left( - \frac{p - 1}{2} \right) \pmod{p} \] Since there are exactly \( \frac{p - 1}{2} \) negative terms we can factor a \( -1 \) out from all of them, leaving square of the consecutive numbers so that \[ \left( p - 1 \right) ! \equiv \left( -1 \right) ^ { \frac{p - 1}{2} } \left( 1 \cdot 2 \cdots \frac{p - 1}{2} \right) ^ 2 \pmod{ p } \] by wilsons theorem we know that \( \left( p - 1 \right) ! \equiv -1 \pmod{ p } \) therefore we have \[ -1 \equiv \left( -1 \right) ^ { \frac{p - 1}{2} } \left[ \left( \frac{p - 1}{2} \right) ! \right] ^ 2 \pmod{ p } \] since \( p \) is odd, then \( p - 1 \) is even, therefore \( \left( -1 \right) ^ { p - 1 } = 1 \), therefore \[ \begin{align} -1 \left( -1 \right) ^ { \frac{p - 1}{2} } &amp;\equiv \left( -1 \right) ^ { \frac{p - 1}{2} } \left( -1 \right) ^ { \frac{p - 1}{2} }\left[ \left( \frac{p - 1}{2} \right) ! \right] ^ 2 \pmod{ p }\\ \left( -1 \right) ^ { \frac{p - 1}{2} + \frac{2}{2} } &amp;\equiv \left( -1 \right) ^ { p - 1 } \left[ \left( \frac{p - 1}{2} \right) ! \right] ^ 2 \pmod{ p }\\ \left( -1 \right) ^ { \frac{p + 1 }{2} } &amp;\equiv \left[ \left( \frac{p - 1}{2} \right) ! \right] ^ 2 \pmod{ p } \end{align} \] as needed.</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-fermats-helper">
+    <div class="title">
+        Fermats Helper
+    </div>
+    <div class="content">
+        Suppose \( p \in \mathbb{ N } _ 2 \) is prime, and \( a \in \mathbb{ Z } \) so that \( p \nmid a \) then \[ a ^ { p - 1 } \equiv 1 \left( \operatorname{ mod } p \right) \]
+    </div>
+    <div class="proof">
+        Recall that \( R = \left\{ 0, \ldots , p - 1 \right\} \) is a complete system or resides mod \( p \), and <a class="knowledge-link" href="/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">since</a> \( \gcd \left( p, a \right) = 1 \) then so is \( A = \left\{ 0, \ldots , a \left( p - 1 \right) \right\} \) <a class="knowledge-link" href="/number_theory/congruence.html#corollary-product-of-non-zero-residues-yields-factorial">therefore</a> \[ \prod _ { x \in A \setminus \left\{ 0 \right\} } x \equiv \left( p - 1 \right) ! \left( \operatorname{ mod } p \right) \] But we also know that \( \prod _ { x \in A \setminus \left\{ 0 \right\} } x = a ^ { p - 1 } \left( p - 1 \right) ! \) so we conclude that \[ \left( p - 1 \right)! a ^ { p - 1 } \equiv \left( p - 1 \right) ! \left( \operatorname{ mod } p \right) \] <a class="knowledge-link" href="/number_theory/primes.html#proposition-p-minus-one-factorial-is-congruent-to-minus-one-mod-p">But then</a> \[ a ^ { p - 1 } \equiv 1 \left( \operatorname{ mod } p \right) \]
+    </div>
+</div>
+<div class="corollary" id="corollary-fermats-helper-mod-exponent">
+    <div class="title">
+        Fermats Helper Mod Exponent
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{ N } _ 2 \) is prime, and \( a, b \in \mathbb{ Z } \) such that \( p \nmid a \) then \[ a ^ b \equiv a ^ { b ~\%~ \left( p - 1 \right) } \pmod{ p } \]
+    </div>
+    <div class="proof">
+        By the quotient remainder theorem we know that \( b = q \left( p - 1 \right) + r \) where \( r = b ~\%~ \left( p - 1 \right) \) therefore \[ \begin{align} a ^ b &amp;\equiv a ^ { q \left( p - 1 \right) + r } \\ &amp;\equiv a ^ { q \left( p - 1 \right) } a ^ r \\ &amp;\equiv \left( a ^ { p - 1 } \right) ^ q a ^ r \\ &amp;\equiv 1 ^ q a ^ r \\ &amp;\equiv a ^ r \equiv a ^ { b ~\%~ \left( p - 1 \right) } \pmod{ p } \end{align} \] where in the 3rd last line we used fermats helper.
+    </div>
+</div>
+<div class="theorem" id="theorem-fermats-little">
+    <div class="title">
+        Fermats Little
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ N } _ 2 \) which is prime, then for any \( a \in \mathbb{ Z } \) we have \[ a ^ p \equiv a \left( \operatorname{ mod } p \right) \]
+    </div>
+    <div class="proof">
+        <p>Suppose \( p \mid a \) then the statement holds true as \( 0 ^ p \equiv 0 \left( \operatorname{ mod } p \right) \). On the other hand if \( p \nmid a \) then \( a ^ { p - 1 } \equiv 1 \left( \operatorname{ mod } p \right) \) so by multiplying by \( a \) we have \[ a ^ p \equiv a \left( \operatorname{ mod } p \right) \]</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-remainder-of-power-plus-one">
+    <div class="title">
+        Remainder of Power Plus One
+    </div>
+    <div class="content">
+        Find the remainder of \( 11 ^ { 104 } + 1 \) modulo \( 17 \)
+    </div>
+    <div class="proof">
+        Observe that by fermats helper since \( 17 \nmid 11 \) we have that \( 11 ^ { 16 } \equiv 1 \pmod{ 17 } \) since \( 104 = 16 \cdot 6 + 8 \) then we see that \[ 11 ^ { 104 } \equiv \left( 11 ^ 16 \right) ^ 6 \left( 11 \right) ^ 8 \equiv 11 ^ 8 \pmod{ 17 } \] since \( 11 ^ 2 = 121 = 17 \cdot 7 + 2 \) then \( 11 ^ 8 \equiv \left( 11 ^ 2 \right) ^ 4 \equiv 16 \equiv -1 \pmod{ 17 } \) therefore \[ 11 ^ { 104 } + 1 \equiv 0 \pmod{ 17 } \]
+    </div>
+</div>
+<div class="exercise" id="exercise-2s-and-5s">
+    <div class="title">
+        2's and 5's
+    </div>
+    <div class="content">
+        Show that \( 2222 ^ { 5555 } + 5555 ^ { 2222 } \) is divisible by \( 7 \)
+    </div>
+    <div class="proof">
+        <p>Note that in general \( AB \cdot 0101 \ldots 01 = ABAB \ldots AB \), therfore note that \( 5555 = 101 \cdot 55 \) and that \( 2222 = 101 \cdot 22 \).</p>
+        <p>We use this to simplify each base mod \( 7 \), we have that \[ \begin{align} 5555 &amp;\equiv 101 \cdot 55\\ &amp;\equiv \left( 7 \cdot 14 + 3 \right) \cdot \left( 7 \cdot 7 + 6 \right) \\ &amp;\equiv -3 \pmod{ 7 } \end{align} \]</p>
+        <p>also that \[ \begin{align} 2222 &amp;\equiv 101 \cdot 22 \\ &amp;\equiv 3 \cdot \left( 7 \cdot 3 + 1 \right) \\ &amp;\equiv 3 \end{align} \] therefore we know that \[ 2222 ^ { 5555 } + 5555 ^ { 2222 } \equiv \left( -3 \right) ^ { 5555 } + 3 ^ { 2222 } \pmod{ 7 } \] <a class="knowledge-link" href="/number_theory/primes.html#corollary-fermats-helper-mod-exponent">We will now look</a> at \( 2222 ~\%~ 6 \) since we know that \( 2220 ~\%~ 6 = 0 \) then \( 2222 ~\%~ 6 = 2 \), we will now look at \( 5555 ~\%~ 6 \) since we know that that \( 5550 ~\%~ 6 = 0 \) then \( 5555 ~\%~ 6 = 5 \) therefore \[ \left( -3 \right) ^ { 5555 } + 3 ^ { 2222 } \equiv \left( -3 \right) ^ 2 + 3 ^ { -1 } \equiv 5 + 2 \equiv 0 \pmod{ 7 } \]</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-prime-power-sum">
+    <div class="title">
+        Prime Power Sum
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{ P } _ 3 \) then compute \[ \left( 1 ^ p + 2 ^ p + 3 ^ p + \cdots + \left( p - 1 \right) ^ p \right) ~\%~ p \]
+    </div>
+    <div class="proof">
+        Since for each \( x \in \left[ 1, \ldots , p - 1 \right] \) we know that by fermats little theorem that \[ x ^ p \equiv x \pmod{ p } \] thus we have that \[ \sum _ { i = 1 } ^ { p - 1 } i ^ p \equiv \sum _ { i = 1 } ^ { p - 1 } i \equiv \frac{\left( p - 1 \right) p }{2} \pmod{ p } \] now since \( p \in \mathbb{ P } _ 3 \) then we know that \( p - 1 \) is an even number therefore we know that \( \frac{ p - 1}{2} \in \mathbb{ Z } \) therefore we have \[ \frac{\left( p - 1 \right) p }{2} \equiv \frac{p - 1}{2} p \equiv 0 \pmod{ p } \] which shows that \[ \left( 1 ^ p + 2 ^ p + 3 ^ p + \cdots + \left( p - 1 \right) ^ p \right) ~\%~ p = 0 \]
+    </div>
+</div>
+<div class="corollary" id="corollary-if-a-doesnt-divide-p-then-fermats-little-theorem-and-fermats-little-helper-are-equivalent">
+    <div class="title">
+        If a Doesn't Divide p Then Fermats Little Theorem and Fermats Little Helper are Equivalent
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{ N } _ 2 \) is prime and \( a \in \mathbb{ Z } \) such that \( p \nmid a \) then \[ a ^ { p - 1 } \equiv 1 \iff a ^ p \equiv a \left( \operatorname{ mod } p \right) \]
+    </div>
+    <div class="proof">
+        \( \implies \) Suppose that \( a ^ { p - 1 } \equiv 1 \) then multiply both sides by \( a \). \( \impliedby \) Suppose that \( a ^ p \equiv a \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">since</a> \( \gcd \left( a, p \right) = 1 \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-by-a-common-factor-maintains-congruence-if-mod-is-divided-by-gcd">then</a> \( a ^ { p - 1 } \equiv 1 \left( \operatorname{ mod } p \right) \) as needed.
+    </div>
+</div>
+<div class="exercise" id="exercise-almost-prime">
+    <div class="title">
+        Almost Prime
+    </div>
+    <div class="content">
+        Show that for any \( a \in \mathbb{ Z } \) we have \[ a ^ 9 \equiv a \left( \operatorname{ mod } 30 \right) \]
+    </div>
+    <div class="proof">
+        <p>Recall that \( 30 = 2 \cdot 3 \cdot 5 \), what we will is that we will consider the equations \( x \equiv a \left( \operatorname{ mod } 2, 3, 5 \right) \), trivially for each equation \( x = a \) works, and therefore by the <a class="knowledge-link" href="/number_theory/congruence.html#theorem-chinese-remainder">chinese remainder theorem</a> any other solution is congruent to \( a \) mod 30. Our goal will be to show that \( a ^ 9 \) also satisfies the equations which will allow us to deduce that \[ a ^ 9 \equiv a \left( \operatorname{ mod } 30 \right) \]</p>
+        <p>Lets confirm that \( a ^ 9 \equiv a \left( \operatorname{ mod } 2 \right) \), <a class="knowledge-link" href="/number_theory/primes.html#theorem-fermats-little">we do know</a> that \( a ^ 2 \equiv a \left( \operatorname{ mod } 2 \right) \) so that \( a ^ 9 \equiv \left( a ^ 2 \right) ^ 4 a \equiv 1 a \equiv a \) as needed. We take a similar approach to \( a ^ 9 \) mod \( 3 \) since we know that \( a ^ 3 \equiv a \left( \operatorname{ mod } 3 \right) \) then \( a ^ 9 = \left( a ^ 3 \right) ^ 3 \equiv a \), finally for \( a ^ 9 \) mod \( 5 \) we have \( a ^ 9 = a ^ 5 a ^ 4 \equiv a a ^ 4 \equiv a ^ 5 \equiv a \) as needed.</p>
+        <p>Therefore we've deduced that \( x = a ^ 9 \) is also a solution, and therefore \[ a ^ 9 \equiv a \left( \operatorname{ mod } 30 \right) \]</p>
+    </div>
+</div>
+<div class="definition" id="definition-carmicheal">
+    <div class="title">
+        Carmichael
+    </div>
+    <div class="content">
+        We say that \( n \in \mathbb{ N } _ 1 \) is carmichael if \( a ^ n \equiv a \left( \operatorname{ mod } n \right) \) for every \( a \in \mathbb{ Z } \), and \( n \) is not a prime.
+    </div>
+</div>
+<div class="exercise" id="exercise-561-is-carmichael">
+    <div class="title">
+        561 is Carmichael
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        <p>Our goal is to show that for any \( a \in \mathbb{ Z } \) we have \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 561 \right) \), we also have to show that \( n \) is not a prime, which is true because \( 561 = 3 \cdot 11 \cdot 17 \). Refocusing on the initial goal, we will prove this is true by considering the equations \( x \equiv a \left( \operatorname{ mod } 11, 13, 17 \right) \) and noting that \( x = a \) is a solution, and also showing that \( x = a ^ { 561 } \)is also a solution, and therefore concluding \[ a ^ { 561 } \equiv a \left( \operatorname{ mod } 3 \cdot 11 \cdot 17 \right) \] by the <a class="knowledge-link" href="/number_theory/congruence.html#theorem-chinese-remainder">chinese remainder theorem</a>.</p>
+        <p>Note that if \( d \mid a \) then \( d \mid a ^ { 561 } \) and therefore \( a ^ { 561 } \equiv a \left( \operatorname{ mod } d \right) \) therefore applying that idea to \( d = 3, 11, 17 \) we see that if any of them divide \( a \) we immediately obtain \( a ^ { 561 } \equiv a \left( \operatorname{ mod } d \right) \).</p>
+        <p>Otherwise things still work, for if \( 3 \nmid a \) then <a class="knowledge-link" href="/number_theory/primes.html#lemma-fermats-helper">we know that</a> \( a ^ 2 \equiv 1 \left( \operatorname{ mod } 3 \right) \) since \( 560 \) is even then \( a ^ { 560 } \equiv \left( a ^ 2 \right) ^ { 280 } \equiv 1 \) so we have \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 3 \right) \). Similarly if \( 11 \nmid a \) then \( a ^ { 10 } \equiv 1 \left( \operatorname{ mod } 11 \right) \) and therefore \( a ^ { 560 } \equiv 1 \) so that \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 11 \right) \). Finally if \( 17 \nmid a \) then we have \( a ^ { 16 } \equiv 1 \left( \operatorname{ mod } 17 \right) \) and \( a ^ { 560 } \equiv \left( a ^ { 16 } \right) ^ { 35 } \equiv 1 \) so that \( a ^ { 561 } \equiv a \left( \operatorname{ mod } 17 \right) \).</p>
+        <p>What we've shown is that no matter what we have that \( a ^ 561 \equiv a \left( \operatorname{ mod } 3, 11, 17 \right) \) and therefore by our original paragraph we are done.</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-korselts-criterion">
+    <div class="title">
+        Korselt's Criterion
+    </div>
+    <div class="content">
+        \( n \in \mathbb{ N } _ 1 \) is <a class="knowledge-link" href="/number_theory/primes.html#definition-carmicheal">Carmichael</a> if and only if \( n \) is <a class="knowledge-link" href="/number_theory/square_free_integers.html#definition-square-free">squarefree</a> and for every prime \( p \) such that \( p \mid n \implies p - 1 \mid n - 1 \).
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-1729-is-carmichael">
+    <div class="title">
+        1729 is Carmichael
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        As it turns out \( 1729 = 7 \cdot 13 \cdot 9 \), therefore it is square free and since \( 6, 12, 8 \mid 1728 \) then it is carmichael
+    </div>
+</div>
+<div class="proposition" id="proposition-fermats-compositeness-test">
+    <div class="title">
+        Fermats Compositeness Test
+    </div>
+    <div class="content">
+        Suppose \( n, a \in \mathbb{ Z } \) such that \( \gcd \left( a, n \right) = 1 \) then if \( a ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n \right) \) then \( n \) is composite
+    </div>
+    <div class="proof">
+        Observe the contrapositive of fermats little helper which states that \[ a ^ { p - 1 } \not \equiv 1 \implies \left( p \mid a \lor p \text{ is not prime } \right) \] from this we conclude that \( \left( p \mid a \lor p \text{ is not prime } \right) \) but since \( \gcd \left( a, n \right) = 1 \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-division-iff-congruent-mod-0">then</a> \( n \nmid a \) therefore we must conclude that \( n \) is not prime, and therefore composite.
+    </div>
+</div>
+<div class="definition" id="definition-fermat-witness">
+    <div class="title">
+        Fermat Witness
+    </div>
+    <div class="content">
+        If \( n, a \) passes the compositeness test, then \( a \) is said to be a <b>Fermat Witness</b> for \( n \)
+    </div>
+</div>
+<div class="definition" id="definition-pseudoprime-to-base-a">
+    <div class="title">
+        Pseudoprime to base \( a \)
+    </div>
+    <div class="content">
+        Suppose that \( n, a \in \mathbb{ Z } \) and that \( a ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n \right) \) and \( n \) is not prime, then \( n \) is called a <b>pseudoprime</b> to base \( a \).
+    </div>
+</div>
+<p>Most of the time when you find that \( a ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n \right) \), then \( n \) is prime, that's why the ones that aren't are called pseudoprimes.</p>
+<div class="exercise" id="exercise-341-is-a-pseudoprime-to-base-2">
+    <div class="title">
+        \( 341 \) is a Pseudoprime to base \( 2 \)
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        <p>Firstly we note that \( 341 \) is divisible by \( 11 \) because \( 3 - 4 + 1 = 0\) and therefore \( 341 = 11 \cdot 31 \) now we'll verify that \( 2 ^ { 340 } \equiv 1 \pmod{ 341 } \), note that \( 341 \cdot 3 = 1023 \) and since \( 2 ^ 10 = 1024 \) so that \( 1024 \equiv 1 \pmod{ 341 } \) thus we know that \( 2 ^ 10 \equiv 1 \pmod{ 341 } \) therefore \( 3 ^ { 340 } \equiv \left( 3 ^ 10 \right) ^ 34 \equiv 1 \pmod{ 341 } \).</p>
+        <p>On the other hand \( 3 ^ { 341 } \not \equiv 3 \pmod{ 341 } \), we can see this is true by using the chinese remainder theorem on the equations \( x \equiv 3 \pmod{ 11 } \) and \( x \equiv 3 \pmod{ 31 } \) and noting that \( 341 \) solves it, but also the switch summation also solves it but the switch is not congruent to 3, so it works.</p>
+    </div>
+</div>
+<div class="definition" id="definition-fermat-primality-test">
+    <div class="title">
+        Fermat Primality Test
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{ N } _ 2 \), and define the following function \( f \left( X \right) \):
+        <ol>
+            <li>if \( X = \emptyset \) return \( T \)</li>
+            <li>let \( a \in X \)</li>
+            <li>if \( a ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n \right) \) return \( F \)</li>
+            <li>return \( f \left( X \setminus \left\{ a \right\} \right) \)</li>
+        </ol>Let \( G = \left\{ x \in \left[ 1, \ldots, n - 2 \right]: \gcd \left( x, n \right) = 1 \right\} \). If \( f \left( G \right) = F \) then \( n \) is composite, otherwise we say that \( n \) is a <b>probable prime</b>
+    </div>
+</div>
+<div class="corollary" id="corollary-every-carmichael-number-is-a-probable-prime">
+    <div class="title">
+        Every Carmichael Number is a Probable Prime
+    </div>
+    <div class="content">
+        Suppose \( n \in \mathbb{ N } _ 1 \) is Carmichael, then using the Fermat Primality Test, it is a probable prime.
+    </div>
+    <div class="proof">
+        Since \( n \) is Carmichael we know that \( a ^ n \equiv a \left( \operatorname{ mod } n \right) \) for any \( a \in \mathbb{ Z } \), during the test each \( a \) has the property that \( \gcd \left( a, n \right) = 1 \) <a class="knowledge-link" href="/number_theory/primes.html#corollary-if-a-doesnt-divide-p-then-fermats-little-theorem-and-fermats-little-helper-are-equivalent">therefore</a> \( a ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n \right) \), this means at each stage in the test line 4 is reached until it terminates at line 1 and returning \( T \) therefore \( n \) is a probable prime.
+    </div>
+</div>
+<div class="proposition" id="proposition-at-least-half-of-the-tested-elements-will-be-witnesses-to-a-composite-non-carmichael-number">
+    <div class="title">
+        At Least Half of the Tested Elements will be Witnesses to a Composite Non-Carmichael Number
+    </div>
+    <div class="content">
+        Suppose that \( n \in \mathbb{ N } _ 1 \) is composite and not Carmichael and let \( G = \left\{ g \in \left[ 1, \ldots , n - 1 \right]: \gcd \left( g, n \right) = 1 \right\} \) and \( W = \left\{ w \in G: w ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n \right) \right\} \), then \[ \left\lvert W \right\rvert \ge \frac{\left\lvert G \right\rvert }{2} \]
+    </div>
+    <div class="proof">
+        <p>To prove this true, we will consider the set \( L = \left\{ l \in G: l ^ { n - 1 } \equiv 1 \left( \operatorname{ mod } n \right) \right\} \), and note that \( G = L \sqcup W \) then if we are able to show that \( \left\lvert L \right\rvert \le \left\lvert W \right\rvert \) then we have \[ \left\lvert G \right\rvert \le \left\lvert L \right\rvert + \left\lvert W \right\rvert \le 2 \left\lvert W \right\rvert \] and we would deduce that \( \left\lvert W \right\rvert \ge \frac{\left\lvert G \right\rvert }{2} \)</p>
+        <p>Since \( L \subseteq \left[ 0, \ldots , n - 1 \right] \) then all elements are incongruent mod \( n \), let \( w \in W \subseteq G \) this can be done because \( W \) is non-empty as \( n \) is not carmichael so that there exists an element \( g \in G \) such that \( g ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n \right) \).</p>
+        <p>Since \( \gcd \left( w, n \right) = 1 \) then the collection of elements \( w L = \left\{ w l : l \in L \right\} \) are also incongruent mod \( n \), since equality implies congruent, then non-congruent implies not equal, and therefore \( wL \) generates a collection of unique elements, so that \( \left\lvert L \right\rvert = \left\lvert wL \right\rvert \).</p>
+        <p>But note, given some \( wl \in wL \) we have that \[ \left( wl \right) ^ { n - 1 } \equiv w ^ { n - 1 } l ^ { n - 1 } \equiv w ^ { n - 1 } \not \equiv 1 \left( \operatorname{ mod } n \right) \] therefore we deduce that \( wL \subseteq W \) so then \( \left\lvert wL \right\rvert \le L \) therefore \( \left\lvert L \right\rvert \le \left\lvert W \right\rvert \), so that by our introductory paragraph, we've proven what we needed to.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-every-odd-number-is-a-difference-of-squares">
+    <div class="title">
+        Every Odd Number is a Difference of Squares
+    </div>
+    <div class="content">
+        For any \( n \in \mathbb{ N } _ 1 \) that is odd there exists \( x, y \in \mathbb{ N } _ 1 \) such that \[ n = x ^ 2 - y ^ 2 \]
+    </div>
+    <div class="proof">
+        Since \( n \) is odd, then there is some \( k \in \mathbb{ Z } \) such that \( n = 2k + 1 \), note that \( 2k + 1 \) is similar to \( \left( k + 1 \right) ^ 2 = k ^ 2 + 2k + 1 \) and so that \( 2k + 1 = \left( k + 1 \right) ^ 2 - k ^ 2 \) as needed. Note that in this proof \( k = \frac{n - 1}{2} \) and \( k + 1 = \frac{n + 1 }{2} \) so we are really saying that \[ n = \left( \frac{n + 1}{2} \right) ^ 2 + \left( \frac{n - 1}{2} \right) ^ 2 \]
+    </div>
+</div>
+<div class="lemma" id="lemma-the-sum-is-less-than-or-equal-to-the-product">
+    <div class="title">
+        The Sum is less than or Equal to the Product
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ N } _ 2\) then \[ a + b \le a \cdot b \] if \( a \lt b \) or \( b \lt a \) then \[ a + b \lt a \cdot b \]
+    </div>
+    <div class="proof">
+        Suppose that \( a, b \in \mathbb{ N } _ 2\) and without loss of generality assume that \( a \le b \) therefore \[ a + b \le b + b \le 2b \le ab \] Now suppose that \( a \lt b \) \[ a + b \lt b + b = 2b \le ab \]
+    </div>
+</div>
+<div class="proposition" id="proposition-fermats-factorization">
+    <div class="title">
+        Fermats Factorization
+    </div>
+    <div class="content">
+        Suppose that \( n \in \mathbb{ N } _ 2 \) is odd, then \( n \) is composite iff there exists \( x, y \in \mathbb{ N } _ 1 \) such that \[ n = x ^ 2 - y ^ 2 \] where \( x \neq \frac{n + 1 }{2} \)
+    </div>
+    <div class="proof">
+        <p>\( \implies \) We can't use the fact that every odd number is a difference of squares, this is because the solution to that equation was specifically \( x = \frac{n + 1}{2} \) which is explicitly disallowed for this proposition, therefore instead we note that \( n \) is composite so there exists \( c, d \in \left[ 2, \ldots , n - 1 \right] \) such that \( n = cd \). But at the same time, we know that \[ \begin{align} \left( \frac{c + d}{2} \right) ^ 2 - \left( \frac{c - d}{2} \right) ^ 2 &amp;= \frac{c ^ 2 + 2 cd + d ^ 2 - c ^ 2 + 2cd - d ^ 2}{4} = cd \end{align} \] We'll now prove that \( \frac{c + d}{2} \neq \frac{n + 1 }{2} \).</p>
+        <p>Since \( c, d \in \mathbb{ N } _ 2 \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-the-sum-is-less-than-or-equal-to-the-product">then we know that</a> \( c + d \le c \cdot d = n \) so that \( c + d \lt n + 1 \) therefore \( \frac{c + d}{2} \neq \frac{n + 1 }{2} \) as needed.</p>
+        <p>\( \impliedby \) Suppose that \( n = x ^ 2 - y ^ 2 \) since \( n \ge 2 \) then we know \( x \gt y \) also note that \( x ^ 2 - y ^ 2 = \left( x + y \right) \left( x - y \right) \) therefore \( \left( x + y \right) \mid n \) and \( \left( x - y \right) \mid n \), if \( n \) were to be prime, then \( \left( x + y \right), \left( x - y \right) \in \left\{ 1, n \right\} \) without loss of generality suppose that \( x - y = 1 \) and \( x + y = n \) therefore \( 2x = n + 1 \) so \( x = \frac{n + 1 }{2} \) then \( y = \frac{n - 1}{2} \) which is a contradiction, and therefore \( n \) must be composite.</p>
+    </div>
+</div>
+<pre>
             <code>
 import math
 
@@ -1232,18 +726,3 @@ factors = fermat_factor(n)
 print(f"The factors of {n} are {factors}")
             </code>
         </pre>
-
-        
-        
-
-
-
-
-
-
-
- 
-
-    </div>
-</body>
-</html>

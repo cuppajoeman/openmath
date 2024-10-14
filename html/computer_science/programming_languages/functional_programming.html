@@ -1,162 +1,100 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Lambda Calculus</title>
-    <link rel="stylesheet" href="../../styles/styles.css">
-    <script src="/js/script.js" defer></script>
-</head>
-
-<body>
-<div class="thin-wrapper">
-
-    <p>
-        For these discussions we will be using racket so that we can put these ideas into practice
-    </p>
-
-    <div class="definition" id="definition-expression">
-        <div class="title">Expression</div>
-        <div class="content">
-            An expression is one of the following:
-            <ol>
-                <li>An identifier: Some collection of symbols not including dot or lambda</li>
-                <li>A function expression: \( \lambda x . expr \) </li>
-                <li>A function application: \( f expr \) </li>
-            </ol>
-        </div>
+<p>For these discussions we will be using racket so that we can put these ideas into practice</p>
+<div class="definition" id="definition-expression">
+    <div class="title">
+        Expression
     </div>
-
-    <p>
-        In practice this means that if we see \( \left( \lambda x . x \right) 5 \) it can be evaluated to \( 5 \) .
-    </p>
-    
-    <div class="definition" id="definition-function-side-effects">
-    	<div class="title">Function Side Effects</div>
-    	<div class="content">
-    		We say that a programming function has side effects when, it has any observable effect other than returning a value.
-    	</div>
+    <div class="content">
+        An expression is one of the following:
+        <ol>
+            <li>An identifier: Some collection of symbols not including dot or lambda</li>
+            <li>A function expression: \( \lambda x . expr \)</li>
+            <li>A function application: \( f expr \)</li>
+        </ol>
     </div>
-    
-    <div class="definition" id="definition-syntactic-sugar">
-    	<div class="title">Syntactic Sugar</div>
-    	<div class="content">
-    		<b>Syntactic sugar</b> is the part of a programs syntax that doesn't introduce new functionality but provides a simpler way to utilize existing functionality.
-    	</div>
+</div>
+<p>In practice this means that if we see \( \left( \lambda x . x \right) 5 \) it can be evaluated to \( 5 \) .</p>
+<div class="definition" id="definition-function-side-effects">
+    <div class="title">
+        Function Side Effects
     </div>
-    
-    
-
-    <div class="definition" id="definition-function-purity">
-    	<div class="title">Function Purity</div>
-    	<div class="content">
-    		We say that a programming function is pure when:
-            <ul>
-                <li>The function's behavior is exactly determined by the value of it's inputs </li>
-                <li>The function has no <a class="knowledge-link" href="/computer_science/programming_languages/functional_programming.html#definition-function-side-effects">side effects</a></li>
-            </ul>
-    	</div>
+    <div class="content">
+        We say that a programming function has side effects when, it has any observable effect other than returning a value.
     </div>
-
-    <div class="definition" id="definition-referentially-transparent">
-    	<div class="title">Referentially Transparent</div>
-    	<div class="content">
-    		We say that an identifier is <b>referentially transparent</b> if it can be substituted with it's value in the source code without changing the meaning of the program.
-    	</div>
+</div>
+<div class="definition" id="definition-syntactic-sugar">
+    <div class="title">
+        Syntactic Sugar
     </div>
-
-    <p>
-        Note that in most imperative programming languages, you can rebind variables, which means that if we were to replace that variable with it's initial value everywhere in the code, then for every line in the code that uses the variable after it's rebound, then the meaning of the program would change.
-    </p>
-
-    <p>
-        If a programming languages is referentially transparent this is beneficial if we want to reason about our code, because whenever we see a symbol, we know what it's value is immediately.
-    </p>
-
-    <h1>Function Abstraction</h1>
-
-    <p>
-        If we have (lambda (x) b): R, and if we know that x: A, and that the body evalutes to something of type b, then the entire function has type A -> B
-    </p>
-
-    <pre>
+    <div class="content">
+        <b>Syntactic sugar</b> is the part of a programs syntax that doesn't introduce new functionality but provides a simpler way to utilize existing functionality.
+    </div>
+</div>
+<div class="definition" id="definition-function-purity">
+    <div class="title">
+        Function Purity
+    </div>
+    <div class="content">
+        We say that a programming function is pure when:
+        <ul>
+            <li>The function's behavior is exactly determined by the value of it's inputs</li>
+            <li>The function has no <a class="knowledge-link" href="/computer_science/programming_languages/functional_programming.html#definition-function-side-effects">side effects</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-referentially-transparent">
+    <div class="title">
+        Referentially Transparent
+    </div>
+    <div class="content">
+        We say that an identifier is <b>referentially transparent</b> if it can be substituted with it's value in the source code without changing the meaning of the program.
+    </div>
+</div>
+<p>Note that in most imperative programming languages, you can rebind variables, which means that if we were to replace that variable with it's initial value everywhere in the code, then for every line in the code that uses the variable after it's rebound, then the meaning of the program would change.</p>
+<p>If a programming languages is referentially transparent this is beneficial if we want to reason about our code, because whenever we see a symbol, we know what it's value is immediately.</p>
+<h1>Function Abstraction</h1>
+<p>If we have (lambda (x) b): R, and if we know that x: A, and that the body evalutes to something of type b, then the entire function has type A -&gt; B</p>
+<pre>
         x: A
         b: B
         ---
 
     </pre>
-
-    <h1>Function Application</h1>
-
-    <p>
-        (f t) : R, if we know that f has type T1 -> T2, then we know that (f t) has type T2,
-    </p>
-
-    <pre>
-        f: T1 -> T2
+<h1>Function Application</h1>
+<p>(f t) : R, if we know that f has type T1 -&gt; T2, then we know that (f t) has type T2,</p>
+<pre>
+        f: T1 -&gt; T2
         t: T1
         ---
         (f t) : T2
     </pre>
-
-    <h1>Cardinality of a Type</h1>
-
-    <p>
-        We have the natural numbers
-    </p>
-
-    <pre>
+<h1>Cardinality of a Type</h1>
+<p>We have the natural numbers</p>
+<pre>
         Zero: Nat
     </pre>
-
-    <pre>
+<pre>
         t: Nat
         ---
         Succ t : Nat
     </pre>
-
-    <p>
-        And if we ask the question, how many numbers are there in the unverse then we can say that there are countably infinite because we can always construct a new element where we know that that element is different from all other elements.
-    </p>
-
-    <p>
-        In reality we're on a computer and so there can never exist infinitely many types.
-    </p>
-
-    <p>
-        We also know that there is exactly one zero in the universe. We can think about the zero as a value constructor of no arguments (aka a nullary function/thunk) or it is a singleton value.
-    </p>
-
-
-    <h1>Single Value Type</h1>
-
-    <p>
-        What is the simplest type you can constructe, the one that has the smallest nonzero cardinality
-    </p>
-
-    <p>
-        Unit is a type with one constant value unit.
-    </p>
-
-    <pre>
+<p>And if we ask the question, how many numbers are there in the unverse then we can say that there are countably infinite because we can always construct a new element where we know that that element is different from all other elements.</p>
+<p>In reality we're on a computer and so there can never exist infinitely many types.</p>
+<p>We also know that there is exactly one zero in the universe. We can think about the zero as a value constructor of no arguments (aka a nullary function/thunk) or it is a singleton value.</p>
+<h1>Single Value Type</h1>
+<p>What is the simplest type you can constructe, the one that has the smallest nonzero cardinality</p>
+<p>Unit is a type with one constant value unit.</p>
+<pre>
         unit: Unit
     </pre>
-
-    <pre>
+<pre>
         e : Unit
         ---
         unit
     </pre>
-
-    <p>
-        It is similar to void, and is an appropriate return type for functions that has side effects, without side effects it wouldn't really be necessary. So here is a type with one possible value, but would we ever have a type with zero possible values? This is a type which is not constructible, because what would it ever evaluate to?
-    </p>
-
-    <h1>Enumerated Types</h1>
-
-    <pre>
+<p>It is similar to void, and is an appropriate return type for functions that has side effects, without side effects it wouldn't really be necessary. So here is a type with one possible value, but would we ever have a type with zero possible values? This is a type which is not constructible, because what would it ever evaluate to?</p>
+<h1>Enumerated Types</h1>
+<pre>
         data Date = Monday
                   | Tuesday
                   | Wednesday
@@ -165,164 +103,87 @@
                   | Saturday
                   | SUnday deriving (Show)
     </pre>
-
-    <p>
-        Continas one or more disjoint value constructors of zero arguments
-    </p>
-
-    <p>
-        The cardinality of this type is 7, because we have 7 different nullary constructors. So at least for enumerated types the cardinality of an enumerated type is given by the number of different nullary constructors.
-    </p>
-
-    <h1>Sum Types</h1>
-
-    <p>
-        We call enumerated types as sum types, this is because we say that a given instance is "this type OR that type", which we can think of union or the sum of it's parts.
-    </p>
-
-    <h1>Product Type</h1>
-
-    <p>
-        Note that if we have two types T1, T2, then the cardiinality of T1 or T2 is the sum of their cardinalities
-    </p>
-
-    <p>
-        What if we want a type whose cardinality is the product of the cardinalities of the tywo types, then one way to do this is to have pairs, where we have every possible value, value pair.
-    </p>
-
-    <pre>
+<p>Continas one or more disjoint value constructors of zero arguments</p>
+<p>The cardinality of this type is 7, because we have 7 different nullary constructors. So at least for enumerated types the cardinality of an enumerated type is given by the number of different nullary constructors.</p>
+<h1>Sum Types</h1>
+<p>We call enumerated types as sum types, this is because we say that a given instance is "this type OR that type", which we can think of union or the sum of it's parts.</p>
+<h1>Product Type</h1>
+<p>Note that if we have two types T1, T2, then the cardiinality of T1 or T2 is the sum of their cardinalities</p>
+<p>What if we want a type whose cardinality is the product of the cardinalities of the tywo types, then one way to do this is to have pairs, where we have every possible value, value pair.</p>
+<pre>
         t1: T1
         t2: T2
         ---
         Pair t1 t2 : T1xT2
     </pre>
-
-    <p>
-        We can think of T1xT2 as a function which maps a type from T1 and T2, to (T1, T2) ? We also have projectections:
-    </p>
-
-    <pre>
+<p>We can think of T1xT2 as a function which maps a type from T1 and T2, to (T1, T2) ? We also have projectections:</p>
+<pre>
         p: T1xT2
         ---
         fst p: T1
     </pre>
-
-    <pre>
+<pre>
         p: T1xT2
         ---
         snd p: T2
     </pre>
-
-    <p>
-        We can generalize the pair to a triple, or to any cartesian product. If we want this to work for a structure type, then all we need to do is change the name of the projections.
-    </p>
-
-    <h1>Combination of Sum and Product</h1>
-
-    <pre>
+<p>We can generalize the pair to a triple, or to any cartesian product. If we want this to work for a structure type, then all we need to do is change the name of the projections.</p>
+<h1>Combination of Sum and Product</h1>
+<pre>
         data Nat = Zero | Succ Nat
     </pre>
-
-    <p>
-        We have two ways of constructing a natural number through the Zero constructor or the Succ constructor.
-    </p>
-
-    <pre>
+<p>We have two ways of constructing a natural number through the Zero constructor or the Succ constructor.</p>
+<pre>
         data ListNat = Empty | Cons Nat ListNat
     </pre>
-
-    <p>
-        The above is a list of natural numbers, so here <code>Cons Nat ListNat</code> represents a . So we can do <code>Cons | (Cons 2 Empty)</code> when types are written next to each other we get a product type and when we use | we get a sum type.
-    </p>
-
-    <pre>
+<p>The above is a list of natural numbers, so here <code>Cons Nat ListNat</code> represents a . So we can do <code>Cons | (Cons 2 Empty)</code> when types are written next to each other we get a product type and when we use | we get a sum type.</p>
+<pre>
         data BinTree = Leafe Nat | Node BinTree Nat BinTree
     </pre>
-
-    <p>
-        So we have on the left Leaf 1, and then on the right right we can have <code>Node (Leaf 1) 5 (Leaf 3)</code>
-    </p>
-
-    <h1>Algebraic Data Types</h1>
-
-    <p>
-        Sum types, product types, a combination of sum types and proudct types.
-    </p>
-
-    <p>
-        We can use pattern matching to decompose and extract values
-    </p>
-
-    <pre>
+<p>So we have on the left Leaf 1, and then on the right right we can have <code>Node (Leaf 1) 5 (Leaf 3)</code></p>
+<h1>Algebraic Data Types</h1>
+<p>Sum types, product types, a combination of sum types and proudct types.</p>
+<p>We can use pattern matching to decompose and extract values</p>
+<pre>
         <code>
             data Pair = Pair String Int
             data BTree = Leaf | Node BTree Pair BTree
             getV2 (Node _ (Pair _ v2) _) = v2
         </code>
     </pre>
-
-    <p>
-        So getV2 is pattern matching where we use wildcards to throw away values that we still need to match, so it only gets the right most Int from the pair.
-    </p>
-
-    <h1>Polymorphism</h1>
-
-    <p>
-        A type system that allows a single piece of code to be used with different types are said to be polymorphic.
-    </p>
-
-    <p>
-        There are multiple approaches to make this happen
-    </p>
-
-    <ul>
-        <li>Parametric Polymorphism</li>
-        <li>Ad-Hoc Polymorphism</li>
-        <li>Sub-Types</li>
-    </ul>
-
-    <pre>
+<p>So getV2 is pattern matching where we use wildcards to throw away values that we still need to match, so it only gets the right most Int from the pair.</p>
+<h1>Polymorphism</h1>
+<p>A type system that allows a single piece of code to be used with different types are said to be polymorphic.</p>
+<p>There are multiple approaches to make this happen</p>
+<ul>
+    <li>Parametric Polymorphism</li>
+    <li>Ad-Hoc Polymorphism</li>
+    <li>Sub-Types</li>
+</ul>
+<pre>
         data ListNat = EmptyListNat | ConsNat Nat ListNat
         data ListInt = EmptyListInt | ConsInt Int ListInt
         data ListFloat = EmptyListFloat | ConsFloat Float ListFloat
     </pre>
-
-    <p>
-        This is bad, because it's verbose and tons of code re-use, because later we might need even more types of lists, and we would also need to redefine functions that run on every type of list, even ones that we would need everywhere like the length of a list.
-    </p>
-
-    <p>
-        With Parametric polymorphism, we allow a single piece of code to be typed generically using a type variable in place of actual types. This is like templating in c++, when we do std::vectorT.
-    </p>
-
-    <p>
-        In Haskell, all we have to do is something like this
-    </p>
-
-    <pre>
+<p>This is bad, because it's verbose and tons of code re-use, because later we might need even more types of lists, and we would also need to redefine functions that run on every type of list, even ones that we would need everywhere like the length of a list.</p>
+<p>With Parametric polymorphism, we allow a single piece of code to be typed generically using a type variable in place of actual types. This is like templating in c++, when we do std::vectorT.</p>
+<p>In Haskell, all we have to do is something like this</p>
+<pre>
         <code>
             data MyList a = MyEmpty
                           | Cons a (MyList a)
         </code>
     </pre>
-
-    <p>
-        In this case a can stand for different types, and we say that MyList is polymorphic over a, so if we write <code>Cons | (EMpty 1)</code> would be MyList Int
-    </p>
-
-    <pre>
+<p>In this case a can stand for different types, and we say that MyList is polymorphic over a, so if we write <code>Cons | (EMpty 1)</code> would be MyList Int</p>
+<pre>
         <code>
-            myLength::MyList a -> Int
+            myLength::MyList a -&gt; Int
             myLength MyEmpty = 0
             myLength (Cons _ ls) = 1 + myLength ls
         </code>
     </pre>
-
-    <p>
-        So here we abstracted over the type of the elements of MyList, which allows us to have this function working for many different types.
-    </p>
-
-    <pre>
+<p>So here we abstracted over the type of the elements of MyList, which allows us to have this function working for many different types.</p>
+<pre>
         data Lake = Ontario | Erie
             deriving (Show) // come up with a way to print the data type
         data Bay = Hudson | Baffin
@@ -343,34 +204,18 @@
 
         data Nat = Zero | Succ Nat (two ways to construct a natural number),
     </pre>
-    <p>
-        If you want to construct a FUnSite, then you can use the constructor Lake, provided a Lake, the Lake refers to the previously defined Lake, because we ar etalking about types, the type is on the right, we're defining a constructor that has the name Lake, and it has type Lake -> FunSite, this example shows that we can use the same name for the data construct as the type, and haskell will not get confused.
-    </p>
-
-    <pre>
+<p>If you want to construct a FUnSite, then you can use the constructor Lake, provided a Lake, the Lake refers to the previously defined Lake, because we ar etalking about types, the type is on the right, we're defining a constructor that has the name Lake, and it has type Lake -&gt; FunSite, this example shows that we can use the same name for the data construct as the type, and haskell will not get confused.</p>
+<pre>
         Data Person = Person String Int String FLoat Int deriving (Show)
         getName (Person n _ _ _ _ ) = n
         getAge (Person _ a _ _ _ ) = a
         getClass (Person _ _ c _ _ ) = c
     </pre>
-
-    <p>
-        but the above is annoying so we can do something like this
-    </p>
-
-    <pre>
+<p>but the above is annoying so we can do something like this</p>
+<pre>
         data Person = -- new type
         Person { -- a data constructor
             name :: String,
             age :: Int,
         }
     </pre>
-
-
-
-
-
-
-
-</div>
-</body>

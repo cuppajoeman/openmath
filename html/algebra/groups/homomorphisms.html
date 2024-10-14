@@ -1,246 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Homomorphisms</title>
-
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-
-</head>
-<body>
-<div class="thin-wrapper">
-
-    <div class="definition" id="definition-group-homomorphism">
-    	<div class="title">Group Homomorphism</div>
-    	<div class="content">
-    		Suppose that \( \left( G, \star \right)  \)  and \( \left( H, \cdot \right)  \) are <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-group">groups</a>, then we say that a <b>group homomorphism from \( \left( G, \star \right)  \) to \( \left( H, \cdot \right)  \)</b> is a function \( \phi: G \to H \) such that for any \( u, v \in G \)
-            \[
-                \phi \left( u \star v \right) = \phi \left( u \right) \cdot \phi \left( v \right)
-            \]
-    	</div>
+<div class="definition" id="definition-group-homomorphism">
+    <div class="title">
+        Group Homomorphism
     </div>
-
-    <p>
-        Note that a homomorphism is an isomorphism without the bijective requirement.
-    </p>
-
-    <div class="proposition" id="proposition-the-order-of-the-mapped-element-divides-the-original">
-    	<div class="title">The order of The Mapped Element Divides the Original</div>
-    	<div class="content">
-    		Suppose that \( \lvert g \rvert  \) is finite, then \( \lvert \phi \left( g \right)  \rvert  \) divides \( \lvert g \rvert  \)
-    	</div>
-    	<div class="proof">
-    	    Suppose \( g \) 	has order \( n \), so that \( g ^ n = e \), now that is to say that \( e = \phi \left( e \right) = \phi \left( g ^ n \right) = \phi \left( g \right) ^ n  \), <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#corollary-if-the-power-of-an-element-with-finite-order-yields-the-identity-then-the-order-divides-the-power">then</a> \( \lvert \phi \left( g \right)  \rvert  \) divides \( n = \lvert g \rvert  \) as needed.
-    	</div>
+    <div class="content">
+        Suppose that \( \left( G, \star \right) \) and \( \left( H, \cdot \right) \) are <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-group">groups</a>, then we say that a <b>group homomorphism from \( \left( G, \star \right) \) to \( \left( H, \cdot \right) \)</b> is a function \( \phi: G \to H \) such that for any \( u, v \in G \) \[ \phi \left( u \star v \right) = \phi \left( u \right) \cdot \phi \left( v \right) \]
     </div>
-    
-
-
-    <div class="definition" id="definition-kernel-of-a-homomorphism">
-    	<div class="title">Kernel of a Homomorphism</div>
-    	<div class="content">
-    	    The <b>kernel</b> of a <a class="knowledge-link" href="/algebra/groups/homomorphisms.html#definition-group-homomorphism">homomorphism</a> from the group \( G \) to the identity \( e _ H \)  of \( H \) is the set 
-            \[
-                \left\{ g \in G: \phi \left( g \right) = e_H  \right\} = \phi ^ { -1 } \left( \left\{ e _ H \right\}  \right)
-            \]
-    	</div>
-    </div>
-
-    <div class="definition" id="definition-right-iterated-binary-operation">
-        <div class="title">Right Iterated Binary Operation</div>
-        <div class="content">
-            Suppose that \( \left( \star, G, \star \right)  \) is a group, then we define
-            \[
-                \operatorname{ right\_iter } \left( \star, g, n \right) =
-                \begin{cases}
-                    g & \text{ if } n = 0 \\
-                    \star \left( g, \operatorname{ right\_iter }  \left( \star, g, n - 1 \right)  \right)  &\text{ if } n \in \mathbb{ N } _ 1
-                \end{cases}
-            \]
-        </div>
-    </div>
-
-    <div class="definition" id="definition-left-iterated-binary-operation">
-        <div class="title">Left Iterated Binary Operation</div>
-        <div class="content">
-            Suppose that \( \left( G, \star \right)  \) is a group, then we define
-            \[
-            \operatorname{ left\_iter } \left( \star, g, n \right) =
-            \begin{cases}
-            g & \text{ if } n = 0 \\
-            \star \left( \operatorname{ left\_iter }  \left( \star, g, n - 1 \right), g  \right)  &\text{ if } n \in \mathbb{ N } _ 1
-            \end{cases}
-            \]
-        </div>
-    </div>
-
-    <p>
-        The above can be generalized to operate on sequences of elements of \( g \).
-    </p>
-
-    <div class="proposition" id="proposition-associative-implies-left-equals-right-iteration">
-    	<div class="title">Associative Implies Left Equals Right Iteration</div>
-    	<div class="content">
-            Suppose that \( \star \) is associative, then for any \( g \in G \) we have
-            \[
-                \operatorname{ left\_iter } \left( \star, g, n \right) = \operatorname{ right\_iter } \left( \star, g, n \right)
-            \]
-    	</div>
-    	<div class="proof">
-            Induction using the fact that bracket placement doesn't matter with associative operations
-    	</div>
-    </div>
-
-
-    <div class="definition" id="definition-binary-iteration">
-        <div class="title">Binary Iteration</div>
-        <div class="content">
-            Let \( \star \) be a binary operation such that \( \operatorname{ right\_iter } \left( \star, g, n \right) = \operatorname{ left\_iter } \left( \star, g, n \right)  \) then we define \( \operatorname{ iter } \left( \star, g, n \right) = \operatorname{ right\_iter } \left( \star, g, n \right)  \)
-        </div>
-    </div>
-
-
-    <div class="proposition" id="proposition-left-tuples-as-iteration">
-    	<div class="title">Left Tuples as Iteration</div>
-    	<div class="content">
-    	    Let \( + \) be the standard addition on \( \mathbb{ Z } \times \mathbb{ Z }    \), then
-            \[
-                \left( m, 0 \right) = \operatorname{ iter } \left( +,  \left( 1, 0 \right), m \right)
-            \]
-    	</div>
-    	<div class="proof">
-            By induction
-    	</div>
-    </div>
-
-    <div class="proposition" id="proposition-right-tuples-as-iteration">
-        <div class="title">Right Tuples as Iteration</div>
-        <div class="content">
-            Let \( + \) be the standard addition on \( \mathbb{ Z } \times \mathbb{ Z }    \), then
-            \[
-            \left( 0, m \right) = \operatorname{ iter } \left( +,  \left( 0, 1 \right), m \right)
-            \]
-        </div>
-        <div class="proof">
-            By induction
-        </div>
-    </div>
-
-
-    <div class="theorem" id="theorem-iterated-homomorphism">
-    	<div class="title">Iterated Homomorphism</div>
-    	<div class="content">
-            Let \( \phi  \) be a homomorphism between \( \left( G, \star \right)  \) and \( \left( H, \cdot \right) \)
-            \[
-                \phi \left( \operatorname{ right\_iter } \left( \star, g, n \right)  \right) = \operatorname{ right\_iter } \left( \cdot, \phi \left( g \right), n  \right)
-            \]
-    	</div>
-    	<div class="proof">
-            By induction, each step using the property of a homomorphism
-    	</div>
-    </div>
-    
-    <div class="exercise" id="">
-    	<div class="title">Addition Factors Through Homomorphism on Cartesian Product of The Integers</div>
-    	<div class="content">
-
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
-    </div>
-    
-    
-
-    <div class="exercise" id="exercise-addition-factors-through-homomorphism-on-cartesian-product-of-the-integers">
-    	<div class="title">Homomorphism Between a Group and it's Cartesian Product</div>
-    	<div class="content">
-    		Let 
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
-    </div>
-
-    <div class="proposition" id="proposition-">
-    	<div class="title"></div>
-    	<div class="content">
-    		Suppose that \( \phi : \mathbb{ Z } \times \mathbb{ Z } \to \mathbb{ Z }  \) is a homomorphism between \( \left( \mathbb{ Z } \times \mathbb{ Z }, \oplus  \right)  \) and \( \left( \mathbb{ Z } , + \right)  \)   then for any \( m , n \in \mathbb{ Z }  \) we have
-            \[
-                \phi \left( \left( m, n \right) \right) = m \phi \left( \left( 1, 0 \right)  \right) + n \phi \left( \left( 0, 1 \right)  \right)
-            \]
-    	</div>
-    	<div class="proof">
-
-            \[
-                \begin{align}
-                    \phi \left( \left( m, n \right)  \right) &= \phi \left( \left( m, 0 \right) \oplus \left( 0, n \right)  \right) \\
-                    &= \phi \left( \left( m, 0 \right)  \right) + \phi \left( \left( 0, n \right)  \right) 
-                \end{align}
-            \]
-            <p>
-                We now <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#proposition-powers-pass-through-a-homomorphism">recall that</a> \( \phi \left( g ^ n \right) = \phi \left( g \right) ^ n  \) so that we obtain \( \phi \left( \left( m, 0 \right)  \right) = \phi \left( \left( 1, 0 \right) ^ m \right) = \phi \left( \left( 1, 0 \right) \right)  ^ m      \) here the power symbol is acting with respect to \( \oplus \) and then \( + \) respectively. So in multiplicative notation that would mean \( \phi \left( \left( 1, 0 \right)  \right) ^ m =  m \phi \left( \left( 1, 0 \right)  \right)   \) (note that multiplication here is just syntactic sugar for it being added to itself \( m \) times)
-            </p>
-            <p>
-                By symmetry it follows that \( \phi \left( \left( 0, n \right) \right) = n \phi \left( \left( 0, 1 \right)  \right)    \) so re-connecting with our original chain of equalities we have
-                \[
-                    \phi \left( \left( m, n \right)  \right) = m \phi \left( \left( 1, 0 \right)  \right) + n \phi \left( \left( 0, 1 \right)  \right) 
-                \]
-            </p>
-    	</div>
-    </div>
-    
-    <div class="exercise" id="exercise-finding-group-homomorphisms">
-    	<div class="title">Finding Group Homomorphisms</div>
-    	<div class="content">
-    		Find all group homomorphisms \( \phi : \mathbb{ Z } \times \mathbb{ Z } \to \mathbb{ Z } \)
-    	</div>
-    	<div class="proof">
-            For every \( a, b \in \mathbb{ Z }  \) such that  \( \phi \left( \left( 1, 0 \right) \right) = a  \) and that \( \phi \left( \left( 0, 1 \right) \right) = b  \), we obtain a unique homomorphism. Therefore all homomorphism are given by the collection:
-            \[
-                \left\{ \phi : \mathbb{ Z } \times \mathbb{ Z } \to \mathbb{ Z } :  \phi \left( \left( 1, 0 \right) \right) = a \text{ and }  \phi \left( \left( 0, 1 \right) \right) = b  \right\}
-            \]
-    	</div>
-    </div>
-
-
-    <div class="proposition" id="proposition-the-image-of-a-homomorphism-is-abelian-iff-its-kernel-contains-the-subgroup-generated-by-x-y-x-inverse-y-inverse">
-    	<div class="title">The Image of a Homomorphism is Abelian iff It's Kernel Contains the Subgroup Generated by \( x y x ^ { -1 } y ^ { -1 }  \) </div>
-    	<div class="content">
-    	    Suppose that \( \phi : G \to H \) 	is a group homomorphism. Then \( \operatorname{ im } \left( \phi  \right)  \) is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-abelian">abelian</a> iff \( [ G, G ] \subseteq \operatorname{ ker } \left( \phi  \right)  \)
-    	</div>
-    	<div class="proof">
-            <p>
-                \( \implies  \) Suppose that \( \operatorname{ im } \left( \phi  \right)  \) is abelian, we want to prove that \( [ G, G ] \subseteq \operatorname{ ker } \left( \phi  \right)  \), we already know that \( [ G, G ]  \) is the smallest subgroup containing the set \( \left\{ x y x ^ { -1 } y ^ { -1 } : x,  y \in G \right\}  \) since we already know that \( \operatorname{ ker } \left( \phi  \right)  \) is a subgroup of \( G \), then we just have to show it contains the set, and it would automatically become a superset as needed.
-            </p>
-            <p>
-                Let \( x y x ^ { -1 } y  ^ { -1 }  \) be in the set, to show that this element is also in \( \operatorname{ ker } \left( \phi  \right)  \) we have to show that \( \phi \left( x y x ^ { -1 } y  ^ { -1 }  \right) = e _ H  \), we note that \( \operatorname{ im } \left( \phi  \right)  \) was abelian and a homomorphism, thus
-                \[
-                    \begin{align}
-                        \phi \left( x y x ^ { -1 } y ^ { -1 } \right)  &= \phi \left( x \right) \phi \left( y \right) \phi \left( x ^ { -1 }  \right) \phi \left( y ^ { -1 }  \right) \\
-                        &= \phi \left( x \right) \phi \left( y \right) \phi \left( x \right) ^ { -1 }  \phi \left( y \right) ^ { -1 }  \\
-                        &= \phi \left( x \right)  \phi \left( x \right) ^ { -1 }  \phi \left( y \right) \phi \left( y \right) ^ { -1 }  \\
-                        &= e _ H e _ H  \\
-                        &= e _ H
-                    \end{align}
-                \]
-                Note that pulling the power out of a homomorphism <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#proposition-powers-pass-through-a-homomorphism">is justified</a> on line 2
-            </p>
-            <p>
-                \( \impliedby  \) Now we're assuming that \( [ G, G ] \subseteq \operatorname{ ker } \left( \phi  \right)  \) and we want to show that \( \operatorname{ im } \left( \phi  \right)  \) is abelian so let \( a, b \in \operatorname{ im } \left( \phi  \right)   \), so that there is some \( x, y \in G \) such that \( a = \phi \left( x \right), b = \phi \left( y \right) \). Let's prove \( a b = b a \):
-            </p>
-            <p>
-                Firstly by definition \( [ G, G ]  \) contains the set \( \left\{ xyx ^ { -1 } y ^ { -1 } : x, y \in G  \right\}  \) therefore since \( \operatorname{ ker } \left( \phi  \right)  \) is a superset of \( [ G, G ]  \) it also contains that set, in other words \( x y x ^ { -1 } y ^ { -1 } \in \operatorname{ ker } \left( \phi  \right)  \), that is \( \phi \left( x y x ^ { -1 } y ^ { -1 } \right) = e _ H  \), well \( \phi  \) is a homomorphism: \( \phi \left( x \right) \phi \left( y \right) \phi \left( x \right) ^ { -1 } \phi \left( y \right) ^ { -1 } = e _ H  \), the by multiplying each side on the right we have \( \phi \left( x \right) \phi \left( y \right) = \phi \left( y \right) \phi \left( x \right)   \), well that is \( a b = b a \) as needed.
-            </p>
-    	</div>
-    </div>
-    
-    
-
 </div>
-</body>
-</html>
+<p>Note that a homomorphism is an isomorphism without the bijective requirement.</p>
+<div class="proposition" id="proposition-the-order-of-the-mapped-element-divides-the-original">
+    <div class="title">
+        The order of The Mapped Element Divides the Original
+    </div>
+    <div class="content">
+        Suppose that \( \lvert g \rvert \) is finite, then \( \lvert \phi \left( g \right) \rvert \) divides \( \lvert g \rvert \)
+    </div>
+    <div class="proof">
+        Suppose \( g \) has order \( n \), so that \( g ^ n = e \), now that is to say that \( e = \phi \left( e \right) = \phi \left( g ^ n \right) = \phi \left( g \right) ^ n \), <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#corollary-if-the-power-of-an-element-with-finite-order-yields-the-identity-then-the-order-divides-the-power">then</a> \( \lvert \phi \left( g \right) \rvert \) divides \( n = \lvert g \rvert \) as needed.
+    </div>
+</div>
+<div class="definition" id="definition-kernel-of-a-homomorphism">
+    <div class="title">
+        Kernel of a Homomorphism
+    </div>
+    <div class="content">
+        The <b>kernel</b> of a <a class="knowledge-link" href="/algebra/groups/homomorphisms.html#definition-group-homomorphism">homomorphism</a> from the group \( G \) to the identity \( e _ H \) of \( H \) is the set \[ \left\{ g \in G: \phi \left( g \right) = e_H \right\} = \phi ^ { -1 } \left( \left\{ e _ H \right\} \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-right-iterated-binary-operation">
+    <div class="title">
+        Right Iterated Binary Operation
+    </div>
+    <div class="content">
+        Suppose that \( \left( \star, G, \star \right) \) is a group, then we define \[ \operatorname{ right\_iter } \left( \star, g, n \right) = \begin{cases} g & \text{ if } n = 0 \\ \star \left( g, \operatorname{ right\_iter } \left( \star, g, n - 1 \right) \right) &amp;\text{ if } n \in \mathbb{ N } _ 1 \end{cases} \]
+    </div>
+</div>
+<div class="definition" id="definition-left-iterated-binary-operation">
+    <div class="title">
+        Left Iterated Binary Operation
+    </div>
+    <div class="content">
+        Suppose that \( \left( G, \star \right) \) is a group, then we define \[ \operatorname{ left\_iter } \left( \star, g, n \right) = \begin{cases} g & \text{ if } n = 0 \\ \star \left( \operatorname{ left\_iter } \left( \star, g, n - 1 \right), g \right) &amp;\text{ if } n \in \mathbb{ N } _ 1 \end{cases} \]
+    </div>
+</div>
+<p>The above can be generalized to operate on sequences of elements of \( g \).</p>
+<div class="proposition" id="proposition-associative-implies-left-equals-right-iteration">
+    <div class="title">
+        Associative Implies Left Equals Right Iteration
+    </div>
+    <div class="content">
+        Suppose that \( \star \) is associative, then for any \( g \in G \) we have \[ \operatorname{ left\_iter } \left( \star, g, n \right) = \operatorname{ right\_iter } \left( \star, g, n \right) \]
+    </div>
+    <div class="proof">
+        Induction using the fact that bracket placement doesn't matter with associative operations
+    </div>
+</div>
+<div class="definition" id="definition-binary-iteration">
+    <div class="title">
+        Binary Iteration
+    </div>
+    <div class="content">
+        Let \( \star \) be a binary operation such that \( \operatorname{ right\_iter } \left( \star, g, n \right) = \operatorname{ left\_iter } \left( \star, g, n \right) \) then we define \( \operatorname{ iter } \left( \star, g, n \right) = \operatorname{ right\_iter } \left( \star, g, n \right) \)
+    </div>
+</div>
+<div class="proposition" id="proposition-left-tuples-as-iteration">
+    <div class="title">
+        Left Tuples as Iteration
+    </div>
+    <div class="content">
+        Let \( + \) be the standard addition on \( \mathbb{ Z } \times \mathbb{ Z } \), then \[ \left( m, 0 \right) = \operatorname{ iter } \left( +, \left( 1, 0 \right), m \right) \]
+    </div>
+    <div class="proof">
+        By induction
+    </div>
+</div>
+<div class="proposition" id="proposition-right-tuples-as-iteration">
+    <div class="title">
+        Right Tuples as Iteration
+    </div>
+    <div class="content">
+        Let \( + \) be the standard addition on \( \mathbb{ Z } \times \mathbb{ Z } \), then \[ \left( 0, m \right) = \operatorname{ iter } \left( +, \left( 0, 1 \right), m \right) \]
+    </div>
+    <div class="proof">
+        By induction
+    </div>
+</div>
+<div class="theorem" id="theorem-iterated-homomorphism">
+    <div class="title">
+        Iterated Homomorphism
+    </div>
+    <div class="content">
+        Let \( \phi \) be a homomorphism between \( \left( G, \star \right) \) and \( \left( H, \cdot \right) \) \[ \phi \left( \operatorname{ right\_iter } \left( \star, g, n \right) \right) = \operatorname{ right\_iter } \left( \cdot, \phi \left( g \right), n \right) \]
+    </div>
+    <div class="proof">
+        By induction, each step using the property of a homomorphism
+    </div>
+</div>
+<div class="exercise" id="">
+    <div class="title">
+        Addition Factors Through Homomorphism on Cartesian Product of The Integers
+    </div>
+    <div class="content"></div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-addition-factors-through-homomorphism-on-cartesian-product-of-the-integers">
+    <div class="title">
+        Homomorphism Between a Group and it's Cartesian Product
+    </div>
+    <div class="content">
+        Let
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-">
+    <div class="title"></div>
+    <div class="content">
+        Suppose that \( \phi : \mathbb{ Z } \times \mathbb{ Z } \to \mathbb{ Z } \) is a homomorphism between \( \left( \mathbb{ Z } \times \mathbb{ Z }, \oplus \right) \) and \( \left( \mathbb{ Z } , + \right) \) then for any \( m , n \in \mathbb{ Z } \) we have \[ \phi \left( \left( m, n \right) \right) = m \phi \left( \left( 1, 0 \right) \right) + n \phi \left( \left( 0, 1 \right) \right) \]
+    </div>
+    <div class="proof">
+        \[ \begin{align} \phi \left( \left( m, n \right) \right) &amp;= \phi \left( \left( m, 0 \right) \oplus \left( 0, n \right) \right) \\ &amp;= \phi \left( \left( m, 0 \right) \right) + \phi \left( \left( 0, n \right) \right) \end{align} \]
+        <p>We now <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#proposition-powers-pass-through-a-homomorphism">recall that</a> \( \phi \left( g ^ n \right) = \phi \left( g \right) ^ n \) so that we obtain \( \phi \left( \left( m, 0 \right) \right) = \phi \left( \left( 1, 0 \right) ^ m \right) = \phi \left( \left( 1, 0 \right) \right) ^ m \) here the power symbol is acting with respect to \( \oplus \) and then \( + \) respectively. So in multiplicative notation that would mean \( \phi \left( \left( 1, 0 \right) \right) ^ m = m \phi \left( \left( 1, 0 \right) \right) \) (note that multiplication here is just syntactic sugar for it being added to itself \( m \) times)</p>
+        <p>By symmetry it follows that \( \phi \left( \left( 0, n \right) \right) = n \phi \left( \left( 0, 1 \right) \right) \) so re-connecting with our original chain of equalities we have \[ \phi \left( \left( m, n \right) \right) = m \phi \left( \left( 1, 0 \right) \right) + n \phi \left( \left( 0, 1 \right) \right) \]</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-finding-group-homomorphisms">
+    <div class="title">
+        Finding Group Homomorphisms
+    </div>
+    <div class="content">
+        Find all group homomorphisms \( \phi : \mathbb{ Z } \times \mathbb{ Z } \to \mathbb{ Z } \)
+    </div>
+    <div class="proof">
+        For every \( a, b \in \mathbb{ Z } \) such that \( \phi \left( \left( 1, 0 \right) \right) = a \) and that \( \phi \left( \left( 0, 1 \right) \right) = b \), we obtain a unique homomorphism. Therefore all homomorphism are given by the collection: \[ \left\{ \phi : \mathbb{ Z } \times \mathbb{ Z } \to \mathbb{ Z } : \phi \left( \left( 1, 0 \right) \right) = a \text{ and } \phi \left( \left( 0, 1 \right) \right) = b \right\} \]
+    </div>
+</div>
+<div class="proposition" id="proposition-the-image-of-a-homomorphism-is-abelian-iff-its-kernel-contains-the-subgroup-generated-by-x-y-x-inverse-y-inverse">
+    <div class="title">
+        The Image of a Homomorphism is Abelian iff It's Kernel Contains the Subgroup Generated by \( x y x ^ { -1 } y ^ { -1 } \)
+    </div>
+    <div class="content">
+        Suppose that \( \phi : G \to H \) is a group homomorphism. Then \( \operatorname{ im } \left( \phi \right) \) is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-abelian">abelian</a> iff \( [ G, G ] \subseteq \operatorname{ ker } \left( \phi \right) \)
+    </div>
+    <div class="proof">
+        <p>\( \implies \) Suppose that \( \operatorname{ im } \left( \phi \right) \) is abelian, we want to prove that \( [ G, G ] \subseteq \operatorname{ ker } \left( \phi \right) \), we already know that \( [ G, G ] \) is the smallest subgroup containing the set \( \left\{ x y x ^ { -1 } y ^ { -1 } : x, y \in G \right\} \) since we already know that \( \operatorname{ ker } \left( \phi \right) \) is a subgroup of \( G \), then we just have to show it contains the set, and it would automatically become a superset as needed.</p>
+        <p>Let \( x y x ^ { -1 } y ^ { -1 } \) be in the set, to show that this element is also in \( \operatorname{ ker } \left( \phi \right) \) we have to show that \( \phi \left( x y x ^ { -1 } y ^ { -1 } \right) = e _ H \), we note that \( \operatorname{ im } \left( \phi \right) \) was abelian and a homomorphism, thus \[ \begin{align} \phi \left( x y x ^ { -1 } y ^ { -1 } \right) &amp;= \phi \left( x \right) \phi \left( y \right) \phi \left( x ^ { -1 } \right) \phi \left( y ^ { -1 } \right) \\ &amp;= \phi \left( x \right) \phi \left( y \right) \phi \left( x \right) ^ { -1 } \phi \left( y \right) ^ { -1 } \\ &amp;= \phi \left( x \right) \phi \left( x \right) ^ { -1 } \phi \left( y \right) \phi \left( y \right) ^ { -1 } \\ &amp;= e _ H e _ H \\ &amp;= e _ H \end{align} \] Note that pulling the power out of a homomorphism <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#proposition-powers-pass-through-a-homomorphism">is justified</a> on line 2</p>
+        <p>\( \impliedby \) Now we're assuming that \( [ G, G ] \subseteq \operatorname{ ker } \left( \phi \right) \) and we want to show that \( \operatorname{ im } \left( \phi \right) \) is abelian so let \( a, b \in \operatorname{ im } \left( \phi \right) \), so that there is some \( x, y \in G \) such that \( a = \phi \left( x \right), b = \phi \left( y \right) \). Let's prove \( a b = b a \):</p>
+        <p>Firstly by definition \( [ G, G ] \) contains the set \( \left\{ xyx ^ { -1 } y ^ { -1 } : x, y \in G \right\} \) therefore since \( \operatorname{ ker } \left( \phi \right) \) is a superset of \( [ G, G ] \) it also contains that set, in other words \( x y x ^ { -1 } y ^ { -1 } \in \operatorname{ ker } \left( \phi \right) \), that is \( \phi \left( x y x ^ { -1 } y ^ { -1 } \right) = e _ H \), well \( \phi \) is a homomorphism: \( \phi \left( x \right) \phi \left( y \right) \phi \left( x \right) ^ { -1 } \phi \left( y \right) ^ { -1 } = e _ H \), the by multiplying each side on the right we have \( \phi \left( x \right) \phi \left( y \right) = \phi \left( y \right) \phi \left( x \right) \), well that is \( a b = b a \) as needed.</p>
+    </div>
+</div>

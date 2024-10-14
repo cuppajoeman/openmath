@@ -1,48 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Weierstrass Approximation</title>
-
-    <link rel="stylesheet" href="../../styles/styles.css">
-    <script src="../../js/script.js" defer></script>
-</head>
-<body>
-<div class="thin-wrapper">
-	
-	<div class="theorem" id="theorem-integral-convergence">
-		<div class="title">Integral Convergence</div>
-		<div class="content">
-			Let \( \left( f _ n \right) : \mathbb{ N } _ 1 \to C \left[ a, b \right]  \) such that \( f _ n \stackrel{unif}{\to } f  \) and fix \( c \in \left[ a, b \right]  \) then the new sequence of functions \( F _ n : \left[ a, b \right] \to \mathbb{ R }  \)
-			\[
-			F _ n \left( x \right)  := \int _ c ^ x f _ n \left( t \right) dt
-			\]
-			converges uniformly on \( \left[ a, b \right]  \) to the function
-			\[
-			F \left( x \right) := \int _ c ^ x f \left( t \right) dt
-			\]
-		</div>
-		<div class="proof">
-
-		</div>
-	</div>
-
-	<div class="proposition" id="proposition-derivative-convergence">
-		<div class="title">Derivative Convergence</div>
-		<div class="content">
-			Suppose that \( f _ n \) is a sequence of continuously differentiable functions on \( \left[ a, b \right]  \) such that \( f _ n ^ \prime  \) converges uniformly to a function \( g \) and there is a point \( c \in \left[ a, b \right]  \) such that \( \lim _ { n \to \infty  } f _ n \left( c \right) = \gamma  \) exists. Then \( f _ n  \) converges uniformly to a differentiable function \( f \) with \( f \left( c \right) = \gamma \) and \( f ^ \prime = g \)
-		</div>
-		<div class="proof">
-
-		</div>
-	</div>
-	
-	
-
-
+<div class="theorem" id="theorem-integral-convergence">
+    <div class="title">
+        Integral Convergence
+    </div>
+    <div class="content">
+        Let \( \left( f _ n \right) : \mathbb{ N } _ 1 \to C \left[ a, b \right] \) such that \( f _ n \stackrel{unif}{\to } f \) and fix \( c \in \left[ a, b \right] \) then the new sequence of functions \( F _ n : \left[ a, b \right] \to \mathbb{ R } \) \[ F _ n \left( x \right) := \int _ c ^ x f _ n \left( t \right) dt \] converges uniformly on \( \left[ a, b \right] \) to the function \[ F \left( x \right) := \int _ c ^ x f \left( t \right) dt \]
+    </div>
+    <div class="proof"></div>
 </div>
-</body>
-</html>
+<div class="proposition" id="proposition-derivative-convergence">
+    <div class="title">
+        Derivative Convergence
+    </div>
+    <div class="content">
+        Suppose that \( f _ n \) is a sequence of continuously differentiable functions on \( \left[ a, b \right] \) such that \( f _ n ^ \prime \) converges uniformly to a function \( g \) and there is a point \( c \in \left[ a, b \right] \) such that \( \lim _ { n \to \infty } f _ n \left( c \right) = \gamma \) exists. Then \( f _ n \) converges uniformly to a differentiable function \( f \) with \( f \left( c \right) = \gamma \) and \( f ^ \prime = g \)
+    </div>
+    <div class="proof"></div>
+</div>

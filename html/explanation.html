@@ -1,120 +1,40 @@
+<h1>Introduction</h1>
+<p>The purpose of this page is to help users get more comfortable with how openmath works before, as an intermediary between using the site and working with the source code.</p>
+<p>openmath is a static html site that uses vanilla js and css, we use a few external libraries for graphics and formatting mathematical content.</p>
+<p>Some of the strong pull factors for openmath are that it's incredibly simple, it is a static site that contains mathematical content, while at the same time having the strength of a database by being able to refer to other content located in other files without being a dynamic site.</p>
+<p>We manage to do this by lazily using fetch requests in unison with <code>document.getElementById</code> calls, which indirectly induces a type of filesystem database.</p>
+<p>For example suppose that we have a knowledge link on <code>A.html</code> pointing to some knowledge located at <code>B.html#definition-somedef</code>, then we fetch the html from <code>B.html</code>, parse it into a document, then use <code>document.getElementById("definition-somedef")</code> on that document, and inject the resulting element back into <code>A.html</code> and then re-run MathJax on that element.</p>
+<p>We keep the cost of this operation low, by keeping our knowledge files small, which is also nice for the user as they're not overwhelmed with information</p>
+<h1>Details</h1>
+<p>let's look at the basic form of a definition, for example division</p>
+<pre><code>
+&amp;ltdiv class="definition" id="definition-divides"&gt;
+        &amp;ltdiv class="title"&amp;gtdivides&lt;/div&gt;
+        &amp;ltdiv class="content"&gt;
+                an integer \( n \) is divisible by a non-zero integer \( m \) if there exists an integer \( k \) such that \( n = k \cdot m \). If this is all true we write \( m | n \).
+        &lt;/div&gt;
+&lt;/div&gt;
+                                </code></pre>
+<p>Breaking it down, we can see that there is a title, the content, mathematical equations written in latex (and parsed by MathJax) and the outer div is given a special id.</p>
+<p>Each of the classes used here are defined in <code>/styles/style.css</code> and gives it styling (similar to beamer)</p>
+<p>Now let's look at a more complicated example</p>
+<pre><code>
+&amp;ltdiv class="proposition" id="proposition-1-divides-everything"&gt;
+        &amp;ltdiv class="title"&amp;gt1 divides everything&lt;/div&gt;
+        &amp;ltdiv class="content"&gt;
+                Suppose that \( j \in \mathbb{Z} \), then \( 1 | j \)
+        &lt;/div&gt;
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Explanation</title>
-
-        <link rel="stylesheet" href="/styles/styles.css">
-        <script src="/js/script.js" defer></script>
-    </head>
-    <body>
-
-        <div class="thin-wrapper">
-
-			<h1>Introduction</h1>
-
-			<p>
-				The purpose of this page is to help users get more comfortable with how openmath works before, as an intermediary between using the site and working with the source code.
-			</p>
-
-			<p>
-				openmath is a static html site that uses vanilla js and css, we use a few external libraries for graphics and formatting mathematical content.
-			</p>
-
-			<p>
-				Some of the strong pull factors for openmath are that it's incredibly simple, it is a static site that contains mathematical content, while at the same time having the strength of a database by being able to refer to other content located in other files without being a dynamic site.
-			</p>
-
-			<p>
-				We manage to do this by lazily using fetch requests in unison with <code>document.getElementById</code> calls, which indirectly induces a type of filesystem database.
-			</p>
-
-			<p>
-				For example suppose that we have a knowledge link on <code>A.html</code> pointing to some knowledge located at <code>B.html#definition-somedef</code>, then we fetch the html from <code>B.html</code>, parse it into a document, then use <code>document.getElementById("definition-somedef")</code> on that document, and inject the resulting element back into <code>A.html</code> and then re-run MathJax on that element.
-			</p>
-
-			<p>
-				We keep the cost of this operation low, by keeping our knowledge files small, which is also nice for the user as they're not overwhelmed with information
-			</p>
-
-			<h1>Details</h1>
-
-			<p>
-				let's look at the basic form of a definition, for example division
-			</p>
-
-			<code>
-				<pre>
-&ltdiv class="definition" id="definition-divides"&gt
-	&ltdiv class="title"&gtdivides&lt/div&gt
-	&ltdiv class="content"&gt
-		an integer \( n \) is divisible by a non-zero integer \( m \) if there exists an integer \( k \) such that \( n = k \cdot m \). If this is all true we write \( m | n \).
-	&lt/div&gt
-&lt/div&gt
-				</pre>
-			</code>
-
-			<p>
-				Breaking it down, we can see that there is a title, the content, mathematical equations written in latex (and parsed by MathJax)  and the outer div is given a special id.
-			</p>
-
-			<p>
-				Each of the classes used here are defined in <code>/styles/style.css</code> and gives it styling (similar to beamer)
-			</p>
-
-			<p>
-				Now let's look at a more complicated example
-			</p>
-
-			<code>
-				<pre>
-&ltdiv class="proposition" id="proposition-1-divides-everything"&gt
-	&ltdiv class="title"&gt1 divides everything&lt/div&gt
-	&ltdiv class="content"&gt
-		Suppose that \( j \in \mathbb{Z} \), then \( 1 | j \)
-	&lt/div&gt
-
-	&ltdiv class="proof"&gt
-		In the &ltspan class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides"&gtdefinition of divides&lt/span&gt
-		take \( k = j \), then we can see that \( j = j \cdot 1 \) thus we can say that \( 1 | j \)
-&lt/div&gt
-				</pre>
-			</code>
-
-			<p>
-				As you can see we've packaged both the statement and the proof into a div with it's own id. In the proof, we have something new: the knowledge link.
-			</p>
-			<p>
-				A knowledge link is what allows for recursive learning, and is used when we are referencing a piece of information such as a definition, or proved statement, so that the reader knows how we deduce that the next statement is true via this knowledge.
-			</p>
-
-			<p>
-				Notice that the form of the <code>href</code> is an absolute path and the id of the element delimited with a # symbol. This is actually a regular URL, nothing fancy here.
-			</p>
-
-			<p>
-				The most relevant entry point will be, to take a look at <code>/js/script.js</code> which contains all the main logic, specificially let's take a look at the function <code>setUpKnowledgeLink</code>. Feel free to open this code in your editor of choice.
-			</p>
-
-			<p>
-				In this function the main steps are to use the <code>href</code> to fetch the relevant section of html from the respective webpage, and paste it after the knowledge link when it is clicked.
-			</p>
-
-			<p>
-				From this point onward, you can explore the <code>preparePage</code> function which is main function call used on every page. Besides the css for a page that is all the code that runs.
-			</p>
-
-
-			<h1>Templates</h1>
-			<p>
-				in <code>preparePage</code> the header is loaded in programatically using a fetch call, see <code>setUpAndAddHeader</code>.
-			</p>
-
-		</div>
-
-    </body>
-</html>
+        &amp;ltdiv class="proof"&gt;
+                In the &amp;ltspan class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides"&amp;gtdefinition of divides&lt;/span&gt;
+                take \( k = j \), then we can see that \( j = j \cdot 1 \) thus we can say that \( 1 | j \)
+&lt;/div&gt;
+                                </code></pre>
+<p>As you can see we've packaged both the statement and the proof into a div with it's own id. In the proof, we have something new: the knowledge link.</p>
+<p>A knowledge link is what allows for recursive learning, and is used when we are referencing a piece of information such as a definition, or proved statement, so that the reader knows how we deduce that the next statement is true via this knowledge.</p>
+<p>Notice that the form of the <code>href</code> is an absolute path and the id of the element delimited with a # symbol. This is actually a regular URL, nothing fancy here.</p>
+<p>The most relevant entry point will be, to take a look at <code>/js/script.js</code> which contains all the main logic, specificially let's take a look at the function <code>setUpKnowledgeLink</code>. Feel free to open this code in your editor of choice.</p>
+<p>In this function the main steps are to use the <code>href</code> to fetch the relevant section of html from the respective webpage, and paste it after the knowledge link when it is clicked.</p>
+<p>From this point onward, you can explore the <code>preparePage</code> function which is main function call used on every page. Besides the css for a page that is all the code that runs.</p>
+<h1>Templates</h1>
+<p>in <code>preparePage</code> the header is loaded in programatically using a fetch call, see <code>setUpAndAddHeader</code>.</p>

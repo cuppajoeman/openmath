@@ -1,380 +1,239 @@
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Logic</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <script src="../js/script.js" defer="">
-    </script>
-</head>
-
-<body>
-    <div class="thin-wrapper">
-        <div class="definition" id="definition-true-and-false">
-            <div class="title">
-                True and False
-            </div>
-
-            <div class="content">
-                True and false denoted by \( T, F \) respectively are distinct symbols ( \( T \neq F \) ).
-            </div>
-        </div>
-
-        <div class="definition" id="definition-predicate">
-            <div class="title">
-                Predicate
-            </div>
-
-            <div class="content">
-                A predicate is a <a class="knowledge-link"
-                    href="/fundamentals/functions.html#definition-function">function</a> \( f : X \to \left\{ T, F
-                \right\} \)
-                for some set \( X \)
-            </div>
-        </div>
-
-        <div class="definition" id="definition-logical-and">
-            <div class="title">Logical And</div>
-            <div class="content">
-                We define the <a class="knowledge-link"
-                    href="/fundamentals/functions.html#definition-function">function</a> \( \lor : \left\{ T, F \right\}
-                \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) by the following table:
-                \[
-                \begin{array}{|c c|c|}
-                    \hline
-                    T & T & T\\
-                    T & F & F\\
-                    F & T & F\\
-                    F & F & F\\
-                \end{array}
-                \]
-                note that we use infix notation for this function.
-            </div>
-        </div>
-
-        <div class="definition" id="definition-logical-negation">
-            <div class="title">Logical Negation</div>
-            <div class="content">
-                We define the <a class="knowledge-link"
-                    href="/fundamentals/functions.html#definition-function">function</a> \( \neg : \left\{ T, F \right\}
-                \to \left\{ T, F \right\} \) by the following table:
-                \[
-                \begin{array}{|c|c|}
-                p & \neg p\\ % Use & to separate the columns
-                \hline % Put a horizontal line between the table header and the rest.
-                T & F \\
-                F & T \\
-                \end{array}
-                \]
-            </div>
-        </div>
-
-        <p>When working with the negation, we almost never include the parenthesis unless it is really necessary, so
-            you'll see \( \neg T = F \) rather than the standard function notation: \( \neg \left( T \right) = F \)</p>
-
-        <div class="definition" id="definition-logical-or">
-            <div class="title">
-                Logical Or
-            </div>
-
-            <div class="content">
-                We define \( \lor : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) as
-                \[ p \lor q := \neg \left( \neg p \land \neg q \right) \]
-            </div>
-        </div>
-
-        <div class="definition" id="definition-rightward-logical-implication">
-            <div class="title">
-                Rightward Logical Implication
-            </div>
-
-            <div class="content">
-                We define \( \implies : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \)
-                as \[ p \implies q := \neg p \lor q \]
-            </div>
-        </div>
-
-        <p>Note that even though the above doesn't seem intuitive, it exactly matches your intuition, we know that the only time an implication can be false is when we have the antecdent to be true, but the result false, which is exactly the case for the above definition.</p>
-
-        <p>
-            Usually \( p \) is called the "antecedent" and \( q \) the "consequent".
-        </p>
-
-        <div class="definition" id="definition-leftward-logical-implication">
-            <div class="title">
-                Leftward Logical Implication
-            </div>
-
-            <div class="content">
-                We define \( \impliedby : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\}
-                \) as \[ p \impliedby q := q \implies p \]
-            </div>
-        </div>
-
-        <div class="definition" id="definition-logical-bi-implication">
-            <div class="title">
-                Logical Bi-Implication
-            </div>
-
-            <div class="content">
-                We define \( \iff : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) as
-                \[ p \iff q := \left( p \implies q \right) \land \left( p \impliedby q \right) \]
-            </div>
-        </div>
-
-        <p>Note that in writing mathematicians will use the word "iff" as short-hand for if and only if,
-            which represents the bi-implication.</p>
-
-        <div class="exercise" id="exercise-logical-and-true-iff-both-arguments-are-true">
-            <div class="title">Logical And True iff both Arguments are True</div>
-            <div class="content">
-                \[
-                p \land q = T \iff p = T \land q = T
-                \]
-            </div>
-            <div class="proof">
-                TODO
-            </div>
-        </div>
-
-        <p>
-            The above proof might feel a bit meta, indeed, we are using the definition of "iff" that we just defined on
-            this page. The "metaness" is coming from the fact that the "iff" we use in english language is actually the
-            bi-implication which we formally define a bit later in the page (which in-turn is then defined in terms of
-            logical and eventually).
-        </p>
-
-        <div class="definition" id="definition-logical-exclusive-or">
-            <div class="title">
-                Logical Exclusive Or
-            </div>
-
-            <div class="content">
-                We define \( \oplus : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \)
-                as \[ p \oplus q := \left( \neg p \land q \right) \lor \left( p \land \neg q \right) \]
-            </div>
-        </div>
-
-        <p>"XOR" is sometimes used in place of it's regular name.</p>
-
-        <div class="lemma" id="lemma-addition-mod-2-is-associative">
-            <div class="title">Addition Mod 2 is Associative</div>
-            <div class="content">
-                Suppose that we have the function \( p : \left\{ 0, 1 \right\} \to \left\{ 0, 1 \right\}   \) defined such that
-                <ul>
-                    <li>\( p \left( 0, 0 \right) = p \left( 1, 1 \right)  = 0  \) </li>
-                    <li>\( p \left( 0, 1 \right) = p \left( 1, 0 \right)  = 1  \) </li>
-                </ul>
-                then it is associative
-            </div>
-            <div class="proof">
-                Let \( a, b, c \in  \left\{ 0, 1 \right\}  \), and consider the equation
-                \[
-                p \left( p \left( a, b \right), c  \right) = p \left( a, p \left( b, c \right)  \right)
-                \]
-                when all of \( a, b, c = 0 \) we have \( \left( p \left( 0, 0 \right) = p \left( 0, 0 \right)   \right)   \), when exactly one of them is zero, then without loss of generality we get the equation \( p \left( 1, 0 \right) = p \left( 0, 1 \right)   \), if exactly two of them are ones then we either get an equation of the form \( p \left( 0, 0 \right) = p \left( 1, 1 \right)  \) which holds, or one of the form \( p \left( 1, 1 \right) = p \left( 1, 1 \right) = 0   \), finally if all are 1 then we get \( p \left( 0, 1 \right) = p \left( 1, 0 \right)  \), since all equations hold true from the definition then \( p \) is associative.
-            </div>
-        </div>
-
-        <div class="proposition" id="proposition-exclusive-or-is-associative">
-        	<div class="title">Exclusive Or is Associative</div>
-        	<div class="content">
-        		For any \( x _ 1, x _ 2, x _ 3 \in \left\{ T, F \right\}  \) we have that
-                \[
-                    \left( x _ 1 \oplus x _ 2 \right) \oplus x _ 3 = x _ 1 \oplus \left( x _ 2 \oplus x _ 3 \right)
-                \]
-        	</div>
-        	<div class="proof">
-                Consider the bijective mapping \( f \left( T \right) = 1  \) and \( f \left( F \right) = 0 \) we can see that \( f \left( a \oplus b \right) = p \left( f \left( a \right),  f \left( b \right)  \right)   \), the it follows that \( f \left( \cdot \oplus \cdot  \right)  \) is associative, therefore so is \( \oplus \)
-        	</div>
-        </div>
-
-        <div class="proposition " id="proposition-sum-of-ones-mod-2-becomes-0-iff-even">
-        	<div class="title">Sum of Ones Mod 2 becomes 0 iff Even</div>
-        	<div class="content">
-        	    Since \( p \) is associative let's use it as a binary operation and temporarily label it as \( + \) then consider a sequence \( \left( a _ n \right): \mathbb{ N } _ 0 \to \left\{ 0, 1 \right\}   \)
-                \[
-                    \sum _ { i = 0 }  ^ k a _ n   = 0
-                \]
-                if and only if \( \lvert \left\{ a _ j: a _ j = 1 \right\}  \rvert  \) is even.
-        	</div>
-        	<div class="proof">
-        		Induction I believe on even numbers + 2 each time.
-        	</div>
-        </div>
-        
-        <div class="corollary" id="corollary-exclusive-or-evaluates-to-true-iff-an-odd-number-of-arguments-are-true">
-        	<div class="title">Exclusive Or Evaluates to True iff an odd number of arguments are True</div>
-        	<div class="content">
-                \[
-                x _ 1 \oplus x _ 2 \oplus \cdots \oplus x _ k = T
-                \]
-                if and only if
-                \[
-                    \sum _ { i = 1 }  ^  k x _ i
-                \]
-                is odd.
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-        <div class="definition" id="definition-tautology">
-            <div class="title">
-                Tautology
-            </div>
-
-            <div class="content">
-                We say that a <a class="knowledge-link"
-                    href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : X \to \left\{ T, F
-                \right\} \) is
-                a tautology iff for every \( x \in A, P \left( x \right) = T\).
-            </div>
-        </div>
-
-        <p>In mathematics, when we prove a statement, we are actually showing that it is a tautology.</p>
-
-        <div class="proposition" id="proposition-contrapositive">
-        	<div class="title">Contrapositive</div>
-        	<div class="content">
-                The following is a tautology
-                \[
-                    \left( p \implies q \right)  \iff \left( \neg q \implies \neg p \right)
-                \]
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-forced-consequence">
-        	<div class="title">Forced Consequence</div>
-        	<div class="content">
-                The following is a tautology
-                \[
-                    \left( T \implies p \right)  \iff p = T
-                \]
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-        <div class="definition" id="definition-arbitrary-and">
-        	<div class="title">Arbitrary And</div>
-        	<div class="content">
-                For any \( n \in \mathbb{ N } _ 0 \) we define <b>arbitrary and</b> as the <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( \bigwedge: \left\{ T, F \right\} ^ n \to \left\{ T, F \right\}  \) such that for any \( X = \left( x _ 1, \ldots , x _ n \right)  \in \left\{ T, F \right\} ^ n \).
-                \[
-                    \bigwedge X = T
-                \]
-                if and only if the following statement holds true
-                \[
-                    \forall i \in \left\{ 1, \ldots , n \right\}, x _ i = T
-                \]
-        	</div>
-        </div>
-
-        <div class="corollary" id="corollary-empty-and-is-true">
-        	<div class="title">Empty And is True</div>
-        	<div class="content">
-        		Suppose that \( X = \left(  \right)  \) (the empty tuple), then
-                \[
-                    \bigwedge X = T
-                \]
-                where we've used the <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and">the arbitrary and</a>
-        	</div>
-        	<div class="proof">
-                It holds vacuously true.
-        	</div>
-        </div>
-
-        
-        <div class="definition" id="definition-arbitrary-and-indexed-notation">
-        	<div class="title">Arbitrary And Indexed Notation</div>
-        	<div class="content">
-        		Suppose that, \( a, b \in \mathbb{ Z }  \) and \( p _ a, \ldots p _ b \in \left\{ T, F \right\} \) then we define
-                \[
-                    \bigwedge _ { i = a }  ^  b p _ i := \bigwedge \left( p _ a, \ldots , p _ b \right)
-                \]
-                where we've used the <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and">the arbitrary and</a>
-        	</div>
-        </div>
-
-        <div class="corollary" id="corollary-arbitrary-and-indexed-notation-with-reversed-integers-is-true">
-        	<div class="title">Arbitrary And Indexed Notation with Reversed Integers is True</div>
-        	<div class="content">
-        		Suppose \( a \gt b \in \mathbb{ Z }  \) and
-                \[
-                    \bigwedge _ { i = a } ^ b  p _ i = T
-                \]
-        	</div>
-        	<div class="proof">
-        		<a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and-indexed-notation">Recall that</a>
-                \[
-                    \bigwedge _ { i = a }  ^  b p _ i = \bigwedge \left( p _ a, \ldots , p _ b \right)
-                \]
-                But <a class="knowledge-link" href="/fundamentals/sets/tuples.html#proposition-when-an-integer-indexed-tuple-is-empty">at the same time</a> \( \left( p _ a, \ldots, p _ b \right) = \left(  \right)  \)  because \( a \gt b \) therefore \( \bigwedge \left( p _ a, \ldots , p _ b \right) = \bigwedge \left(  \right)  \) and <a class="knowledge-link" href="/fundamentals/logic.html#corollary-empty-and-is-true">therefore</a> evaluates to true.
-
-        	</div>
-        </div>
-
-
-        <div class="definition" id="definition-">
-        	<div class="title">Arbitrary And Expanded Notation</div>
-        	<div class="content">
-                Suppose that \( p _ 1, \ldots p _ n \in \left\{ T, F \right\} \) then we define
-                \[
-                p _ 1 \land \cdots \land p _ n := \bigwedge _ { i = 1 }  ^  n p _ i
-                \]
-                where we've used the <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and-indexed-notation">previous definition</a>
-        	</div>
-        </div>
-
-        
-        
-        <div class="definition" id="definition-arbitrary-or">
-        	<div class="title">Arbitrary Or</div>
-        	<div class="content">
-
-        	</div>
-        </div>
-
-        <div class="definition" id="definition-uniqueness">
-        	<div class="title">Uniqueness</div>
-        	<div class="content">
-        		Suppose that \( P : X \to \left\{ T, F \right\}  \) is a predicate, then we say that there is a unique element which satisfies \( P \) over the set \( S \subseteq X \) when
-                \[
-                    \exists s \in S, P \left( s \right) \land \forall t \in S, P \left( t \right) \implies t = s
-                \]
-        	</div>
-        </div>
-
-
-        <div class="proposition" id="proposition-for-every-there-exists-is-a-function">
-        	<div class="title">For Every, There Exists is a Function</div>
-        	<div class="content">
-                The statement
-                \[
-                    \forall x \in X, \exists y \in Y, P \left( x, y \right)
-                \]
-                is equivalent to
-                \[
-                    \exists f: X \to Y, \forall x \in X, P \left( x, f \left( x \right)  \right)
-                \]
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-
-
+<div class="definition" id="definition-true-and-false">
+    <div class="title">
+        True and False
     </div>
-</body>
-
-</html>
+    <div class="content">
+        True and false denoted by \( T, F \) respectively are distinct symbols ( \( T \neq F \) ).
+    </div>
+</div>
+<div class="definition" id="definition-predicate">
+    <div class="title">
+        Predicate
+    </div>
+    <div class="content">
+        A predicate is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f : X \to \left\{ T, F \right\} \) for some set \( X \)
+    </div>
+</div>
+<div class="definition" id="definition-logical-and">
+    <div class="title">
+        Logical And
+    </div>
+    <div class="content">
+        We define the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \lor : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) by the following table: \[ \begin{array}{|c c|c|} \hline T & T & T\\ T & F & F\\ F & T & F\\ F & F & F\\ \end{array} \] note that we use infix notation for this function.
+    </div>
+</div>
+<div class="definition" id="definition-logical-negation">
+    <div class="title">
+        Logical Negation
+    </div>
+    <div class="content">
+        We define the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \neg : \left\{ T, F \right\} \to \left\{ T, F \right\} \) by the following table: 
+        \[ 
+            \begin{array}{|c|c|} 
+            p & \neg p\\ 
+            \hline  
+            T & F \\ 
+            F & T \\ 
+            \end{array} 
+        \]
+    </div>
+</div>
+<p>When working with the negation, we almost never include the parenthesis unless it is really necessary, so you'll see \( \neg T = F \) rather than the standard function notation: \( \neg \left( T \right) = F \)</p>
+<div class="definition" id="definition-logical-or">
+    <div class="title">
+        Logical Or
+    </div>
+    <div class="content">
+        We define \( \lor : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) as \[ p \lor q := \neg \left( \neg p \land \neg q \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-rightward-logical-implication">
+    <div class="title">
+        Rightward Logical Implication
+    </div>
+    <div class="content">
+        We define \( \implies : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) as \[ p \implies q := \neg p \lor q \]
+    </div>
+</div>
+<p>Note that even though the above doesn't seem intuitive, it exactly matches your intuition, we know that the only time an implication can be false is when we have the antecdent to be true, but the result false, which is exactly the case for the above definition.</p>
+<p>Usually \( p \) is called the "antecedent" and \( q \) the "consequent".</p>
+<div class="definition" id="definition-leftward-logical-implication">
+    <div class="title">
+        Leftward Logical Implication
+    </div>
+    <div class="content">
+        We define \( \impliedby : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) as \[ p \impliedby q := q \implies p \]
+    </div>
+</div>
+<div class="definition" id="definition-logical-bi-implication">
+    <div class="title">
+        Logical Bi-Implication
+    </div>
+    <div class="content">
+        We define \( \iff : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) as \[ p \iff q := \left( p \implies q \right) \land \left( p \impliedby q \right) \]
+    </div>
+</div>
+<p>Note that in writing mathematicians will use the word "iff" as short-hand for if and only if, which represents the bi-implication.</p>
+<div class="exercise" id="exercise-logical-and-true-iff-both-arguments-are-true">
+    <div class="title">
+        Logical And True iff both Arguments are True
+    </div>
+    <div class="content">
+        \[ p \land q = T \iff p = T \land q = T \]
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<p>The above proof might feel a bit meta, indeed, we are using the definition of "iff" that we just defined on this page. The "metaness" is coming from the fact that the "iff" we use in english language is actually the bi-implication which we formally define a bit later in the page (which in-turn is then defined in terms of logical and eventually).</p>
+<div class="definition" id="definition-logical-exclusive-or">
+    <div class="title">
+        Logical Exclusive Or
+    </div>
+    <div class="content">
+        We define \( \oplus : \left\{ T, F \right\} \times \left\{ T, F \right\} \to \left\{ T, F \right\} \) as \[ p \oplus q := \left( \neg p \land q \right) \lor \left( p \land \neg q \right) \]
+    </div>
+</div>
+<p>"XOR" is sometimes used in place of it's regular name.</p>
+<div class="lemma" id="lemma-addition-mod-2-is-associative">
+    <div class="title">
+        Addition Mod 2 is Associative
+    </div>
+    <div class="content">
+        Suppose that we have the function \( p : \left\{ 0, 1 \right\} \to \left\{ 0, 1 \right\} \) defined such that
+        <ul>
+            <li>\( p \left( 0, 0 \right) = p \left( 1, 1 \right) = 0 \)</li>
+            <li>\( p \left( 0, 1 \right) = p \left( 1, 0 \right) = 1 \)</li>
+        </ul>then it is associative
+    </div>
+    <div class="proof">
+        Let \( a, b, c \in \left\{ 0, 1 \right\} \), and consider the equation \[ p \left( p \left( a, b \right), c \right) = p \left( a, p \left( b, c \right) \right) \] when all of \( a, b, c = 0 \) we have \( \left( p \left( 0, 0 \right) = p \left( 0, 0 \right) \right) \), when exactly one of them is zero, then without loss of generality we get the equation \( p \left( 1, 0 \right) = p \left( 0, 1 \right) \), if exactly two of them are ones then we either get an equation of the form \( p \left( 0, 0 \right) = p \left( 1, 1 \right) \) which holds, or one of the form \( p \left( 1, 1 \right) = p \left( 1, 1 \right) = 0 \), finally if all are 1 then we get \( p \left( 0, 1 \right) = p \left( 1, 0 \right) \), since all equations hold true from the definition then \( p \) is associative.
+    </div>
+</div>
+<div class="proposition" id="proposition-exclusive-or-is-associative">
+    <div class="title">
+        Exclusive Or is Associative
+    </div>
+    <div class="content">
+        For any \( x _ 1, x _ 2, x _ 3 \in \left\{ T, F \right\} \) we have that \[ \left( x _ 1 \oplus x _ 2 \right) \oplus x _ 3 = x _ 1 \oplus \left( x _ 2 \oplus x _ 3 \right) \]
+    </div>
+    <div class="proof">
+        Consider the bijective mapping \( f \left( T \right) = 1 \) and \( f \left( F \right) = 0 \) we can see that \( f \left( a \oplus b \right) = p \left( f \left( a \right), f \left( b \right) \right) \), the it follows that \( f \left( \cdot \oplus \cdot \right) \) is associative, therefore so is \( \oplus \)
+    </div>
+</div>
+<div class="proposition" id="proposition-sum-of-ones-mod-2-becomes-0-iff-even">
+    <div class="title">
+        Sum of Ones Mod 2 becomes 0 iff Even
+    </div>
+    <div class="content">
+        Since \( p \) is associative let's use it as a binary operation and temporarily label it as \( + \) then consider a sequence \( \left( a _ n \right): \mathbb{ N } _ 0 \to \left\{ 0, 1 \right\} \) \[ \sum _ { i = 0 } ^ k a _ n = 0 \] if and only if \( \lvert \left\{ a _ j: a _ j = 1 \right\} \rvert \) is even.
+    </div>
+    <div class="proof">
+        Induction I believe on even numbers + 2 each time.
+    </div>
+</div>
+<div class="corollary" id="corollary-exclusive-or-evaluates-to-true-iff-an-odd-number-of-arguments-are-true">
+    <div class="title">
+        Exclusive Or Evaluates to True iff an odd number of arguments are True
+    </div>
+    <div class="content">
+        \[ x _ 1 \oplus x _ 2 \oplus \cdots \oplus x _ k = T \] if and only if \[ \sum _ { i = 1 } ^ k x _ i \] is odd.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-tautology">
+    <div class="title">
+        Tautology
+    </div>
+    <div class="content">
+        We say that a <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( P : X \to \left\{ T, F \right\} \) is a tautology iff for every \( x \in A, P \left( x \right) = T\).
+    </div>
+</div>
+<p>In mathematics, when we prove a statement, we are actually showing that it is a tautology.</p>
+<div class="proposition" id="proposition-contrapositive">
+    <div class="title">
+        Contrapositive
+    </div>
+    <div class="content">
+        The following is a tautology \[ \left( p \implies q \right) \iff \left( \neg q \implies \neg p \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-forced-consequence">
+    <div class="title">
+        Forced Consequence
+    </div>
+    <div class="content">
+        The following is a tautology \[ \left( T \implies p \right) \iff p = T \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-arbitrary-and">
+    <div class="title">
+        Arbitrary And
+    </div>
+    <div class="content">
+        For any \( n \in \mathbb{ N } _ 0 \) we define <b>arbitrary and</b> as the <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( \bigwedge: \left\{ T, F \right\} ^ n \to \left\{ T, F \right\} \) such that for any \( X = \left( x _ 1, \ldots , x _ n \right) \in \left\{ T, F \right\} ^ n \). \[ \bigwedge X = T \] if and only if the following statement holds true \[ \forall i \in \left\{ 1, \ldots , n \right\}, x _ i = T \]
+    </div>
+</div>
+<div class="corollary" id="corollary-empty-and-is-true">
+    <div class="title">
+        Empty And is True
+    </div>
+    <div class="content">
+        Suppose that \( X = \left( \right) \) (the empty tuple), then \[ \bigwedge X = T \] where we've used the <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and">the arbitrary and</a>
+    </div>
+    <div class="proof">
+        It holds vacuously true.
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-and-indexed-notation">
+    <div class="title">
+        Arbitrary And Indexed Notation
+    </div>
+    <div class="content">
+        Suppose that, \( a, b \in \mathbb{ Z } \) and \( p _ a, \ldots p _ b \in \left\{ T, F \right\} \) then we define \[ \bigwedge _ { i = a } ^ b p _ i := \bigwedge \left( p _ a, \ldots , p _ b \right) \] where we've used the <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and">the arbitrary and</a>
+    </div>
+</div>
+<div class="corollary" id="corollary-arbitrary-and-indexed-notation-with-reversed-integers-is-true">
+    <div class="title">
+        Arbitrary And Indexed Notation with Reversed Integers is True
+    </div>
+    <div class="content">
+        Suppose \( a \gt b \in \mathbb{ Z } \) and \[ \bigwedge _ { i = a } ^ b p _ i = T \]
+    </div>
+    <div class="proof">
+        <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and-indexed-notation">Recall that</a> \[ \bigwedge _ { i = a } ^ b p _ i = \bigwedge \left( p _ a, \ldots , p _ b \right) \] But <a class="knowledge-link" href="/fundamentals/sets/tuples.html#proposition-when-an-integer-indexed-tuple-is-empty">at the same time</a> \( \left( p _ a, \ldots, p _ b \right) = \left( \right) \) because \( a \gt b \) therefore \( \bigwedge \left( p _ a, \ldots , p _ b \right) = \bigwedge \left( \right) \) and <a class="knowledge-link" href="/fundamentals/logic.html#corollary-empty-and-is-true">therefore</a> evaluates to true.
+    </div>
+</div>
+<div class="definition" id="definition-">
+    <div class="title">
+        Arbitrary And Expanded Notation
+    </div>
+    <div class="content">
+        Suppose that \( p _ 1, \ldots p _ n \in \left\{ T, F \right\} \) then we define \[ p _ 1 \land \cdots \land p _ n := \bigwedge _ { i = 1 } ^ n p _ i \] where we've used the <a class="knowledge-link" href="/fundamentals/logic.html#definition-arbitrary-and-indexed-notation">previous definition</a>
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-or">
+    <div class="title">
+        Arbitrary Or
+    </div>
+    <div class="content"></div>
+</div>
+<div class="definition" id="definition-uniqueness">
+    <div class="title">
+        Uniqueness
+    </div>
+    <div class="content">
+        Suppose that \( P : X \to \left\{ T, F \right\} \) is a predicate, then we say that there is a unique element which satisfies \( P \) over the set \( S \subseteq X \) when \[ \exists s \in S, P \left( s \right) \land \forall t \in S, P \left( t \right) \implies t = s \]
+    </div>
+</div>
+<div class="proposition" id="proposition-for-every-there-exists-is-a-function">
+    <div class="title">
+        For Every, There Exists is a Function
+    </div>
+    <div class="content">
+        The statement \[ \forall x \in X, \exists y \in Y, P \left( x, y \right) \] is equivalent to \[ \exists f: X \to Y, \forall x \in X, P \left( x, f \left( x \right) \right) \]
+    </div>
+    <div class="proof"></div>
+</div>

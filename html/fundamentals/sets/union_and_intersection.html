@@ -1,321 +1,266 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Union and Intersection</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/styles/styles.css">
-
-    <script src="/js/script.js" defer></script>
-
-</head>
-
-<body>
-    <div class="thin-wrapper">
-
-        <div class="definition" id="definition-union">
-            <div class="title">Union</div>
-            <div class="content">
-                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the union of \( A \) and \( B \) is defined as the set \( A \cup B := \left \lbrace p \in X : p \in A \lor p \in B \right \rbrace \)
-            </div>
-        </div>
-
-        <div class="definition" id="definition-intersection">
-            <div class="title">Intersection</div>
-            <div class="content">
-                Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the intersection of \( A \) and \( B \) is defined as the set \( A \cap B := \left \lbrace p \in X : p \in A \land p \in B \right \rbrace \)
-            </div>
-        </div>
-
-		<div class="definition" id="definition-a-set-intersects-another">
-			<div class="title">A set Intersects Another</div>
-			<div class="content">
-				Suppose that \( A, B \) are sets, we say that \( A \) intersects \( B \) when \( A \cap B \neq \emptyset \) 
-			</div>
-		</div>
-		
-
-        <div class="definition" id="definition-arbitrary-union">
-            <div class="title">Arbitrary Union</div>
-            <div class="content">
-                Suppose that \( M \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then \( \bigcup M \) is defined so that \( x \in \bigcup M \iff \exists A \in M , x \in A \)
-            </div>
-        </div>
-
-        <div class="definition" id="definition-arbitrary-intersection">
-            <div class="title">Arbitrary Intersection</div>
-            <div class="content">
-                Suppose that \( M \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then \( \bigcap M \) is defined so that \( x \in \bigcap M \iff \forall A \in M , x \in A \)
-            </div>
-        </div>
-
-        <div class="definition" id="definition-arbitrary-union-element-of-notation">
-            <div class="title">Arbitrary Union Element of Notation</div>
-            <div class="content">
-                We define \( \bigcup_{A \in M} A := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup M \)</span>
-            </div>
-        </div>
-
-        <div class="definition" id="definition-arbitrary-intersection-element-of-notation">
-            <div class="title">Arbitrary Intersection Element of Notation</div>
-            <div class="content">
-                We define \( \bigcap_{A \in M} A := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap M \)</span>
-            </div>
-        </div>
-
-        <div class="definition" id="definition-arbitrary-union-indexed-notation">
-            <div class="title">Arbitrary Union Indexed Notation</div>
-            <div class="content">
-                Suppose that \( I \) is an index set for the collection \( \mathcal{A} = \left \lbrace A_{\alpha} : \alpha \in I \right \rbrace \) where \( A_{\alpha} \) is a set, then \( \bigcup_{\alpha \in I} A_{\alpha} := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup \mathcal{A} \)</span>. If the index set is known by context, then we may use the shorthand \( \bigcup_{\alpha} A_{\alpha} \)
-            </div>
-        </div>
-
-        <div class="definition" id="definition-arbitrary-intersection-indexed-notation">
-            <div class="title">Arbitrary Intersection Indexed Notation</div>
-            <div class="content">
-                Suppose that \( I \) is an index set for the collection \( \mathcal{A} = \left \lbrace A_{\alpha} : \alpha \in I \right \rbrace \) where \( A_{\alpha} \) is a set, then \( \bigcap_{\alpha \in I} A_{\alpha} := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap \mathcal{A} \)</span>. If the index set is known by context, then we may use the shorthand \( \bigcap_{\alpha} A_{\alpha} \)
-            </div>
-        </div>
-
-        <div class="definition" id="definition-arbitrary-union-counting-notation">
-            <div class="title">Arbitrary Union Counting Notation</div>
-            <div class="content">
-                Suppose that \( a , b \in \mathbb{Z} \), with \( a \lt b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then  \( \bigcup_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup \mathcal{A} \)</span>
-            </div>
-        </div>
-
-        <div class="definition" id="definition-arbitrary-intersection-counting-notation">
-            <div class="title">Arbitrary Intersection Counting Notation</div>
-            <div class="content">
-                Suppose that \( a , b \in \mathbb{Z} \), with \( a \lt b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then \( \bigcap_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap \mathcal{A} \)</span>
-            </div>
-        </div>
-
-
-        <div class="definition" id="definition-disjoint-sets">
-            <div class="title">disjoint sets</div>
-            <div class="content">
-
-                Given two sets \( A , B \) we say that \( A \) and \( B \) are disjoint when <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-intersection">\( A \cap B \)</span> = <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-empty-set">\( \emptyset \)</span>
-
-            </div>
-        </div>
-
-        <div class="definition" id="definition-pairwise-disjoint-sets">
-            <div class="title">pairwise disjoint sets</div>
-            <div class="content">
-                Suppose that \( M \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then we say these sets are pairwise disjoint when given \( A , B \in M \) such that \( A \ne B \), then \( A \cap B = \emptyset \)
-            </div>
-        </div>
-
-
-        <div class="definition" id="definition-partition">
-            <div class="title">partition</div>
-            <div class="content">
-                Suppose that \( X \) is a set, then we say that a set \( P \) is a partition of \( X \) if and only if the following are true
-                <ul>
-                    <li>\( \emptyset \notin P \)</li>
-                    <li><a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup P \) </a>\( = X \)</li>
-                    <li>P is <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-pairwise-disjoint-sets">pairwise disjoint</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div id="exercise-partition-of-the-integers">
-            <div class="exercise">
-                <div class="title">partition of the integers</div>
-                <div class="content">
-                    The family \( \left \lbrace \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace , \left \lbrace 0 \right \rbrace , \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace \right \rbrace \) is a partition of \( \mathbb{Z} \)
-                </div>
-                <div class="proof">
-                    <p>
-                        Note that the integers \( - 1 , 0 , 1 \) show that the empty set is not in this family. We'll now prove that it's union equals \( \mathbb{Z} \), so let \( p \in \bigcup P \), therefore \( p \) is in at least one of the sets included in \( P \), since each is a subset of \( \mathbb{Z} \), then we know \( p \in \mathbb{Z} \), for the reverse direction, we can assume that \( p \in \mathbb{Z} \), therefore we know that \( p \) is either positive, negative or zero, so that \( p \in \bigcup P \), <a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">this shows </a> \( \bigcup P = \mathbb{Z} \).
-                    </p>
-                    <p>
-                        To show this family is pairwise disjoint, note that \( 0 \notin \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace \) and \( 0 \notin \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace \), which shows us that \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace = \emptyset \) and \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace = \emptyset \).
-                    </p>
-                    <p>
-                        Given any positive integer, we know it cannot be a negative integer, therefore \( \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace = \emptyset \), thus we know that \( P \) is pairwise disjoint, which concludes the proof.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="proposition" id="proposition-a-set-intersected-with-a-superset-is-itself">
-            <div class="title">a set intersected with a superset is itself</div>
-            <div class="content">
-                Let \( A , B \) be sets such that \( A \subseteq B \), then \( A \cap B = A \)
-            </div>
-            <div class="proof">
-                <p>
-
-                    <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">We start</span> by showing \( A \cap B \subseteq A \), so consider \( x \in A \cap B \), so we know that \( x \in A \) and \( x \in B \), therefore we trivially know that \( x \in A \), as needed
-                </p>
-                <p>
-                    Now consider the other direction, we need to show that \( A \subseteq A \cap B \), so consider that \( x \in A \), then we want to show that \( x \in A \) and \( x \in B \), which really just simplifies to showing \( x \in B \), but we know that \( A \subseteq B \), therefore since \( x \in A \), we know that \( x \in B \) finishing the proof
-                </p>
-            </div>
-        </div>
-
-        <div class="proposition" id="proposition-a-set-union-a-subset-is-itself">
-            <div class="title">A Set Union a Subset is Itself</div>
-            <div class="content">
-                Let \( A , B \) be sets such that \( B \subseteq A \), then \( A \cup B = A \)
-            </div>
-            <div class="proof">
-                <p>
-                    <a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">We start</a> by showing \( A \cup B \subseteq A \), so consider \( x \in A \cup B \), so we know that \( x \in A \) or \( x \in B \), if \( x \in A \) we are done, on the other hand if \( x \in B \), then since \( B \subseteq A \), then \( x \in A \) as needed.
-                </p>
-                <p>
-                    Supposing that \( x \in A \), then we know that \( x \in A \cup B \) is true.
-                </p>
-            </div>
-        </div>
-
-		<div class="proposition" id="proposition-subset-of-an-intersection">
-			<div class="title">Subset of an Intersection</div>
-			<div class="content">
-				Suppose that \( A, B, C \) are sets then \( A \subseteq \left( B \cap C \right) \) iff \( A \subseteq B  \)  and \( A \subseteq C \) 
-			</div>
-			<div class="proof">
-				<p>
-					Suppose that \( A \subseteq \left( B \cap C \right) \), suppose \( x \in A \), therefore \( x \in B \) and \( x \in C \) showing \( A \subseteq B \) and \( A \subseteq C \) 
-				</p>
-				<p>
-					Now suppose that \( A \subseteq B \)  and \( A \subseteq C \), therefore given \( x \in A \), we can see that \( x \in B \cap C \) as needed.
-				</p>
-			</div>
-		</div>
-		
-
-        <div class="proposition" id="proposition-intersection-factors-from-union">
-            <div class="title">intersection factors from union</div>
-            <div class="content">
-                Suppose that \( U_{\alpha} \) is an indexed family of sets, and \( Y \) is any set, then
-                <div class="centered-content">
-                    \( \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) = \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \)
-                </div>
-            </div>
-            <div class="proof">
-                <p>
-                    Suppose that \( x \in \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \), therefore there is some \( \beta \in I \)  such that \( x \in U_{\beta} \cap Y \), so that \( x \in U_{\beta} \) and \( x \in Y \). Since there is some \( \beta \in I \) such that \( x \in U_{\beta} \) then \( x \in \bigcup_{\alpha \in I} U_{\alpha} \), additionally we had that \( x \in Y \) so that \( x \in \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \) as needed
-                </p>
-                <p>
-                    Now suppose that \( x \in \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \), therefore \( x \in \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \) and \( x \in Y \), due to this we have some \( \beta \in I \), such that \( x \in U_{\beta} \) and thus \( x \in U_{\beta} \cap Y \) which by definition shows that \( x \in \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \)
-                </p>
-            </div>
-        </div>
-
-        <div class="proposition" id="proposition-intersection-factors-from-intersection">
-            <div class="title">intersection factors from intersection</div>
-            <div class="content">
-                Suppose that \( U_{\alpha} \) is an indexed family of sets, and \( Y \) is any set, then
-                <div class="centered-content">
-                    \( \bigcap_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) = \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \cap Y \)
-                </div>
-            </div>
-            <div class="proof">
-                <p>
-                    Suppose that \( x \in \bigcap_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \), therefore for every \( \alpha \in I \) we have: \( x \in U_{\alpha} \cap Y \), so that \( x \in U_{\alpha} \) and \( x \in Y \). Since it's true for every \( \alpha \in I \)  then \( x \in \bigcap_{\alpha \in I} U_{\alpha} \), additionally we had that \( x \in Y \) so that \( x \in \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \cap Y \) as needed
-                </p>
-                <p>
-                    Now suppose that \( x \in \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \cap Y \), therefore \( x \in \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \) and \( x \in Y \), due to this, for every \( \alpha \in I \), we know \( x \in U_{\alpha} \) and thus \( x \in U_{\alpha} \cap Y \) which by definition shows that \( x \in \bigcap_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \)
-                </p>
-            </div>
-        </div>
-
-
-        <div class="proposition" id="proposition-union-of-subsets-is-still-a-subset">
-            <div class="title">Union of Subsets is Still a Subset</div>
-            <div class="content">
-                Suppose that \( \mathcal{C} \) is a collection of subsets of \( X \), then
-                \[
-                    \bigcup \mathcal{ C } \subseteq X
-                \]
-            </div>
-            <div class="proof">
-                Let \( x \in \bigcup_{C \in \mathcal{C}} C \), then \( x \in U \) for some \( U \in \mathcal{C} \), since \( U \) must be a subset of \( X \) then x is also in \( X \). As needed
-            </div>
-        </div>
-
-        <div class="proposition" id="proposition-intersection-of-subsets-is-still-a-subset">
-            <div class="title">Intersection of Subsets is Still a Subset</div>
-            <div class="content">
-                Suppose that \( \mathcal{C} \) is a collection of subsets of \( X \), then
-                \[
-                    \bigcap \mathcal{ C } \subseteq X
-                \]
-            </div>
-            <div class="proof">
-                    Let \( x \in \bigcap_{C \in \mathcal{C}} C \), then  \( x \in U \) for each \( U \in \mathcal{C} \), focusing on a single such set \( M \in \mathcal{ C }  \)  since \( M \) must be a subset of \( X \) then x is also in \( X \). As needed
-            </div>
-        </div>
-
-        <div class="proposition" id="proposition-intersection-of-supersets-is-still-a-superset">
-            <div class="title">An Intersection of Supersets is still a Superset</div>
-            <div class="content">
-                Suppose that \( \mathcal{C} \) is a collection of supersets of \( X \), then
-                \[
-                    \bigcap \mathcal{ C } \supseteq X
-                \]
-            </div>
-            <div class="proof">
-                Let \( x \in X \), suppose that \( C \in \mathcal{ C } \), thus by definition \( C \supseteq X  \), and since \( x \in X \) we must deduce \( x \in C \), therefore \( x \in \bigcap \mathcal{ C } \) as needed.
-            </div>
-        </div>
-
-        <div class="proposition" id="proposition-intersection-decreases-as-it-intersects-more-things">
-        	<div class="title">Intersection Decreases as It Intersects More Things</div>
-        	<div class="content">
-        		Suppose that \( N, M \) are families of sets such that \( N \subseteq M \), then
-                \[
-                    \bigcap M \subseteq \bigcap N
-                \]
-        	</div>
-        	<div class="proof">
-                Let \( x \in \bigcap M \), then for every \( S \in M, x \in S \). Now consider any \( K \in N \), then \( K \in M \) therefore \( x \in K \) which shows that \( x \in \bigcap N \) as needed.
-        	</div>
-        </div>
-
-
-        <div class="corollary" id="corollary-the-intersection-of-a-collection-of-sets-is-a-subset-of-any-set-part-of-the-intersection" >
-            <div class="title">The Intersection of a Collection of Sets Is a Subset of Any Set Part of the Intersection</div>
-            <div class="content">
-                    Suppose that \( \mathcal{ C }  \) is a collection of sets, then for any \( C \in \mathcal{ C }  \) we have:
-                    \[
-                    \bigcap \mathcal{ C } \subseteq C
-                    \] 
-            </div>
-
-            <div class="proof">
-                    Note that \( \mathcal{ C } \supseteq \left\{ C \right\}    \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-decreases-as-it-intersects-more-things">therefore we know</a> 
-                    \[
-                    \bigcap \mathcal{ C } \subseteq \bigcap \left\{ C \right\} = C
-                    \] 
-                    as needed.
-            </div>
-        </div>
-
-
-        <div class="proposition"  id="proposition-a-set-covered-in-subsets-is-a-union">
-            <div class="title">A set Covered in Subsets is a Union</div>
-            <div class="content">
-                Suppose \( A \) is a set and that for each \( a \in A \), there is a \( B_{a} \) such that \( a \in B_{a} \subseteq A \), then \( A = \bigcup_{a \in A} B_{a} \)
-            </div>
-            <div class="proof">
-                <p>
-                    We can see that \( \mathcal{C} = \left \lbrace B_{a} : a \in A \right \rbrace \) is a collection of subsets of \( A \), so since <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#proposition-union-of-subsets-is-still-a-subset">a union of a subsets is still a subset</span> we have \( \bigcup_{a \in A} B_{a} \subseteq A \).
-                </p>
-                <p>
-                    But also given \( p \in A \) we know that \( p \in B_{p} \) so \( p \in \bigcup_{a \in A} B_{a} \) which shows \( A \subseteq \bigcup_{a \in A} B_{a} \), so we can conclude \( A = \bigcup_{a \in A} B_{a} \).
-                </p>
-            </div>
-        </div>
-
-
-
+<div class="definition" id="definition-union">
+    <div class="title">
+        Union
     </div>
-</body>
+    <div class="content">
+        Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the union of \( A \) and \( B \) is defined as the set \( A \cup B := \left \lbrace p \in X : p \in A \lor p \in B \right \rbrace \)
+    </div>
+</div>
+<div class="definition" id="definition-intersection">
+    <div class="title">
+        Intersection
+    </div>
+    <div class="content">
+        Given two <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-set">sets</span> \( A , B \subseteq X \), then the intersection of \( A \) and \( B \) is defined as the set \( A \cap B := \left \lbrace p \in X : p \in A \land p \in B \right \rbrace \)
+    </div>
+</div>
+<div class="definition" id="definition-a-set-intersects-another">
+    <div class="title">
+        A set Intersects Another
+    </div>
+    <div class="content">
+        Suppose that \( A, B \) are sets, we say that \( A \) intersects \( B \) when \( A \cap B \neq \emptyset \)
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-union">
+    <div class="title">
+        Arbitrary Union
+    </div>
+    <div class="content">
+        Suppose that \( M \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then \( \bigcup M \) is defined so that \( x \in \bigcup M \iff \exists A \in M , x \in A \)
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-intersection">
+    <div class="title">
+        Arbitrary Intersection
+    </div>
+    <div class="content">
+        Suppose that \( M \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then \( \bigcap M \) is defined so that \( x \in \bigcap M \iff \forall A \in M , x \in A \)
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-union-element-of-notation">
+    <div class="title">
+        Arbitrary Union Element of Notation
+    </div>
+    <div class="content">
+        We define \( \bigcup_{A \in M} A := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup M \)</span>
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-intersection-element-of-notation">
+    <div class="title">
+        Arbitrary Intersection Element of Notation
+    </div>
+    <div class="content">
+        We define \( \bigcap_{A \in M} A := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap M \)</span>
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-union-indexed-notation">
+    <div class="title">
+        Arbitrary Union Indexed Notation
+    </div>
+    <div class="content">
+        Suppose that \( I \) is an index set for the collection \( \mathcal{A} = \left \lbrace A_{\alpha} : \alpha \in I \right \rbrace \) where \( A_{\alpha} \) is a set, then \( \bigcup_{\alpha \in I} A_{\alpha} := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup \mathcal{A} \)</span>. If the index set is known by context, then we may use the shorthand \( \bigcup_{\alpha} A_{\alpha} \)
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-intersection-indexed-notation">
+    <div class="title">
+        Arbitrary Intersection Indexed Notation
+    </div>
+    <div class="content">
+        Suppose that \( I \) is an index set for the collection \( \mathcal{A} = \left \lbrace A_{\alpha} : \alpha \in I \right \rbrace \) where \( A_{\alpha} \) is a set, then \( \bigcap_{\alpha \in I} A_{\alpha} := \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap \mathcal{A} \)</span>. If the index set is known by context, then we may use the shorthand \( \bigcap_{\alpha} A_{\alpha} \)
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-union-counting-notation">
+    <div class="title">
+        Arbitrary Union Counting Notation
+    </div>
+    <div class="content">
+        Suppose that \( a , b \in \mathbb{Z} \), with \( a \lt b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then \( \bigcup_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup \mathcal{A} \)</span>
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-intersection-counting-notation">
+    <div class="title">
+        Arbitrary Intersection Counting Notation
+    </div>
+    <div class="content">
+        Suppose that \( a , b \in \mathbb{Z} \), with \( a \lt b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then \( \bigcap_{i = a}^{b} A_{i} = \) <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap \mathcal{A} \)</span>
+    </div>
+</div>
+<div class="definition" id="definition-disjoint-sets">
+    <div class="title">
+        disjoint sets
+    </div>
+    <div class="content">
+        Given two sets \( A , B \) we say that \( A \) and \( B \) are disjoint when <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-intersection">\( A \cap B \)</span> = <span class="knowledge-link" data-href="/fundamentals/sets/basics.html#definition-empty-set">\( \emptyset \)</span>
+    </div>
+</div>
+<div class="definition" id="definition-pairwise-disjoint-sets">
+    <div class="title">
+        pairwise disjoint sets
+    </div>
+    <div class="content">
+        Suppose that \( M \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-family-of-sets">family of sets</a>, then we say these sets are pairwise disjoint when given \( A , B \in M \) such that \( A \ne B \), then \( A \cap B = \emptyset \)
+    </div>
+</div>
+<div class="definition" id="definition-partition">
+    <div class="title">
+        partition
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a set, then we say that a set \( P \) is a partition of \( X \) if and only if the following are true
+        <ul>
+            <li>\( \emptyset \notin P \)</li>
+            <li>
+                <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup P \)</a> \( = X \)
+            </li>
+            <li>P is <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-pairwise-disjoint-sets">pairwise disjoint</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="exercise" id="exercise-partition-of-the-integers">
+    <div class="title">
+        partition of the integers
+    </div>
+    <div class="content">
+        The family \( \left \lbrace \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace , \left \lbrace 0 \right \rbrace , \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace \right \rbrace \) is a partition of \( \mathbb{Z} \)
+    </div>
+    <div class="proof">
+        <p>Note that the integers \( - 1 , 0 , 1 \) show that the empty set is not in this family. We'll now prove that it's union equals \( \mathbb{Z} \), so let \( p \in \bigcup P \), therefore \( p \) is in at least one of the sets included in \( P \), since each is a subset of \( \mathbb{Z} \), then we know \( p \in \mathbb{Z} \), for the reverse direction, we can assume that \( p \in \mathbb{Z} \), therefore we know that \( p \) is either positive, negative or zero, so that \( p \in \bigcup P \), <a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">this shows</a> \( \bigcup P = \mathbb{Z} \).</p>
+        <p>To show this family is pairwise disjoint, note that \( 0 \notin \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace \) and \( 0 \notin \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace \), which shows us that \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace = \emptyset \) and \( \left \lbrace 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace = \emptyset \).</p>
+        <p>Given any positive integer, we know it cannot be a negative integer, therefore \( \left \lbrace p \in \mathbb{Z} : p \lt 0 \right \rbrace \cap \left \lbrace p \in \mathbb{Z} : p \gt 0 \right \rbrace = \emptyset \), thus we know that \( P \) is pairwise disjoint, which concludes the proof.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-a-set-intersected-with-a-superset-is-itself">
+    <div class="title">
+        a set intersected with a superset is itself
+    </div>
+    <div class="content">
+        Let \( A , B \) be sets such that \( A \subseteq B \), then \( A \cap B = A \)
+    </div>
+    <div class="proof">
+        <p><span class="knowledge-link" data-href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">We start</span> by showing \( A \cap B \subseteq A \), so consider \( x \in A \cap B \), so we know that \( x \in A \) and \( x \in B \), therefore we trivially know that \( x \in A \), as needed</p>
+        <p>Now consider the other direction, we need to show that \( A \subseteq A \cap B \), so consider that \( x \in A \), then we want to show that \( x \in A \) and \( x \in B \), which really just simplifies to showing \( x \in B \), but we know that \( A \subseteq B \), therefore since \( x \in A \), we know that \( x \in B \) finishing the proof</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-a-set-union-a-subset-is-itself">
+    <div class="title">
+        A Set Union a Subset is Itself
+    </div>
+    <div class="content">
+        Let \( A , B \) be sets such that \( B \subseteq A \), then \( A \cup B = A \)
+    </div>
+    <div class="proof">
+        <p><a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">We start</a> by showing \( A \cup B \subseteq A \), so consider \( x \in A \cup B \), so we know that \( x \in A \) or \( x \in B \), if \( x \in A \) we are done, on the other hand if \( x \in B \), then since \( B \subseteq A \), then \( x \in A \) as needed.</p>
+        <p>Supposing that \( x \in A \), then we know that \( x \in A \cup B \) is true.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-subset-of-an-intersection">
+    <div class="title">
+        Subset of an Intersection
+    </div>
+    <div class="content">
+        Suppose that \( A, B, C \) are sets then \( A \subseteq \left( B \cap C \right) \) iff \( A \subseteq B \) and \( A \subseteq C \)
+    </div>
+    <div class="proof">
+        <p>Suppose that \( A \subseteq \left( B \cap C \right) \), suppose \( x \in A \), therefore \( x \in B \) and \( x \in C \) showing \( A \subseteq B \) and \( A \subseteq C \)</p>
+        <p>Now suppose that \( A \subseteq B \) and \( A \subseteq C \), therefore given \( x \in A \), we can see that \( x \in B \cap C \) as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-intersection-factors-from-union">
+    <div class="title">
+        intersection factors from union
+    </div>
+    <div class="content">
+        Suppose that \( U_{\alpha} \) is an indexed family of sets, and \( Y \) is any set, then
+        <div class="centered-content">
+            \( \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) = \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \)
+        </div>
+    </div>
+    <div class="proof">
+        <p>Suppose that \( x \in \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \), therefore there is some \( \beta \in I \) such that \( x \in U_{\beta} \cap Y \), so that \( x \in U_{\beta} \) and \( x \in Y \). Since there is some \( \beta \in I \) such that \( x \in U_{\beta} \) then \( x \in \bigcup_{\alpha \in I} U_{\alpha} \), additionally we had that \( x \in Y \) so that \( x \in \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \) as needed</p>
+        <p>Now suppose that \( x \in \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \cap Y \), therefore \( x \in \left ( \bigcup_{\alpha \in I} U_{\alpha} \right ) \) and \( x \in Y \), due to this we have some \( \beta \in I \), such that \( x \in U_{\beta} \) and thus \( x \in U_{\beta} \cap Y \) which by definition shows that \( x \in \bigcup_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \)</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-intersection-factors-from-intersection">
+    <div class="title">
+        intersection factors from intersection
+    </div>
+    <div class="content">
+        Suppose that \( U_{\alpha} \) is an indexed family of sets, and \( Y \) is any set, then
+        <div class="centered-content">
+            \( \bigcap_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) = \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \cap Y \)
+        </div>
+    </div>
+    <div class="proof">
+        <p>Suppose that \( x \in \bigcap_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \), therefore for every \( \alpha \in I \) we have: \( x \in U_{\alpha} \cap Y \), so that \( x \in U_{\alpha} \) and \( x \in Y \). Since it's true for every \( \alpha \in I \) then \( x \in \bigcap_{\alpha \in I} U_{\alpha} \), additionally we had that \( x \in Y \) so that \( x \in \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \cap Y \) as needed</p>
+        <p>Now suppose that \( x \in \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \cap Y \), therefore \( x \in \left ( \bigcap_{\alpha \in I} U_{\alpha} \right ) \) and \( x \in Y \), due to this, for every \( \alpha \in I \), we know \( x \in U_{\alpha} \) and thus \( x \in U_{\alpha} \cap Y \) which by definition shows that \( x \in \bigcap_{\alpha \in I} \left ( U_{\alpha} \cap Y \right ) \)</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-union-of-subsets-is-still-a-subset">
+    <div class="title">
+        Union of Subsets is Still a Subset
+    </div>
+    <div class="content">
+        Suppose that \( \mathcal{C} \) is a collection of subsets of \( X \), then \[ \bigcup \mathcal{ C } \subseteq X \]
+    </div>
+    <div class="proof">
+        Let \( x \in \bigcup_{C \in \mathcal{C}} C \), then \( x \in U \) for some \( U \in \mathcal{C} \), since \( U \) must be a subset of \( X \) then x is also in \( X \). As needed
+    </div>
+</div>
+<div class="proposition" id="proposition-intersection-of-subsets-is-still-a-subset">
+    <div class="title">
+        Intersection of Subsets is Still a Subset
+    </div>
+    <div class="content">
+        Suppose that \( \mathcal{C} \) is a collection of subsets of \( X \), then \[ \bigcap \mathcal{ C } \subseteq X \]
+    </div>
+    <div class="proof">
+        Let \( x \in \bigcap_{C \in \mathcal{C}} C \), then \( x \in U \) for each \( U \in \mathcal{C} \), focusing on a single such set \( M \in \mathcal{ C } \) since \( M \) must be a subset of \( X \) then x is also in \( X \). As needed
+    </div>
+</div>
+<div class="proposition" id="proposition-intersection-of-supersets-is-still-a-superset">
+    <div class="title">
+        An Intersection of Supersets is still a Superset
+    </div>
+    <div class="content">
+        Suppose that \( \mathcal{C} \) is a collection of supersets of \( X \), then \[ \bigcap \mathcal{ C } \supseteq X \]
+    </div>
+    <div class="proof">
+        Let \( x \in X \), suppose that \( C \in \mathcal{ C } \), thus by definition \( C \supseteq X \), and since \( x \in X \) we must deduce \( x \in C \), therefore \( x \in \bigcap \mathcal{ C } \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-intersection-decreases-as-it-intersects-more-things">
+    <div class="title">
+        Intersection Decreases as It Intersects More Things
+    </div>
+    <div class="content">
+        Suppose that \( N, M \) are families of sets such that \( N \subseteq M \), then \[ \bigcap M \subseteq \bigcap N \]
+    </div>
+    <div class="proof">
+        Let \( x \in \bigcap M \), then for every \( S \in M, x \in S \). Now consider any \( K \in N \), then \( K \in M \) therefore \( x \in K \) which shows that \( x \in \bigcap N \) as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-the-intersection-of-a-collection-of-sets-is-a-subset-of-any-set-part-of-the-intersection">
+    <div class="title">
+        The Intersection of a Collection of Sets Is a Subset of Any Set Part of the Intersection
+    </div>
+    <div class="content">
+        Suppose that \( \mathcal{ C } \) is a collection of sets, then for any \( C \in \mathcal{ C } \) we have: \[ \bigcap \mathcal{ C } \subseteq C \]
+    </div>
+    <div class="proof">
+        Note that \( \mathcal{ C } \supseteq \left\{ C \right\} \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-decreases-as-it-intersects-more-things">therefore we know</a> \[ \bigcap \mathcal{ C } \subseteq \bigcap \left\{ C \right\} = C \] as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-a-set-covered-in-subsets-is-a-union">
+    <div class="title">
+        A set Covered in Subsets is a Union
+    </div>
+    <div class="content">
+        Suppose \( A \) is a set and that for each \( a \in A \), there is a \( B_{a} \) such that \( a \in B_{a} \subseteq A \), then \( A = \bigcup_{a \in A} B_{a} \)
+    </div>
+    <div class="proof">
+        <p>We can see that \( \mathcal{C} = \left \lbrace B_{a} : a \in A \right \rbrace \) is a collection of subsets of \( A \), so since <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#proposition-union-of-subsets-is-still-a-subset">a union of a subsets is still a subset</span> we have \( \bigcup_{a \in A} B_{a} \subseteq A \).</p>
+        <p>But also given \( p \in A \) we know that \( p \in B_{p} \) so \( p \in \bigcup_{a \in A} B_{a} \) which shows \( A \subseteq \bigcup_{a \in A} B_{a} \), so we can conclude \( A = \bigcup_{a \in A} B_{a} \).</p>
+    </div>
+</div>

@@ -1,136 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Machine Learning</title>
-
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-
-</head>
-
-<body>
-<div class="thin-wrapper">
-
-    <h1>Intro</h1>
-
-    <p>
-        When we talk about machine learning, we should first specify what we mean by a machine, and also by learning. When we talk about a machine, we are usually talking about a computer, and usually about a program that does the learning on the computer, therefore before even start doing machine learning, we should realize that we're actually standing on a lot of different moving parts involving at least a programming language, and an operating system.
-    </p>
-
-    <p>
-        An easy way to remember machine learning is like this: humans learn with their brain, but couldn't do without their body, computers learn with their code, and couldn't do that without their hardware (CPU, GPU, Memory, etc...).
-    </p>
-
-    <p>
-        When humans teach a computer how to learn, it can only learn in the way we've instructed it to learn, note that this differs from humans, in that we can change the way we learn things on the fly and come up with novel learning methods, machines have not really been able to do this as of yet, they can only do what they're told, a machine learning program is the same as any other program you've written.
-    </p>
-
-    <p>
-        We have the machine covered, so then what is learning? Marriam Webster's dictionary tells us:
-    </p>
-
-    <blockquote>
-        The activity or process of gaining knowledge or skill by studying practicing, being taught, or experiencing something
-    </blockquote>
-
-    <h1>Why</h1>
-
-    <p>
-        An easy way to see why this is useful is the problem of recognizing handwritten digits, if you were tasked with creating a program to do this, you could try many things, for example you could start by trying to characterize different symbols by properties of them, for example if we take the symbol "0"
-    </p>
-
-    <p>
-        One method we could go with is the route a printer would take to print the symbol "0". Going row by row, and as we iterate through the image, we start with one or two consecutive pixels in a row, then two separate groups of pixels in a bunch of rows, and finally as we reach the end of the symbol back to one group of pixels.
-    </p>
-
-    <pre>
+<h1>Intro</h1>
+<p>When we talk about machine learning, we should first specify what we mean by a machine, and also by learning. When we talk about a machine, we are usually talking about a computer, and usually about a program that does the learning on the computer, therefore before even start doing machine learning, we should realize that we're actually standing on a lot of different moving parts involving at least a programming language, and an operating system.</p>
+<p>An easy way to remember machine learning is like this: humans learn with their brain, but couldn't do without their body, computers learn with their code, and couldn't do that without their hardware (CPU, GPU, Memory, etc...).</p>
+<p>When humans teach a computer how to learn, it can only learn in the way we've instructed it to learn, note that this differs from humans, in that we can change the way we learn things on the fly and come up with novel learning methods, machines have not really been able to do this as of yet, they can only do what they're told, a machine learning program is the same as any other program you've written.</p>
+<p>We have the machine covered, so then what is learning? Marriam Webster's dictionary tells us:</p>
+<blockquote>
+    The activity or process of gaining knowledge or skill by studying practicing, being taught, or experiencing something
+</blockquote>
+<h1>Why</h1>
+<p>An easy way to see why this is useful is the problem of recognizing handwritten digits, if you were tasked with creating a program to do this, you could try many things, for example you could start by trying to characterize different symbols by properties of them, for example if we take the symbol "0"</p>
+<p>One method we could go with is the route a printer would take to print the symbol "0". Going row by row, and as we iterate through the image, we start with one or two consecutive pixels in a row, then two separate groups of pixels in a bunch of rows, and finally as we reach the end of the symbol back to one group of pixels.</p>
+<pre>
         ...
        .   .
        .   .
        .   .
         ...
     </pre>
-
-    <p>
-        This algorithm we've devised is not robust at all, namely because we as humans almost never write perfect "0"'s, we are sloppy leaving gaps and wobbling. We'd have to keep adding more and more code to make our algorithm deal with each of the different issues that might arise when a human tries to write the symbol "0".
-    </p>
-
-    <p>
-        In a way we're dealing with an <a href="https://xyproblem.info/">X Y problem</a>, we somehow believe that we need to make our computer understand the symbol "0" by giving it a bunch of ad-hoc heuristics, when in reality <i>all</i> we have to do is teach our computer to think the same way our brain works, and then we'd be all done.
-    </p>
-
-    <h1>Ad-hoc vs Simulation</h1>
-
-    <p>
-        If we managed to get a computer to do stuff in a similar way as to how our brain works, then we would also solve many other problems, so in general this could be a good thing, well we might have to be careful not to make a human in our own computers, (they might want to get out), but we won't be getting into the ethics of this here.
-    </p>
-
-    <p>
-        Whenever we are creating programs which attempt to capture some real world phenomena, we can take two routes, one is what I call the <b>ad-hoc</b> approach, which involves trying to determine which properties are the most important, and make a program which can replicate these properties or system. The other method is what I call the <b>simulation</b> approach, which is instead to step back, create a simulation with the fundamental properties and hopefully watch the simulation <i>naturally</i> do the task of interest, without directly telling it to; instead letting the simulation take over.
-    </p>
-
-    <p>
-        Just so you understand this idea, let's say we wanted to create an accurate sound of a piano on the computer, one method would be to simply record a piano in real life with a recorder, and then play back the audio file on the computer, or we could create a 3d representation of the piano, and simulate what occurs when a key is pressed on the piano.
-    </p>
-
-    <p>
-        Another example is in computer graphics, where we use fast frame rates, vertices and a "camera" to simulate objections and motion we see in real life. In a way this is a simulation, but also ad-hoc as we end up combining light sources, reflection, normal maps, and other various things to try our best to simulation how surfaces reflect light, when we could have <i>just</i> created objects out of finitely many atoms, that have bonds holding them together, and the layout and properties of those atoms would <i>simply</i> determine how the light should look when it enters the eye.
-    </p>
-
-    <p>
-        At this point you might just ask, why not just create programs that are always <i>simulations</i>? At the end of the day they should create more realistic results than ad-hoc methods right?
-    </p>
-
-    <p>
-        The biggest concern there comes down to the resources we have available on our computer, and also what we functionally need the computer to do. If we wanted to make an animation of a ball that looks like it's thrown up in the air and for it to come back down, then our ad-hoc method could be A) use the sine function to map the position of the ball going up and down as the input to sine goes from 0 to pi. If we had extra time, then B) do the same thing by creating our own physics engine with acceleration to update our balls velocity, giving it an initial velocity and a constant downward acceleration of 9.81m/s^2 and then update it's position over time. C) If we had a lot of extra time we could simulate the theory of relativity for physics, create earth as a collection of atoms in space, create the ball, etc ...
-    </p>
-
-    <p>
-        As you can see this spectrum between ad-hoc and simulation could technically go on forever, but I wasn't fully honest in C), even with a lot of extra time, we wouldn't be able to simulate that final situation, the issue is just that our computers are not yet powerful enough (<a href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore's Law</a>). That's also why back in the day, we probably couldn't have feasibly done B)
-    </p>
-
-    <p>
-        Remark: Depending on what generation you live in, then what is generally considered ad-hoc and what is considered simulation will be different, a good example in the current generation that this text was written is the piano example. Perhaps 20 years down the line the 3d synthesis method would be called ad-hoc and some new more complex method would be the simulation, this progression comes with Moore's Law
-    </p>
-
-    <h1>A Crossing Point</h1>
-
-    <p>
-        We already know about computation power and how that takes certain programs out of the realm of possibility, but there is another crossing point we're reaching, which is that we're becoming interested in problems where the possibility of coming up with an ad-hoc solution is becoming less and less feasible, in terms of a human programmer point of view, the example of trying to write an ad-hoc program to do optical character recognition should convince you of the difficulties.
-    </p>
-
-    <p>
-        At this same time it is now computationally feasible to simulate some of how the human brain works on a computer through machine learning, this fact plus the ad-hoc complexity growth makes machine learning an important discovery for our generation and opens up new problems to be solved that were previously inaccessible until now.
-    </p>
-
-
-    <h1>Types</h1>
-
-    <p>There are a few main learning methods we've come up with so far:</p>
-
-    <div class="definition" id="definition-supervised-learning">
-        <div class="title">Supervised Learning</div>
-        <div class="content">
-            A program which takes in a certain type of data and can predict properties of new data. It has access to a large quantity of data that has it's true properties labelled.
-        </div>
+<p>This algorithm we've devised is not robust at all, namely because we as humans almost never write perfect "0"'s, we are sloppy leaving gaps and wobbling. We'd have to keep adding more and more code to make our algorithm deal with each of the different issues that might arise when a human tries to write the symbol "0".</p>
+<p>In a way we're dealing with an <a href="https://xyproblem.info/">X Y problem</a>, we somehow believe that we need to make our computer understand the symbol "0" by giving it a bunch of ad-hoc heuristics, when in reality <i>all</i> we have to do is teach our computer to think the same way our brain works, and then we'd be all done.</p>
+<h1>Ad-hoc vs Simulation</h1>
+<p>If we managed to get a computer to do stuff in a similar way as to how our brain works, then we would also solve many other problems, so in general this could be a good thing, well we might have to be careful not to make a human in our own computers, (they might want to get out), but we won't be getting into the ethics of this here.</p>
+<p>Whenever we are creating programs which attempt to capture some real world phenomena, we can take two routes, one is what I call the <b>ad-hoc</b> approach, which involves trying to determine which properties are the most important, and make a program which can replicate these properties or system. The other method is what I call the <b>simulation</b> approach, which is instead to step back, create a simulation with the fundamental properties and hopefully watch the simulation <i>naturally</i> do the task of interest, without directly telling it to; instead letting the simulation take over.</p>
+<p>Just so you understand this idea, let's say we wanted to create an accurate sound of a piano on the computer, one method would be to simply record a piano in real life with a recorder, and then play back the audio file on the computer, or we could create a 3d representation of the piano, and simulate what occurs when a key is pressed on the piano.</p>
+<p>Another example is in computer graphics, where we use fast frame rates, vertices and a "camera" to simulate objections and motion we see in real life. In a way this is a simulation, but also ad-hoc as we end up combining light sources, reflection, normal maps, and other various things to try our best to simulation how surfaces reflect light, when we could have <i>just</i> created objects out of finitely many atoms, that have bonds holding them together, and the layout and properties of those atoms would <i>simply</i> determine how the light should look when it enters the eye.</p>
+<p>At this point you might just ask, why not just create programs that are always <i>simulations</i>? At the end of the day they should create more realistic results than ad-hoc methods right?</p>
+<p>The biggest concern there comes down to the resources we have available on our computer, and also what we functionally need the computer to do. If we wanted to make an animation of a ball that looks like it's thrown up in the air and for it to come back down, then our ad-hoc method could be A) use the sine function to map the position of the ball going up and down as the input to sine goes from 0 to pi. If we had extra time, then B) do the same thing by creating our own physics engine with acceleration to update our balls velocity, giving it an initial velocity and a constant downward acceleration of 9.81m/s^2 and then update it's position over time. C) If we had a lot of extra time we could simulate the theory of relativity for physics, create earth as a collection of atoms in space, create the ball, etc ...</p>
+<p>As you can see this spectrum between ad-hoc and simulation could technically go on forever, but I wasn't fully honest in C), even with a lot of extra time, we wouldn't be able to simulate that final situation, the issue is just that our computers are not yet powerful enough (<a href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore's Law</a>). That's also why back in the day, we probably couldn't have feasibly done B)</p>
+<p>Remark: Depending on what generation you live in, then what is generally considered ad-hoc and what is considered simulation will be different, a good example in the current generation that this text was written is the piano example. Perhaps 20 years down the line the 3d synthesis method would be called ad-hoc and some new more complex method would be the simulation, this progression comes with Moore's Law</p>
+<h1>A Crossing Point</h1>
+<p>We already know about computation power and how that takes certain programs out of the realm of possibility, but there is another crossing point we're reaching, which is that we're becoming interested in problems where the possibility of coming up with an ad-hoc solution is becoming less and less feasible, in terms of a human programmer point of view, the example of trying to write an ad-hoc program to do optical character recognition should convince you of the difficulties.</p>
+<p>At this same time it is now computationally feasible to simulate some of how the human brain works on a computer through machine learning, this fact plus the ad-hoc complexity growth makes machine learning an important discovery for our generation and opens up new problems to be solved that were previously inaccessible until now.</p>
+<h1>Types</h1>
+<p>There are a few main learning methods we've come up with so far:</p>
+<div class="definition" id="definition-supervised-learning">
+    <div class="title">
+        Supervised Learning
     </div>
-
-    <p>
-        With supervised learning, if our task is to do object categorization given one image, where perhaps we are given an image of an apple and we want our program to output fruit, then our supervised learning algorithm would have access to a large quantity of images, along with what category the main object in frame falls under.
-    </p>
-
-    <div class="definition" id="definition-training-set">
-    	<div class="title">Training Set</div>
-    	<div class="content">
-    	    Given a machine learning algorithm for a certain task, accepting a datatype \( D \) as input and an expected output type \( E \), then it's training set is a set \( \left\{ (d, l):  d \in D, l \in E \right\} \), where each \( (d, l) \) is known as a labelled data point.
-    	</div>
+    <div class="content">
+        A program which takes in a certain type of data and can predict properties of new data. It has access to a large quantity of data that has it's true properties labelled.
     </div>
-
-
 </div>
-</body>
-</html>
+<p>With supervised learning, if our task is to do object categorization given one image, where perhaps we are given an image of an apple and we want our program to output fruit, then our supervised learning algorithm would have access to a large quantity of images, along with what category the main object in frame falls under.</p>
+<div class="definition" id="definition-training-set">
+    <div class="title">
+        Training Set
+    </div>
+    <div class="content">
+        Given a machine learning algorithm for a certain task, accepting a datatype \( D \) as input and an expected output type \( E \), then it's training set is a set \( \left\{ (d, l): d \in D, l \in E \right\} \), where each \( (d, l) \) is known as a labelled data point.
+    </div>
+</div>

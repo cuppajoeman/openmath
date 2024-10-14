@@ -1,159 +1,70 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Quadratic Congruence</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer>
-</script>
-</head>
-
-<body>
-    <div class="thin-wrapper">
-        
-        <div class="proposition" id="proposition-x-squared-is-congruent-to-1-iff-x-is-congruent-to-plus-or-minus-one-mod-p">
-        	<div class="title">x Squared is Congruent to 1 iff x is Congruent to Plus or Minus One Mod p</div>
-        	<div class="content">
-        		\[
-        		    x ^ 2 \equiv 1 \pmod{ p } \iff x \equiv \pm 1 \pmod{ p } 
-        		\]
-        	</div>
-        	<div class="proof">
-                <p>
-                    \( \implies  \) Suppose that \( x ^ 2 \equiv 1 \pmod{ p }  \) therefore \( p \mid x ^ 2 - 1 = \left( x + 1 \right) \left( x - 1 \right)  \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-euclid">therefore</a> \( p \mid \left( x + 1 \right)  \) or \( p \mid \left( x - 1 \right)  \) so that \( x \equiv \pm 1 \pmod{ p }  \)
-                </p>
-                <p>
-                    \( \impliedby  \) Suppose that \( x \equiv \pm 1 \pmod{ p }  \) therefore \( x ^ 2 \equiv 1 \pmod{ p }  \) as needed.
-                </p>
-        	</div>
-        </div>
-        
-        <div class="corollary" id="corollary-quadratics-little">
-        	<div class="title">Quadratic's Little</div>
-        	<div class="content">
-        	    Let \( p \in \mathbb{ P } _ 3 \) 	and prove that for any \( a \in \mathbb{ Z }  \) such that \( p \nmid a \)  we have
-                \[
-                    a ^ { \frac{p - 1}{2}  } \equiv \pm 1 \pmod{ p }
-                \]
-        	</div>
-        	<div class="proof">
-                Note that since \( p \nmid a  \) we have that 
-                \[
-                    a ^ { p - 1 } \equiv 1 \pmod{ p } 
-                \]
-                since \( p - 1 \) is even, then \( 2 \) divides it so that \( \frac{ p - 1}{2 } \in \mathbb{Z }  \), therefore we have 
-                \[
-                    \left( a ^ { \frac{p - 1}{2}  }  \right) ^ 2 \equiv 1 
-                \]
-                therefore 
-                \[
-                    a ^ { \frac{p - 1}{2}  }  \equiv \pm 1 \pmod{ p } 
-                \]
-        	</div>
-        </div>
-        
-        
-        
-        <div class="proposition" id="proposition-number-of-solutions-to-x-squared-congruent-go-minus-one-mod-p">
-        	<div class="title">Number of Solutions to x Squared Congruent to Minus One Mod p</div>
-        	<div class="content">
-        	    The equation
-                \[
-                    x ^ 2 \equiv \left( -1 \right) \pmod{ p }
-                \]
-                has two solutions explicitly given by \( \pm \left( \frac{p - 1}{2}  \right)!  \) (which are incongruent mod \( p \) )   iff \( p = 4k + 1  \)
-        	</div>
-        	<div class="proof">
-                <p>
-                    \( \implies  \) Suppose that \( x ^ 2 \equiv -1 \pmod{ p }  \) has two solutions as stated in the question, <a class="knowledge-link" href="/number_theory/primes.html#proposition-primes-of-the-form-4k-plus-something">suppose</a> for the sake of contradiction that \( p = 4k + 3 \), <a class="knowledge-link" href="/number_theory/primes.html#corollary-wilson-folded-in-half">then we have</a>
-                    \[
-                    \left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \equiv \left( -1 \right) ^ { \frac{4k + 3 + 1}{2}  }  \equiv 1 \pmod{ p }
-                    \]
-                    which is a contradiction because if \( p = 4k + 3 \) then \( p \ge 3 \) therefore \( -1 \not \equiv 1 \pmod{ p }  \) but that is implied as through the assumption and the fact we just noticed above.
-                </p>
-                <p>
-                    \( \impliedby  \) 	Suppose that \( p = 4k + 1 \) and recall that this means that
-                    \[
-                    \left[ \left( \frac{p - 1}{2}  \right) !  \right] ^ 2 \equiv \left( -1 \right) ^ { \frac{4k + 1 + 1}{2}  }  \equiv -1 \pmod{ p }
-                    \]
-                    We'll prove that these two solutions are incongruent, first note that since
-                    \( p \ge 2 \) then we know that \( k \ge 1 \) therefore we know that \( p \ge 5 \)
-                    \[
-                    1 \le \frac{p - 1}{2}  \lt p
-                    \]
-                    <a class="knowledge-link" href="/number_theory/primes.html#proposition-prime-divisors-of-a-factorial-are-bounded-by-the-argument">therefore</a> \( p \nmid \left( \frac{p - 1}{2} \right) !   \), thus \( \left( \frac{p - 1}{2}  \right) !  \) <a class="knowledge-link" href="/number_theory/congruence.html#corollary-every-non-zero-number-is-invertible-mod-a-prime">has an inverse</a>, so then if they happened to be congruent we have
-                    \[
-                    \left( \frac{p - 1}{2}  \right) ! \equiv - \left( \frac{p - 1}{2}  \right) ! \pmod{ p }
-                    \]
-                    which implies that
-                    \[
-                    1 \equiv -1 \pmod{ p }
-                    \]
-                    which is a contradiction since \( p \ge 5 \) therefore we must have that
-                    \[
-
-                    \left( \frac{p - 1}{2}  \right) ! \not \equiv - \left( \frac{p - 1}{2}  \right) ! \pmod{ p }
-                    \]
-                </p>
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-incongruent-mod-37">
-        	<div class="title">Incongruent mod 37</div>
-        	<div class="content">
-        		Obtain all incongruent solutions to the quadratic congruence
-                \[
-                    x ^ 2 \equiv -1 \pmod{ 37 }
-                \]
-        	</div>
-        	<div class="proof">
-        	    By the above we know that \( \pm 18 ! \) works.
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-a-squared-b-squared">
-        	<div class="title">a Squared b Squared</div>
-        	<div class="content">
-        		Suppose that \( p \in \mathbb{ P } _ 3 \) and that \( p \mid a ^ 2 + b ^ 2 \) such that \( a, b \in \mathbb{ Z }  \) are coprime, prove that \( p \) is of the form \( 4k + 1 \)
-        	</div>
-        	<div class="proof">
-                <p>
-                    If it so happens that \( a \) 	had an inverse mod \( p \) (denoted by \( c \))  since we know that \( a ^ 2 \equiv - b ^ 2 \pmod{ p }  \) then we would be able to say that
-                    \[
-                    -1 \equiv \left( b c \right) ^ 2 \pmod{ p }
-                    \]
-                    and <a class="knowledge-link" href="/number_theory/quadratic_congruences.html#proposition-number-of-solutions-to-x-squared-congruent-go-minus-one-mod-p">therefore</a> \( p \) is of the form \( 4k + 1  \).
-                </p>
-                <p>
-                    Therefore one just has to verify that \( a \) is invertible mod \( p \), and actually if it was that \( b \) was invertible then we could have symmetrically done the same. Recall that a number is invertible mod \( p \)   if \( p \nmid a \), so suppose for the sake of contradiction that \( p \mid a \) therefore \( p \mid a ^ 2 \) and since \( p \mid a ^ 2 + b ^ 2 \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#corollary-if-a-number-divides-a-sum-and-already-divides-one-of-the-summands-it-must-divide-the-other">then</a> \( p \mid b ^ 2 \) but then \( p \mid b \) and so \( \gcd \left( a, b \right) \ge p  \) which is a contradiction, therefore \( p \nmid a \), as needed.
-                </p>
-        	</div>
-        </div>
-
-
-
-        
-
-        <div class="proposition" id="proposition-number-of-solutions-to-a-quadratic-congruence">
-        	<div class="title">Number of Solutions to a Quadratic Congruence</div>
-        	<div class="content">
-        		\[
-                x ^ 2 \equiv 1 \pmod{ p ^ \alpha  }
-        		\]
-                <ul>
-                    <li>has two solutions if \( p \) is odd</li>
-                </ul>
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-
+<div class="proposition" id="proposition-x-squared-is-congruent-to-1-iff-x-is-congruent-to-plus-or-minus-one-mod-p">
+    <div class="title">
+        x Squared is Congruent to 1 iff x is Congruent to Plus or Minus One Mod p
     </div>
-</body>
-</html>
+    <div class="content">
+        \[ x ^ 2 \equiv 1 \pmod{ p } \iff x \equiv \pm 1 \pmod{ p } \]
+    </div>
+    <div class="proof">
+        <p>\( \implies \) Suppose that \( x ^ 2 \equiv 1 \pmod{ p } \) therefore \( p \mid x ^ 2 - 1 = \left( x + 1 \right) \left( x - 1 \right) \) <a class="knowledge-link" href="/number_theory/primes.html#lemma-euclid">therefore</a> \( p \mid \left( x + 1 \right) \) or \( p \mid \left( x - 1 \right) \) so that \( x \equiv \pm 1 \pmod{ p } \)</p>
+        <p>\( \impliedby \) Suppose that \( x \equiv \pm 1 \pmod{ p } \) therefore \( x ^ 2 \equiv 1 \pmod{ p } \) as needed.</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-quadratics-little">
+    <div class="title">
+        Quadratic's Little
+    </div>
+    <div class="content">
+        Let \( p \in \mathbb{ P } _ 3 \) and prove that for any \( a \in \mathbb{ Z } \) such that \( p \nmid a \) we have \[ a ^ { \frac{p - 1}{2} } \equiv \pm 1 \pmod{ p } \]
+    </div>
+    <div class="proof">
+        Note that since \( p \nmid a \) we have that \[ a ^ { p - 1 } \equiv 1 \pmod{ p } \] since \( p - 1 \) is even, then \( 2 \) divides it so that \( \frac{ p - 1}{2 } \in \mathbb{Z } \), therefore we have \[ \left( a ^ { \frac{p - 1}{2} } \right) ^ 2 \equiv 1 \] therefore \[ a ^ { \frac{p - 1}{2} } \equiv \pm 1 \pmod{ p } \]
+    </div>
+</div>
+<div class="proposition" id="proposition-number-of-solutions-to-x-squared-congruent-go-minus-one-mod-p">
+    <div class="title">
+        Number of Solutions to x Squared Congruent to Minus One Mod p
+    </div>
+    <div class="content">
+        The equation \[ x ^ 2 \equiv \left( -1 \right) \pmod{ p } \] has two solutions explicitly given by \( \pm \left( \frac{p - 1}{2} \right)! \) (which are incongruent mod \( p \) ) iff \( p = 4k + 1 \)
+    </div>
+    <div class="proof">
+        <p>\( \implies \) Suppose that \( x ^ 2 \equiv -1 \pmod{ p } \) has two solutions as stated in the question, <a class="knowledge-link" href="/number_theory/primes.html#proposition-primes-of-the-form-4k-plus-something">suppose</a> for the sake of contradiction that \( p = 4k + 3 \), <a class="knowledge-link" href="/number_theory/primes.html#corollary-wilson-folded-in-half">then we have</a> \[ \left[ \left( \frac{p - 1}{2} \right) ! \right] ^ 2 \equiv \left( -1 \right) ^ { \frac{4k + 3 + 1}{2} } \equiv 1 \pmod{ p } \] which is a contradiction because if \( p = 4k + 3 \) then \( p \ge 3 \) therefore \( -1 \not \equiv 1 \pmod{ p } \) but that is implied as through the assumption and the fact we just noticed above.</p>
+        <p>\( \impliedby \) Suppose that \( p = 4k + 1 \) and recall that this means that \[ \left[ \left( \frac{p - 1}{2} \right) ! \right] ^ 2 \equiv \left( -1 \right) ^ { \frac{4k + 1 + 1}{2} } \equiv -1 \pmod{ p } \] We'll prove that these two solutions are incongruent, first note that since \( p \ge 2 \) then we know that \( k \ge 1 \) therefore we know that \( p \ge 5 \) \[ 1 \le \frac{p - 1}{2} \lt p \] <a class="knowledge-link" href="/number_theory/primes.html#proposition-prime-divisors-of-a-factorial-are-bounded-by-the-argument">therefore</a> \( p \nmid \left( \frac{p - 1}{2} \right) ! \), thus \( \left( \frac{p - 1}{2} \right) ! \) <a class="knowledge-link" href="/number_theory/congruence.html#corollary-every-non-zero-number-is-invertible-mod-a-prime">has an inverse</a>, so then if they happened to be congruent we have \[ \left( \frac{p - 1}{2} \right) ! \equiv - \left( \frac{p - 1}{2} \right) ! \pmod{ p } \] which implies that \[ 1 \equiv -1 \pmod{ p } \] which is a contradiction since \( p \ge 5 \) therefore we must have that \[ \left( \frac{p - 1}{2} \right) ! \not \equiv - \left( \frac{p - 1}{2} \right) ! \pmod{ p } \]</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-incongruent-mod-37">
+    <div class="title">
+        Incongruent mod 37
+    </div>
+    <div class="content">
+        Obtain all incongruent solutions to the quadratic congruence \[ x ^ 2 \equiv -1 \pmod{ 37 } \]
+    </div>
+    <div class="proof">
+        By the above we know that \( \pm 18 ! \) works.
+    </div>
+</div>
+<div class="exercise" id="exercise-a-squared-b-squared">
+    <div class="title">
+        a Squared b Squared
+    </div>
+    <div class="content">
+        Suppose that \( p \in \mathbb{ P } _ 3 \) and that \( p \mid a ^ 2 + b ^ 2 \) such that \( a, b \in \mathbb{ Z } \) are coprime, prove that \( p \) is of the form \( 4k + 1 \)
+    </div>
+    <div class="proof">
+        <p>If it so happens that \( a \) had an inverse mod \( p \) (denoted by \( c \)) since we know that \( a ^ 2 \equiv - b ^ 2 \pmod{ p } \) then we would be able to say that \[ -1 \equiv \left( b c \right) ^ 2 \pmod{ p } \] and <a class="knowledge-link" href="/number_theory/quadratic_congruences.html#proposition-number-of-solutions-to-x-squared-congruent-go-minus-one-mod-p">therefore</a> \( p \) is of the form \( 4k + 1 \).</p>
+        <p>Therefore one just has to verify that \( a \) is invertible mod \( p \), and actually if it was that \( b \) was invertible then we could have symmetrically done the same. Recall that a number is invertible mod \( p \) if \( p \nmid a \), so suppose for the sake of contradiction that \( p \mid a \) therefore \( p \mid a ^ 2 \) and since \( p \mid a ^ 2 + b ^ 2 \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#corollary-if-a-number-divides-a-sum-and-already-divides-one-of-the-summands-it-must-divide-the-other">then</a> \( p \mid b ^ 2 \) but then \( p \mid b \) and so \( \gcd \left( a, b \right) \ge p \) which is a contradiction, therefore \( p \nmid a \), as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-number-of-solutions-to-a-quadratic-congruence">
+    <div class="title">
+        Number of Solutions to a Quadratic Congruence
+    </div>
+    <div class="content">
+        \[ x ^ 2 \equiv 1 \pmod{ p ^ \alpha } \]
+        <ul>
+            <li>has two solutions if \( p \) is odd</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>

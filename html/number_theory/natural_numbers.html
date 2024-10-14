@@ -1,45 +1,12 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Natural Numbers</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer>
-    </script>
-</head>
-
-<body>
-<div class="thin-wrapper">
-
-    <p>
-        Axiom: The empty set exists, which is to say that there is a set \( \emptyset \)  containing no elements,
-        \[
-            \forall x, \left( x \notin \emptyset  \right)
-        \]
-    </p>
-
-    <div class="proposition" id="proposition-subset-of-naturals-with-a-max-element-has-bounded-difference">
-    	<div class="title">Subset of Naturals with a Max Element has Bounded Difference</div>
-    	<div class="content">
-    	    Suppose \( S \subseteq \mathbb{ N } _ 1 \) 	has a max element \( n \) and min element \( n \), and \( D := \left\{ x - y: x \neq  y \in S \right\} \)
-            \[
-               \max \left( D \right) \le m - n
-            \]
-    	</div>
-    	<div class="proof">
-            Suppose \( x - y \in D \) since \( x , y\in S \) then \( x \le m \) and \( y \ge n \) therefore:
-            \[
-                x - y \le m - y \le m - n
-            \]
-            thus \( \max \left( D \right) \le m - n  \) as needed.
-    	</div>
+<p>Axiom: The empty set exists, which is to say that there is a set \( \emptyset \) containing no elements, \[ \forall x, \left( x \notin \emptyset \right) \]</p>
+<div class="proposition" id="proposition-subset-of-naturals-with-a-max-element-has-bounded-difference">
+    <div class="title">
+        Subset of Naturals with a Max Element has Bounded Difference
     </div>
-
-
+    <div class="content">
+        Suppose \( S \subseteq \mathbb{ N } _ 1 \) has a max element \( n \) and min element \( n \), and \( D := \left\{ x - y: x \neq y \in S \right\} \) \[ \max \left( D \right) \le m - n \]
+    </div>
+    <div class="proof">
+        Suppose \( x - y \in D \) since \( x , y\in S \) then \( x \le m \) and \( y \ge n \) therefore: \[ x - y \le m - y \le m - n \] thus \( \max \left( D \right) \le m - n \) as needed.
+    </div>
 </div>
-</body>
-</html>

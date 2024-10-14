@@ -1,4 +1,0 @@
-- need to test to see if my stuff is actually doing what is says it doing
-- why does my code work with 12x12 boards
-- need to make sure that caching only occurs optionally
-- do we do caching in the high level functions as well, or we know it will not get the same state twice or something like that

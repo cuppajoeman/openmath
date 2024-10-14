@@ -1,199 +1,122 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Primitive Roots</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-</head>
-
-<body>
-    <div class="thin-wrapper">
-
-
-         <div class="definition" id="definition-order">
-         	<div class="title">Order</div>
-         	<div class="content">
-         	    Suppose that \( n \in \mathbb{ N } _ 1 \) 	and \( a \in \operatorname{ cop } \left( n \right)  \), then we define 
-                \[
-                    o \left( a, n \right) := \min \left( \left\{ k \in \mathbb{ N } _ 1: a ^ k \equiv 1 \pmod{ n }  \right\}  \right) 
-                \]
-         	</div>
-         </div>
-
-        <div class="proposition" id="proposition-order-exists-iff-there-is-a-power-that-yields-1">
-        	<div class="title">Order Exists iff There is a Power that Yields 1</div>
-        	<div class="content">
-                As per title.
-        	</div>
-        	<div class="proof">
-        	    Suppose that \( \operatorname{ o } _ n \left( a \right)  \) exists, then we have at least one power that yields one. On the other hand if we have some power that yields one, then the set \( \left\{  k \in \mathbb{ N } _ 1 : \left( a ^  k ~\%~ n \right)  = 1  \right\}  \) is non-empty so that the min exists.
-        	</div>
-        </div>
-
-        
-        <div class="proposition" id="proposition-order-exists-iff-coprime">
-        	<div class="title">Order Exists iff Coprime</div>
-        	<div class="content">
-        		We have that \( a \in \operatorname{ cop } \left( n \right)  \) iff \( o \left( a, n \right)  \) exists 
-        	</div>
-        	<div class="proof">
-                <p>
-                    If \( a \in \operatorname{ cop } \left( n \right)  \) then by <a class="knowledge-link" href="/number_theory/eulers_totient_function.html#theorem-euler">euler's theorem</a> we know that \( a ^ { \phi \left( n \right)  } \equiv 1 \pmod{ n }   \) <a class="knowledge-link" href="/number_theory/primitive_roots.html#proposition-order-exists-iff-there-is-a-power-that-yields-1">therefore</a> the order exists.
-                </p>
-                <p>
-                    On the other hand if the oreder exists, then we have some \( a ^ k \equiv 1 \pmod{ n }  \), now <a class="knowledge-link" href="/number_theory/congruence.html#proposition-modular-inverse-iff-gcd-1">recall that</a> \( ax \equiv 1 \pmod{ n }  \) has a solution if and only if \( a \in \operatorname{ cop } \left( n \right)  \), but note we have a solution, becuase if \( k = 1 \) then \( x = 1 \) works, otherwise if \( k \ge 2 \) then \( x = a ^ { k - 1 }  \) works therefore we have a solution in any case so that \( a \in \operatorname{ cop } \left( n \right)  \) as needed.
-                </p>
-        	</div>
-        </div>
-        
-        <div class="corollary" id="corollary-primitive-roots-are-a-subset-of-coprimes">
-        	<div class="title">Primitive Roots are a Subset of Coprimes</div>
-        	<div class="content">
-        		\[
-        		    \operatorname{ pr } \left( n \right) \subseteq \operatorname{ cop } \left( n \right) 
-        		\]
-        	</div>
-        	<div class="proof">
-                If \( a \in \operatorname{ pr } \left( n \right)  \) then \( a \) has an order, but \( a \) has an order iff \( a \in \operatorname{ cop } \left( n \right)  \), note that not everything that has an order is a primitive root.
-        	</div>
-        </div>
-        
-        <div class="theorem" id="theorem-every-prime-number-has-a-primitive-root">
-        	<div class="title">Every Prime number has a Primitive Root</div>
-        	<div class="content">
-        		For any \( p \in \mathbb{ P }  \), \( \operatorname{ pr } \left( p \right) \neq \emptyset  \)
-        	</div>
-        	<div class="proof">
-                <p>
-                    Suppose for the sake of contradiction that it had no primitive roots therefore for any \( a \in \left[ 1, \ldots , p - 1 \right]  \) that \( d := o \left( a, p \right) \lt \phi \left( p  \right) = p - 1 \), but at the same time we know that \( d \mid p - 1 \).
-                </p>
-                <p>
-                    Now focusing on \( a \) for a moment, we see that for any \( k \in \left[ 1, \ldots d \right]   \) we have 
-                    \[
-                        o \left( a ^ k, n \right) = \frac{d}{\gcd \left( d, k \right) = d} \iff \gcd \left( d, k  \right) = 1
-                    \]
-                    so there are at least \( phi \left( d \right)  \) elements (using powers of \( a \) ) that have order \( d \), and noting that since \( a, a ^ 2, \ldots , a ^ d \) are distinct mod p, then so are these elements.
-                </p>
-                <p>
-                    By lagranges theorem, the polynomial \( x ^ d - 1 \) has at most \( d \) roots modulo \( p \) 
-                </p>
-        	</div>
-        </div>
-        
-        
-        
-        
-
-        <div class="proposition" id="proposition-connection-between-primitive-roots-of-p-to-the-k-and-2-p-to-the-k">
-        	<div class="title">Connection Between Primitive Roots of \( p ^ k \) and 2 \( p ^ k \)</div>
-        	<div class="content">
-        	    Let \( p \in \mathbb{ P } _ 3 \), \( k \in \mathbb{ N } _ 1 \) and \( a \in \operatorname{ pr } \left( p ^ k \right)  \) 
-                \[
-                a \in \operatorname{ pr } \left( 2 p ^ k \right) \iff a \in \mathbb{ Z } _ {\operatorname{ odd } }
-                \]
-                
-        	</div>
-        	<div class="proof">
-                <p>
-                    Suppose that \( a \in \operatorname{ pr } \left( 2 p ^ k \right)  \) <a class="knowledge-link" href="/number_theory/primitive_roots.html#proposition-order-exists-iff-coprime">then</a> \( a \in \operatorname{ cop } \left( 2 p ^ k \right)  \), therefore \( a \) cannot be even, so that it must be odd.
-                </p>
-                <p>
-                Now suppose that \( a \in \mathbb{ Z } _ {\operatorname{ odd }}  \) but for the sake of contradiction that \( a \notin \operatorname{ pr } \left( 2 p ^ k \right)  \) therefore \( m := \operatorname{ o } \left( a, 2p ^ k \right) \lt \phi \left( 2 p ^ k \right) = \phi \left( p ^ k \right) \) and \( a ^ m \equiv 1 \pmod{ 2 p ^ k }  \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-if-two-numbers-are-congruent-they-are-still-congrune-t-mod-a-divisor-of-the-original-mod">then we have</a> \( a ^ m \equiv 1 \pmod{ p ^ k }  \), but \( a \in \operatorname{ pr } \left( p ^ k \right)  \) therefore \( \operatorname{ o } \left( a, p ^ k \right) = \phi \left( p ^ k \right)   \) but we have that \( m \lt \phi \left( p ^ k \right)  \) which is impossible because the order is the smallest power the yields one, but we've found a smaller one.
-                </p>
-<!--                TODO we didn't use the odd fact here, is this a problem?-->
-        	</div>
-        </div>
-        
-        <div class="proposition" id="proposition-order-of-a-primitive-root-mod-the-next-power">
-        	<div class="title">Order of a Primitive Root mod the next Power</div>
-        	<div class="content">
-        		Let \( p \in \mathbb{ P }  \) and \( k \in \mathbb{ N } _ 1 \) and suppose that \( a \in \operatorname{ pr } \left( p ^ k \right)  \) then 
-                \[
-                    o _ { p ^ { k + 1  }  } \left( a \right) \in \left\{ \phi \left( p ^ k \right), \phi \left( p ^ { k + 1  }  \right)   \right\}
-                \]
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-
-        <div class="corollary" id="corollary-when-a-primitive-root-remains-a-primitive-root-mod-the-next-power">
-        	<div class="title">When a Primitive Remains a Primitive Root mod the next Power</div>
-        	<div class="content">
-        		Suppose \( a \in \operatorname{ pr } \left( p ^ k \right)  \) and \( o _ { p ^ { k + 1  }  } \left( a \right) \neq o _ { p ^ k } \left( a \right)    \) then \( a \in \operatorname{ pr } \left( p ^ { k + 1  }  \right)  \)
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-every-power-of-an-odd-prime-has-a-primitive-root">
-        	<div class="title">Every Power of an odd Prime has a Primitive Root</div>
-        	<div class="content">
-        		Let \( p \in \mathbb{ P } _ 3 \) be an odd prime, then \( p ^ k \) has a primitive root for every \( k \in \mathbb{ N } _ 1 \).
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-
-        <div class="theorem" id="theorem-classification-of-the-existence-of-primitive-roots">
-        	<div class="title">Classification of the Existence of Primitive Roots</div>
-        	<div class="content">
-        	    Let \( n \in \mathbb{ N } _ 2 \), then \( \operatorname{ pr } \left( n \right) \neq \emptyset   \) iff \( n \in { 2, 4, p ^ k, 2 p ^ k }  \) where \( p \in \mathbb{ P } _ 3 \) and \( k \in \mathbb{ N } _ 1 \).
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-a-number-to-the-phi-n-over-two-is-congruent-to-1-when-it-is-not-a-primitive-root">
-        	<div class="title">A Number to the Phi n over Two is Congruent to 1 When it is not a Primitive Root</div>
-        	<div class="content">
-        		Let \( n \in \mathbb{ N } _ 3 \) such that \( \operatorname{ pr } \left( n \right) = \emptyset  \), and \( c \in \operatorname{ cop } \left( n \right)   \), then we have
-                \[
-                 c ^ \frac{\phi \left( n \right) }{2} \equiv 1 \pmod{ n }
-                \]
-        	</div>
-        	<div class="proof">
-                <p>
-                    Since \( \operatorname{ pr } \left( n \right) = \emptyset  \) 	then \( n \notin \left\{ 2, 4, p ^ k, 2 p ^ k \right\}   \) for some \( p \in \mathbb{ P } _ 3 \) and \( k \in \mathbb{ N } _ 1 \).
-                </p>
-                <p>
-                    We will deal with the case when \( n = 2 ^ k \) for \( k \in \mathbb{ N } _ 3 \), we know that \( c ^ \phi \left( n \right) \equiv 1 \pmod{ n }  \) and that \( \phi \left( n \right) = \phi \left( 2 ^ k \right) = 2 ^ { k - 1 }   \) and therefore \( o _ n \left( c \right) =  2 ^ j  \) for some \( j \in \left[ 1, \ldots , k - 1 \right]  \), clearly we see \( c \notin \emptyset = \operatorname{ pr } \left( n \right)  \) and so we know that \( j \neq k - 1 \) because in that case we would have that \( o _ n \left( c \right) = \phi \left( 2 ^ { k - 1 }  \right)    \) which implies that \( \operatorname{ pr } \left( n \right) \neq \emptyset  \) which is a contradiction. This proves that \( o _ n \left( c \right) = 2 ^ j \mid 2 ^ { k + 1  } = \frac{\phi \left( n \right) }{2}     \) and therefore we have that \( c ^ \frac{\phi \left( n \right) }{2} \equiv 1 \pmod{ n }   \).
-                </p>
-                <p>
-
-                </p>
-        	</div>
-        </div>
-        
-        
-        
-        
-        
-
-
-        
-
-<!--        <div class="lemma" id="lemma-distinct-powers-up-to-the-order">-->
-<!--        	<div class="title">Distinct Powers up to the Order</div>-->
-<!--        	<div class="content">-->
-<!--        		Let \( n \in \mathbb{ N } _ 1 \) and -->
-<!--        	</div>-->
-<!--        	<div class="proof">-->
-
-<!--        	</div>-->
-<!--        </div>-->
-
-
-
-
+<div class="definition" id="definition-order">
+    <div class="title">
+        Order
     </div>
-</body>
-</html>
+    <div class="content">
+        Suppose that \( n \in \mathbb{ N } _ 1 \) and \( a \in \operatorname{ cop } \left( n \right) \), then we define \[ o \left( a, n \right) := \min \left( \left\{ k \in \mathbb{ N } _ 1: a ^ k \equiv 1 \pmod{ n } \right\} \right) \]
+    </div>
+</div>
+<div class="proposition" id="proposition-order-exists-iff-there-is-a-power-that-yields-1">
+    <div class="title">
+        Order Exists iff There is a Power that Yields 1
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        Suppose that \( \operatorname{ o } _ n \left( a \right) \) exists, then we have at least one power that yields one. On the other hand if we have some power that yields one, then the set \( \left\{ k \in \mathbb{ N } _ 1 : \left( a ^ k ~\%~ n \right) = 1 \right\} \) is non-empty so that the min exists.
+    </div>
+</div>
+<div class="proposition" id="proposition-order-exists-iff-coprime">
+    <div class="title">
+        Order Exists iff Coprime
+    </div>
+    <div class="content">
+        We have that \( a \in \operatorname{ cop } \left( n \right) \) iff \( o \left( a, n \right) \) exists
+    </div>
+    <div class="proof">
+        <p>If \( a \in \operatorname{ cop } \left( n \right) \) then by <a class="knowledge-link" href="/number_theory/eulers_totient_function.html#theorem-euler">euler's theorem</a> we know that \( a ^ { \phi \left( n \right) } \equiv 1 \pmod{ n } \) <a class="knowledge-link" href="/number_theory/primitive_roots.html#proposition-order-exists-iff-there-is-a-power-that-yields-1">therefore</a> the order exists.</p>
+        <p>On the other hand if the oreder exists, then we have some \( a ^ k \equiv 1 \pmod{ n } \), now <a class="knowledge-link" href="/number_theory/congruence.html#proposition-modular-inverse-iff-gcd-1">recall that</a> \( ax \equiv 1 \pmod{ n } \) has a solution if and only if \( a \in \operatorname{ cop } \left( n \right) \), but note we have a solution, becuase if \( k = 1 \) then \( x = 1 \) works, otherwise if \( k \ge 2 \) then \( x = a ^ { k - 1 } \) works therefore we have a solution in any case so that \( a \in \operatorname{ cop } \left( n \right) \) as needed.</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-primitive-roots-are-a-subset-of-coprimes">
+    <div class="title">
+        Primitive Roots are a Subset of Coprimes
+    </div>
+    <div class="content">
+        \[ \operatorname{ pr } \left( n \right) \subseteq \operatorname{ cop } \left( n \right) \]
+    </div>
+    <div class="proof">
+        If \( a \in \operatorname{ pr } \left( n \right) \) then \( a \) has an order, but \( a \) has an order iff \( a \in \operatorname{ cop } \left( n \right) \), note that not everything that has an order is a primitive root.
+    </div>
+</div>
+<div class="theorem" id="theorem-every-prime-number-has-a-primitive-root">
+    <div class="title">
+        Every Prime number has a Primitive Root
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ P } \), \( \operatorname{ pr } \left( p \right) \neq \emptyset \)
+    </div>
+    <div class="proof">
+        <p>Suppose for the sake of contradiction that it had no primitive roots therefore for any \( a \in \left[ 1, \ldots , p - 1 \right] \) that \( d := o \left( a, p \right) \lt \phi \left( p \right) = p - 1 \), but at the same time we know that \( d \mid p - 1 \).</p>
+        <p>Now focusing on \( a \) for a moment, we see that for any \( k \in \left[ 1, \ldots d \right] \) we have \[ o \left( a ^ k, n \right) = \frac{d}{\gcd \left( d, k \right) = d} \iff \gcd \left( d, k \right) = 1 \] so there are at least \( phi \left( d \right) \) elements (using powers of \( a \) ) that have order \( d \), and noting that since \( a, a ^ 2, \ldots , a ^ d \) are distinct mod p, then so are these elements.</p>
+        <p>By lagranges theorem, the polynomial \( x ^ d - 1 \) has at most \( d \) roots modulo \( p \)</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-connection-between-primitive-roots-of-p-to-the-k-and-2-p-to-the-k">
+    <div class="title">
+        Connection Between Primitive Roots of \( p ^ k \) and 2 \( p ^ k \)
+    </div>
+    <div class="content">
+        Let \( p \in \mathbb{ P } _ 3 \), \( k \in \mathbb{ N } _ 1 \) and \( a \in \operatorname{ pr } \left( p ^ k \right) \) \[ a \in \operatorname{ pr } \left( 2 p ^ k \right) \iff a \in \mathbb{ Z } _ {\operatorname{ odd } } \]
+    </div>
+    <div class="proof">
+        <p>Suppose that \( a \in \operatorname{ pr } \left( 2 p ^ k \right) \) <a class="knowledge-link" href="/number_theory/primitive_roots.html#proposition-order-exists-iff-coprime">then</a> \( a \in \operatorname{ cop } \left( 2 p ^ k \right) \), therefore \( a \) cannot be even, so that it must be odd.</p>
+        <p>Now suppose that \( a \in \mathbb{ Z } _ {\operatorname{ odd }} \) but for the sake of contradiction that \( a \notin \operatorname{ pr } \left( 2 p ^ k \right) \) therefore \( m := \operatorname{ o } \left( a, 2p ^ k \right) \lt \phi \left( 2 p ^ k \right) = \phi \left( p ^ k \right) \) and \( a ^ m \equiv 1 \pmod{ 2 p ^ k } \) <a class="knowledge-link" href="/number_theory/congruence.html#proposition-if-two-numbers-are-congruent-they-are-still-congrune-t-mod-a-divisor-of-the-original-mod">then we have</a> \( a ^ m \equiv 1 \pmod{ p ^ k } \), but \( a \in \operatorname{ pr } \left( p ^ k \right) \) therefore \( \operatorname{ o } \left( a, p ^ k \right) = \phi \left( p ^ k \right) \) but we have that \( m \lt \phi \left( p ^ k \right) \) which is impossible because the order is the smallest power the yields one, but we've found a smaller one.</p><!--                TODO we didn't use the odd fact here, is this a problem?-->
+    </div>
+</div>
+<div class="proposition" id="proposition-order-of-a-primitive-root-mod-the-next-power">
+    <div class="title">
+        Order of a Primitive Root mod the next Power
+    </div>
+    <div class="content">
+        Let \( p \in \mathbb{ P } \) and \( k \in \mathbb{ N } _ 1 \) and suppose that \( a \in \operatorname{ pr } \left( p ^ k \right) \) then \[ o _ { p ^ { k + 1 } } \left( a \right) \in \left\{ \phi \left( p ^ k \right), \phi \left( p ^ { k + 1 } \right) \right\} \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-when-a-primitive-root-remains-a-primitive-root-mod-the-next-power">
+    <div class="title">
+        When a Primitive Remains a Primitive Root mod the next Power
+    </div>
+    <div class="content">
+        Suppose \( a \in \operatorname{ pr } \left( p ^ k \right) \) and \( o _ { p ^ { k + 1 } } \left( a \right) \neq o _ { p ^ k } \left( a \right) \) then \( a \in \operatorname{ pr } \left( p ^ { k + 1 } \right) \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-every-power-of-an-odd-prime-has-a-primitive-root">
+    <div class="title">
+        Every Power of an odd Prime has a Primitive Root
+    </div>
+    <div class="content">
+        Let \( p \in \mathbb{ P } _ 3 \) be an odd prime, then \( p ^ k \) has a primitive root for every \( k \in \mathbb{ N } _ 1 \).
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-classification-of-the-existence-of-primitive-roots">
+    <div class="title">
+        Classification of the Existence of Primitive Roots
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{ N } _ 2 \), then \( \operatorname{ pr } \left( n \right) \neq \emptyset \) iff \( n \in { 2, 4, p ^ k, 2 p ^ k } \) where \( p \in \mathbb{ P } _ 3 \) and \( k \in \mathbb{ N } _ 1 \).
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-a-number-to-the-phi-n-over-two-is-congruent-to-1-when-it-is-not-a-primitive-root">
+    <div class="title">
+        A Number to the Phi n over Two is Congruent to 1 When it is not a Primitive Root
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{ N } _ 3 \) such that \( \operatorname{ pr } \left( n \right) = \emptyset \), and \( c \in \operatorname{ cop } \left( n \right) \), then we have \[ c ^ \frac{\phi \left( n \right) }{2} \equiv 1 \pmod{ n } \]
+    </div>
+    <div class="proof">
+        <p>Since \( \operatorname{ pr } \left( n \right) = \emptyset \) then \( n \notin \left\{ 2, 4, p ^ k, 2 p ^ k \right\} \) for some \( p \in \mathbb{ P } _ 3 \) and \( k \in \mathbb{ N } _ 1 \).</p>
+        <p>We will deal with the case when \( n = 2 ^ k \) for \( k \in \mathbb{ N } _ 3 \), we know that \( c ^ \phi \left( n \right) \equiv 1 \pmod{ n } \) and that \( \phi \left( n \right) = \phi \left( 2 ^ k \right) = 2 ^ { k - 1 } \) and therefore \( o _ n \left( c \right) = 2 ^ j \) for some \( j \in \left[ 1, \ldots , k - 1 \right] \), clearly we see \( c \notin \emptyset = \operatorname{ pr } \left( n \right) \) and so we know that \( j \neq k - 1 \) because in that case we would have that \( o _ n \left( c \right) = \phi \left( 2 ^ { k - 1 } \right) \) which implies that \( \operatorname{ pr } \left( n \right) \neq \emptyset \) which is a contradiction. This proves that \( o _ n \left( c \right) = 2 ^ j \mid 2 ^ { k + 1 } = \frac{\phi \left( n \right) }{2} \) and therefore we have that \( c ^ \frac{\phi \left( n \right) }{2} \equiv 1 \pmod{ n } \).</p>
+    </div>
+</div><!--        <div class="lemma" id="lemma-distinct-powers-up-to-the-order">-->
+<!--            <div class="title">Distinct Powers up to the Order</div>-->
+<!--            <div class="content">-->
+<!--                    Let \( n \in \mathbb{ N } _ 1 \) and -->
+<!--            </div>-->
+<!--            <div class="proof">-->
+<!--            </div>-->
+<!--        </div>-->

@@ -1,351 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-    <title>Number Bases</title>
-	
-    <link rel="stylesheet" href="/styles/styles.css">
-
-    <script src="../js/script.js" defer></script>
-</head>
-
-<body>
-    <div class="thin-wrapper">
-
-		<div class="definition" id="definition-base-representation">
-			<div class="title">Base Representation</div>
-			<div class="content">
-				Suppose that \( m , k \in \mathbb{N}_{1} \) and \( \left ( a_{k} , a_{k - 1} , \ldots , a_{1} \right ) \in \left \lbrace 0 , 1 , 2 , \ldots , m - 1 \right \rbrace^{k} \). Then we define \( n := \sum_{i = 0}^{k - 1} a_{i} m^{i} \) and we say that the string \( a_{k } a_{k - 1} \ldots a_{1} \) is the representation of \( n \) in the base \( m \) and define
-				\[
-				    \operatorname{ base\_repr } \left( n, m \right) := a _ { k }  a _ { k - 1 }  \ldots a _ 1
-				\]
-			</div>
-		</div>
-
-
-		<details>
-			<summary>Isn't this Circular?</summary>
-			<p>
-				In the above definition nothing seems to out of the ordinary until you try \( b = 10 \) or any fixed number, and start thinking about what this even means.
-			</p>
-			<h1>Understanding the Structure of Numbers: Beyond Base 10 Representation</h1>
-			<p>
-				When we write a number like \( (abcd)_{10} \) in base 10, we typically understand it as the expression
-				\( a \times 10^3 + b \times 10^2 + c \times 10^1 + d \). Here, \( a \), \( b \), \( c \), and \( d \) are digits
-				ranging from 0 to 9, and the number 10 represents the base. This interpretation seems straightforward until
-				we consider the deeper implications of what the "10" on the right-hand side truly represents. If we claim
-				that this "10" is also written in base 10, we encounter a circular argument: how can we define numbers
-				using the very system we are trying to explain?
-			</p>
-
-			<h2>The Circularity of Base 10 Representation</h2>
-			<p>
-				The circularity arises because we are using the base 10 system to define itself. The digits \( a \), \( b \),
-				\( c \), and \( d \) are combined according to the powers of 10 to produce a number in base 10, but this
-				assumes that the concept of "10" is already understood. This reliance on the same base for both the number
-				and its construction suggests that there is more to numbers than just their syntactical representation in
-				a given base.
-			</p>
-
-			<h2>A Deeper Approach: Numbers as Abstract Entities</h2>
-			<p>
-				To avoid this circularity, we need to step away from the idea of numbers as simply sequences of digits and
-				instead view them as abstract entities defined by a set of fundamental principles. This leads us to the
-				concept of the Successor function in mathematics, a foundational approach rooted in set theory and logic. The idea is simply that numbers are not syntactical objects, they are things which can never actually see or touch, but they have certain properties about them, and when we create symbols to represent them that's about as close as we can get.
-			</p>
-
-			<h2>Numbers Through the Successor Function</h2>
-			<p>
-				In this framework, we begin with a single element, typically denoted as \( 0 \). We then define the successor
-				of \( 0 \) as \( S(0) \), which we call 1. Continuing this process, we define:
-			</p>
-			<ul>
-				<li>\( 2 := S(1) \)</li>
-				<li>\( 3 := S(2) \)</li>
-				<li>and so on...</li>
-			</ul>
-			<p>
-				Here, each number is not defined by its relationship to a base, but rather as the successor of the previous
-				number. This method builds the entire number system from the ground up, without relying on a predefined base
-				like 10.
-			</p>
-
-			<h2>Defining Base \( b \) Numbers Safely</h2>
-			<p>
-				With this successor-based approach, we can define numbers in any base \( b \) without falling into circular
-				reasoning. A number in base \( b \) can be expressed as:
-			</p>
-			<p>
-				\[
-				\text{(abcd)}_b = a \times b^3 + b \times b^2 + c \times b^1 + d
-				\]
-			</p>
-			<p>
-				Here, the number \( b \) is understood as \( S(S(\dots S(0)\dots)) \) (with \( b \) applications of \( S \)).
-				This understanding is independent of any base system and is built solely on the Successor function and the
-				concept of \( 0 \).
-			</p>
-
-			<h2>Conclusion: Numbers as Abstract Constructs</h2>
-			<p>
-				The exploration of the circularity in base 10 representation reveals that numbers, when abstracted from their
-				syntactical form, are better understood as constructs built on the Successor function and the element \( 0 \).
-				This perspective allows us to define numbers safely in any base, avoiding the pitfalls of circular reasoning
-				and providing a more fundamental understanding of numerical systems.
-			</p>
-		</details>
-
-
-<!--		<p>-->
-<!--			When thinking about the base representation of a number, we need to remember that these are symbols that represent the abstract idea of a number, for example you've spoken about \( 11 \) your entire life but this is not a number, this is a string which represents a number, in particular in base 10, so it represents \( 10 + 1 \) also something like \( abc = 100a + 10 b + c \).-->
-<!--		</p>-->
-
-<!--		<p>-->
-<!--			The above paragraph is ironic, because we referenced base 10, but 10 itself is already in a base 10 representation, this feels like an infinite cycle, because I described base 10 using the decimal representation 10. The way we can get ourselves out of this pickle is that first we construct the natural numbers, starting with only 0 and a successor function, then we define \( 1 = S \left( 0 \right)  \), \( 2 = S \left( 1 \right)  \), \( 3 = S \left( 2 \right)  \) and so on, eventually defining multiplication in terms of addition. Thus we define the string \( 10 \) without any base 10 representation, simply as \( S \left( \ldots S \left( 0 \right)  \right)  \).-->
-<!--		</p>-->
-<!--		-->
-<!--		<p>-->
-<!--			Now with this we can say \( \left( 10 \right) _ { 10 }  =  10 \) where the 10 between the parenthesis is the string "10" but the other ones are \( S \left( \ldots S \left( 0 \right)  \right)  \) and this no longer results in cyclic reasoning.-->
-<!--		</p>-->
-
-<!--		<p>-->
-<!--			Therefore when we look at something like \( \left( a b c \right) _ { 10 } = 100 a + 100 b + c   \) then the -->
-<!--		</p>-->
-
-<!--		<p>-->
-<!--			Over time we conflate the string "10" and \( 10 = S \left( \ldots S \left( 0 \right)  \right)  \), so when we write things like \( abc \)  we know that this references \( 100a + 10b + c \) rather than \( S \left( \ldots S \left( 0 \right)  \right)  \)-->
-<!--		</p>-->
-
-		<div class="theorem" id="theorem-every-number-has-a-base-b-representation">
-			<div class="title">Every Number has a Base \( b \) Representation</div>
-			<div class="content">
-				Let \( b \in \mathbb{ N } _ 2 \) and \( n \in \mathbb{ N } _ 0 \) then there exists a \( k \in \mathbb{ N } _ 1 \) and \( a _ 1, \ldots , a _ k \in \left[ 0, \ldots , b - 1 \right]  \) such that
-				\[
-				    n = \left( a _ k \ldots a _ 1 \right) _ b
-				\]
-			</div>
-			<div class="proof">
-				<p>
-					Let \( b \in \mathbb{ N } _ 2 \) and we continue with induction. In the base case when \( n = 0 \) then the representation \( \left( 0 \right) _ b  \) works. Now let \( j \in \mathbb{ N } _ 0 \) and and let \( i \in \left[ 0, \ldots, j \right]  \) and assume that it holds for \( i \), now we'll show it holds true for \( j + 1  \).
-				</p>
-				<p>
-					What we will try to do is extract the largest \( b ^ m \) we can from \( j + 1  \) and then use the induction hypothesis. So let \( J := \left\{ m \in \mathbb{ N } _ 1: b ^ m \le j + 1 \right\}  \), this set has a maximum element because \( j + 1  \) is an upper bound, it is because we know that \( 1 \le j + 1 \le 2 ^ { j + 1  } \le b ^ { j + 1  }  \) therefore \( j + 1 \) is indeed an upper bound to \( J \), let \( l \) be the max element of \( J \) and then by the quotient remainder theorem we have some \( q, r \in \mathbb{ Z }  \) such that
-					\[
-					    j + 1 = q b ^ l + r \text{ with } 0 \le r \lt b ^ l
-					\]
-					since \( r \lt b ^ l \le j + 1   \) then the induction hypothesis holds on \( r \) so that \( r \) has a base \( b \)  representation so that
-					\[
-					    r = \sum _ { i = 0 } ^ { p } c _ i b ^ i
-					\]
-					where \( p \lt l \), because if \( p \ge l \) then that makes \( r = \sum _ { i = 0 } ^ { p } x _ i b ^ i \ge b ^ l  \) which is a contradiction since we know that \( r \lt b ^ l \) this means that the representation is exactly
-					\[
-					    \left( q c _ p \ldots c _ 0 \right) _ b
-					\]
-				</p>
-			</div>
-		</div>
-
-		<div class="theorem" id="theorem-every-base-b-representation-is-unique">
-			<div class="title">Every Base \( b \) Representation is Unique</div>
-			<div class="content">
-				For any \( b \in \mathbb{ N } _ 2 \) and \( n \in \mathbb{ N } _ 0  \) there is exactly one base \( b \) representation of \( n \)
-			</div>
-			<div class="proof">
-				<p>
-					Let \( b \in \mathbb{ N } _ 2 \) and perform induction on \( n \). So for \( n = 0 \) we know that the representation \( \left( 0 \right) _  b \) and for any other representation where \( a \neq 0 \) then \( \left( a \right) _ b \neq 0 \) there is exactly one representation as needed.
-				</p>
-				<p>
-					Now suppose that \( n \in \mathbb{ N } _ 0 \) and that for any \( k \in \left[ 0, \ldots n \right]  \) has a unique base \( b \) representation, let's prove that \( n + 1  \) has a unique base \( b \) representation, for the sake of contradiction suppose that it has two different representations, which implies that
-					\[
-					    \sum _ { i = 0 } ^ { m } a _ i b ^  i = n + 1 = \sum _ { i = 0 } ^ { k  } c _ i b ^ i
-					\]
-					firstly we claim that \( m = k \) for if that were not the case then without loss of generality \( m \lt k \) and note the following
-					\[
-					    \begin{align}
-					        \sum _ { i = 0 } ^ { m } a _ i b ^  i &\le \sum _ { i = 0 } ^ { m } \left( b - 1 \right) b _ i \\
-					&\le \left( b - 1 \right) \sum _ { i = 0 } ^ { m } b _ i \\
-					&\le \left( b - 1 \right) \frac{b ^ { m + 1  } - 1 }{b - 1} \\
-					&= b ^ { m + 1  } - 1 \lt b ^ { m + 1 }
-					    \end{align}
-					\]
-					Note that since \( m \lt k \) we know that \( m + 1 \le k \) then we know that
-					\[
-					    b ^ { m + 1  } \le b ^ k \le \sum _ { i = 0 } ^ { k } c _ i b ^ i
-					\]
-					which is a contradiction because chaining the last few inequalities we obtain
-					\[
-					    n + 1  = \sum _ { i = 0 } ^ { m } a _ i b ^  i \lt \sum _ { i = 0 } ^ { k } c _ i b _ i = n + 1
-					\]
-					thus we deduce that \( m = k \).
-				</p>
-				<p>
-					Now we additionally claim that \( a _ m = c _ k \) for if that were not the case then without loss of generality we assume that \( a _ m \lt c _ k \) and therefore
-					\[
-					\left( n + 1  \right)  - a _ m b ^ m = \sum _ { i = 0 } ^ { m } a _ i b ^  i - a _ m b ^ m = \sum _ { i = 0 } ^ { m - 1 } a _ i b ^ i
-					\]
-					but also
-					\[
-					\begin{align}
-					\left( n + 1 \right)  - a _ m b ^ m &= \sum _ { i = 0 } ^ { k } c _ i b ^ i - a _ m b ^ m \\
-					&= c _ k b ^ k + \cdots  + \left( c _ m - a _ m  \right) b ^ m + \cdots + c _ 0 b ^ 0
-					\end{align}
-					\]
-					and since \( c _ m - a _ m \gt 0 \) this is valid base \( b \) representation of \( \left( n + 1  \right)  - a _ m b ^ m \), but clearly they differ as \( a _ k \neq 0 \) and so the length of the two representations are different. This a contradiction because by our induction hypothesis they must have the same base \( b \) representation, therefore our assumption that \( n + 1 \) has two different base \( b \) representations is false and therefore by strong induction the original statement is true.
-				</p>
-			</div>
-		</div>
-
-
-		<div class="definition" id="definition-decimal-representation">
-			<div class="title">Decimal Representation</div>
-			<div class="content">
-				The decimal representation of a number \( n \) is the <a href="/number_theory/number_bases.html#definition-base-representation" class="knowledge-link">representation of \( n \) in the base \( 10 \)</a>
-			</div>
-		</div>
-
-		The decimal representation of a number is the usual way you've most likely dealt with numbers so far, for example when you write \( 123 \) you are referring to the number \( 1 \cdot 10^{2} + 2 \cdot 10^{1} + 3 \cdot 10^{0} \). Note
-
-		<div class="definition" id="definition-binary-representation">
-			<div class="title">binary representation</div>
-			<div class="content">
-				The binary representation of a number \( n \) is the <a href="/number_theory/number_bases.html#definition-base-representation" class="knowledge-link">represetnation of \( n \) in the base \( 2 \)</a>
-			</div>
-		</div>
-
-		<div class="definition" id="definition-binary-natural-numbers">
-			<div class="title">Binary Natural Numbers</div>
-			<div class="content">
-				We define the following:
-				\[
-					\mathbb{ B } := \operatorname{ base\_repr } \left( \mathbb{ N } _ 0, 2 \right)
-				\]
-			</div>
-		</div>
-
-
-		<div class="proposition" id="proposition-number-of-digits-required-in-a-base-2-representation">
-			<div class="title">Number of Digits Required in a Base 2 Representation</div>
-			<div class="content">
-				Given any \( n \in \mathbb{ N } _ 0\) prove that the number of digits in it's base 2 representation is given by
-				\[
-				    \left\lfloor \log _ 2 \left( n \right)  \right\rfloor + 1
-				\]
-			</div>
-			<div class="proof">
-				<p>
-					Let \( n \in \mathbb{N} \), suppose  \( n \) requires \( d \) digits in it's base 2 representation, we'd like to show that \(d = \lfloor \log_2(n)  \rfloor+1\).
-				</p>
-
-				<p>
-					At most we have \(n = 1 \ldots 1\), that is \( d \) 1's in a row. But we know that is
-				</p>
-
-				\[
-					\sum_{i=0}^{d-1} 2^i = 2^d - 1
-				\]
-
-				<p>
-
-					At a minimum the first digit is a 1 and the rest are zeros (since the powers start at 0 right to left, this is \( 2^{d - 1} \)).
-				</p>
-
-				<p>
-					We now have the following bound  on \( n \).
-				</p>
-
-				\[
-					2^{d-1 } \le n \le 2^d - 1
-				\]
-
-				<p>
-					Taking log base 2 on on the above inequality yields: (Call this inequality $\beta$)
-				</p>
-
-				\[
-					d - 1 \le \log_2 (n) \le \log_2(2^d -1 )
-				\]
-
-				<p>
-					*Note*: Taking the log respects the inequalities because $\log_2(\cdot)$ is a strictly increasing function (check it's derivative)
-				</p>
-
-
-				<p>
-					We will attempt to take the floor of \( \beta \). Since \( d-1 \) is an integer \( \lfloor d-1 \rfloor = d-1 \), as for \( \log_2(2^d-1) \), we must look a little closer.
-				</p>
-
-				<p>
-					Since \( 2^{d-1} \le 2^d - 1 \lt 2^d \) and , we know that
-				</p>
-
-				\[
-					d-1 = \log_2(2^{d-1}) \le \log_2(2^d - 1) \lt log_2(2^d) = d
-				\]
-
-				<p>
-					Therefore \(\lfloor \log_2(2^d - 1) \rfloor = d-1 \) and so the result of taking the floor of \(\beta \) yields
-				</p>
-
-				\[
-					d - 1 \le \lfloor \log_2 (n) \rfloor \le \lfloor \log_2(2^d -1 ) \rfloor = d-1
-				\]
-
-				<p>
-					In other words
-				</p>
-
-				\[
-					d - 1 \le \lfloor \log_2 (n) \rfloor \le d-1
-				\]
-
-				<p> So </p>
-
-				\[
-					d - 1 = \lfloor \log_2 (n) \rfloor \Leftrightarrow d = \lfloor \log_2 (n) \rfloor + 1
-				\]
-
-			</div>
-		</div>
-
-
-
-		<div class="lemma" id="lemma-base-plus-minus-one-to-a-power-is-congruent-to-plus-minus-one">
-			<div class="title">Base Plus Minus One To a Power is Congruent to Plus Minus One</div>
-			<div class="content">
-				For any \( b \in \mathbb{ N } _ 2 \) and for any \( n \in \mathbb{ N } _ 1 \) and let \( x \) be the character we use to represent \( b - 1 \) then
-				\[
-					\left( 10 ^ n \right) _ b = \left( x \ldots x \right) + 1
-				\]
-			</div>
-			<div class="proof">
-
-			</div>
-		</div>
-
-
-
-		<div class="proposition" id="proposition-division-by-9-rule">
-			<div class="title">Division by 9 Rule</div>
-			<div class="content">
-				Suppose that \( n = \left( a _ k \ldots a _ 0 \right)  \) then \( 9 | n \) if and only if
-				\[
-				9 | \sum_{i = 0}^{k - 1} a_{i}
-				\]
-			</div>
-			<div class="proof">
-				We know that \( 10 ^ n \equiv 1 ^ n  \left( \operatorname{ mod } 10  \right)  \) and therefore
-				\[
-				    \begin{align}
-				        n &= \sum _ { i = 0 } ^ { k } a _ i 10 ^ i \\
-				&\equiv  \sum _ { i = 0 } ^ {k  } a _ i \left( \operatorname{ mod } 9 \right)
-				    \end{align}
-				\]
-			</div>
-		</div>
-
-
+<div class="definition" id="definition-base-representation">
+    <div class="title">
+        Base Representation
     </div>
-</body>
+    <div class="content">
+        Suppose that \( m , k \in \mathbb{N}_{1} \) and \( \left ( a_{k} , a_{k - 1} , \ldots , a_{1} \right ) \in \left \lbrace 0 , 1 , 2 , \ldots , m - 1 \right \rbrace^{k} \). Then we define \( n := \sum_{i = 0}^{k - 1} a_{i} m^{i} \) and we say that the string \( a_{k } a_{k - 1} \ldots a_{1} \) is the representation of \( n \) in the base \( m \) and define \[ \operatorname{ base\_repr } \left( n, m \right) := a _ { k } a _ { k - 1 } \ldots a _ 1 \]
+    </div>
+</div>
+<details>
+    <summary>
+        Isn't this Circular?
+    </summary>
+    <p>In the above definition nothing seems to out of the ordinary until you try \( b = 10 \) or any fixed number, and start thinking about what this even means.</p>
+    <h1>Understanding the Structure of Numbers: Beyond Base 10 Representation</h1>
+    <p>When we write a number like \( (abcd)_{10} \) in base 10, we typically understand it as the expression \( a \times 10^3 + b \times 10^2 + c \times 10^1 + d \). Here, \( a \), \( b \), \( c \), and \( d \) are digits ranging from 0 to 9, and the number 10 represents the base. This interpretation seems straightforward until we consider the deeper implications of what the "10" on the right-hand side truly represents. If we claim that this "10" is also written in base 10, we encounter a circular argument: how can we define numbers using the very system we are trying to explain?</p>
+    <h2>The Circularity of Base 10 Representation</h2>
+    <p>The circularity arises because we are using the base 10 system to define itself. The digits \( a \), \( b \), \( c \), and \( d \) are combined according to the powers of 10 to produce a number in base 10, but this assumes that the concept of "10" is already understood. This reliance on the same base for both the number and its construction suggests that there is more to numbers than just their syntactical representation in a given base.</p>
+    <h2>A Deeper Approach: Numbers as Abstract Entities</h2>
+    <p>To avoid this circularity, we need to step away from the idea of numbers as simply sequences of digits and instead view them as abstract entities defined by a set of fundamental principles. This leads us to the concept of the Successor function in mathematics, a foundational approach rooted in set theory and logic. The idea is simply that numbers are not syntactical objects, they are things which can never actually see or touch, but they have certain properties about them, and when we create symbols to represent them that's about as close as we can get.</p>
+    <h2>Numbers Through the Successor Function</h2>
+    <p>In this framework, we begin with a single element, typically denoted as \( 0 \). We then define the successor of \( 0 \) as \( S(0) \), which we call 1. Continuing this process, we define:</p>
+    <ul>
+        <li>\( 2 := S(1) \)</li>
+        <li>\( 3 := S(2) \)</li>
+        <li>and so on...</li>
+    </ul>
+    <p>Here, each number is not defined by its relationship to a base, but rather as the successor of the previous number. This method builds the entire number system from the ground up, without relying on a predefined base like 10.</p>
+    <h2>Defining Base \( b \) Numbers Safely</h2>
+    <p>With this successor-based approach, we can define numbers in any base \( b \) without falling into circular reasoning. A number in base \( b \) can be expressed as:</p>
+    <p>\[ \text{(abcd)}_b = a \times b^3 + b \times b^2 + c \times b^1 + d \]</p>
+    <p>Here, the number \( b \) is understood as \( S(S(\dots S(0)\dots)) \) (with \( b \) applications of \( S \)). This understanding is independent of any base system and is built solely on the Successor function and the concept of \( 0 \).</p>
+    <h2>Conclusion: Numbers as Abstract Constructs</h2>
+    <p>The exploration of the circularity in base 10 representation reveals that numbers, when abstracted from their syntactical form, are better understood as constructs built on the Successor function and the element \( 0 \). This perspective allows us to define numbers safely in any base, avoiding the pitfalls of circular reasoning and providing a more fundamental understanding of numerical systems.</p>
+</details><!--            <p>-->
+<!--                    When thinking about the base representation of a number, we need to remember that these are symbols that represent the abstract idea of a number, for example you've spoken about \( 11 \) your entire life but this is not a number, this is a string which represents a number, in particular in base 10, so it represents \( 10 + 1 \) also something like \( abc = 100a + 10 b + c \).-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                    The above paragraph is ironic, because we referenced base 10, but 10 itself is already in a base 10 representation, this feels like an infinite cycle, because I described base 10 using the decimal representation 10. The way we can get ourselves out of this pickle is that first we construct the natural numbers, starting with only 0 and a successor function, then we define \( 1 = S \left( 0 \right)  \), \( 2 = S \left( 1 \right)  \), \( 3 = S \left( 2 \right)  \) and so on, eventually defining multiplication in terms of addition. Thus we define the string \( 10 \) without any base 10 representation, simply as \( S \left( \ldots S \left( 0 \right)  \right)  \).-->
+<!--            </p>-->
+<!-- -->
+<!--            <p>-->
+<!--                    Now with this we can say \( \left( 10 \right) _ { 10 }  =  10 \) where the 10 between the parenthesis is the string "10" but the other ones are \( S \left( \ldots S \left( 0 \right)  \right)  \) and this no longer results in cyclic reasoning.-->
+<!--            </p>-->
+<!--            <p>-->
+<!--                    Therefore when we look at something like \( \left( a b c \right) _ { 10 } = 100 a + 100 b + c   \) then the -->
+<!--            </p>-->
+<!--            <p>-->
+<!--                    Over time we conflate the string "10" and \( 10 = S \left( \ldots S \left( 0 \right)  \right)  \), so when we write things like \( abc \)  we know that this references \( 100a + 10b + c \) rather than \( S \left( \ldots S \left( 0 \right)  \right)  \)-->
+<!--            </p>-->
+<div class="theorem" id="theorem-every-number-has-a-base-b-representation">
+    <div class="title">
+        Every Number has a Base \( b \) Representation
+    </div>
+    <div class="content">
+        Let \( b \in \mathbb{ N } _ 2 \) and \( n \in \mathbb{ N } _ 0 \) then there exists a \( k \in \mathbb{ N } _ 1 \) and \( a _ 1, \ldots , a _ k \in \left[ 0, \ldots , b - 1 \right] \) such that \[ n = \left( a _ k \ldots a _ 1 \right) _ b \]
+    </div>
+    <div class="proof">
+        <p>Let \( b \in \mathbb{ N } _ 2 \) and we continue with induction. In the base case when \( n = 0 \) then the representation \( \left( 0 \right) _ b \) works. Now let \( j \in \mathbb{ N } _ 0 \) and and let \( i \in \left[ 0, \ldots, j \right] \) and assume that it holds for \( i \), now we'll show it holds true for \( j + 1 \).</p>
+        <p>What we will try to do is extract the largest \( b ^ m \) we can from \( j + 1 \) and then use the induction hypothesis. So let \( J := \left\{ m \in \mathbb{ N } _ 1: b ^ m \le j + 1 \right\} \), this set has a maximum element because \( j + 1 \) is an upper bound, it is because we know that \( 1 \le j + 1 \le 2 ^ { j + 1 } \le b ^ { j + 1 } \) therefore \( j + 1 \) is indeed an upper bound to \( J \), let \( l \) be the max element of \( J \) and then by the quotient remainder theorem we have some \( q, r \in \mathbb{ Z } \) such that \[ j + 1 = q b ^ l + r \text{ with } 0 \le r \lt b ^ l \] since \( r \lt b ^ l \le j + 1 \) then the induction hypothesis holds on \( r \) so that \( r \) has a base \( b \) representation so that \[ r = \sum _ { i = 0 } ^ { p } c _ i b ^ i \] where \( p \lt l \), because if \( p \ge l \) then that makes \( r = \sum _ { i = 0 } ^ { p } x _ i b ^ i \ge b ^ l \) which is a contradiction since we know that \( r \lt b ^ l \) this means that the representation is exactly \[ \left( q c _ p \ldots c _ 0 \right) _ b \]</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-every-base-b-representation-is-unique">
+    <div class="title">
+        Every Base \( b \) Representation is Unique
+    </div>
+    <div class="content">
+        For any \( b \in \mathbb{ N } _ 2 \) and \( n \in \mathbb{ N } _ 0 \) there is exactly one base \( b \) representation of \( n \)
+    </div>
+    <div class="proof">
+        <p>Let \( b \in \mathbb{ N } _ 2 \) and perform induction on \( n \). So for \( n = 0 \) we know that the representation \( \left( 0 \right) _ b \) and for any other representation where \( a \neq 0 \) then \( \left( a \right) _ b \neq 0 \) there is exactly one representation as needed.</p>
+        <p>Now suppose that \( n \in \mathbb{ N } _ 0 \) and that for any \( k \in \left[ 0, \ldots n \right] \) has a unique base \( b \) representation, let's prove that \( n + 1 \) has a unique base \( b \) representation, for the sake of contradiction suppose that it has two different representations, which implies that \[ \sum _ { i = 0 } ^ { m } a _ i b ^ i = n + 1 = \sum _ { i = 0 } ^ { k } c _ i b ^ i \] firstly we claim that \( m = k \) for if that were not the case then without loss of generality \( m \lt k \) and note the following \[ \begin{align} \sum _ { i = 0 } ^ { m } a _ i b ^ i &amp;\le \sum _ { i = 0 } ^ { m } \left( b - 1 \right) b _ i \\ &amp;\le \left( b - 1 \right) \sum _ { i = 0 } ^ { m } b _ i \\ &amp;\le \left( b - 1 \right) \frac{b ^ { m + 1 } - 1 }{b - 1} \\ &amp;= b ^ { m + 1 } - 1 \lt b ^ { m + 1 } \end{align} \] Note that since \( m \lt k \) we know that \( m + 1 \le k \) then we know that \[ b ^ { m + 1 } \le b ^ k \le \sum _ { i = 0 } ^ { k } c _ i b ^ i \] which is a contradiction because chaining the last few inequalities we obtain \[ n + 1 = \sum _ { i = 0 } ^ { m } a _ i b ^ i \lt \sum _ { i = 0 } ^ { k } c _ i b _ i = n + 1 \] thus we deduce that \( m = k \).</p>
+        <p>Now we additionally claim that \( a _ m = c _ k \) for if that were not the case then without loss of generality we assume that \( a _ m \lt c _ k \) and therefore \[ \left( n + 1 \right) - a _ m b ^ m = \sum _ { i = 0 } ^ { m } a _ i b ^ i - a _ m b ^ m = \sum _ { i = 0 } ^ { m - 1 } a _ i b ^ i \] but also \[ \begin{align} \left( n + 1 \right) - a _ m b ^ m &amp;= \sum _ { i = 0 } ^ { k } c _ i b ^ i - a _ m b ^ m \\ &amp;= c _ k b ^ k + \cdots + \left( c _ m - a _ m \right) b ^ m + \cdots + c _ 0 b ^ 0 \end{align} \] and since \( c _ m - a _ m \gt 0 \) this is valid base \( b \) representation of \( \left( n + 1 \right) - a _ m b ^ m \), but clearly they differ as \( a _ k \neq 0 \) and so the length of the two representations are different. This a contradiction because by our induction hypothesis they must have the same base \( b \) representation, therefore our assumption that \( n + 1 \) has two different base \( b \) representations is false and therefore by strong induction the original statement is true.</p>
+    </div>
+</div>
+<div class="definition" id="definition-decimal-representation">
+    <div class="title">
+        Decimal Representation
+    </div>
+    <div class="content">
+        The decimal representation of a number \( n \) is the <a class="knowledge-link" href="/number_theory/number_bases.html#definition-base-representation">representation of \( n \) in the base \( 10 \)</a>
+    </div>
+</div>The decimal representation of a number is the usual way you've most likely dealt with numbers so far, for example when you write \( 123 \) you are referring to the number \( 1 \cdot 10^{2} + 2 \cdot 10^{1} + 3 \cdot 10^{0} \). Note
+<div class="definition" id="definition-binary-representation">
+    <div class="title">
+        binary representation
+    </div>
+    <div class="content">
+        The binary representation of a number \( n \) is the <a class="knowledge-link" href="/number_theory/number_bases.html#definition-base-representation">represetnation of \( n \) in the base \( 2 \)</a>
+    </div>
+</div>
+<div class="definition" id="definition-binary-natural-numbers">
+    <div class="title">
+        Binary Natural Numbers
+    </div>
+    <div class="content">
+        We define the following: \[ \mathbb{ B } := \operatorname{ base\_repr } \left( \mathbb{ N } _ 0, 2 \right) \]
+    </div>
+</div>
+<div class="proposition" id="proposition-number-of-digits-required-in-a-base-2-representation">
+    <div class="title">
+        Number of Digits Required in a Base 2 Representation
+    </div>
+    <div class="content">
+        Given any \( n \in \mathbb{ N } _ 0\) prove that the number of digits in it's base 2 representation is given by \[ \left\lfloor \log _ 2 \left( n \right) \right\rfloor + 1 \]
+    </div>
+    <div class="proof">
+        <p>Let \( n \in \mathbb{N} \), suppose \( n \) requires \( d \) digits in it's base 2 representation, we'd like to show that \(d = \lfloor \log_2(n) \rfloor+1\).</p>
+        <p>At most we have \(n = 1 \ldots 1\), that is \( d \) 1's in a row. But we know that is</p>\[ \sum_{i=0}^{d-1} 2^i = 2^d - 1 \]
+        <p>At a minimum the first digit is a 1 and the rest are zeros (since the powers start at 0 right to left, this is \( 2^{d - 1} \)).</p>
+        <p>We now have the following bound on \( n \).</p>\[ 2^{d-1 } \le n \le 2^d - 1 \]
+        <p>Taking log base 2 on on the above inequality yields: (Call this inequality $\beta$)</p>\[ d - 1 \le \log_2 (n) \le \log_2(2^d -1 ) \]
+        <p>*Note*: Taking the log respects the inequalities because $\log_2(\cdot)$ is a strictly increasing function (check it's derivative)</p>
+        <p>We will attempt to take the floor of \( \beta \). Since \( d-1 \) is an integer \( \lfloor d-1 \rfloor = d-1 \), as for \( \log_2(2^d-1) \), we must look a little closer.</p>
+        <p>Since \( 2^{d-1} \le 2^d - 1 \lt 2^d \) and , we know that</p>\[ d-1 = \log_2(2^{d-1}) \le \log_2(2^d - 1) \lt log_2(2^d) = d \]
+        <p>Therefore \(\lfloor \log_2(2^d - 1) \rfloor = d-1 \) and so the result of taking the floor of \(\beta \) yields</p>\[ d - 1 \le \lfloor \log_2 (n) \rfloor \le \lfloor \log_2(2^d -1 ) \rfloor = d-1 \]
+        <p>In other words</p>\[ d - 1 \le \lfloor \log_2 (n) \rfloor \le d-1 \]
+        <p>So</p>\[ d - 1 = \lfloor \log_2 (n) \rfloor \Leftrightarrow d = \lfloor \log_2 (n) \rfloor + 1 \]
+    </div>
+</div>
+<div class="lemma" id="lemma-base-plus-minus-one-to-a-power-is-congruent-to-plus-minus-one">
+    <div class="title">
+        Base Plus Minus One To a Power is Congruent to Plus Minus One
+    </div>
+    <div class="content">
+        For any \( b \in \mathbb{ N } _ 2 \) and for any \( n \in \mathbb{ N } _ 1 \) and let \( x \) be the character we use to represent \( b - 1 \) then \[ \left( 10 ^ n \right) _ b = \left( x \ldots x \right) + 1 \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-division-by-9-rule">
+    <div class="title">
+        Division by 9 Rule
+    </div>
+    <div class="content">
+        Suppose that \( n = \left( a _ k \ldots a _ 0 \right) \) then \( 9 | n \) if and only if \[ 9 | \sum_{i = 0}^{k - 1} a_{i} \]
+    </div>
+    <div class="proof">
+        We know that \( 10 ^ n \equiv 1 ^ n \left( \operatorname{ mod } 10 \right) \) and therefore \[ \begin{align} n &amp;= \sum _ { i = 0 } ^ { k } a _ i 10 ^ i \\ &amp;\equiv \sum _ { i = 0 } ^ {k } a _ i \left( \operatorname{ mod } 9 \right) \end{align} \]
+    </div>
+</div>

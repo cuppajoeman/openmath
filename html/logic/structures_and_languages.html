@@ -1,223 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-    <title>structures and languages</title>
-	
-	
-    <link rel="stylesheet" href="/styles/styles.css">
-
-    <script src="/js/script.js" defer></script>
-
-	
-
-
-</head>
-
-<body>
-    <div class="thin-wrapper">
-
-		<div class="definition" id="definition-first-order-language">
-			<div class="title">first order language</div>
-			<div class="content">
-				 A first order language \( \mathcal{L} \) is an infinite collection of distinct symbols, no one of which is contained in another, separated into the following categories
-				 <ul>
-				 	<li>Parenthesis: \( ( , ) \)</li>
-				 	<li>Connectives: \( \vee , \neg \)</li>
-				 	<li>Quantifier: \( \forall \)</li>
-				 	<li>Variables, one for each  \( i \in \mathbb{N}_{1} \): \( v_{i} \)
-				 	<li>Equality symbol: =</li>
-				 	<li>Constant symbols: A set of symbols</li>
-				 	<li>Function symbols, for each \( n \in \mathbb{N}_{1} \): A set of \( n \)-ary function symbols</li>
-				 	<li>Relation symbols, for each \( n \in \mathbb{N}_{1} \): A set of \( n \)-ary relation symbols</li>
-				 </ul>
-				 <p>
-				 	Since the only thing differing from language to language are its constants, variables, functions and relations then we can denote the language \( \mathcal{L} \) by \( \left ( C_{\mathcal{L}} , F_{\mathcal{L}} , R_{\mathcal{L}} \right ) \), we can denote the set of variables by \( V_{\mathcal{L}} \)
-				 </p>
-			</div>
-		</div>
-
-		<div class="definition" id="definition-term">
-			<div class="title">term</div>
-			<div class="content">
-				If \( \mathcal{L} \) is a <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-first-order-language">language</a>, a term of \( \mathcal{L} \) is a nonempty finite string \( t \) of symbols from \( \mathcal{L} \) such that
-				<ul>
-					<li>\( t \) is a variable</li>
-					<li>\( t \) is a constant</li>
-					<li>\( t \equiv f{t}_{1} t_{2} \ldots t_{n} \) is a constant where \( f \) is an \( n \)-ary function symbol if \( \mathcal{L} \) and each \( t_{i} \) is a term of \( \mathcal{L} \)</li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="definition" id="definition-formula">
-			<div class="title">formula</div>
-			<div class="content">
-				If \( \mathcal{L} \) is a first order <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-first-order-language">language</a>, then a formula of \( \mathcal{L} \) is a non-empty finite string \( \phi \) of symbols from \( \mathcal{L} \) such that:
-				<ol>
-					<li>\( \phi : \equiv = t_{1} t_{2} \) where \( t_{1} , t_{2} \) are <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-term">terms</a> of \( \mathcal{L} \)</li>
-					<li>\( \phi : \equiv R t_{1} t_{2} \ldots t_{n} \) where \( R \) is an \( n \)-ary relation symbol of \( \mathcal{L} \) and \( t_{1} , t_{2} \) are terms of \( \mathcal{L} \)</li>
-					<li>\( \phi : \equiv \left ( \neg \alpha \right ) \) where \( \alpha \) is a formula of \( \mathcal{L} \)</li>
-					<li>\( \phi : \equiv \left ( \alpha \vee \beta \right ) \) where \( \alpha , \beta \) are formulas of \( \mathcal{L} \)</li>
-					<li>\( \phi : \equiv \left ( \forall v \right ) \left ( \alpha \right ) \) where \( v \) is a variable and \( \alpha \) is a formula of \( \mathcal{L} \)</li>
-				</ol>
-			</div>
-		</div>
-
-		<div class="definition" id="definition-atomic-formula">
-			<div class="title">Atomic Formula</div>
-			<div class="content">
-				The atomic formulas of \( \mathcal{ L } \) are <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-formula">formulas</a> that satisfy clause 1 or 2 of their definition
-			</div>
-		</div>
-
-
-		<div class="definition" id="definition-language-of-number-theory">
-			<div class="title">language of number theory</div>
-			<div class="content">
-				We define the language \( \mathcal{L}_{N T} = \left ( \left \lbrace \mathtt{0} \right \rbrace , \left \lbrace \mathtt{S} , \mathtt{+} , \mathtt{\cdot} , \mathtt{E} \right \rbrace , \left \lbrace \mathtt{\lt} \right \rbrace \right ) \) as the language of number theory.
-			</div>
-		</div>
-
-		<div class="definition" id="definition-L-Structure">
-			<div class="title">\( \mathcal{L} \)-Structure</div>
-			<div class="content">
-				Fix a <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-first-order-language">language \( \mathcal{L} \)</a>. An \( \mathcal{L} \)-structure \( \mathfrak{A} \) is a non-empty set \( A \), called the universe of \( \mathfrak{A} \), such that the following holds:
-				<ul>
-					<li>For each constant symbol \( c \) of \( \mathcal{L} \), we have an element \( c^{\mathfrak{A}} \) of \( A \)</li>
-					<li>For each \( n \)-ary function symbol \( f \) of \( \mathcal{L} \), we have a function \( f^{\mathfrak{A}}{:} A^{n} \to A \)</li>
-					<li>For each \( n \)-ary relation symbol \( R \) of \( \mathcal{L} \), we have an \( n \)-ary relation \( R^{\mathfrak{A}} \) on \( A \)</li>
-				</ul>
-				Similar to a language we may denote it by \( \left ( A , \left \lbrace c^{\mathfrak{A}} : c \in C_{\mathcal{L}} \right \rbrace , \left \lbrace f^{\mathfrak{A}}{:} f{\in} F_{\mathcal{L}} \right \rbrace , \left \lbrace R^{\mathfrak{A}} : R \in R_{\mathcal{L}} \right \rbrace \right ) \)
-			</div>
-		</div>
-
-		<div class="definition" id="definition-standard-number-theory-structure">
-			<div class="title">standard number theory structure</div>
-			<div class="content">
-				Given \( \mathcal{L}_{N T} \), we define the structure \( \mathfrak{N} := \left ( \mathbb{N}_{0} , \left \lbrace 0 \right \rbrace , \left \lbrace S , + , \cdot , E \right \rbrace , \left \lbrace \lt \right \rbrace \right ) \), where the constant symbol \( \mathtt{0} \) maps to \( 0 \) (the element of \( \mathbb{N}_{0} \)),  \( S \) is the successor function \( S \left ( 2 \right ) = 3 \), \( + \) is usual addition \( 3 + 3 = 6 \), \( \cdot \) multiplication \( 2 \cdot 4 = 8 \), \( E \) for exponentiation \( E \left ( 3 , 2 \right ) = 9 \)
-			</div>
-		</div>
-
-		<div class="definition" id="definition-variable-assigment-function">
-			<div class="title">variable assignment function</div>
-			<div class="content">
-				If \( \mathfrak{A} \) is an \( \mathcal{L} \)-structure, a variable assignment function is any function of the form \( s : V_{\mathcal{L}} \to A \)
-			</div>
-		</div>
-
-		<div class="definition" id="definition-x-modification-of-an-assignment-function">
-			<div class="title">\( x \)-modification of an assignment function</div>
-			<div class="content">
-				If \( s \) is a variable assigment function into \( \mathfrak{A} \) and \( x \in V_{\mathcal{L}} \) and \( a \in A \), then \( s \left [ x \mid a \right ] \) is the variable assigment function defined as follows 
-				<div class="centered-content">
-					\( s \left [ x \mid a \right ] \left ( v \right ) := \left \lbrace \begin{matrix} s \left ( v \right ) & \text{if } v \text{ is a variable other than } x \\ a & \text{if } v \text{ is the variable } x \end{matrix} \right . \)
-				</div>
-				and we say that \( s \left [ x \mid a \right ] \) is an \( x \)-modification of the assigment function \( s \)
-			</div>
-		</div>
-
-		An \( x \)-modification of \( s \) is just like \( s \), except we bind the variable \( x \) to the element \( a \) of \( \mathfrak{A} \)'s universe
-		
-		
-
-		<div class="definition" id="definition-term-assigment-function">
-			<div class="title">term assignment function</div>
-			<div class="content">
-				Suppose that \( \mathfrak{A} \) is an \( L \)-structure and \( s \) is a variable assigment function into \( \mathfrak{A} \). The function \( \overline{s} \), called the term assigment function generated by \( s \), is the function with domain consisting of the set of \( \mathcal{L} \) terms and codomain \( A \) defined as follows
-				<ul>
-					<li>if \( t \) is a variable then \( \overline{s} \left ( t \right ) = s \left ( t \right ) \)</li>
-					<li>if \( t \) is the constant \( c \) then \( \overline{s} \left ( t \right ) = c^{\mathfrak{A}} \)</li>
-					<li>if \( t : \equiv f{t}_{1} t_{2} \ldots t_{n} \) then \( \overline{s} \left ( t \right ) = f^{\mathfrak{A}}{\left ( \overline{s} \left ( t_{1} \right ) , \overline{s} \left ( t_{2} \right ) , \ldots , \overline{s} \left ( t_{n} \right ) \right )} \)</li>
-				</ul>
-			</div>
-		</div>
-
-		<div class="definition" id="definition-interpretation-of-a-term">
-			<div class="title">interpretation of a term</div>
-			<div class="content">
-				Given an <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-L-Structure">\( \mathcal{L} \)-structure \( \mathfrak{A} \)</a>, and a
-				<a class="knowledge-link" href="/logic/structures_and_languages.html#definition-term">term</a> \( t \) from \( \mathcal{L} \), we say that it's interpretation in \( \mathfrak{A} \) is \( \overline{s} \left ( t \right ) \)
-			</div>
-		</div>
-		
-		
-		<div class="exercise" id="exercise-numbers-in-the-number-theory-structure">
-			<div class="title">numbers in the number theory structure</div>
-			<div class="content">
-				What is the <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-interpretation-of-a-term">interpretation</a> in
-				<a class="knowledge-link" href="/logic/structures_and_languages.html#definition-standard-number-theory-structure">\( \mathfrak{N} \)</a> of the term \( t \) defined as \( \mathtt{E S S S 0 S S 0} \)
-			</div>
-			<div class="proof">
-				<p>
-					The interpretation is \( \overline{s} \left ( \mathtt{E S S S 0 S S 0} \right ) \) which is equal to \( \mathtt{E}^{\mathfrak{A}} \left ( \overline{s} \left ( \mathtt{S S S 0} \right ) , \overline{s} \left ( \mathtt{s s 0} \right ) \right ) \), we know that \( \mathtt{E}^{\mathfrak{A}} = E \) (the exponentiation function).
-				</p>
-				<p>
-					Now considering \( \overline{s} \left ( \mathtt{S S 0} \right ) \) it becomes \( S \left ( \overline{s} \left ( \mathtt{S 0} \right ) \right ) \) which becomes \( S \left ( S \left ( \overline{s} \left ( \mathtt{0} \right ) \right ) \right ) \) and since \( \overline{s} \left ( \mathtt{0} \right ) = \mathtt{0}^{\mathfrak{A}} = 0 \) (the natural number 0), then \( \overline{s} \left ( \mathtt{S S 0} \right ) = 0 + 1 + 1 = 2 \), similarly we can find that \( \overline{s} \left ( \mathtt{S S S 0} \right ) = 3 \)
-				</p>
-				<p>
-					From the above paragrpah we know that \( E \left ( \overline{s} \left ( \mathtt{S S S 0} \right ) , \overline{s} \left ( \mathtt{s s 0} \right ) \right ) \) becomes \( E \left ( 3 , 2 \right ) \) which equals \( 9 \), so therefore the interpretation of \( \mathtt{E S S S 0 S S 0} \) in \( \mathfrak{N} \) is \( 9 \).
-				</p>
-			</div>
-		</div>
-
-		<div class="definition" id="definition-a-free-variable-in-a-formula">
-			<div class="title">A Free Varaible in a Formula</div>
-			<div class="content">
-				Suppose that \( v \) is a varaible and \( \phi \) is a formula, then <b>\( v \) is free in \( \phi \)</b> iff exactly one of the following holds:
-				<ol>
-					<li>\( \phi \) is atomic and \( v \) occurs in \( \alpha \)</li>
-					<li>\( \phi :\equiv \left( \neg \alpha \right)  \) and \( v \) is free in \( \alpha \) </li>
-					<li>\( \phi : \equiv \left( \alpha \lor \beta \right)  \) and \( v \) is free in at least one of \( \alpha \) or \( \beta \)</li>
-					<li>\( \phi : \equiv \left( \forall u \right) \left( \alpha \right) \) and \( v \) is not \( u \) and \( v \) is free in \( \alpha \)   </li>
-				</ol>
-			</div>
-		</div>
-		
-		<div class="corollary" id="corollary-for-all-makes-a-variable-not-free">
-			<div class="title">For All Makes a Variable not Free</div>
-			<div class="content">
-				
-			</div>
-			<div class="proof">
-				
-			</div>
-		</div>
-		
-
-		<div class="exercise" id="exercise-">
-			<div class="title">Free Variable For All Easy</div>
-			<div class="content">
-				Show that \( x \) is not free in \( \phi :\equiv \left( \forall x \right) \left( x = x \right)   \)
-			</div>
-			<div class="proof">
-
-			</div>
-		</div>
-
-
-		<div class="exercise" id="exercise-free-varaible-for-all-medium">
-			<div class="title">Free Variable For All Medium</div>
-			<div class="content">
-			Show that in the following <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-formula">formula</a> \( \phi \) defined as
-				\[
-				\left( \forall v_2 \right)  \left( \neg \left( \left( \forall v_3 \right) \left( \left( v_1 = S \left( v_2 \right) \lor v_3 = v_2 \right)  \right)   \right)  \right)
-				\]
-				\( v_1 \) is <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-a-free-variable-in-a-formula">free</a> in \( \phi \), but \( v_2 \) and \( v_3 \) are not
-			</div>
-			<div class="proof">
-				<p>
-					We'll start by showing that \( v_2 \) is free in \( phi \)
-				</p>
-			</div>
-		</div>
-
-					
-		
-
-		
-
+<div class="definition" id="definition-first-order-language">
+    <div class="title">
+        first order language
     </div>
-</body>
+    <div class="content">
+        A first order language \( \mathcal{L} \) is an infinite collection of distinct symbols, no one of which is contained in another, separated into the following categories
+        <ul>
+            <li>Parenthesis: \( ( , ) \)</li>
+            <li>Connectives: \( \vee , \neg \)</li>
+            <li>Quantifier: \( \forall \)</li>
+            <li>Variables, one for each \( i \in \mathbb{N}_{1} \): \( v_{i} \)</li>
+            <li>Equality symbol: =</li>
+            <li>Constant symbols: A set of symbols</li>
+            <li>Function symbols, for each \( n \in \mathbb{N}_{1} \): A set of \( n \)-ary function symbols</li>
+            <li>Relation symbols, for each \( n \in \mathbb{N}_{1} \): A set of \( n \)-ary relation symbols</li>
+        </ul>
+        <p>Since the only thing differing from language to language are its constants, variables, functions and relations then we can denote the language \( \mathcal{L} \) by \( \left ( C_{\mathcal{L}} , F_{\mathcal{L}} , R_{\mathcal{L}} \right ) \), we can denote the set of variables by \( V_{\mathcal{L}} \)</p>
+    </div>
+</div>
+<div class="definition" id="definition-term">
+    <div class="title">
+        term
+    </div>
+    <div class="content">
+        If \( \mathcal{L} \) is a <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-first-order-language">language</a>, a term of \( \mathcal{L} \) is a nonempty finite string \( t \) of symbols from \( \mathcal{L} \) such that
+        <ul>
+            <li>\( t \) is a variable</li>
+            <li>\( t \) is a constant</li>
+            <li>\( t \equiv f{t}_{1} t_{2} \ldots t_{n} \) is a constant where \( f \) is an \( n \)-ary function symbol if \( \mathcal{L} \) and each \( t_{i} \) is a term of \( \mathcal{L} \)</li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-formula">
+    <div class="title">
+        formula
+    </div>
+    <div class="content">
+        If \( \mathcal{L} \) is a first order <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-first-order-language">language</a>, then a formula of \( \mathcal{L} \) is a non-empty finite string \( \phi \) of symbols from \( \mathcal{L} \) such that:
+        <ol>
+            <li>\( \phi : \equiv = t_{1} t_{2} \) where \( t_{1} , t_{2} \) are <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-term">terms</a> of \( \mathcal{L} \)
+            </li>
+            <li>\( \phi : \equiv R t_{1} t_{2} \ldots t_{n} \) where \( R \) is an \( n \)-ary relation symbol of \( \mathcal{L} \) and \( t_{1} , t_{2} \) are terms of \( \mathcal{L} \)</li>
+            <li>\( \phi : \equiv \left ( \neg \alpha \right ) \) where \( \alpha \) is a formula of \( \mathcal{L} \)</li>
+            <li>\( \phi : \equiv \left ( \alpha \vee \beta \right ) \) where \( \alpha , \beta \) are formulas of \( \mathcal{L} \)</li>
+            <li>\( \phi : \equiv \left ( \forall v \right ) \left ( \alpha \right ) \) where \( v \) is a variable and \( \alpha \) is a formula of \( \mathcal{L} \)</li>
+        </ol>
+    </div>
+</div>
+<div class="definition" id="definition-atomic-formula">
+    <div class="title">
+        Atomic Formula
+    </div>
+    <div class="content">
+        The atomic formulas of \( \mathcal{ L } \) are <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-formula">formulas</a> that satisfy clause 1 or 2 of their definition
+    </div>
+</div>
+<div class="definition" id="definition-language-of-number-theory">
+    <div class="title">
+        language of number theory
+    </div>
+    <div class="content">
+        We define the language \( \mathcal{L}_{N T} = \left ( \left \lbrace \mathtt{0} \right \rbrace , \left \lbrace \mathtt{S} , \mathtt{+} , \mathtt{\cdot} , \mathtt{E} \right \rbrace , \left \lbrace \mathtt{\lt} \right \rbrace \right ) \) as the language of number theory.
+    </div>
+</div>
+<div class="definition" id="definition-L-Structure">
+    <div class="title">
+        \( \mathcal{L} \)-Structure
+    </div>
+    <div class="content">
+        Fix a <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-first-order-language">language \( \mathcal{L} \)</a>. An \( \mathcal{L} \)-structure \( \mathfrak{A} \) is a non-empty set \( A \), called the universe of \( \mathfrak{A} \), such that the following holds:
+        <ul>
+            <li>For each constant symbol \( c \) of \( \mathcal{L} \), we have an element \( c^{\mathfrak{A}} \) of \( A \)</li>
+            <li>For each \( n \)-ary function symbol \( f \) of \( \mathcal{L} \), we have a function \( f^{\mathfrak{A}}{:} A^{n} \to A \)</li>
+            <li>For each \( n \)-ary relation symbol \( R \) of \( \mathcal{L} \), we have an \( n \)-ary relation \( R^{\mathfrak{A}} \) on \( A \)</li>
+        </ul>Similar to a language we may denote it by \( \left ( A , \left \lbrace c^{\mathfrak{A}} : c \in C_{\mathcal{L}} \right \rbrace , \left \lbrace f^{\mathfrak{A}}{:} f{\in} F_{\mathcal{L}} \right \rbrace , \left \lbrace R^{\mathfrak{A}} : R \in R_{\mathcal{L}} \right \rbrace \right ) \)
+    </div>
+</div>
+<div class="definition" id="definition-standard-number-theory-structure">
+    <div class="title">
+        standard number theory structure
+    </div>
+    <div class="content">
+        Given \( \mathcal{L}_{N T} \), we define the structure \( \mathfrak{N} := \left ( \mathbb{N}_{0} , \left \lbrace 0 \right \rbrace , \left \lbrace S , + , \cdot , E \right \rbrace , \left \lbrace \lt \right \rbrace \right ) \), where the constant symbol \( \mathtt{0} \) maps to \( 0 \) (the element of \( \mathbb{N}_{0} \)), \( S \) is the successor function \( S \left ( 2 \right ) = 3 \), \( + \) is usual addition \( 3 + 3 = 6 \), \( \cdot \) multiplication \( 2 \cdot 4 = 8 \), \( E \) for exponentiation \( E \left ( 3 , 2 \right ) = 9 \)
+    </div>
+</div>
+<div class="definition" id="definition-variable-assigment-function">
+    <div class="title">
+        variable assignment function
+    </div>
+    <div class="content">
+        If \( \mathfrak{A} \) is an \( \mathcal{L} \)-structure, a variable assignment function is any function of the form \( s : V_{\mathcal{L}} \to A \)
+    </div>
+</div>
+<div class="definition" id="definition-x-modification-of-an-assignment-function">
+    <div class="title">
+        \( x \)-modification of an assignment function
+    </div>
+    <div class="content">
+        If \( s \) is a variable assigment function into \( \mathfrak{A} \) and \( x \in V_{\mathcal{L}} \) and \( a \in A \), then \( s \left [ x \mid a \right ] \) is the variable assigment function defined as follows
+        <div class="centered-content">
+            \( s \left [ x \mid a \right ] \left ( v \right ) := \left \lbrace \begin{matrix} s \left ( v \right ) & \text{if } v \text{ is a variable other than } x \\ a & \text{if } v \text{ is the variable } x \end{matrix} \right . \)
+        </div>and we say that \( s \left [ x \mid a \right ] \) is an \( x \)-modification of the assigment function \( s \)
+    </div>
+</div>An \( x \)-modification of \( s \) is just like \( s \), except we bind the variable \( x \) to the element \( a \) of \( \mathfrak{A} \)'s universe
+<div class="definition" id="definition-term-assigment-function">
+    <div class="title">
+        term assignment function
+    </div>
+    <div class="content">
+        Suppose that \( \mathfrak{A} \) is an \( L \)-structure and \( s \) is a variable assigment function into \( \mathfrak{A} \). The function \( \overline{s} \), called the term assigment function generated by \( s \), is the function with domain consisting of the set of \( \mathcal{L} \) terms and codomain \( A \) defined as follows
+        <ul>
+            <li>if \( t \) is a variable then \( \overline{s} \left ( t \right ) = s \left ( t \right ) \)</li>
+            <li>if \( t \) is the constant \( c \) then \( \overline{s} \left ( t \right ) = c^{\mathfrak{A}} \)</li>
+            <li>if \( t : \equiv f{t}_{1} t_{2} \ldots t_{n} \) then \( \overline{s} \left ( t \right ) = f^{\mathfrak{A}}{\left ( \overline{s} \left ( t_{1} \right ) , \overline{s} \left ( t_{2} \right ) , \ldots , \overline{s} \left ( t_{n} \right ) \right )} \)</li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-interpretation-of-a-term">
+    <div class="title">
+        interpretation of a term
+    </div>
+    <div class="content">
+        Given an <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-L-Structure">\( \mathcal{L} \)-structure \( \mathfrak{A} \)</a>, and a <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-term">term</a> \( t \) from \( \mathcal{L} \), we say that it's interpretation in \( \mathfrak{A} \) is \( \overline{s} \left ( t \right ) \)
+    </div>
+</div>
+<div class="exercise" id="exercise-numbers-in-the-number-theory-structure">
+    <div class="title">
+        numbers in the number theory structure
+    </div>
+    <div class="content">
+        What is the <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-interpretation-of-a-term">interpretation</a> in <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-standard-number-theory-structure">\( \mathfrak{N} \)</a> of the term \( t \) defined as \( \mathtt{E S S S 0 S S 0} \)
+    </div>
+    <div class="proof">
+        <p>The interpretation is \( \overline{s} \left ( \mathtt{E S S S 0 S S 0} \right ) \) which is equal to \( \mathtt{E}^{\mathfrak{A}} \left ( \overline{s} \left ( \mathtt{S S S 0} \right ) , \overline{s} \left ( \mathtt{s s 0} \right ) \right ) \), we know that \( \mathtt{E}^{\mathfrak{A}} = E \) (the exponentiation function).</p>
+        <p>Now considering \( \overline{s} \left ( \mathtt{S S 0} \right ) \) it becomes \( S \left ( \overline{s} \left ( \mathtt{S 0} \right ) \right ) \) which becomes \( S \left ( S \left ( \overline{s} \left ( \mathtt{0} \right ) \right ) \right ) \) and since \( \overline{s} \left ( \mathtt{0} \right ) = \mathtt{0}^{\mathfrak{A}} = 0 \) (the natural number 0), then \( \overline{s} \left ( \mathtt{S S 0} \right ) = 0 + 1 + 1 = 2 \), similarly we can find that \( \overline{s} \left ( \mathtt{S S S 0} \right ) = 3 \)</p>
+        <p>From the above paragrpah we know that \( E \left ( \overline{s} \left ( \mathtt{S S S 0} \right ) , \overline{s} \left ( \mathtt{s s 0} \right ) \right ) \) becomes \( E \left ( 3 , 2 \right ) \) which equals \( 9 \), so therefore the interpretation of \( \mathtt{E S S S 0 S S 0} \) in \( \mathfrak{N} \) is \( 9 \).</p>
+    </div>
+</div>
+<div class="definition" id="definition-a-free-variable-in-a-formula">
+    <div class="title">
+        A Free Varaible in a Formula
+    </div>
+    <div class="content">
+        Suppose that \( v \) is a varaible and \( \phi \) is a formula, then <b>\( v \) is free in \( \phi \)</b> iff exactly one of the following holds:
+        <ol>
+            <li>\( \phi \) is atomic and \( v \) occurs in \( \alpha \)</li>
+            <li>\( \phi :\equiv \left( \neg \alpha \right) \) and \( v \) is free in \( \alpha \)</li>
+            <li>\( \phi : \equiv \left( \alpha \lor \beta \right) \) and \( v \) is free in at least one of \( \alpha \) or \( \beta \)</li>
+            <li>\( \phi : \equiv \left( \forall u \right) \left( \alpha \right) \) and \( v \) is not \( u \) and \( v \) is free in \( \alpha \)</li>
+        </ol>
+    </div>
+</div>
+<div class="corollary" id="corollary-for-all-makes-a-variable-not-free">
+    <div class="title">
+        For All Makes a Variable not Free
+    </div>
+    <div class="content"></div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-">
+    <div class="title">
+        Free Variable For All Easy
+    </div>
+    <div class="content">
+        Show that \( x \) is not free in \( \phi :\equiv \left( \forall x \right) \left( x = x \right) \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-free-varaible-for-all-medium">
+    <div class="title">
+        Free Variable For All Medium
+    </div>
+    <div class="content">
+        Show that in the following <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-formula">formula</a> \( \phi \) defined as \[ \left( \forall v_2 \right) \left( \neg \left( \left( \forall v_3 \right) \left( \left( v_1 = S \left( v_2 \right) \lor v_3 = v_2 \right) \right) \right) \right) \] \( v_1 \) is <a class="knowledge-link" href="/logic/structures_and_languages.html#definition-a-free-variable-in-a-formula">free</a> in \( \phi \), but \( v_2 \) and \( v_3 \) are not
+    </div>
+    <div class="proof">
+        <p>We'll start by showing that \( v_2 \) is free in \( phi \)</p>
+    </div>
+</div>

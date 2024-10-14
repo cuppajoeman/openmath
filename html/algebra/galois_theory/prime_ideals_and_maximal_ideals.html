@@ -1,222 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Prime Ideals and Maximal Ideals</title>
-    <script src="/js/script.js"></script>
-    <link rel="stylesheet" href="/styles/styles.css">
-</head>
-<body>
-
-<div class="thin-wrapper">
-    
-    <div class="definition" id="definition-irreducible">
-    	<div class="title">Irreducible</div>
-    	<div class="content">
-    		Let \( F \) be a field. A non-zero polynomial \( p \left( x \right) \in F \left[ x \right]   \) is irreducible over \( F \) if \( \operatorname{ deg } \left( p \right) \ge 1 \) and there is no factorization \( \left( p \left( x \right) = f \left( x \right) g \left( x \right)  \right)  \) where \( f \left( x \right) , g \left( x \right) \in F \left[ x \right]  \) with \( \operatorname{ deg } \left( f \right) , \operatorname{ deg } \left( g \right) \lt \operatorname{ deg } \left( p \right)  \) 
-    	</div>
+<div class="definition" id="definition-irreducible">
+    <div class="title">
+        Irreducible
     </div>
-
-    <p>
-        Note that the field plays into whether or not a polynomial is irreducible, for example \( x ^  2 + 1 \) is irreducible over \( \mathbb{ R }  \), but factors in \( \mathbb{ C }  \)
-    </p>
-
-	<div class="corollary" id="corollary-degree-one-polynomials-are-irreducible">
-		<div class="title">Degree One Polynomials are Irreducible</div>
-		<div class="content">
-			As per title.
-		</div>
-		<div class="proof">
-			Observer that the degree of any polynomial is bounded below by zero. Now let \( p \left( x \right)  \) be a degree one polynomial, and suppose there were two polynomials \( a \left( x \right) , b	 \left( x \right)  \) such that \( p \left( x \right) = a \left( x \right) b \left( x \right)  \) where \( \operatorname{ deg } \left( a \right) , \operatorname{ deg } \left( b \right) \lt \operatorname{ deg } \left( p \right) = 1  \) this means that both \( a \left( x \right) , b \left( x \right)  \) have degree zero, so then they are constant, so their product is constant, which is a contradiction, therefore \( p \left( x \right)  \) is irreducible.
-		</div>
-	</div>
-
-
-
-	<div class="proposition" id="proposition-polynomial-of-degree-2-or-3-is-irreducible-iff-it-has-no-roots">
-		<div class="title">Polynomial of Degree 2 or 3 is Irreducible Iff It has no Roots</div>
-		<div class="content">
-			A polynomial \( p \left( x \right) \in F \left[ x \right]  \) of degree 2 or 3 is irreducible over \( F \) if and only if \( F \) contains no root of \( p \left( x \right)  \)
-
-		</div>
-		<div class="proof">
-
-		</div>
-	</div>
-	<p>
-		Note that the above doesn't hold for degree 4 because the polynomial \( \left( x ^ 2 + 1 \right) ^ 2  \) factors as \( \left( x ^ 2 + 1 \right) \left( x ^ 2 + 1 \right)   \) in \( \mathbb{ R } \left[ x \right]  \) (and is thus not irreducible) but has no real roots.
-	</p>
-
-
-	<div class="proposition" id="proposition-irreducible-either-has-gcd-1-or-divides-with-any-other-polynomial-non-constant">
-		<div class="title">Irreducible Either has GCD 1 or Divides any other Non-Constant Polynomial</div>
-		<div class="content">
-			Let \( p \left( x \right) \in F \left[ x \right]  \) be irreducible. If \( g \left( x \right) \in F \left[ x \right]  \) is not constant, then either \( \gcd \left( p \left( x \right) , g \left( x \right)  \right) = 1  \) or \( p \left( x \right) \mid g \left( x \right)  \)
-		</div>
-		<div class="proof">
-
-		</div>
-	</div>
-
-
-    <div class="definition" id="definition-prime-ideal">
-    	<div class="title">Prime Ideal</div>
-    	<div class="content">
-    		An ideal \( I \) in a ring \( R \) is called a <b>prime ideal</b> if it is a proper ideal and \( ab \in I \) implies that \( a \in I \) or \( b \in I \)
-    	</div>
+    <div class="content">
+        Let \( F \) be a field. A non-zero polynomial \( p \left( x \right) \in F \left[ x \right] \) is irreducible over \( F \) if \( \operatorname{ deg } \left( p \right) \ge 1 \) and there is no factorization \( \left( p \left( x \right) = f \left( x \right) g \left( x \right) \right) \) where \( f \left( x \right) , g \left( x \right) \in F \left[ x \right] \) with \( \operatorname{ deg } \left( f \right) , \operatorname{ deg } \left( g \right) \lt \operatorname{ deg } \left( p \right) \)
     </div>
-
-
-    <div class="theorem" id="theorem-irreducibility-criterion-with-prime-ideals">
-    	<div class="title">Irreducibility Criterion with Prime Ideals</div>
-    	<div class="content">
-            If \( f \) is a field, then a non-zero polynomial \( p \left( x \right) \in F \left[ x \right]  \) is irreducible iff \( \left( p \left( x \right)  \right) _ \diamond  \) is a prime ideal
-        </div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-    
-    <div class="proposition" id="proposition-a-proper-ideal-is-prime-iff-the-quotient-ring-is-a-domain">
-    	<div class="title">A Proper Ideal is Prime iff the Quotient Ring is a Domain</div>
-    	<div class="content">
-    		Suppose that \( I \) is a proper ideal of \( R \) then \( I \) is a prime ideal iff \( R / I \) is a domain
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
-    </div>
-
-    <div class="definition" id="definition-maximal-ideal">
-    	<div class="title">Maximal Ideal</div>
-    	<div class="content">
-    		An ideal \( I \) in a crone \( R \) is a <b>maximal ideal</b> if it is a proper ideal and there is no ideal \( J \) such that 
-            \[
-                I \subset J \subset R
-            \]
-    	</div>
-    </div>
-    
-    <div class="proposition" id="proposition-maximal-iff-quotient-ring-is-a-field">
-    	<div class="title">Maximal iff Quotient Ring is a Field</div>
-    	<div class="content">
-    		A proper ideal \( I \) in a crone \( R \) is a maximal ideal if and only if \( R / I \) is a field.
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
-    </div>
-
-    <div class="corollary" id="corollary-maximal-implies-prime">
-    	<div class="title">Maximal Implies Prime</div>
-    	<div class="content">
-    		Every maximal ideal \( I \) in a crone \( R \) is a prime ideal
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
-    </div>
-    
-    <div class="proposition" id="proposition-in-a-pid-every-non-zero-prime-ideal-is-maximal">
-    	<div class="title">In a PID every Non-Zero Prime Ideal is Maximal</div>
-    	<div class="content">
-    		If \( R \) is a principal ideal domain then every non-zero prime ideal \( I \) is a maximal ideal
-    	</div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-
-    <div class="corollary" id="corollary-field-polynomials-mod-an-irreducible-yields-a-root">
-    	<div class="title">Field Polynomials Mod an Irreducible Yields a Root</div>
-    	<div class="content">
-    		If \( F \) is a field and \( p \left( x \right) \in F \left[ x \right]  \) is irreducible, then the quotient ring \( F \left[ x \right] / \left( p \left( x \right)  \right) _ \diamond  \) is a field containing (an isomorphic copy of) \( F \) and a root of \( p \left( x \right)  \)
-    	</div>
-    	<div class="proof">
-			<p>
-				Since \( p \left( x \right)  \) is irreducible, then it has degree at least one, and therefore is non-zero <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#theorem-irreducibility-criterion-with-prime-ideals">thus we know that</a> \( \left( p \left( x \right)  \right) _ \diamond  \) is a prime ideal, it is non-zero since \( p \left( x \right) \in \left( p \left( x \right)  \right) _ \diamond  \).
-			</p>
-			<p>
-				Since \( F \) is a field, <a class="knowledge-link" href="/algebra/galois_theory/polynomial_rings_over_fields.html#theorem-if-F-is-a-field-then-F[x]-is-a-pid">then we know that</a> \( F \left[ x \right]  \) is a PID, therefore since we've just seen that \( I \) is a non-zero prime ideal <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#proposition-in-a-pid-every-non-zero-prime-ideal-is-maximal">then we know that</a>  \( I \) is a maximal ideal.
-			</p>
-			<p>
-				Since \( I \) is a maximal ideal, then <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#proposition-maximal-iff-quotient-ring-is-a-field">we know that </a> \( E := F \left[ x \right] / I \) is a field. Observe that the map \( a \mapsto a \boldsymbol{+}  I \) is an isomorphism from \( F \) to \( F ^ \prime := \left\{ a \boldsymbol{+} I : a \in F \right\}  \subseteq E \). We finally show that \( E \) contains a root.
-			</p>
-			<p>
-				Consider \( \theta = x \boldsymbol{+} I \in E \), and write \( p \left( x \right) = a_0  + a_1 x ^ 1 + \cdots + a_n x ^ n \), then
-				\[
-				    \begin{align}
-				        p \left( \theta \right) &= \left( a _ 0 \boldsymbol{+} I \right) + \left( a _ 1 \boldsymbol{+} I \right) \theta + \cdots + \left( a _ n \boldsymbol{+} I \right) \theta ^ n \\
-				&= \left( a _ 0 \boldsymbol{+} I \right) + \left( a _ 1 \boldsymbol{+} I \right) \left( x \boldsymbol{+} I \right)  + \cdots + \left( a _ n \boldsymbol{+} I \right) \left( x \boldsymbol{+} I \right)  ^ n \\
-				&= \left( a _ 0 \boldsymbol{+} I \right) + \left( a _ 1 x \boldsymbol{+} I \right)  + \cdots + \left( a _ n x ^ n \boldsymbol{+} I \right) \\
-				&= a_0 + a_1 x + \cdots + a_n x ^ n \boldsymbol{+} I \\
-				&= p \left( x \right)  \boldsymbol{+}  I \\
-				&= 0 \boldsymbol{+}  I \\
-				    \end{align}
-				\]
-				Since \( 0 \boldsymbol{+} I \) is the zero element of \( F \left[ x \right] / I \) then \( \theta \) is a root of \( p \left( x \right)  \) 
-			</p>
-    	</div>
-    </div>
-
-	<div class="definition" id="definition-linear-factor">
-		<div class="title">Linear Factor</div>
-		<div class="content">
-			Suppose that \( F \) is a field and \( a \in F \), then we say that the polynomial \( x - a \in F \left[ x \right]  \) is a linear factor.
-		</div>
-	</div>
-
-	<div class="definition" id="definition-splits-over">
-		<div class="title">Splits Over</div>
-		<div class="content">
-			A polynomial \( f \left( x \right) \in F \left[ x \right]  \) splits over \( F \) if it is a product of linear factors in \( F \left[ x \right]  \)
-		</div>
-	</div>
-
-	<div class="corollary" id="corollary-splits-iff-root">
-		<div class="title">Splits iff Roots</div>
-		<div class="content">
-			\( f \left( x \right) \in F \left[ x \right]  \) splits over \( F \left[ x \right]  \) if and only if \( F \) contains all the roots of \( f \left( x \right)  \).
-		</div>
-		<div class="proof">
-
-		</div>
-	</div>
-
-	<div class="definition" id="definition-prime-field">
-		<div class="title">Prime Field</div>
-		<div class="content">
-			The <b>prime field</b> of a field \( F \) is the intersection of all the subfields of \( F \)
-		</div>
-	</div>
-
-	<div class="definition" id="definition-characteristic">
-		<div class="title">Characteristic</div>
-		<div class="content">
-			Suppose that \( p \) is prime, and that \( F \) is a field, then we say that \( F \) has <b>characteristic</b> \( p \) if its <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#definition-prime-field">prime field</a> is isomorphic to \( \mathbb{ Z } _ p ^ \% \)
-		</div>
-	</div>
-
-
-	<div class="proposition" id="proposition-unique-roots-in-a-field-of-characteristic-p">
-		<div class="title">Unique Roots in a Field of Characteristic p</div>
-		<div class="content">
-			Let \( F \) be a finite field of characteristic \( p \), show that each element \( a \in F \) has a unique \( p \)-th root in \( F \) 
-		</div>
-		<div class="proof">
-			<p>
-				Let's first observe that that map \( g : F \to F \) defined by \( f \left( x \right) = x ^ p \) is an injective mapping, suppose that \( x ^ p = y ^ p \iff x ^ p - y ^ p = 0 \) then by the properties of a field of characteristic \( p \) we have \( \left( x - y \right) ^ p = 0 \iff x - y = 0 \iff x = y\), so that \( g \) is injective.
-			</p>
-			<p>
-				Recall that an injection over a finite set becomes a surjection, since \( a \in F \) then there exists some \( k \in F \) such that \( g \left( k \right) = a  \) which is to say \( k ^ p = a \) thus we know that there exists a root of \( a \). Let's prove that it's unique
-			</p>
-			<p>
-				Suppose that \( j \neq k \) is another \( p \)-th root of \( a \) therefore we have that \( j ^ p = a = k ^ p \) but then we have \( j ^ p - k ^ p = 0 \) so we have that \( \left( j - k \right) ^ p = 0 \iff j = k   \) which is a contradiction, so therefore the root is unique.
-			</p>
-		</div>
-	</div>
-
 </div>
-
-</body>
-</html>
+<p>Note that the field plays into whether or not a polynomial is irreducible, for example \( x ^ 2 + 1 \) is irreducible over \( \mathbb{ R } \), but factors in \( \mathbb{ C } \)</p>
+<div class="corollary" id="corollary-degree-one-polynomials-are-irreducible">
+    <div class="title">
+        Degree One Polynomials are Irreducible
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        Observer that the degree of any polynomial is bounded below by zero. Now let \( p \left( x \right) \) be a degree one polynomial, and suppose there were two polynomials \( a \left( x \right) , b \left( x \right) \) such that \( p \left( x \right) = a \left( x \right) b \left( x \right) \) where \( \operatorname{ deg } \left( a \right) , \operatorname{ deg } \left( b \right) \lt \operatorname{ deg } \left( p \right) = 1 \) this means that both \( a \left( x \right) , b \left( x \right) \) have degree zero, so then they are constant, so their product is constant, which is a contradiction, therefore \( p \left( x \right) \) is irreducible.
+    </div>
+</div>
+<div class="proposition" id="proposition-polynomial-of-degree-2-or-3-is-irreducible-iff-it-has-no-roots">
+    <div class="title">
+        Polynomial of Degree 2 or 3 is Irreducible Iff It has no Roots
+    </div>
+    <div class="content">
+        A polynomial \( p \left( x \right) \in F \left[ x \right] \) of degree 2 or 3 is irreducible over \( F \) if and only if \( F \) contains no root of \( p \left( x \right) \)
+    </div>
+    <div class="proof"></div>
+</div>
+<p>Note that the above doesn't hold for degree 4 because the polynomial \( \left( x ^ 2 + 1 \right) ^ 2 \) factors as \( \left( x ^ 2 + 1 \right) \left( x ^ 2 + 1 \right) \) in \( \mathbb{ R } \left[ x \right] \) (and is thus not irreducible) but has no real roots.</p>
+<div class="proposition" id="proposition-irreducible-either-has-gcd-1-or-divides-with-any-other-polynomial-non-constant">
+    <div class="title">
+        Irreducible Either has GCD 1 or Divides any other Non-Constant Polynomial
+    </div>
+    <div class="content">
+        Let \( p \left( x \right) \in F \left[ x \right] \) be irreducible. If \( g \left( x \right) \in F \left[ x \right] \) is not constant, then either \( \gcd \left( p \left( x \right) , g \left( x \right) \right) = 1 \) or \( p \left( x \right) \mid g \left( x \right) \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-prime-ideal">
+    <div class="title">
+        Prime Ideal
+    </div>
+    <div class="content">
+        An ideal \( I \) in a ring \( R \) is called a <b>prime ideal</b> if it is a proper ideal and \( ab \in I \) implies that \( a \in I \) or \( b \in I \)
+    </div>
+</div>
+<div class="theorem" id="theorem-irreducibility-criterion-with-prime-ideals">
+    <div class="title">
+        Irreducibility Criterion with Prime Ideals
+    </div>
+    <div class="content">
+        If \( f \) is a field, then a non-zero polynomial \( p \left( x \right) \in F \left[ x \right] \) is irreducible iff \( \left( p \left( x \right) \right) _ \diamond \) is a prime ideal
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-a-proper-ideal-is-prime-iff-the-quotient-ring-is-a-domain">
+    <div class="title">
+        A Proper Ideal is Prime iff the Quotient Ring is a Domain
+    </div>
+    <div class="content">
+        Suppose that \( I \) is a proper ideal of \( R \) then \( I \) is a prime ideal iff \( R / I \) is a domain
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-maximal-ideal">
+    <div class="title">
+        Maximal Ideal
+    </div>
+    <div class="content">
+        An ideal \( I \) in a crone \( R \) is a <b>maximal ideal</b> if it is a proper ideal and there is no ideal \( J \) such that \[ I \subset J \subset R \]
+    </div>
+</div>
+<div class="proposition" id="proposition-maximal-iff-quotient-ring-is-a-field">
+    <div class="title">
+        Maximal iff Quotient Ring is a Field
+    </div>
+    <div class="content">
+        A proper ideal \( I \) in a crone \( R \) is a maximal ideal if and only if \( R / I \) is a field.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-maximal-implies-prime">
+    <div class="title">
+        Maximal Implies Prime
+    </div>
+    <div class="content">
+        Every maximal ideal \( I \) in a crone \( R \) is a prime ideal
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-in-a-pid-every-non-zero-prime-ideal-is-maximal">
+    <div class="title">
+        In a PID every Non-Zero Prime Ideal is Maximal
+    </div>
+    <div class="content">
+        If \( R \) is a principal ideal domain then every non-zero prime ideal \( I \) is a maximal ideal
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-field-polynomials-mod-an-irreducible-yields-a-root">
+    <div class="title">
+        Field Polynomials Mod an Irreducible Yields a Root
+    </div>
+    <div class="content">
+        If \( F \) is a field and \( p \left( x \right) \in F \left[ x \right] \) is irreducible, then the quotient ring \( F \left[ x \right] / \left( p \left( x \right) \right) _ \diamond \) is a field containing (an isomorphic copy of) \( F \) and a root of \( p \left( x \right) \)
+    </div>
+    <div class="proof">
+        <p>Since \( p \left( x \right) \) is irreducible, then it has degree at least one, and therefore is non-zero <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#theorem-irreducibility-criterion-with-prime-ideals">thus we know that</a> \( \left( p \left( x \right) \right) _ \diamond \) is a prime ideal, it is non-zero since \( p \left( x \right) \in \left( p \left( x \right) \right) _ \diamond \).</p>
+        <p>Since \( F \) is a field, <a class="knowledge-link" href="/algebra/galois_theory/polynomial_rings_over_fields.html#theorem-if-F-is-a-field-then-F[x]-is-a-pid">then we know that</a> \( F \left[ x \right] \) is a PID, therefore since we've just seen that \( I \) is a non-zero prime ideal <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#proposition-in-a-pid-every-non-zero-prime-ideal-is-maximal">then we know that</a> \( I \) is a maximal ideal.</p>
+        <p>Since \( I \) is a maximal ideal, then <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#proposition-maximal-iff-quotient-ring-is-a-field">we know that</a> \( E := F \left[ x \right] / I \) is a field. Observe that the map \( a \mapsto a \boldsymbol{+} I \) is an isomorphism from \( F \) to \( F ^ \prime := \left\{ a \boldsymbol{+} I : a \in F \right\} \subseteq E \). We finally show that \( E \) contains a root.</p>
+        <p>Consider \( \theta = x \boldsymbol{+} I \in E \), and write \( p \left( x \right) = a_0 + a_1 x ^ 1 + \cdots + a_n x ^ n \), then \[ \begin{align} p \left( \theta \right) &amp;= \left( a _ 0 \boldsymbol{+} I \right) + \left( a _ 1 \boldsymbol{+} I \right) \theta + \cdots + \left( a _ n \boldsymbol{+} I \right) \theta ^ n \\ &amp;= \left( a _ 0 \boldsymbol{+} I \right) + \left( a _ 1 \boldsymbol{+} I \right) \left( x \boldsymbol{+} I \right) + \cdots + \left( a _ n \boldsymbol{+} I \right) \left( x \boldsymbol{+} I \right) ^ n \\ &amp;= \left( a _ 0 \boldsymbol{+} I \right) + \left( a _ 1 x \boldsymbol{+} I \right) + \cdots + \left( a _ n x ^ n \boldsymbol{+} I \right) \\ &amp;= a_0 + a_1 x + \cdots + a_n x ^ n \boldsymbol{+} I \\ &amp;= p \left( x \right) \boldsymbol{+} I \\ &amp;= 0 \boldsymbol{+} I \\ \end{align} \] Since \( 0 \boldsymbol{+} I \) is the zero element of \( F \left[ x \right] / I \) then \( \theta \) is a root of \( p \left( x \right) \)</p>
+    </div>
+</div>
+<div class="definition" id="definition-linear-factor">
+    <div class="title">
+        Linear Factor
+    </div>
+    <div class="content">
+        Suppose that \( F \) is a field and \( a \in F \), then we say that the polynomial \( x - a \in F \left[ x \right] \) is a linear factor.
+    </div>
+</div>
+<div class="definition" id="definition-splits-over">
+    <div class="title">
+        Splits Over
+    </div>
+    <div class="content">
+        A polynomial \( f \left( x \right) \in F \left[ x \right] \) splits over \( F \) if it is a product of linear factors in \( F \left[ x \right] \)
+    </div>
+</div>
+<div class="corollary" id="corollary-splits-iff-root">
+    <div class="title">
+        Splits iff Roots
+    </div>
+    <div class="content">
+        \( f \left( x \right) \in F \left[ x \right] \) splits over \( F \left[ x \right] \) if and only if \( F \) contains all the roots of \( f \left( x \right) \).
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-prime-field">
+    <div class="title">
+        Prime Field
+    </div>
+    <div class="content">
+        The <b>prime field</b> of a field \( F \) is the intersection of all the subfields of \( F \)
+    </div>
+</div>
+<div class="definition" id="definition-characteristic">
+    <div class="title">
+        Characteristic
+    </div>
+    <div class="content">
+        Suppose that \( p \) is prime, and that \( F \) is a field, then we say that \( F \) has <b>characteristic</b> \( p \) if its <a class="knowledge-link" href="/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#definition-prime-field">prime field</a> is isomorphic to \( \mathbb{ Z } _ p ^ \% \)
+    </div>
+</div>
+<div class="proposition" id="proposition-unique-roots-in-a-field-of-characteristic-p">
+    <div class="title">
+        Unique Roots in a Field of Characteristic p
+    </div>
+    <div class="content">
+        Let \( F \) be a finite field of characteristic \( p \), show that each element \( a \in F \) has a unique \( p \)-th root in \( F \)
+    </div>
+    <div class="proof">
+        <p>Let's first observe that that map \( g : F \to F \) defined by \( f \left( x \right) = x ^ p \) is an injective mapping, suppose that \( x ^ p = y ^ p \iff x ^ p - y ^ p = 0 \) then by the properties of a field of characteristic \( p \) we have \( \left( x - y \right) ^ p = 0 \iff x - y = 0 \iff x = y\), so that \( g \) is injective.</p>
+        <p>Recall that an injection over a finite set becomes a surjection, since \( a \in F \) then there exists some \( k \in F \) such that \( g \left( k \right) = a \) which is to say \( k ^ p = a \) thus we know that there exists a root of \( a \). Let's prove that it's unique</p>
+        <p>Suppose that \( j \neq k \) is another \( p \)-th root of \( a \) therefore we have that \( j ^ p = a = k ^ p \) but then we have \( j ^ p - k ^ p = 0 \) so we have that \( \left( j - k \right) ^ p = 0 \iff j = k \) which is a contradiction, so therefore the root is unique.</p>
+    </div>
+</div>

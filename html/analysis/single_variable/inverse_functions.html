@@ -1,111 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>inverse functions</title>
-        <link rel="stylesheet" href="../../styles/styles.css">
-        <script src="../../js/script.js" defer></script>
-
-    </head>
-    <body>
-        <div class="thin-wrapper">
-            <h1>inverse functions</h1>
-            
-            <div class="definition">
-                <div class="title">increasing function</div>
-                <div class="content">
-                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is increasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \le f{\left ( y \right )} \). An increasing function is also known as a non-decreasing function.
-                </div>
-            </div>
-
-            <div class="definition">
-                <div class="title">strictly increasing function</div>
-                <div class="content">
-                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is strictly increasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \lt f{\left ( y \right )} \). 
-                </div>
-            </div>
-
-            <div class="definition">
-                <div class="title">decreasing function</div>
-                <div class="content">
-                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is decreasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \ge f{\left ( y \right )} \). A decreasing function is also known as a non-increasing function.
-                </div>
-            </div>
-
-            <div class="definition">
-                <div class="title">strictly decreasing function</div>
-                <div class="content">
-                    given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is decreasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \gt f{\left ( y \right )} \) 
-                </div>
-            </div>
-
-            <div class="definition" id="definition-monotone-function">
-                <div class="title">monotone function</div>
-                <div class="content">
-                        a function defined on a subset of \( \mathbb{R} \) is said to be monotone if and only if it is non-increasing or non-decreasing
-                </div>
-            </div>
-
-            <div class="definition" id="definition-strictly-monotone-function">
-                <div class="title">strictly monotone function</div>
-                <div class="content">
-                    a function defined on a subset of \( \mathbb{R} \) is said to be monotone if and only if it is stictly increasing or strictly decreasing
-                </div>
-            </div>
-
-            <div class="definition">
-                <div class="title">invertible function</div>
-                <div class="content">
-                    Let \( f{:} X \to Y \) be a function, if there is a function \( g{:} Y \to X \) such that \( g{\left ( f{\left ( x \right )} \right )} = x \) for all \( x \in X \) and \( f{\left ( g{\left ( y \right )} \right )} = y \) for all \( y \in Y \)
-                </div>
-            </div>
-
-
-            <div class="theorem">
-                <div class="title"></div>
-                <div class="content">
-                    a function is invertible iff it is <span class="knowledge-link" data-href="/analysis/single_variable/inverse_functions.html#definition-bijective-function">bijective</span>
-                </div>
-				<div class="proof">
-					TODO
-				</div>
-            </div>
-            
-
-            <div class="proposition">
-                <div class="title"></div>
-                <div class="content">
-                    If \( f \) is strictly monotone then it is invertible
-                </div>
-				<div class="proof">
-					TODO
-				</div>
-            </div>
-
-            <div class="proposition">
-                <div class="title"></div>
-                <div class="content">
-                    Suppose that \( f{:} X \to Y \) is strictly monotone, then \( f^{- 1}{:} Y \to X \) is a continuous function
-                </div>
-				<div class="proof">
-					<p>
-						Suppose without loss of generality that \( f \) is strictly increasing on \( I = \left ( a , b \right ) \). 
-					</p>
-					<p>
-						We'll show that the function is continuous, so let \( p \in I \) and we'll show that \( \lim_{y \to p} f^{- 1}{\left ( x \right )} = f^{- 1}{\left ( p \right )} \) using the epsilon delta definition.
-					</p>
-					<p>
-						Let \( \epsilon \in \mathbb{R}^{\gt 0} \), let \( x = f^{- 1}{\left ( p \right )} \) and note that \( x - \epsilon \lt x + \epsilon \) and therefore since \( f \) is strictly increasing we know that \( f{\left ( x - \epsilon \right )} \lt f{\left ( x + \epsilon \right )} \), in other words, there is some \( \delta_{1} , \delta_{2} \in \mathbb{R}^{\gt 0} \) such that \( f{\left ( x - \epsilon \right )} = p - \delta_{1} \) and \( f{\left ( x + \epsilon \right )} = p + \delta_{2} \), now take \( \delta = \min \left ( \delta_{1} , \delta_{2} \right ) \) and suppose \( \left \lvert y - p \right \rvert \lt \delta \). 
-					</p>
-					<p>
-						if \( \left \lvert y - p \right \rvert \lt \delta \), then \( \delta - p \lt y \lt \delta + p \)
-					</p>
-				</div>
-            </div>
-            
-
-        </div>
-    </body>
-</html>
+<h1>inverse functions</h1>
+<div class="definition">
+    <div class="title">
+        increasing function
+    </div>
+    <div class="content">
+        given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is increasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \le f{\left ( y \right )} \). An increasing function is also known as a non-decreasing function.
+    </div>
+</div>
+<div class="definition">
+    <div class="title">
+        strictly increasing function
+    </div>
+    <div class="content">
+        given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is strictly increasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \lt f{\left ( y \right )} \).
+    </div>
+</div>
+<div class="definition">
+    <div class="title">
+        decreasing function
+    </div>
+    <div class="content">
+        given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is decreasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \ge f{\left ( y \right )} \). A decreasing function is also known as a non-increasing function.
+    </div>
+</div>
+<div class="definition">
+    <div class="title">
+        strictly decreasing function
+    </div>
+    <div class="content">
+        given \( A \subseteq \mathbb{R} \), a function \( f{:} A \to \mathbb{R} \) is decreasing if given \( x , y \in A \) with \( x \lt y \) we have \( f{\left ( x \right )} \gt f{\left ( y \right )} \)
+    </div>
+</div>
+<div class="definition" id="definition-monotone-function">
+    <div class="title">
+        monotone function
+    </div>
+    <div class="content">
+        a function defined on a subset of \( \mathbb{R} \) is said to be monotone if and only if it is non-increasing or non-decreasing
+    </div>
+</div>
+<div class="definition" id="definition-strictly-monotone-function">
+    <div class="title">
+        strictly monotone function
+    </div>
+    <div class="content">
+        a function defined on a subset of \( \mathbb{R} \) is said to be monotone if and only if it is stictly increasing or strictly decreasing
+    </div>
+</div>
+<div class="definition">
+    <div class="title">
+        invertible function
+    </div>
+    <div class="content">
+        Let \( f{:} X \to Y \) be a function, if there is a function \( g{:} Y \to X \) such that \( g{\left ( f{\left ( x \right )} \right )} = x \) for all \( x \in X \) and \( f{\left ( g{\left ( y \right )} \right )} = y \) for all \( y \in Y \)
+    </div>
+</div>
+<div class="theorem" id="theorem-invertible-iff-bijective">
+    <div class="title"></div>
+    <div class="content">
+        a function is invertible iff it is <span class="knowledge-link" data-href="/analysis/single_variable/inverse_functions.html#definition-bijective-function">bijective</span>
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="proposition" id="proposition-strictly-monotone-implies-invertible">
+    <div class="title"></div>
+    <div class="content">
+        If \( f \) is strictly monotone then it is invertible
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="proposition" id="proposition-strictly-monotone-implies-continuous-inverse">
+    <div class="title"></div>
+    <div class="content">
+        Suppose that \( f{:} X \to Y \) is strictly monotone, then \( f^{- 1}{:} Y \to X \) is a continuous function
+    </div>
+    <div class="proof">
+        <p>Suppose without loss of generality that \( f \) is strictly increasing on \( I = \left ( a , b \right ) \).</p>
+        <p>We'll show that the function is continuous, so let \( p \in I \) and we'll show that \( \lim_{y \to p} f^{- 1}{\left ( x \right )} = f^{- 1}{\left ( p \right )} \) using the epsilon delta definition.</p>
+        <p>Let \( \epsilon \in \mathbb{R}^{\gt 0} \), let \( x = f^{- 1}{\left ( p \right )} \) and note that \( x - \epsilon \lt x + \epsilon \) and therefore since \( f \) is strictly increasing we know that \( f{\left ( x - \epsilon \right )} \lt f{\left ( x + \epsilon \right )} \), in other words, there is some \( \delta_{1} , \delta_{2} \in \mathbb{R}^{\gt 0} \) such that \( f{\left ( x - \epsilon \right )} = p - \delta_{1} \) and \( f{\left ( x + \epsilon \right )} = p + \delta_{2} \), now take \( \delta = \min \left ( \delta_{1} , \delta_{2} \right ) \) and suppose \( \left \lvert y - p \right \rvert \lt \delta \).</p>
+        <p>if \( \left \lvert y - p \right \rvert \lt \delta \), then \( \delta - p \lt y \lt \delta + p \)</p>
+    </div>
+</div>

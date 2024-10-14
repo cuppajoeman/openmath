@@ -1,250 +1,134 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Vectors</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer>
-</script>
-<!--    <script async="" src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js">-->
-<!--</script>-->
-<!--    <script type="importmap">-->
-<!--              {-->
-<!--                        "imports": {-->
-<!--                          "three": "https://unpkg.com/three@v0.156.1/build/three.module.js",-->
-<!--                          "three/addons/": "https://unpkg.com/three@v0.156.1/examples/jsm/"-->
-<!--                        }-->
-<!--                  }-->
-<!--    </script>-->
-</head>
-
-<body>
-    <div class="thin-wrapper">
-
-        <div class="definition" id="definition-vector">
-            <div class="title">
-                Vector
-            </div>
-
-            <div class="content">
-                A vector is alternate notation for an <a class="knowledge-link" href=
-                "/fundamentals/sets/tuples.html#definition-finite-tuple">n tuple</a>, so that \[ \begin{bmatrix} a_1 \\ a_2
-                \\ \vdots \\ a_n \end{bmatrix} \] is the n-tuple \( (a_1, a_2, \ldots, a_n ) \)
-            </div>
-        </div>
-
-        <div class="definition" id="definition-length">
-            <div class="title">
-                The length of a Vector
-            </div>
-
-            <div class="content">
-                Given  \( x \in \mathbb{R}^n \), then we define the it's length as
-                \[
-                    \lVert x \rVert :=  \sqrt{ \sum _ { i = 1 }  ^  n  x _ i ^ 2  }
-                \]
-            </div>
-        </div>
-
-        <div class="definition" id="definition-dot-product">
-            <div class="title">
-                Dot Product
-            </div>
-
-            <div class="content">
-                Given two sequences of numbers of the same length: \( a = \left ( a_{1} , \ldots , a_{k} \right ) \)
-                and \( b = \left ( b_{1} , \ldots , b_{k} \right ) \), their dot product denoted and defined by
-                \[
-                a \cdot b = \sum_{i = 1}^{k} a_{i} \cdot b_{i}
-                \]
-                Note that \( \cdot : \mathbb{R}^{k} \times \mathbb{R}^{k} \to \mathbb{R} \)
-            </div>
-        </div>
-
-        <div class="proposition" id="proposition-dot-product-geometric">
-        	<div class="title">Dot Product Geometric</div>
-        	<div class="content">
-        		\[
-        		    a \cdot b = \lVert a \rVert \lVert b \rVert \cos \left( \theta  \right)
-        		\]
-                where \( \theta  \) is the angle between \( a, b \)
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-        <div class="corollary" id="corollary-norm-squared-is-the-dot-product">
-        	<div class="title">Norm Squared is the Dot Product</div>
-        	<div class="content">
-                For any \( x \in \mathbb{ R } ^ n \) we have that
-                \[
-                    \lVert x \rVert ^ 2 = x \cdot x
-                \]
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-
-
-        <div class="definition" id="definition-vector-form-of-a-line">
-            <div class="title">
-                vector form of a line
-            </div>
-
-            <div class="content">
-                Suppose that \( d , p \) are vectors, then we say that the set \( l := \left \lbrace x : x = t d + p ,
-                \text{ for some } t \in \mathbb{R} \right \rbrace \) is a line and say that the vector equation for the
-                line is
-
-                <div class="centered-content">
-                    \( x = t d + p \)
-                </div>We also say that \( d \) is the direction vector for \( l \)
-            </div>
-        </div>
-
-
-        <div class="definition" id="definition-cross-product">
-        	<div class="title">Cross Product</div>
-        	<div class="content">
-        		Given two vectors \( a, b \in \mathbb{ R } ^ 3 \) we define their <b>cross-product</b> to be
-                \[
-                    a \times b := \lVert a \rVert \lVert b \rVert \sin \left( \theta  \right) n
-                \]
-                where \( \theta  \) is the angle between \( a \) and \( b \) and \( n \) is a unit vector such that \( a , n , b \) is positively oriented.
-        	</div>
-        </div>
-        
-        <div class="proposition" id="proposition-cross-product-vector-component-formula">
-        	<div class="title">Cross Product Vector Component Formula</div>
-        	<div class="content">
-        		\[
-        		    \left( a _ 1 , a _ 2, a _ 3  \right) \times \left( b _ 1, b _ 2, b _ 3 \right) = \left( a _ 3 b _ 2 - a _ 3 b _ 2, a _ 3 b _ 1 - a _ 1 b _ 3, a _ 1 b _ 2 - a _ 2 b _ 1  \right)
-        		\]
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-
-        <p>
-            An easy way to remember this is ab 5 4 3
-        </p>
-
-        <div class="definition" id="definition-collinear">
-        	<div class="title">Collinear</div>
-        	<div class="content">
-        		Given a vector space \( \left( V, F \right)  \) then we say that two vectors \( x, y \in V \) are collinear if there exists an \( \alpha \in F \) such that
-                \[
-                    x = \alpha y
-                \]
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-parallelogram-law">
-        	<div class="title">Parallelogram Law</div>
-        	<div class="content">
-        		Suppose \( x, y \in \mathbb{ R } ^ n \) then we have
-                \[
-                    \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2 = 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2
-                \]
-        	</div>
-        	<div class="proof">
-        		\[
-        		    \begin{align}
-        		        \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2 &= \left( x + y \right) \cdot \left( x + y \right)  + \left( x - y \right) \cdot \left( x - y \right) \\
-                &= x \cdot x + 2 x \cdot y + y \cdot y + x \cdot x - 2 x \cdot y + y \cdot y \\
-                &= 2 x \cdot x + 2 y \cdot y \\
-                &= 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2
-        		    \end{align}
-        		\]
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-the-norm-of-the-half-of-the-sum-of-two-unit-vectors-is-one-iff-they-are-equal">
-        	<div class="title">The Norm of The Half of The Sum of Two Unit Vectors is One iff They are Equal</div>
-        	<div class="content">
-        		Suppose \( x, y \in \mathbb{ R } ^ n \) such that \( \lVert x \rVert = \lVert y \rVert = 1 \) then
-                \[
-                    \left\lVert \frac{x + y}{2}  \right\rVert  = 1  \iff  x = y
-                \]
-        	</div>
-        	<div class="proof">
-                \( \implies  \) Suppose that \( \left\lVert \frac{x + y}{2}  \right\rVert = 1  \) we'd like to prove that \( x = y \), thus it's equivalent to show that \( \lVert x - y \rVert = 0  \), recall that from the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-parallelogram-law">parallelogram law</a> that
-                \[
-                    \lVert x - y \rVert = \sqrt{ 2 \lVert x \rVert ^ 2 + 2 \lVert y  \rVert ^ 2 - \lVert x + y \rVert ^ 2  }
-                \]
-                thus it's enough to show that \( 2 \lVert x  \rVert ^ 2 +  2 \lVert y  \rVert ^ 2 -  \lVert x + y \rVert ^ 2 = 0  \), which means we just have to show that \( \lVert x + y \rVert  ^ 2 = 2 \lVert x \rVert ^ 2 +  2 \lVert y \rVert ^ 2 \), moreover \( x, y  \) were unit vectors so we have \( \lVert x \rVert = \lVert y \rVert = 1 \) and we now just need to prove that \( \lVert x + y \rVert ^ 2 = 4  \).  We've assumed that \( \left\lVert \frac{x + y}{2}  \right\rVert = 1 \), this means that \( \lVert x + y \rVert = 2  \) thus we conclude that \( \lVert x + y \rVert ^ 2 = 4  \) as needed.
-                <p>
-                    \( \impliedby  \) Suppose that \( x = y \), then
-                    \[
-                        \left\lVert \frac{x + y}{2}  \right\rVert = \left\lVert \frac{2x}{2}  \right\rVert = \lVert x \rVert = 1
-                    \]
-                    as needed.
-                </p>
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-cosine-law">
-        	<div class="title">Cosine Law</div>
-        	<div class="content">
-        		Suppose that \( x, y \in \mathbb{ R } ^ n \) and \( \theta  \) is the angle between them, then
-                \[
-                    \lVert x + y \rVert ^ 2 =  \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta \right) +  \lVert y \rVert ^ 2
-                \]
-        	</div>
-        	<div class="proof">
-        	    This follows from distributivity of the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-geometric">geometric interpretation of the dot product</a>
-                \[
-                    \begin{align}
-                        \lVert x + y \rVert ^ 2 &= \left( x + y \right)  \cdot \left( x + y \right) \\
-                &= x \cdot x + 2 x \cdot y +  y ^ 2 \\
-                &= \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta  \right) + \lVert y \rVert ^ 2
-                    \end{align}
-                \]
-        	</div>
-        </div>
-
-        <div class="corollary" id="corollary-dot-product-is-a-sum-of-norms">
-        	<div class="title">Dot Product Is a Sum of Norms</div>
-        	<div class="content">
-        	    \[
-        	        x \cdot y = \frac{\lVert x + y \rVert ^ 2 - \lVert x \rVert ^ 2 - \lVert y \rVert ^ 2}{2}
-        	    \]
-        	</div>
-        	<div class="proof">
-                Rearrange <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cosine-law">this</a>.
-        	</div>
-        </div>
-
-
-
-
-        
-
-
-        
-
-
-
-<!--        <p>An example of the vector form of a line in \( \mathbb{R}^{3} \) could be \( x = t \left [ \begin{matrix} 1-->
+<div class="definition" id="definition-vector">
+    <div class="title">
+        Vector
+    </div>
+    <div class="content">
+        A vector is alternate notation for an <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-finite-tuple">n tuple</a>, so that \[ \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix} \] is the n-tuple \( (a_1, a_2, \ldots, a_n ) \)
+    </div>
+</div>
+<div class="definition" id="definition-length">
+    <div class="title">
+        The length of a Vector
+    </div>
+    <div class="content">
+        Given \( x \in \mathbb{R}^n \), then we define the it's length as \[ \lVert x \rVert := \sqrt{ \sum _ { i = 1 } ^ n x _ i ^ 2 } \]
+    </div>
+</div>
+<div class="definition" id="definition-dot-product">
+    <div class="title">
+        Dot Product
+    </div>
+    <div class="content">
+        Given two sequences of numbers of the same length: \( a = \left ( a_{1} , \ldots , a_{k} \right ) \) and \( b = \left ( b_{1} , \ldots , b_{k} \right ) \), their dot product denoted and defined by \[ a \cdot b = \sum_{i = 1}^{k} a_{i} \cdot b_{i} \] Note that \( \cdot : \mathbb{R}^{k} \times \mathbb{R}^{k} \to \mathbb{R} \)
+    </div>
+</div>
+<div class="proposition" id="proposition-dot-product-geometric">
+    <div class="title">
+        Dot Product Geometric
+    </div>
+    <div class="content">
+        \[ a \cdot b = \lVert a \rVert \lVert b \rVert \cos \left( \theta \right) \] where \( \theta \) is the angle between \( a, b \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-norm-squared-is-the-dot-product">
+    <div class="title">
+        Norm Squared is the Dot Product
+    </div>
+    <div class="content">
+        For any \( x \in \mathbb{ R } ^ n \) we have that \[ \lVert x \rVert ^ 2 = x \cdot x \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-vector-form-of-a-line">
+    <div class="title">
+        vector form of a line
+    </div>
+    <div class="content">
+        Suppose that \( d , p \) are vectors, then we say that the set \( l := \left \lbrace x : x = t d + p , \text{ for some } t \in \mathbb{R} \right \rbrace \) is a line and say that the vector equation for the line is
+        <div class="centered-content">
+            \( x = t d + p \)
+        </div>We also say that \( d \) is the direction vector for \( l \)
+    </div>
+</div>
+<div class="definition" id="definition-cross-product">
+    <div class="title">
+        Cross Product
+    </div>
+    <div class="content">
+        Given two vectors \( a, b \in \mathbb{ R } ^ 3 \) we define their <b>cross-product</b> to be \[ a \times b := \lVert a \rVert \lVert b \rVert \sin \left( \theta \right) n \] where \( \theta \) is the angle between \( a \) and \( b \) and \( n \) is a unit vector such that \( a , n , b \) is positively oriented.
+    </div>
+</div>
+<div class="proposition" id="proposition-cross-product-vector-component-formula">
+    <div class="title">
+        Cross Product Vector Component Formula
+    </div>
+    <div class="content">
+        \[ \left( a _ 1 , a _ 2, a _ 3 \right) \times \left( b _ 1, b _ 2, b _ 3 \right) = \left( a _ 3 b _ 2 - a _ 3 b _ 2, a _ 3 b _ 1 - a _ 1 b _ 3, a _ 1 b _ 2 - a _ 2 b _ 1 \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<p>An easy way to remember this is ab 5 4 3</p>
+<div class="definition" id="definition-collinear">
+    <div class="title">
+        Collinear
+    </div>
+    <div class="content">
+        Given a vector space \( \left( V, F \right) \) then we say that two vectors \( x, y \in V \) are collinear if there exists an \( \alpha \in F \) such that \[ x = \alpha y \]
+    </div>
+</div>
+<div class="proposition" id="proposition-parallelogram-law">
+    <div class="title">
+        Parallelogram Law
+    </div>
+    <div class="content">
+        Suppose \( x, y \in \mathbb{ R } ^ n \) then we have \[ \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2 = 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2 \]
+    </div>
+    <div class="proof">
+        \[ \begin{align} \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2 &amp;= \left( x + y \right) \cdot \left( x + y \right) + \left( x - y \right) \cdot \left( x - y \right) \\ &amp;= x \cdot x + 2 x \cdot y + y \cdot y + x \cdot x - 2 x \cdot y + y \cdot y \\ &amp;= 2 x \cdot x + 2 y \cdot y \\ &amp;= 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2 \end{align} \]
+    </div>
+</div>
+<div class="exercise" id="exercise-the-norm-of-the-half-of-the-sum-of-two-unit-vectors-is-one-iff-they-are-equal">
+    <div class="title">
+        The Norm of The Half of The Sum of Two Unit Vectors is One iff They are Equal
+    </div>
+    <div class="content">
+        Suppose \( x, y \in \mathbb{ R } ^ n \) such that \( \lVert x \rVert = \lVert y \rVert = 1 \) then \[ \left\lVert \frac{x + y}{2} \right\rVert = 1 \iff x = y \]
+    </div>
+    <div class="proof">
+        \( \implies \) Suppose that \( \left\lVert \frac{x + y}{2} \right\rVert = 1 \) we'd like to prove that \( x = y \), thus it's equivalent to show that \( \lVert x - y \rVert = 0 \), recall that from the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-parallelogram-law">parallelogram law</a> that \[ \lVert x - y \rVert = \sqrt{ 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2 - \lVert x + y \rVert ^ 2 } \] thus it's enough to show that \( 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2 - \lVert x + y \rVert ^ 2 = 0 \), which means we just have to show that \( \lVert x + y \rVert ^ 2 = 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2 \), moreover \( x, y \) were unit vectors so we have \( \lVert x \rVert = \lVert y \rVert = 1 \) and we now just need to prove that \( \lVert x + y \rVert ^ 2 = 4 \). We've assumed that \( \left\lVert \frac{x + y}{2} \right\rVert = 1 \), this means that \( \lVert x + y \rVert = 2 \) thus we conclude that \( \lVert x + y \rVert ^ 2 = 4 \) as needed.
+        <p>\( \impliedby \) Suppose that \( x = y \), then \[ \left\lVert \frac{x + y}{2} \right\rVert = \left\lVert \frac{2x}{2} \right\rVert = \lVert x \rVert = 1 \] as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-cosine-law">
+    <div class="title">
+        Cosine Law
+    </div>
+    <div class="content">
+        Suppose that \( x, y \in \mathbb{ R } ^ n \) and \( \theta \) is the angle between them, then \[ \lVert x + y \rVert ^ 2 = \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta \right) + \lVert y \rVert ^ 2 \]
+    </div>
+    <div class="proof">
+        This follows from distributivity of the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-geometric">geometric interpretation of the dot product</a> \[ \begin{align} \lVert x + y \rVert ^ 2 &amp;= \left( x + y \right) \cdot \left( x + y \right) \\ &amp;= x \cdot x + 2 x \cdot y + y ^ 2 \\ &amp;= \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta \right) + \lVert y \rVert ^ 2 \end{align} \]
+    </div>
+</div>
+<div class="corollary" id="corollary-dot-product-is-a-sum-of-norms">
+    <div class="title">
+        Dot Product Is a Sum of Norms
+    </div>
+    <div class="content">
+        \[ x \cdot y = \frac{\lVert x + y \rVert ^ 2 - \lVert x \rVert ^ 2 - \lVert y \rVert ^ 2}{2} \]
+    </div>
+    <div class="proof">
+        Rearrange <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cosine-law">this</a>.
+    </div>
+</div><!--        <p>An example of the vector form of a line in \( \mathbb{R}^{3} \) could be \( x = t \left [ \begin{matrix} 1-->
 <!--        \\ 2 \\ 3 \end{matrix} \right ] + \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \), where \( \left [-->
 <!--        \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \) (the red dot) is a part of the line when \( t = 0 \), and-->
 <!--        the line&#39;s direction follows the direction of the vector \( \left [ \begin{matrix} 1 \\ 2 \\ 3 \end{matrix}-->
 <!--        \right ] \)</p>-->
-
 <!--        <div id="threejs-vector-line" style="width: 100vh; height: 50vh; margin: 0px auto; border-radius: 10%;">-->
 <!--            <canvas style="display: block; width: 937px; height: 469px; touch-action: none;" data-engine=-->
 <!--            "three.js r156" width="937" height="469"></canvas>-->
 <!--        </div><script type="module" src="/js/plotting/mathematical_space_3d.js">-->
 <!--</script> <script type="module" src="vectors.js">-->
 <!--</script>-->
-    </div>
-</body>
-</html>

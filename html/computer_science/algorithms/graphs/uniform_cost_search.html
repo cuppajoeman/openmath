@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Uniform Cost Search</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
-
-    <script>hljs.highlightAll();</script>
-
-    <script src="/js/insert_file_contents.js"></script>
-</head>
-
-<body>
-<div class="thin-wrapper">
-    <h1>Uniform Cost Search</h1>
-
-
-    <pre>
+<h1>Uniform Cost Search</h1>
+<pre>
         def uniform_cost_search(start):
             cost_to_get_to_node = {}
             frontier = PriorityQueue() // Higher Priority equals Lower Cost
@@ -50,125 +27,116 @@
             return Failure
 
     </pre>
-
-    <p>
-        In general UCS is not complete, because given an infinite number of zero-weight edges deviating away from the goal state, then UCS will follow this path forever and never find the goal. On the other hand, if there exists some \( \epsilon \gt 0 \) such that every edge has at least this weight, then UCS will find the minimum cost solution, this is because it explores nodes in the search space in non-decreasing order of cost so it must find a minimum cost path to a goal before finding any higher cost paths leading to a goal.
-    </p>
-    
-    <div class="exercise" id="exercise-ucs-example-graph">
-    	<div class="title">UCS Example Graph</div>
-    	<div class="content">
-    		Show the history of the frontier and what node is selected in a table for the following graph, where UCS is called without the cycle checking.
-            <div class="centered-content">
-                <img src="directed_graphs_with_edge_weights.svg" width="400px" alt="">
-            </div>
-    	</div>
-    	<div class="proof">
-            <table>
-                <tr>
-                    <td>path</td><td>frontier</td><td>about to expand</td>
-                </tr>
-                <tr>
-                    <td></td><td>(S, 0)</td><td>S</td>
-                </tr>
-                <tr>
-                    <td>S</td><td>(SP, 1), (SD, 3), (SE, 9)</td><td>(SP, 1)</td>
-                </tr>
-                <tr>
-                    <td>(SP, 1)</td><td>(SD, 3), (SE, 9), (SPQ, 16)</td><td>(SD, 3)</td>
-                </tr>
-                <tr>
-                    <td>(SD, 3)</td><td>(SE, 9), (SPQ, 16), (SDE, 5)</td><td>(SDE, 5)</td>
-                </tr>
-                <tr>
-                    <td>(SDE, 5)</td><td>(SE, 9), (SPQ, 16), (SDEH, 6)</td><td>(SDEH, 6)</td>
-                </tr>
-                <tr>
-                    <td>(SDEH, 6)</td><td>(SE, 9), (SPQ, 16), (SDEHQ, 10)</td><td>(SE, 6)</td>
-                </tr>
-                <tr>
-                    <td>(SE, 9)</td><td>(SPQ, 16), (SDEHQ, 10), (SEH, 10)</td><td>(SEH, 10)</td>
-                </tr>
-                <tr>
-                    <td>(SEH, 10)</td><td>(SPQ, 16), (SDEHQ, 10), (SEHQ, 14)</td><td>(SDEHQ, 10)</td>
-                </tr>
-                <tr>
-                    <td>(SDEHQ, 10)</td><td>(SPQ, 16), (SEHQ, 14), (SDEHQG, 11)</td><td>(SDEHQG, 11)</td>
-                </tr>
-                <tr>
-                    <td>(SDEHQG, 11)</td><td>(SPQ, 16), (SEHQ, 14)</td><td></td>
-                </tr>
-            </table>
-    	</div>
+<p>In general UCS is not complete, because given an infinite number of zero-weight edges deviating away from the goal state, then UCS will follow this path forever and never find the goal. On the other hand, if there exists some \( \epsilon \gt 0 \) such that every edge has at least this weight, then UCS will find the minimum cost solution, this is because it explores nodes in the search space in non-decreasing order of cost so it must find a minimum cost path to a goal before finding any higher cost paths leading to a goal.</p>
+<div class="exercise" id="exercise-ucs-example-graph">
+    <div class="title">
+        UCS Example Graph
     </div>
-     
-    
-    <div class="lemma" id="lemma-later-expansion-means-higher-cost">
-    	<div class="title">Later Expansion means Higher Cost</div>
-    	<div class="content">
-    		Suppose that node \( a \) is expanded after node \( b \) then \( c \left( b \right) \le c \left( a \right)  \) 
-    	</div>
-    	<div class="proof">
-
-    	</div>
+    <div class="content">
+        Show the history of the frontier and what node is selected in a table for the following graph, where UCS is called without the cycle checking.
+        <div class="centered-content"><img alt="" src="directed_graphs_with_edge_weights.svg" width="400px"></div>
     </div>
-    
-    <div class="lemma" id="lemma-strictly-less-cost-implies-earlier-expansion-time">
-    	<div class="title">Strictly Less Cost Implies Earlier Expansion Time</div>
-    	<div class="content">
-            Let \( v \) be a node expanded by UCS, then for any node \( x \in V \) such that \( c \left( x \right) \lt c \left( v \right)  \), then \( x \) will be expanded before \( v \) will be.
-    	</div>
-    	<div class="proof">
-    		
-    	</div>
+    <div class="proof">
+        <table>
+            <tr>
+                <td>path</td>
+                <td>frontier</td>
+                <td>about to expand</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>(S, 0)</td>
+                <td>S</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>(SP, 1), (SD, 3), (SE, 9)</td>
+                <td>(SP, 1)</td>
+            </tr>
+            <tr>
+                <td>(SP, 1)</td>
+                <td>(SD, 3), (SE, 9), (SPQ, 16)</td>
+                <td>(SD, 3)</td>
+            </tr>
+            <tr>
+                <td>(SD, 3)</td>
+                <td>(SE, 9), (SPQ, 16), (SDE, 5)</td>
+                <td>(SDE, 5)</td>
+            </tr>
+            <tr>
+                <td>(SDE, 5)</td>
+                <td>(SE, 9), (SPQ, 16), (SDEH, 6)</td>
+                <td>(SDEH, 6)</td>
+            </tr>
+            <tr>
+                <td>(SDEH, 6)</td>
+                <td>(SE, 9), (SPQ, 16), (SDEHQ, 10)</td>
+                <td>(SE, 6)</td>
+            </tr>
+            <tr>
+                <td>(SE, 9)</td>
+                <td>(SPQ, 16), (SDEHQ, 10), (SEH, 10)</td>
+                <td>(SEH, 10)</td>
+            </tr>
+            <tr>
+                <td>(SEH, 10)</td>
+                <td>(SPQ, 16), (SDEHQ, 10), (SEHQ, 14)</td>
+                <td>(SDEHQ, 10)</td>
+            </tr>
+            <tr>
+                <td>(SDEHQ, 10)</td>
+                <td>(SPQ, 16), (SEHQ, 14), (SDEHQG, 11)</td>
+                <td>(SDEHQG, 11)</td>
+            </tr>
+            <tr>
+                <td>(SDEHQG, 11)</td>
+                <td>(SPQ, 16), (SEHQ, 14)</td>
+                <td></td>
+            </tr>
+        </table>
     </div>
-    
-    <div class="lemma" id="lemma-ucs-produces-minimal-cost-paths">
-    	<div class="title">UCS Produces Minimal Cost Paths</div>
-    	<div class="content">
-    		Let \( p \) be the first path that UCS produces that leads to some node \( x \), then \( p \) is a minimal cost path to \( x \), so long as all costs are lower bounded by some \( \epsilon \in \mathbb{ R } ^ { \gt 0 }  \).
-    	</div>
-    	<div class="proof">
-            <p>
-                Note that if we don't have the lower bound assumption, then there could exist some negative edge weights meaning that there is potential for a high cost path, to then eventually become a very low cost before getting to \( x \) which would mean that UCS would find some other higher cost path to \( x \) before making it over the "hump" of the other path to \( x \) with lower cost. This is similar to escaping a local minimum.
-            </p>
-            <p>
-                Suppose that \( p \) is the first path that UCS produces that leads to some node \( x \), then assume for the sake of contradiction that this path is not cost optimal, therefore there exists some other path \( p ^ * \) that has lower cost, but then \( p ^ * \) would be a path leading to \( x \) that gets explored before \( p \) but \( p \) was the first one, so this is a contradiction, therefore \( p \) is the minimal cost path to \( x \).
-            </p>
-    	</div>
-    </div>
-    
-    <div class="theorem" id="theorem-ucs-runtime-and-space-complexity">
-    	<div class="title">UCS Runtime</div>
-    	<div class="content">
-    		Suppose that we have a directed graph with maximum branching factor \( b \) with edge weights such that there exists some \( \epsilon \gt 0 \) such that every edge weight is at least this amount. If \( s, g \) are two connected in the graph and let \( C ^ * \) be the minimal cost a path can have that starts from \( s \) and goes to \( g \), then the runtime and space complexity of calling UCS on \( s \) is given by
-            \[
-                \mathcal{ O } \left( b ^ { \lfloor \frac{C ^ *}{\epsilon }  \rfloor  + 1}  \right)
-            \]
-    	</div>
-    	<div class="proof">
-            <p>
-                By the above lemmas we know that UCS will expand all nodes with a cost less than \( C ^ *\) and potentially (in the worst case) all nodes with cost equal to \( C ^ * \). If we know that the minimal cost to get from \( s \) to \( g \) is \( C ^ * \), and each edge has weight at least \( \epsilon  \), then the maximal number of edges in this path is given by \( d = \lfloor \frac{C ^ *}{\epsilon }  \rfloor \), to understand why this is true, suppose that \( C ^ * = 9 \) and \( \epsilon = 5 \), \( \lfloor \frac{C ^ *}{\epsilon } \rfloor = \lfloor \frac{9}{5}  \rfloor = 1 \), but clearly we're going to need at least two edges to reach our goal, because if we had just one, we would have cost \( 5 \), but this path couldn't reach \( g \) because any path that reaches \( g \) must have cost at least \( 9 \), this is why the equation is \( \lfloor \frac{C ^ *}{\epsilon }  \rfloor + 1  \), which our our specific case would be equal to \( 2 \) which makes sense.
-            </p>
-            <p>
-                If we isolate our attention to the subtree with depth \( d \), then in the worst case every edge inside this subtree has weight \( \epsilon  \), and therefore every node in a higher level in the tree has a lower cost and must be explored before we explore node \( g \).
-            </p>
-            <p>
-                Everything at layer \( d \) has the same cost of \( \epsilon \cdot d \). Then bringing our attention back to the whole tree, any node that is outside of this subtree will have cost greater than \( \epsilon \cdot d  \), and thus none of them will be expanded by \( UCS \) while trying to find \( g \).
-            </p>
-            <p>
-                Let's now calculate how many nodes UCS actually has to expand Since UCS explores nodes with a lower path cost first, then the entire subtree of depth \( d - 1 \) will be explored before \( g \), then at depth \( d \) in the worst case, every other node is expanded before \( g \), therefore in total we have to explore \( b ^ 0 + b ^ 1 + \ldots b ^ d - 1  = \frac{b ^ { d + 1 } - 1}{b - 1}  - 1\) nodes, therefore our runtime is given by
-                \[
-                    \mathcal{ O } \left( b ^ d \right)   = \mathcal{ O } \left( b ^ { \frac{C ^ *}{\epsilon }  + 1 }  \right)
-                \]
-            </p>
-    	</div>
-    </div>
-    
-    
-    
-     
-
-
 </div>
-</body>
+<div class="lemma" id="lemma-later-expansion-means-higher-cost">
+    <div class="title">
+        Later Expansion means Higher Cost
+    </div>
+    <div class="content">
+        Suppose that node \( a \) is expanded after node \( b \) then \( c \left( b \right) \le c \left( a \right) \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="lemma" id="lemma-strictly-less-cost-implies-earlier-expansion-time">
+    <div class="title">
+        Strictly Less Cost Implies Earlier Expansion Time
+    </div>
+    <div class="content">
+        Let \( v \) be a node expanded by UCS, then for any node \( x \in V \) such that \( c \left( x \right) \lt c \left( v \right) \), then \( x \) will be expanded before \( v \) will be.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="lemma" id="lemma-ucs-produces-minimal-cost-paths">
+    <div class="title">
+        UCS Produces Minimal Cost Paths
+    </div>
+    <div class="content">
+        Let \( p \) be the first path that UCS produces that leads to some node \( x \), then \( p \) is a minimal cost path to \( x \), so long as all costs are lower bounded by some \( \epsilon \in \mathbb{ R } ^ { \gt 0 } \).
+    </div>
+    <div class="proof">
+        <p>Note that if we don't have the lower bound assumption, then there could exist some negative edge weights meaning that there is potential for a high cost path, to then eventually become a very low cost before getting to \( x \) which would mean that UCS would find some other higher cost path to \( x \) before making it over the "hump" of the other path to \( x \) with lower cost. This is similar to escaping a local minimum.</p>
+        <p>Suppose that \( p \) is the first path that UCS produces that leads to some node \( x \), then assume for the sake of contradiction that this path is not cost optimal, therefore there exists some other path \( p ^ * \) that has lower cost, but then \( p ^ * \) would be a path leading to \( x \) that gets explored before \( p \) but \( p \) was the first one, so this is a contradiction, therefore \( p \) is the minimal cost path to \( x \).</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-ucs-runtime-and-space-complexity">
+    <div class="title">
+        UCS Runtime
+    </div>
+    <div class="content">
+        Suppose that we have a directed graph with maximum branching factor \( b \) with edge weights such that there exists some \( \epsilon \gt 0 \) such that every edge weight is at least this amount. If \( s, g \) are two connected in the graph and let \( C ^ * \) be the minimal cost a path can have that starts from \( s \) and goes to \( g \), then the runtime and space complexity of calling UCS on \( s \) is given by \[ \mathcal{ O } \left( b ^ { \lfloor \frac{C ^ *}{\epsilon } \rfloor + 1} \right) \]
+    </div>
+    <div class="proof">
+        <p>By the above lemmas we know that UCS will expand all nodes with a cost less than \( C ^ *\) and potentially (in the worst case) all nodes with cost equal to \( C ^ * \). If we know that the minimal cost to get from \( s \) to \( g \) is \( C ^ * \), and each edge has weight at least \( \epsilon \), then the maximal number of edges in this path is given by \( d = \lfloor \frac{C ^ *}{\epsilon } \rfloor \), to understand why this is true, suppose that \( C ^ * = 9 \) and \( \epsilon = 5 \), \( \lfloor \frac{C ^ *}{\epsilon } \rfloor = \lfloor \frac{9}{5} \rfloor = 1 \), but clearly we're going to need at least two edges to reach our goal, because if we had just one, we would have cost \( 5 \), but this path couldn't reach \( g \) because any path that reaches \( g \) must have cost at least \( 9 \), this is why the equation is \( \lfloor \frac{C ^ *}{\epsilon } \rfloor + 1 \), which our our specific case would be equal to \( 2 \) which makes sense.</p>
+        <p>If we isolate our attention to the subtree with depth \( d \), then in the worst case every edge inside this subtree has weight \( \epsilon \), and therefore every node in a higher level in the tree has a lower cost and must be explored before we explore node \( g \).</p>
+        <p>Everything at layer \( d \) has the same cost of \( \epsilon \cdot d \). Then bringing our attention back to the whole tree, any node that is outside of this subtree will have cost greater than \( \epsilon \cdot d \), and thus none of them will be expanded by \( UCS \) while trying to find \( g \).</p>
+        <p>Let's now calculate how many nodes UCS actually has to expand Since UCS explores nodes with a lower path cost first, then the entire subtree of depth \( d - 1 \) will be explored before \( g \), then at depth \( d \) in the worst case, every other node is expanded before \( g \), therefore in total we have to explore \( b ^ 0 + b ^ 1 + \ldots b ^ d - 1 = \frac{b ^ { d + 1 } - 1}{b - 1} - 1\) nodes, therefore our runtime is given by \[ \mathcal{ O } \left( b ^ d \right) = \mathcal{ O } \left( b ^ { \frac{C ^ *}{\epsilon } + 1 } \right) \]</p>
+    </div>
+</div>

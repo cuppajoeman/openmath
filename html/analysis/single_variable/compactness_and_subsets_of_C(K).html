@@ -1,121 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Compactness and Subsets of C(K)</title>
-
-    <link rel="stylesheet" href="../../styles/styles.css">
-    <script src="../../js/script.js" defer></script>
-</head>
-<body>
-<div class="thin-wrapper">
-
-	<div class="definition" id="definition-equicontinuous-at-a-point">
-		<div class="title">Equicontinuous at a Point</div>
-		<div class="content">
-			Let \( \mathcal{ F }  \) be a family of functions of the form \(   S \to \mathbb{ R } ^ m \) where \( S \subseteq \mathbb{ R } ^ n \), then we say that \( \mathcal{ F }  \) is <b>equicontinuous at a point</b> \( a \in S \) if for every \( \epsilon \in \mathbb{ R } ^ + \) there exists a \( \delta \in \mathbb{ R } ^ +  \) such that for all \( x \in S \) and \( f \in \mathcal{ F }  \) 
-			\[
-				\lVert x - a \rVert \lt \delta \implies \lVert f \left( x \right) - f \left( a \right)  \rVert \lt \epsilon
-			\]
-		</div>
-	</div>
-
-	<div class="definition" id="definition-equicontinuous-family">
-		<div class="title">Equicontinuous Family</div>
-		<div class="content">
-			We say that \( \mathcal{ F }  \) is an equicontinuous family of functions of the form \( S \to \mathbb{ R }  \) diff for every \( a \in S \) we have that \( \mathcal{ F }  \) is <a class="knowledge-link" href="/analysis/single_variable/compactness_and_subsets_of_C(K).html#definition-equicontinuous-at-a-point">is equicontinuous</a> at \( a \).
-		</div>
-	</div>
-	
-	<div class="definition" id="definition-uniformly-equicontinuous-family">
-		<div class="title">Uniformly Equicontinuous Family</div>
-		<div class="content">
-			Let \( \mathcal{ F }  \) be a family of functions of the form \(   S \to \mathbb{ R } ^ m \) where \( S \subseteq \mathbb{ R } ^ n \), then we say that \( \mathcal{ F }  \) is <b>uniformly equicontinuous</b> if for every \( \epsilon \in \mathbb{ R } ^ + \) there exists a \( \delta \in \mathbb{ R } ^ +  \) such that for all \( x, y \in S \) and \( f \in \mathcal{ C }  \)
-			\[
-			\lVert x - y \rVert \lt \delta \implies \lVert f \left( x \right) - f \left( y \right)  \rVert \lt \epsilon
-			\]
-		</div>
-	</div>
-	
-	<div class="lemma" id="lemma-compact-subsets-of-continuous-functions-with-compact-domain-is-equicontinuous">
-		<div class="title">Compact Subsets of Continuous Functions with Compact Domain is Equicontinuous</div>
-		<div class="content">
-			Let \( K \) be a compact subset of \( \mathbb{ R } ^ n \), a compact subset \( \mathcal{ F }  \) of \( C \left( K, \mathbb{ R } ^ m \right)  \) is equicontinuous
-		</div>
-		<div class="proof">
-			
-		</div>
-	</div>
-	
-	<div class="proposition" id="proposition-an-equicontinuous-family-of-functions-whose-domain-is-compact-is-also-uniformly-equicontinuous">
-		<div class="title">An Equicontinuous Family of Functions whose Domain is Compact is also Uniformly Equicontinuous</div>
-		<div class="content">
-			If \( \mathcal{ F }  \) is an equicontinuous family of functions of the form \( K \to \mathbb{ R } ^ m \) where \( K \) is compact, then \( \mathcal{ F }  \) is uniformly equicontinuous
-		</div>
-		<div class="proof">
-			
-		</div>
-	</div>
-	
-	<div class="definition" id="definition-totally-bounded">
-		<div class="title">Totally Bounded</div>
-		<div class="content">
-			We say that a subset \( S \subseteq \mathbb{ R } ^ m \) is <b>totally bounded</b> if for any \( \epsilon \in \mathbb{ R } ^ +  \) there exists \( a _ 1, \ldots , a _ n \) such that
-			\[
-			    S \subseteq \bigcup _ { i = 1 } ^ { n }  B \left( a _ i, \epsilon \right)
-			\]
-		</div>
-	</div>
-	
-	<div class="proposition" id="proposition-a-bounded-subset-of-Rm-is-totally-bounded">
-		<div class="title">A Bounded subset of Rm is Totally Bounded</div>
-		<div class="content">
-			Suppose that \( S \subseteq \mathbb{ R } ^ m \) is bounded, then \( S \) is totally bounded.
-		</div>
-		<div class="proof">
-			
-		</div>
-	</div>
-
-	<div class="theorem" id="theorem-arzela-ascoli">
-		<div class="title">Arzela-Ascoli</div>
-		<div class="content">
-			Let \( K \) be a compact subset of \( R ^ n \), a subset \( \mathcal{ F }  \) of \( C \left( K, R ^ m \right)  \) is compact iff it is closed, bounded and equicontinuous
-		</div>
-		<div class="proof">
-			
-		</div>
-	</div>
-	
-	
-	
-	<div class="exercise" id="exercise-functions-bounded-by-1-are-not-compact">
-		<div class="title">Functions Bounded by 1 are Not Compact</div>
-		<div class="content">
-			Show that \( B = \left\{ f \in C \left[ 0, 1 \right] : \lVert f \rVert _ \infty \le 1  \right\}  \) is not compact.
-		</div>
-		<div class="proof">
-			<p>
-				Recall that \( B \) is compact iff it is closed bounded and equicontinuous, if we are able to show that \( B \) is not equicontinuous, then it wouldn't be compact, we do so by considering the subset of functions \( f _ n \left( x \right) = x ^ n \) defined on \( \left[ 0, 1 \right]  \).
-			</p>
-			<p>
-				We show that these functions are not equicontinuous, we do this by showing that there exists a point at which the function is not equicontinuous, so let \( a = 1 \), \( \epsilon  = \frac{1}{2}  \) and let \( \delta \in \mathbb{ R }  \) we will prove that there exists an \( x \in \left[ 0, 1 \right]  \) and \( f _ j \)  such that \( \left\lvert x - 1 \right\rvert \lt \delta \) and \( \left\lvert f _ j \left( x \right) - f _ j \left( 1 \right)  \right\rvert \ge \frac{1}{2}   \). 
-			</p>
-			<p>
-				What we will do for \( x \) is to simply use \( x = 1 - \frac{\delta}{2}  \) which will satisfy the first inequality, then we will note that for any \( \alpha \in \left( 0, 1 \right)  \) that the sequence \( \alpha ^ n \to 0 \), since \( x \in \left[ 0, 1 \right]  \) then it's also true for our value \( x \) and so there is some \( j \) such that \( x ^ j \lt \frac{1}{2}  \) note that \( x ^ j = f _ j \left( x \right)  \) and thus we have \( \left\lvert f _ j \left( x \right) - f j \left( 1  \right)  \right\rvert = \left\lvert x ^ j - 1 \right\rvert = \left\lvert 1 - x ^ j \right\rvert \ge \frac{1}{2}     \) 
-			</p>
-		</div>
-	</div>
-	
-	
-	
-	
-
-	
-	
+<div class="definition" id="definition-equicontinuous-at-a-point">
+    <div class="title">
+        Equicontinuous at a Point
+    </div>
+    <div class="content">
+        Let \( \mathcal{ F } \) be a family of functions of the form \( S \to \mathbb{ R } ^ m \) where \( S \subseteq \mathbb{ R } ^ n \), then we say that \( \mathcal{ F } \) is <b>equicontinuous at a point</b> \( a \in S \) if for every \( \epsilon \in \mathbb{ R } ^ + \) there exists a \( \delta \in \mathbb{ R } ^ + \) such that for all \( x \in S \) and \( f \in \mathcal{ F } \) \[ \lVert x - a \rVert \lt \delta \implies \lVert f \left( x \right) - f \left( a \right) \rVert \lt \epsilon \]
+    </div>
 </div>
-</body>
-</html>
+<div class="definition" id="definition-equicontinuous-family">
+    <div class="title">
+        Equicontinuous Family
+    </div>
+    <div class="content">
+        We say that \( \mathcal{ F } \) is an equicontinuous family of functions of the form \( S \to \mathbb{ R } \) diff for every \( a \in S \) we have that \( \mathcal{ F } \) is <a class="knowledge-link" href="/analysis/single_variable/compactness_and_subsets_of_C(K).html#definition-equicontinuous-at-a-point">is equicontinuous</a> at \( a \).
+    </div>
+</div>
+<div class="definition" id="definition-uniformly-equicontinuous-family">
+    <div class="title">
+        Uniformly Equicontinuous Family
+    </div>
+    <div class="content">
+        Let \( \mathcal{ F } \) be a family of functions of the form \( S \to \mathbb{ R } ^ m \) where \( S \subseteq \mathbb{ R } ^ n \), then we say that \( \mathcal{ F } \) is <b>uniformly equicontinuous</b> if for every \( \epsilon \in \mathbb{ R } ^ + \) there exists a \( \delta \in \mathbb{ R } ^ + \) such that for all \( x, y \in S \) and \( f \in \mathcal{ C } \) \[ \lVert x - y \rVert \lt \delta \implies \lVert f \left( x \right) - f \left( y \right) \rVert \lt \epsilon \]
+    </div>
+</div>
+<div class="lemma" id="lemma-compact-subsets-of-continuous-functions-with-compact-domain-is-equicontinuous">
+    <div class="title">
+        Compact Subsets of Continuous Functions with Compact Domain is Equicontinuous
+    </div>
+    <div class="content">
+        Let \( K \) be a compact subset of \( \mathbb{ R } ^ n \), a compact subset \( \mathcal{ F } \) of \( C \left( K, \mathbb{ R } ^ m \right) \) is equicontinuous
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-an-equicontinuous-family-of-functions-whose-domain-is-compact-is-also-uniformly-equicontinuous">
+    <div class="title">
+        An Equicontinuous Family of Functions whose Domain is Compact is also Uniformly Equicontinuous
+    </div>
+    <div class="content">
+        If \( \mathcal{ F } \) is an equicontinuous family of functions of the form \( K \to \mathbb{ R } ^ m \) where \( K \) is compact, then \( \mathcal{ F } \) is uniformly equicontinuous
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-totally-bounded">
+    <div class="title">
+        Totally Bounded
+    </div>
+    <div class="content">
+        We say that a subset \( S \subseteq \mathbb{ R } ^ m \) is <b>totally bounded</b> if for any \( \epsilon \in \mathbb{ R } ^ + \) there exists \( a _ 1, \ldots , a _ n \) such that \[ S \subseteq \bigcup _ { i = 1 } ^ { n } B \left( a _ i, \epsilon \right) \]
+    </div>
+</div>
+<div class="proposition" id="proposition-a-bounded-subset-of-Rm-is-totally-bounded">
+    <div class="title">
+        A Bounded subset of Rm is Totally Bounded
+    </div>
+    <div class="content">
+        Suppose that \( S \subseteq \mathbb{ R } ^ m \) is bounded, then \( S \) is totally bounded.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-arzela-ascoli">
+    <div class="title">
+        Arzela-Ascoli
+    </div>
+    <div class="content">
+        Let \( K \) be a compact subset of \( R ^ n \), a subset \( \mathcal{ F } \) of \( C \left( K, R ^ m \right) \) is compact iff it is closed, bounded and equicontinuous
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-functions-bounded-by-1-are-not-compact">
+    <div class="title">
+        Functions Bounded by 1 are Not Compact
+    </div>
+    <div class="content">
+        Show that \( B = \left\{ f \in C \left[ 0, 1 \right] : \lVert f \rVert _ \infty \le 1 \right\} \) is not compact.
+    </div>
+    <div class="proof">
+        <p>Recall that \( B \) is compact iff it is closed bounded and equicontinuous, if we are able to show that \( B \) is not equicontinuous, then it wouldn't be compact, we do so by considering the subset of functions \( f _ n \left( x \right) = x ^ n \) defined on \( \left[ 0, 1 \right] \).</p>
+        <p>We show that these functions are not equicontinuous, we do this by showing that there exists a point at which the function is not equicontinuous, so let \( a = 1 \), \( \epsilon = \frac{1}{2} \) and let \( \delta \in \mathbb{ R } \) we will prove that there exists an \( x \in \left[ 0, 1 \right] \) and \( f _ j \) such that \( \left\lvert x - 1 \right\rvert \lt \delta \) and \( \left\lvert f _ j \left( x \right) - f _ j \left( 1 \right) \right\rvert \ge \frac{1}{2} \).</p>
+        <p>What we will do for \( x \) is to simply use \( x = 1 - \frac{\delta}{2} \) which will satisfy the first inequality, then we will note that for any \( \alpha \in \left( 0, 1 \right) \) that the sequence \( \alpha ^ n \to 0 \), since \( x \in \left[ 0, 1 \right] \) then it's also true for our value \( x \) and so there is some \( j \) such that \( x ^ j \lt \frac{1}{2} \) note that \( x ^ j = f _ j \left( x \right) \) and thus we have \( \left\lvert f _ j \left( x \right) - f j \left( 1 \right) \right\rvert = \left\lvert x ^ j - 1 \right\rvert = \left\lvert 1 - x ^ j \right\rvert \ge \frac{1}{2} \)</p>
+    </div>
+</div>

@@ -1,278 +1,197 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Arithmetic Functions</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-</head>
-
-<body>
-    <div class="thin-wrapper">
-
-        <div class="definition" id="definition-arithmetic-function">
-        	<div class="title">Arithmetic Function</div>
-        	<div class="content">
-        		An <b>arithmetic function</b> \( f \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> such that \( \operatorname{ dom } \left( f \right) = \mathbb{ N } _ 1  \)
-        	</div>
-        </div>
-
-        <div class="definition" id="definition-divisor-counting-function">
-        	<div class="title">Divisor Counting Function</div>
-        	<div class="content">
-                Let \( n \in \mathbb{ N } _ 1 \) and define
-                \[
-                    \tau \left( n \right) := \left\lvert \left\{ d \in \mathbb{ N } _ 1: d \mid n \right\}  \right\rvert
-                \]
-        	</div>
-        </div>
-        
-        <div class="proposition" id="proposition-equation-for-the-divisor-counting-function">
-        	<div class="title">Equation for the Divisor Counting Function</div>
-        	<div class="content">
-        		Suppose that \( n \in \mathbb{ N } _ 2 \) <a class="knowledge-link" href="/number_theory/primes.html#theorem-fundamental-theorem-of-algebra">so that</a> \( n = \prod _ { i \in \mathbb{ N } _ 1  } p _ i ^ { \alpha _ i }  \) then
-                \[
-                    \tau \left( n \right) = \prod _ { i \in \mathbb{ N }  } \left( \alpha _ i + 1 \right)
-                \]
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-        
-        <div class="definition" id="definition-divisor-sum-function">
-        	<div class="title">Divisor Sum Function</div>
-        	<div class="content">
-        		Let \( n \in \mathbb{ N } _ 1 \) and define 
-                \[
-                  \sigma \left( n \right)   = \sum \left\{ d \in \mathbb{ N } _ 1: d \mid n \right\} 
-                \]
-                the above notation is a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-sum-fold">sum fold</a>
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-equation-for-the-divisor-sum-function">
-            <div class="title">Equation for the Divisor Sum Function</div>
-            <div class="content">
-                Suppose that \( n \in \mathbb{ N } _ 2 \) <a class="knowledge-link" href="/number_theory/primes.html#theorem-fundamental-theorem-of-algebra">so that</a> \( n = \prod _ { i = 1 } ^  k   p _ i ^ { \alpha _ i }  \) then
-                \[
-                \sigma \left( n \right) = \prod _ { i = 1 } ^ { k  }  \frac{p _ i ^ { \alpha _ i } - 1 }{p _ i - 1}
-                \]
-            </div>
-            <div class="proof">
-
-            </div>
-        </div>
-
-        <div class="definition" id="definition-multiplicative">
-        	<div class="title">Multiplicative</div>
-        	<div class="content">
-        		Suppose that \( f: \mathbb{ N } _ 1 \to C \subseteq \mathbb{ C }  \) is arithmetic, then we say that \( f \) is <b>multiplicative</b> if for every coprime \( n, m \in \mathbb{ N } _ 1 \) we have
-                \[
-                    f \left( n m \right) = f \left( n \right) f \left( m \right)
-                \]
-        	</div>
-        </div>
-
-        <div class="proposition" id="proposition-multiplicative-functions-that-map-1-to-0-are-the-constant-0-function">
-        	<div class="title">Multiplicative Functions that map 1 to 0 Are the Constant 0 Function</div>
-        	<div class="content">
-                Suppose that \( f: \mathbb{ N } _ 1 \to C \) is <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> then if  \( f \left( 1 \right) = 0 \) then we have
-                \[
-                    f \left( n \right) = 0
-                \]
-                for every \( n \in \mathbb{ N } _ 1 \)
-        	</div>
-        	<div class="proof">
-                Let \( n \in \mathbb{ N } _ 1   \) then \( f \left( n \right) = f \left( 1 \cdot n \right) = f \left( 1 \right) f \left( n \right) = 0   \) as needed.
-        	</div>
-        </div>
-
-
-        <div class="proposition" id="proposition-non-zero-multiplicative-functions-map-1-to-1">
-            <div class="title">Non-Zero Multiplicative Functions map 1 to 1</div>
-            <div class="content">
-        		Suppose that \( f: \mathbb{ N } _ 1 \to C \) is non-zero <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> then \( f \left( 1 \right) = 1 \)
-            </div>
-            <div class="proof">
-                We know that \( f \left( 1 \cdot 1  \right) = f \left( 1 \right) \cdot f \left( 1 \right)   \) so we have \( f \left( 1 \right) = f \left( 1 \right) f \left( 1 \right)  \) since \( f \left( 1 \right) \in C \) if \( f \left( 1 \right) = 0  \) <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#proposition-multiplicative-functions-that-map-1-to-0-are-the-constant-0-function">then</a> \( f \) would be the constant zero function which is a contradiction therefore \( f \left( 1 \right) \neq 0 \) so that it has a multiplicative inverse which allows us to conclude that
-                \[
-                    f \left( 1 \right) = 1
-                \]
-                by cancelling \( f \left( 1 \right)  \) from both sides
-            </div>
-        </div>
-
-
-        <div class="definition" id="definition-totally-multiplicative">
-            <div class="title">Totally Multiplicative</div>
-            <div class="content">
-                Suppose that \( f: \mathbb{ N } _ 1 \to C \subseteq \mathbb{ C }  \) is arithmetic, then we say that \( f \) is <b>totally multiplicative</b> if for \( n, m \in \mathbb{ N } _ 1 \) we have
-                \[
-                f \left( n m \right) = f \left( n \right) f \left( m \right)
-                \]
-            </div>
-        </div>
-        
-        <div class="corollary" id="corollary-the-base-function-is-totally-multiplicative">
-        	<div class="title">The Base Function is Totally Multiplicative</div>
-        	<div class="content">
-        		As per title.
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-
-        <p>
-            Notice that this is the same as multiplicative but without the coprime condition.
-        </p>
-        
-        <div class="proposition" id="proposition-when-the-constant-function-is-multiplicative">
-        	<div class="title">When the Constant Function is Multiplicative</div>
-        	<div class="content">
-        		The constant function is multiplicative if and only if \( c \in \left\{ 0, 1 \right\}  \) 
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-        <div class="theorem" id="theorem-the-product-of-two-multiplicative-functions-is-multiplicative">
-        	<div class="title">The Product of Two Multiplicative Functions is Multiplicative</div>
-        	<div class="content">
-        		Suppose that \( f, g: \mathbb{ N } _ 1 \to C \) be <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> then so is \( f \cdot g \) 
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-        <div class="definition" id="definition-nowhere-zero">
-        	<div class="title">Nowhere Zero</div>
-        	<div class="content">
-        		We say that a function is nowhere zero if \( 0 \notin \operatorname{ im } \left( f \right)  \) 
-        	</div>
-        </div>
-        
-        <div class="theorem" id="theorem-the-quotient-of-two-multiplicative-functions-is-multiplicative">
-        	<div class="title">The Quotient of Two Multiplicative Functions is Multiplicative</div>
-        	<div class="content">
-                Suppose that \( f, g: \mathbb{ N } _ 1 \to C \) be <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> and that \( g \) is <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-nowhere-zero">nowhere zero</a> then \( \frac{f}{g}  \) is multiplicative
-            </div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-        <div class="theorem" id="theorem-two-multiplicative-functions-are-equal-if-they-agree-on-prime-powers">
-        	<div class="title">Two Multiplicative Functions are Equal if they Agree on Prime Powers</div>
-        	<div class="content">
-                Suppose that \( f, g: \mathbb{ N } _ 1 \to C \) are multiplicative such that \( f \left( 1 \right) = g \left( 1 \right)   \) then if for any \( p \in \mathbb{ P }  \) and \( k \in \mathbb{ N } _ 1 \) we have
-                \[
-                    f \left( p ^ k \right) =  g \left( p ^ k \right)
-                \]
-                then \( f = g \)
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-
-        <div class="exercise" id="exercise-sum-of-reciprocals-of-divisors-equation">
-        	<div class="title">Sum of Reciprocals of Divisors Equation</div>
-        	<div class="content">
-        		Show that 
-                \[
-                    \frac{\sigma \left( n \right) }{n} = \sum _ { d \mid n } \frac{1}{d} 
-                \]
-        	</div>
-        	<div class="proof">
-                Since both functions are multiplicative, then we confirm that the align at \( 1 \) which they do. Then let \( p \in \mathbb{ P }  \) and \( k \in \mathbb{ N } _ 1 \) then we have
-                \[
-                    \begin{align}
-                        \sum _ { d \mid p ^ k } \frac{1}{d} &= \sum _ { j = 0 } ^ { k } \frac{1}{p ^ j} \\
-                &= \frac{1}{p ^ k} \left( \sum _ { j = 0 } ^ { k } p ^ k  \right) \\
-                &= \frac{\sigma \left( p ^ k \right) }{p ^ k} 
-                    \end{align}
-                \]
-                <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#theorem-two-multiplicative-functions-are-equal-if-they-agree-on-prime-powers">therefore</a> the two functions are equal
-        	</div>
-        </div>
-
-        <div class="theorem" id="theorem-the-sum-of-a-multiplicative-function-over-divisors-of-a-number-is-multiplicative">
-        	<div class="title">The Sum of a Multiplicative Function over Divisors of a Number is Multiplicative</div>
-        	<div class="content">
-        	    Let \( f: \mathbb{ N } _ 1 \to C \) be multiplicative and set \( F \left( n \right) = \sum _ { d \mid n } f \left( d \right)   \) is multiplicative
-        	</div>
-        	<div class="proof">
-        	    	
-        	</div>
-        </div>
-        
-        <div class="definition" id="definition-dirichlet-convolution">
-        	<div class="title">Dirichlet Convolution</div>
-        	<div class="content">
-        		Suppose \( f, g: \mathbb{ N } \to C \) are arithmetic then the <b>Dirichlet Convolution</b> of \( f \) and \( g \) denoted \( f * g \) is defined as 
-                \[
-                    \left( f * g \right) \left( n \right) := \sum _ { d \mid n } f \left( d \right) g \left( \frac{n}{d}  \right) 
-                \]
-        	</div>
-        </div>
-
-        <div class="theorem" id="theorem-the-dirichlet-convolution-of-two-multiplicative-functions-is-multiplicative">
-        	<div class="title">The Dirichlet Convolution of two Multiplicative Functions is Multiplicative</div>
-        	<div class="content">
-        		Let \( f, g: \mathbb{ N } _ 1 \to C \) be multiplicative, then \( f * g \) is multiplicative
-        	</div>
-        	<div class="proof">
-
-        	</div>
-        </div>
-
-        <div class="definition" id="definition-the-dirichlet-convolution-identity">
-        	<div class="title">The Dirichlet Convolution Identity</div>
-        	<div class="content">
-        		Suppose we define \( \epsilon : \mathbb{ N } _ 1 \to \mathbb{ C }  \) so that
-                \[
-                    \epsilon \left( n \right) := \begin{cases}
-                    1 & \text{ if } n = 1 \\
-                    0 & \text{ otherwise }
-                    \end{cases}
-                \]
-        	</div>
-        </div>
-        
-        <div class="corollary" id="corollary-the-dirichlet-identity-is-completely-multiplicative">
-        	<div class="title">The Dirichlet Identity is Completely Multiplicative</div>
-        	<div class="content">
-        		As per title.
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-        <div class="corollary" id="corollary-the-dirichlet-identity-is-an-identity">
-        	<div class="title">The Dirichlet Identity is an Identity</div>
-        	<div class="content">
-        		Suppose that \( f \) is an arithmetic function, then
-                \[
-                    f * \epsilon = \epsilon  * f = f
-                \]
-        	</div>
-        	<div class="proof">
-        		
-        	</div>
-        </div>
-        
-
+<div class="definition" id="definition-arithmetic-function">
+    <div class="title">
+        Arithmetic Function
     </div>
-</body>
-</html>
+    <div class="content">
+        An <b>arithmetic function</b> \( f \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> such that \( \operatorname{ dom } \left( f \right) = \mathbb{ N } _ 1 \)
+    </div>
+</div>
+<div class="definition" id="definition-divisor-counting-function">
+    <div class="title">
+        Divisor Counting Function
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{ N } _ 1 \) and define \[ \tau \left( n \right) := \left\lvert \left\{ d \in \mathbb{ N } _ 1: d \mid n \right\} \right\rvert \]
+    </div>
+</div>
+<div class="proposition" id="proposition-equation-for-the-divisor-counting-function">
+    <div class="title">
+        Equation for the Divisor Counting Function
+    </div>
+    <div class="content">
+        Suppose that \( n \in \mathbb{ N } _ 2 \) <a class="knowledge-link" href="/number_theory/primes.html#theorem-fundamental-theorem-of-algebra">so that</a> \( n = \prod _ { i \in \mathbb{ N } _ 1 } p _ i ^ { \alpha _ i } \) then \[ \tau \left( n \right) = \prod _ { i \in \mathbb{ N } } \left( \alpha _ i + 1 \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-divisor-sum-function">
+    <div class="title">
+        Divisor Sum Function
+    </div>
+    <div class="content">
+        Let \( n \in \mathbb{ N } _ 1 \) and define \[ \sigma \left( n \right) = \sum \left\{ d \in \mathbb{ N } _ 1: d \mid n \right\} \] the above notation is a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-sum-fold">sum fold</a>
+    </div>
+</div>
+<div class="proposition" id="proposition-equation-for-the-divisor-sum-function">
+    <div class="title">
+        Equation for the Divisor Sum Function
+    </div>
+    <div class="content">
+        Suppose that \( n \in \mathbb{ N } _ 2 \) <a class="knowledge-link" href="/number_theory/primes.html#theorem-fundamental-theorem-of-algebra">so that</a> \( n = \prod _ { i = 1 } ^ k p _ i ^ { \alpha _ i } \) then \[ \sigma \left( n \right) = \prod _ { i = 1 } ^ { k } \frac{p _ i ^ { \alpha _ i } - 1 }{p _ i - 1} \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-multiplicative">
+    <div class="title">
+        Multiplicative
+    </div>
+    <div class="content">
+        Suppose that \( f: \mathbb{ N } _ 1 \to C \subseteq \mathbb{ C } \) is arithmetic, then we say that \( f \) is <b>multiplicative</b> if for every coprime \( n, m \in \mathbb{ N } _ 1 \) we have \[ f \left( n m \right) = f \left( n \right) f \left( m \right) \]
+    </div>
+</div>
+<div class="proposition" id="proposition-multiplicative-functions-that-map-1-to-0-are-the-constant-0-function">
+    <div class="title">
+        Multiplicative Functions that map 1 to 0 Are the Constant 0 Function
+    </div>
+    <div class="content">
+        Suppose that \( f: \mathbb{ N } _ 1 \to C \) is <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> then if \( f \left( 1 \right) = 0 \) then we have \[ f \left( n \right) = 0 \] for every \( n \in \mathbb{ N } _ 1 \)
+    </div>
+    <div class="proof">
+        Let \( n \in \mathbb{ N } _ 1 \) then \( f \left( n \right) = f \left( 1 \cdot n \right) = f \left( 1 \right) f \left( n \right) = 0 \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-non-zero-multiplicative-functions-map-1-to-1">
+    <div class="title">
+        Non-Zero Multiplicative Functions map 1 to 1
+    </div>
+    <div class="content">
+        Suppose that \( f: \mathbb{ N } _ 1 \to C \) is non-zero <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> then \( f \left( 1 \right) = 1 \)
+    </div>
+    <div class="proof">
+        We know that \( f \left( 1 \cdot 1 \right) = f \left( 1 \right) \cdot f \left( 1 \right) \) so we have \( f \left( 1 \right) = f \left( 1 \right) f \left( 1 \right) \) since \( f \left( 1 \right) \in C \) if \( f \left( 1 \right) = 0 \) <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#proposition-multiplicative-functions-that-map-1-to-0-are-the-constant-0-function">then</a> \( f \) would be the constant zero function which is a contradiction therefore \( f \left( 1 \right) \neq 0 \) so that it has a multiplicative inverse which allows us to conclude that \[ f \left( 1 \right) = 1 \] by cancelling \( f \left( 1 \right) \) from both sides
+    </div>
+</div>
+<div class="definition" id="definition-totally-multiplicative">
+    <div class="title">
+        Totally Multiplicative
+    </div>
+    <div class="content">
+        Suppose that \( f: \mathbb{ N } _ 1 \to C \subseteq \mathbb{ C } \) is arithmetic, then we say that \( f \) is <b>totally multiplicative</b> if for \( n, m \in \mathbb{ N } _ 1 \) we have \[ f \left( n m \right) = f \left( n \right) f \left( m \right) \]
+    </div>
+</div>
+<div class="corollary" id="corollary-the-base-function-is-totally-multiplicative">
+    <div class="title">
+        The Base Function is Totally Multiplicative
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof"></div>
+</div>
+<p>Notice that this is the same as multiplicative but without the coprime condition.</p>
+<div class="proposition" id="proposition-when-the-constant-function-is-multiplicative">
+    <div class="title">
+        When the Constant Function is Multiplicative
+    </div>
+    <div class="content">
+        The constant function is multiplicative if and only if \( c \in \left\{ 0, 1 \right\} \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-the-product-of-two-multiplicative-functions-is-multiplicative">
+    <div class="title">
+        The Product of Two Multiplicative Functions is Multiplicative
+    </div>
+    <div class="content">
+        Suppose that \( f, g: \mathbb{ N } _ 1 \to C \) be <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> then so is \( f \cdot g \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-nowhere-zero">
+    <div class="title">
+        Nowhere Zero
+    </div>
+    <div class="content">
+        We say that a function is nowhere zero if \( 0 \notin \operatorname{ im } \left( f \right) \)
+    </div>
+</div>
+<div class="theorem" id="theorem-the-quotient-of-two-multiplicative-functions-is-multiplicative">
+    <div class="title">
+        The Quotient of Two Multiplicative Functions is Multiplicative
+    </div>
+    <div class="content">
+        Suppose that \( f, g: \mathbb{ N } _ 1 \to C \) be <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-multiplicative">multiplicative</a> and that \( g \) is <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#definition-nowhere-zero">nowhere zero</a> then \( \frac{f}{g} \) is multiplicative
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-two-multiplicative-functions-are-equal-if-they-agree-on-prime-powers">
+    <div class="title">
+        Two Multiplicative Functions are Equal if they Agree on Prime Powers
+    </div>
+    <div class="content">
+        Suppose that \( f, g: \mathbb{ N } _ 1 \to C \) are multiplicative such that \( f \left( 1 \right) = g \left( 1 \right) \) then if for any \( p \in \mathbb{ P } \) and \( k \in \mathbb{ N } _ 1 \) we have \[ f \left( p ^ k \right) = g \left( p ^ k \right) \] then \( f = g \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-sum-of-reciprocals-of-divisors-equation">
+    <div class="title">
+        Sum of Reciprocals of Divisors Equation
+    </div>
+    <div class="content">
+        Show that \[ \frac{\sigma \left( n \right) }{n} = \sum _ { d \mid n } \frac{1}{d} \]
+    </div>
+    <div class="proof">
+        Since both functions are multiplicative, then we confirm that the align at \( 1 \) which they do. Then let \( p \in \mathbb{ P } \) and \( k \in \mathbb{ N } _ 1 \) then we have \[ \begin{align} \sum _ { d \mid p ^ k } \frac{1}{d} &amp;= \sum _ { j = 0 } ^ { k } \frac{1}{p ^ j} \\ &amp;= \frac{1}{p ^ k} \left( \sum _ { j = 0 } ^ { k } p ^ k \right) \\ &amp;= \frac{\sigma \left( p ^ k \right) }{p ^ k} \end{align} \] <a class="knowledge-link" href="/number_theory/arithmetic_functions.html#theorem-two-multiplicative-functions-are-equal-if-they-agree-on-prime-powers">therefore</a> the two functions are equal
+    </div>
+</div>
+<div class="theorem" id="theorem-the-sum-of-a-multiplicative-function-over-divisors-of-a-number-is-multiplicative">
+    <div class="title">
+        The Sum of a Multiplicative Function over Divisors of a Number is Multiplicative
+    </div>
+    <div class="content">
+        Let \( f: \mathbb{ N } _ 1 \to C \) be multiplicative and set \( F \left( n \right) = \sum _ { d \mid n } f \left( d \right) \) is multiplicative
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-dirichlet-convolution">
+    <div class="title">
+        Dirichlet Convolution
+    </div>
+    <div class="content">
+        Suppose \( f, g: \mathbb{ N } \to C \) are arithmetic then the <b>Dirichlet Convolution</b> of \( f \) and \( g \) denoted \( f * g \) is defined as \[ \left( f * g \right) \left( n \right) := \sum _ { d \mid n } f \left( d \right) g \left( \frac{n}{d} \right) \]
+    </div>
+</div>
+<div class="theorem" id="theorem-the-dirichlet-convolution-of-two-multiplicative-functions-is-multiplicative">
+    <div class="title">
+        The Dirichlet Convolution of two Multiplicative Functions is Multiplicative
+    </div>
+    <div class="content">
+        Let \( f, g: \mathbb{ N } _ 1 \to C \) be multiplicative, then \( f * g \) is multiplicative
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-the-dirichlet-convolution-identity">
+    <div class="title">
+        The Dirichlet Convolution Identity
+    </div>
+    <div class="content">
+        Suppose we define \( \epsilon : \mathbb{ N } _ 1 \to \mathbb{ C } \) so that \[ \epsilon \left( n \right) := \begin{cases} 1 & \text{ if } n = 1 \\ 0 & \text{ otherwise } \end{cases} \]
+    </div>
+</div>
+<div class="corollary" id="corollary-the-dirichlet-identity-is-completely-multiplicative">
+    <div class="title">
+        The Dirichlet Identity is Completely Multiplicative
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-the-dirichlet-identity-is-an-identity">
+    <div class="title">
+        The Dirichlet Identity is an Identity
+    </div>
+    <div class="content">
+        Suppose that \( f \) is an arithmetic function, then \[ f * \epsilon = \epsilon * f = f \]
+    </div>
+    <div class="proof"></div>
+</div>

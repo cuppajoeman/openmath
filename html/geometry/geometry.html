@@ -1,119 +1,95 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>geometry</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../styles/styles.css">
-        <script src="../js/script.js" defer></script>
-
-
-		
-
-		<link rel="icon" href="/Theta.svg">
-    </head>
-    <body>
-		<div class="thin-wrapper">
-
-			<div class="definition" id="definition-plane">
-				<div class="title">plane</div>
-				<div class="content">
-					A plane is a two dimensional space that extends indefinitely
-				</div>
-			</div>
-
-			<div class="definition" id="definition-point">
-				<div class="title">point in the plane</div>
-				<div class="content">
-					A point is an exact localtion in spaces that has no length, width or thickness.
-				</div>
-			</div>
-
-			<div class="definition" id="definition-line">
-				<div class="title">line</div>
-				<div class="content">
-					A line is a one dimensional object that is infinitely long with no width, depth or curvature
-				</div>
-			</div>
-
-			<div class="definition" id="definition-area">
-				<div class="title">area</div>
-				<div class="content">
-					An area is a region of a <span class="knowledge-link" data-href="/geometry/geometry.html#definition-plane">plane</span>
-				</div>
-			</div>
-
-
-			<div class="definition" id="definition-ray">
-				<div class="title">ray</div>
-				<div class="content">
-					A ray is a line with a single endpoint that extends infinitely in one direction
-				</div>
-			</div>
-
-			<div class="definition" id="definition-line-segment">
-				<div class="title">line segment</div>
-				<div class="content">
-					Given two points the line segment is part of the line that connects \( A \) and \( B \) so that the line has \( A \) and \( B \) as endpoints. We denote this line by \( \overline{A B} \)
-				</div>
-			</div>
-
-			<div class="definition" id="definition-circle">
-				<div class="title">circle</div>
-				<div class="content">
-					A circle of radius \( r \) around a point \( A \) is the collection of points that are all distance \( r \) away from \( A \)
-				</div>
-			</div>
-
-			<div class="definition" id="definition-circle-from-two-points">
-				<div class="title">circle from two points</div>
-				<div class="content">
-					Given two points \( A , B \) on the plane, then we define the circle from \( A \) to \( B \) as the circle centered at \( A \) with radius \( \text{dist} \left ( A , B \right ) \) and notate it as \( A \odot B \)
-				</div>
-			</div>
-
-			<div class="definition" id="definition-compass">
-				<div class="title">compass</div>
-				<div class="content">
-					A compass is a tool which allows us to contstruct any arc or circle on the plane
-				</div>
-			</div>
-
-			<div class="definition" id="definition-straight-edge">
-				<div class="title">straight edge</div>
-				<div class="content">
-					A straight-edge is a tool which allows us to draw lines, rays or line segments
-				</div>
-			</div>
-
-			<div class="theorem" id="theorem-equilateral-triangle-construction">
-				<div class="title">equilateral triangle construction</div>
-				<div class="content">
-					We can construct an equilateral triangle using a compass and straight edge
-				</div>
-				<div class="proof">
-					<p>
-						Let \( A , B \) be points on the plane, then we can construct the circle from \( A \) to \( B \), \( A \odot B \) and \( B \odot A \), from this we obtain two intersection points and pick one of them as \( C \), and draw a third circle \( C \odot B \).
-					</p>
-					<div class="centered-content">
-						<img src="/geometry/graphics/equilateral-triangle-construction/1.svg" width="50%">
-						<img src="/geometry/graphics/equilateral-triangle-construction/2.svg" width="50%">
-						<img src="/geometry/graphics/equilateral-triangle-construction/3.svg" width="50%">
-					</div>
-					<p>
-						We know that \( C \in A \odot B \) so \( \text{dist} \left ( A , B \right ) = \text{dist} \left ( A , C \right ) \), additionally \( C \in B \odot A \) so \( \text{dist} \left ( B , C \right ) = \text{dist} \left ( B , A \right ) \), thus we have \( \text{dist} \left ( A , B \right ) = \text{dist} \left ( A , C \right ) = \text{dist} \left ( B , C \right ) \) and so by drawing line segments between \( A , B , C \) we obtain a triangle all with equal side lengths
-					</p>
-					<div class="centered-content">
-						<img src="/geometry/graphics/equilateral-triangle-construction/4.svg" width="50%">
-					</div>
-					<p>
-						And thus the triangle \( \overline{A B} , \overline{B C} , \overline{C A} \) is equilateral.
-					</p>
-				</div>
-			</div>
-
-		</div>
-    </body>
-</html>
+<div class="definition" id="definition-plane">
+    <div class="title">
+        plane
+    </div>
+    <div class="content">
+        A plane is a two dimensional space that extends indefinitely
+    </div>
+</div>
+<div class="definition" id="definition-point">
+    <div class="title">
+        point in the plane
+    </div>
+    <div class="content">
+        A point is an exact localtion in spaces that has no length, width or thickness.
+    </div>
+</div>
+<div class="definition" id="definition-line">
+    <div class="title">
+        line
+    </div>
+    <div class="content">
+        A line is a one dimensional object that is infinitely long with no width, depth or curvature
+    </div>
+</div>
+<div class="definition" id="definition-area">
+    <div class="title">
+        area
+    </div>
+    <div class="content">
+        An area is a region of a <span class="knowledge-link" data-href="/geometry/geometry.html#definition-plane">plane</span>
+    </div>
+</div>
+<div class="definition" id="definition-ray">
+    <div class="title">
+        ray
+    </div>
+    <div class="content">
+        A ray is a line with a single endpoint that extends infinitely in one direction
+    </div>
+</div>
+<div class="definition" id="definition-line-segment">
+    <div class="title">
+        line segment
+    </div>
+    <div class="content">
+        Given two points the line segment is part of the line that connects \( A \) and \( B \) so that the line has \( A \) and \( B \) as endpoints. We denote this line by \( \overline{A B} \)
+    </div>
+</div>
+<div class="definition" id="definition-circle">
+    <div class="title">
+        circle
+    </div>
+    <div class="content">
+        A circle of radius \( r \) around a point \( A \) is the collection of points that are all distance \( r \) away from \( A \)
+    </div>
+</div>
+<div class="definition" id="definition-circle-from-two-points">
+    <div class="title">
+        circle from two points
+    </div>
+    <div class="content">
+        Given two points \( A , B \) on the plane, then we define the circle from \( A \) to \( B \) as the circle centered at \( A \) with radius \( \text{dist} \left ( A , B \right ) \) and notate it as \( A \odot B \)
+    </div>
+</div>
+<div class="definition" id="definition-compass">
+    <div class="title">
+        compass
+    </div>
+    <div class="content">
+        A compass is a tool which allows us to contstruct any arc or circle on the plane
+    </div>
+</div>
+<div class="definition" id="definition-straight-edge">
+    <div class="title">
+        straight edge
+    </div>
+    <div class="content">
+        A straight-edge is a tool which allows us to draw lines, rays or line segments
+    </div>
+</div>
+<div class="theorem" id="theorem-equilateral-triangle-construction">
+    <div class="title">
+        equilateral triangle construction
+    </div>
+    <div class="content">
+        We can construct an equilateral triangle using a compass and straight edge
+    </div>
+    <div class="proof">
+        <p>Let \( A , B \) be points on the plane, then we can construct the circle from \( A \) to \( B \), \( A \odot B \) and \( B \odot A \), from this we obtain two intersection points and pick one of them as \( C \), and draw a third circle \( C \odot B \).</p>
+        <div class="centered-content"><img src="/geometry/graphics/equilateral-triangle-construction/1.svg" width="50%"> <img src="/geometry/graphics/equilateral-triangle-construction/2.svg" width="50%"> <img src="/geometry/graphics/equilateral-triangle-construction/3.svg" width="50%"></div>
+        <p>We know that \( C \in A \odot B \) so \( \text{dist} \left ( A , B \right ) = \text{dist} \left ( A , C \right ) \), additionally \( C \in B \odot A \) so \( \text{dist} \left ( B , C \right ) = \text{dist} \left ( B , A \right ) \), thus we have \( \text{dist} \left ( A , B \right ) = \text{dist} \left ( A , C \right ) = \text{dist} \left ( B , C \right ) \) and so by drawing line segments between \( A , B , C \) we obtain a triangle all with equal side lengths</p>
+        <div class="centered-content"><img src="/geometry/graphics/equilateral-triangle-construction/4.svg" width="50%"></div>
+        <p>And thus the triangle \( \overline{A B} , \overline{B C} , \overline{C A} \) is equilateral.</p>
+    </div>
+</div>

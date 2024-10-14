@@ -1,777 +1,463 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Limits</title>
-        <link rel="stylesheet" href="/styles/styles.css">
-        <script src="/js/script.js" defer></script>
-
-    </head>
-    <body>
-        <div class="thin-wrapper">
-			
-
-            <div class="definition" id="definition-sequence-convergence">
-                <div class="title">Sequence Convergence</div>
-                <div class="content">
-                    Let \( \left( x_n \right) : \mathbb{R} \to \mathbb{R} \) be a <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-sequence">sequence</a> and let \( x \in \mathbb{ R }  \), then we say that \( \left( x _ n \right)  \) converges to \( x \) and write \( \left( x _ n \right) \to x  \) when the following holds true
-                    \[
-                    \forall \epsilon \in \mathbb{ R }^+, \exists n \in \mathbb{ N } _ 0 \text{ such that } \forall n \in \mathbb{ N } _ 0, n \ge N \implies | x _ n - x | \lt \epsilon
-                    \]
-                </div>
-            </div>
-
-            <p>
-                Note that you may come across various other notations for this definition in other resources, the main ones to note will be: \( x _ n \to x \) as \( n \to \infty \), or even more shortened as \( x _ n \to x \), sometimes limit notation will be used: \( \lim _ { n \to \infty } x _ n = x \) or just \( \lim x _ n = x \)
-            </p>
-
-            <div class="corollary" id="corollary-convergent-sequence-doesnt-reqiure-strict-inequality">
-            	<div class="title">Convergent Sequence Doesn't Require Strict Inequality</div>
-            	<div class="content">
-                    \( \left( a _ n  \right) \to L  \) is equivalent to
-                    \[
-                        \forall \epsilon \in \mathbb{ R } ^ +, \exists N \in \mathbb{ N } _ 0, \text{ st } \forall n \in \mathbb{ N } _ 0,  n \ge N \implies \left\lvert a _ n - L  \right\rvert \le \epsilon
-                    \]
-            	</div>
-            	<div class="proof">
-            		\( \implies  \) Suppose \( \left( a _ n \right) \to L  \), now let \( \epsilon \in \mathbb{ R }  \), and consider \( \frac{\epsilon}{2}  \), then since \( \left( a _ n \right) \to L  \) we get some \( N \in \mathbb{ N } _ 0 \) such that for every \( n \ge N \) we have \( \left\lvert a _ n - L \right\rvert \lt \frac{\epsilon}{2} \le \epsilon   \) as needed. \( \impliedby  \) Assume the other direction, and we want to prove \( \left( a _ n \right) \to L  \) so let \( \epsilon \in \mathbb{ R } ^ +  \) therefore we get an \( N \in \mathbb{ N } _ 0 \) such that for all \( n \ge N \) we have \( \left\lvert a _ n - L  \right\rvert \le \frac{\epsilon }{2} \lt \epsilon    \) as needed.
-            	</div>
-            </div>
-
-
-            <div class="definition" id="definition-limit-notation">
-            	<div class="title">Limit Notation</div>
-            	<div class="content">
-            		Suppose that \( x _ n \to x \) then we write
-                    \[
-                        \lim _ { n \to \infty  } x _ n := x
-                    \]
-            	</div>
-            </div>
-
-            <p>
-                Note that if you have an arbitrary sequence \( \left( y _ n \right)  \) which you don't know if it converges to anything and you write \( \lim _ { n \to \infty  } y _ n = L  \)  for some \( L \in \mathbb{ R }  \), this is two assertions, first that \( \left( y _ n \right)  \) converges to something, and the value it converges to is \( L \).
-            </p>
-
-            <div class="proposition" id="proposition-eventually-increasing-index-mapping-maintains-limit">
-            	<div class="title">Eventually Increasing Index Mapping Maintains Limit</div>
-            	<div class="content">
-            		Suppose that \( \lim _ { n \to \infty  } x _ n = x  \) and \( f : \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \) is an eventually increasing function, then
-                    \[
-                        \lim _ { n \to \infty  } x _ { f \left( n \right)  } = x
-                    \]
-            	</div>
-            	<div class="proof">
-
-            	</div>
-            </div>
-
-
-            <div class="exercise" id="exercise-reciprocal-power-goes-to-zero">
-            	<div class="title">Reciprocal Power Goes to Zero</div>
-            	<div class="content">
-            		Let \( \left( x _ n \right) : \mathbb{ N } _ 0 \to \mathbb{ R }  \) be the sequence such that \( x _ n = \frac{1}{n ^ \alpha}  \) for some \( \alpha \in \mathbb{ R } ^ { \gt 0 }  \), then \( \left( x _ n  \right) \to 0  \)
-            	</div>
-            	<div class="proof">
-                    Let \( \epsilon \in \mathbb{ R } ^ { \gt 0 }  \), we need to pick an \( N \in \mathbb{ N } _ 1\) such that for \( n \ge N \) we have that \( \lvert \frac{1}{n ^ \alpha} - 0 \rvert \lt \epsilon   \), it's clear that \( \frac{1}{n ^ \alpha } \gt 0 \) so therefore we can drop the absolute values so we just need an \( n \) that satisfies
-                    \[
-                        \frac{1}{n ^ \alpha } \lt \epsilon \iff \frac{1}{\epsilon ^ { \frac{1}{\alpha }  } } \lt n
-                    \]
-                    By setting \( N = \lceil \frac{1}{\epsilon ^ { \frac{1}{\alpha }  } } \rceil + 1  \) then we have that for any \( n \ge N \)
-                    \[
-                        \frac{1}{\epsilon ^ \frac{1}{\alpha } } \lt \left\lceil \frac{1}{\epsilon ^ \frac{1}{\alpha } } \right\rceil + 1 = N \le n
-                    \]
-                    So that \( \frac{1}{\epsilon ^ \frac{1}{\alpha } } \lt n \) as needed.
-            	</div>
-            </div>
-
-            <div class="exercise" id="exercise-limit-of-sine-doesnt-exist-at-infinity">
-            	<div class="title">Limit of Sine Doesn't Exist at Infinity</div>
-            	<div class="content">
-            		Show that \( \lim _ { n \to \infty  } \sin \left( \frac{n \pi}{2}  \right)   \) doesn't exist using the definition of limit.
-            	</div>
-            	<div class="proof">
-            		To show that the limit doesn't exist we will use the negation of the definition and show that is true, so we have to prove that
-                    \[
-                        \forall L \in \mathbb{ R } , \exists \epsilon \in \mathbb{ R } ^ + \text{ st } \forall N \in \mathbb{ N } _ 0 , \exists n \in \mathbb{ N } _ 0 \text{ st } \left( n \ge N \land \lvert a _ n - L \rvert \ge \epsilon   \right)
-                    \]
-                    So let \( L \in \mathbb{ R }  \) and take \( \epsilon = \frac{1}{4}  \) let \( N \in \mathbb{ N } _ 0 \). 
-                    <p>
-                        Before finding our \( n \) value, consider sequence \( a _ n =  \sin \left( \frac{n \pi}{2}  \right)  \), and that \( \lvert  a _ n - a _ { n + 1  }  \rvert = 1  \). 
-                    </p>
-                    <p>
-                        Now to find our \( n \) value we look at the requirement that \( \lvert a _ n - L \rvert \ge \epsilon \) which means that it's not true that \( \lvert a _ n - L \rvert \lt \epsilon   \), so that in <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">other words</a> \( a _ n \notin \left( L - \epsilon , L + \epsilon  \right)  \), due to the fact that \( \ell \left( \left( L - \epsilon , L + \epsilon  \right)  \right) = \frac{1}{2}  \) then given that \( \lvert a _ N - a _ { N + 1  }  \rvert = 1   \) then exactly one of \( a _ N, a _ { N + 1  } \) is not in \( \left( L - \epsilon , L + \epsilon  \right)  \) therefore we can set \( n \) respectively to force \( \lvert a _ n - L \rvert \ge \epsilon   \) as needed.
-                    </p>
-                    
-            	</div>
-            </div>
-
-            <div class="proposition" id="proposition-non-zero-limit-implies-eventually-non-zero-sequence">
-            	<div class="title">Non-Zero Limit Implies Eventually Non-Zero Sequence</div>
-            	<div class="content">
-            		Suppose that \( \lim _ { n \to \infty  } a _ n = L  \neq 0 \) then there exists some \( N \in \mathbb{ N } _ 0 \) such that \( a _ n \neq 0 \) for all \( n \ge N \).
-            	</div>
-            	<div class="proof">
-                    <p>
-                        Suppose for the sake of contradiction that that was not true, so that for every \( N \) we had some \( n \ge N \) such that \( a _ n = 0 \), let's derive a contradiction.
-                    </p>
-                    <p>
-                        Since \( \left( a _ n \right) \to L  \) then specifically for \( \epsilon = \frac{L}{2}  \) we have some \( N ^ \prime  \in \mathbb{ N } _ 0  \) such that for every \( n \ge N ^ \prime  \) we have \( \lvert a _ n - L  \rvert \le \frac{L}{2}   \), therefore by our contradiction assumption we also know there is some \( k \ge N ^ \prime  \) such that \( a _ k = 0 \) so therefore because the limit exists we have \( \lvert a _ k - L \rvert \le \frac{L}{2}   \) but \( a _ k = 0 \) so that \( \lvert L \rvert \le \frac{L}{2}  \) which is impossible so therefore we have a contradiction and so the original statement holds true.
-                    </p>
-            	</div>
-            </div>
-
-
-
-
-
-            <div class="definition" id="definition-sequence-goes-to-positive-infinity">
-                <div class="title">Sequence Goes to Positive Infinity</div>
-                <div class="content">
-                    We say that a sequence \( \left( x _ n \right)  \) <b>goes to positive infinity</b> and notate it as \( \left( x _ n \right) \to \infty \) when
-                    \[
-                    \forall M \in \mathbb{ R } ^ +, \exists N \in \mathbb{ N } _ 0 \text{ such that } \forall n \in \mathbb{ N } _ 0, n \ge N \implies x _ n \ge M
-                    \]
-                </div>
-            </div>
-
-
-            <p>
-                You can probably guess the next definition.
-            </p>
-
-            <div class="definition" id="definition-sequence-goes-to-negative-infinity">
-                <div class="title">Sequence Goes to Negative Infinity</div>
-                <div class="content">
-                    We say that a sequence \( \left( x _ n \right)  \) <b>goes to negative infinity</b> and notate it as \( \left( x _ n \right) \to -\infty \) when
-                    \[
-                    \forall M \in \mathbb{ R } ^ -, \exists N \in \mathbb{ N } _ 0 \text{ such that } \forall n \in \mathbb{ N } _ 0, n \ge N \implies x _ n \le M
-                    \]
-                </div>
-            </div>
-
-            <p>
-                Note that these definitions formalize our idea that if something approaches infinity, namely that this object is greater (or smaller) than every possible other object.
-            </p>
-
-            <div class="definition" id="definition-sequence-goes-to-infinity">
-                <div class="title">Sequence Goes to Infinity</div>
-                <div class="content">
-                    We say that a sequence goes to infinity if it <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-sequence-goes-to-positive-infinity">goes to positive infinity</a> or <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-sequence-goes-to-negative-infinity">negative infinity</a>, and write \( \left( x _ n \right) \to  \pm \infty  \)
-                </div>
-            </div>
-
-            <div class="exercise" id="exercise-log-goes-to-infinity">
-            	<div class="title">Log Goes to Infinity</div>
-            	<div class="content">
-                    Show that \( \left( \ln \left( n \right)  \right) _ { n = 1 }  ^ \infty    \to \infty   \)
-            	</div>
-            	<div class="proof">
-                    Let \( M \in \mathbb{ R } ^ + \) and take \( N = \left\lceil e ^ M \right\rceil  \) and let \( n \ge N \) therefore \( n = \left\lceil e ^ M \right\rceil  + k \) for some \( k \in \mathbb{ N } _ 0 \) since \( \ln \) is increasing then we know that \( M = \ln \left( e ^ M \right) \le \ln \left( \left\lceil e ^ M \right\rceil  \right) \le \ln \left( \left\lceil e ^ M \right\rceil + k  \right)    \) so that \( M \le \ln \left( n \right)  \) as needed therefore it goes to infinity
-            	</div>
-            </div>
-
-<!--            <div class="proposition" id="proposition-function-constant-inequality-has-solution-of-funciton-has-inverse">-->
-<!--            	<div class="title">Function Constant Inequality Has Solution if Function has Inverse</div>-->
-<!--            	<div class="content">-->
-<!--            		Suppose that \( f \) is an <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">invertible function</a> and \( c \in \mathbb{ R }  \) then-->
+<div class="definition" id="definition-sequence-convergence">
+    <div class="title">
+        Sequence Convergence
+    </div>
+    <div class="content">
+        Let \( \left( x_n \right) : \mathbb{R} \to \mathbb{R} \) be a <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-sequence">sequence</a> and let \( x \in \mathbb{ R } \), then we say that \( \left( x _ n \right) \) converges to \( x \) and write \( \left( x _ n \right) \to x \) when the following holds true \[ \forall \epsilon \in \mathbb{ R }^+, \exists n \in \mathbb{ N } _ 0 \text{ such that } \forall n \in \mathbb{ N } _ 0, n \ge N \implies | x _ n - x | \lt \epsilon \]
+    </div>
+</div>
+<p>Note that you may come across various other notations for this definition in other resources, the main ones to note will be: \( x _ n \to x \) as \( n \to \infty \), or even more shortened as \( x _ n \to x \), sometimes limit notation will be used: \( \lim _ { n \to \infty } x _ n = x \) or just \( \lim x _ n = x \)</p>
+<div class="corollary" id="corollary-convergent-sequence-doesnt-reqiure-strict-inequality">
+    <div class="title">
+        Convergent Sequence Doesn't Require Strict Inequality
+    </div>
+    <div class="content">
+        \( \left( a _ n \right) \to L \) is equivalent to \[ \forall \epsilon \in \mathbb{ R } ^ +, \exists N \in \mathbb{ N } _ 0, \text{ st } \forall n \in \mathbb{ N } _ 0, n \ge N \implies \left\lvert a _ n - L \right\rvert \le \epsilon \]
+    </div>
+    <div class="proof">
+        \( \implies \) Suppose \( \left( a _ n \right) \to L \), now let \( \epsilon \in \mathbb{ R } \), and consider \( \frac{\epsilon}{2} \), then since \( \left( a _ n \right) \to L \) we get some \( N \in \mathbb{ N } _ 0 \) such that for every \( n \ge N \) we have \( \left\lvert a _ n - L \right\rvert \lt \frac{\epsilon}{2} \le \epsilon \) as needed. \( \impliedby \) Assume the other direction, and we want to prove \( \left( a _ n \right) \to L \) so let \( \epsilon \in \mathbb{ R } ^ + \) therefore we get an \( N \in \mathbb{ N } _ 0 \) such that for all \( n \ge N \) we have \( \left\lvert a _ n - L \right\rvert \le \frac{\epsilon }{2} \lt \epsilon \) as needed.
+    </div>
+</div>
+<div class="definition" id="definition-limit-notation">
+    <div class="title">
+        Limit Notation
+    </div>
+    <div class="content">
+        Suppose that \( x _ n \to x \) then we write \[ \lim _ { n \to \infty } x _ n := x \]
+    </div>
+</div>
+<p>Note that if you have an arbitrary sequence \( \left( y _ n \right) \) which you don't know if it converges to anything and you write \( \lim _ { n \to \infty } y _ n = L \) for some \( L \in \mathbb{ R } \), this is two assertions, first that \( \left( y _ n \right) \) converges to something, and the value it converges to is \( L \).</p>
+<div class="proposition" id="proposition-eventually-increasing-index-mapping-maintains-limit">
+    <div class="title">
+        Eventually Increasing Index Mapping Maintains Limit
+    </div>
+    <div class="content">
+        Suppose that \( \lim _ { n \to \infty } x _ n = x \) and \( f : \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \) is an eventually increasing function, then \[ \lim _ { n \to \infty } x _ { f \left( n \right) } = x \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-reciprocal-power-goes-to-zero">
+    <div class="title">
+        Reciprocal Power Goes to Zero
+    </div>
+    <div class="content">
+        Let \( \left( x _ n \right) : \mathbb{ N } _ 0 \to \mathbb{ R } \) be the sequence such that \( x _ n = \frac{1}{n ^ \alpha} \) for some \( \alpha \in \mathbb{ R } ^ { \gt 0 } \), then \( \left( x _ n \right) \to 0 \)
+    </div>
+    <div class="proof">
+        Let \( \epsilon \in \mathbb{ R } ^ { \gt 0 } \), we need to pick an \( N \in \mathbb{ N } _ 1\) such that for \( n \ge N \) we have that \( \lvert \frac{1}{n ^ \alpha} - 0 \rvert \lt \epsilon \), it's clear that \( \frac{1}{n ^ \alpha } \gt 0 \) so therefore we can drop the absolute values so we just need an \( n \) that satisfies \[ \frac{1}{n ^ \alpha } \lt \epsilon \iff \frac{1}{\epsilon ^ { \frac{1}{\alpha } } } \lt n \] By setting \( N = \lceil \frac{1}{\epsilon ^ { \frac{1}{\alpha } } } \rceil + 1 \) then we have that for any \( n \ge N \) \[ \frac{1}{\epsilon ^ \frac{1}{\alpha } } \lt \left\lceil \frac{1}{\epsilon ^ \frac{1}{\alpha } } \right\rceil + 1 = N \le n \] So that \( \frac{1}{\epsilon ^ \frac{1}{\alpha } } \lt n \) as needed.
+    </div>
+</div>
+<div class="exercise" id="exercise-limit-of-sine-doesnt-exist-at-infinity">
+    <div class="title">
+        Limit of Sine Doesn't Exist at Infinity
+    </div>
+    <div class="content">
+        Show that \( \lim _ { n \to \infty } \sin \left( \frac{n \pi}{2} \right) \) doesn't exist using the definition of limit.
+    </div>
+    <div class="proof">
+        To show that the limit doesn't exist we will use the negation of the definition and show that is true, so we have to prove that \[ \forall L \in \mathbb{ R } , \exists \epsilon \in \mathbb{ R } ^ + \text{ st } \forall N \in \mathbb{ N } _ 0 , \exists n \in \mathbb{ N } _ 0 \text{ st } \left( n \ge N \land \lvert a _ n - L \rvert \ge \epsilon \right) \] So let \( L \in \mathbb{ R } \) and take \( \epsilon = \frac{1}{4} \) let \( N \in \mathbb{ N } _ 0 \).
+        <p>Before finding our \( n \) value, consider sequence \( a _ n = \sin \left( \frac{n \pi}{2} \right) \), and that \( \lvert a _ n - a _ { n + 1 } \rvert = 1 \).</p>
+        <p>Now to find our \( n \) value we look at the requirement that \( \lvert a _ n - L \rvert \ge \epsilon \) which means that it's not true that \( \lvert a _ n - L \rvert \lt \epsilon \), so that in <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">other words</a> \( a _ n \notin \left( L - \epsilon , L + \epsilon \right) \), due to the fact that \( \ell \left( \left( L - \epsilon , L + \epsilon \right) \right) = \frac{1}{2} \) then given that \( \lvert a _ N - a _ { N + 1 } \rvert = 1 \) then exactly one of \( a _ N, a _ { N + 1 } \) is not in \( \left( L - \epsilon , L + \epsilon \right) \) therefore we can set \( n \) respectively to force \( \lvert a _ n - L \rvert \ge \epsilon \) as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-non-zero-limit-implies-eventually-non-zero-sequence">
+    <div class="title">
+        Non-Zero Limit Implies Eventually Non-Zero Sequence
+    </div>
+    <div class="content">
+        Suppose that \( \lim _ { n \to \infty } a _ n = L \neq 0 \) then there exists some \( N \in \mathbb{ N } _ 0 \) such that \( a _ n \neq 0 \) for all \( n \ge N \).
+    </div>
+    <div class="proof">
+        <p>Suppose for the sake of contradiction that that was not true, so that for every \( N \) we had some \( n \ge N \) such that \( a _ n = 0 \), let's derive a contradiction.</p>
+        <p>Since \( \left( a _ n \right) \to L \) then specifically for \( \epsilon = \frac{L}{2} \) we have some \( N ^ \prime \in \mathbb{ N } _ 0 \) such that for every \( n \ge N ^ \prime \) we have \( \lvert a _ n - L \rvert \le \frac{L}{2} \), therefore by our contradiction assumption we also know there is some \( k \ge N ^ \prime \) such that \( a _ k = 0 \) so therefore because the limit exists we have \( \lvert a _ k - L \rvert \le \frac{L}{2} \) but \( a _ k = 0 \) so that \( \lvert L \rvert \le \frac{L}{2} \) which is impossible so therefore we have a contradiction and so the original statement holds true.</p>
+    </div>
+</div>
+<div class="definition" id="definition-sequence-goes-to-positive-infinity">
+    <div class="title">
+        Sequence Goes to Positive Infinity
+    </div>
+    <div class="content">
+        We say that a sequence \( \left( x _ n \right) \) <b>goes to positive infinity</b> and notate it as \( \left( x _ n \right) \to \infty \) when \[ \forall M \in \mathbb{ R } ^ +, \exists N \in \mathbb{ N } _ 0 \text{ such that } \forall n \in \mathbb{ N } _ 0, n \ge N \implies x _ n \ge M \]
+    </div>
+</div>
+<p>You can probably guess the next definition.</p>
+<div class="definition" id="definition-sequence-goes-to-negative-infinity">
+    <div class="title">
+        Sequence Goes to Negative Infinity
+    </div>
+    <div class="content">
+        We say that a sequence \( \left( x _ n \right) \) <b>goes to negative infinity</b> and notate it as \( \left( x _ n \right) \to -\infty \) when \[ \forall M \in \mathbb{ R } ^ -, \exists N \in \mathbb{ N } _ 0 \text{ such that } \forall n \in \mathbb{ N } _ 0, n \ge N \implies x _ n \le M \]
+    </div>
+</div>
+<p>Note that these definitions formalize our idea that if something approaches infinity, namely that this object is greater (or smaller) than every possible other object.</p>
+<div class="definition" id="definition-sequence-goes-to-infinity">
+    <div class="title">
+        Sequence Goes to Infinity
+    </div>
+    <div class="content">
+        We say that a sequence goes to infinity if it <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-sequence-goes-to-positive-infinity">goes to positive infinity</a> or <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-sequence-goes-to-negative-infinity">negative infinity</a>, and write \( \left( x _ n \right) \to \pm \infty \)
+    </div>
+</div>
+<div class="exercise" id="exercise-log-goes-to-infinity">
+    <div class="title">
+        Log Goes to Infinity
+    </div>
+    <div class="content">
+        Show that \( \left( \ln \left( n \right) \right) _ { n = 1 } ^ \infty \to \infty \)
+    </div>
+    <div class="proof">
+        Let \( M \in \mathbb{ R } ^ + \) and take \( N = \left\lceil e ^ M \right\rceil \) and let \( n \ge N \) therefore \( n = \left\lceil e ^ M \right\rceil + k \) for some \( k \in \mathbb{ N } _ 0 \) since \( \ln \) is increasing then we know that \( M = \ln \left( e ^ M \right) \le \ln \left( \left\lceil e ^ M \right\rceil \right) \le \ln \left( \left\lceil e ^ M \right\rceil + k \right) \) so that \( M \le \ln \left( n \right) \) as needed therefore it goes to infinity
+    </div>
+</div><!--            <div class="proposition" id="proposition-function-constant-inequality-has-solution-of-funciton-has-inverse">-->
+<!--                    <div class="title">Function Constant Inequality Has Solution if Function has Inverse</div>-->
+<!--                    <div class="content">-->
+<!--                            Suppose that \( f \) is an <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">invertible function</a> and \( c \in \mathbb{ R }  \) then-->
 <!--                    \[-->
 <!--                        f \left( x \right) \le c-->
 <!--                    \]-->
 <!--                    has a solution?-->
-<!--            	</div>-->
-<!--            	<div class="proof">-->
-
-<!--            	</div>-->
+<!--                    </div>-->
+<!--                    <div class="proof">-->
+<!--                    </div>-->
 <!--            </div>-->
-
-
-            <div class="proposition" id="proposition-two-limits-that-get-arbitrarily-close-have-the-same-limit">
-            	<div class="title">Two Limits that get Arbitrarily Close Have the Same Limit</div>
-            	<div class="content">
-            		Suppose htat \( \left( a _ n \right) , \left( b _ n \right) \) are sequence of real numbers such that \( \lvert a _ n - b _ n \rvert \lt \frac{1}{n}   \). If \( L = \lim _ { n \to \infty  } a _ n  \) exists, then \( \lim _ { n \to \infty  } b _ n = L  \) as well
-            	</div>
-            	<div class="proof">
-                    <p>
-                        Let \( \epsilon \in \mathbb{ R } ^ + \) we need to pick an \( N \in \mathbb{ N } _ 0 \) such that for every \( n \ge N \) we have that \( \lvert b _ n - L \rvert \lt \epsilon   \).
-                    </p>
-                    <p>
-                         Since \( \lim  _ { n \to \infty  } a _ n = L  \) then we can set  \( \epsilon ^ \prime = f \left( \epsilon  \right)   \) for any function \( f : \mathbb{ R } ^ + \to \mathbb{ R } ^ +  \) of our choosing, to get some \( N ^ \prime  \) such that for any \( n \ge N ^ \prime  \) we have \( \lvert a _ n - L  \rvert \lt  f \left( \epsilon  \right)   \)
-                    </p>
-                    <p>
-                        Morover note that for this given \( \epsilon  \) we can always find a \( K \in \mathbb{ N } _ 1 \) such that \( \frac{1}{K} \lt g \left( \epsilon  \right)  \) where \( g : \mathbb{ R } ^ + \to \mathbb{ R } ^ +  \) is of our choosing,
-                        By picking \( N = \max \left( N ^ \prime, K \right) \) we know that
-                    </p>
-                    \[
-                        \begin{align}
-                            \lvert b _ n - L \rvert &= \lvert b _ n - a _ n + a _ n - L \rvert \\
-                    &\le \lvert b _ n - a _ n \rvert + \lvert a _ n - L \rvert  \\
-                    &\le \frac{1}{n} + f \left( \epsilon  \right) \\
-                    &\le \frac{1}{K} + f \left( \epsilon  \right) \\
-                    &\le g \left( \epsilon  \right) + f \left( \epsilon\right)
-                        \end{align}
-                    \]
-                    <p>
-                        to obtain the desired inequality one would have to pick \( f, g \) such that \( f \left( \epsilon \right) + g \left( \epsilon  \right)   \lt \epsilon \), a simple choice of \( f \left( x \right) = g \left( x \right) = \frac{x}{4}   \) yields \( \lvert b _ n - L  \rvert \lt \frac{\epsilon }{2} \lt \epsilon    \)
-                    </p>
-            	</div>
-            </div>
-
-
-
-
-            <div class="definition" id="definition-bounded-sequence">
-                <div class="title">Bounded Sequence</div>
-                <div class="content">
-                    Suppose that \( \left( x _ n \right) : \mathbb{ N } _ 0 \to \mathbb{ R } \), is a sequence, then we say that it is <b>bounded</b> when there exists some \( M \in \mathbb{ R } ^ + \) such that for any \( i \in \mathbb{ N } _ 0 \) we have \( |x _ i| \le M \)
-                </div>
-            </div>
-
-
-            <div class="proposition" id="proposition-sequence-convergence-implies-bounded">
-                <div class="title">If a Sequence Converges it is Bounded</div>
-                <div class="content">
-                    Suppose that \( \left( x _ n \right) \to x  \) then \( \left( x _ n \right)  \) is bounded
-                </div>
-                <div class="proof">
-                    <p>
-                        Let \( a \in \mathbb{ R }  \) since \( \left( x _ n  \right)  \) converges then we know that there is some \( N \) such that for all \( n \ge N \) we have \( | x _ n - x | \le a \), <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-isolate-absolute-value-inequality">therefore</a> \( \lvert x _ n \rvert \le a + \lvert x \rvert   \)
-                    </p>
-                    <p>
-                        Set \( I := \left\{ 0, ..., N - 1 \right\} \) and we define \( L := \max \left( \left\{ \lvert x _ i \rvert  : i \in I  \right\}  \right) \), then it should be clear that for any \( k \in I \) we have \( \lvert x _ k \rvert  \le L \)
-                    </p>
-                    <p>
-                        Finally, we can see that the value \( M := \max \left( L, a + \lvert x \rvert  \right)  \) has the property so that for any \( j \in \mathbb{ N } _ 0 \) \( \lvert x _ j \rvert \le M \) so that \( \left( x _ n \right)  \) is bounded.
-                    </p>
-                </div>
-            </div>
-
-            <div class="definition" id="definition-pointwise-function-sequence">
-                <div class="title">Pointwise Function Sequence</div>
-                <div class="content">
-                    Suppose that \( \left( f _ 1, f _ 2, f _ 3, \ldots  \right)  \) are functions, of the form \( f _ i : X \to Y  \) then it's <b>pointwise function sequence at \( x \in X\) </b> is defined as the sequence \( \left( f _ 1 \left( x \right), f _ 2 \left( x \right), f _ 3 \left( x \right) , \ldots  \right)  \) denoted by \( \left( f _ n \left( x \right) \right)  \)
-                </div>
-            </div>
-
-
-            <div class="definition" id="definition-pointwise-function-convergence">
-                <div class="title">Pointwise Function Convergence</div>
-                <div class="content">
-                    Suppoes that \( \left( f _ n \right)  \) is a sequence of functions of the form \( f _ i : X \to \mathbb{ R }  \) and we have another function \( f : X \to \mathbb{ R }  \) then we say that \( \left( f _ n \right)  \) converges pointwise to \( f \left( x \right)  \) whenever the <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-pointwise-function-sequence">pointwise function sequence</a> \( \left( f _ n \left( x \right)  \right)  \) converges to \( f \left( x \right)  \)
-                </div>
-            </div>
-            
-            
-            <div class="theorem" id="theorem-squeeze-theorem">
-            	<div class="title">Squeeze Theorem</div>
-            	<div class="content">
-            		Suppose that \( \left( a _ n \right), \left( b _ n \right), \left( c _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R }    \) are all sequences such that for all \( k \in \mathbb{ N } _ 1  \) we have 
-                    \[
-                        a _ k \le b _ k \le c _ k
-                    \]
-                    Moreover suppose that \( \lim _ { n \to \infty  } a _ n = \lim _ { n \to \infty  } c _ n = L \), then
-                    \[
-                        \lim _ { n \to  \infty  } b _ n = L
-                    \]
-            	</div>
-            	<div class="proof">
-            		<p>
-                        Let \( \epsilon  \in \mathbb{ R } ^ +  \), because the limits of \( \left( a _ n \right), \left( c _ n \right)   \) exist, then we get \( N _ a, N _ c \in \mathbb{ N } _ 0  \) such that for any \( n \ge N _ a \) we have \( \lvert a _ n - L \rvert \lt \epsilon   \) and for any \( m \ge N _ c \) we have \( \lvert c _ m - L \rvert \lt \epsilon   \).
-                    </p>
-                    <p>
-                        Recall that these two inequalities <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">are equivalent</a> to \( L - \epsilon \lt a _ n \lt L + \epsilon  \) and \( L - \epsilon \lt c _ m \lt L + \epsilon  \). Therefore by setting \( N = \max \left( N _ a, N _ c \right)  \) then for any \( n \ge N \) both of the aformentioned inequalities hold true, showing that
-                        \[
-                            L - \epsilon \lt a _ n \le b _ n \le c _ n \lt L + \epsilon
-                        \]
-                        which is to say that \( \lvert b _ n - L  \rvert \lt \epsilon   \)
-                    </p>
-            	</div>
-            </div>
-
-            <div class="definition" id="definition-limsup">
-                <div class="title">limsup</div>
-                <div class="content">
-                    Suppose that \( \left( a _ n \right)  \) is a sequence, then we define another sequence
-                    \[
-                    s _ n := \sup \left( \left\{ a _ k: k \ge n \right\}   \right)
-                    \]
-                    and then we define the <b>limsup</b> of \( \left( a _ n \right)  \) as
-                    \[
-                    \limsup \left( a _ n \right) := \lim _ { n \to \infty  } s  _ n
-                    \]
-                </div>
-            </div>
-
-            <div class="definition" id="definition-liminf">
-                <div class="title">liminf</div>
-                <div class="content">
-                    Suppose that \( \left( a _ n \right)  \) is a sequence, then we define another sequence
-                    \[
-                    i _ n := \inf \left( \left\{ a _ k: k \ge n \right\}   \right)
-                    \]
-                    and then we define the <b>liminf</b> of \( \left( a _ n \right)  \) as
-                    \[
-                    \liminf \left( a _ n \right) := \lim _ { n \to \infty  } i  _ n
-                    \]
-                </div>
-            </div>
-
-
-            <div class="proposition" id="proposition-limsup-exists-iff-the-sequence-is-bounded-above">
-                <div class="title">limsup Exists iff the Sequence is Bounded Above</div>
-                <div class="content">
-                    As per title.
-                </div>
-                <div class="proof">
-
-                </div>
-            </div>
-
-            <div class="proposition" id="proposition-a-sequence-eventually-gets-close-to-limsups-limit">
-            	<div class="title">A Sequence Eventually gets Close to Limsups Limit</div>
-            	<div class="content">
-            	    Let \( \left( a _ n  \right) : \mathbb{ N } _ 1 \to \mathbb{ R } \) and suppose that \( \limsup \left( a _ n \right) \to L  \) , then for any \( \epsilon \in \mathbb{ R } ^ + \) there exists an \( N \in \mathbb{ N } _ 1 \) such that for any \( n \ge N \)
-                    \[
-                        a _ n \lt L + \epsilon
-                    \]
-            	</div>
-            	<div class="proof">
-                    Let \( \epsilon \in \mathbb{ R }^ { +  }  \) then there exists an \( N \in \mathbb{ N } _ 1 \) such that
-                    \[
-                        \left\lvert \sup \left( \left\{ a _ k: k \ge n \right\}  \right) - L   \right\rvert \lt \epsilon
-                    \]
-                    which is true if and only if
-                    \[
-                        L - \epsilon \lt \sup \left( \left\{ a _ k : k \ge n \right\}  \right) \lt L + \epsilon
-                    \]
-                    thus since \( a _ n \le \sup \left( \left\{ a _ k: k \ge n \right\}  \right)  \) by transitivity we know that \( a _ n \lt L + \epsilon  \)
-            	</div>
-            </div>
-
-
-            <div class="proposition" id="proposition-convergence-iff-lim-sup-and-inf-are-equal">
-                <div class="title">Convergence iff Lim Sup and Inf are Equal</div>
-                <div class="content">
-                    \[
-                    \left( a _ n \right) \to L \iff \limsup \left( a _ n \right) = L = \liminf \left(  a _ n \right)
-                    \]
-                </div>
-                <div class="proof">
-                    <p>
-                        Define \( s _ n : = \sup \left( \left\{ a _ k: k \ge n \right\}  \right)  \) and \( i _ n : = \inf \left( \left\{ a _ k : k \ge n \right\}  \right)  \).
-
-                    </p>
-                    <p>
-                        Now suppose that \( \limsup \left( a _ n \right) = \liminf \left( a _ n \right) = L   \), since \(  a _ k \in \left\{ a _ k : k \ge n \right\}  \) , then as they are defined as upper and lower bounds, we have \( i _ n \le a _ n \le s _ n \) for all \( n \in \mathbb{ N } _ 1 \) then by the squeeze theorem \( \left( a _ n \right) \to L  \) .
-                    </p>
-                    <p>
-                        Now suppose that \( \limsup \left( a _ n \right) = \limsup \left( a _ n \right) = L  \), and let's prove \( \left( a _ n \right) \to L  \), let \( \epsilon \in \mathbb{ R } ^ +  \), therefore we get an \( N \in \mathbb{ N } _ 1 \) such that for every \( n \ge N \) we have \( \left\lvert a _ n - L \right\rvert \lt \epsilon   \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">iff</a> \( L - \epsilon \le a _ n \le L + \epsilon  \), thus \( L + \epsilon  \) and \( L - \epsilon  \) are upper and lower bounds of \( \left\{ a _ k : k \ge n \right\}  \) respectively, since the sup and the inf are the lest and greatest of their bounds respectively so we have that \( \sup \left( \left\{ a _ k: k \ge n \right\}  \right) \le L + \epsilon  \) and \( L - \epsilon \le \inf \left( \left\{ a _ k: k \ge n \right\}  \right)  \) combining the two we obtain
-                        \[
-                            L - \epsilon \le \inf \left( \left\{ a _ k : k \ge n \right\}  \right) \le \sup \left( \left\{ a _ k : k \ge n \right\}  \right) \le L + \epsilon
-                        \]
-                        which is equivalent to both
-                        \[
-                            \left\lvert \inf \left( \left\{ a _ k : k \ge n \right\}  \right) - L  \right\rvert \le \epsilon \text{ and } \left\lvert \sup \left( \left\{ a _ k : k \ge n \right\}  \right) - L   \right\rvert \le \epsilon
-                        \]
-                        <a class="knowledge-link" href="/analysis/single_variable/limits.html#corollary-convergent-sequence-doesnt-reqiure-strict-inequality">therefore</a> \( \limsup \left( a _ n \right) = \liminf \left( a _ n \right) = L   \)
-                    </p>
-                </div>
-            </div>
-
-            <div class="proposition" id="proposition-sum-law">
-                <div class="title">Sum Law</div>
-                <div class="content">
-                    Suppose that \( \lim_{x \to a} f{\left ( x \right )} \) and \( \lim_{x \to a} g{\left ( x \right )} \) exist, then
-                    <div class="centered-content">
-                        \( \lim_{x \to a} \left [ f{\left ( x \right )} + g{\left ( x \right )} \right ] = \lim_{x \to a} f{\left ( x \right )} + \lim_{x \to a} g{\left ( x \right )} \)
-                    </div>
-                </div>
-                <div class="proof">
-                    TODO
-                </div>
-            </div>
-
-            <div class="proposition" id="proposition-cauchy-with-converging-subsequence-implies-entire-sequence-converges">
-            	<div class="title">Cauchy with Converging Subsequence Implies Entire Sequence Converges</div>
-            	<div class="content">
-            		Let \( \left( x _ n \right)  \) be a cauchy sequence and \( \left( x _ { \sigma \left( n \right) }   \right)  \) a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-subsequence">subsequence</a> such that \( \lim _ { k \to \infty  } x _ { \sigma \left( k \right)  } = L   \) then \( \lim _ { n \to \infty  } x _ n = L \).
-            	</div>
-            	<div class="proof">
-                    Let \( \epsilon \in \mathbb{ R } ^ + \), since \( \left( x _ n \right)  \) is cauchy we obtain some \( N _ 1 \) such that for any \( n, m \ge N, \lvert a _ n - a _ m \rvert \le \frac{\epsilon}{2}  \), on the other hand we see that there is some \( N _ 2  \) such that for all \( n \ge N _ 2 \) we have \( \lvert x _ { \sigma \left( n \right)  } - L  \rvert \le \frac{\epsilon }{2}  \), so let \( N = \max \left( N _ 1, N _ 2 \right)  \) and let \( n \ge N \), consider \( \sigma \left( n \right)  \), we will want this value to be greater or equal to \( N _ 1 \) so we can use it in-place of \( m \), if it turns out that \( \sigma \left( n \right) \lt N _ 1 \) then since \( \sigma  \) is increasing there exists some \( k \gt n \ge N _ 2 \) such that \( \sigma \left( k \right) \ge N _ 1 \), then note:
-                    \[
-                        \begin{align}
-                            \lvert x _ n - L \rvert &= \lvert x _ n - x _ { \sigma \left( k \right)  } + x _ { \sigma \left( k \right)  } - L  \rvert \\
-                    &\le \lvert x _ n - x _ { \sigma \left( k \right)  }  \rvert + \lvert x _ { \sigma \left( k \right)  } - L  \rvert \\
-                    &\lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon
-                        \end{align}
-                    \]
-            	</div>
-            </div>
-
-            <div class="lemma" id="lemma-strictly-increasing-natural-number-function-surpasses-all-values">
-            	<div class="title">Strictly Increasing Natural Number Function Surpasses All Values</div>
-            	<div class="content">
-            		Suppose \( f: \mathbb{ N } _ 1 \to \mathbb{ N } _ 1  \) is increasing, then for any \( K \in \mathbb{ R }  \) there exists an \( n \in \mathbb{ N } _ 1 \) such that \( f \left( n \right) \gt K \)
-            	</div>
-            	<div class="proof">
-                    <p>
-                        Before we start this proof, note that for any \( n \in \mathbb{ N } _ 1 \) we have that \( f \left( n \right) \lt f \left( n + 1  \right)  \) which means that \( f \left( n \right) + 1  \le f \left( n + 1  \right) \) which is to say that \( 1 \le f \left( n + 1  \right) - f \left( n \right)   \), running with this we can generalize this to say that for any \( j \le k \in \mathbb{ N } _ 1 \)  \( f \left( n + j \right) - f \left( n + k \right) \ge j - k \)
-                    </p>
-                    <p>
-                        With that in mind, if\( f \left( 1 \right) \gt K  \) we are done, so then suppose that \( f \left( 1 \right) \le K  \), let \( \alpha = K + 1 - f \left( 1 \right) \in \mathbb{ N } _ 1   \) but then we know that \( f \left(1 + \alpha \right) - f \left( 1 \right) \ge \alpha = K + 1 - f \left( 1 \right)     \) adding \( f \left( 1 \right)  \) to both sides tells us that \( f \left( 1 + \alpha  \right) \ge K + 1 \gt K  \) as needed.
-                    </p>
-
-            	</div>
-            </div>
-
-
-
-            <div class="lemma" id="lemma-for-all-there-exists-past-a-point-yields-ordered-satisfaction">
-                <div class="title">For all, There Exists Past a Point Yields Ordered Satisfaction</div>
-                <div class="content">
-                    Suppose that you know the following statement holds true:
-                    \[
-                    \forall x \in \mathbb{ N } _ 1, \exists N _ x \in \mathbb{ N } _ 1, f _ x : \mathbb{ N } _ 1 \to \mathbb{ N }  _ 1 \text{ st } , n \ge N _ x \implies P \left( x, f _ x \left( n \right)  \right)
-                    \]
-                    where \( f _ x \) is strictly increasing. Then there exists an order sequence of values in \( \mathbb{ N } _ 1 \) where  \( \left( \alpha _ 1 \le  \alpha _ 2 \le  \alpha _ 3 \le  \alpha _ 4 \le \ldots  \right)  \) such that
-                    \[
-                    P \left( 1, \alpha _ 1 \right) \land P \left( 2, \alpha _ 2 \right) \land P \left( 3, \alpha _ 3 \right) \land \cdots
-                    \]
-                </div>
-                <div class="proof">
-                    <p>
-                        Plugging in \( x = 1 \) we obtain some \( N _ 1, f _ 1 \) such that for all \( n \ge N _ 1 \) we have \( P \left( 1, f _ 1 \left( n \right)  \right)  \), let \( \alpha _ 1 = f _ 1 \left( N _ 1 \right)  \) note that since \( N _ 1 \ge N _ 1 \) we have \( P \left( 1, f _ 1 \left( N _ 1 \right)  \right) = P \left( 1, \alpha _ 1 \right)   \)
-                    </p>
-                    <p>
-                        Now for any \( k \in \mathbb{ N } _ 2 \) we similarly get an \( N _ k, f _ k \) such that for all \( n \ge N _ k \) we have \( P \left( k, f _ k \left( n \right)  \right)  \), now consider the value \( f _ k \left( N _ k \right)  \), we'd like to set \( \alpha _ k \) to it, but we have no idea if \( f _ k \left( N _ k \right) \ge \alpha  _ { k - 1  }     \), but since we do know that \( \alpha _ { k - 1  } \in \mathbb{ N } _ 1  \) then since \( f _ k \) is increasing <a class="knowledge-link" href="/analysis/single_variable/limits.html#lemma-strictly-increasing-natural-number-function-surpasses-all-values">we know that there is a value</a> \( N _ k + m \) for some \( m \in \mathbb{ N } _ 1 \) such that \( f _ k \left( N _ k + m \right) \ge \alpha _ { k - 1  }  \) , since \( N _ k + m \ge N _ k \) then clearly \( P \left( k, f _ k \left( N _ k + m \right)  \right)  \) holds true, and thus we define \( \alpha _ k = f \left(  N _ k + m\right)  \), so that \( P \left( k , \alpha _ k \right)  \) also holds. Notice that we've also just proven that \( \alpha  _ k \ge \alpha  _ { k - 1 }  \) making them increasing.
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="proposition" id="proposition-limit-to-a-limit">
-            	<div class="title">Limit to a Limit</div>
-            	<div class="content">
-            		Suppose \( \left( x _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R }   \) and that \( L _ k \) are real numbers such that \( \lim _ { k \to \infty  } L _ k = L  \), if for each \( k \in \mathbb{ N } _ 1 \) there is a subsequence of \( \left( x _ n \right)  \) converging to \( L _ k \) show that some subsequence of \( \left( x _ n \right)  \)  converges to \( L \).
-            	</div>
-            	<div class="proof">
-                    <p>
-                        We will construct a subsequence \( \left( x _ { \sigma \left( n \right)  }  \right)  \) such that \( \lvert x _ \sigma \left( k \right) - L  \rvert \lt \frac{1}{k}   \). By doing so, we will have solved the problem, because for any \( \epsilon \in \mathbb{ R } ^ +  \) there is always a \( k \in \mathbb{ N } _ 1 \) such that \( \frac{1}{k} \lt \epsilon  \) which shows that \( \lvert x _ { \sigma \left( k \right)  } - L  \rvert \lt \epsilon   \) by transitivity.
-                    </p>
-
-                    <p>
-                        Let \( k \in \mathbb{ N } _ 1 \) since \( \left( L _ n \right) \to L  \) then by considering \( \frac{1}{2k}  \) we know that there is an \( N _ k ^ \prime   \in \mathbb{ N } _ 1 \) such that for all \( n \ge N _ k ^ \prime   \) we have \( \left\lvert L _ n - L \right\rvert \lt \frac{1}{2k} \), now consider any \( m _ k \ge N _ k ^ \prime   \), thus we know that \( \left\lvert L _ { m _ k }  - L  \right\rvert \lt \frac{1}{2k} \).
-                    </p>
-                    <p>
-                        Now since \( m _ k \in \mathbb{ N } _ 1 \) then there exists a subsequence \( x _ { \sigma _ { m _ k }  \left( n \right)  } \to L _ { m _ k }   \) , therefore using \( \epsilon = \frac{1}{2k}  \) we get a \( N _ k \) such that for all \( n \ge N _ k, \left\lvert x _ { \sigma _ { m _ k }  \left( n \right) - L _ { m _ k }   }  \right\rvert \lt \frac{1}{2k}   \), therefore we have
-                    </p>
-                    \[
-                    \begin{align}
-                    \left\lvert x _ { \sigma _ { m _ k }  \left( n \right)  } - L \right\rvert &= \left\lvert x _ { \sigma _ { m _ k }  \left( n \right)  } - L _ m + L _ m - L  \right\rvert \\
-                    &\le \left\lvert x _ { \sigma _ { m _ k }  \left( n \right)  } - L _ { m _ k }   \right\rvert + \left\lvert L _ { m _ k }   - L \right\rvert \\
-                    &\lt \frac{1}{2k} + \frac{1}{2k} = \frac{1}{k}
-                    \end{align}
-                    \]
-                    <p>
-                        Initially it might seem as simple as taking the subsequence \( x _ { \sigma _ { m _ 1 } \left( N _ 1 \right)   }, x _ { \sigma _ { m _ 2 } \left( N _ 2 \right)   }, x _ { \sigma _ { m _ 3 } \left( N _ 3 \right)   }, \ldots   \) but there's no guarentee that this subsequence has increasing indices (which is a requirement of a subsequence), therefore we need more work.
-                    </p>
-                    <p>
-                        Condensing what we've proven above, we've shown that
-                        \[
-                            \forall k \in \mathbb{ N } _ 1, \exists N _ k \in \mathbb{ N } _ 1, \sigma _ { m _ k }  : \mathbb{ N } _ 1 \to \mathbb{ N }  _ 1 \text{ st } \forall n \ge N _ 2,  P \left( k, \sigma _ m \left( n \right)  \right)
-                        \]
-                    </p>
-                    <p>
-                        Where \( P \left( k, v  \right) := \left\lvert x _ v - L \right\rvert \lt \frac{1}{k} \), and since \( \sigma _ { m _ k }  \) defines a subsequence then it is strictly increasing, <a class="knowledge-link" href="/analysis/single_variable/limits.html#lemma-for-all-there-exists-past-a-point-yields-ordered-satisfaction">therefore</a> there exists an ordered sequence \( \left( \alpha _ 1 \le  \alpha _ 2 \le  \alpha _ 3 \le  \ldots  \right)  \) such that \( P \left( k , \alpha _ k   \right)  \) which is to say that \( \left\lvert x _ { \alpha _ k } - L  \right\rvert \lt \frac{1}{k}   \) so that the following subsequence works
-                        \[
-                        \left( x _ { \alpha _ 1 }, x _ { \alpha _ 2 }, \ldots    \right)
-                        \]
-                        or in another notation with \( \sigma \left( n \right) = \alpha _ n \) we are using the subsequence \( \left( x _ { \sigma \left( n \right)  }  \right)  \)
-                    </p>
-            	</div>
-            </div>
-
-            <div class="proposition" id="proposition-telescoping-triangle-inequality">
-            	<div class="title">Telescoping Triangle Inequality</div>
-            	<div class="content">
-            		Let \( j \le  k \in \mathbb{ N } _ 0 \) and \( \left( a _ n \right)  \) be a sequence, then we have the following
-                    \[
-                    \lvert a _ j - a _ k \rvert \le \lvert a _ j - a _ { j + 1 }  \rvert + \lvert a _ { j + 1 } - a _ { j + 2 }   \rvert + \cdots + \lvert a _ { k - 1 } - a _ k  \rvert
-                    \]
-            	</div>
-            	<div class="proof">
-                    which is obtained by using the fact that we can insert \( 0 = - a _ i + a _ i \) into the absolute value and then use the triangle inequality to break it, the general result is proven using induction using this fact in the induction step.
-            	</div>
-            </div>
-
-
-            <div class="proposition" id="proposition-series-of-differences-converges-implies-cauchy">
-            	<div class="title">Series of Differences Converges Implies Cauchy</div>
-            	<div class="content">
-            		Let \( \left( a _ n \right)  \) be a sequence such that \( \lim _ { N \to \infty  } \sum _ { n = 1 }  ^ N  \lvert a _ n - a _ { n + 1 }  \rvert \lt \infty    \), show that \( \left( a _ n \right)  \) is cauchy.
-            	</div>
-            	<div class="proof">
-                    <p>
-                        Let \( \epsilon \in \mathbb{ R } ^ + \) and set \( S _ m := \sum _ { i = 1 }  ^ { k - 1 } \lvert a _ {i - 1} - a _ { i }  \rvert  \) since we we assumed that \( \lim _ { N \to \infty  } S _ N  \) exists, then the sequence is cauchy so we get some \( N ^ \prime  \) such that for any \( a, b \ge N, \lvert S _ a - S _ b \rvert \le \epsilon \) and take \( N = N ^ \prime  \) and let \( n, m \ge N \), and without loss of generality assume that \( n \le m \)
-                        \[
-                            \begin{align}
-                        \lvert a _ n - a _ m \rvert &\le  \lvert a _ n - a _ { n + 1 }  \rvert + \lvert a _ { n + 1 } - a _ { n + 2 }   \rvert + \cdots + \lvert a _ { m - 1 } - a _ m  \rvert \\
-                        &= S _ m - S _ n \\
-                        &= \lvert S _ m - S _ n \rvert \le \epsilon
-                            \end{align}
-                        \]
-                        where we've used the <a class="knowledge-link" href="/analysis/single_variable/limits.html#proposition-telescoping-triangle-inequality">generalized triangle inequality</a> and the fact that \( S _ k \) is increasing, as each higher index adds a non-negative element to the sum.
-                    </p>
-            	</div>
-            </div>
-            
-            <div class="proposition" id="proposition-cauchy-sequence-implies-subsequence-with-convergent-differences">
-            	<div class="title">Cauchy Sequence Implies Subsequence with Convergent Differences</div>
-            	<div class="content">
-            		If \( \left( x _ n  \right) _ { n = 1 }  ^ \infty     \) is cauchy, show that it has a subsequence \( \left( x _ { \sigma \left( n \right)  }  \right)  \) such that
-                    \[
-                        \sum _ { k = 1 }  ^  \infty \lvert x _ { \sigma \left( k \right) } - x _ { \sigma \left( k + 1  \right)     }  \rvert \lt \infty
-                    \]
-            	</div>
-            	<div class="proof">
-                    <p>
-                        Recall that a <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#corollary-series-of-halves-is-bounded">geometric series of halves</a> is bounded, and thus we're inspired to try to make each \( \lvert x _ { \sigma \left( k \right) } - x _ { \sigma \left( k + 1  \right)     }  \rvert \le \frac{1}{2 ^ k}  \), call this property \( \alpha  \).
-                    </p>
-                    <p>
-                        Let's construct this subsequence, for any \( k \in \mathbb{ N } _ 1 \) consider \( \epsilon = \frac{1}{2 ^ k}  \), then we get an \( N _ k \) such that for all \( n, m \ge N _ k, \lvert a _ n - a _ m \rvert \le \frac{1}{2 ^ k}   \), and consider the sequence \( x _ { N _ 1 }, x _ { N _ 2 }, x _ { N _ 3 }, \ldots \), we'll show it satisfies \( \alpha  \).
-                    </p>
-                    <p>
-                        Let \( j \in \mathbb{ N } _ 1 \), and consider \( N _ j, N _ { j + 1  }  \), in the case that \( N _ j \ge N _ { j + 1  }  \) then note that \( \lvert x _ { N _ j } - x _ { N _ { j + 1  }  }   \rvert \le \frac{1}{2 ^ { j + 1  } } \le \frac{1}{2 ^ j}    \) (where \( n = N _ j, m = N _ { j + 1  }  \)), in the case that \( N _ j \lt  N _ { j + 1  }  \) we also get that \( \lvert x _ { N _ j } - x _ { N _ { j + 1  }  }   \rvert \le \frac{1}{2 ^ j} \) so \( \alpha  \) is satisfied for this subsequence. Therefore
-                        \[
-                            \sum _ { k = 1  }  ^  \infty \lvert x _ { N _ k } - x _ { N _ { k + 1  }  }  \rvert \le \sum _ { k = 1 }  ^  \infty \frac{1}{2 ^ k} = 1
-                        \]
-                        as needed.
-                    </p>
-            	</div>
-            </div>
-            
-            <div class="lemma" id="lemma-zig-zag-sequence-has-nested-bound">
-            	<div class="title">Zig-Zag Sequence has Nested Bound</div>
-            	<div class="content">
-                    Suppose that \( \left( a _ n \right)   \) is a sequence such that \( a _ { 2 n } \le a _ { 2n + 2 } \le a _ { 2 n + 3 } \le a _ { 2n + 1 }    \) for all \( n \in \mathbb{ N } _ 0 \) then for any \( k, n \in \mathbb{ N } _ 0 \)
-                    \[
-                        n \ge 2k + 1 \implies a _ n \in \left[ a _ { 2k }, a _ { 2k + 1 }   \right]
-                    \]
-            	</div>
-            	<div class="proof">
-            	    Proven by induction.
-            	</div>
-            </div>
-            
-            <div class="proposition" id="proposition-zig-zag-sequence-is-cauchy-iff-differences-go-to-zero">
-            	<div class="title">Zig-Zag Sequence is Cauchy iff Differences go to Zero</div>
-            	<div class="content">
-            		Suppose that \( \left( a _ n \right)   \) is a sequence such that \( a _ { 2 n } \le a _ { 2n + 2 } \le a _ { 2 n + 3 } \le a _ { 2n + 1 }    \) for all \( n \in \mathbb{ N } _ 0 \), then this sequence is cauchy iff \( \lim _ { n \to \infty  } \lvert a _ n - a _ { n + 1 }  \rvert = 0 \).
-            	</div>
-            	<div class="proof">
-                    <p>
-                        \( \implies  \) this direction is easy, let \( \epsilon \in \mathbb{ R } ^ + \), since \( \left( a _ n \right)  \) is cauchy we get some \( N ^ \prime  \) such that for all \( n, m \ge N ^ \prime, \lvert a _ n - a _ m \rvert \lt \epsilon \), and so take \( N = N ^ \prime  \) then specifically for \( n, n + 1 \ge N \) we have that \( \epsilon \gt \lvert a _ n - a _ { n + 1  }  \rvert = \lvert \lvert a _ n - a _ { n + 1  }  \rvert - 0  \rvert    \) as needed.
-                    </p>
-                    <p>
-                        \( \impliedby  \) Assume that \( \lim _ { n \to \infty  } \lvert a _ n - a _ { n + 1 }  \rvert = 0  \) and now we want to prove that \( \left( a _ n     \right)  \) is cauchy so let \( \epsilon \in \mathbb{ R } ^ + \) and so we obtain some \( N \) such that for any \( n \ge N \) we have that \( \lvert a _ n - a _ { n + 1  }  \rvert \le \epsilon   \) take \( N ^ \prime = 2 N + 1 \) and let \( n, m \ge N ^ \prime  \) by our lemma, we see that \( a _ n, a _ m \in \left[ a _ { 2N }, a _ { 2N + 1 }   \right]  \), but then again since \( 2N, 2N + 1 \ge N \) we see that \( \lvert a _ { 2N + 1  } - a _ { 2N }   \rvert \le \epsilon \) and therefore \( \lvert a _ n - a _ m \rvert \le \epsilon   \) as needed.
-                    </p>
-            	</div>
-            </div>
-            
-            <div class="definition" id="definition-monotone-increasing-sequence">
-            	<div class="title">Monotone Increasing Sequence</div>
-            	<div class="content">
-            		A sequence \( \left( a _ n \right) _ { n = 1 }  ^ \infty \) is said to be <b>monotone increasing</b> whenever we have:
-                    \[
-                        a _ n \le a _ { n + 1  }
-                    \]
-                    for any \( n \in \mathbb{ N }  _ 1 \)
-            	</div>
-            </div>
-
-            <div class="definition" id="definition-monotone-decreasing-sequence">
-                <div class="title">Monotone Decreasing Sequence</div>
-                <div class="content">
-                    A sequence \( \left( a _ n \right) _ { n = 1 }  ^ \infty \) is said to be <b>monotone decreasing</b> whenever we have:
-                    \[
-                    a _ n \ge a _ { n + 1  }
-                    \]
-                    for any \( n \in \mathbb{ N }  _ 1 \)
-                </div>
-            </div>
-
-
-            
-
-            <div class="theorem" id="theorem-bounded-above-and-monotone-increasing-converges-to-supremum">
-            	<div class="title">Bounded Above and Monotone Increasing Converges to Supremum</div>
-            	<div class="content">
-                    A monotone increasing sequence that is bounded above converges to \( L = \sup \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)  \)
-            	</div>
-            	<div class="proof">
-                    <p>
-                        Since \( \left( a _ n \right) _ { n = 1 }  ^ \infty     \) is bounded above, then so is \( \operatorname{ im } \left( \left( a _ n \right)  \right) \subseteq \mathbb{ R }   \) therefore since \( \mathbb{ R }  \) has the least upper bound property, we know that \( \sup \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)  \) exists, call it \( L \) and we'll prove that \( \left( a _ n \right)  \) converges there.
-                    </p>
-                    <p>
-                        Let \( \epsilon \in \mathbb{ R } ^ + \) by definition of the supremum we know that \( L - \epsilon  \) is not an upper bound for \( A \), in other words there exists some element \( a _ N \in \operatorname{ im } \left( \left( a _ n \right)  \right)  \) such that \( L - \epsilon \lt a _ N \)
-                    </p>
-                    <p>
-                        Since \( \left( a _ n \right)  \) is increasing, we know that for any \( n \in \mathbb{ N } , n \ge N , a _ N \le a _ n \), moreover \( L \) is an upperbound so that we get
-                        \[
-                            L - \epsilon \lt a _ N \le a _ n \le L \lt L + \epsilon \implies L - \epsilon \lt a _ n \lt L + \epsilon
-                        \]
-                        <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">therefore</a> \( \lvert a _ n - L \rvert \lt \epsilon  \), therefore \( \lim _ { n \to \infty  } a _ n = L  \) as needed.
-                    </p>
-            	</div>
-            </div>
-
-            <div class="theorem" id="theorem-bounded-below-and-montone-decreasing-converges-to-infimum">
-            	<div class="title">Bounded Below and Monotone Decreasing Converges to Infimum</div>
-            	<div class="content">
-                    A monotone decreasing sequence that is bounded below converges to \( L = \inf \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)  \)
-            	</div>
-            	<div class="proof">
-                    If \( \left( a _ n \right)  \) is decreasing and bounded below by \( B \), then the sequence \( \left( - a _ n \right)  \) is increasing and bounded above by \( - B \). Thus the sequence \( \left( -a _ n \right) _ { n = 1 }  ^ \infty  \) has limit \( L = \sup \left( \operatorname{ im } \left( \left( - a _ n \right)  \right)  \right) \) <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-negative-of-infimum-is-supremum-of-negatives">recall that</a>
-                    \[
-                        \sup \left( \operatorname{ im } \left( \left( - a _ n \right)  \right)   \right) = - \inf \left( \left\{ -x : x \in \operatorname{ im } \left( \left( - a _ n \right)  \right)  \right\}  \right) = - \inf \left( \operatorname{ im } \left( a _ n \right)  \right)
-                    \]
-                    So that \( -L = \inf \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)  \). Then note that \( \lim _ { n \to \infty  } - a _ n = L  \) implies that \( -L = \lim _ { n \to \infty  } a _ n \) so we conclude that
-                    \[
-                        \lim _ { n \to \infty  } a _ n = \inf \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right)
-                    \]
-                    as needed.
-            	</div>
-            </div>
-            
-            <div class="exercise" id="exercise-nested-square-root-twos">
-            	<div class="title">Nested Square Root Twos</div>
-            	<div class="content">
-                    Consider the sequence defined as follows for \( \alpha \in \mathbb{ R } ^ + \)
-                    <ul>
-                        <li>\( a _ 1 = \sqrt{ \alpha  }   \) </li>
-                        <li>\( a _ { n + 1  } = \sqrt{ \alpha  + a _ n  }   \) for every \( n \ge 1 \)  </li>
-                    </ul>
-                    Show that it converges
-            	</div>
-            	<div class="proof">
-                    <p>
-                        One way to show that it converges would to be the use the MCT for monotone increasing sequences. We start by showing that it is monotone increasing by showing it is strictly increasing.
-                    </p>
-                    <p>
-                        For the base case we need to verify that \( a _ 1 \lt a _ 2 \) which is equivalent to showing that \( \sqrt{ \alpha  }   \lt \sqrt{ \alpha  + \sqrt{ \alpha  }  } \) this is true because \( \sqrt{ \cdot  }  \) is order preserving and we know that \(  \alpha   \lt  \alpha + \sqrt{ \alpha  }   \) because \( \sqrt{ \alpha  }  \gt 0 \).
-                    </p>
-                    <p>
-                        For the induction step assume that \( a _ k \lt a _ { k + 1  }  \) and we'll prove that \( a _ { k + 1  } \lt a _ { k + 2 }   \). Note that \( a _ { k + 2  } = \sqrt{ \alpha + a _ { k + 1  }  }   \) by the induction hypothesis we can see that \( \sqrt{ \alpha + a _ { k + 1  }  } \gt \sqrt{ \alpha + a _  k   } = a _ { k + 1  }   \), thus we have that \( a _ { k + 2  } \gt a _ { k + 1 }  \) as needed.
-                    </p>
-                    <p>
-                        We'll move on to showing that it is bounded now, to do so we claim that \( \sqrt{ \alpha  } + 1  \) is an upper bound, we'll show it is by induction, so for \( n = 1 \) we see that \( \sqrt{ \alpha } \le \sqrt{ \alpha  } + 1    \), now assuming it's true for \( k \in \mathbb{ N } _ 1 \) we'll show that \( a _ { k + 1  } \le \sqrt{ \alpha } + 1   \). We note that \( a _  { k + 1  } = \sqrt{ \alpha + a _ k }    \) and thus by the induction hypothesis we have \( \sqrt{ \alpha + a _ k } \le \sqrt{ \alpha + \sqrt{ \alpha } + 1  }   \), but note that
-                        \[
-                            \sqrt{ \alpha + \sqrt{ \alpha  } + 1  } \lt \sqrt{ \alpha + 2 \sqrt{ \alpha  } + 1   } = \sqrt{ \left(  \sqrt{ \alpha }+ 1     \right) ^ 2  } = \sqrt{ \alpha  } + 1
-                        \]
-                        thus chaining inequalities we obtain \(  a _ { k + 1  } \le \sqrt{ \alpha  } + 1   \) as needed, the choice of \( \sqrt{ \alpha  } + 1   \) was inspired by thinking ahead to induction, what we would have to prove and figuring out what it can be upper bounded.
-                    </p>
-                    <p>
-                        Since we've shown monotone increasing and bounded above, then the sequence converges to some \( L \in \mathbb{ R }  \), if that's true then \( L = \sqrt{ \alpha + L }  \) because \( \lim _ { n \to \infty  } a _ { n + 1 } =  \lim _ { n \to \infty  } \sqrt{ \alpha + a _ n }    \) therefore \( L ^ 2 = \alpha + L \) so that \( L ^ 2 - L - \alpha = 0 \) so by the quadratic formula we have
-                        \[
-                            L = \frac{1 \pm \sqrt{ 1 + 4 \alpha  } }{2}
-                        \]
-                        but since \( a _ n \ge 0 \) for all \( n \in \mathbb{ N } _ 1 \) then we know that \( L \ge 0 \) and therefore specifically it converges to
-                        \[
-                        L = \frac{1 + \sqrt{ 1 + 4 \alpha  } }{2}
-                        \]
-                    </p>
-            	</div>
-            </div>
-
-            <div class="proposition" id="proposition-inequality-from-sequence-to-limit">
-            	<div class="title">Inequality From Sequence to Limit</div>
-            	<div class="content">
-            		Suppose \( \left( a _ n \right), \left( b _ n \right)   \) are converging sequences such that \( a _ n \le b _ n \) for all \( n \in \mathbb{ N } _ 1 \) then
-                    \[
-                        \lim _ { n \to \infty  } a _ n \le \lim _ {  n \to \infty  } b _ n
-                    \]
-            	</div>
-            	<div class="proof">
-
-            	</div>
-            </div>
-
-
-            <div class="lemma" id="lemma-nested-intervals">
-            	<div class="title">Nested Intervals</div>
-            	<div class="content">
-            		Suppose that \( I _ n = \left[ a _ n, b _ n \right]  \) are nonempty closed intervals such that \( I _ { n + 1  } \subseteq I _ n  \) for every \( n \in \mathbb{ N } _ 1 \), then
-                    \[
-                        \bigcap _ { n \in \mathbb{ N } _ 1 } I _ n \neq \emptyset
-                    \]
-            	</div>
-            	<div class="proof">
-                    <p>
-                        Since \( \left[ a _ { n + 1  }, b _ { n + 1 }   \right] \subseteq \left[ a _ n, b _ n \right]   \) then we know that \( a _ n \le a _ {  n + 1 } \le  b _ {  n + 1  } \le b _ n   \) for any \( n \in \mathbb{ N } _ 1 \) and therefore we conclude that \( \left( a _ n \right)  \) is monotone increasing and that \( \left( b _ n \right)  \) is monotone decreasing. Also note that \( a _ n \le b _ n \le b _ 1  \)  and \( a _ 1 \le  a _ n  \le  b _ n \) so that by transitivity we obtain \( a _ n \le b _ 1 \) and \( a _ 1 \le  b _ n \) which is to say that \( a _ n \) is bounded above and that \(  b _ n  \) is bounded below.
-                    </p>
-                    <p>
-                        Therefore from both versions of the montone convergence theorem we see that \( a _ n \) and \( b _ n \) converge to \( a := \sup \left( \operatorname{ im } \left( \left( a _ n \right)  \right)  \right) , b := \inf \left( \operatorname{ im } \left( b _ n \right)  \right)  \) respectively and from the above proposition we see that \( a \le b \)
-                    </p>
-                    <p>
-                        By the definition of the supremum and infimum, we also have that
-                        \[
-                            a _ k \le  a \le b \le  b _ k
-                        \]
-                        for all \( k \in \mathbb{ N } _ 1 \) meaning that \( a, b \) belongs to \( I _ k \), so that \( \left\{ a, b \right\} \subseteq \bigcap _ { n \in \mathbb{ N } _ 1 } I _ n   \) and so it must not be empty.
-                    </p>
-            	</div>
-            </div>
-
-            <div class="theorem" id="theorem-bolazno-wierstrass">
-            	<div class="title">Bolzano-Weierstrass</div>
-            	<div class="content">
-                    Every bounded sequence of real numbers has a convergent subsequence.
-            	</div>
-            	<div class="proof">
-                    <p>
-                        Let \( \left( a _ n \right)  \) be bounded by \( B \), therefore \( \operatorname{ im } \left( \left( a _ n \right)  \right) \subseteq \left[ -B, B \right]   \). If \( I \) is an interval containing infinitely man points of ths equence \( \left( a _ n \right)  \) and \( I = J _ 1 \cup  J _ 2 \) then at least one of \( J _ 1, J _ 2 \) has infinitely many elements or we would have a contradiction.
-                    </p>
-                    <p>
-                        With that in mind we construct the following sequence of intervals
-                    </p>
-
-                    <ul>
-                        <li>
-                            \( I _ 1 = \left[ a _ 1, b _ 1 \right]  \) where \(  a _ 1 = -B \) and \( b _ 1 = B\)
-                        </li>
-                        <li>
-                            Consider \(  L =  \left[ a _ m, \frac{a _ m + b _ m }{2}  \right]\) and \( R =  \left[ \frac{a _ m + b _ m}{2} , b _ m \right] \)
-                            <ul>
-                                <li>If \( L \cap \operatorname{ im } \left( a _ n \right) \) is infinite then \(  I _ {  m + 1  } = L \)
-                                </li>
-                                <li>
-                                    If \( R \cap \operatorname{ im } \left( a _ n \right) \) is infinite then \(  I _ {  m + 1  } = R \)
-                                </li>
-                                <li>
-                                    If both are infinite just use \( I _ { m + 1  } = L \)
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p>
-                        We now construct a subsequence as follows: Since every \( I _ k \cap \operatorname{ im } \left( \left( a _ n \right)  \right) \) is infinite then we know there is some \( a _ j \in I _ k \cap \operatorname{ im } \left( \left( a _ n \right)  \right)  \), this defines a function \( \sigma : \mathbb{ N  } _ 1 \to  \mathbb{ N }  _ 1  \) such that \( \sigma \left( k  \right) = j  \) and we use this to make our subsequence \( \left( a _ { \sigma \left( n \right) }   \right)  \)
-                    </p>
-                    <p>
-                        We will now show that this subsequence converges. Note that by construction we see that \( I _ { k + 1  } \subseteq I _ k  \) for all \( k \in \mathbb{ N } _ 1 \), and that each is non-empty, so that by the nested intervals lemma there exists an \( L \in \bigcap  { n \in \mathbb{ N } _ 1 } I _ n  \), let's show that the subsequence converges there. Moreover note that \( \lvert I _ k \rvert = 2 ^ { 2 - k  } B   \)
-                    </p>
-                    <p>
-                        Let \( \epsilon \in \mathbb{ R } ^ + \) then there exists some \( k \in \mathbb{ N } _ 1 \) such that \( 2 ^ { k - 2 } B  \le \epsilon  \) and thus by definition of \( \sigma \) we have \( a _ { \sigma \left( k \right)  }, L \in I _ k  \) and thus \( \lvert a _ { \sigma \left( k \right) }  - L  \rvert \le \lvert I _ k \rvert = 2 ^ { 2 - k } B \le \epsilon    \) which shows that \( \left( a _ { \sigma \left( n \right)  }  \right) \to L  \)
-                    </p>
-            	</div>
-            </div>
-
-
-            
-
-            
-
+<div class="proposition" id="proposition-two-limits-that-get-arbitrarily-close-have-the-same-limit">
+    <div class="title">
+        Two Limits that get Arbitrarily Close Have the Same Limit
+    </div>
+    <div class="content">
+        Suppose htat \( \left( a _ n \right) , \left( b _ n \right) \) are sequence of real numbers such that \( \lvert a _ n - b _ n \rvert \lt \frac{1}{n} \). If \( L = \lim _ { n \to \infty } a _ n \) exists, then \( \lim _ { n \to \infty } b _ n = L \) as well
+    </div>
+    <div class="proof">
+        <p>Let \( \epsilon \in \mathbb{ R } ^ + \) we need to pick an \( N \in \mathbb{ N } _ 0 \) such that for every \( n \ge N \) we have that \( \lvert b _ n - L \rvert \lt \epsilon \).</p>
+        <p>Since \( \lim _ { n \to \infty } a _ n = L \) then we can set \( \epsilon ^ \prime = f \left( \epsilon \right) \) for any function \( f : \mathbb{ R } ^ + \to \mathbb{ R } ^ + \) of our choosing, to get some \( N ^ \prime \) such that for any \( n \ge N ^ \prime \) we have \( \lvert a _ n - L \rvert \lt f \left( \epsilon \right) \)</p>
+        <p>Morover note that for this given \( \epsilon \) we can always find a \( K \in \mathbb{ N } _ 1 \) such that \( \frac{1}{K} \lt g \left( \epsilon \right) \) where \( g : \mathbb{ R } ^ + \to \mathbb{ R } ^ + \) is of our choosing, By picking \( N = \max \left( N ^ \prime, K \right) \) we know that</p>\[ \begin{align} \lvert b _ n - L \rvert &amp;= \lvert b _ n - a _ n + a _ n - L \rvert \\ &amp;\le \lvert b _ n - a _ n \rvert + \lvert a _ n - L \rvert \\ &amp;\le \frac{1}{n} + f \left( \epsilon \right) \\ &amp;\le \frac{1}{K} + f \left( \epsilon \right) \\ &amp;\le g \left( \epsilon \right) + f \left( \epsilon\right) \end{align} \]
+        <p>to obtain the desired inequality one would have to pick \( f, g \) such that \( f \left( \epsilon \right) + g \left( \epsilon \right) \lt \epsilon \), a simple choice of \( f \left( x \right) = g \left( x \right) = \frac{x}{4} \) yields \( \lvert b _ n - L \rvert \lt \frac{\epsilon }{2} \lt \epsilon \)</p>
+    </div>
+</div>
+<div class="definition" id="definition-bounded-sequence">
+    <div class="title">
+        Bounded Sequence
+    </div>
+    <div class="content">
+        Suppose that \( \left( x _ n \right) : \mathbb{ N } _ 0 \to \mathbb{ R } \), is a sequence, then we say that it is <b>bounded</b> when there exists some \( M \in \mathbb{ R } ^ + \) such that for any \( i \in \mathbb{ N } _ 0 \) we have \( |x _ i| \le M \)
+    </div>
+</div>
+<div class="proposition" id="proposition-sequence-convergence-implies-bounded">
+    <div class="title">
+        If a Sequence Converges it is Bounded
+    </div>
+    <div class="content">
+        Suppose that \( \left( x _ n \right) \to x \) then \( \left( x _ n \right) \) is bounded
+    </div>
+    <div class="proof">
+        <p>Let \( a \in \mathbb{ R } \) since \( \left( x _ n \right) \) converges then we know that there is some \( N \) such that for all \( n \ge N \) we have \( | x _ n - x | \le a \), <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-isolate-absolute-value-inequality">therefore</a> \( \lvert x _ n \rvert \le a + \lvert x \rvert \)</p>
+        <p>Set \( I := \left\{ 0, ..., N - 1 \right\} \) and we define \( L := \max \left( \left\{ \lvert x _ i \rvert : i \in I \right\} \right) \), then it should be clear that for any \( k \in I \) we have \( \lvert x _ k \rvert \le L \)</p>
+        <p>Finally, we can see that the value \( M := \max \left( L, a + \lvert x \rvert \right) \) has the property so that for any \( j \in \mathbb{ N } _ 0 \) \( \lvert x _ j \rvert \le M \) so that \( \left( x _ n \right) \) is bounded.</p>
+    </div>
+</div>
+<div class="definition" id="definition-pointwise-function-sequence">
+    <div class="title">
+        Pointwise Function Sequence
+    </div>
+    <div class="content">
+        Suppose that \( \left( f _ 1, f _ 2, f _ 3, \ldots \right) \) are functions, of the form \( f _ i : X \to Y \) then it's <b>pointwise function sequence at \( x \in X\)</b> is defined as the sequence \( \left( f _ 1 \left( x \right), f _ 2 \left( x \right), f _ 3 \left( x \right) , \ldots \right) \) denoted by \( \left( f _ n \left( x \right) \right) \)
+    </div>
+</div>
+<div class="definition" id="definition-pointwise-function-convergence">
+    <div class="title">
+        Pointwise Function Convergence
+    </div>
+    <div class="content">
+        Suppoes that \( \left( f _ n \right) \) is a sequence of functions of the form \( f _ i : X \to \mathbb{ R } \) and we have another function \( f : X \to \mathbb{ R } \) then we say that \( \left( f _ n \right) \) converges pointwise to \( f \left( x \right) \) whenever the <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-pointwise-function-sequence">pointwise function sequence</a> \( \left( f _ n \left( x \right) \right) \) converges to \( f \left( x \right) \)
+    </div>
+</div>
+<div class="theorem" id="theorem-squeeze-theorem">
+    <div class="title">
+        Squeeze Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ n \right), \left( b _ n \right), \left( c _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R } \) are all sequences such that for all \( k \in \mathbb{ N } _ 1 \) we have \[ a _ k \le b _ k \le c _ k \] Moreover suppose that \( \lim _ { n \to \infty } a _ n = \lim _ { n \to \infty } c _ n = L \), then \[ \lim _ { n \to \infty } b _ n = L \]
+    </div>
+    <div class="proof">
+        <p>Let \( \epsilon \in \mathbb{ R } ^ + \), because the limits of \( \left( a _ n \right), \left( c _ n \right) \) exist, then we get \( N _ a, N _ c \in \mathbb{ N } _ 0 \) such that for any \( n \ge N _ a \) we have \( \lvert a _ n - L \rvert \lt \epsilon \) and for any \( m \ge N _ c \) we have \( \lvert c _ m - L \rvert \lt \epsilon \).</p>
+        <p>Recall that these two inequalities <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">are equivalent</a> to \( L - \epsilon \lt a _ n \lt L + \epsilon \) and \( L - \epsilon \lt c _ m \lt L + \epsilon \). Therefore by setting \( N = \max \left( N _ a, N _ c \right) \) then for any \( n \ge N \) both of the aformentioned inequalities hold true, showing that \[ L - \epsilon \lt a _ n \le b _ n \le c _ n \lt L + \epsilon \] which is to say that \( \lvert b _ n - L \rvert \lt \epsilon \)</p>
+    </div>
+</div>
+<div class="definition" id="definition-limsup">
+    <div class="title">
+        limsup
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ n \right) \) is a sequence, then we define another sequence \[ s _ n := \sup \left( \left\{ a _ k: k \ge n \right\} \right) \] and then we define the <b>limsup</b> of \( \left( a _ n \right) \) as \[ \limsup \left( a _ n \right) := \lim _ { n \to \infty } s _ n \]
+    </div>
+</div>
+<div class="definition" id="definition-liminf">
+    <div class="title">
+        liminf
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ n \right) \) is a sequence, then we define another sequence \[ i _ n := \inf \left( \left\{ a _ k: k \ge n \right\} \right) \] and then we define the <b>liminf</b> of \( \left( a _ n \right) \) as \[ \liminf \left( a _ n \right) := \lim _ { n \to \infty } i _ n \]
+    </div>
+</div>
+<div class="proposition" id="proposition-limsup-exists-iff-the-sequence-is-bounded-above">
+    <div class="title">
+        limsup Exists iff the Sequence is Bounded Above
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-a-sequence-eventually-gets-close-to-limsups-limit">
+    <div class="title">
+        A Sequence Eventually gets Close to Limsups Limit
+    </div>
+    <div class="content">
+        Let \( \left( a _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R } \) and suppose that \( \limsup \left( a _ n \right) \to L \) , then for any \( \epsilon \in \mathbb{ R } ^ + \) there exists an \( N \in \mathbb{ N } _ 1 \) such that for any \( n \ge N \) \[ a _ n \lt L + \epsilon \]
+    </div>
+    <div class="proof">
+        Let \( \epsilon \in \mathbb{ R }^ { + } \) then there exists an \( N \in \mathbb{ N } _ 1 \) such that \[ \left\lvert \sup \left( \left\{ a _ k: k \ge n \right\} \right) - L \right\rvert \lt \epsilon \] which is true if and only if \[ L - \epsilon \lt \sup \left( \left\{ a _ k : k \ge n \right\} \right) \lt L + \epsilon \] thus since \( a _ n \le \sup \left( \left\{ a _ k: k \ge n \right\} \right) \) by transitivity we know that \( a _ n \lt L + \epsilon \)
+    </div>
+</div>
+<div class="proposition" id="proposition-convergence-iff-lim-sup-and-inf-are-equal">
+    <div class="title">
+        Convergence iff Lim Sup and Inf are Equal
+    </div>
+    <div class="content">
+        \[ \left( a _ n \right) \to L \iff \limsup \left( a _ n \right) = L = \liminf \left( a _ n \right) \]
+    </div>
+    <div class="proof">
+        <p>Define \( s _ n : = \sup \left( \left\{ a _ k: k \ge n \right\} \right) \) and \( i _ n : = \inf \left( \left\{ a _ k : k \ge n \right\} \right) \).</p>
+        <p>Now suppose that \( \limsup \left( a _ n \right) = \liminf \left( a _ n \right) = L \), since \( a _ k \in \left\{ a _ k : k \ge n \right\} \) , then as they are defined as upper and lower bounds, we have \( i _ n \le a _ n \le s _ n \) for all \( n \in \mathbb{ N } _ 1 \) then by the squeeze theorem \( \left( a _ n \right) \to L \) .</p>
+        <p>Now suppose that \( \limsup \left( a _ n \right) = \limsup \left( a _ n \right) = L \), and let's prove \( \left( a _ n \right) \to L \), let \( \epsilon \in \mathbb{ R } ^ + \), therefore we get an \( N \in \mathbb{ N } _ 1 \) such that for every \( n \ge N \) we have \( \left\lvert a _ n - L \right\rvert \lt \epsilon \) <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">iff</a> \( L - \epsilon \le a _ n \le L + \epsilon \), thus \( L + \epsilon \) and \( L - \epsilon \) are upper and lower bounds of \( \left\{ a _ k : k \ge n \right\} \) respectively, since the sup and the inf are the lest and greatest of their bounds respectively so we have that \( \sup \left( \left\{ a _ k: k \ge n \right\} \right) \le L + \epsilon \) and \( L - \epsilon \le \inf \left( \left\{ a _ k: k \ge n \right\} \right) \) combining the two we obtain \[ L - \epsilon \le \inf \left( \left\{ a _ k : k \ge n \right\} \right) \le \sup \left( \left\{ a _ k : k \ge n \right\} \right) \le L + \epsilon \] which is equivalent to both \[ \left\lvert \inf \left( \left\{ a _ k : k \ge n \right\} \right) - L \right\rvert \le \epsilon \text{ and } \left\lvert \sup \left( \left\{ a _ k : k \ge n \right\} \right) - L \right\rvert \le \epsilon \] <a class="knowledge-link" href="/analysis/single_variable/limits.html#corollary-convergent-sequence-doesnt-reqiure-strict-inequality">therefore</a> \( \limsup \left( a _ n \right) = \liminf \left( a _ n \right) = L \)</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-sum-law">
+    <div class="title">
+        Sum Law
+    </div>
+    <div class="content">
+        Suppose that \( \lim_{x \to a} f{\left ( x \right )} \) and \( \lim_{x \to a} g{\left ( x \right )} \) exist, then
+        <div class="centered-content">
+            \( \lim_{x \to a} \left [ f{\left ( x \right )} + g{\left ( x \right )} \right ] = \lim_{x \to a} f{\left ( x \right )} + \lim_{x \to a} g{\left ( x \right )} \)
         </div>
-    </body>
-</html>
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="proposition" id="proposition-cauchy-with-converging-subsequence-implies-entire-sequence-converges">
+    <div class="title">
+        Cauchy with Converging Subsequence Implies Entire Sequence Converges
+    </div>
+    <div class="content">
+        Let \( \left( x _ n \right) \) be a cauchy sequence and \( \left( x _ { \sigma \left( n \right) } \right) \) a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-subsequence">subsequence</a> such that \( \lim _ { k \to \infty } x _ { \sigma \left( k \right) } = L \) then \( \lim _ { n \to \infty } x _ n = L \).
+    </div>
+    <div class="proof">
+        Let \( \epsilon \in \mathbb{ R } ^ + \), since \( \left( x _ n \right) \) is cauchy we obtain some \( N _ 1 \) such that for any \( n, m \ge N, \lvert a _ n - a _ m \rvert \le \frac{\epsilon}{2} \), on the other hand we see that there is some \( N _ 2 \) such that for all \( n \ge N _ 2 \) we have \( \lvert x _ { \sigma \left( n \right) } - L \rvert \le \frac{\epsilon }{2} \), so let \( N = \max \left( N _ 1, N _ 2 \right) \) and let \( n \ge N \), consider \( \sigma \left( n \right) \), we will want this value to be greater or equal to \( N _ 1 \) so we can use it in-place of \( m \), if it turns out that \( \sigma \left( n \right) \lt N _ 1 \) then since \( \sigma \) is increasing there exists some \( k \gt n \ge N _ 2 \) such that \( \sigma \left( k \right) \ge N _ 1 \), then note: \[ \begin{align} \lvert x _ n - L \rvert &amp;= \lvert x _ n - x _ { \sigma \left( k \right) } + x _ { \sigma \left( k \right) } - L \rvert \\ &amp;\le \lvert x _ n - x _ { \sigma \left( k \right) } \rvert + \lvert x _ { \sigma \left( k \right) } - L \rvert \\ &amp;\lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon \end{align} \]
+    </div>
+</div>
+<div class="lemma" id="lemma-strictly-increasing-natural-number-function-surpasses-all-values">
+    <div class="title">
+        Strictly Increasing Natural Number Function Surpasses All Values
+    </div>
+    <div class="content">
+        Suppose \( f: \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \) is increasing, then for any \( K \in \mathbb{ R } \) there exists an \( n \in \mathbb{ N } _ 1 \) such that \( f \left( n \right) \gt K \)
+    </div>
+    <div class="proof">
+        <p>Before we start this proof, note that for any \( n \in \mathbb{ N } _ 1 \) we have that \( f \left( n \right) \lt f \left( n + 1 \right) \) which means that \( f \left( n \right) + 1 \le f \left( n + 1 \right) \) which is to say that \( 1 \le f \left( n + 1 \right) - f \left( n \right) \), running with this we can generalize this to say that for any \( j \le k \in \mathbb{ N } _ 1 \) \( f \left( n + j \right) - f \left( n + k \right) \ge j - k \)</p>
+        <p>With that in mind, if\( f \left( 1 \right) \gt K \) we are done, so then suppose that \( f \left( 1 \right) \le K \), let \( \alpha = K + 1 - f \left( 1 \right) \in \mathbb{ N } _ 1 \) but then we know that \( f \left(1 + \alpha \right) - f \left( 1 \right) \ge \alpha = K + 1 - f \left( 1 \right) \) adding \( f \left( 1 \right) \) to both sides tells us that \( f \left( 1 + \alpha \right) \ge K + 1 \gt K \) as needed.</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-for-all-there-exists-past-a-point-yields-ordered-satisfaction">
+    <div class="title">
+        For all, There Exists Past a Point Yields Ordered Satisfaction
+    </div>
+    <div class="content">
+        Suppose that you know the following statement holds true: \[ \forall x \in \mathbb{ N } _ 1, \exists N _ x \in \mathbb{ N } _ 1, f _ x : \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \text{ st } , n \ge N _ x \implies P \left( x, f _ x \left( n \right) \right) \] where \( f _ x \) is strictly increasing. Then there exists an order sequence of values in \( \mathbb{ N } _ 1 \) where \( \left( \alpha _ 1 \le \alpha _ 2 \le \alpha _ 3 \le \alpha _ 4 \le \ldots \right) \) such that \[ P \left( 1, \alpha _ 1 \right) \land P \left( 2, \alpha _ 2 \right) \land P \left( 3, \alpha _ 3 \right) \land \cdots \]
+    </div>
+    <div class="proof">
+        <p>Plugging in \( x = 1 \) we obtain some \( N _ 1, f _ 1 \) such that for all \( n \ge N _ 1 \) we have \( P \left( 1, f _ 1 \left( n \right) \right) \), let \( \alpha _ 1 = f _ 1 \left( N _ 1 \right) \) note that since \( N _ 1 \ge N _ 1 \) we have \( P \left( 1, f _ 1 \left( N _ 1 \right) \right) = P \left( 1, \alpha _ 1 \right) \)</p>
+        <p>Now for any \( k \in \mathbb{ N } _ 2 \) we similarly get an \( N _ k, f _ k \) such that for all \( n \ge N _ k \) we have \( P \left( k, f _ k \left( n \right) \right) \), now consider the value \( f _ k \left( N _ k \right) \), we'd like to set \( \alpha _ k \) to it, but we have no idea if \( f _ k \left( N _ k \right) \ge \alpha _ { k - 1 } \), but since we do know that \( \alpha _ { k - 1 } \in \mathbb{ N } _ 1 \) then since \( f _ k \) is increasing <a class="knowledge-link" href="/analysis/single_variable/limits.html#lemma-strictly-increasing-natural-number-function-surpasses-all-values">we know that there is a value</a> \( N _ k + m \) for some \( m \in \mathbb{ N } _ 1 \) such that \( f _ k \left( N _ k + m \right) \ge \alpha _ { k - 1 } \) , since \( N _ k + m \ge N _ k \) then clearly \( P \left( k, f _ k \left( N _ k + m \right) \right) \) holds true, and thus we define \( \alpha _ k = f \left( N _ k + m\right) \), so that \( P \left( k , \alpha _ k \right) \) also holds. Notice that we've also just proven that \( \alpha _ k \ge \alpha _ { k - 1 } \) making them increasing.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-limit-to-a-limit">
+    <div class="title">
+        Limit to a Limit
+    </div>
+    <div class="content">
+        Suppose \( \left( x _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R } \) and that \( L _ k \) are real numbers such that \( \lim _ { k \to \infty } L _ k = L \), if for each \( k \in \mathbb{ N } _ 1 \) there is a subsequence of \( \left( x _ n \right) \) converging to \( L _ k \) show that some subsequence of \( \left( x _ n \right) \) converges to \( L \).
+    </div>
+    <div class="proof">
+        <p>We will construct a subsequence \( \left( x _ { \sigma \left( n \right) } \right) \) such that \( \lvert x _ \sigma \left( k \right) - L \rvert \lt \frac{1}{k} \). By doing so, we will have solved the problem, because for any \( \epsilon \in \mathbb{ R } ^ + \) there is always a \( k \in \mathbb{ N } _ 1 \) such that \( \frac{1}{k} \lt \epsilon \) which shows that \( \lvert x _ { \sigma \left( k \right) } - L \rvert \lt \epsilon \) by transitivity.</p>
+        <p>Let \( k \in \mathbb{ N } _ 1 \) since \( \left( L _ n \right) \to L \) then by considering \( \frac{1}{2k} \) we know that there is an \( N _ k ^ \prime \in \mathbb{ N } _ 1 \) such that for all \( n \ge N _ k ^ \prime \) we have \( \left\lvert L _ n - L \right\rvert \lt \frac{1}{2k} \), now consider any \( m _ k \ge N _ k ^ \prime \), thus we know that \( \left\lvert L _ { m _ k } - L \right\rvert \lt \frac{1}{2k} \).</p>
+        <p>Now since \( m _ k \in \mathbb{ N } _ 1 \) then there exists a subsequence \( x _ { \sigma _ { m _ k } \left( n \right) } \to L _ { m _ k } \) , therefore using \( \epsilon = \frac{1}{2k} \) we get a \( N _ k \) such that for all \( n \ge N _ k, \left\lvert x _ { \sigma _ { m _ k } \left( n \right) - L _ { m _ k } } \right\rvert \lt \frac{1}{2k} \), therefore we have</p>\[ \begin{align} \left\lvert x _ { \sigma _ { m _ k } \left( n \right) } - L \right\rvert &amp;= \left\lvert x _ { \sigma _ { m _ k } \left( n \right) } - L _ m + L _ m - L \right\rvert \\ &amp;\le \left\lvert x _ { \sigma _ { m _ k } \left( n \right) } - L _ { m _ k } \right\rvert + \left\lvert L _ { m _ k } - L \right\rvert \\ &amp;\lt \frac{1}{2k} + \frac{1}{2k} = \frac{1}{k} \end{align} \]
+        <p>Initially it might seem as simple as taking the subsequence \( x _ { \sigma _ { m _ 1 } \left( N _ 1 \right) }, x _ { \sigma _ { m _ 2 } \left( N _ 2 \right) }, x _ { \sigma _ { m _ 3 } \left( N _ 3 \right) }, \ldots \) but there's no guarentee that this subsequence has increasing indices (which is a requirement of a subsequence), therefore we need more work.</p>
+        <p>Condensing what we've proven above, we've shown that \[ \forall k \in \mathbb{ N } _ 1, \exists N _ k \in \mathbb{ N } _ 1, \sigma _ { m _ k } : \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \text{ st } \forall n \ge N _ 2, P \left( k, \sigma _ m \left( n \right) \right) \]</p>
+        <p>Where \( P \left( k, v \right) := \left\lvert x _ v - L \right\rvert \lt \frac{1}{k} \), and since \( \sigma _ { m _ k } \) defines a subsequence then it is strictly increasing, <a class="knowledge-link" href="/analysis/single_variable/limits.html#lemma-for-all-there-exists-past-a-point-yields-ordered-satisfaction">therefore</a> there exists an ordered sequence \( \left( \alpha _ 1 \le \alpha _ 2 \le \alpha _ 3 \le \ldots \right) \) such that \( P \left( k , \alpha _ k \right) \) which is to say that \( \left\lvert x _ { \alpha _ k } - L \right\rvert \lt \frac{1}{k} \) so that the following subsequence works \[ \left( x _ { \alpha _ 1 }, x _ { \alpha _ 2 }, \ldots \right) \] or in another notation with \( \sigma \left( n \right) = \alpha _ n \) we are using the subsequence \( \left( x _ { \sigma \left( n \right) } \right) \)</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-telescoping-triangle-inequality">
+    <div class="title">
+        Telescoping Triangle Inequality
+    </div>
+    <div class="content">
+        Let \( j \le k \in \mathbb{ N } _ 0 \) and \( \left( a _ n \right) \) be a sequence, then we have the following \[ \lvert a _ j - a _ k \rvert \le \lvert a _ j - a _ { j + 1 } \rvert + \lvert a _ { j + 1 } - a _ { j + 2 } \rvert + \cdots + \lvert a _ { k - 1 } - a _ k \rvert \]
+    </div>
+    <div class="proof">
+        which is obtained by using the fact that we can insert \( 0 = - a _ i + a _ i \) into the absolute value and then use the triangle inequality to break it, the general result is proven using induction using this fact in the induction step.
+    </div>
+</div>
+<div class="proposition" id="proposition-series-of-differences-converges-implies-cauchy">
+    <div class="title">
+        Series of Differences Converges Implies Cauchy
+    </div>
+    <div class="content">
+        Let \( \left( a _ n \right) \) be a sequence such that \( \lim _ { N \to \infty } \sum _ { n = 1 } ^ N \lvert a _ n - a _ { n + 1 } \rvert \lt \infty \), show that \( \left( a _ n \right) \) is cauchy.
+    </div>
+    <div class="proof">
+        <p>Let \( \epsilon \in \mathbb{ R } ^ + \) and set \( S _ m := \sum _ { i = 1 } ^ { k - 1 } \lvert a _ {i - 1} - a _ { i } \rvert \) since we we assumed that \( \lim _ { N \to \infty } S _ N \) exists, then the sequence is cauchy so we get some \( N ^ \prime \) such that for any \( a, b \ge N, \lvert S _ a - S _ b \rvert \le \epsilon \) and take \( N = N ^ \prime \) and let \( n, m \ge N \), and without loss of generality assume that \( n \le m \) \[ \begin{align} \lvert a _ n - a _ m \rvert &amp;\le \lvert a _ n - a _ { n + 1 } \rvert + \lvert a _ { n + 1 } - a _ { n + 2 } \rvert + \cdots + \lvert a _ { m - 1 } - a _ m \rvert \\ &amp;= S _ m - S _ n \\ &amp;= \lvert S _ m - S _ n \rvert \le \epsilon \end{align} \] where we've used the <a class="knowledge-link" href="/analysis/single_variable/limits.html#proposition-telescoping-triangle-inequality">generalized triangle inequality</a> and the fact that \( S _ k \) is increasing, as each higher index adds a non-negative element to the sum.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-cauchy-sequence-implies-subsequence-with-convergent-differences">
+    <div class="title">
+        Cauchy Sequence Implies Subsequence with Convergent Differences
+    </div>
+    <div class="content">
+        If \( \left( x _ n \right) _ { n = 1 } ^ \infty \) is cauchy, show that it has a subsequence \( \left( x _ { \sigma \left( n \right) } \right) \) such that \[ \sum _ { k = 1 } ^ \infty \lvert x _ { \sigma \left( k \right) } - x _ { \sigma \left( k + 1 \right) } \rvert \lt \infty \]
+    </div>
+    <div class="proof">
+        <p>Recall that a <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#corollary-series-of-halves-is-bounded">geometric series of halves</a> is bounded, and thus we're inspired to try to make each \( \lvert x _ { \sigma \left( k \right) } - x _ { \sigma \left( k + 1 \right) } \rvert \le \frac{1}{2 ^ k} \), call this property \( \alpha \).</p>
+        <p>Let's construct this subsequence, for any \( k \in \mathbb{ N } _ 1 \) consider \( \epsilon = \frac{1}{2 ^ k} \), then we get an \( N _ k \) such that for all \( n, m \ge N _ k, \lvert a _ n - a _ m \rvert \le \frac{1}{2 ^ k} \), and consider the sequence \( x _ { N _ 1 }, x _ { N _ 2 }, x _ { N _ 3 }, \ldots \), we'll show it satisfies \( \alpha \).</p>
+        <p>Let \( j \in \mathbb{ N } _ 1 \), and consider \( N _ j, N _ { j + 1 } \), in the case that \( N _ j \ge N _ { j + 1 } \) then note that \( \lvert x _ { N _ j } - x _ { N _ { j + 1 } } \rvert \le \frac{1}{2 ^ { j + 1 } } \le \frac{1}{2 ^ j} \) (where \( n = N _ j, m = N _ { j + 1 } \)), in the case that \( N _ j \lt N _ { j + 1 } \) we also get that \( \lvert x _ { N _ j } - x _ { N _ { j + 1 } } \rvert \le \frac{1}{2 ^ j} \) so \( \alpha \) is satisfied for this subsequence. Therefore \[ \sum _ { k = 1 } ^ \infty \lvert x _ { N _ k } - x _ { N _ { k + 1 } } \rvert \le \sum _ { k = 1 } ^ \infty \frac{1}{2 ^ k} = 1 \] as needed.</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-zig-zag-sequence-has-nested-bound">
+    <div class="title">
+        Zig-Zag Sequence has Nested Bound
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ n \right) \) is a sequence such that \( a _ { 2 n } \le a _ { 2n + 2 } \le a _ { 2 n + 3 } \le a _ { 2n + 1 } \) for all \( n \in \mathbb{ N } _ 0 \) then for any \( k, n \in \mathbb{ N } _ 0 \) \[ n \ge 2k + 1 \implies a _ n \in \left[ a _ { 2k }, a _ { 2k + 1 } \right] \]
+    </div>
+    <div class="proof">
+        Proven by induction.
+    </div>
+</div>
+<div class="proposition" id="proposition-zig-zag-sequence-is-cauchy-iff-differences-go-to-zero">
+    <div class="title">
+        Zig-Zag Sequence is Cauchy iff Differences go to Zero
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ n \right) \) is a sequence such that \( a _ { 2 n } \le a _ { 2n + 2 } \le a _ { 2 n + 3 } \le a _ { 2n + 1 } \) for all \( n \in \mathbb{ N } _ 0 \), then this sequence is cauchy iff \( \lim _ { n \to \infty } \lvert a _ n - a _ { n + 1 } \rvert = 0 \).
+    </div>
+    <div class="proof">
+        <p>\( \implies \) this direction is easy, let \( \epsilon \in \mathbb{ R } ^ + \), since \( \left( a _ n \right) \) is cauchy we get some \( N ^ \prime \) such that for all \( n, m \ge N ^ \prime, \lvert a _ n - a _ m \rvert \lt \epsilon \), and so take \( N = N ^ \prime \) then specifically for \( n, n + 1 \ge N \) we have that \( \epsilon \gt \lvert a _ n - a _ { n + 1 } \rvert = \lvert \lvert a _ n - a _ { n + 1 } \rvert - 0 \rvert \) as needed.</p>
+        <p>\( \impliedby \) Assume that \( \lim _ { n \to \infty } \lvert a _ n - a _ { n + 1 } \rvert = 0 \) and now we want to prove that \( \left( a _ n \right) \) is cauchy so let \( \epsilon \in \mathbb{ R } ^ + \) and so we obtain some \( N \) such that for any \( n \ge N \) we have that \( \lvert a _ n - a _ { n + 1 } \rvert \le \epsilon \) take \( N ^ \prime = 2 N + 1 \) and let \( n, m \ge N ^ \prime \) by our lemma, we see that \( a _ n, a _ m \in \left[ a _ { 2N }, a _ { 2N + 1 } \right] \), but then again since \( 2N, 2N + 1 \ge N \) we see that \( \lvert a _ { 2N + 1 } - a _ { 2N } \rvert \le \epsilon \) and therefore \( \lvert a _ n - a _ m \rvert \le \epsilon \) as needed.</p>
+    </div>
+</div>
+<div class="definition" id="definition-monotone-increasing-sequence">
+    <div class="title">
+        Monotone Increasing Sequence
+    </div>
+    <div class="content">
+        A sequence \( \left( a _ n \right) _ { n = 1 } ^ \infty \) is said to be <b>monotone increasing</b> whenever we have: \[ a _ n \le a _ { n + 1 } \] for any \( n \in \mathbb{ N } _ 1 \)
+    </div>
+</div>
+<div class="definition" id="definition-monotone-decreasing-sequence">
+    <div class="title">
+        Monotone Decreasing Sequence
+    </div>
+    <div class="content">
+        A sequence \( \left( a _ n \right) _ { n = 1 } ^ \infty \) is said to be <b>monotone decreasing</b> whenever we have: \[ a _ n \ge a _ { n + 1 } \] for any \( n \in \mathbb{ N } _ 1 \)
+    </div>
+</div>
+<div class="theorem" id="theorem-bounded-above-and-monotone-increasing-converges-to-supremum">
+    <div class="title">
+        Bounded Above and Monotone Increasing Converges to Supremum
+    </div>
+    <div class="content">
+        A monotone increasing sequence that is bounded above converges to \( L = \sup \left( \operatorname{ im } \left( \left( a _ n \right) \right) \right) \)
+    </div>
+    <div class="proof">
+        <p>Since \( \left( a _ n \right) _ { n = 1 } ^ \infty \) is bounded above, then so is \( \operatorname{ im } \left( \left( a _ n \right) \right) \subseteq \mathbb{ R } \) therefore since \( \mathbb{ R } \) has the least upper bound property, we know that \( \sup \left( \operatorname{ im } \left( \left( a _ n \right) \right) \right) \) exists, call it \( L \) and we'll prove that \( \left( a _ n \right) \) converges there.</p>
+        <p>Let \( \epsilon \in \mathbb{ R } ^ + \) by definition of the supremum we know that \( L - \epsilon \) is not an upper bound for \( A \), in other words there exists some element \( a _ N \in \operatorname{ im } \left( \left( a _ n \right) \right) \) such that \( L - \epsilon \lt a _ N \)</p>
+        <p>Since \( \left( a _ n \right) \) is increasing, we know that for any \( n \in \mathbb{ N } , n \ge N , a _ N \le a _ n \), moreover \( L \) is an upperbound so that we get \[ L - \epsilon \lt a _ N \le a _ n \le L \lt L + \epsilon \implies L - \epsilon \lt a _ n \lt L + \epsilon \] <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">therefore</a> \( \lvert a _ n - L \rvert \lt \epsilon \), therefore \( \lim _ { n \to \infty } a _ n = L \) as needed.</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-bounded-below-and-montone-decreasing-converges-to-infimum">
+    <div class="title">
+        Bounded Below and Monotone Decreasing Converges to Infimum
+    </div>
+    <div class="content">
+        A monotone decreasing sequence that is bounded below converges to \( L = \inf \left( \operatorname{ im } \left( \left( a _ n \right) \right) \right) \)
+    </div>
+    <div class="proof">
+        If \( \left( a _ n \right) \) is decreasing and bounded below by \( B \), then the sequence \( \left( - a _ n \right) \) is increasing and bounded above by \( - B \). Thus the sequence \( \left( -a _ n \right) _ { n = 1 } ^ \infty \) has limit \( L = \sup \left( \operatorname{ im } \left( \left( - a _ n \right) \right) \right) \) <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-negative-of-infimum-is-supremum-of-negatives">recall that</a> \[ \sup \left( \operatorname{ im } \left( \left( - a _ n \right) \right) \right) = - \inf \left( \left\{ -x : x \in \operatorname{ im } \left( \left( - a _ n \right) \right) \right\} \right) = - \inf \left( \operatorname{ im } \left( a _ n \right) \right) \] So that \( -L = \inf \left( \operatorname{ im } \left( \left( a _ n \right) \right) \right) \). Then note that \( \lim _ { n \to \infty } - a _ n = L \) implies that \( -L = \lim _ { n \to \infty } a _ n \) so we conclude that \[ \lim _ { n \to \infty } a _ n = \inf \left( \operatorname{ im } \left( \left( a _ n \right) \right) \right) \] as needed.
+    </div>
+</div>
+<div class="exercise" id="exercise-nested-square-root-twos">
+    <div class="title">
+        Nested Square Root Twos
+    </div>
+    <div class="content">
+        Consider the sequence defined as follows for \( \alpha \in \mathbb{ R } ^ + \)
+        <ul>
+            <li>\( a _ 1 = \sqrt{ \alpha } \)</li>
+            <li>\( a _ { n + 1 } = \sqrt{ \alpha + a _ n } \) for every \( n \ge 1 \)</li>
+        </ul>Show that it converges
+    </div>
+    <div class="proof">
+        <p>One way to show that it converges would to be the use the MCT for monotone increasing sequences. We start by showing that it is monotone increasing by showing it is strictly increasing.</p>
+        <p>For the base case we need to verify that \( a _ 1 \lt a _ 2 \) which is equivalent to showing that \( \sqrt{ \alpha } \lt \sqrt{ \alpha + \sqrt{ \alpha } } \) this is true because \( \sqrt{ \cdot } \) is order preserving and we know that \( \alpha \lt \alpha + \sqrt{ \alpha } \) because \( \sqrt{ \alpha } \gt 0 \).</p>
+        <p>For the induction step assume that \( a _ k \lt a _ { k + 1 } \) and we'll prove that \( a _ { k + 1 } \lt a _ { k + 2 } \). Note that \( a _ { k + 2 } = \sqrt{ \alpha + a _ { k + 1 } } \) by the induction hypothesis we can see that \( \sqrt{ \alpha + a _ { k + 1 } } \gt \sqrt{ \alpha + a _ k } = a _ { k + 1 } \), thus we have that \( a _ { k + 2 } \gt a _ { k + 1 } \) as needed.</p>
+        <p>We'll move on to showing that it is bounded now, to do so we claim that \( \sqrt{ \alpha } + 1 \) is an upper bound, we'll show it is by induction, so for \( n = 1 \) we see that \( \sqrt{ \alpha } \le \sqrt{ \alpha } + 1 \), now assuming it's true for \( k \in \mathbb{ N } _ 1 \) we'll show that \( a _ { k + 1 } \le \sqrt{ \alpha } + 1 \). We note that \( a _ { k + 1 } = \sqrt{ \alpha + a _ k } \) and thus by the induction hypothesis we have \( \sqrt{ \alpha + a _ k } \le \sqrt{ \alpha + \sqrt{ \alpha } + 1 } \), but note that \[ \sqrt{ \alpha + \sqrt{ \alpha } + 1 } \lt \sqrt{ \alpha + 2 \sqrt{ \alpha } + 1 } = \sqrt{ \left( \sqrt{ \alpha }+ 1 \right) ^ 2 } = \sqrt{ \alpha } + 1 \] thus chaining inequalities we obtain \( a _ { k + 1 } \le \sqrt{ \alpha } + 1 \) as needed, the choice of \( \sqrt{ \alpha } + 1 \) was inspired by thinking ahead to induction, what we would have to prove and figuring out what it can be upper bounded.</p>
+        <p>Since we've shown monotone increasing and bounded above, then the sequence converges to some \( L \in \mathbb{ R } \), if that's true then \( L = \sqrt{ \alpha + L } \) because \( \lim _ { n \to \infty } a _ { n + 1 } = \lim _ { n \to \infty } \sqrt{ \alpha + a _ n } \) therefore \( L ^ 2 = \alpha + L \) so that \( L ^ 2 - L - \alpha = 0 \) so by the quadratic formula we have \[ L = \frac{1 \pm \sqrt{ 1 + 4 \alpha } }{2} \] but since \( a _ n \ge 0 \) for all \( n \in \mathbb{ N } _ 1 \) then we know that \( L \ge 0 \) and therefore specifically it converges to \[ L = \frac{1 + \sqrt{ 1 + 4 \alpha } }{2} \]</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-inequality-from-sequence-to-limit">
+    <div class="title">
+        Inequality From Sequence to Limit
+    </div>
+    <div class="content">
+        Suppose \( \left( a _ n \right), \left( b _ n \right) \) are converging sequences such that \( a _ n \le b _ n \) for all \( n \in \mathbb{ N } _ 1 \) then \[ \lim _ { n \to \infty } a _ n \le \lim _ { n \to \infty } b _ n \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="lemma" id="lemma-nested-intervals">
+    <div class="title">
+        Nested Intervals
+    </div>
+    <div class="content">
+        Suppose that \( I _ n = \left[ a _ n, b _ n \right] \) are nonempty closed intervals such that \( I _ { n + 1 } \subseteq I _ n \) for every \( n \in \mathbb{ N } _ 1 \), then \[ \bigcap _ { n \in \mathbb{ N } _ 1 } I _ n \neq \emptyset \]
+    </div>
+    <div class="proof">
+        <p>Since \( \left[ a _ { n + 1 }, b _ { n + 1 } \right] \subseteq \left[ a _ n, b _ n \right] \) then we know that \( a _ n \le a _ { n + 1 } \le b _ { n + 1 } \le b _ n \) for any \( n \in \mathbb{ N } _ 1 \) and therefore we conclude that \( \left( a _ n \right) \) is monotone increasing and that \( \left( b _ n \right) \) is monotone decreasing. Also note that \( a _ n \le b _ n \le b _ 1 \) and \( a _ 1 \le a _ n \le b _ n \) so that by transitivity we obtain \( a _ n \le b _ 1 \) and \( a _ 1 \le b _ n \) which is to say that \( a _ n \) is bounded above and that \( b _ n \) is bounded below.</p>
+        <p>Therefore from both versions of the montone convergence theorem we see that \( a _ n \) and \( b _ n \) converge to \( a := \sup \left( \operatorname{ im } \left( \left( a _ n \right) \right) \right) , b := \inf \left( \operatorname{ im } \left( b _ n \right) \right) \) respectively and from the above proposition we see that \( a \le b \)</p>
+        <p>By the definition of the supremum and infimum, we also have that \[ a _ k \le a \le b \le b _ k \] for all \( k \in \mathbb{ N } _ 1 \) meaning that \( a, b \) belongs to \( I _ k \), so that \( \left\{ a, b \right\} \subseteq \bigcap _ { n \in \mathbb{ N } _ 1 } I _ n \) and so it must not be empty.</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-bolazno-wierstrass">
+    <div class="title">
+        Bolzano-Weierstrass
+    </div>
+    <div class="content">
+        Every bounded sequence of real numbers has a convergent subsequence.
+    </div>
+    <div class="proof">
+        <p>Let \( \left( a _ n \right) \) be bounded by \( B \), therefore \( \operatorname{ im } \left( \left( a _ n \right) \right) \subseteq \left[ -B, B \right] \). If \( I \) is an interval containing infinitely man points of ths equence \( \left( a _ n \right) \) and \( I = J _ 1 \cup J _ 2 \) then at least one of \( J _ 1, J _ 2 \) has infinitely many elements or we would have a contradiction.</p>
+        <p>With that in mind we construct the following sequence of intervals</p>
+        <ul>
+            <li>\( I _ 1 = \left[ a _ 1, b _ 1 \right] \) where \( a _ 1 = -B \) and \( b _ 1 = B\)</li>
+            <li>Consider \( L = \left[ a _ m, \frac{a _ m + b _ m }{2} \right]\) and \( R = \left[ \frac{a _ m + b _ m}{2} , b _ m \right] \)
+                <ul>
+                    <li>If \( L \cap \operatorname{ im } \left( a _ n \right) \) is infinite then \( I _ { m + 1 } = L \)</li>
+                    <li>If \( R \cap \operatorname{ im } \left( a _ n \right) \) is infinite then \( I _ { m + 1 } = R \)</li>
+                    <li>If both are infinite just use \( I _ { m + 1 } = L \)</li>
+                </ul>
+            </li>
+        </ul>
+        <p>We now construct a subsequence as follows: Since every \( I _ k \cap \operatorname{ im } \left( \left( a _ n \right) \right) \) is infinite then we know there is some \( a _ j \in I _ k \cap \operatorname{ im } \left( \left( a _ n \right) \right) \), this defines a function \( \sigma : \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \) such that \( \sigma \left( k \right) = j \) and we use this to make our subsequence \( \left( a _ { \sigma \left( n \right) } \right) \)</p>
+        <p>We will now show that this subsequence converges. Note that by construction we see that \( I _ { k + 1 } \subseteq I _ k \) for all \( k \in \mathbb{ N } _ 1 \), and that each is non-empty, so that by the nested intervals lemma there exists an \( L \in \bigcap { n \in \mathbb{ N } _ 1 } I _ n \), let's show that the subsequence converges there. Moreover note that \( \lvert I _ k \rvert = 2 ^ { 2 - k } B \)</p>
+        <p>Let \( \epsilon \in \mathbb{ R } ^ + \) then there exists some \( k \in \mathbb{ N } _ 1 \) such that \( 2 ^ { k - 2 } B \le \epsilon \) and thus by definition of \( \sigma \) we have \( a _ { \sigma \left( k \right) }, L \in I _ k \) and thus \( \lvert a _ { \sigma \left( k \right) } - L \rvert \le \lvert I _ k \rvert = 2 ^ { 2 - k } B \le \epsilon \) which shows that \( \left( a _ { \sigma \left( n \right) } \right) \to L \)</p>
+    </div>
+</div>

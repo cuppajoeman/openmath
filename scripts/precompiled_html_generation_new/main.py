@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup, Tag
 from typing import Dict, Callable
 import re
 import pdb
+import os
 import latex2mathml.converter
 
 
@@ -206,8 +207,10 @@ def convert_latex_to_mathml(html_content):
         
         # Convert LaTeX to MathML using the display attribute
         print("about to convert", latex)
+        # add the \displaystyle command if in block mode, need to make issue about this in latex2mathml
+        latex = ("\displaystyle " if display == "block" else "") + latex
         mathml = latex2mathml.converter.convert(latex, display=display)
-        return f'<math xmlns="http://www.w3.org/1998/Math/MathML" display="{display}">{mathml}</math>'
+        return mathml
 
     # Replace LaTeX with MathML in the HTML content
     return latex_pattern.sub(replace_latex_with_mathml, html_content)
@@ -253,8 +256,8 @@ def openmath_template_conversion(path_to_content_file: str, file_name: str, temp
     with open(template_file, "r") as f:
         template_lines = f.readlines()
 
-    # [:-5] removes ".html"
-    page_title = " ".join(file_name[:-5].split("_"))
+    file_name = os.path.splitext(os.path.basename(file_name))[0]
+    page_title = file_name.replace('_', ' ')
 
     # Update the page title in the template
     title_line_index = next(i for i, s in enumerate(template_lines) if "<title>PAGE TITLE</title>" in s)

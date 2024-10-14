@@ -1,112 +1,93 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Graphs</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <script src="/js/script.js" defer></script>
-</head>
-
-<body>
-<div class="thin-wrapper">
-
-    <div class="definition" id="definition-graph">
-    	<div class="title">Graph</div>
-    	<div class="content">
-    		A graph \( G \) is an ordered pair \( V, E \)  of sets \( V \) of <i>vertices</i> and \( E \) of <i>edges</i>, that are <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-disjoint-sets">disjoint</span> together with an incedence function \( \phi : E \to V \times V \) that associates with
-    	</div>
+<div class="definition" id="definition-graph">
+    <div class="title">
+        Graph
     </div>
-
-    <div class="definition" id="definition-degree-of-a-vertex">
-    	<div class="title">Degree of a Vertex</div>
-    	<div class="content">
-    		Suppose that \( G = \left( V, E \right)  \) is a <a class="knowledge-link" href="/graph_theory/graphs.html#definition-graph">graph</a>, then we say that the degree of a vertex \( v \) is the number of other vertices connected to it with an edge. We define the syntax \( \operatorname{ deg } : V \to \mathbb{ N } ^ 0  \) to be the function that maps a node to it's degree.
-    	</div>
+    <div class="content">
+        A graph \( G \) is an ordered pair \( V, E \) of sets \( V \) of <i>vertices</i> and \( E \) of <i>edges</i>, that are <span class="knowledge-link" data-href="/fundamentals/sets/union_and_intersection.html#definition-disjoint-sets">disjoint</span> together with an incedence function \( \phi : E \to V \times V \) that associates with
     </div>
-    
-    <div class="proposition" id="proposition-sum-of-degrees">
-    	<div class="title">Sum of Degrees</div>
-    	<div class="content">
-    		Suppose that \( G \) is a finite graph, then we have that 
-            \[
-                \sum _ { v \in V } \operatorname{ deg } \left( v \right) = 2 \lvert E \rvert 
-            \]
-    	</div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-    
-    <div class="definition" id="definition-branching-factor">
-    	<div class="title">Branching Factor</div>
-    	<div class="content">
-    		Suppose that we have a graph \( G \), then we say that \( G \) has <b>branching factor</b> \( b \in \mathbb{ N } _ 1 \), if every vertex has <a class="knowledge-link" href="/graph_theory/graphs.html#definition-degree-of-a-vertex">degree</a> \( b \)
-    	</div>
-    </div>
-
-    <div class="definition" id="definition-average-branching-factor">
-    	<div class="title">Average Branching Factor</div>
-    	<div class="content">
-    		Suppose that \( G \) is a finite graph, then the average branching factor of the graph is defined as
-            \[
-                \frac{\sum _ { v \in V } \operatorname{ deg } \left( v \right)}{\lvert V \rvert } \in \mathbb{ Q }
-            \]
-    	</div>
-    </div>
-
-    <div class="definition" id="definition-maximum-branching-factor">
-        <div class="title">Maximum Branching Factor</div>
-        <div class="content">
-            Suppose that we have a graph \( G \), then we say that \( G \) has a <b>maximum branching factor of</b> \( b \in \mathbb{ N } _ 0 \), if every vertex has <a class="knowledge-link" href="/graph_theory/graphs.html#definition-degree-of-a-vertex">degree</a> at most \( b \)
-        </div>
-    </div>
-
-    <div class="definition" id="definition-path">
-    	<div class="title">Path</div>
-    	<div class="content">
-    		A tuple \( \left( v _ 1, v _ 2, \ldots v _ n \right) \in V ^ n \) is said to be a path if for every \( i \in [1 \ldots n - 1] \), \( \left\{ v _ i, v _ { i + 1 }  \right\} \in E  \).
-    	</div>
-    </div>
-
-    <div class="definition" id="definition-connected-vertices">
-    	<div class="title">Connected Vertices</div>
-    	<div class="content">
-    		Suppose that \( u, v \in V\), then we say that \( u, v \) are connected if there is a path \( v _ 1, v _ 2, \ldots, v _ n \) where \( v _ 1 = u \) and \( v _ n = v \)
-    	</div>
-    </div>
-
-    <div class="definition" id="definition-connected-graph">
-    	<div class="title">Connected Graph</div>
-    	<div class="content">
-    		Given a graph \( G \) we say that it is connected when for every \( u, v \in V \), we have that \( u \) and \( v \) are connected.
-    	</div>
-    </div>
-
-    <div class="corollary" id="corollary-a-graph-with-one-vertex-is-connected">
-    	<div class="title">A Graph with One Vertex is Connected</div>
-    	<div class="content">
-    		Suppose that \( G = \left( V, E \right)  \) where \( V = \left\{ x \right\}   \), then \( G \) is conntected.
-    	</div>
-    	<div class="proof">
-            Suppose that \( u, v \in V\), then \( u = v = x \), therefore the path \( x \) connects it to itself.
-    	</div>
-    </div>
-
-    <div class="proposition" id="proposition-a-disconected-graph-is-the-union-of-many-disjoint-connected-ubgraphs">
-    	<div class="title">A Disconnected Graph is the Union of Many Disjoint Connected Subgraphs</div>
-    	<div class="content">
-    		Suppose that \( G  \) is a disconnected graph, then \( G \) is the disjoint union of 2 or more connected subgraphs
-    	</div>
-    	<div class="proof">
-
-    	</div>
-    </div>
-
-
-
-
 </div>
-</body>
+<div class="definition" id="definition-degree-of-a-vertex">
+    <div class="title">
+        Degree of a Vertex
+    </div>
+    <div class="content">
+        Suppose that \( G = \left( V, E \right) \) is a <a class="knowledge-link" href="/graph_theory/graphs.html#definition-graph">graph</a>, then we say that the degree of a vertex \( v \) is the number of other vertices connected to it with an edge. We define the syntax \( \operatorname{ deg } : V \to \mathbb{ N } ^ 0 \) to be the function that maps a node to it's degree.
+    </div>
+</div>
+<div class="proposition" id="proposition-sum-of-degrees">
+    <div class="title">
+        Sum of Degrees
+    </div>
+    <div class="content">
+        Suppose that \( G \) is a finite graph, then we have that \[ \sum _ { v \in V } \operatorname{ deg } \left( v \right) = 2 \lvert E \rvert \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-branching-factor">
+    <div class="title">
+        Branching Factor
+    </div>
+    <div class="content">
+        Suppose that we have a graph \( G \), then we say that \( G \) has <b>branching factor</b> \( b \in \mathbb{ N } _ 1 \), if every vertex has <a class="knowledge-link" href="/graph_theory/graphs.html#definition-degree-of-a-vertex">degree</a> \( b \)
+    </div>
+</div>
+<div class="definition" id="definition-average-branching-factor">
+    <div class="title">
+        Average Branching Factor
+    </div>
+    <div class="content">
+        Suppose that \( G \) is a finite graph, then the average branching factor of the graph is defined as \[ \frac{\sum _ { v \in V } \operatorname{ deg } \left( v \right)}{\lvert V \rvert } \in \mathbb{ Q } \]
+    </div>
+</div>
+<div class="definition" id="definition-maximum-branching-factor">
+    <div class="title">
+        Maximum Branching Factor
+    </div>
+    <div class="content">
+        Suppose that we have a graph \( G \), then we say that \( G \) has a <b>maximum branching factor of</b> \( b \in \mathbb{ N } _ 0 \), if every vertex has <a class="knowledge-link" href="/graph_theory/graphs.html#definition-degree-of-a-vertex">degree</a> at most \( b \)
+    </div>
+</div>
+<div class="definition" id="definition-path">
+    <div class="title">
+        Path
+    </div>
+    <div class="content">
+        A tuple \( \left( v _ 1, v _ 2, \ldots v _ n \right) \in V ^ n \) is said to be a path if for every \( i \in [1 \ldots n - 1] \), \( \left\{ v _ i, v _ { i + 1 } \right\} \in E \).
+    </div>
+</div>
+<div class="definition" id="definition-connected-vertices">
+    <div class="title">
+        Connected Vertices
+    </div>
+    <div class="content">
+        Suppose that \( u, v \in V\), then we say that \( u, v \) are connected if there is a path \( v _ 1, v _ 2, \ldots, v _ n \) where \( v _ 1 = u \) and \( v _ n = v \)
+    </div>
+</div>
+<div class="definition" id="definition-connected-graph">
+    <div class="title">
+        Connected Graph
+    </div>
+    <div class="content">
+        Given a graph \( G \) we say that it is connected when for every \( u, v \in V \), we have that \( u \) and \( v \) are connected.
+    </div>
+</div>
+<div class="corollary" id="corollary-a-graph-with-one-vertex-is-connected">
+    <div class="title">
+        A Graph with One Vertex is Connected
+    </div>
+    <div class="content">
+        Suppose that \( G = \left( V, E \right) \) where \( V = \left\{ x \right\} \), then \( G \) is conntected.
+    </div>
+    <div class="proof">
+        Suppose that \( u, v \in V\), then \( u = v = x \), therefore the path \( x \) connects it to itself.
+    </div>
+</div>
+<div class="proposition" id="proposition-a-disconected-graph-is-the-union-of-many-disjoint-connected-ubgraphs">
+    <div class="title">
+        A Disconnected Graph is the Union of Many Disjoint Connected Subgraphs
+    </div>
+    <div class="content">
+        Suppose that \( G \) is a disconnected graph, then \( G \) is the disjoint union of 2 or more connected subgraphs
+    </div>
+    <div class="proof"></div>
+</div>

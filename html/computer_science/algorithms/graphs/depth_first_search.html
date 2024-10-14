@@ -1,97 +1,90 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Depth First Search</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/woodland.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="moz-extension://5d794e46-29d2-4a1a-a13b-4b3d120abe5c/content/fido2/page-script.js"></script>
-
-    <script>hljs.highlightAll();</script>
-
-    <script src="/js/insert_file_contents.js"></script>
-</head>
-
-<body>
-<div class="thin-wrapper">
-
-    <div class="theorem" id="theorem-dfs-is-not-complete">
-    	<div class="title">DFS is not Complete</div>
-    	<div class="content">
-            Suppose that \( s, g \) are two connected vertices in a potentially infinite graph with a maximum branching factor of \( b \in \mathbb{ N } _ 0 \), then it's possible that DFS may not find a path connecting \( s \) and \( g \).
-    	</div>
-    	<div class="proof">
-            Suppose we have the embedded graph of \( \mathbb{ N } _ 0 \), but we also have a child node of \( 0 \) which is distinct from \( 1 \) called \( g \), then if DFS expands \( 1 \) first, then it will never expand \( g \) because it will go down the infinite chain of natural numbers.
-    	</div>
+<div class="theorem" id="theorem-dfs-is-not-complete">
+    <div class="title">
+        DFS is not Complete
     </div>
-
-    <div class="exercise" id="exercise-dfs-example">
-    	<div class="title">DFS Example</div>
-    	<div class="content">
-            <p>
-                Assuming that we push characters onto the frontier in alphabetical order (A before B ...), specify the order of the nodes that would be explored by DFS with no cycle checking. Assume that S is the initial node, while G is the goal node.
-            </p>
-            <div class="centered-content">
-                <img src="directed_graph.svg" alt="" width="500px">
-            </div>
-    	</div>
-    	<div class="proof">
-            <p>
-                Note that the frontier is a stack
-            </p>
-            <table>
-                <tr>
-                    <td>path so far</td>
-                    <td>frontier</td>
-                    <td>about to explore</td>
-                </tr>
-                <tr>
-                    <td>S</td><td>S</td><td>S</td>
-                </tr>
-                <tr>
-                    <td>S</td><td>B, C</td><td>C</td>
-                </tr>
-                <tr>
-                    <td>S-C</td><td>B, E</td><td>E</td>
-                </tr>
-                <tr>
-                    <td>S-C-E</td><td>B, D</td><td>D</td>
-                </tr>
-                <tr>
-                    <td>S-C-E-D</td><td>B</td><td>B</td>
-                </tr>
-                <tr>
-                    <td>S-C-E-D-B</td><td>A, D, E</td><td>E</td>
-                </tr>
-                <tr>
-                    <td>S-C-E-D-B-E</td><td>A, D, D</td><td>D</td>
-                </tr>
-                <tr>
-                    <td>S-C-E-D-B-E-D</td><td>A, D</td><td>D</td>
-                </tr>
-                <tr>
-                    <td>S-C-E-D-B-E-D-D</td><td>A</td><td>A</td>
-                </tr>
-                <tr>
-                    <td>S-C-E-D-B-E-D-D-A</td><td>F</td><td>F</td>
-                </tr>
-                <tr>
-                    <td>S-C-E-D-B-E-D-D-A-F</td><td>G</td><td>G</td>
-                </tr>
-                <tr>
-                    <td>S-C-E-D-B-E-D-D-A-F-G</td><td></td><td></td>
-                </tr>
-            </table>
-    	</div>
+    <div class="content">
+        Suppose that \( s, g \) are two connected vertices in a potentially infinite graph with a maximum branching factor of \( b \in \mathbb{ N } _ 0 \), then it's possible that DFS may not find a path connecting \( s \) and \( g \).
     </div>
-
-
-
-
+    <div class="proof">
+        Suppose we have the embedded graph of \( \mathbb{ N } _ 0 \), but we also have a child node of \( 0 \) which is distinct from \( 1 \) called \( g \), then if DFS expands \( 1 \) first, then it will never expand \( g \) because it will go down the infinite chain of natural numbers.
+    </div>
 </div>
-</body>
+<div class="exercise" id="exercise-dfs-example">
+    <div class="title">
+        DFS Example
+    </div>
+    <div class="content">
+        <p>Assuming that we push characters onto the frontier in alphabetical order (A before B ...), specify the order of the nodes that would be explored by DFS with no cycle checking. Assume that S is the initial node, while G is the goal node.</p>
+        <div class="centered-content"><img alt="" src="directed_graph.svg" width="500px"></div>
+    </div>
+    <div class="proof">
+        <p>Note that the frontier is a stack</p>
+        <table>
+            <tr>
+                <td>path so far</td>
+                <td>frontier</td>
+                <td>about to explore</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>S</td>
+                <td>S</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>B, C</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td>S-C</td>
+                <td>B, E</td>
+                <td>E</td>
+            </tr>
+            <tr>
+                <td>S-C-E</td>
+                <td>B, D</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>S-C-E-D</td>
+                <td>B</td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td>S-C-E-D-B</td>
+                <td>A, D, E</td>
+                <td>E</td>
+            </tr>
+            <tr>
+                <td>S-C-E-D-B-E</td>
+                <td>A, D, D</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>S-C-E-D-B-E-D</td>
+                <td>A, D</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>S-C-E-D-B-E-D-D</td>
+                <td>A</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>S-C-E-D-B-E-D-D-A</td>
+                <td>F</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>S-C-E-D-B-E-D-D-A-F</td>
+                <td>G</td>
+                <td>G</td>
+            </tr>
+            <tr>
+                <td>S-C-E-D-B-E-D-D-A-F-G</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>

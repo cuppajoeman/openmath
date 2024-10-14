@@ -1,226 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Symmetry Groups</title>
-
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/script.js" defer></script>
-
-</head>
-<body>
-<div class="thin-wrapper">
-
-    <div class="definition" id="definition-symmetry-group">
-    	<div class="title">Symmetry Group</div>
-    	<div class="content">
-            Given a figure \( F \) in the plane, it's <b>symmetry group</b> \( \Sigma \left( F \right)  \) is the family of all orthogonal transformations \( \sigma : \mathbb{ R } ^ 2 \to \mathbb{ R } ^ 2  \) for which
-            \[
-                \sigma \left( F \right) = F
-            \]
-        </div>
+<div class="definition" id="definition-symmetry-group">
+    <div class="title">
+        Symmetry Group
     </div>
-
-    <div class="proposition" id="proposition-the-symmetry-group-is-a-group">
-    	<div class="title">The Symmetry Group is a Group</div>
-    	<div class="content">
-
-    	</div>
-    	<div class="proof">
-
-    	</div>
+    <div class="content">
+        Given a figure \( F \) in the plane, it's <b>symmetry group</b> \( \Sigma \left( F \right) \) is the family of all orthogonal transformations \( \sigma : \mathbb{ R } ^ 2 \to \mathbb{ R } ^ 2 \) for which \[ \sigma \left( F \right) = F \]
     </div>
-
-
-    <div class="proposition" id="proposition-">
-    	<div class="title">Symmetries of the Square are Isomorphic to \( D _ 4 \)</div>
-    	<div class="content">
-            Suppose that \( F \) is a square, prove that \( \Sigma \left( F \right) \cong D _ 4 \)
-    	</div>
-    	<div class="proof">
-            <p>
-                Consider a square \( S \subseteq \mathbb{ R } ^ 2  \) of side length \( r \in \mathbb{ R }  \) centered at the origin, we can denote it's corners by \( C = \left\{ c _ 1, c _ 2, c _ 3, c _ 4 \right\}  \subseteq  \mathbb{ R _ 2 } \), it should be clear that given any orthogonal transformation that given any corner \( c \in C \), \( \sigma \left( c \right) \in C  \), since corners land on corners this also uniquely determines where all the other points must go since orthogonal transformations respect angles and distance.
-            </p>
-            <p>
-                A corner configuration is a tuple of the form \( \left( \cdot , \cdot , \cdot , \cdot  \right)  \) where the first component refers to the top left, the second is top right, the third is bottom right and fourth is bottom left (clockwise movement).
-            </p>
-            <p>
-                Suppose that the original configuration of corners is \( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \), in this situation from the definition of a square we have \( \lvert c _ 1 - c _ 2 \rvert  =  \lvert c _ 2 - c _ 3 \rvert  = \lvert c _ 3 - c _ 4 \rvert = \lvert c _ 4 - c _ 1 \rvert = r  \) and that \( \lvert c _ 1 - c _ 3 \rvert = \lvert c _ 2 - c _ 4  \rvert =   \sqrt 2 r  \).
-            </p>
-            <p>
-                Since \( \sigma \) preserves distance then after \( \sigma \) is applied to \( C \) it's new configuration must keep adjacent corners adjacent and jumped corners jumped in the list. For example, if this was not the case and we had something like \( \left( c _ 1, c _ 2, c _ 4, c _ 3 \right)  \) then if \( \sigma \) was distance then we would have \( \lvert c _ 2 - c _ 4 \rvert  = \sqrt 2 r \) (originally) but then \( \lvert c _ 2 - c _ 4 \rvert = r  \) after the transformation.
-            </p>
-            <p>
-                From the above paragraph we can see that the only valid corner configurations arising from a symmetry \( \sigma \) are rotations of any valid corner configuration eg) \( c _ 2, c _ 3, c _ 4, c _ 1 \) , or reflections of any valid corner configuration \( c _ 4, c _ 3, c _ 2, c _ 1 \).
-            </p>
-            <p>
-                Let's first label all the possible symmetries, we have rotations:
-                \[
-                    \begin{align}
-                        \sigma _ 0 \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &= \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \\
-                        \sigma _ { r ^ 1 }  \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &= \left( c _ 4, c _ 1, c _ 2, c _ 3 \right) \\
-                        \sigma _ { r ^ 2 }  \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &= \left( c _ 3,c _ 4,  c _ 1, c _ 2 \right) \\
-                        \sigma _ { r ^ 3 }  \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &= \left( c _ 2,c _ 3, c _ 4 c _ 1 \right)
-                \end{align}
-                \]
-                We have flips:
-                \[
-                \begin{align}
-                \sigma _ H  \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &= \left( c _ 3, c _ 4, c _ 1, c _ 2 \right) \\
-                \sigma _ V  \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &= \left( c _ 2, c _ 1, c _ 4, c _ 3 \right) \\
-                \sigma _ D  \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &= \left( c _ 1, c _ 4, c _ 3, c _ 2 \right) \\
-                \sigma _ { D ^ \prime }   \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &= \left( c _ 3, c _ 2, c _ 1, c _ 4 \right)
-                \end{align}
-                \]
-            </p>
-            <p>
-                We can be sure we've enumerated all of them because consider \( c _ 1 \), it must map to one of the four corners, this uniquely determines where \( c _ 3 \) does (must be diagonal, aka jump one in the list), from there we have two possibilities for the placement of \( c _ 2  \) and \( c _ 4 \), which yields \( 4 * 2 = 8 \) possible symmetries.
-            </p>
-            <p>
-                \( D _ 4 \) has an element \( a \) of order \( 4 \) and \( b \) of order \( 2 \) such that \( b a b = a ^ { -1 }  \). We'll now define the isomorphism \( \phi : \Sigma \left( F \right) \to D _ 4  \) (Note that we already know that \( \Sigma \left( F \right)  \) is a group)
-                \[
-                    \begin{align}
-                        \phi \left( \sigma _ 0 \right) = a ^ 0 = e &,\qquad \phi \left( \sigma _ { r ^ 1 }  \right) = a ^ 1 \\
-                        \phi \left( \sigma _ { r ^ 2 }  \right) = a ^ 2 &,\qquad \phi \left( \sigma _ { r ^ 3 }  \right) = a ^ 3 \\
-                        \phi \left( \sigma _ { V }  \right) = b &,\qquad \phi \left( \sigma _ { D ^ \prime   }  \right) = b a \\
-                        \phi \left( \sigma _ { H }  \right) = b a ^ 2 &,\qquad \phi \left( \sigma _ { D }  \right) = b a ^ 3 \\
-                    \end{align}
-                \]
-            </p>
-            <p>
-                To verify \( \phi \) is an isomorphism, we have to show it's bijective, since we've mapped each symmetry to a distinct element of \( D _ 4 \) we can be sure it's bijective. We then have to verify that given \( \sigma _ a, \sigma _ b, \) that \( \phi \left( \sigma _ a \circ \sigma _ b \right) = \phi \left( \sigma _ a  \right) \phi \left( \sigma _ b \right) \), one way of doing this would be to draw out the two caley tables and verify that you can replace each symbol via the isomorphism and the table is still valid. We will do that.
-            </p>
-
-            \[
-
-                \begin{array}{l|llllllll}
-                      & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} & \sigma_{V} & \sigma_{D^\prime} & \sigma_H & \sigma_D \\ \hline
-                    \sigma_0 & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} & \sigma_{V} & \sigma_{D^\prime} & \sigma_H & \sigma_D \\
-                    \sigma_{r_1} & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} & \sigma_0 & \sigma_D & \sigma_ { V }  & \sigma_{D ^ \prime } & \sigma_{H} \\
-                    \sigma_{r_2} & \sigma_{r_2} & \sigma_{r_3} & \sigma_0 & \sigma_{r_1} & \sigma_H & \sigma_{D} & \sigma_V & \sigma_ { D ^ \prime }  \\
-                    \sigma_{r_3} & \sigma_{r_3} & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} & \sigma_ { D ^ \prime }  & \sigma_H & \sigma_{D} & \sigma_{V} \\
-                    \sigma_{V} & \sigma_{V} & \sigma_ { D ^ \prime } & \sigma_{H} & \sigma_D & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} \\
-                    \sigma_{D^\prime} & \sigma_{D^\prime} & \sigma_H & \sigma_{D} & \sigma_V & \sigma_{r_3} & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} \\
-                    \sigma_H & \sigma_H & \sigma_{D} & \sigma_V & \sigma_{D ^ \prime} & \sigma_{r_2} & \sigma_{r_3} & \sigma_0 & \sigma_{r_1} \\
-                    \sigma_D & \sigma_D & \sigma_{V} & \sigma_ { D ^ \prime }  & \sigma_{H} & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} & \sigma_0
-                \end{array}
-            \]
-
-
-            Then for \( D _ 4 \) we have
-            \[
-
-                \begin{array}{l|llllllll}
-                & e & a^1 & a^2 & a^3 & b & ba & ba^2 & ba^3 \\ \hline
-                e & e & a^1 & a^2 & a^3 & b & ba & ba^2 & ba^3 \\
-                a^1 & a^1 & a^2 & a^3 & e & ba^3 & b & ba & ba^2 \\
-                a^2 & a^2 & a^3 & e & a^1 & ba^2 & ba^3 & b & ba  \\
-                a^3 & a^3 & e & a^1 & a^2 & ba  & ba^2 & ba^3 & b \\
-                b & b & ba & ba^2 & ba^3 & e & a^1 & a^2 & a^3 \\
-                ba & ba & ba^2 & ba^3 & b & a^3 & e & a^1 & a^2 \\
-                ba^2 & ba^2 & ba^3 & b & ba & a^2 & a^3 & e & a^1 \\
-                ba^3 & ba^3 & b & ba  & ba^2 & a^1 & a^2 & a^3 & e
-                \end{array}
-            \]
-            From this point it can be observed that every row and column entry are equal through \( \phi  \) and that each inner table entry are equal through \( \phi  \) which proves it's an isomorphism.
-    	</div>
-    </div>
-    
-    <div class="proposition" id="proposition-rectangle-symmetries-are-isomorphic-to-the-four-group">
-    	<div class="title">Rectangle Symmetries are Isomorphic to the 4-Group</div>
-    	<div class="content">
-    		Suppose that \( F \) is a rectangle with side lengths \( a, b \in \mathbb{ R }  \) such that \( a \neq b \) centered at the origin, then \( \Sigma \left( F \right) \cong  \mathbb{ Z } / 2 \mathbb{ Z } \times \mathbb{ Z } / 2 \mathbb{ Z }  \)
-    	</div>
-    	<div class="proof">
-    	    We use a similar technique to the above question where we know that an orthogonal transformation must send vertices to vertices and maintain lenghts, due to this we can list out the possible symmetries
-            \[
-                \begin{align}
-                    \sigma _ 0 \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right)  \right)  &= \left( c _ 1, c _ 2, c _ 3, c _ 4 \right)\\
-                    \sigma _ r \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right)  \right)  &= \left( c _ 3, c _ 4, c _ 1, c _ 2 \right)\\
-                    \sigma _ V \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right)  \right)  &= \left( c _ 2, c _ 1, c _ 4, c _ 3 \right)\\
-                    \sigma _ H \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right)  \right)  &= \left( c _ 4, c _ 3, c _ 2, c _ 1 \right)
-                \end{align}
-            \]
-            We now build it's cayley table. Note that in general in a cayley table we take an element from the row header say \( a \) and then \( b \) from a column header, and then at their intersection we write the product \( a b \), note that when working with functions we use composition so that when looking at the intersection of row \( \sigma _ r \) and column \( \sigma _ H \) we are looking at \( \sigma _ H \circ \sigma _ r  \) which can appear to be reversed with respect to regular multiplcation.
-            \[
-                \begin{array}{l|lllll}
-                             & \sigma_0 & \sigma_r & \sigma_V & \sigma_H \\ \hline
-                    \sigma_0 & \sigma_0 & \sigma_r & \sigma_V & \sigma_H \\
-                    \sigma_r & \sigma_r & \sigma_0 & \sigma_H & \sigma_V \\
-                    \sigma_V & \sigma_V & \sigma_H & \sigma_0 & \sigma_r \\
-                    \sigma_H & \sigma_H & \sigma_V & \sigma_r & \sigma_0
-                \end{array}
-            \]
-            Now let's construct \( \mathbb{ Z } / 2 \mathbb{ Z } \times \mathbb{ Z } / 2 \mathbb{ Z }   \)'s table
-            \[
-            \begin{array}{l|lllll}
-                                    & \left( 0, 0 \right)  & \left( 0, 1 \right)  & \left( 1, 0 \right)  & \left( 1, 1 \right)  \\ \hline
-                \left( 0, 0 \right) & \left( 0, 0 \right)  & \left( 0, 1 \right)  & \left( 1, 0 \right)  & \left( 1, 1 \right)  \\
-                \left( 0, 1 \right) & \left( 0, 1 \right)  & \left( 0, 0 \right)  & \left( 1, 1 \right)  & \left( 1, 0 \right)  \\
-                \left( 1, 0 \right) & \left( 1, 0 \right)  & \left( 1, 1 \right)  & \left( 0, 0 \right)  & \left( 0, 1 \right)  \\
-                \left( 1, 1 \right) & \left( 1, 1 \right)  & \left( 1, 0 \right)  & \left( 0, 1 \right)  & \left( 0, 0 \right) 
-            \end{array}
-            \]
-            We can now define the isomorphism defined by 
-            \[
-                \begin{align}
-                    \phi \left( \sigma _ 0 \right) = \left( 0, 0 \right) &,\qquad \phi \left( \sigma _ r \right) = \left( 0, 1 \right) \\
-                    \phi \left( \sigma _ V \right) = \left( 1, 0 \right) &,\qquad \phi \left( \sigma _ H \right) = \left( 1, 1 \right) 
-                \end{align}
-            \]
-            <p>
-                We can verify it's an isomorphism by first seeing that there is a one to one correspondence between the the row headers between the two tables. Then we can verify \( \phi \left( a b \right) = \phi \left( a \right) \phi \left( b \right)  \) by taking a product within the first table, then seeing what the product gets mapped to via the first table, then breaking the product apart from the fact that it's an isomorphism and use the second table to find it's other value, if the values match then we've checked one pair of elements.
-            </p>
-            <p>
-                Concretely we can see that \( \phi \left( \sigma _ H \circ \sigma _ r  \right)  = \sigma \left( \sigma _ V \right) = \left( 1, 0 \right)   \) from the first table, but also through the second table we have \( \phi \left( \sigma _ H \circ \sigma _ r \right) = \phi \left( \sigma _ r \right) + \phi \left( \sigma _ H \right) = \left( 0, 1 \right) + \left( 1, 1 \right) = \left( 1, 0 \right)  \). It can be seen that the second table respects these properties for all input pairs from the first table. Thus it's an isomorphism.
-            </p>
-    	</div>
-    </div>
-    
-    <div class="exercise" id="exercise-quadrilaterals-that-have-low-symmetry">
-    	<div class="title">Quadrilaterals that have Low Symmetry</div>
-    	<div class="content">
-    	    Find examples of quadrilaterals \( Q \) and \( Q ^ \prime \) such that \( \Sigma \left( Q \right) \cong \mathbb{ Z } / 2 \mathbb{ Z }  \) and \( \Sigma \left( Q ^ \prime \right) \cong \left( \left\{ 0 \right\}, + \right)    \)
-    	</div>
-    	<div class="proof">
-            <p>
-                We start with defining \( Q \), we require it to have exactly 2 symmetries, since we know that vertices land on vertices after the transformation has occurred, if we create a quadrilateral that has 3 unique angles (and one matching) then only the identity and possibly a reflection could maintain the shape. Another characterization of what has just been said is an quadrilateral that has bi-lateral symmetry. Thus by defining \( Q \) to be a diamond shape with vertices \( \left( -1, 0 \right) , \left( 0, 2 \right) , \left( 1, 0 \right) , \left( 0, -1 \right)  \), which has 3 distinct angles \( \alpha, \beta, \gamma \)  then \( \sigma _ 0 \) the identity and \( \sigma _ V  \) a vertical reflection over the \( y \) axis are the only possible symmetries.
-            </p>
-            <p>
-                We can define \( \phi \left( \sigma _ 0 \right) = \overline{ 0 }  \) and \( \phi \left( \sigma _ V \right) = \overline{ 1 } \), which is surjective. Then their cayley tables
-                \[
-                \begin{array}{l|lll}
-                               & \sigma _ 0 & \sigma _ V \\ \hline
-                    \sigma _ 0 & \sigma _ 0 & \sigma _ V \\
-                    \sigma _ V & \sigma _ V & \sigma _ 0 \\
-                \end{array}
-                \]
-                for \( \mathbb{ Z } / 2 \mathbb{ Z }  \)
-                \[
-                \begin{array}{l|lll}
-                    & \overline{0} & \overline{1} \\ \hline
-                    \overline{0} & \overline{0} & \overline{1} \\
-                    \overline{1} & \overline{1} & \overline{0} \\
-                \end{array}
-                \]
-                We can easily verify the defining property of the isomorphism through the tables
-            </p>
-            <p>
-                For \( Q ^ \prime \) we're looking for a shape that has no symmetries other than the trivial transformation, since our transformations are angle preserving we can construct such a quadrilateral just by creating one that has four distinct angles. This can be done from the points \( { \left( 0, 0 \right) , \left( 1, 0 \right) , \left( 2, 1 \right) , \left( 0, 2 \right)  }  \) where it can be visually verified that it has an angle of \( \frac{\pi}{2}  \) an angle greater than \( \frac{\pi}{2}  \) and angle of \( \frac{\pi}{3}  \) and an angle of \( \frac{\pi}{6} + \frac{\pi}{4} = \frac{5\pi}{12}   \), therefore all angles are distinct, thus it's only symmetry is the identity symmetry which we map to \( 0 \) to trivially construct an isomorphism.
-            </p>
-    	</div>
-    </div>
-    
-    
-    
-
-
-    
-
 </div>
-</body>
-</html>
-
+<div class="proposition" id="proposition-the-symmetry-group-is-a-group">
+    <div class="title">
+        The Symmetry Group is a Group
+    </div>
+    <div class="content"></div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-">
+    <div class="title">
+        Symmetries of the Square are Isomorphic to \( D _ 4 \)
+    </div>
+    <div class="content">
+        Suppose that \( F \) is a square, prove that \( \Sigma \left( F \right) \cong D _ 4 \)
+    </div>
+    <div class="proof">
+        <p>Consider a square \( S \subseteq \mathbb{ R } ^ 2 \) of side length \( r \in \mathbb{ R } \) centered at the origin, we can denote it's corners by \( C = \left\{ c _ 1, c _ 2, c _ 3, c _ 4 \right\} \subseteq \mathbb{ R _ 2 } \), it should be clear that given any orthogonal transformation that given any corner \( c \in C \), \( \sigma \left( c \right) \in C \), since corners land on corners this also uniquely determines where all the other points must go since orthogonal transformations respect angles and distance.</p>
+        <p>A corner configuration is a tuple of the form \( \left( \cdot , \cdot , \cdot , \cdot \right) \) where the first component refers to the top left, the second is top right, the third is bottom right and fourth is bottom left (clockwise movement).</p>
+        <p>Suppose that the original configuration of corners is \( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \), in this situation from the definition of a square we have \( \lvert c _ 1 - c _ 2 \rvert = \lvert c _ 2 - c _ 3 \rvert = \lvert c _ 3 - c _ 4 \rvert = \lvert c _ 4 - c _ 1 \rvert = r \) and that \( \lvert c _ 1 - c _ 3 \rvert = \lvert c _ 2 - c _ 4 \rvert = \sqrt 2 r \).</p>
+        <p>Since \( \sigma \) preserves distance then after \( \sigma \) is applied to \( C \) it's new configuration must keep adjacent corners adjacent and jumped corners jumped in the list. For example, if this was not the case and we had something like \( \left( c _ 1, c _ 2, c _ 4, c _ 3 \right) \) then if \( \sigma \) was distance then we would have \( \lvert c _ 2 - c _ 4 \rvert = \sqrt 2 r \) (originally) but then \( \lvert c _ 2 - c _ 4 \rvert = r \) after the transformation.</p>
+        <p>From the above paragraph we can see that the only valid corner configurations arising from a symmetry \( \sigma \) are rotations of any valid corner configuration eg) \( c _ 2, c _ 3, c _ 4, c _ 1 \) , or reflections of any valid corner configuration \( c _ 4, c _ 3, c _ 2, c _ 1 \).</p>
+        <p>Let's first label all the possible symmetries, we have rotations: \[ \begin{align} \sigma _ 0 \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \\ \sigma _ { r ^ 1 } \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 4, c _ 1, c _ 2, c _ 3 \right) \\ \sigma _ { r ^ 2 } \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 3,c _ 4, c _ 1, c _ 2 \right) \\ \sigma _ { r ^ 3 } \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 2,c _ 3, c _ 4 c _ 1 \right) \end{align} \] We have flips: \[ \begin{align} \sigma _ H \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 3, c _ 4, c _ 1, c _ 2 \right) \\ \sigma _ V \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 2, c _ 1, c _ 4, c _ 3 \right) \\ \sigma _ D \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 1, c _ 4, c _ 3, c _ 2 \right) \\ \sigma _ { D ^ \prime } \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 3, c _ 2, c _ 1, c _ 4 \right) \end{align} \]</p>
+        <p>We can be sure we've enumerated all of them because consider \( c _ 1 \), it must map to one of the four corners, this uniquely determines where \( c _ 3 \) does (must be diagonal, aka jump one in the list), from there we have two possibilities for the placement of \( c _ 2 \) and \( c _ 4 \), which yields \( 4 * 2 = 8 \) possible symmetries.</p>
+        <p>\( D _ 4 \) has an element \( a \) of order \( 4 \) and \( b \) of order \( 2 \) such that \( b a b = a ^ { -1 } \). We'll now define the isomorphism \( \phi : \Sigma \left( F \right) \to D _ 4 \) (Note that we already know that \( \Sigma \left( F \right) \) is a group) \[ \begin{align} \phi \left( \sigma _ 0 \right) = a ^ 0 = e &amp;,\qquad \phi \left( \sigma _ { r ^ 1 } \right) = a ^ 1 \\ \phi \left( \sigma _ { r ^ 2 } \right) = a ^ 2 &amp;,\qquad \phi \left( \sigma _ { r ^ 3 } \right) = a ^ 3 \\ \phi \left( \sigma _ { V } \right) = b &amp;,\qquad \phi \left( \sigma _ { D ^ \prime } \right) = b a \\ \phi \left( \sigma _ { H } \right) = b a ^ 2 &amp;,\qquad \phi \left( \sigma _ { D } \right) = b a ^ 3 \\ \end{align} \]</p>
+        <p>To verify \( \phi \) is an isomorphism, we have to show it's bijective, since we've mapped each symmetry to a distinct element of \( D _ 4 \) we can be sure it's bijective. We then have to verify that given \( \sigma _ a, \sigma _ b, \) that \( \phi \left( \sigma _ a \circ \sigma _ b \right) = \phi \left( \sigma _ a \right) \phi \left( \sigma _ b \right) \), one way of doing this would be to draw out the two caley tables and verify that you can replace each symbol via the isomorphism and the table is still valid. We will do that.</p>\[ \begin{array}{l|llllllll} & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} & \sigma_{V} & \sigma_{D^\prime} & \sigma_H & \sigma_D \\ \hline \sigma_0 & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} & \sigma_{V} & \sigma_{D^\prime} & \sigma_H & \sigma_D \\ \sigma_{r_1} & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} & \sigma_0 & \sigma_D & \sigma_ { V } & \sigma_{D ^ \prime } & \sigma_{H} \\ \sigma_{r_2} & \sigma_{r_2} & \sigma_{r_3} & \sigma_0 & \sigma_{r_1} & \sigma_H & \sigma_{D} & \sigma_V & \sigma_ { D ^ \prime } \\ \sigma_{r_3} & \sigma_{r_3} & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} & \sigma_ { D ^ \prime } & \sigma_H & \sigma_{D} & \sigma_{V} \\ \sigma_{V} & \sigma_{V} & \sigma_ { D ^ \prime } & \sigma_{H} & \sigma_D & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} \\ \sigma_{D^\prime} & \sigma_{D^\prime} & \sigma_H & \sigma_{D} & \sigma_V & \sigma_{r_3} & \sigma_0 & \sigma_{r_1} & \sigma_{r_2} \\ \sigma_H & \sigma_H & \sigma_{D} & \sigma_V & \sigma_{D ^ \prime} & \sigma_{r_2} & \sigma_{r_3} & \sigma_0 & \sigma_{r_1} \\ \sigma_D & \sigma_D & \sigma_{V} & \sigma_ { D ^ \prime } & \sigma_{H} & \sigma_{r_1} & \sigma_{r_2} & \sigma_{r_3} & \sigma_0 \end{array} \] Then for \( D _ 4 \) we have \[ \begin{array}{l|llllllll} & e & a^1 & a^2 & a^3 & b & ba & ba^2 & ba^3 \\ \hline e & e & a^1 & a^2 & a^3 & b & ba & ba^2 & ba^3 \\ a^1 & a^1 & a^2 & a^3 & e & ba^3 & b & ba & ba^2 \\ a^2 & a^2 & a^3 & e & a^1 & ba^2 & ba^3 & b & ba \\ a^3 & a^3 & e & a^1 & a^2 & ba & ba^2 & ba^3 & b \\ b & b & ba & ba^2 & ba^3 & e & a^1 & a^2 & a^3 \\ ba & ba & ba^2 & ba^3 & b & a^3 & e & a^1 & a^2 \\ ba^2 & ba^2 & ba^3 & b & ba & a^2 & a^3 & e & a^1 \\ ba^3 & ba^3 & b & ba & ba^2 & a^1 & a^2 & a^3 & e \end{array} \] From this point it can be observed that every row and column entry are equal through \( \phi \) and that each inner table entry are equal through \( \phi \) which proves it's an isomorphism.
+    </div>
+</div>
+<div class="proposition" id="proposition-rectangle-symmetries-are-isomorphic-to-the-four-group">
+    <div class="title">
+        Rectangle Symmetries are Isomorphic to the 4-Group
+    </div>
+    <div class="content">
+        Suppose that \( F \) is a rectangle with side lengths \( a, b \in \mathbb{ R } \) such that \( a \neq b \) centered at the origin, then \( \Sigma \left( F \right) \cong \mathbb{ Z } / 2 \mathbb{ Z } \times \mathbb{ Z } / 2 \mathbb{ Z } \)
+    </div>
+    <div class="proof">
+        We use a similar technique to the above question where we know that an orthogonal transformation must send vertices to vertices and maintain lenghts, due to this we can list out the possible symmetries \[ \begin{align} \sigma _ 0 \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 1, c _ 2, c _ 3, c _ 4 \right)\\ \sigma _ r \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 3, c _ 4, c _ 1, c _ 2 \right)\\ \sigma _ V \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 2, c _ 1, c _ 4, c _ 3 \right)\\ \sigma _ H \left( \left( c _ 1, c _ 2, c _ 3, c _ 4 \right) \right) &amp;= \left( c _ 4, c _ 3, c _ 2, c _ 1 \right) \end{align} \] We now build it's cayley table. Note that in general in a cayley table we take an element from the row header say \( a \) and then \( b \) from a column header, and then at their intersection we write the product \( a b \), note that when working with functions we use composition so that when looking at the intersection of row \( \sigma _ r \) and column \( \sigma _ H \) we are looking at \( \sigma _ H \circ \sigma _ r \) which can appear to be reversed with respect to regular multiplcation. \[ \begin{array}{l|lllll} & \sigma_0 & \sigma_r & \sigma_V & \sigma_H \\ \hline \sigma_0 & \sigma_0 & \sigma_r & \sigma_V & \sigma_H \\ \sigma_r & \sigma_r & \sigma_0 & \sigma_H & \sigma_V \\ \sigma_V & \sigma_V & \sigma_H & \sigma_0 & \sigma_r \\ \sigma_H & \sigma_H & \sigma_V & \sigma_r & \sigma_0 \end{array} \] Now let's construct \( \mathbb{ Z } / 2 \mathbb{ Z } \times \mathbb{ Z } / 2 \mathbb{ Z } \)'s table \[ \begin{array}{l|lllll} & \left( 0, 0 \right) & \left( 0, 1 \right) & \left( 1, 0 \right) & \left( 1, 1 \right) \\ \hline \left( 0, 0 \right) & \left( 0, 0 \right) & \left( 0, 1 \right) & \left( 1, 0 \right) & \left( 1, 1 \right) \\ \left( 0, 1 \right) & \left( 0, 1 \right) & \left( 0, 0 \right) & \left( 1, 1 \right) & \left( 1, 0 \right) \\ \left( 1, 0 \right) & \left( 1, 0 \right) & \left( 1, 1 \right) & \left( 0, 0 \right) & \left( 0, 1 \right) \\ \left( 1, 1 \right) & \left( 1, 1 \right) & \left( 1, 0 \right) & \left( 0, 1 \right) & \left( 0, 0 \right) \end{array} \] We can now define the isomorphism defined by \[ \begin{align} \phi \left( \sigma _ 0 \right) = \left( 0, 0 \right) &amp;,\qquad \phi \left( \sigma _ r \right) = \left( 0, 1 \right) \\ \phi \left( \sigma _ V \right) = \left( 1, 0 \right) &amp;,\qquad \phi \left( \sigma _ H \right) = \left( 1, 1 \right) \end{align} \]
+        <p>We can verify it's an isomorphism by first seeing that there is a one to one correspondence between the the row headers between the two tables. Then we can verify \( \phi \left( a b \right) = \phi \left( a \right) \phi \left( b \right) \) by taking a product within the first table, then seeing what the product gets mapped to via the first table, then breaking the product apart from the fact that it's an isomorphism and use the second table to find it's other value, if the values match then we've checked one pair of elements.</p>
+        <p>Concretely we can see that \( \phi \left( \sigma _ H \circ \sigma _ r \right) = \sigma \left( \sigma _ V \right) = \left( 1, 0 \right) \) from the first table, but also through the second table we have \( \phi \left( \sigma _ H \circ \sigma _ r \right) = \phi \left( \sigma _ r \right) + \phi \left( \sigma _ H \right) = \left( 0, 1 \right) + \left( 1, 1 \right) = \left( 1, 0 \right) \). It can be seen that the second table respects these properties for all input pairs from the first table. Thus it's an isomorphism.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-quadrilaterals-that-have-low-symmetry">
+    <div class="title">
+        Quadrilaterals that have Low Symmetry
+    </div>
+    <div class="content">
+        Find examples of quadrilaterals \( Q \) and \( Q ^ \prime \) such that \( \Sigma \left( Q \right) \cong \mathbb{ Z } / 2 \mathbb{ Z } \) and \( \Sigma \left( Q ^ \prime \right) \cong \left( \left\{ 0 \right\}, + \right) \)
+    </div>
+    <div class="proof">
+        <p>We start with defining \( Q \), we require it to have exactly 2 symmetries, since we know that vertices land on vertices after the transformation has occurred, if we create a quadrilateral that has 3 unique angles (and one matching) then only the identity and possibly a reflection could maintain the shape. Another characterization of what has just been said is an quadrilateral that has bi-lateral symmetry. Thus by defining \( Q \) to be a diamond shape with vertices \( \left( -1, 0 \right) , \left( 0, 2 \right) , \left( 1, 0 \right) , \left( 0, -1 \right) \), which has 3 distinct angles \( \alpha, \beta, \gamma \) then \( \sigma _ 0 \) the identity and \( \sigma _ V \) a vertical reflection over the \( y \) axis are the only possible symmetries.</p>
+        <p>We can define \( \phi \left( \sigma _ 0 \right) = \overline{ 0 } \) and \( \phi \left( \sigma _ V \right) = \overline{ 1 } \), which is surjective. Then their cayley tables \[ \begin{array}{l|lll} & \sigma _ 0 & \sigma _ V \\ \hline \sigma _ 0 & \sigma _ 0 & \sigma _ V \\ \sigma _ V & \sigma _ V & \sigma _ 0 \\ \end{array} \] for \( \mathbb{ Z } / 2 \mathbb{ Z } \) \[ \begin{array}{l|lll} & \overline{0} & \overline{1} \\ \hline \overline{0} & \overline{0} & \overline{1} \\ \overline{1} & \overline{1} & \overline{0} \\ \end{array} \] We can easily verify the defining property of the isomorphism through the tables</p>
+        <p>For \( Q ^ \prime \) we're looking for a shape that has no symmetries other than the trivial transformation, since our transformations are angle preserving we can construct such a quadrilateral just by creating one that has four distinct angles. This can be done from the points \( { \left( 0, 0 \right) , \left( 1, 0 \right) , \left( 2, 1 \right) , \left( 0, 2 \right) } \) where it can be visually verified that it has an angle of \( \frac{\pi}{2} \) an angle greater than \( \frac{\pi}{2} \) and angle of \( \frac{\pi}{3} \) and an angle of \( \frac{\pi}{6} + \frac{\pi}{4} = \frac{5\pi}{12} \), therefore all angles are distinct, thus it's only symmetry is the identity symmetry which we map to \( 0 \) to trivially construct an isomorphism.</p>
+    </div>
+</div>

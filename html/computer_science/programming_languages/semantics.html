@@ -1,247 +1,138 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Semantics</title>
-    <link rel="stylesheet" href="../../styles/styles.css">
-    <script src="/js/script.js" defer></script>
-</head>
-
-<body>
-<div class="thin-wrapper">
-
-    <div class="definition" id="definition-denotational-sematics">
-    	<div class="title">Denotational Semantics</div>
-    	<div class="content">
-    		The <b>denotational semantics</b> of a programming language specifies the value or output from a program given a formal definition. In this sense when we see the expression 5 + 2, we only think of this as the value 7, all expressions that evaluate to the same thing are considered equivalent. In this sense, we look past the notation.
-    	</div>
+<div class="definition" id="definition-denotational-sematics">
+    <div class="title">
+        Denotational Semantics
     </div>
-
-    <p>
-        For example if we define [[e]] to be the meaning of e, then we would be able to write things like
-    </p>
-
-    <ul>
-        <li>[[v]] = v</li>
-        <li>[[(+ e1 e2)]] = [[e1]] + [[e2]]</li>
-        <li>[[(- e1 e2)]] = [[e1]] - [[e2]]</li>
-    </ul>
-
-    <p>
-        This would be representing denotational semantics because we don't care how things are evaulated no matter how complicated the expression is, we only care about what it evaluates to and properties of that evaluated value.
-    </p>
-
-    <pre>
+    <div class="content">
+        The <b>denotational semantics</b> of a programming language specifies the value or output from a program given a formal definition. In this sense when we see the expression 5 + 2, we only think of this as the value 7, all expressions that evaluate to the same thing are considered equivalent. In this sense, we look past the notation.
+    </div>
+</div>
+<p>For example if we define [[e]] to be the meaning of e, then we would be able to write things like</p>
+<ul>
+    <li>[[v]] = v</li>
+    <li>[[(+ e1 e2)]] = [[e1]] + [[e2]]</li>
+    <li>[[(- e1 e2)]] = [[e1]] - [[e2]]</li>
+</ul>
+<p>This would be representing denotational semantics because we don't care how things are evaulated no matter how complicated the expression is, we only care about what it evaluates to and properties of that evaluated value.</p>
+<pre>
         [[equal? e1 e2]] = #t if [[e1]] = [[e2]], #f otherwise
         [[if e1 e2 e3]] = [[e3] if [[e1]] = #f, [[e2]] otherwise ; on the right we use meta logic symbols
     </pre>
-
-    <pre>
+<pre>
         [[equal? e1 e2]] = #t if [[e1]] = [[e2]], #f otherwise
     </pre>
-
-    <p>
-        As you can see, by using denotational semanics, we can quickly and easly write down how things should evaluation, where the details don't matter so much. At the same time this is a problem because if we want to actually implement things on a computer, we need to know the details.
-    </p>
-
-    <div class="definition" id="definition-operational-semantics">
-    	<div class="title">Operational Semantics</div>
-    	<div class="content">
-    		The operational semantics of a programming language describes the process by which the value of a program is computed, e.g) how evaluation actually takes place.
-    	</div>
+<p>As you can see, by using denotational semanics, we can quickly and easly write down how things should evaluation, where the details don't matter so much. At the same time this is a problem because if we want to actually implement things on a computer, we need to know the details.</p>
+<div class="definition" id="definition-operational-semantics">
+    <div class="title">
+        Operational Semantics
     </div>
-
-    <p>
-        When working with operational semantics, we characterize executions as evaluation derivations.
-    </p>
-    
-    <div class="definition" id="definition-judgement">
-    	<div class="title">Judgement</div>
-    	<div class="content">
-    		\( e \downarrow v \)  claims that the expression \( e \) evalutes to \( v \) 
-    	</div>
+    <div class="content">
+        The operational semantics of a programming language describes the process by which the value of a program is computed, e.g) how evaluation actually takes place.
     </div>
-
-    <p>
-        For ease, we will use <code>e |_ v</code> for judgment. For any value we have that \( v \downarrow v \).
-    </p>
-
-    <p>
-        We will also have rules, or inference rules, which allow us to synthesize new information about evaluations, for example the rule for adding is given by:
-    </p>
-
-    <pre>
+</div>
+<p>When working with operational semantics, we characterize executions as evaluation derivations.</p>
+<div class="definition" id="definition-judgement">
+    <div class="title">
+        Judgement
+    </div>
+    <div class="content">
+        \( e \downarrow v \) claims that the expression \( e \) evalutes to \( v \)
+    </div>
+</div>
+<p>For ease, we will use <code>e |_ v</code> for judgment. For any value we have that \( v \downarrow v \).</p>
+<p>We will also have rules, or inference rules, which allow us to synthesize new information about evaluations, for example the rule for adding is given by:</p>
+<pre>
         e1 |_ v1 & e2 |_ v2 & v = v1 + v2
         ---------------------------------
         (+ e1 e2) |_ v                   (ADD)
     </pre>
-
-    <p>
-        With these tools in place we can prove that in our evaluation system a given expression evalutes to a particular value. For example, we can prove that <code>(+ 3 (+ 5 4)) |_ 12</code> as follows
-    </p>
-
-    <p>
-        We know that 5 |_ 5 and 4 |_ 4 as this is true for any value, in regular arithmetic we have 9 = 5 + 9 therefore by the ADD inference rule we can deduce that (+ 5 4) |_ 9, now we can try doing the same thing, 3 |_ 3 and (+ 5 4) |_ 9, and we know 12 = 9 + 3, therefore by the ADD inference rule we deduce that (+ 3 (+ 5 4)) |_ 12.
-    </p>
-
-    <p>
-        We can generlize this rule for any binary operation (and any n-ary operation)
-    </p>
-
-    <pre>
+<p>With these tools in place we can prove that in our evaluation system a given expression evalutes to a particular value. For example, we can prove that <code>(+ 3 (+ 5 4)) |_ 12</code> as follows</p>
+<p>We know that 5 |_ 5 and 4 |_ 4 as this is true for any value, in regular arithmetic we have 9 = 5 + 9 therefore by the ADD inference rule we can deduce that (+ 5 4) |_ 9, now we can try doing the same thing, 3 |_ 3 and (+ 5 4) |_ 9, and we know 12 = 9 + 3, therefore by the ADD inference rule we deduce that (+ 3 (+ 5 4)) |_ 12.</p>
+<p>We can generlize this rule for any binary operation (and any n-ary operation)</p>
+<pre>
         e1 |_ v1 & e2 |_ v2 & v = v1 op v2
         ---------------------------------
         (op e1 e2) |_ v                   (GENERIC-BOP)
     </pre>
-
-    <p>
-        If we take after racket's method for handling if then statements then we have the following rule
-    </p>
-
-    <pre>
+<p>If we take after racket's method for handling if then statements then we have the following rule</p>
+<pre>
         e1 |_ #f & e3 |_ v3
         ------------------
         (if e1 e2 e3) |_ v3 (IF-F)
     </pre>
-
-    <pre>
+<pre>
         e1 |_ v1 & v1 != #f & e2 |_ v2
         ------------------------------
         (if e1 e2 e3) |_ v2            (IF-T)
     </pre>
-
-    <p>
-        Note that in racket we don't require e1 to be a boolean, which is modeled in the inference rule (IF-T). Alternatively if we were designing a different language, we could have done it like this
-    </p>
-
-    <pre>
+<p>Note that in racket we don't require e1 to be a boolean, which is modeled in the inference rule (IF-T). Alternatively if we were designing a different language, we could have done it like this</p>
+<pre>
         e1 |_ #t & e2 |_ v2
         ------------------------------
         (if e1 e2 e3) |_ v2            (IF-T)
     </pre>
-
-    <p>
-        We can also model short circuiting rules:
-    </p>
-
-    <pre>
+<p>We can also model short circuiting rules:</p>
+<pre>
         e1 |_ #f
         --------
         (and e1 e2) |_ #f
     </pre>
-
-    <pre>
+<pre>
         e1 |_ #t & e2 |_ v2 & v2 is a bool
         ----------------------------------
         (and e1 e2) |_ v2
     </pre>
-
-    <h2>Environments</h2>
-
-    <p>
-        When defining things, we are saving information to memory, we can generalize this idea with what's known as an environment, the environments grammar is this:
-    </p>
-
-    <pre>
+<h2>Environments</h2>
+<p>When defining things, we are saving information to memory, we can generalize this idea with what's known as an environment, the environments grammar is this:</p>
+<pre>
         E ::= .         (empty environment)
-            | x -> v, E (one binding, rest of environment)
+            | x -&gt; v, E (one binding, rest of environment)
     </pre>
-
-    <p>
-        Where x is any legal identifier and v is any values. for example it could be x1 -> 3, x2 -> 5, ... x25 -> 39
-    </p>
-
-    <p>
-        With this system in place we can make judgments under an environment, notated like this: <code>E |- e |_ v</code> which stands for "e evaluates to v under the environment E"
-    </p>
-
-    <p>
-        We also have lookup notation: E(x) which returns the most recent value of v that x binds to in E. If there is no binding for x, a name error occurs, so we have the following inference rule
-    </p>
-
-    <pre>
+<p>Where x is any legal identifier and v is any values. for example it could be x1 -&gt; 3, x2 -&gt; 5, ... x25 -&gt; 39</p>
+<p>With this system in place we can make judgments under an environment, notated like this: <code>E |- e |_ v</code> which stands for "e evaluates to v under the environment E"</p>
+<p>We also have lookup notation: E(x) which returns the most recent value of v that x binds to in E. If there is no binding for x, a name error occurs, so we have the following inference rule</p>
+<pre>
         E(x) = v
         --------
         E |- x |_ v   (VAR)
     </pre>
-
-    <p>
-        Let's redo the generic binary operation wrt environments:
-    </p>
-
-    <pre>
+<p>Let's redo the generic binary operation wrt environments:</p>
+<pre>
         E |- E1 |_ v1 & E |- e2 |_ v2 & v = v1 op v2
         --------------------------------------------
         E |- (op e1 e1) |_ v
     </pre>
-
-    <p>
-        Which states the same thing, but mentions that an identifier evalutes to a certain value under the given environment, and concludes that under that same environment the entire thing evalutes to the value v.
-    </p>
-
-    <p>
-        We also allow for updating an environment: E |- s ||_ E' which states "after executing statement s under E, the new environment is E'.
-    </p>
-
-    <pre>
-        E |- e |_ v & E' = x -> v, E
+<p>Which states the same thing, but mentions that an identifier evalutes to a certain value under the given environment, and concludes that under that same environment the entire thing evalutes to the value v.</p>
+<p>We also allow for updating an environment: E |- s ||_ E' which states "after executing statement s under E, the new environment is E'.</p>
+<pre>
+        E |- e |_ v & E' = x -&gt; v, E
         ----------------------------
         E |- (define x e) ||_ E'    (DEFINE)
     </pre>
-
-    <p>
-        Under the current environment, e evalutes to v, then by evaluating (deifne x e) our environment becomes the initial one with the extra binding x -> v. If we want to have an immutable definition we can do the following
-    </p>
-
-
-    <pre>
-        E |- e |_ v & x notin E & E' = x -> v, E
+<p>Under the current environment, e evalutes to v, then by evaluating (deifne x e) our environment becomes the initial one with the extra binding x -&gt; v. If we want to have an immutable definition we can do the following</p>
+<pre>
+        E |- e |_ v & x notin E & E' = x -&gt; v, E
         ----------------------------
         E |- (define x e) ||_ E'    (DEFINE)
     </pre>
-
-    <p>
-        In this case if we tried to redefine an immutable variable it would get stuck because there is no valid inference rule to evaluate in this situation.
-    </p>
-
-    <p>
-        We can model lambda calculus rules by saying that lambda expressions (λ (x) e) can be evaluated to λx.e and have substituation notation of the form [e2/x]e1, which means "replace every occurence of x in e1 with e2". THen we have the following function application rule:
-    </p>
-
-    <pre>
+<p>In this case if we tried to redefine an immutable variable it would get stuck because there is no valid inference rule to evaluate in this situation.</p>
+<p>We can model lambda calculus rules by saying that lambda expressions (λ (x) e) can be evaluated to λx.e and have substituation notation of the form [e2/x]e1, which means "replace every occurence of x in e1 with e2". THen we have the following function application rule:</p>
+<pre>
         E |- e1 |_ λx.e3 & E |- e2 |_ v2 & E |- [e2/x] e3 | v
         ------------------------------------------------------
         E |- (e1 e2) |_ v
     </pre>
-
-    <p>
-        Which first evalutes e1 into a lambda value with expression e3 as body, then if the argument evaluates to v2, and in the environment if substituting x with v2 in e3 results in a value v, then the entire function application in that environment results in v.
-    </p>
-
-    <p>
-        Let's design a simple imperiative proramming language that has variable assigment, if statement sand while loop statements with only integer values.
-    </p>
-
-    <pre>
+<p>Which first evalutes e1 into a lambda value with expression e3 as body, then if the argument evaluates to v2, and in the environment if substituting x with v2 in e3 results in a value v, then the entire function application in that environment results in v.</p>
+<p>Let's design a simple imperiative proramming language that has variable assigment, if statement sand while loop statements with only integer values.</p>
+<pre>
         e ::= x | (e1 op e2)
         s ::= x = e
             | s1; s2
             | if (e) s1 else s2
             | while (e) s1
     </pre>
-
-    <p>
-        Note that s1; s2 tries to model the ability to run things in succession
-    </p>
-
-    <p>
-        With this language we can determine how every expression should be evaluated
-    </p>
-
-    <pre>
+<p>Note that s1; s2 tries to model the ability to run things in succession</p>
+<p>With this language we can determine how every expression should be evaluated</p>
+<pre>
         E |- e1 |_ v1 & E |- e2|_ v2 & v = v1 op v2
         -------------------------------------------(BIN-OP)
         E |- (e1 op e2) |_ v
@@ -250,7 +141,7 @@
         -----------(VAR)
         E |- x |_ v
 
-        E' = x -> v, E & E |- e |_ v
+        E' = x -&gt; v, E & E |- e |_ v
         ----------------------------(ASSIGN)
         E |- x = e ||_ E'
 
@@ -258,12 +149,8 @@
         ---------------------------------(SEQ)
         E |- s1;s2 ||_ E''
     </pre>
-
-    <p>
-        The last inference rue here says that if by executing s1 it transforms E to E', and by executing s2, in the new environment E', then you get the environment E'', then by executing them sequentially, it will transform E to E'', (transitivity)
-    </p>
-
-    <pre>
+<p>The last inference rue here says that if by executing s1 it transforms E to E', and by executing s2, in the new environment E', then you get the environment E'', then by executing them sequentially, it will transform E to E'', (transitivity)</p>
+<pre>
         E |- e |_ 0 & E |- s2 ||_ E'
         -----------------------------(IF-F)
         E |- if (e) s1 else s2 ||_ E'
@@ -272,12 +159,8 @@
         -----------------------------(IF-F)
         E |- if (e) s1 else s2 ||_ E'
     </pre>
-
-    <p>
-        Note that we no longer make statements about evaluation of things but rather about how the environment changes, this is because in an imperitive programming language things may not return values.
-    </p>
-
-    <pre>
+<p>Note that we no longer make statements about evaluation of things but rather about how the environment changes, this is because in an imperitive programming language things may not return values.</p>
+<pre>
         E |- e |_ 0
         -----------------------(WHILE-END)
         E |- while (e) s1 ||_ E
@@ -286,24 +169,11 @@
         ----------------------------------------------------------------(WHILE-CONT)
         E |- while (e) s1 ||_ E*
     </pre>
-
-    <p>
-        The last rule here check if another iteration occurs, and if it does then it figures out how the environment changes after the whole loop terminates, and then says the entire thing updates the env to that.
-    </p>
-    <p>
-        Specifically this says if under the env E, we know that e evalutes to v, and v != 0, (then we should continue) and by evaluating the statement s1, we obtain the new env E', and we know that under this new env while (e) s1 yields some new env E* (this is where the recursion occurs), then we know that the entire loop should evaluate update our environment to E*.
-    </p>
-
-    <p>
-        If we created an infinite while loop then we can't use WHILE-CONT because we would not be able to figure out the judgement E' |- while (e) s1 ||_ E* [but what if the environment never changes?]
-    </p>
-
-
-    <p>
-        We can also augment this to support memory load and store, like most impreative programming languages have, so we can try to add pointers to our grammar:
-    </p>
-
-    <pre>
+<p>The last rule here check if another iteration occurs, and if it does then it figures out how the environment changes after the whole loop terminates, and then says the entire thing updates the env to that.</p>
+<p>Specifically this says if under the env E, we know that e evalutes to v, and v != 0, (then we should continue) and by evaluating the statement s1, we obtain the new env E', and we know that under this new env while (e) s1 yields some new env E* (this is where the recursion occurs), then we know that the entire loop should evaluate update our environment to E*.</p>
+<p>If we created an infinite while loop then we can't use WHILE-CONT because we would not be able to figure out the judgement E' |- while (e) s1 ||_ E* [but what if the environment never changes?]</p>
+<p>We can also augment this to support memory load and store, like most impreative programming languages have, so we can try to add pointers to our grammar:</p>
+<pre>
         e ::= x | (e1 op e2) | *x
         s ::= x = e
             | *x = e
@@ -311,17 +181,13 @@
             | if (e) s1 else s2
             | while (e) s1
     </pre>
-
-    <p>
-        We'll have to augment our environment to (E, m) where E is the original variable binding list and m is a map: Int to Int, that maps integer address to their corresponding stored integer values. We'll denote the syntax m[a -> b] to be a new map with the sam mappings as m except the address a is now mapped to b. Initially we'll denote o/ as the empty map.
-    </p>
-
-    <pre>
+<p>We'll have to augment our environment to (E, m) where E is the original variable binding list and m is a map: Int to Int, that maps integer address to their corresponding stored integer values. We'll denote the syntax m[a -&gt; b] to be a new map with the sam mappings as m except the address a is now mapped to b. Initially we'll denote o/ as the empty map.</p>
+<pre>
         E(x) = v
         ----------------(VAR)
         (E, m) |- x |_ v
 
-        E' = x -> v, E & (E, m) |- e |_ v
+        E' = x -&gt; v, E & (E, m) |- e |_ v
         ---------------------------------(ASSIGN)
         (E, m) |- x = e ||_ (E', m)
 
@@ -329,15 +195,7 @@
         ----------------------(LOAD)
         (E, m) |- *x |_ v2
 
-        m' = m[v2->v1] & (E, m) |- e |_ v1 & E(x) = v2
+        m' = m[v2-&gt;v1] & (E, m) |- e |_ v1 & E(x) = v2
         ----------------------------------------------(STORE)
         (E, m) |- *x = e ||_ (E, m')
     </pre>
-
-
-    
-    
-
-
-</div>
-</body>

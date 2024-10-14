@@ -9,10 +9,18 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--<link rel="stylesheet" href="/styles/styles.css">-->
     <link rel="stylesheet" href="/styles/styles.css">
-    <!--<script src="/js/scripts.js" defer=""></script>-->
-    <script src="/js/scripts.js" defer=""></script>
+    <link rel="stylesheet" href="/styles/math-fonts/LatinModern/mathfonts.css">
+    <script src="/js/scripts.js" defer></script>
+
+    <!-- search stuff -->
+    <script src="/js/search/fuzzysort.js" defer></script>
+    <script src="/js/search/search_callbacks.js" defer></script>
+    <script src="/js/search/search_list.js" defer></script>
+    <script src="/js/search/search.js" defer></script>
+
+    <link id="theme-stylesheet" rel="stylesheet" href="/js/search/dark_theme.css"> <!-- Change to dark_theme.css for dark theme -->
+    <link rel="stylesheet" href="/js/search/search.css">
 </head>
 
 <body>
@@ -30,7 +38,14 @@
         </div>
 
         CONTENT
-        
+
+        <div id="searchModal" class="modal">
+            <div class="modal-content">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <ul id="results"></ul>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

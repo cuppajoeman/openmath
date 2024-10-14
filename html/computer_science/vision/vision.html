@@ -1,0 +1,75 @@
+<div class="definition" id="definition-linear-image-filter" >
+    <div class="title">Linear Image Filter</div>
+    <div class="content">
+        A linear image filter is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> mapping continous functions to continuous functions.
+    </div>
+</div>
+<div class="definition" id="definition-discrete-convolution" >
+    <div class="title">Discrete Convolution</div>
+    <div class="content">
+        Suppose that \( X \subseteq \mathbb{ N } _1 \) and  \( f, g : X \to \mathbb{ R }  \) are functions then we define the function \( f \ast g : X \times X \to \mathbb{ R }  \) by
+        \[
+          \left( f \ast g \right) \left( i, j \right)  = \sum _ { k, l \in X } f \left( k, l \right) h \left( i - k , j - l  \right) 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-continuous-convolution" >
+    <div class="title">Continuous Convolution</div>
+    <div class="content">
+        Suppose that \( X \subseteq \mathbb{ R } ^ n  \) and that \( f, g : X \to \mathbb{ R }  \) are functions then we define the function \( f * g \) as 
+        \[
+          \left( f * g  \right) \left( x \right) = \int _  { - \infty  } ^ \infty  f \left( \lambda  \right) h \left( x - \lambda  \right) d \lambda        
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-linear-shift-invariant-filter" >
+    <div class="title">Linear Shift Invariant Filter</div>
+    <div class="content">
+        Suppose that a \( l \) is a <a class="knowledge-link" href="/computer_science/vision/vision.html#definition-linear-image-filter">linear filter</a>, and suppose that we have \( l \left( f \right) = g  \) then we say that \( l \) is <b>shift invariant</b> when for any \( p \in \operatorname{ dom } \left( f \right)   \) we have
+        \[
+          l \left( f \left( x - p \right)  \right) = g \left( x - p \right) 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-box-function" >
+    <div class="title">Box Function</div>
+    <div class="content">
+        We define \( \operatorname{ box } _ \epsilon = \chi _ { [ -\frac{ \epsilon  }{ 2  } , \frac{ \epsilon  }{ 2  } ] } \) where we've used the <a class="knowledge-link" href="/fundamentals/sets/symmetric_difference.html#definition-characteristic-function-of-a-set">characteristic function</a>
+    </div>
+</div>
+<p>
+    Notice that with the box function we can create unit boxes by considering the functions \( \frac{ \operatorname{ box } _ \alpha   }{ \alpha   }  \) for \( \alpha \in \mathbb{ R } ^ { \gt 0 } \) 
+</p>
+<div class="proposition" id="proposition-every-convolution-is-a-linear-shift-invariant-filter" >
+    <div class="title">Every Convolution Is a Linear Shift Invariant Filter</div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<p>
+    From the above proposition we can start to reason about what types of filters can or can't be written as a convolution, for example the converse of the above implise that if a filter is not linear and shift invariant then it cannot be a convolution. For example suppose you have an input image and then smooth it by doing the input convolved with a box, then you use a homography matrix to warp the image, if you compare the result with the image which is a result of doing the homography mapping without the smoothing first then it doesn't work, explain more 
+</p>
+<div class="definition" id="definition-dirac-comb" >
+    <div class="title">Dirac Comb</div>
+    <div class="content">
+        \[
+        \mathrm{III}(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-dirac-comb-convolved-with-a-function" >
+    <div class="title">Dirac Comb Convolved With a Function</div>
+    <div class="content">
+        \[
+        f(t) * \mathrm{III}(t) = \sum_{n=-\infty}^{\infty} f(t - nT)
+        \]
+    </div>
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<p>
+</p>

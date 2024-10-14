@@ -1,105 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Linear Transformations</title>
-
-		<link rel="stylesheet" href="/styles/styles.css">
-        <script src="/js/script.js" defer></script>
-
-    </head>
-    <body>
-        <div class="thin-wrapper">
-
-            <div class="definition" id="definition-linear-transformation">
-            	<div class="title">Linear Transformation</div>
-            	<div class="content">
-            		A linear transformation from \( V \) to \( W \) is a function \( T : V \to W \) with the following properties for any \( u, v \in V \) and \( c \in F \)
-                    <ul>
-                        <li>\( T \left( u + v \right) = T \left( u \right) + T \left( v \right)    \) </li>
-                        <li>\( T \left( c u \right) = c T \left( u \right)   \) </li>
-                    </ul>
-            	</div>
-            </div>
-
-            <div class="definition" id="definition-inner-product">
-            	<div class="title">Inner Product</div>
-            	<div class="content">
-            		An inner product is a function \( \left\langle \cdot , \cdot  \right\rangle : V \times V \to F  \) where \( V \) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> over the field \( F \), it assigns to each pair \(\mathbf{v}, \mathbf{w} \in V\) a real number \(\langle\mathbf{v}, \mathbf{w}\rangle\) such that, for all \(\mathbf{u}, \mathbf{v}, \mathbf{w} \in V\) and \(\alpha \in \mathbf{F}\) and satisfies:
-
-                    <ol>
-                        <li>
-                            \(\langle\mathbf{v}, \mathbf{v}\rangle \geq 0\), with equality if and only if \(\mathbf{v}=\mathbf{0}\).
-                        </li>
-                        <li>
-                            \(\langle\mathbf{v}, \mathbf{w}\rangle=\langle\mathbf{w}, \mathbf{v}\rangle\).
-                        </li>
-                        <li>
-                           \(\langle\mathbf{u}+\mathbf{v}, \mathbf{w}\rangle=\langle\mathbf{u}, \mathbf{w}\rangle+\langle\mathbf{v}, \mathbf{w}\rangle\),
-                        </li>
-                        <li>
-                            \(\langle\alpha \mathbf{v}, \mathbf{w}\rangle=\alpha\langle\mathbf{v}, \mathbf{w}\rangle\).
-                        </li>
-                    </ol>
-
-
-            	</div>
-            </div>
-            
-            <div class="definition" id="definition-inner-product-space">
-            	<div class="title">Inner Product Space</div>
-            	<div class="content">
-            		An inner product space is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) over the field \( F \) together with an <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-inner-product">inner product</a>
-                </div>
-            </div>
-
-
-            <div class="proposition" id="proposition-the-dot-product-in-Rn-forms-an-inner-product">
-            	<div class="title">The Dot Product in Rn Forms an Inner Product</div>
-            	<div class="content">
-            		The <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">dot product</a> in \( \mathbb{ R }  ^ n \) forms an inner product
-            	</div>
-            	<div class="proof">
-
-            	</div>
-            </div>
-
-            <div class="proposition" id="proposition-schwarz-inequality">
-                <div class="title">Schwarz Inequality</div>
-                <div class="content">
-                    For all \( x, y \in \mathbb{ R } ^ n \) we have
-                    \[
-                    \left\lvert \left\langle x, y \right\rangle  \right\rvert \le \lVert x \rVert \lVert y \rVert
-                    \]
-                    and \( \left\lvert \left\langle x, y \right\rangle  \right\rvert = \lVert x \rVert \lVert y \rVert  \) if and only if \( x, y \) are <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-collinear">collinear</a>
-                </div>
-                <div class="proof">
-
-                </div>
-            </div>
-
-            <div class="proposition" id="proposition-the-norm-satisfies-the-triangle-inequality">
-            	<div class="title">The Norm Satisfies the Triangle Inequality</div>
-            	<div class="content">
-            		For any \( x, y \in \mathbb{ R } ^ n \) we have
-                    \[
-                    \lVert x + y \rVert \le \lVert x \rVert + \lVert y \rVert
-                    \]
-            	</div>
-            	<div class="proof">
-
-            	</div>
-            </div>
-
-
-
-
-            
-
-
-        </div>
-    </body>
-</html>
+<div class="definition" id="definition-linear-transformation">
+    <div class="title">
+        Linear Transformation
+    </div>
+    <div class="content">
+        A linear transformation from \( V \) to \( W \) is a function \( T : V \to W \) with the following properties for any \( u, v \in V \) and \( c \in F \)
+        <ul>
+            <li>\( T \left( u + v \right) = T \left( u \right) + T \left( v \right) \)</li>
+            <li>\( T \left( c u \right) = c T \left( u \right) \)</li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-inner-product">
+    <div class="title">
+        Inner Product
+    </div>
+    <div class="content">
+        An inner product is a function \( \left\langle \cdot , \cdot \right\rangle : V \times V \to F \) where \( V \) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> over the field \( F \), it assigns to each pair \(\mathbf{v}, \mathbf{w} \in V\) a real number \(\langle\mathbf{v}, \mathbf{w}\rangle\) such that, for all \(\mathbf{u}, \mathbf{v}, \mathbf{w} \in V\) and \(\alpha \in \mathbf{F}\) and satisfies:
+        <ol>
+            <li>\(\langle\mathbf{v}, \mathbf{v}\rangle \geq 0\), with equality if and only if \(\mathbf{v}=\mathbf{0}\).</li>
+            <li>\(\langle\mathbf{v}, \mathbf{w}\rangle=\langle\mathbf{w}, \mathbf{v}\rangle\).</li>
+            <li>\(\langle\mathbf{u}+\mathbf{v}, \mathbf{w}\rangle=\langle\mathbf{u}, \mathbf{w}\rangle+\langle\mathbf{v}, \mathbf{w}\rangle\),</li>
+            <li>\(\langle\alpha \mathbf{v}, \mathbf{w}\rangle=\alpha\langle\mathbf{v}, \mathbf{w}\rangle\).</li>
+        </ol>
+    </div>
+</div>
+<div class="definition" id="definition-inner-product-space">
+    <div class="title">
+        Inner Product Space
+    </div>
+    <div class="content">
+        An inner product space is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) over the field \( F \) together with an <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-inner-product">inner product</a>
+    </div>
+</div>
+<div class="proposition" id="proposition-the-dot-product-in-Rn-forms-an-inner-product">
+    <div class="title">
+        The Dot Product in Rn Forms an Inner Product
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">dot product</a> in \( \mathbb{ R } ^ n \) forms an inner product
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-schwarz-inequality">
+    <div class="title">
+        Schwarz Inequality
+    </div>
+    <div class="content">
+        For all \( x, y \in \mathbb{ R } ^ n \) we have \[ \left\lvert \left\langle x, y \right\rangle \right\rvert \le \lVert x \rVert \lVert y \rVert \] and \( \left\lvert \left\langle x, y \right\rangle \right\rvert = \lVert x \rVert \lVert y \rVert \) if and only if \( x, y \) are <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-collinear">collinear</a>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-the-norm-satisfies-the-triangle-inequality">
+    <div class="title">
+        The Norm Satisfies the Triangle Inequality
+    </div>
+    <div class="content">
+        For any \( x, y \in \mathbb{ R } ^ n \) we have \[ \lVert x + y \rVert \le \lVert x \rVert + \lVert y \rVert \]
+    </div>
+    <div class="proof"></div>
+</div>
