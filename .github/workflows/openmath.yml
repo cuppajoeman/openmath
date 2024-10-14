@@ -43,7 +43,7 @@ jobs:
         run: |
           cd scripts/precompiled_html_generation_new/
           cd fast-html
-          ./build.sh
+          python main.py --base-dir ../../../html/ --gen-dir ../../../generated_html --base-template-file ../templates/openmath_template.html --custom-template-conversion-file ../main.py 
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
