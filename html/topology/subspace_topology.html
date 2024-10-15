@@ -14,7 +14,7 @@
         intersected topology is a topology
     </div>
     <div class="content">
-        The set <span class="knowledge-link" data-href="/topology/subspace_topology.html#definition-intersected-topology">\( T_{\cap Y} \)</span> is a topology on \( Y \)
+        The set <a class="knowledge-link" data-href="/topology/subspace_topology.html#definition-intersected-topology">\( T_{\cap Y} \)</a> is a topology on \( Y \)
     </div>
     <div class="proof">
         <p><a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">We'll show</a> that \( \emptyset \) and \( Y \) are elements of \( T_{\cap Y} \), this can be seen as since \( \emptyset \in T \), then \( Y \cap \emptyset = \emptyset \in T_{\cap Y} \) and also since \( Y \subseteq X \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">then</a> \( Y \cap X = Y \) so \( Y \in T_{\cap Y} \)</p>
@@ -24,15 +24,36 @@
 </div>
 <div class="definition" id="definition-subspace-topology">
     <div class="title">
-        subspace topology
+        Subspace Topology
     </div>
     <div class="content">
         Since <a class="knowledge-link" href="/topology/subspace_topology.html#proposition-intersected-topology-is-a-topology">\( T_{\cap Y} \) forms a topology</a>, we will denote it by \( \mathcal{T}_{\cap Y} \) and call it the subspace topology and that \( Y \) is a subspace of \( X \)
     </div>
 </div>
+<div class="theorem" id="theorem-subspace-topology-by-universal-properties" >
+    <div class="title">Subspace Topology by Universal Properties</div>
+    <div class="content">
+        Given \( \left( X, \mathcal{ T } _ X  \right)  \) and \( Y \subseteq X \) the the subspace topology is the unique topology such that 
+        <ul>
+            <li>The <a class="knowledge-link" href="/fundamentals/functions.html#definition-inclusion-function">inclusion</a> from \( Y \) into \( X \) is continuous </li>
+            <li>Given a function \( f : Z \to Y \), if \( \iota \circ f \) is continuous, then \( f \) is too </li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>
+            We show that the inclusion is continuous, so let \( U \) be open in \( X \) then consider \( \iota ^ { -1 } \left( U \right) = Y \cap U \) which is open in the subspace topology so that \( \iota \) is continuous
+        </p>
+        <p>
+            Now suppose that \( f : Z \to Y \) and that \( \iota \circ f \) is continuous, let's verify that \( f \) is continuous, so let \( V \) be open in \( Y \) by the very definition this means that there is some \( U \in \mathcal{ T } _ X  \) such that \( V = U \cap Y \) therefore \( f ^ { -1 } \left( V \right) = f ^ { -1 } \left( U \cap Y \right) = f ^ { -1 } \left( \iota ^ { -1 } \left( U \right)  \right) = \left( \iota \circ f \right) ^ { -1 } \left( U \right) \) and therefore is open, as needed.
+        </p>
+        <p>
+            To see uniquness we suppose that \( \mathcal{ R }  _ Y   \) and \( \mathcal{ S }  _ Y  \) are both topologies satisfying the conditions, and we'll prove their equal by showing that the <a class="knowledge-link" href="/topology/continuous_functions.html#corollary-two-topologies-are-equal-if-the-identity-is-a-homeomorphism">identity is a homomorphism</a>. We start by considering the inclusions \( \iota _ R : \left( Y, \mathcal{ R } _Y  \right) \to X  \) and \( \iota _ S : \left( Y, \mathcal{ S } _ Y  \right) \to X  \), now suppose our identity is of the form \( \operatorname{ id } : \left( Y, \mathcal{ R } _Y  \right) \to \left( Y, \mathcal{ S } _ Y  \right)  \)  then we know that \( \iota _ S \circ \operatorname{ id } = \iota _ R  \) , since \( \iota _ R  \) is continuous, then by the second listed property we deduce that \( \operatorname{ id }  \) is continuous, so that \( \mathcal{ R } _ Y \supseteq \mathcal{ S } _ Y   \), but then by doing the proof again with the roles of the topologies switched we obtain equality.
+        </p>
+    </div>
+</div>
 <div class="proposition" id="proposition-basis-for-the-subspace-topology">
     <div class="title">
-        basis for the subspace topology
+        Basis for the Subspace Topology
     </div>
     <div class="content">
         Suppose that \( \mathcal{B} \) is a basis for the topology of \( X \), then \( M := \left \lbrace Y \cap B : B \in \mathcal{B} \right \rbrace \) is a basis and it generates \( \mathcal{T}_{\cap Y} \)
@@ -43,6 +64,7 @@
         <p>Now let \( Y \cap U \) be an open set of \( Y \) which means that \( U \) is open in \( X \). Let \( p \in Y \cap U \) , since \( p \in U \) , \( U \) is open in \( X \) and \( \mathcal{B} \) is a basis for \( X \) then we know there is some \( B \in \mathcal{B} \) such that \( p \in B \subseteq U \) if that's the case then we know that \( p \in Y \cap B \subseteq Y \cap U \), noting that \( Y \cap B \in M \), therefore we know that \( M \) is a basis and it is for \( Y \)</p>
     </div>
 </div>
+
 <div class="lemma" id="lemma-open-in-a-subspace-implies-open">
     <div class="title">
         open in a subspace implies open

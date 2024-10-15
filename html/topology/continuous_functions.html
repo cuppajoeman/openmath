@@ -50,6 +50,32 @@
         Given a function \( f : X \to Y \) we say that it is finite to one diff for every \( y \in Y \) \[ \left\lvert f ^ { -1 } \left( \left\{ y \right\} \right) \right\rvert \lt \infty \]
     </div>
 </div>
+<div class="proposition" id="proposition-continuous-identity-implies-one-topology-is-finer-than-the-other" >
+    <div class="title">Continuous Identity Implies One Topology Is Finer Than the Other</div>
+    <div class="content">
+        Suppose that \( \mathcal{ T }_1, \mathcal{ T } _2   \) are both topologies on \( X \) then <a class="knowledge-link" href="/fundamentals/functions.html#definition-identity-functio">identity</a> \( \operatorname{ id }  : \left( X, \mathcal{ T } _ 1  \right) \to \left( X, \mathcal{ T } _ 2  \right)   \) is continuous, then 
+        \[
+          \mathcal{ T }  _ 1 \supseteq \mathcal{ T } _ 2
+        \] 
+    </div>
+
+    <div class="proof">
+        Suppose that \( U \in \mathcal{ T } _ 2  \), then since \( \operatorname{ id } ^ { -1 } = \operatorname{ id }   \) then we know that \( \operatorname{ id } ^ { -1 } \left( U \right) = U   \) is open in \( \mathcal{ T }  _ 1 \) since \( \operatorname{ id }  \) is continuous, therefore we are done
+    </div>
+</div>
+<div class="corollary" id="corollary-two-topologies-are-equal-if-the-identity-is-a-homeomorphism" >
+    <div class="title">Two Topologies Are Equal If the Identity Is a Homeomorphism</div>
+    <div class="content">
+        Suppose that \( \mathcal{ T }_1, \mathcal{ T } _2   \) are both topologies on \( X \) then <a class="knowledge-link" href="/fundamentals/functions.html#definition-identity-functio">identity</a> \( \operatorname{ id }  : \left( X, \mathcal{ T } _ 1  \right) \to \left( X, \mathcal{ T } _ 2  \right)   \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> then 
+        \[
+          \mathcal{ T }  _ 1 = \mathcal{ T } _ 2
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
 <div class="exercise" id="exercise-a-function-is-continuous-when-taken-with-the-finite-complement-topology-iff-it-is-constant-or-finite-one-to-one">
     <div class="title">
         A Function Is Continuous When Taken With the Finite Complement Topology Iff It Is Constant or Finite One to One
