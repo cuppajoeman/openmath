@@ -31,8 +31,7 @@
             "icon": "terminal",
             "overrideName": true
           }
-        },
-        "terminal.integrated.defaultProfile.linux": "fast_html"
+        }
       }
     }
   },
