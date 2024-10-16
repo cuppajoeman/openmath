@@ -3,9 +3,10 @@ import sys
 # Try to import pyperclip, exit if not installed
 try:
     import pyperclip
+    pyperclip_available = True
 except ImportError:
     print("The 'pyperclip' package is required but not installed. Please install it using 'pip install pyperclip'.")
-    sys.exit(1)
+    pyperclip_available = False
 
 MINOR_WORDS = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'nor', 'of', 'on', 'or', 'so', 'the', 'to', 'up', 'yet'}
 
@@ -102,7 +103,7 @@ def get_title() -> str:
 def main() -> None:
     """
     Main function to generate HTML interactively by prompting the user for entry type and title.
-    It automatically copies the generated HTML to the clipboard and assumes the user always wants to create another entry.
+    It automatically copies the generated HTML to the clipboard if pyperclip is available and assumes the user always wants to create another entry.
     """
     print("HTML Boilerplate Generator")
 
@@ -117,9 +118,12 @@ def main() -> None:
         print(html)
         print("\n---\n")
 
-        # Copy HTML to clipboard
-        pyperclip.copy(html)
-        print("The HTML has been copied to the clipboard.")
+        # Copy HTML to clipboard if pyperclip is available
+        if pyperclip_available:
+            pyperclip.copy(html)
+            print("The HTML has been copied to the clipboard.")
+        else:
+            print("Copying to clipboard was skipped due to pyperclip not being available.")
 
 if __name__ == "__main__":
     main()

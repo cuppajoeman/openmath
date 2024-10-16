@@ -1,7 +1,14 @@
 import os
 import re
 import subprocess
-import pyperclip
+
+# Try importing pyperclip and handle the case where it is not installed
+try:
+    import pyperclip
+    pyperclip_available = True
+except ImportError:
+    print("pyperclip is not installed. Copying to clipboard will be skipped.")
+    pyperclip_available = False
 
 # Directory containing the HTML files
 HTML_DIR = "../../html"
@@ -30,8 +37,14 @@ def generate_knowledge_link(selected_id, file_path, content):
     """Generates a knowledge link with custom content and copies it to the clipboard."""
     stripped_path = strip_prefix(file_path)
     knowledge_link = f'<a class="knowledge-link" href="{stripped_path}#{selected_id}">{content}</a>'
-    pyperclip.copy(knowledge_link)
-    print(f"Knowledge link copied to clipboard: {knowledge_link}")
+    
+    # Only copy to clipboard if pyperclip is available
+    if pyperclip_available:
+        pyperclip.copy(knowledge_link)
+        print(f"Knowledge link copied to clipboard: {knowledge_link}")
+    else:
+        print("Copying to clipboard was skipped. Generated link:")
+        print(knowledge_link)
 
 def search_for_ids(id_entries):
     """Uses fzf to allow the user to search and select an ID."""
