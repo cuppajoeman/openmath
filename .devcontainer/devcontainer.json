@@ -21,7 +21,7 @@
           },
           "fast_html": {
             "path": "/bin/bash",
-            "args": ["-c", "cd scripts/precompiled_html_generation && [ ! -d ../../generated_html ] && ./build.sh; ./continuous_build.sh"],
+            "args": ["-c", "cd scripts/precompiled_html_generation && [ ! -d ../../generated_html ] && ./build.sh; python3 generate_search_data.py && ./continuous_build.sh"],
             "icon": "terminal",
             "overrideName": true
           },
