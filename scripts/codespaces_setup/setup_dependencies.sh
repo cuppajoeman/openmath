@@ -5,6 +5,12 @@ install_fzf() {
   echo "Installing fzf..."
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   yes | ~/.fzf/install
+  # move it to a local so that subprocess.Popen will pick it up.
+  mv ~/.fzf/bin/fzf ~/.local/bin
+  # this will remove the last line of your bashrc doing this because
+  # fzf puts a line there while installing that we don't use 
+  # because we use a different path
+  sed -i '$d' ~/.bashrc
 }
 
 # Check if fzf is installed
