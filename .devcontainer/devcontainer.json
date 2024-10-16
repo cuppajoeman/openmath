@@ -36,6 +36,5 @@
       }
     }
   },
-  "postCreateCommand": "./scripts/codespaces_setup/setup_dependencies.sh",
-  "postStartCommand": "./scripts/codespaces_setup/open_named_terminals.sh"
+  "postCreateCommand": "git submodule init && git submodule update && ./scripts/codespaces_setup/setup_dependencies.sh"
 }
