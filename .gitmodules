@@ -1,9 +1,9 @@
-[submodule "scripts/precompiled_html_generation_new/fast-html"]
-	path = scripts/precompiled_html_generation_new/fast-html
-	url = git@github.com:simple-web-tools/fast-html.git
 [submodule "html/js/search"]
 	path = html/js/search
 	url = git@github.com:simple-web-tools/search.git
 [submodule "html/styles/math-fonts"]
 	path = html/styles/math-fonts
 	url = git@github.com:simple-web-tools/math-fonts.git
+[submodule "scripts/precompiled_html_generation/fast-html"]
+	path = scripts/precompiled_html_generation/fast-html
+	url = git@github.com:simple-web-tools/fast-html.git

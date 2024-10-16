@@ -12,6 +12,23 @@
         </ul>
     </div>
 </div>
+<div class="definition" id="definition-ball-in-a-metric" >
+    <div class="title">Ball in a Metric</div>
+    <div class="content">
+        Suppose that \( d \) is a <a class="knowledge-link" href="/topology/metric_topology.html#definition-metric">metric</a> then we define the ball of radius \( r \in \mathbb{ R } ^ { \gt 0 } \) around a point \( p \in X \) 
+        \[
+            B \left( p, r \right) = \left\{ x \in X : d \left( p, x \right) \lt r  \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    Before looking further lets see some examples of metrics
+</p>
+<ul>
+    <li>\( \mathbb{ R } ^ n \): \( d \left( x, y \right) = \sqrt{ \sum _ { i = 1 } ^ n \left( x _ i - y - i \right) ^ 2  }   \)  with this metric a ball is a circle</li>
+    <li>\( \mathbb{ R } ^ n \): \( d \left( x, y \right) = \sum _ { i = 1 } ^ n \left\lvert x _ i - y _ i \right\rvert  \), the so called manhattan distance because in manhattan you have to go along the streets locking you onto a grid, this makes balls into diamonds</li>
+    <li>\( \mathbb{ R } ^ n \): \( d \left( x, y \right) = \max _ { i = n } ^ n \left( \left\lvert x _ i - y _ i \right\rvert \right)    \), the maximum distance in any direction, a ball here pushes in each dimension to get to the radius, inducing a ball to be a square</li>
+</ul>
 <div class="proposition" id="proposition-the-set-of-open-balls-is-a-basis" >
     <div class="title">The Set of Open Balls Is a Basis</div>
     <div class="content">
@@ -65,6 +82,24 @@
         \[
             \operatorname{ seq\_cl } \left( A \right) = \left\{ x \in X : \exists \left( x _ n \right) : \mathbb{ N } _1 \to A \text{ s.t. } x _n \to x  \right\} 
         \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-zero-is-part-of-the-closure-of-positive-sequences-in-the-box-topology,-but-not-in-the-sequential-closure" >
+    <div class="title">Zero Is Part of the Closure of Positive Sequences in the Box Topology, but Not in the Sequential Closure</div>
+    <div class="content">
+        Let \( X = \mathbb{ R } ^ \infty  \) in the box topology, and suppose that \( A \) is the set of all positive sequences, then consider the zero sequence \( \overline{ 0 } = \left( 0, 0, 0, \ldots \right)   \) then
+        <ul>
+            <li>\( \overline{ 0 } \in \operatorname{ cl } \left( A \right) \)</li>
+            <li>\( 0 \notin \operatorname{ seq\_cl } \left( A \right) \)</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>
+            <a class="knowledge-link" href="/topology/interior_and_closure.html#corollary-closure-basis-intersection-equivalence">We show that</a> \( 0 \in \operatorname{ cl } \left( A \right)   \) so let \( B \) be a basis element in the box topology, therefore \( B = \prod \left( a _ i , b _ i \right)  \) where \( a _i \lt 0 \lt b _ i \) then the sequence \( p = \left( \frac{ b _ 1 }{ 2 }, \frac{ b _ 2 }{ 2 }, \frac{ b _ 3 }{ 2 }, \ldots  \right) \in B \cap A  \), so that \( 0 \in \operatorname{ cl } \left( A \right) \) as needed.
+        </p>
+        <p>
+            Now for the sake of contradiction suppose that \( 0 \in \operatorname{ seq\_cl } \left( A \right) \) in othere words there exists a sequence \( \left( x _ n \right) : \mathbb{ N } _1 \to A  \) which is a sequence of positive sequences such that \( x _ n \to \bar 0 \). Now we will construct a specific neighborhood \( U \)  of \( \bar 0 \), it is form \( \prod \left( a_i, b_i \right)  \) where \( b _ 1 = \left( x _ 1 \right) _ 1  \) which is the first element of the first sequence of positive sequences that converge to \( \bar 0 \), with this idea it's true that \( x _ 1 \notin U \) as the first coordinate has \( \left( x _ 1 \right) _ 1 \notin \left( a _ 1, b _ 1 \right)   \) as it is a little too large (and in order to be in the product you must be in each). Moving in this manner we make it so that \( b _ i = \left( x _ i \right) _ i  \) so that \( x _ i \notin U \) but at the same time \( \bar 0 \in U \) so it's not true that all but finitely many of the elements of the sequence \( \left( x _ n \right)  \) belong to \( U \), specifically none of them are!
+        </p>
     </div>
 </div>
 <div class="lemma" id="lemma-the-sequential-closure-is-a-subset-of-the-closure" >

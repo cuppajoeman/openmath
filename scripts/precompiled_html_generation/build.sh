@@ -1,2 +1,3 @@
-node compile_latex_to_mathml.js
-node dom_adjustments.js
+#!/bin/bash
+source ../generation_venv/bin/activate 
+python main.py --base-dir ../../../html/ --gen-dir ../../../generated_html --base-template-file ../templates/openmath_template.html --custom-template-conversion-file ../main.py 
