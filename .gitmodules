@@ -1,9 +1,14 @@
 [submodule "html/js/search"]
-	path = html/js/search
-	url = git@github.com:simple-web-tools/search.git
+    path = html/js/search
+    url = https://github.com/simple-web-tools/search.git
+    pushurl = git@github.com:simple-web-tools/search.git
+
 [submodule "html/styles/math-fonts"]
-	path = html/styles/math-fonts
-	url = git@github.com:simple-web-tools/math-fonts.git
+    path = html/styles/math-fonts
+    url = https://github.com/simple-web-tools/math-fonts.git
+    pushurl = git@github.com:simple-web-tools/math-fonts.git
+
 [submodule "scripts/precompiled_html_generation/fast-html"]
-	path = scripts/precompiled_html_generation/fast-html
-	url = git@github.com:simple-web-tools/fast-html.git
+    path = scripts/precompiled_html_generation/fast-html
+    url = https://github.com/simple-web-tools/fast-html.git
+    pushurl = git@github.com:simple-web-tools/fast-html.git
