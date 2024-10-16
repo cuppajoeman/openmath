@@ -1,0 +1,44 @@
+{
+  "name": "openmath codespace",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": [
+    "--init"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "gendiv": {
+            "path": "/bin/bash",
+            "args": ["-c", "cd scripts/openmath_cli/ && python3 generate_knowledge_div.py"],
+            "icon": "terminal",
+            "overrideName": true
+          },
+          "genlink": {
+            "path": "/bin/bash",
+            "args": ["-c", "cd scripts/openmath_cli/ && python3 generate_knowledge_link.py"],
+            "icon": "terminal",
+            "overrideName": true
+          },
+          "fast_html": {
+            "path": "/bin/bash",
+            "args": ["-c", "cd scripts/precompiled_html_generation && source generation_venv/bin/activate && [ ! -d ../../generated_html ] && ./build.sh; ./continuous_build.sh"],
+            "icon": "terminal",
+            "overrideName": true
+          },
+          "webserver": {
+            "path": "/bin/bash",
+            "args": ["-c", "cd generated_html && python3 -m http.server"],
+            "icon": "terminal",
+            "overrideName": true
+          }
+        },
+        "terminal.integrated.defaultProfile.linux": "fast_html"
+      }
+    }
+  },
+  "postCreateCommand": "./scripts/codespaces_setup/setup_dependencies.sh",
+  "postStartCommand": "./scripts/codespaces_setup/open_named_terminals.sh"
+}
