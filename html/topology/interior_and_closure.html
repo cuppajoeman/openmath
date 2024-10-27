@@ -62,7 +62,7 @@
         The Closure is Closed
     </div>
     <div class="content">
-        \( \operatorname{Int}\left( A \right) \) is closed
+        \(\bar{A}\) is closed
     </div>
     <div class="proof">
         The closure of \( A \) is defined as \( \bigcap _ { S \supseteq A } S \) where each \( S \) is a closed set, to show it's closed, we must show that \( X \setminus \bigcap _ { S \supseteq A } S \) is open which we can see since <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#theorem-demorgans-laws">it equals</a> \( \bigcap _ { S \supseteq A } \left( X \setminus S \right) \) and thus is an arbitrary union of open sets so it is open.
@@ -73,7 +73,7 @@
         The Interior is Open
     </div>
     <div class="content">
-        \( \bar{A} \) is open
+        \(Int(A)\) is open
     </div>
     <div class="proof">
         The interior is an arbitrary union of open sets, and is thus open.
@@ -120,7 +120,8 @@
         Suppose that \( A \) is a subset of a topological space, then we have \[ \operatorname{Int}\left( A \right) \subseteq A \subseteq \bar{A} \]
     </div>
     <div class="proof">
-        <p> Let A be a subset of the topological space \(X\). Let \(x\) be an arbitrary point in \(int(A)\). By definition, there exist an open ball \(B_\epsilon(p)\) such that \(B_\epsilon(p)\subseteq A\). Since the open ball is entirely contained in \(A\), \(x\) must be an element of A. Since \( \bar{A}=A^*\cup A \) by definition, since \(x\) is in A, \(x\in \bar{A}\). Since \(x\), which is an element of the interior of A, was chosen arbitrarily, the interior of A is a subset of A and is a subset of the closure.
+        <p> 
+          Let A be a subset of the topological space \(X\). Let \(x\) be an arbitrary point in \(Int(A)\). By definition, there exist an open ball \(B_\epsilon(p)) such that \(B_\epsilon(p)\subseteq A\). Since the open ball is entirely contained in \(A\), \(x\) must be an element of A. Since \(\bar{A}=A^*\cup A\) by definition, since \(x\) is in A, \(x\in \bar{A}\). Since \(x\), which is an element of the interior of A, was chosen arbitrarily, the interior of A is a subset of A and is a subset of the closure.
         </p>
     </div>
 </div>
