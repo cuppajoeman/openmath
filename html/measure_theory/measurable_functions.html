@@ -1,0 +1,85 @@
+<div class="definition" id="definition-sigma-algebra" >
+    <div class="title">Sigma Algebra</div>
+    <div class="content">
+        A family of subsets \( \mathcal{ F } \subseteq X  \) is said to be a \( \sigma  \)-algebra on \( X \) whenever
+        <ul>
+            <li>\( \emptyset , X \in \mathcal{ F } \) </li>
+            <li>If \( A \in \mathcal{ F }  \) then \( X \setminus A \in \mathcal{ F }  \)  </li>
+            <li>If \( \left( A _ n \right) \) is a sequence of sets in \( \mathcal{ F }  \) then   </li>
+            \[
+              \bigcup _ { n = 1 } ^ \infty A _ n \in \mathcal{ F } 
+            \] 
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-measurable-space" >
+    <div class="title">Measurable Space</div>
+    <div class="content">
+        An ordererd pair \( \left( X, \mathcal{ F }  \right)  \) consisting of a set \( X \) and a <a class="knowledge-link" href="/measure_theory/measurable_functions.html#definition-sigma-algebra">sigma algebra</a> on \( X \) is called a <b>measurable space</b>
+    </div>
+</div>
+<div class="definition" id="definition-measurable-with-resepect-to-a-sigma-algebra" >
+    <div class="title">Measurable With Resepect to a Sigma Algebra</div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ F }  \right)  \) is a measure space, then any set \( A \in \mathcal{ F }  \) is said to be an \( \mathcal{ F }  \)-measurable set.
+    </div>
+</div>
+<p>
+    Whenever the sigma algebra is implicitly known we simplify the above and just say that \( A \) is measurable.
+</p>
+<div class="definition" id="definition-measure" >
+    <div class="title">Measure</div>
+    <div class="content">
+        A measure is an extended real-valued function \(\mu\) defined on a <a class="knowledge-link" href="/measure_theory/measurable_functions.html#definition-sigma-algebra">\(\sigma\)-algebra</a> \( \mathcal{ F } \) of subsets of \(X\) such that 
+        <ul>
+            <li>\(\mu(\emptyset)=0\)</li>
+            <li>\(\mu(E) \ge  0\) for all \(E \in \mathcal{ F } \)</li>
+            <li>\(\mu\) is countably additive in the sense that if \(\left(E_n\right)\) is any <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-pairwise-disjoint-sets">disjoint sequence</a> of sets in \( \mathcal{ F }  \), then</li>
+        \[
+        \mu\left(\bigcup_{n=1}^{\infty} E_n\right)=\sum_{n=1}^{\infty} \mu\left(E_n\right) .
+        \]
+        </ul>
+    </div>
+</div>
+<p>
+    Note that we say that a measure is finite or that it is \( \sigma  \)-finite when the the measure does not take on infinity in the above definition.
+</p>
+<div class="definition" id="definition-measurable-function" >
+    <div class="title">Measurable Function</div>
+    <div class="content">
+        Let \((X, \mathcal{F})\) be a <a class="knowledge-link" href="/measure_theory/measurable_functions.html#definition-measurable-space">measurable space</a>, where \(\mathcal{F}\) is a \(\sigma\)-algebra of subsets of \(X\), and let \((Y, \mathcal{G})\) be another measurable space. A function \(f: X \to Y\) is called <b>measurable </b> if for every set \(B \in \mathcal{G}\) we have:
+        \[
+        f^{-1}(B) \in \mathcal{F} \quad \text{for all } B \in \mathcal{G}.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-almost-everywhere-convergence" >
+    <div class="title">Almost Everywhere Convergence</div>
+    <div class="content">
+    Let \((X, \mathcal{F}, \mu)\) be a <a class="knowledge-link" href="/measure_theory/measurable_functions.html#definition-measurable-space">measure space</a>, and let \(\{f_n\}_{n=1}^{\infty}\) be a sequence of <a class="knowledge-link" href="/measure_theory/measurable_functions.html#definition-measurable-function">measurable functions</a> \(f_n: X \to \mathbb{R}\) (or \(\mathbb{C}\)). We say that \(\{f_n\}\) <b>converges to \(f\) almost everywhere</b>  if there exists a set \(N \subset X\) with \(\mu(N) = 0\) such that
+    \[
+    \lim_{n \to \infty} f_n(x) = f(x) \quad \text{for all } x \in X \setminus N.
+    \]
+
+    </div>
+</div>
+<p>
+    In other words, the sequence \(\{f_n(x)\}\) converges to \(f(x)\) at all points \(x\) except possibly on a set \(N\) where the measure \(\mu(N)\) is zero. This means that the convergence holds "almost everywhere" in \(X\), despite there being potentially a small (measure-zero) set where it may fail to converge. Note that almost everywhere is often abbreviated as a.e.
+</p>
+
+<h2>ideas to be organized into the above</h2>
+<p>
+The notation \( L_\mu^2(X) \) represents the **space of square-integrable functions** on a measure space \( (X, \mathcal{F}, \mu) \). Which are functions \( f: X \rightarrow \mathbb{C} \) (or \( \mathbb{R} \)) such that:
+    \[
+    \int_X |f(x)|^2 \, d\mu < \infty.
+    \]
+    This means that the squared absolute value of \( f \) is integrable with respect to the measure \( \mu \).
+</p>
+<hr>
+<p>
+The differential \( d\mu \) in an integral \( \int_X f \, d\mu \) indicates that the integration is taken with respect to the measure \( \mu \). The integral \( \int_X f \, d\mu \) is defined as a limit (or sum) over measurable "slices" of \( X \) rather than just points. Formally, for a non-negative measurable function \( f: X \rightarrow [0, \infty] \), the integral with respect to \( d\mu \) is defined as
+\[
+\int_X f \, d\mu = \sup \left\{ \sum_{i=1}^n f(x_i) \, \mu(A_i) : \{A_i\}_{i=1}^n \text{ is a finite measurable partition of } X \right\}.
+\]
+This expression takes a supremum over all possible finite partitions of \( X \) into measurable sets \( A_i \) with \( x_i \in A_i \) and \( \sum_{i=1}^n f(x_i) \, \mu(A_i) \) providing an approximation of the integral over each slice weighted by \( \mu(A_i) \).
+</p>

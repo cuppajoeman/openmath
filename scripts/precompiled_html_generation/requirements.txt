@@ -1,3 +1,2 @@
-playsound
-beatifulsoup4
+beautifulsoup4
 latex2mathml

@@ -3,7 +3,7 @@
         Vector Space over a Field
     </div>
     <div class="content">
-        A <b>vector space over a field \( F \)</b> is a non-empty set \( V \) with a binary operation \( \oplus \) on \( V \) and a binary function \( \otimes : F \times V \to V \) such that the following hold for any \( a, b \in F \) and \( u , v \in V \)
+        A <b>vector space over a field \( F \)</b> is a non-empty set \( V \) with a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</a> \( \oplus \) on \( V \) and a binary function \( \otimes : F \times V \to V \) such that the following hold for any \( a, b \in F \) and \( u , v \in V \)
         <ul>
             <li>\( \oplus \) is associative and commutative</li>
             <li>There is a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity element</a> \( 0 _ V \) with respect to \( \oplus \)
@@ -17,5 +17,16 @@
             <li>\( \left( a + _ F b \right) \otimes v = \left( a \otimes v \right) \oplus \left( b \otimes v \right) \)</li>
             <li>\( a \otimes \left( b \otimes v \right) = \left( a \cdot _ F b \right) \otimes v \)</li>
         </ul>
+    </div>
+</div>
+<div class="definition" id="definition-subspace-of-a-vector-space" >
+    <div class="title">Subspace of a Vector Space</div>
+    <div class="content">
+        A subset \( W \) of a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space \( V \) over a field \( F \)</a>  is called a <b>subspace</b> of \( V \) if \( W \) itself is a vector space over \( F \) with the same operations of vector addition and scalar multiplication as \( V \). Specifically, \( W \) is a subspace if:
+        <ol>
+            <li> \( 0_V \in W. \)</li>
+            <li> \( \forall u, v \in W, u + v \in W\)</li>
+            <li> \( \forall u \in W, c \in F, c \cdot  u \in W\)</li>
+        </ol>
     </div>
 </div>

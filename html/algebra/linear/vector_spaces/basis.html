@@ -1,9 +1,51 @@
-<div class="definition">
+<div class="definition" id="definition-basis">
     <div class="title">
-        basis
+        Basis
     </div>
     <div class="content">
-        if the vector space is denoted by \( X \), then for ease we will denote the basis by a calligraphic version of that character \( \mathcal{X} \)
+        Given a vector space \( V \) the set \( \mathcal{ B } \subseteq V \) is said to be a basis if \( B \) is <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a> and \( B \) <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-spanning-set">spans</a> \( V \) 
+    </div>
+</div>
+<p>
+    The plural of basis is bases.
+</p>
+<div class="proposition" id="proposition-the-size-of-a-basis-is-unique">
+    <div class="title">The Size of a Basis is Unique</div>
+    <div class="content">
+        Suppose that \( \mathcal{ B }, \mathcal{ C }   \) are bases for \( V \) then \( \left\lvert \mathcal{ B }  \right\rvert  = \left\lvert \mathcal{ C }  \right\rvert   \) 
+    </div>
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-every-vector-space-has-a-basis">
+    <div class="title">
+        Every Vector Space has a Basis
+    </div>
+    <div class="content">
+        For any vector space \( V \) there is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> for it
+    </div>
+    <div class="proof">
+        TODO <!--            https://math.stackexchange.com/questions/189693/every-vector-space-has-a-basis-proof-using-zorns-lemma-in-linear-algebra-->
+         <!--            https://math.stackexchange.com/questions/466879/prove-that-every-vector-space-has-a-basis-->
+         <!--            https://math.stackexchange.com/questions/4085932/proof-that-every-vector-space-has-a-basis-->
+         <!--            https://math.stackexchange.com/questions/2785769/proof-of-every-finite-dimensional-vector-space-has-a-finite-basis-->
+    </div>
+</div>
+<div class="definition" id="definition-dimension-of-a-vector-space" >
+    <div class="title">Dimension of a Vector Space</div>
+    <div class="content">
+        Suppose that \( V \) is a vector space then since <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#proposition-every-vector-space-has-a-basis">it has a basis</a> \( \mathcal{ B }  \) then we define:
+        \[
+            \operatorname{ dim } \left( V \right) = \left\lvert \mathcal{ B }  \right\rvert 
+        \] 
+        Note that the above defintion makes sense as <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#proposition-the-size-of-a-basis-is-unique">the size of all bases are the same</a>    
+    </div>
+</div>
+<div class="definition" id="definition-finite-dimensional-vector-space" >
+    <div class="title">Finite Dimensional Vector Space</div>
+    <div class="content">
+        A vector space \( V \)  is said to be finite dimensional if <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-dimension-of-a-vector-space">\( \operatorname{ dim } \left( V \right)  \)</a> is finite
     </div>
 </div>
 <div class="definition">
@@ -101,18 +143,6 @@
     </div>
     <div class="proof">
         By fixing any new basis of \( V \) (TODO: prove that for any vector space there is always a basis that spans it) \( b_1, \ldots b_n \), then by concatenating it with \(S\) we obtain \( ( s_1, ..., s_k, b_1, ..., b_n ) \). Then for each \( i \in [n] \) (in order) (TODO: this is an algorithm), remove \(v_i\) from the ordered set iff \( v_i \) is in the span of all the earlier elements in the set. In particular, once we have checked and kept \( n - k \) of the \(v - i \) (TODO: say why that's guarenteed), we can discard the remaining \( v_i \), leaving a basis: \[ (s_1, ..., s_k, v_{i_1}, , \ldots v_{i_{n - k}} ) \]
-    </div>
-</div>
-<div class="proposition" id="proposition-every-vector-space-has-a-basis">
-    <div class="title">
-        Every Vector Space has a Basis
-    </div>
-    <div class="content"></div>
-    <div class="proof">
-        TODO <!--            https://math.stackexchange.com/questions/189693/every-vector-space-has-a-basis-proof-using-zorns-lemma-in-linear-algebra-->
-         <!--            https://math.stackexchange.com/questions/466879/prove-that-every-vector-space-has-a-basis-->
-         <!--            https://math.stackexchange.com/questions/4085932/proof-that-every-vector-space-has-a-basis-->
-         <!--            https://math.stackexchange.com/questions/2785769/proof-of-every-finite-dimensional-vector-space-has-a-finite-basis-->
     </div>
 </div>
 <div class="exercise" id="exercise-extending-a-basis">

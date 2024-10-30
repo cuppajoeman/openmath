@@ -3,7 +3,7 @@
         Binary Operation
     </div>
     <div class="content">
-        Let \( S \) be a set, a binary operation on \( S \) is a <span class="knowledge-link" data-href="/fundamentals/functions.html#definition-function">function</span> \( \star : S \times S \to S \) where we denote \( \star \left ( a , b \right ) \) as \( a \star b \) using infix notation
+        Let \( S \) be a set, a binary operation on \( S \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \star : S \times S \to S \) where we denote \( \star \left ( a , b \right ) \) as \( a \star b \) using infix notation
     </div>
 </div>
 <p>Note the distinction between binary operation and binary relation, a binary operation is a function, which is a binary relation with some extra conditions.</p>
@@ -12,7 +12,7 @@
         Commutative Binary Operation
     </div>
     <div class="content">
-        A <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</span> on a set \( S \) such that for any \( a , b \in S \), then \( a \star b = b \star a \) is called commutative
+        A <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</a> on a set \( S \) such that for any \( a , b \in S \), then \( a \star b = b \star a \) is called commutative
     </div>
 </div>
 <div class="definition" id="definition-associative-binary-operation">
@@ -20,7 +20,7 @@
         Associative Binary Operation
     </div>
     <div class="content">
-        A <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</span> on a set \( S \) such that for any \( a , b , c \in S \), then \( \left ( a \star b \right ) \star c = a \star \left ( b \star c \right ) \) is called associative
+        A <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</a> on a set \( S \) such that for any \( a , b , c \in S \), then \( \left ( a \star b \right ) \star c = a \star \left ( b \star c \right ) \) is called associative
     </div>
 </div>
 <div class="definition" id="definition-left-fold">
@@ -53,7 +53,7 @@
         Bracket Placement Doesn't Matter for Associative Binary Operations
     </div>
     <div class="content">
-        Suppose that \( \star \) is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</span>, then for any \( n \in \mathbb{Z}^{\ge 3} \), then no matter how one places the brackets in the product \( x_{1} \star x_{2} \star \ldots \star x_{n} \) it always evaluates to the same value
+        Suppose that \( \star \) is an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</a>, then for any \( n \in \mathbb{Z}^{\ge 3} \), then no matter how one places the brackets in the product \( x_{1} \star x_{2} \star \ldots \star x_{n} \) it always evaluates to the same value
     </div>
     <div class="proof">
         <p>In order to prove this statement we have to prove that no matter the bracketing we get the same value, but what exactly is this value? It must be the result of <i>some</i> bracketing so to make our life easier let's select a left-most bracketing of the form \[ \left( \left( x _ 1 \star x _ 2 \right) \star x _ 3 \star \cdots \right) \star x _ k \]</p>
@@ -105,7 +105,7 @@
         Composition Law
     </div>
     <div class="content">
-        A composition law is an <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</span>
+        A composition law is an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative binary operation</a>
     </div>
 </div>
 <div class="definition" id="definition-identity-element">
@@ -129,7 +129,7 @@
         Group
     </div>
     <div class="content">
-        We say that \( \left( G, \star \right) \) where \( G \) is a set and \( \star \) is a <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition law</span> on \( G \), when there exists an element \( e \in G \) satisfying the following properties:
+        We say that \( \left( G, \star \right) \) where \( G \) is a set and \( \star \) is a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition law</a> on \( G \), when there exists an element \( e \in G \) satisfying the following properties:
         <ul>
             <li>\( e \) is an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity element</a> on \( G \)
             </li>
@@ -218,7 +218,7 @@
         Given a group \( G \) and \( a , b \in G \), then \( \left ( a \star b \right )^{- 1} = b^{- 1} \star a^{- 1} \)
     </div>
     <div class="proof">
-        For ease let \( c = \left ( a \star b \right )^{- 1} \), <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-inverse">so that</span> \( \left ( a \star b \right ) \star c = c \star \left ( a \star b \right ) = e \) <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">since we know</span> \( \left ( a \star b \right ) \star c = a \star \left ( b \star c \right ) = e \) , and thus \( a^{- 1} \star \left ( a \star \left ( b \star c \right ) \right ) = a^{- 1} \star e \), thus \( \left ( a^{- 1} \star a \right ) \star \left ( b \star c \right ) = a^{- 1} e \), which simplifies to \( e \star \left ( b \star c \right ) = a^{- 1} \), so we can see that \( a^{- 1} = b \star c \), as needed
+        For ease let \( c = \left ( a \star b \right )^{- 1} \), <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-inverse">so that</a> \( \left ( a \star b \right ) \star c = c \star \left ( a \star b \right ) = e \) <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">since we know</a> \( \left ( a \star b \right ) \star c = a \star \left ( b \star c \right ) = e \) , and thus \( a^{- 1} \star \left ( a \star \left ( b \star c \right ) \right ) = a^{- 1} \star e \), thus \( \left ( a^{- 1} \star a \right ) \star \left ( b \star c \right ) = a^{- 1} e \), which simplifies to \( e \star \left ( b \star c \right ) = a^{- 1} \), so we can see that \( a^{- 1} = b \star c \), as needed
     </div>
 </div>
 <div class="proposition" id="proposition-cancellation">
@@ -245,7 +245,7 @@
         Abelian
     </div>
     <div class="content">
-        Given a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-group">group</a>, if it's <span class="knowledge-link" data-href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition law</span> is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-relation">commutative</a>, then we say that the group is <b>abelian</b>
+        Given a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-group">group</a>, if it's <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-composition-law">composition law</a> is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-relation">commutative</a>, then we say that the group is <b>abelian</b>
     </div>
 </div>
 <div class="proposition" id="proposition-integers-with-addition-are-abelian">

@@ -6,6 +6,7 @@
         A <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f : X \to Y \) is said to be an <b>open map</b> if for every open set \( U \in \mathcal{ T } _X \) the set \( f \left( U \right) \) is open in \( Y \)
     </div>
 </div>
+
 <div class="corollary" id="corollary-the-projection-maps-are-open">
     <div class="title">
         The Projection Maps Are Open
@@ -25,5 +26,63 @@
         \[
             \pi \left( x \right) = \left[ x \right] 
         \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-quotient-topology-by-universal-properties" >
+    <div class="title">Quotient Topology by Universal Properties</div>
+    <div class="content">
+        Given a quotient map \( \pi : X \to X \setminus \sim  \) then there exists a unique topology on \( X \setminus \sim  \) such that
+        <ul>
+            <li>\( \pi  \) is continuous</li>
+            <li>If \( f : X \setminus \sim \to Z \) is a function and \( f \circ h \) is continuous, then so is \( f \)</li>
+        </ul>
+        Specifically it is given by the set 
+        \[
+            \left\{ V \subseteq X \setminus \sim : \pi ^ { -1 } \left( V \right) \in \mathcal{ T } _ X   \right\} 
+        \] 
+        We denote this topology by 
+        \[
+            \mathcal{ T } _ { X \setminus \sim  }
+        \] 
+    </div>
+    <div class="proof">
+        First we show that it is a topology and then we show that it is unique.
+    </div>
+</div>
+<div class="definition" id="definition-direction-of-a-vector-space" >
+    <div class="title">Direction of a Vector Space</div>
+    <div class="content">
+        Suppose that \( V \) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> then we define the <b>direction of \( V \) </b> by considering the equivalence relation <a class="knowledge-link" href="/fundamentals/relations.html#definition-induced-equivalence-relation">induced</a> by \(  \left\{ \left( v_1, v _ 2 \right) : v_1 = \alpha v_2 , \alpha \in \mathbb{ R } ^ { \gt 0 }  \right\} \) which we denote by \( D \) then we define 
+        \[
+            \operatorname{ dir } \left( V \right) = V \setminus D
+        \] 
+    </div>
+</div>
+<div class="exercise" id="exercise-the-direction-of-the-reals" >
+    <div class="title">The Direction of the Reals</div>
+    <div class="content">
+        What is the quotient topology of \( \operatorname{ dir } \left( \mathbb{ R }  \right)   \) ?
+    </div>
+    <div class="proof">
+        <p>
+            Before starting we can see that \( \operatorname{ dir } \left( \mathbb{ R }  \right) = \left\{ \left[ -1 \right], \left[ 0 \right], \left[ 1 \right]  \right\}  \), now let's figure out the topology, we know that it is made up of sets whose inverse images under \( \pi : \mathbb{ R } \to \operatorname{ dir } \left( \mathbb{ R }  \right)   \) is open.
+        </p>
+        <p>
+            We note that \( \pi ^ { -1 } \left( \left[ -1 \right]  \right) = \left( - \infty , 0 \right)   \), that \( \pi ^ { -1 } \left( \left[ 0 \right]  \right) = \left\{ 0 \right\}    \) and that \( \pi ^ { -1 } \left( \left[ 1 \right]  \right) = \left( 0, \infty  \right)   \). Any other subset of \( \operatorname{ dir } \left( \mathbb{ R }  \right)   \) is a union of these sets, moreover since the inverse image <a class="knowledge-link" href="/fundamentals/functions.html#proposition-union-factors-through-inverse-image">allows unions to pass through</a>, it shows that the inverse image of every subset is also open, thus is the discrete topology.
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-direction-of-r2" >
+    <div class="title">Direction of R2</div>
+    <div class="content">
+        What is the quotient topology of \( \operatorname{ dir } \left( \mathbb{ R } ^ 2  \right)   \) ?
+    </div>
+    <div class="proof">
+        <p>
+            We note that \( \operatorname{ dir } \left( \mathbb{ R } ^ 2 \right)  = \left\{ \left[ e ^ { 2 \pi  i \theta  } \right] : \theta \in \left[ 0, 1 \right)   \right\}  \cup \left\{ \left[ 0 \right]  \right\}   \). Now let's start figuring out the topology, so we have to find those subsets of \( \operatorname{ dir } \left( \mathbb{ R } ^ 2 \right)   \) such that their inverse images are open in \( \mathbb{ R } ^ 2 \) 
+        </p>
+        <p>
+            Now we need to find all subsets whose inverse image under \( \pi  \) is open, one way of doing this is to consider single points, and then try to construct open inverse images by combining the single points, in this case a single point on the unit circle gets mapped to a ray that doesn't pas through the origin.which on it's own is not open in \( \mathbb{ R } ^ 2 \) so then we have to give it some area by considering an an open shell sector.
+        </p>
     </div>
 </div>

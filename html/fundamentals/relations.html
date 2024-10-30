@@ -162,7 +162,6 @@
         \] 
         is a <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-partition">partition</a> of \( X \) 
     </div>
-
     <div class="proof">
         We already know that they <a class="knowledge-link" href="/fundamentals/relations.html#corollary-a-set-is-a-union-of-its-equivalence-classes">cover</a> the set, so now suppose that \( \left[ a \right] \neq \left[ b \right]  \in X \) then since they are not equal <a class="knowledge-link" href="/fundamentals/relations.html#proposition-equivalence-classes-are-either-equal-or-disjoint">they are disjoint</a>, as needed.
     </div>
@@ -170,12 +169,27 @@
 <div class="definition" id="definition-a-set-modulo-an-equivalence-relation" >
     <div class="title">A Set Modulo an Equivalence Relation</div>
     <div class="content">
-        Suppose that \( \left( X, \sim  \right)  \) is an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</a> then we define the following
+        Suppose that \( \left( X, \sim  \right)  \) is an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</a> and \( P = \left\{ \left[ p_\alpha  \right], \alpha \in I \right\} \) a partition of \( X \)
         \[
-          X \setminus \sim : = \left\{ \left[ a \right] : a \in X \right\} 
+          X \setminus \sim : = P
         \] 
     </div>
 </div>
+<p>
+    Sometimes people call this dividing, roughly speaking when you divide 20 objects into groups of 4, it's as if each collection of 5 elements became one, which is roughly what happens when you mod out by an equivalence relation.
+</p>
+<div class="definition" id="definition-unpacking-an-equivalence-class" >
+    <div class="title">Unpacking an Equivalence Class</div>
+    <div class="content">
+        Suppose that \( \left( X, \sim  \right)  \) is an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</a> then for any \( p \in X \) we define the almost trivial function
+        \[
+        \operatorname{ unpack } \left( \left[ p \right]  \right) = p
+        \] 
+    </div>
+</div>
+<p>
+    The reason why we have the above definition is so that we can mod out by an equivalence relation, and then peel of the equivalence classes to end back up with elements of \( X \), in other words \( \operatorname{ unpack } \left( X \setminus \sim   \right) \subseteq X \), is a collection of "representatives" in \( X \).
+</p>
 <div class="exercise" id="exercise-congruences-induce-a-equivalence-relation">
     <div class="title">
         Congruences induce a Equivalence Relation
@@ -185,6 +199,15 @@
     </div>
     <div class="proof">
         <p>Given any \( a \in G \), then clearly \( a \% n = a \% n \) so that \( a R a \), if \( a R b \), then \( a \% n = b \% n \) and then \( b \% n = a \% n \), finally if \( a \% n = b \% n \) and \( b \% n = c \% n \) therefore \( a \% n = c \% n \)</p>
+    </div>
+</div>
+<div class="definition" id="definition-induced-equivalence-relation" >
+    <div class="title">Induced Equivalence Relation</div>
+    <div class="content">
+        Suppose that suppose that we have a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">relation</a> on \( X \), then we can extend it to an equivalence relation by adding the minimal number of tuples \( \left( a, b \right)  \) to construct \( R ^ \prime  \) so that \( R ^ \prime  \) is an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</a>. We denote this by 
+        \[
+        \sim \left( R \right) = R ^ \prime 
+        \] 
     </div>
 </div>
 <div class="definition" id="definition-partial-order">

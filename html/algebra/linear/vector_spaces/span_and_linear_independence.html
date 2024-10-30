@@ -3,7 +3,11 @@
         Linear Combination
     </div>
     <div class="content">
-        A linear combination of the vectors \( \left\{ v _ 1, \ldots, v _ m \right\} \) of vectors in \( V \) \[ a _ 1 v _ 1 + \ldots + a_m v_m \] where \( a_1, \ldots, a_m \in \mathbb{F} \)
+        A linear combination of the vectors \( \left\{ v _ 1, \ldots, v _ m \right\} \) of vectors in a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) is:
+        \[
+        a _ 1 v _ 1 + \ldots + a_m v_m 
+        \]
+        where \( a_1, \ldots, a_m \in \mathbb{F} \) 
     </div>
 </div>
 <div class="definition" id="definition-span">
@@ -11,7 +15,7 @@
         Span
     </div>
     <div class="content">
-        The set of all linear combinations of the vectors \( \left\{ v _ 1, \ldots, v _ m \right\} \subseteq V\) called the span of \( \left\{ v_1, \ldots, v_m \right\} \) and we define the notation: \[ \operatorname{ span } \left( \left\{ v_1, ..., v_m \right\} \right) := \left\{ a_1 v_1 + \ldots + a_m v_m: a_1, ..., a_m \in \mathbb { F } \right\} \] we define \( \operatorname{ span } \left( \emptyset \right) := \left\{ 0 \right\} \)
+        The set of all linear combinations of the vectors \( \left\{ v _ 1, \ldots, v _ m \right\} \subseteq V\) (where \( V \) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a>) called the span of \( \left\{ v_1, \ldots, v_m \right\} \) and we define the notation: \[ \operatorname{ span } \left( \left\{ v_1, ..., v_m \right\} \right) := \left\{ a_1 v_1 + \ldots + a_m v_m: a_1, ..., a_m \in \mathbb { F } \right\} \] we define \( \operatorname{ span } \left( \emptyset \right) := \left\{ 0 \right\} \)
     </div>
 </div>
 <div class="definition" id="definition-linearly-independent">
@@ -19,7 +23,17 @@
         Linearly Independent
     </div>
     <div class="content">
-        A set of vectors \( \left\{ v _ 1, \ldots, v _ m \right\} \subseteq V\) is said to be linearly independent if the only solution to \( \sum _ { i = 1 } ^ m a_i v_i = 0 \) is \( \forall i \in \left\{ 1, ..., m \right\}, a_i = 0 \). We define \( \emptyset \) to be linearly independent.
+        A set of vectors \( \left\{ v _ 1, \ldots, v _ m \right\} \subseteq V\) is said to be linearly independent if the only solution to 
+        \[ 
+        \sum _ { i = 1 } ^ m a_i v_i = 0 
+        \]
+        is \( \forall i \in \left\{ 1, ..., m \right\}, a_i = 0 \). We define \( \emptyset \) to be linearly independent.
+    </div>
+</div>
+<div class="definition" id="definition-spanning-set" >
+    <div class="title">Spanning Set</div>
+    <div class="content">
+        Suppose that \( V \) is a vector space, then we say that \( S \) is a <b>spanning set of \( V \)</b> if <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-span">\( \operatorname{ span } \left( S \right) = V \)</a> 
     </div>
 </div>
 <div class="proposition" id="proposition-linearly-independent-iff-unique-representation">
