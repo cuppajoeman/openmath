@@ -1,3 +1,4 @@
+<h1>Preliminaries</h1>
 <div class="definition" id="definition-majorant" >
     <div class="title">Majorant</div>
     <div class="content">
@@ -29,6 +30,7 @@
         as needed.
       </div>
 </div>
+<h1>Normed Spaces</h1>
 <div class="definition" id="definition-normed-vector-space">
 <div class="title">Normed Vector Space</div>
 <div class="content">
@@ -86,30 +88,64 @@
         </p>
 </div>
 </div>
+
 <div class="definition" id="definition-banach-space">
-<div class="title">Banach Space</div>
-<div class="content">
-                  Every <a class="knowledge-link" href="/analysis/linear_operators.html#definition-complete-metric-space">complete</a> <a class="knowledge-link" href="/analysis/linear_operators.html#definition-normed-vector-space">normed vector space</a> is called a <b>banach space</b>.
-          </div>
-</div>
-<div class="definition" id="definition-linear-operator">
-<div class="title">Linear Operator</div>
-<div class="content">
-            A linear operator is a synonym for a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> where \( T : X \to Y \) and both \( X, Y \) are normed vector spaces.
-          </div>
-</div>
-<div class="definition" id="definition-bounded-linear-operator">
-<div class="title">Bounded Linear Operator</div>
-<div class="content">
-            Suppose that \( L : X \to Y \)  is a  <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-operator">linear operator</a>, then we say that it is bounded diff \( \exists M \in \mathbb{ R } ^ +  \) such that for any \( x \in X \), we have
-            \[
-              \lVert Lx \rVert _ Y \le M \lVert x \rVert _ X
-            \] 
-          </div>
+    <div class="title">Banach Space</div>
+    <div class="content">
+        Every <a class="knowledge-link" href="/analysis/linear_operators.html#definition-complete-metric-space">complete</a> <a class="knowledge-link" href="/analysis/linear_operators.html#definition-normed-vector-space">normed vector space</a> is called a <b>banach space</b>.
+    </div>
 </div>
 <p>
-          The intuitive meaning is that there is some scalar such that the linear operator can only increase the length of the vector by that scalar multiple. For example a linear transform that multiplies all vector by some constant, will trivially satisfy this. We can re-obtain our familiar notion of bounededness by seeing that any bounded subset of \( X \) becomes a bouneded subset of \( Y \).
-    </p>
+    These spaces are named after Stefan Banach.
+</p>
+
+<div class="corollary" id="corollary-any-finite-dimensional-vector-space-with-a-norm-is-complete" >
+    <div class="title">Any Finite Dimensional Vector Space With a Norm Is Complete</div>
+    <div class="content">
+        TODO: Add the content for the corollary here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-standard-norm-on-little-l-p" >
+    <div class="title">Standard Norm on Little L P</div>
+    <div class="content">
+        If \( p \in \mathbb{ N } _1 \), and \( x \in \mathbb{ F } ^ n  \) then we define 
+        \[
+          \left\lVert x \right\rVert _ p = \left( \sum _ { n = 1 } ^ \infty \left\lvert x _ n \right\rvert ^ p \right) ^ { \frac{ 1 }{ p }  }
+        \] 
+    </div>
+</div>
+<div class="corollary" id="corollary-every-finite-dimensional-subspace-of-a-normed-vector-space-is-closed" >
+    <div class="title">Every Finite Dimensional Subspace of a Normed Vector Space Is Closed</div>
+    <div class="content">
+        If \( Y \) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-finite-dimensional-vector-space">finite dimensional</a> <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-subspace-of-a-vector-space">subspace</a> of a <a class="knowledge-link" href="/analysis/linear_operators.html#definition-normed-vector-space">normed vector space</a> \( X \) then \( Y \) is closed
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-linear-operator">
+    <div class="title">Linear Operator</div>
+    <div class="content">
+        A linear operator is a synonym for a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> where \( T : X \to Y \) and both \( X, Y \) are normed vector spaces.
+    </div>
+</div>
+<div class="definition" id="definition-bounded-linear-operator">
+    <div class="title">Bounded Linear Operator</div>
+    <div class="content">
+        Suppose that \( L : X \to Y \)  is a  <a class="knowledge-link" href="/analysis/linear_operators.html#definition-linear-operator">linear operator</a>, then we say that it is bounded diff \( \exists M \in \mathbb{ R } ^ +  \) such that for any \( x \in X \), we have
+        \[
+            \left\lVert Lx \right\rVert _Y \le  M \left\lVert x \right\rVert _X
+        \] 
+    </div>
+</div>
+<p>
+      The intuitive meaning is that there is some scalar such that the linear operator can only increase the length of the vector by that scalar multiple. For example a linear transform that multiplies all vector by some constant, will trivially satisfy this. We can re-obtain our familiar notion of bounededness by seeing that any bounded subset of \( X \) becomes a bouneded subset of \( Y \).
+</p>
 <div class="corollary" id="corollary-continuity-of-a-linear-operator">
 <div class="title">Continuity of a Linear Operator</div>
 <div class="content">
@@ -131,48 +167,252 @@
 </div>
 </div>
 <div class="proposition" id="proposition-continuity-boundedness-equivalence-of-linear-operators">
-<div class="title">Continuity Boundedness Equivalence of Linear Operators</div>
-<div class="content">
-            Suppose that \( L : X \to Y \) is a linear operator then the following are equivalent so long as \( X \) is non-empty:
-            <ul>
-<li>\( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuous-function">continuous</a></li>
-<li>\( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuity-of-a-function-at-a-point">continuous at a point</a></li>
-<li>\( L \) <a class="knowledge-link" href="/analysis/linear_operators.html#definition-bounded-linear-operator">is bounded</a> </li>
+    <div class="title">Continuity Boundedness Equivalence of Linear Operators</div>
+    <div class="content">
+        Suppose that \( L : X \to Y \) is a linear operator then the following are equivalent so long as \( X \) is non-empty:
+        <ul>
+            <li>\( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuous-function">continuous</a></li>
+            <li>\( L \) is <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-continuity-of-a-function-at-a-point">continuous at a point</a></li>
+            <li>\( L \) <a class="knowledge-link" href="/analysis/linear_operators.html#definition-bounded-linear-operator">is bounded</a> </li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>
+          Proving \( 1 \implies 2 \) is easy since \( X \) is non-empty, so we'll prove \( 2 \implies 3 \). Suppose that \( L \) is continuous at some point \( x \in X \) so by letting \( \epsilon = 1 \) we obtain some \( \delta  \) such that for any \( y \in X \) if \( \lVert x - y \rVert \lt \delta  \) then we have \( \lVert Lx - Ly \rVert \lt 1  \)
+        </p>
+        <p>
+          But then note that for any \( z \in X \) 
+          \[
+          \lVert \delta \frac{ z }{ \lVert z \rVert  } + x - x  \rVert \le \delta 
+          \] 
+          therefore we have 
+          \[
+          \lVert L \left( \delta \frac{ z }{ \lVert z \rVert  }  + x \right) - L \left( x \right)   \rVert  = \lVert L \left( \delta \frac{ z }{ \lVert z \rVert  }  \right)  \rVert \le 1
+          \] 
+           to conclude 
+          \[
+          \lVert Tz \rVert \le \frac{ 1 }{ \delta  } \lVert z \rVert 
+          \] 
+          So that \( L \) is bounded.
+        </p>
+        <p>
+          \( 3 \implies 1 \) We need to show that \( L \) is continuous, and so let \( a \in X \) and \( \epsilon \in \mathbb{ R } ^ +  \), since \( L \) is bounded, we have some \( M \in \mathbb{ R } ^ +  \) such that for any \( z \in X \) we have \( \lVert Lz \rVert \le M \lVert z \rVert   \), now take \( \delta = \frac{ \epsilon  }{ M }  \) and let \( x \in X \) and assume that \( \lVert x - a \rVert \lt \delta = \frac{ \epsilon  }{ M }   \) 
+          \[
+          \lVert L \left( x - a \right)  \rVert \le M \lVert x - a \rVert \lt M \frac{ \epsilon  }{ M } = \epsilon 
+          \] 
+          so \( L \) is continuous, therefore all three statements are equivalent.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-adjoint-of-a-linear-operator" >
+    <div class="title">Adjoint of a Linear Operator</div>
+    <div class="content">
+        Suppose that \( L \) is a linear operator on a vector space \( V \)  then the <b>adjoint</b> of \( L \) is a function \( L ^ * : V \to V \) such that:
+        \[
+          \left\langle L \left( x \right), y  \right\rangle = \left\langle x, L ^ * \left( y \right)  \right\rangle 
+        \] 
+    </div>
+</div>
+<div class="corollary" id="corollary-the-adjoint-is-a-unique-linear-operator" >
+    <div class="title">The Adjoint Is a Unique Linear Operator</div>
+    <div class="content">
+        The adjoint of a linear opeartor \( L \) is also a linear operator and is unique
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="theorem" id="theorem-the-adjoint-of-a-linear-operator-exists-when-the-vector-space-is-finite-dimensional" >
+    <div class="title">The Adjoint of a Linear Operator Exists When the Vector Space Is Finite Dimensional</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<p>
+    A bilinear form is a generlization of the idea of the dot product:
+</p>
+<div class="definition" id="definition-bilinear-form" >
+    <div class="title">Bilinear Form</div>
+    <div class="content">
+        A bilinear form on a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space \(V\) over a field \(\mathbb{F}\)</a>  is a map \( H: V \times V \rightarrow \mathbb{F} \) such that
+        <ol>
+            <li>\(H\left(v_1+v_2, w\right)=H\left(v_1, w\right)+H\left(v_2, w\right)\), for all \(v_1, v_2, w \in V\)</li>
+            <li>\(H\left(v, w_1+w_2\right)=H\left(v, w_1\right)+H\left(v, w_2\right)\), for all \(v, w_1, w_2 \in V\)</li>
+            <li>\(H(a v, w)=a H(v, w)\), for all \(v, w \in V, a \in \mathbb{F}\)</li>
+            <li>\(H(v, a w)=a H(v, w)\), for all \(v, w \in V, a \in \mathbb{F}\)</li>
+        </ol>
+
+    </div>
+</div>
+<ul>
+    <li> A bilinear form \(H\) is called symmetric if \(H(v, w)=H(w, v)\) for all \(v, w \in V\). </li>
+    <li> A bilinear form \(H\) is called skew-symmetric if \(H(v, w)=-H(w, v)\) for all \(v, w \in V\). </li>
+    <li> A bilinear form \(H\) is called non-degenerate if for all \(v \in V\), there exists \(w \in V\), such that \(H(w, v) \neq 0\). </li>
+    <li> A bilinear form \(H\) defines a map \(H^{\#}: V \rightarrow V^*\) which takes \(w\) to the linear map \(v \mapsto H(v, w)\). In other words, \(H^{\#}(w)(v)=H(v, w)\). </li>
 </ul>
+Note that \(H\) is non-degenerate if and only if the map \(H^{\#}: V \rightarrow V^*\) is injective. Since \(V\) and \(V^*\) are finite-dimensional vector spaces of the same dimension, this map is injective if and only if it is invertible.
+<div class="definition" id="definition-sesquilinear-form" >
+    <div class="title">Sesquilinear Form</div>
+    <div class="content">
+        Let \( \mathbb{ F }  \)  be a subfield of \( \mathbb{ C }  \) and \( U \)  and \( V \)  be <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector spaces</a>over \( \mathbb{ F }  \), then a <b>sesquilinear form</b> is a function \( u: U \times V \to \mathbb{ C } \) such that \( \forall \alpha \in \mathbb{ F } , x_1, x_2 \in U, y \in V \) we have:
+        <ol>
+            <li>
+                 \( u \left(\alpha x_1 + x_2, y  \right) = \alpha  u \left( x_1, y \right)  + u \left( x_2, y \right)  \) 
+            </li>
+            <li>
+                \( u \left( x, \alpha y_1 + y_2 \right) = \bar \alpha  u \left( x, y_1 \right)  + u \left( x, y _ 2 \right)  \) 
+            </li>
+        </ol>
+    </div>
 </div>
-<div class="proof">
 <p>
-              Proving \( 1 \implies 2 \) is easy since \( X \) is non-empty, so we'll prove \( 2 \implies 3 \). Suppose that \( L \) is continuous at some point \( x \in X \) so by letting \( \epsilon = 1 \) we obtain some \( \delta  \) such that for any \( y \in X \) if \( \lVert x - y \rVert \lt \delta  \) then we have \( \lVert Lx - Ly \rVert \lt 1  \)
-            </p>
-<p>
-              But then note that for any \( z \in X \) 
-              \[
-              \lVert \delta \frac{ z }{ \lVert z \rVert  } + x - x  \rVert \le \delta 
-              \] 
-              therefore we have 
-              \[
-              \lVert L \left( \delta \frac{ z }{ \lVert z \rVert  }  + x \right) - L \left( x \right)   \rVert  = \lVert L \left( \delta \frac{ z }{ \lVert z \rVert  }  \right)  \rVert \le 1
-              \] 
-               to conclude 
-              \[
-              \lVert Tz \rVert \le \frac{ 1 }{ \delta  } \lVert z \rVert 
-              \] 
-              So that \( L \) is bounded.
-            </p>
-<p>
-              \( 3 \implies 1 \) We need to show that \( L \) is continuous, and so let \( a \in X \) and \( \epsilon \in \mathbb{ R } ^ +  \), since \( L \) is bounded, we have some \( M \in \mathbb{ R } ^ +  \) such that for any \( z \in X \) we have \( \lVert Lz \rVert \le M \lVert z \rVert   \), now take \( \delta = \frac{ \epsilon  }{ M }  \) and let \( x \in X \) and assume that \( \lVert x - a \rVert \lt \delta = \frac{ \epsilon  }{ M }   \) 
-              \[
-              \lVert L \left( x - a \right)  \rVert \le M \lVert x - a \rVert \lt M \frac{ \epsilon  }{ M } = \epsilon 
-              \] 
-              so \( L \) is continuous, therefore all three statements are equivalent.
-            </p>
+    Note that if \( \mathbb{ F }  \)  is a subfield of \( \mathbb{ R }  \) , then a sesquilinear form is a bilinear form.
+</p>
+<div class="definition" id="definition-isomorphism-between-hilbert-spaces" >
+    <div class="title">Isomorphism Between Hilbert Spaces</div>
+    <div class="content">
+        Suppose that \( \mathcal{ H }  \) and \( \mathcal{ K }  \) are <a class="knowledge-link" href="/analysis/linear_operators.html#definition-hilbert-space">hilbert spaces</a> then an isomorphism between them is a surjective linear operator \( U : \mathcal{ H } \to \mathcal{ K }   \) such that 
+        \[
+         \left\langle Uh, Uk \right\rangle _ \mathcal{ K } = \left\langle h, k \right\rangle _ \mathcal{ H } 
+        \] 
+    </div>
 </div>
+<div class="definition" id="definition-isometry" >
+    <div class="title">Isometry</div>
+    <div class="content">
+        A linear operator \( T : V \to W \) is an <b>isometry</b> if for all vectors \( v_1, v_2 \in V \) we have that 
+        \[
+          \left\lVert T \left( v _ 1 \right) - T \left( v _ 2 \right)   \right\rVert _ W = \left\lVert v_1 - v_2 \right\rVert _V
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-unitary-operator" >
+    <div class="title">Unitary Operator</div>
+    <div class="content">
+        We say that a linear operator \( U : \mathcal{ H } \to \mathcal{ K }    \) between hilbert spaces is <b>unitary</b> whenever 
+        \[
+          U ^ * U = \operatorname{ id } _ \mathcal{ H }   \qquad \text{ and } \qquad U U ^ * = \operatorname{ id } _ \mathcal{ K } 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-bounded-linear-operators-on-a-hilbert-space" >
+    <div class="title">Bounded Linear Operators on a Hilbert Space</div>
+    <div class="content">
+        Suppose that \( \mathcal{ H }  \) is a hilbert space then we use the notation \( B \left( \mathcal{ H }  \right)  \) to denote all <a class="knowledge-link" href="/analysis/linear_operators.html#definition-bounded-linear-operator">bounded linear operators</a>
+    </div>
+</div>
+<div class="proposition" id="proposition-unitary-operator-equivalences" >
+    <div class="title">Unitary Operator Equivalences</div>
+    <div class="content">
+        Suppose that \( U : \mathcal{ H } \to \mathcal{ K }   \) is a bounded linear operator between <a class="knowledge-link" href="/analysis/linear_operators.html#definition-hilbert-space">hilbert spaces</a>, then the following are equivalent:
+        <ol>
+            <li>\( U \) is a <a class="knowledge-link" href="/analysis/linear_operators.html#definition-unitary-operator">unitary operator</a></li>
+            <li>\( U \) is a surjective and \( \left\langle U h, U k \right\rangle _ \mathcal{ K } = \left\langle h, k \right\rangle _ \mathcal{ H }     \) </li>
+            <li>\( U \) is a surjective isometry</li>
+        </ol>
+    </div>
+    <div class="proof">
+        <p>
+            Let's prove that \( 1 \implies 2 \) so suppose that \( U \) is unitary, so then we know that \( U U ^ * = \operatorname{ id } _ \mathcal{ K }   \) which helps show that \( U \) is  surjective as given any \( k \in \mathcal{ K }  \) then we know that \( U \left( U ^ * k \right) = k  \), but then additionally we know that \( U ^ * U = \operatorname{ id } \mathcal{ H }   \) so that then we note that \( \left\langle Ux, Uy \right\rangle = \left\langle x, U ^ *, U \right\rangle = \left\langle x, y \right\rangle \) as needed.
+        </p>
+        <p>
+            Now we prove that \( 2 \implies 3 \), but all we have to do is consider any \( h \in \mathcal{ H }  \) and thus we have that 
+            \[ 
+                \left\lVert U h \right\rVert ^ 2 =  \left\langle U h, U h \right\rangle _ \mathcal{ K } = \left\langle h , h \right\rangle _ \mathcal{ H } = \left\lVert h \right\rVert ^ 2
+            \]
+            and thus since the norm is non-negative then we can undo the square to obtain that \( \left\lVert U h \right\rVert _ \mathcal{ K } = \left\lVert h \right\rVert _ \mathcal{ H }     \) as needed.
+        </p>
+        <p>
+            Now we finish \( 3 \implies 1 \), we note that \( \left\langle U ^ * U x, x \right\rangle = \left\langle Ux, Ux \right\rangle   \) as the adjoint is an involution, but then \( \left\langle Ux, Ux \right\rangle = \left\lVert U x \right\rVert ^ 2 = \left\lVert x \right\rVert ^ 2  = \left\langle x, x \right\rangle  \), thus we've shown that \( \left\langle U ^ * U x, x \right\rangle = \left\langle x, x \right\rangle   \) so we conclude that \( U ^ * U = I \) which shows that \( U \) is an invertible linear isometry with \( U ^ { -1 } = U ^ * \), in otherwords \( U \) is unitary.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-unilateral-shift-operator" >
+    <div class="title">Unilateral Shift Operator</div>
+    <div class="content">
+        Let \( H = \ell ^ 2 \left( \mathbb{ N }  \right)  \) then we define the <b>unilateral shift operator</b> as \( S : H \to H \) given by
+        \[
+          S \left( x _ 1, x_2, x_3, x_4, \ldots  \right) = \left( 0, x _ 1, x_2, x_3, \ldots  \right) 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-the-unilateral-shift-is-an-isometry" >
+    <div class="title">The Unilateral Shift Is an Isometry</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        Consider the following
+        \[
+        \begin{align*}
+        \left\lVert S \left( x \right)  \right\rVert &= \sqrt{ \sum _ { n = 1 } ^ \infty \left\lvert \left( S x \right) _ n  \right\rvert ^ 2  } \\
+        &= \sqrt{ \sum _ { n = 2 } ^ \infty 0 + \left\lvert x _ { n - 1 }  \right\rvert ^ 2  } \\
+        &= \sqrt{ \sum _ { n = 1 } ^ \infty  \left\lvert x _ { n }  \right\rvert ^ 2  } \\
+        &= \left\lVert x \right\rVert 
+        \end{align*}
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-the-unilateral-shift-is-not-unitary" >
+    <div class="title">The Unilateral Shift Is Not Unitary</div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        We show it's not unitary by showing that it is not surjective, which is the case as the element \( \left( 1, 0, 0, 0, \ldots  \right)  \) cannot be reached via \( S \).
+    </div>
+</div>
+<div class="proposition" id="proposition-the-adjoint-of-the-unilateral-shift-is-the-bilateral-shift" >
+    <div class="title">The Adjoint of the Unilateral Shift Is the Bilateral Shift</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        https://math.stackexchange.com/questions/1043965/eigenvalue-of-a-unilateral-shift-operator/1044057#1044057
+        https://chatgpt.com/share/672160d4-7b14-8007-91cb-a5a8e41d359e
+        Just note:
+        \[
+        \begin{align*}    
+            \left\langle S \left( x \right), y  \right\rangle &= \left\langle \left( 0, x_1, x_2, \ldots  \right), \left( y_1, y_2, y_3 , \ldots \right) \right\rangle \\
+        &= 
+        \end{align*}    
+        \] 
+
+        First we take a look at \(  =  \) 
+    </div>
+</div>
+<div class="proposition" id="proposition-the-bilateral-shift-is-unitary" >
+    <div class="title">The Bilateral Shift Is Unitary</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="theorem" id="theorem-closed-graph-theorem" >
+    <div class="title">Closed Graph Theorem</div>
+    <div class="content">
+        Let \( X, Y \) be banach spaces and \( T : X \to Y \) a linear operator 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
 </div>
 <div class="definition" id="definition-automorphism">
-<div class="title">Automorphism</div>
-<div class="content">
-            Let \( F \) be a field, then an automorphism of \( F \) is a bijection from \( F \)  to itself that preserves the operations of addition and multiplication. 
-        </div>
+    <div class="title">Automorphism</div>
+    <div class="content">
+        Let \( F \) be a field, then an automorphism of \( F \) is a bijection from \( F \)  to itself that preserves the operations of addition and multiplication. 
+    </div>
 </div>
 <div class="definition" id="definition-sesquilinear-form">
 <div class="title">Sesquilinear Form</div>
@@ -329,10 +569,23 @@
 <div class="definition" id="definition-operator-norm" >
     <div class="title">Operator Norm</div>
     <div class="content">
-      Let \( T \) be a bounded linear operator between two normed vector spaces \( \left( V, \lVert \cdot  \rVert _ V \right) \) \left( W, \lVert \cdot  \rVert _ W  \right) the the operator norm written as \( \lVert T \rVert _ \operatorname{ op }  \) such that 
+      Let \( T \) be a bounded linear operator between two normed vector spaces \( \left( V, \lVert \cdot  \rVert _ V \right) \) and \( \left( W, \lVert \cdot  \rVert _ W  \right) \) the the operator norm written as \( \lVert T \rVert _ \operatorname{ op }  \) such that 
         \[
-           \lVert T \rVert _ \operatorname{ op } = \sup _ { \lVert v \rVert _ V = 1  } \lVert T \left( v \right)  \rVert _ W
+            \left\lVert T  \right\rVert _ \operatorname{ op } = \sup _ { \left\lVert v \right\rVert  _ V = 1  } \left\lVert T \left( v \right)  \right\rVert  _ W
          \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-the-operator-norm-of-a-bounded-operator-is-the-smallest-number-satisfying-an-inequality" >
+    <div class="title">The Operator Norm of a Bounded Operator Is The Smallest Number Satisfying an Inequality</div>
+    <div class="content">
+        Suppose that \( C \in \mathbb{ R }  \) is the smallest number such that for any \( v \in V \) 
+        \[
+        \left\lVert Lv \right\rVert _ W \le C \left\lVert v \right\rVert _ V
+        \] 
+        Then \( C = \left\lVert L \right\rVert  _ \operatorname{ op }   \) 
+    </div>
+    <div class="proof">
+
     </div>
 </div>
 <div class="definition" id="definition-self-adjoint-linear-operator" >
@@ -409,6 +662,29 @@
         Now recall that 
     </div>
 </div>
+
+<div class="lemma" id="lemma-bounded-linear-functional-integral" >
+    <div class="title">Bounded Linear Functional Integral</div>
+    <div class="content">
+        The linear functional \(T_n: C(\mathbb{T}) \rightarrow \mathbb{R}\) defined by
+            \[
+            T_n f=\int_{\mathbb{T}} f(x) D_n(x) \mathrm{d} x
+            \]
+
+            is bounded, with
+
+            \[
+            \left\|T_n\right\|=\int_{\mathbb{T}}\left|D_n(x)\right| \mathrm{d} x .
+            \]
+    </div>
+    <div class="proof">
+
+    </div>
+</div>
+
+Lemma 4.7. 
+
+
 <div class="theorem" id="theorem-embryionic-spectral-theorem" >
     <div class="title">Embryionic Spectral Theorem</div>
     <div class="content">
@@ -421,6 +697,579 @@
         TODO: Add the proof here.
     </div>
 </div>
+<div class="definition" id="definition-l2-space" >
+    <div class="title">L2 Space</div>
+    <div class="content">
+        An \( L ^ 2 \) space constists of square integrable functions so that \( L ^ 2 \) is the collection of functions such that 
+        \[
+          \int \left\lvert f \left( x \right)  \right\rvert ^ 2 dx \lt \infty 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-multiplication-operator" >
+    <div class="title">Multiplication Operator</div>
+    <div class="content">
+        Suppose that \( f \in L ^ 2 \) then we define the multiplication operator for \( f \) as \( M _ f : L ^ 2 \to L ^ 2 \) such that 
+        \[
+            M _ f \left( g \right) = f g
+        \] 
+    </div>
+</div>
+<h1>Compact Operators</h1>
+<div class="definition" id="definition-compact-operator" >
+    <div class="title">Compact Operator</div>
+    <div class="content">
+        Let \( \mathcal{ H }  \) be a hilbert space and let \( T : \mathcal{ H } \to \mathcal{ H }   \) be a bounded linear operator then we say that it is <b>compact</b> if for every bounded subset \( B \subseteq \mathcal{ H }  \), the image \( T \left( B \right)  \) is relatively compact, meaning that the closure of \( T \left( B \right)  \) is compact  in the norm top of \( \mathcal{ H }  \) 
+    </div>
+</div>
+<div class="corollary" id="corollary-bounded-operator-in-terms-of-sequences" >
+    <div class="title">Bounded Operator in Terms of Sequences</div>
+    <div class="content">
+        Let \(X\) and \(Y\) be normed spaces. A linear transformation \(T \in L(X, Y)\) is compact if, for any bounded sequence \(\left\{x_n\right\}\) in \(X\), the sequence \(\left\{T x_n\right\}\) in \(Y\) contains a convergent subsequence. The set of compact transformations in \(L(X, Y)\) will be denoted by \(K(X, Y)\).
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="theorem" id="theorem-a-compact-operator-is-bounded" >
+    <div class="title">A Compact Operator Is Bounded</div>
+    <div class="content">
+        Let \(X\) and \(Y\) be normed spaces an let \(T \in K(X, Y)\). Then \(T\) is bounded. 
+    </div>
+
+    <div class="proof">
+        Suppose that \(T\) is not bounded. Then for each integer \(n \geq 1\) there exists a unit vector \(x_n\) such that \(\left\|T x_n\right\| \geq n\). Since the sequence \(\left\{x_n\right\}\) is bounded, by the compactness of \(T\) there exists a subsequence \(\left\{T x_{n(r)}\right\}\) which converges. This contradicts \(\left\|T x_{n(r)}\right\| \geq n(r)\). (ie. convergence implies boundedness)
+    </div>
+</div>
+<p>
+    Note that the above shows that: \(K(X, Y) \subset B(X, Y)\).
+</p>
+<div class="proposition" id="proposition-the-compact-operators-are-a-linear-subspace-of-the-bounded-operators" >
+    <div class="title">The Compact Operators Are a Linear Subspace of the Bounded Operators</div>
+    <div class="content">
+        Suppose that \( S, T \in K \left( X, Y \right)  \) and that \( \alpha , \beta \in \mathbb{ C }  \) then \( \alpha S + \beta T \in K \left( X, Y \right)  \).
+    </div>
+    <div class="proof">
+        Let \(\left\{x_n\right\}\) be a bounded sequence in \(X\). Since \(S\) is compact, there is a subsequence \(\left\{x_{n(r)}\right\}\) such that \(\left\{S x_{n(r)}\right\}\) converges. Then, since \(\left\{x_{n(r)}\right\}\) is bounded and \(T\) is compact, there is a subsequence \(\left\{x_{n(r(s))}\right\}\) of the sequence \(\left\{x_{n(r)}\right\}\) such that \(\left\{T x_{n(r(s))}\right\}\) converges. Since the sum of convergent sequences converges, it follows that the sequence \(\left\{\alpha S x_{n(r(s))}+\right.\) \(\left.\beta T x_{n(r(s))}\right\}\) converges. Thus \(\alpha S+\beta T\) is compact.
+    </div>
+</div>
+<div class="proposition" id="proposition-the-composition-of-linear-operators-is-compact-if-at-least-one-is" >
+    <div class="title">The Composition of Linear Operators Is Compact If at Least One Is</div>
+    <div class="content">
+        Suppose that \(S \in B(X, Y), T \in B(Y, Z)\) and at least one of the operators \(S, T\) is compact, then \(T \circ  S \in B(X, Z)\) is compact.
+    </div>
+    <div class="proof">
+        Let \(\left\{x_n\right\}\) be a bounded sequence in \(X\). If \(S\) is compact then there is a subsequence \(\left\{x_{n(r)}\right\}\) such that \(\left\{S x_{n(r)}\right\}\) converges. Since \(T\) is bounded (and so is continuous), the sequence \(\left\{T S x_{n(r)}\right\}\) converges. Thus \(T S\) is compact. If \(S\) is bounded but not compact the the sequence \(\left\{S x_n\right\}\) is bounded. Then since \(T\) must be compact, there is a subsequence \(\left\{S x_{n(r)}\right\}\) such that \(\left\{T S x_{n(r)}\right\}\) converges, and again \(T S\) is compact.
+    </div>
+</div>
+<div class="lemma" id="lemma-riesz'" >
+    <div class="title">Riesz'</div>
+    <div class="content">
+        Suppose that \( X \) is a normed vector space, and that \( Y \) is a closed subspace of \( X \) where \( Y \neq X \) and \( \alpha \in \left( 0, 1 \right)  \) then there exists a \( \left\lVert x _ \alpha  \right\rVert = 1  \) and \( \left\lVert x _ \alpha  - y  \right\rVert \gt \alpha   \) for all \( y \in Y \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="theorem" id="theorem-the-unit-disk-nor-the-unit-circle-is-compact-in-an-infinite-dimensional-space" >
+    <div class="title">The Unit Disk nor the Unit Circle Is Compact in an Infinite Dimensional Space</div>
+    <div class="content">
+        TODO: Add the content for the theorem here.
+    </div>
+
+    <div class="proof">
+        Suppose that \( x _ 1 \in K \) then since \( X \) is not finite dimensional it must be the case that \( \operatorname{ span } \left( x _ 1 \right) \neq X  \), <a class="knowledge-link" href="/analysis/linear_operators.html#corollary-every-finite-dimensional-subspace-of-a-normed-vector-space-is-closed">now we know that \( \operatorname{ span } \left( x _ 1 \right)   \) is closed</a> and therefore we obtain some \( x _ 2 \in K \) such that 
+        \[
+        \left\lVert x _ 2 - \alpha x _ 1 \right\rVert \ge \frac{ 3 }{ 4 } 
+        \] 
+    </div>
+</div>
+<div class="theorem" id="theorem-the-identity-operator-on-an-infinite-dimensional-space-is-not-compact" >
+    <div class="title">The Identity Operator on an Infinite Dimensional Space Is Not Compact</div>
+    <div class="content">
+        If \( X \)  is an infinite dimensional normed vector space then \( \operatorname{ id } _ X  \) is not compact
+    </div>
+    <div class="proof">
+        Recall that since there exists a sequence of unit vectors \( \left( x _ n \right) \in X  \) that does not have a convergent subsequence. This is a problem because \( \left( x _ n \right)  \) is a bounded sequence, but \( \left( \operatorname{ id } _ X \left( x _ n \right)   \right) = \left( x _ n \right)   \) doesn't have a convergent subsequence so \( \operatorname{ id } _ X  \) is not compact.
+    </div>
+</div>
+<div class="corollary" id="corollary-a-compact-operator-on-a-infinite-dimensional-space-is-not-invertible" >
+    <div class="title">A Compact Operator on a Infinite Dimensional Space Is Not Invertible</div>
+    <div class="content">
+        If \( X \) is an infinite-dimensional normed space and \( T \in K \left( X \right)  \), then \( T \) is not invertible
+    </div>
+
+    <div class="proof">
+        Suppose that \( T \) were invertible, so that \( T ^ { -1 }  \) exists, and that \( \operatorname{ id } _ X = T ^ { -1 }  \circ T  \), so that <a class="knowledge-link" href="/analysis/linear_operators.html#proposition-the-composition-of-linear-operators-is-compact-if-at-least-one-is">\( \operatorname{ id } _ X  \) is compact</a>, but then \( X \) was infinite dimensional, <a class="knowledge-link" href="/analysis/linear_operators.html#theorem-the-identity-operator-on-an-infinite-dimensional-space-is-not-compact">so \( \operatorname{ id } _ X  \) is not compact </a> so that \( T \) is not invertible.
+    </div>
+</div>
+<div class="proposition" id="proposition-compact-symmetric-operators-that-commute-can-be-simultaneously-diagonalized" >
+    <div class="title">Compact Symmetric Operators That Commute Can Be Simultaneously Diagonalized</div>
+    <div class="content">
+Suppose that \( \mathcal{ H }  \) is a hilbert space,  if \(T, S: \mathcal{H} \rightarrow \mathcal{H}\) are compact symmetric operators which commute, i.e. \(\left(T S=\right.\) \(S T\) ), show that they can be diagonalized simultaneously. In other words, there exists an orthonormal basis for \(\mathcal{H}\) which consists of eigenvectors for both \(T\) and \(S\).
+    </div>
+
+    <div class="proof">
+        Suppose \(\lambda_i\) are the collection of eigenvalues of \(T\) and \(E_{\lambda_i}\left(T\right)\) are the corresponding eigenspaces. Then we will show that an orthogonal collection in \(E_{\lambda_i}\) also are eigenvectors of \(S\). Suppose that \(f_1, f_2, \ldots f_n\) forms a basis for \(E_\lambda\), then
+        \[
+        T f_j=\lambda_1 f_j .
+        \]
+        So that,
+        \[
+        T S f_j=S T f_j=\lambda S f_j,
+        \]
+        i.e., \(S f_j \in E_\lambda\left(T\right)\), i.e.
+        \[
+        S f_j=\sum_{i=1}^n \alpha_{i, j} f_i
+        \]
+        Thus, \(S: E_\lambda \rightarrow E_\lambda\) can be represented as an \(n \times n\) matrix with entries \(\alpha_{i, j}\). From the symmetry of \(S\), it follows that \(\alpha_{i, j}=\alpha_{j, i}\) and thus, the orthogonal matrix has a collection of orthogonal eigenvectors of the mapping \(S\). This, shows that every eigenvector of \(T\) with eigenvalue not equal to 0 is also an eigenvector of \(S\). For \(\lambda=0\), a similar proof shows that \(S: \operatorname{ null } \left(T\right) \rightarrow \operatorname{ null } \left(T\right)\) and it follows from the spectral theorem, that there exists an orthogonal basis of \( \operatorname{ null } \left(T\right)\) which are the eigenvectors of \(S\) too.
+    </div>
+</div>
+<div class="proposition" id="proposition-complex-form-of-a-linear-operator" >
+    <div class="title">Complex Form of a Linear Operator</div>
+    <div class="content">
+Let \( \mathcal{ H }  \)  be a separable Hilbert space and assume that \( T : \mathcal{ H } \to \mathcal{ H } \)  is a compact normal bounded operator, then there exist a pair of commuting compact self-adjoint operators \( A, B: \mathcal{ H } \to \mathcal{ H }   \)  such that \( T = A + Bi \) 
+    </div>
+    <div class="proof">
+        <p>
+            Define the real part \( A \) and imaginary part \( B \) of \( T \) as follows:
+            \[
+            A := \frac{T + T^*}{2}, \quad B := \frac{T - T^*}{2i},
+            \]
+            where \( T^* \) denotes the adjoint of \( T \).
+        </p>
+        <p>
+            We now show that \( A \) and \( B \) are self-adjoint, we verify that \( A^* = A \) and \( B^* = B \).
+            \[
+            A^* = \left( \frac{T + T^*}{2} \right)^* = \frac{T^* + (T^*)^*}{2} = \frac{T^* + T}{2} = A.
+            \]
+            so that, \( A \) is self-adjoint, onto \( B \) 
+            \[
+            B^* = \left( \frac{T - T^*}{2i} \right)^* = \frac{T^* - T}{-2i} = \frac{T - T^*}{2i} = B.
+            \]
+            Thus, \( B \) is also self-adjoint. 
+        </p>
+        <p>
+            \( A, B \) are also compact as the compact linear operators form a linear subspace of the bounded operators.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-trace-class-linear-operator" >
+    <div class="title">Trace-class Linear Operator</div>
+    <div class="content">
+        Let \(\mathcal{H}\) be a Hilbert space. A linear operator \(A: \mathcal{H} \rightarrow \mathcal{H}\) is called trace-class if its trace-class norm
+        \[
+        \|A\|_{\mathrm{tc}}=\sup _{\left(v_n\right),\left(w_n\right)} \sum_{n=1}^N\left|\left\langle A v_n, w_n\right\rangle\right|
+        \]
+        is finite, where the supremum is taken over all integers \(N \geqslant 0\) and over any two finite lists of orthonormal vectors \(\left(v_1, \ldots, v_N\right)\) and \(\left(w_1, \ldots, w_N\right)\) of the same length \(N\).
+    </div>
+</div>
+<h1>Algebra</h1>
+<div class="definition" id="definition-algebra" >
+    <div class="title">Algebra</div>
+    <div class="content">
+        Suppose that \( A \) is a vector spac,e and a map \( A \times A \to A \) which is bilinear. An algebra is such a structure such that \( \left( a b \right) c = a \left( b c \right) \) 
+    </div>
+</div>
+<div class="definition" id="definition-unital" >
+    <div class="title">Unital</div>
+    <div class="content">
+        An algebra is said to be unity if there exists an element \( 1 \in A \) such that 
+        \[
+          1 a =  a 1 = a
+        \] 
+        for any \( a \in A \) 
+    </div>
+</div>
+<div class="definition" id="definition-unital-subalgebra" >
+    <div class="title">Unital Subalgebra</div>
+    <div class="content">
+        \( B \) is called a unital subalgebra if \( B \) is a subalgebra of \( A \) and \( 1 \in B \) 
+    </div>
+</div>
+<p>
+    Consider \( A = C \left( \left[ 0, 1 \right] \cup \left[ 2, 3 \right]   \right) \) which is a unital algebra over pointwise operations, then if we set \( B = \left\{ f \in A : f | \left[ 2, 3 \right] = 0  \right\} \equiv C \left( \left[ 0, 1 \right]  \right)  \) which is not a unital subalgebra.
+</p>
+<div class="definition" id="definition-subalgebra" >
+    <div class="title">Subalgebra</div>
+    <div class="content">
+        A subalgebra of \( A  \) is a subacpe of \( B \subseteq A \) such that for any \( a, b \in B \) such that \( ab \in B \) 
+    </div>
+</div>
+<div class="definition" id="definition-normed-algebra" >
+    <div class="title">Normed Algebra</div>
+    <div class="content">
+        if \( \lVert \cdot  \rVert  \) is a norm on \( A \) and \( \lVert \cdot  \rVert  \) is submultiplicative, that is 
+        \[
+            \lVert a b \rVert \le \lVert a \rVert \lVert b \rVert 
+        \] 
+        Then \( A \) is a normed algebra
+    </div>
+</div>
+<div class="definition" id="definition-unital-normed-algebra" >
+    <div class="title">Unital Normed Algebra</div>
+    <div class="content">
+        If \( A \) is a normed algebra and \( \lVert 1 \rVert = 1  \) then \( A \) is said to be a <b>unital normed algebra</b>
+    </div>
+</div>
+<div class="definition" id="definition-banach-algebra" >
+    <div class="title">Banach Algebra</div>
+    <div class="content">
+        A completed normed algebra is a <b>Banach Algebra</b>
+    </div>
+</div>
+<div class="definition" id="definition-sup-norm" >
+    <div class="title">Sup Norm</div>
+    <div class="content">
+        \[
+          \left\lVert f  \right\rVert _ \infty = \sup _ { x \in S } \left\lVert f \left( x \right)  \right\rVert 
+        \] 
+    </div>
+</div>
+<div class="exercise" id="exercise-continuous-and-bounded-functions-with-the-sup-norm-form-a-unital-c*-algebra" >
+    <div class="title">Continuous and Bounded Functions With the Sup-norm Form a Unital C* Algebra</div>
+    <div class="content">
+        Suppose that \( X \) is a compact hausdorff topological space, then \( C _ b \left( X \right) = \left\{ f : X \to \mathbb{ C } : f \text{ is continuous and bounded } \right\}   \) is a unital \( C ^ \ast \)-algebra when equipped with the sup-norm
+    </div>
+    <div class="proof">
+        <p>
+            The set \( C_b(X) \) consists of functions from \( X \) to \( \mathbb{C} \) that are continuous and bounded. It is closed under addition and scalar multiplication, if \( f, g \in C_b(X) \), then the function \( (f + g)(x) = f(x) + g(x) \) is continuous (since the sum of continuous functions is continuous) and bounded (since the sum of two bounded functions is bounded). Similariy for any \( \alpha \in \mathbb{C} \) and \( f \in C_b(X) \), the function \( (\alpha f)(x) = \alpha f(x) \) is also continuous and bounded. Therefore, \( C_b(X) \) is a vector space over \( \mathbb{C} \).
+        </p>
+        <p>
+            We also need to show that \( C_b(X) \) is closed under pointwise multiplication, so if \( f, g \in C_b(X) \), the function \( (f \cdot g)(x) = f(x) g(x) \) is continuous (since the product of continuous functions is continuous) and bounded (the product of two bounded functions is bounded) so, \( C_b(X) \) is an algebra over \( \mathbb{C} \).
+        </p>
+        <p>
+            We define the sup-norm \( \|f\|_\infty = \sup_{x \in X} |f(x)| \). We check the properties of a norm: For non-negativity, we see: \( \|f\|_\infty \geq 0 \) for all \( f \), and \( \|f\|_\infty = 0 \) if and only if \( f = 0 \). Scalar multiplication also holds for \( \alpha \in \mathbb{C} \) and \( f \in C_b(X) \),
+            \[
+                \|\alpha f\|_\infty = \sup_{x \in X} |\alpha f(x)| = |\alpha| \sup_{x \in X} |f(x)| = |\alpha| \|f\|_\infty.
+            \]
+
+            as does the triangle inequality, given \( f, g \in C_b(X) \),
+            \[
+                \|f + g\|_\infty = \sup_{x \in X} |f(x) + g(x)| \leq \sup_{x \in X} |f(x)| + \sup_{x \in X} |g(x)| = \|f\|_\infty + \|g\|_\infty.
+            \]
+        </p>
+        <p>
+            We must verify the C*-algebra condition, we need to show that:
+            \[
+            \|f^* f\|_\infty = \|f\|_\infty^2.
+            \]
+            Here, \( f^* \) is defined as the complex conjugate of \( f \), so:
+            \[
+            f^* f(x) = |f(x)|^2.
+            \]
+            Thus,
+            \[
+            \|f^* f\|_\infty = \sup_{x \in X} |f(x)|^2 = \left(\sup_{x \in X} |f(x)|\right)^2 = \|f\|_\infty^2.
+            \]
+        </p>
+        <p>
+            The constant function \( 1 \) (where \( 1(x) = 1 \) for all \( x \in X \)) is in \( C_b(X) \) and acts as a multiplicative identity:
+            \[
+            f \cdot 1 = f \quad \text{for all } f \in C_b(X).
+            \]
+            This shows that our algebra is unital
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-spectrum" >
+    <div class="title">Spectrum</div>
+    <div class="content">
+        \[
+         \sigma \left( a \right)  = \left\{ \lambda \in \mathbb{ C } : \lambda 1 _ A - a \notin \operatorname{ inv } \left( A \right)    \right\} 
+        \] 
+    </div>
+</div>
+<div class="theorem" id="theorem-gelfand" >
+    <div class="title">Gelfand</div>
+    <div class="content">
+        If \( a \) is an element of a unital banach algebra \( A \) then \( \sigma \left( a \right) \neq \emptyset   \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-spectral-radius" >
+    <div class="title">Spectral Radius</div>
+    <div class="content">
+        Suppose that \( a \) is an element of a banach algebra \( A \) then its spectral radius is defined as 
+        \[
+          r \left( a \right) = \sup _ { \lambda \in \sigma \left( a \right)  } \left\lvert \lambda  \right\rvert 
+        \] 
+    </div>
+</div>
+
+<div class="definition" id="definition-multiplicative-linear-functional" >
+    <div class="title">Multiplicative Linear Functional</div>
+    <div class="content">
+        A <b>multiplicative linear functional</b> \( \tau \) is a linear map \( \tau : A \to \mathbb{C} \) that satisfies:
+        <ul>
+            <li>
+                 Multiplicativity: \( \tau(ab) = \tau(a) \tau(b) \) for all \( a, b \in A \).
+            </li>
+            <li>
+                Unital property: \( \tau(1) = 1 \), where \( 1 \) is the multiplicative identity in \( A \).
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-gelfand-space" >
+    <div class="title">Gelfand Space</div>
+    <div class="content">
+        In the context of a unital commutative Banach algebra \( A \), \( \Delta(A) \) denotes the <b>Gelfand space</b> of \( A \) defined as:
+        \[
+        \Delta(A) = \{ \tau : A \to \mathbb{C} \mid \tau \text{ is a nonzero multiplicative linear functional on } A \}.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-gelfand-transformation" >
+    <div class="title">Gelfand Transformation</div>
+    <div class="content">
+        Let \(A\) be an algebra. For \(a \in A\), one defines
+        \[
+        \widehat{a}(\tau):=\tau(a) \quad(\tau \in \Delta(A))
+        \]
+
+        The function
+
+        \[
+        \begin{align*}
+        \widehat{a}: \Delta(A) & \rightarrow \mathbb{C} \\
+        \tau & \mapsto \widehat{a}(\tau) .
+        \end{align*}
+        \]
+
+        is called the Gelfand transform of \(a\).
+    </div>
+</div>
+
+<h2>unitization</h2>
+
+<div class="definition" id="definition-unitization" >
+    <div class="title">Unitization</div>
+    <div class="content">
+        Let \(A\) be an algebra. If \(A\) is unital, one defines \(\widetilde{A}:=A\). Assume now that \(A\) has no unit. One then defines \(\widetilde{A}:=\mathbb{C} \oplus A\) (direct sum of vector spaces). One imbeds \(A\) into \(\widetilde{A}\) via \(a \mapsto(0, a)\). One defines \(e:=(1,0)\), so that \((\lambda, a)=\lambda e+a\) for \(\lambda \in \mathbb{C}\), \(a \in A\). In order for \(\widetilde{A}\) to become a unital algebra with \(e\) as unit and with multiplication extending the one in \(A\), the multiplication in \(\widetilde{A}\) must be defined by
+
+        \[
+        (\lambda e+a)(\mu e+b)=(\lambda \mu) e+(\lambda b+\mu a+a b) \quad(\lambda, \mu \in \mathbb{C}, a, b \in A)
+        \]
+
+        and this definition indeed satisfies the requirements. One says that \(\widetilde{A}\) is the unitisation of \(A\). If \(A\) is a \(*\)-algebra, one makes \(\widetilde{A}\) into a unital *-algebra by putting
+
+        \[
+        (\lambda e+a)^*:=\bar{\lambda} e+a^* \quad(\lambda \in \mathbb{C}, a \in A) .
+        \]
+
+    </div>
+</div>
+
+<div class="theorem" id="theorem-abstract-wiener's" >
+    <div class="title">Abstract Wiener's</div>
+    <div class="content">
+        Let \( A \) be a unital commutative banach algebra. An element \( a \) is not invertible in \( A \) iff \( \widehat{a}  \) vanishes at some \( \tau \in \Delta \left( A \right)  \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-spectrum-is-the-gelfand-image-of-multiplicative-functionals" >
+    <div class="title">Spectrum Is the Gelfand Image of Multiplicative Functionals</div>
+    <div class="content">
+        Let \( A \) be a commutative Banach algebra. For \( a \in \widetilde{A} \) then we have 
+        \[
+          \operatorname{ sp } \left( a \right) = \widehat{a} \left( \Delta \left( \widetilde{A} \right)  \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+    Note that the following statements are equivalent.
+    \[
+        \begin{align*}
+        & \lambda \in \operatorname{sp}(a), \\
+        & \lambda e-a \text { is not invertible in } \widetilde{A}, \\
+        & (\widehat{\lambda e-a})(\widetilde{\tau})=0 \text { for some } \widetilde{\tau} \in \Delta(\widetilde{A}), \quad \text { by Abstract Weiner's }\\
+        & \lambda=\widehat{a}(\widetilde{\tau}) \text { for some } \widetilde{\tau} \in \Delta(\widetilde{A}) .
+        \end{align*}
+    \]
+    </div>
+</div>
+<div class="proposition" id="proposition-spectral-sub-additivity-and-multiplicativity" >
+    <div class="title">Spectral Sub Additivity and Multiplicativity</div>
+    <div class="content">
+    Let A be a commutative Banach algebra. For two elements \(a, b\) of \(A\) we have
+    \[
+        \begin{align*}
+        \mathrm{sp}(a+b) & \subset \operatorname{sp}(a)+\operatorname{sp}(b) \\
+        \operatorname{sp}(a b) & \subset \operatorname{sp}(a) \operatorname{sp}(b)
+        \end{align*}
+    \]
+    </div>
+    <div class="proof">
+        <p>
+            Suppose that \( \lambda \in \operatorname{ sp } \left( a + b \right)   \) then <a class="knowledge-link" href="/analysis/linear_operators.html#proposition-spectrum-is-the-gelfand-image-of-multiplicative-functionals">there exists</a> \(\widetilde{\tau} \in \Delta(\widetilde{A})\) such that \(\widetilde{\tau}(a + b)=\lambda\), but then \( \widetilde{\tau}  \) was linear so that we have \( \lambda = \widetilde{\tau} \left( a \right) + \widetilde{\tau} \left( a \right)  \) which is an element of \( \operatorname{ sp } \left( a \right) + \operatorname{ sp } \left( b \right)     \) by the same proposition, as needed.
+        </p>
+        <p>
+            For multiplication the same reasoning holds but instead of using the linearity we use the multiplicativity. 
+        </p>
+    </div>
+</div>
+
+
+
+(1.13). Definition (unitisation). 
+<p>
+    Consider \( \ell ^ \infty \left( X \right)  \) (the collection of bounded functions from \( S \) into \( C \)   with the sup norm, then it is a banach algebra, also it is unital with the constant 1 function, and moreover is commutative
+</p>
+<p>
+    \( C _ b \left( X \right)  \) where \( X \) is a non-empty topological space with the sup norm is a banach algebra also it is unital with the constant 1 function, and moreover is commutative
+</p>
+<p>
+    \( C _ 0 \left( X \right)  \) the functions which vanish at infinity, where \( X \) is a locally compact hausdorff space is also a banach algebra
+</p>
+<p>
+    in a measure space, then \( L ^ \omega \left( X, \mu \right)  \) the measure space is also a banach algebra
+</p>
+<p>
+    A = disk algebra, \( \left\{ f \in C \left( \bar D \right) : f \text{ is holo on } \operatorname{ int } \left( D \right)   \right\}  \) where \( D \) is the unit disk in \( \mathbb{ C }  \) is not a banach algebra. Note that this is not a \( C ^ * \) algebra
+</p>
+<p>
+    \( X \) is a NVS and \( Y \) a baanch space, then \( B \left( X, Y \right)  \) the bounded functions? is a banach algebra
+</p>
+<p>
+    \( M _ n \left( \mathbb{ C }  \right)  \) the matrix algebras (n x n matrices with values in C), are banach algebras
+</p>
+<p>
+    \( M _ n \left( A  \right)  \) is a banach algebra whenever \( A \) is.
+</p>
+<h1>Now a bunc of facts from tutotirla</h1>
+<p>
+    If \( A \) is a banach algebra and \( I \) is a proper ideal in \( A \) then \( \bar I \) is also a proper ideal in \( A \) implies that maximal ideals are closed.
+</p>
+<p>
+    I is a closed ideal in A implies A / Iis a banach algebra
+</p>
+<p>
+    Given a homomorphism \( \phi : A \to B \) then \( \operatorname{ ker } \left( \phi  \right)   \) is a closed ideal and \( \phi  \) is unitl if \( \phi \left( 1 _ A \right) = 1 _ B  \) 
+</p>
+<p>
+    Suppose that \( A \) is unital, and \( p \left( z \right) \in \mathbb{ C } \left[ x \right]   \) then given any \( a \in A \) we can construct a map \( \operatorname{ ev } _ a : \mathbb{ C } \left[ z \right] \to A   \) via \( p \left( z \right) = p\left( a \right)   \) is an algebra homomorphism.
+</p>
+<p>
+    Def: \( a \in A \) , then \( \operatorname{ sp } \left( a \right) = \left\{ \lambda \in \mathcal{ C } : a - \lambda \notin \operatorname{ GL } \left( A \right)    \right\}    \) is closed, and you can show that \( \lambda \in \operatorname{ sp } \left( a \right)   \) then \( \lVert \lambda  \rVert \le \lVert a \rVert   \) 
+</p>
+<p>
+    If \( A \) is a banach algebra, then we do Unitization, making \( A ^ \prime  = A \circplus \mathcal{ C }  \) as a vector space, if you define multiplication component wise it turns out not to be unital, but instead if you do \( \left( a, \lambda  \right) \cdot \left( b, \mu \right) = \left( ab + \lambda b + \mu a, \lambda \mu \right)    \) this multiplication makes \( A ^ ' \) into a uanital algebra with unit \( \left( 0, 1 \right)  \) and \( \lVert a + \lambda  \rVert = \max \left( \lVert a \rVert, \left\lvert \lambda  \right\rvert    \right)   \) 
+</p>
+<div class="definition" id="definition-c-star-algebra" >
+    <div class="title">C Star Algebra</div>
+    <div class="content">
+        A \( C ^ * \) algebra \( \mathcal{ A }  \)  is a <a class="knowledge-link" href="/analysis/linear_operators.html#definition-banach-algebra">banach algebra</a> over the complex numbers, equipped with an involution (the \( * \) operation) satisfying the following properties, first of the algebra:
+        <ul>
+            <li>\( \mathcal{ A }  \) is a vector space over \( \mathcal{ C }  \)  </li>
+            <li>\( a \left( b + c \right) = a b + ac  \) </li>
+            <li>\( \left( \lambda a \right) b = \lambda \left( a b \right) \) </li>
+        </ul>
+        then of the involution, stating that there is a map \( * : \mathcal{ A } \to \mathcal{ A } \) called the involution satisfying
+        <ul>
+            <li>\( \left( a ^ * \right) ^ * = a  \) </li> 
+            <li>\( \left( a + b \right) ^ * = a ^ * + b ^ *   \) </li> 
+            <li>\( \left( \lambda a \right) ^* = \bar \lambda a ^ * \) </li> 
+            <li>\( \left( a b \right) ^ * = b ^ * a ^ *  \) </li> 
+        </ul>
+        Interaction with the norm
+        <ul>
+            <li>\( \lVert a * a \rVert = \lVert a \rVert ^ 2 \) </li>
+        </ul>
+    </div>
+</div>
+<div class="theorem" id="theorem-open-mapping-theorem" >
+    <div class="title">Open Mapping Theorem</div>
+    <div class="content">
+        Let \( B _ 1, B _ 2 \) be two <a class="knowledge-link" href="/analysis/linear_operators.html#definition-banach-space">banach space</a> and let \( T \in \mathcal{ B } \left( B_1, B_2 \right)   \) be a surjective linear operator, then \( T \) is a <a class="knowledge-link" href="/topology/quotient_topology.html#definition-open-map">open map</a>
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-fredholm-operators-plus-finite-rank-operators-are-fredholm-operators" >
+    <div class="title">Fredholm Operators Plus Finite Rank Operators Are Fredholm Operators</div>
+    <div class="content">
+        \[
+          \operatorname{ Fred } \left( V \right) + \operatorname{ FinRan } \left( V \right) = \operatorname{ Fred } \left( V \right)
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            First step is to reduce to the special case of \( \operatorname{ index } \left( T \right) = 0   \) so that the dimension of the kernel and kernel have the same dimension and thus are isomorphic so there is a bijective funciton between them.
+        </p>
+        <p>
+            So now we reduce to the case where \( T \) is invertible,
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-the-product-of-linear-operators-with-index-still-has-index" >
+    <div class="title">The Product of Linear Operators With Index Still Has Index</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+<h1>Spectral Theorem for Normal Operators</h1>
+
+https://personal.math.ubc.ca/~feldman/m511/spectralReview.pdf
+https://math.dartmouth.edu/~dana/bookspapers/ln-spec-thm.pdf
+
+
+
+
+<div class="lemma" id="lemma-a-bounded-linear-operator-has-non-empty-spectrum" >
+    <div class="title">A Bounded  Linear Operator Has Non-empty Spectrum</div>
+    <div class="content">
+        Let \(B\) be a Banach space over \(\mathbb{C}\) and \( T \) a bounded linear operator on \( B \) the spectrum \( \operatorname{ sp } (T)\) of \(T\) is non-empty.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+<div class="lemma" id="lemma-an-eigenvalue-for-a-normal-linear-operator-is-an-eigenvalue-for-the-adjoint-when-taking-the-conjugate" >
+    <div class="title">An Eigenvalue for a Normal Linear Operator Is an Eigenvalue for the Adjoint When Taking the Conjugate</div>
+    <div class="content">
+        If \( T \in B \left( \mathcal{ H }  \right)  \) is normal, and if \( \lambda , v \) is an eigen value vector pair, then \( v \) is an eigen vector for \( T ^ * \) with eigen value \( \bar \lambda  \) 
+    </div>
+
+    <div class="proof">
+        Consider the eigenspace of \( \lambda  \), that is  \(\mathcal{E}_\lambda=\{v \in \mathcal{H}: T v=\lambda v\}\). Since \( T \) is normal then we have:  \(T T^* v=T^* T v=\lambda T^* v\), which shows that \(T^* v \in \mathcal{E}_\lambda\). If \(w \in \mathcal{E}_\lambda\), then
+
+        \[
+        \begin{align*}
+            \left(T^* v-\bar{\lambda} v, w\right) & =\left(T^* v, w\right)-\bar{\lambda}(v, w) \\
+            & =(v, T w)-\bar{\lambda}(v, w) \\
+            & =0
+        \end{align*}
+        \]
+
+
+        Since \(T^* v-\bar{\lambda} v \in \mathcal{E}_\lambda\), we have \(T^* v=\bar{\lambda} v\).
+    </div>
+</div>
+
+
+
+<h2>spectral theory of banach algebras</h2>
+
 
 embryionic spectral theorem for any p in R[x] and T = T* (adjoint) >= 0, 
 
@@ -487,6 +1336,24 @@ define f(T), f in C_r([-||T||, ||T||])
       add the 
 
 
+
+
 https://www.math.mcgill.ca/jakobson/courses/ma667/mendelsontomberg-spectral.pdf
+https://www.math.uwo.ca/faculty/khalkhali/files/Fredholm.pdf
+https://math.stackexchange.com/questions/282140/the-inclusion-relation-sigmaab-subseteq-sigmaa-sigmab-is-not-true
+https://mathoverflow.net/questions/14246/spectra-of-sums-and-products-in-banach-algebras-was-spectrum-in-banach-algeb
+https://math.stackexchange.com/questions/4668576/infinity-norm-and-operator-norm-question
+https://www.math.ucdavis.edu/~anne/WQ2007/mat67-Ll-Spectral_Theorem.pdf
+https://math.libretexts.org/Bookshelves/Linear_Algebra/Book%3A_Linear_Algebra_(Schilling_Nachtergaele_and_Lankham)/11%3A_The_Spectral_Theorem_for_normal_linear_maps/11.01%3A_Self-adjoint_or_hermitian_operators
+http://www.math.ucdavis.edu/~anne/linear_algebra/mat67_course_notes.pdf
+https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/8fb8d5c170f1613151aca71de21027bc_MIT18_102s21_full_lec.pdf
+https://math.libretexts.org/Bookshelves/Linear_Algebra/Book%3A_Linear_Algebra_(Schilling_Nachtergaele_and_Lankham)/11%3A_The_Spectral_Theorem_for_normal_linear_maps/11.01%3A_Self-adjoint_or_hermitian_operators
+http://pfister.ee.duke.edu/courses/ecen601/notes_ch5.pdf
+https://math.stackexchange.com/questions/4050748/reference-for-wold-decomposition-theorem-operator-theory
+https://en.wikipedia.org/wiki/Direct_sum
+https://en.wikipedia.org/wiki/Orthogonal_complement
+https://arxiv.org/pdf/math/0701306#theorem.2.14.12
 
-
+    use this one for essay:
+https://tqft.net/web/teaching/current/Analysis3/LectureNotes/03.Compact.operators.pdf
+https://www.math.ucdavis.edu/~anne/WQ2007/mat67-Ll-Spectral_Theorem.pdf

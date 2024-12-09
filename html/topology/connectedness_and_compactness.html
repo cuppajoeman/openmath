@@ -1,0 +1,373 @@
+<div class="definition" id="definition-separation" >
+    <div class="title">Separation</div>
+    <div class="content">
+        A separation of \( X \) are two open and non-empty disjoint sets \( A, B \) such that 
+        \[
+            X = A \sqcup B
+        \] 
+    </div>
+</div>
+<p>
+    When a separation can be found for \( X \) then we say that \( X \) is <b>separable</b>.
+</p>
+<div class="definition" id="definition-clopen" >
+    <div class="title">Clopen</div>
+    <div class="content">
+        We say that \( A \subseteq X \) is <b>clopen</b> when \( A \) is open and \( A \) is <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-closed-set">closed</a>
+    </div>
+</div>
+<div class="corollary" id="corollary-separation-iff-there-exists-a-non-trivial-clopen-set" >
+    <div class="title">Separation Iff There Exists a Non-trivial Clopen Set</div>
+    <div class="content">
+       A set \( X \)  is separable iff there exists some clopen \( A \subseteq X \) such that \( A \neq \emptyset , X \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-connected" >
+    <div class="title">Connected</div>
+    <div class="content">
+        We say that \( X \) is connected if it is non-empty and it has no separation
+    </div>
+</div>
+<div class="corollary" id="corollary-connected-iff-every-clopen-is-trivial" >
+    <div class="title">Connected Iff Every Clopen Is Trivial</div>
+    <div class="content">
+        \( X \) is connected iff every clopen set \( A \subseteq X \) is one of \( \emptyset , X \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="theorem" id="theorem-intermediate-value" >
+    <div class="title">Intermediate Value</div>
+    <div class="content">
+        Suppose that \( X \) is <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-connected">connected</a> and \( f : X \to \mathbb{ R }  \) is continuous, then for any \( x_0, x_1 \in X \) such that \( f \left( x _ 0 \right) \lt 0  \) and \( f \left( x _ 1 \right) \gt 0  \) then there is some \( p \in X \) such that \( f \left( p \right) = 0  \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="exercise" id="exercise-circle-function-has-a-meet-point" >
+    <div class="title">Circle Function Has a Meet Point</div>
+    <div class="content">
+        Let \( f : S ^ 1 \to \mathbb{ R }  \) be continuous, show that there is some \( z \in S ^ 1 \) such that \( f \left( z \right) = f \left( -z \right)   \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose it were not true, then if we consider the function \( g \left( x \right) = f \left( x \right) - f \left( -x \right)    \), then as a difference of continuous functions then they are continuous.
+        </p>
+        <p>
+            Let \( p \in S ^ 1 \)  suppose it's the case that \( f \left( p \right) \gt f \left( -p \right)   \), so then if that's the case then then we have that \( g \left( p \right) \gt 0  \). 
+        </p>
+        <p>
+            If \( p \in S ^ 1 \) then also \( \left\lVert -p \right\rVert = \left\lvert -1 \right\rvert \left\lVert p \right\rVert = 1   \) therefore \( -p \in S ^ 1 \), then note that \( g \left( -x \right) = - g \left( x \right) \) so \( g \left( - x \right) \lt 0  \) therefore since we know that \( S ^ 1 \) is connected, then by the intermediate value theorem there exists some \( z \in S ^ 1 \) such that \( g \left( z \right) = 0   \) which shows that \( f \left( z \right) = f \left( -z \right)   \) and therefore we have a contradition, so the statement must hold true. Note that when \( f \left( p \right) \lt f \left( -p \right)   \) we may use the same proof mirrored.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-path" >
+    <div class="title">Path</div>
+    <div class="content">
+        A path from \( a \) to \( b \) (which are elements of a set \( X \)) is a function \( \gamma : \left[ 0, 1 \right] \to X  \) which is continuous, and we have that \( \gamma \left( 0 \right) = a  \) and that \( \gamma \left( 1 \right) = b \)
+    </div>
+</div>
+<div class="definition" id="definition-path-connected" >
+    <div class="title">Path Connected</div>
+    <div class="content">
+        A non-empty set \( X \) is said to be <b>path-connected</b> if for any \( a, b \in X \) there is a <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-path">path</a> between them.
+    </div>
+</div>
+<div class="proposition" id="proposition-path-connected-implies-connected" >
+    <div class="title">Path Connected Implies Connected</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<!--<div class="proposition" id="proposition-the-topologists-sine-curve-is-connected-but-not-path-connected" >-->
+<!--    <div class="title">The Topologists Sine Curve Is Connected but Not Path Connected</div>-->
+<!--    <div class="content">-->
+<!--        The set \( S = ( -\infty , 0] \times \left\{ 0 \right\} \cup \left\{ \left( x, \sin \left( \frac{ 1 }{ x }  \right)  \right)  \right\}   \) is connected but not path connected-->
+<!--    </div>-->
+<!---->
+<!--    <div class="proof">-->
+<!--        <p>-->
+<!--            Suppose we had a clopen set \( A \) that contained \( \left( -1, 0 \right)  \), then it must contain \( ( -\infty , 0] \times \left\{ 0 \right\} \) otherwise we would have a separation which would be a contradiction since the ray is connected.-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            But then \( \left( 0, 0 \right) \in A  \) and since \( A \) is open then it contains a ball around \( \left( 0, 0 \right)  \), now this ball contains elements from the set \( \left\{ \left( x, \sin \left( \frac{ 1 }{ x }  \right)  \right)  \right\} \), since this set is path connected and htus connected, then it also means that \( A \) must contain this set as well, showing that \( A \) is the entire set, so that any clopen set is trivial.-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            If instead we had a clopen set that did not contain \( \left( -1, 0 \right)  \) then we've shown it's complement is everything so that it must be \( \emptyset  \). Thus we've proven that the set is connected.-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            TODO: now prov ethat it is not path connected.-->
+<!--        </p>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="proposition" id="proposition-the-topologists-sine-curve-is-connected-but-not-path-connected" >
+    <div class="title">The Topologists Sine Curve Is Connected but Not Path Connected</div>
+    <div class="content">
+        Consider \( S = \left\{ \left( x, \sin \left( \frac{ 1 }{ x }  \right)  \right)  \right\}   \) and then we have \( \bar S = \left\{ 0 \right\} \times \left[ -1, 1 \right]   \) which we denote as the <b>topologists sine curve</b>, then \( \bar S\)  is connected but not path connected
+    </div>
+
+    <div class="proof">
+        <p>
+            Firstly we note that \( S \) is the image of the connected set \( [0, 1) \) under a continuous map and therefore \( S \) is connected, thus \( \bar S \) is connected.
+        </p>
+        <p>
+            It is not path connected, for the sake of contradiction suppose that it was, then there would be path \( \gamma: \left[ 0, 1 \right] \to \bar S \)  from \( \left( 0, 0 \right)  \) to any point \( s \in S \), since the set \( \left\{ t : \gamma \left( t \right) \in 0 \times \left[ -1, 1 \right]   \right\}  \) is closed, then it has a largest element \( b \).
+        </p>
+        <p>
+            Now we know that \( \gamma \left( b \right) \in \left\{ 0 \right\} \times \left[ -1, 1 \right]    \) and that for any \( t \in \left[ b, 1 \right]  \) we have that \( \gamma \left( t \right) \in S  \) as \( \gamma \left( t \right) \notin \left\{ 0 \right\} \times \left[ -1, 1 \right]    \) . Now we can re-parameterize \( \gamma \) on \( \left[ b, 1 \right]  \) to \( \gamma ^ \prime \) defined on \( \left[ 0, 1 \right]  \).
+        </p>
+        <p>
+            Write \( \gamma ^ \prime  \left( t \right) = \left( \gamma ^ \prime _ 1 \left( t \right), \gamma _ 2 ^ \prime \left( t \right)   \right)  \), with this we have \( \gamma  ^ \prime \left( 0 \right) = \left( 0, b \right)   \) and that for any \( t \gt 0 \)  we have \( \gamma _ 1 ^ \prime \left( t \right) \gt 0  \) and that \( \gamma _ 2 ^ \prime \left( t \right) = \frac{ 1 }{ \gamma _ 1 ^ \prime \left( t \right)   }   \). For the contradiction we will contradict the continuity of \( \gamma _ 2 ^ \prime  \) <a class="knowledge-link" href="/topology/continuous_functions.html#proposition-given-a-convergent-sequence-then-the-continuous-image-also-converges">by constructing a sequence</a> \( t _ n \to 0 \) such that \( \gamma _ 2 ^ \prime \left( t _ n \right) = \left( -1 \right) ^ n   \), that is we will construct a sequence whose image doesn't converge, showing that it is not continuous by the contra-positive.
+        </p>
+        <p>
+            We proceed by fixing \( n \in \mathbb{ N } _1 \) and then we can pick an element \( c \in \left( 0, \gamma _ 1 ^ \prime \left( \frac{ 1 }{ n }  \right)  \right)  \) of the form \( c = \frac{ 1 }{ m \pi  + \frac{ \pi  }{ 2 }   }  \) so that \( \gamma _ 2 ^ \prime \left( c \right) = \left( -1 \right) ^ n   \) (by choosing \( m \) to have the same parity as \( n \)). Then we apply the intermediate value to find a \( t _ n \) such that \( t _ n \in \left( 0, \frac{ 1 }{ n }  \right)  \) and \( \gamma _ 1 ^ \prime \left( t _ n \right) = c  \), thus we've constructed the contradicting sequence, so it must be impossible that \( \bar S \) is path connected.
+        </p>
+    </div>
+</div>
+<p>
+    Note that due to the above theorem it's not true that the closure of any path connected set is always path connected, this is seen with \( S = \left\{ \left( x, \sin \left( \frac{ 1 }{ x }  \right)  \right)  \right\}  \) is clearly path connected via the given map, but as noted above \( \bar S \) is not path connected.
+</p>
+<div class="proposition" id="proposition-balls-in-rn-are-path-connected" >
+    <div class="title">Balls in Rn Are Path Connected</div>
+    <div class="content">
+        Suppose that \( x \in \mathbb{ R } ^ n \) and that \( \epsilon \in \mathbb{ R } ^ { \gt 0 } \) then \( B \left( x, \epsilon  \right)  \) is path connected
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="exercise" id="exercise-any-open-connected-subset-of-rn-is-path-connected" >
+    <div class="title">Any Open Connected Subset of Rn Is Path-connected</div>
+    <div class="content">
+        Suppose that \( U \subseteq \mathbb{ R } ^ n \) is open and connected, then \( U \) is path connected
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \( p \in U \) and set \( R _ p \) to be the collection of points which are reachable by a path from \( p \), we'll show this set is open, so consider any \( q \in R _ p \) then since \( R _ p \subseteq U \) we know that \( q \in U \) which is open and thus there exists a ball \( B _ d \left( q, \epsilon  \right) \subseteq U  \) but now consider any \( b \in B _ d \left( q, \epsilon  \right) \) since \( B _ d \left( q, \epsilon  \right)  \) <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#proposition-balls-in-rn-are-path-connected">is path-connected</a> then by joining the path from \( p \) to \( q \) and the path frpm \( q  \) to \( b \) we obtain a path from \( p  \) to \( b \) so then \( b \) is reachable with a path from \( p \) so that \( b \in R _ p \) this shows that \( q \in B \left( q, \epsilon  \right) \subseteq R _ p  \) so that \( R _ p \) is an open set in \( U \) 
+        </p>
+        <p>
+           Following a similar thread we can actually show that \( U \setminus R _ p \) is an open set, to see why let \( j \in U \setminus R _ p \) since \( j \in U \) and \( U \) open then there exists \( \epsilon  \) such that \( B _ d \left( j, \epsilon  \right) \subseteq U  \), now if any point in \( B _ d \left( j, \epsilon  \right)  \) could be joined to \( p \) we have a problem, as since \( B _ d \left( j, \epsilon  \right)  \) is connected, then we can connected one path to another constructing a path from \( j \) to \( p \) which is impossible since \( j \) was one of the elements which couldn't be reached from \( p \), this shows that \( j \in B _ d \left( j, \epsilon  \right) \subseteq U \setminus R _ p \) which means that \( U \setminus R _ p \) is an open set, so we conclude that \( R _ p \) is closed.
+        </p>
+        <p>
+            Now we know that \( R _ p \) is clopen and that \( p \in R _ p \) so it is non-empty, since \( U  \) is connected, then this implies that \( R _ p = U \) to avoid contradiction, so that all points in \( U \) are reachable from the point \( p \) showing that \( U \) is path connected (connect the two paths you obtain).
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-open-cover" >
+    <div class="title">Open Cover</div>
+    <div class="content">
+        Given a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a> \( X \) and a subset \( S \subseteq X \), an <b>open cover</b> of \( S \) is a collection of open sets \( \{ U_\alpha \}_{\alpha \in A} \) (where \( A \) is an index set) such that:
+        \[
+        S \subseteq \bigcup_{\alpha \in A} U_\alpha
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-subcover" >
+    <div class="title">Subcover</div>
+    <div class="content">
+        Suppose that \( \mathcal{ C }  \) is a cover of \( S \subseteq X \) then we say that a set \( \mathcal{ S } \subseteq \mathcal{ C }   \) is a subcover of \( S \) if \( \mathcal{ S }  \) is an <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-open-cover">open cover</a> of it
+    </div>
+</div>
+<div class="definition" id="definition-compact" >
+    <div class="title">Compact</div>
+    <div class="content">
+        Given a set \( S \subseteq X \) in a topological space \( X \) it is <b>compact</b> if every open cover of \( S \) has a finite <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-subcover">subcover</a>
+    </div>
+</div>
+<div class="proposition" id="proposition-the-finite-complement-topology-on-an-uncountable-space-is-compact" >
+    <div class="title">The Finite Complement Topology on an Uncountable Space Is Compact</div>
+    <div class="content">
+        Suppose that \( X \) is an uncountable set with the finite complement topology, then \( X \) is compact.
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \( \{ U_\alpha \}_{\alpha \in A} \) be an open cover of \( X \) in the finite complement topology, so that:
+            \[
+            X \subseteq  \bigcup_{\alpha \in A} U_\alpha.
+            \]
+            since each \( U_\alpha \) is open in \( X \), then complement \( X \setminus U_\alpha \) is finite for each \( \alpha \in A \).
+        </p>
+        <p>
+            If there exists some \( U_{\alpha_0} = X \), then \( \{ U_{\alpha_0} \} \) covers \( X \), then that itself is an finite sub-cover of \( X \) so we are done.
+        </p>
+        <p>
+            Now suppose that none of the \( U_\alpha \) are equal to \( X \), and let \( \beta \in A \) and consider \( U _ \beta \), since \( X \setminus U _ \beta \) is finite and non-empty so it equals \( \left\{ u _ 1, \ldots , u _ n \right\}  \), since \( \{ U_\alpha \}_{\alpha \in A} \) was an open cover, then for each \( u _ i  \) there exists a \( U _ { \alpha _ i } \) containing it, thus \( \left\{ U _ \beta, U _ { \alpha _ 1 }, \ldots , U _ { \alpha _ n }  \right\}  \) is a finite subcover as needed.
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-the-countable-complement-toplogy-on-an-uncountable-set-may-not-be-compact" >
+    <div class="title">The Countable Complement Toplogy on an Uncountable Set May Not Be Compact</div>
+    <div class="content">
+        Suppose that \( X \) is uncountable, then in the <a class="knowledge-link" href="/topology/topological_spaces.html#proposition-the-countable-complement-topology">countable-complement topology</a> \( X \) may not be compact.
+    </div>
+
+    <div class="proof">
+        <p>
+            We show this by constructing an explicit counter example, so we consider \( X = \left[ 0, 1 \right]  \), in this scenario then we can focus on a very specific covering by first constructing some holes \( H _ n = \left\{ \frac{ 1 }{ j } : j \ge n \right\}  \), and then then considering \( A _ n = \left[ 0, 1 \right] \setminus H _ n  \), by construction the complement of these sets are countable, and thus these are open sets in \( X \), moreover the collection \( \left\{ A _ n : n \in \mathbb{ N } _ 1 \right\}  \) is a covering of \( X \) as even for any element of the form \( p = \frac{ 1 }{ i }  \) for \( i \in \mathbb{ N } _ 1 \) then \( p \in A _ { n + 1 } \) showing that the holes are actually filled in.
+        </p>
+        <p>
+            Now that we've shown that the \( A _ n \)'s are an open cover, then if for the sake of contradiction our set \( X \) was compact then there would exists a finite subcover \( F \) , since the cover is finite there is a largest \( K \) such that \( A _ K \in F \). Take a moment to realize that \( H _ i \supsetneq H _ { i + 1 } \) which shows that \( A _ i \subsetneq A _ { i + 1 } \) thus there exists an element \( c \in A _ { K + 1 } \subseteq \left[ 0, 1 \right]  \) which is not in \( A _ j \) for any \( j \le K \) and therefore \( c \) is not an element of the cover, which is a contradiction because it's supposed to cover \( X = \left[ 0, 1 \right]  \) 
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-every-compact-subspace-of-a-hausdorff-space-is-closed" >
+    <div class="title">Every Compact Subspace of a Hausdorff Space Is Closed</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-every-compact-subspace-of-a-metric-space-is-closed-and-bounded" >
+    <div class="title">Every Compact Subspace of a Metric Space Is Closed and Bounded</div>
+    <div class="content">
+        Every compact subspace \( A \) of a metric space \( M \) is closed and bounded.
+    </div>
+
+    <div class="proof">
+        Recall that any metric space is Hausdorff, and <a class="knowledge-link" href="/analysis/single_variable/compactness_and_subsets_of_C(K).html#theorem-arzela-ascoli">therefore \( A \) is closed</a>. Now we show that it is bounded, we will use compactness for this, to this end fix \( a \in A \) and consider the collection of increasing open sets \( \left\{ B _ d \left( a, n \right) \cap A : n \in \mathbb{ N } _1  \right\}  \) which clearly cover \( A \), and thus there exists a finite subcover \( F \), let \( K \in \mathbb{ N } _1 \) be the largest satisfying \( B _ d\left( a, K \right) \in F  \), due to the fact that these sets are increasing then \( B _ d \left( a, K \right) \supseteq A \) which shows that \( A \) must be bounded.
+    </div>
+</div>
+<p>
+    Note that the converse of the above is not true, for that we just have to consider an infinite space \( X \) endowed with the discrete topology, in such a case \( X \) is metrizable from the <a class="knowledge-link" href="/topology/metric_topology.html#definition-discrete-metric">discrete metric</a> \( d \), we can see the the space is bounded because \( X \subseteq B _ d \left( p, 1.1 \right)  \) for any \( p \in X \), moreover \( X \) is closed in itself, but on the other hand if we consider the open cover which is \( \left\{ \left\{ x \right\} : x \in X  \right\}  \) then any finite subcover will only have finitely many elements of \( X \) and since \( X \) was infinite, then we have a contradiction, so it must be the case that it is not compact.
+</p>
+<div class="proposition" id="proposition-every-closed-subspace-of-a-compact-space-is-compact" >
+    <div class="title">Every Closed Subspace of a Compact Space Is Compact</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-the-image-of-a-compact-set-under-a-continuous-function-is-compact" >
+    <div class="title">The Image of a Compact Set Under a Continuous Function Is Compact</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="lemma" id="lemma-hausdorff-spaces-separate-compact-subspaces-and-points" >
+    <div class="title">Hausdorff Spaces Separate Compact Subspaces and Points</div>
+    <div class="content">
+        If \( Y \) is a compact subspace of a hausdorff space \( X \) and \( x _ 0 \) is not in \( Y \), then there exist disjoint open sets \( U \) and \( V \) of \( X \) containing \( x _ 0 \) and \( Y \) respectively.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-disjoint-compact-subspaces-of-a-hausdorff-space-can-be-separated" >
+    <div class="title">Disjoint Compact Subspaces of a Hausdorff Space Can Be Separated</div>
+    <div class="content">
+        Suppose that \( A, B \) are disjoint compact subsets of a Hausdorff space \( X \) then there exists disjoint open sets \( U, V \) such that \( A \subseteq U \) and \( B \subseteq V \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            Recall that for each \( a \in A \) <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#lemma-hausdorff-spaces-separate-compact-subspaces-and-points">we obtain some disjoint open sets</a> \( U _ a, V _ a \) in \( X \) such that \( a \in U _ a \) and \( B \subseteq V _ a \) thus the collection \( \left\{ U _ a: a \in A \right\}  \) is an open cover of \( A \) and since it is compact then there exists a finite subcover \( \left\{ U _ { a _ i } : 1 \le i \le n \right\}  \) for some \( n \in \mathbb{ N } _1 \), since each \( V _ { a _ i } \supseteq B \) then we know \( V = \bigcap { i = 1 } ^ n V _ { a _ i } \subseteq B \) additionally as a finite intersection it is an open set.
+        </p>
+        <p>
+            Now if we construct \( U = \bigcup _ {  i = 1 } ^ n U _ { a _ i }\), it also also an open set containing \( A \), now we conclude by showing that they are disjoint, to that direction suppose that there was some \( c \in  U \cap V \) for the sake of contradiction, then we know that there exists some \( a _ j \) such that \( c \in U _ { a _ j } \) but also \( c \in V \) which was the intersection so also \( c \in V _ { a _ j } \) but as noted earlier \( U _ { a _ j } \cap V _ { a _ j } = \emptyset  \) which is a contradiction, and therefore we must have \( U, V \) being disjoint, as needed.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-a-continuous-function-from-a-compact-space-to-a-hausdorff-space-is-closed" >
+    <div class="title">A Continuous Function From a Compact Space to a Hausdorff Space Is Closed</div>
+    <div class="content">
+        Suppose that \( f : X \to Y \) is continuous where \( X \) is compact and \( Y \) is hausdorff, then \( f \) is closed.
+    </div>
+
+    <div class="proof">
+        To show that \( f \) is closed we suppose that \( C \) is closed in \( X \), therefore we know it is also compact as a closed subspace of a compact set, therefore we have that \( f \left( C \right)  \) is compact in \( Y \) as the continuous image of compact, but now we have a compact set in a hausdorff space so thus it is closed, therefore \( f \) is a closed map.
+    </div>
+</div>
+<div class="proposition" id="proposition-there-is-always-space-for-an-open-rectangle-between-a-cartesian-product-of-compact-spaces-and-an-open-set-containing-them" >
+    <div class="title">There Is Always Space for an Open Rectangle Between a Cartesian Product of Compact Spaces and an Open Set Containing Them</div>
+    <div class="content">
+        Suppose that \( X, Y \) are topological faces and suppose that \( A, B \subseteq X, Y \) be compact spaces respectively, then suppose that \( W \) is an open set such that \( A \times B \subseteq W \subseteq X \times Y \) then there exists an open rectangle \( U \times V \subseteq X \times Y \) such that \( A \times B \subseteq U \times V \subseteq  W \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \( a \in A \) and consider \( \left\{ a \right\} \times B  \) then we know that \( \left\{ a \right\} \times B \subseteq W  \) as \( A \times B \subseteq W \). Since \( W \) is an open set, then for each \( p \in \left\{ a \right\} \times B  \) we can obtain some \( J _ p \times K _ p \) containing \( p \) and contained within \( W \), thus forming an open cover, but since \( \left\{ a \right\} \times B  \) is compact, then we obtain a finite subcover of the form \( \left\{ J _ { p _ 1 } \times K _ { p _ 1 }, \ldots , J _ { p _ N } \times K _ { p _ N } \right\}  \). 
+        </p>
+        <p>
+            Now if we consider \( U _ a = \bigcap _ { i = 1 } ^ N J _ i \) and \( V _ a = \bigcup _ { i = 1 } ^  N K _ i \), then we know that \( U _ a \) is an open neighborhood of \( a \) and \( V _ a \) is an open set in \( Y \) containing \( B \) which is to say that \( \left\{ a \right\} \times B \subseteq U _ a \times V _ a \). Moreover observe that \( U _ a \times V _ a \subseteq W \) and also that \( U _ a \times V _ a \) is open in \( X \times Y \) so that if we iterate \( a \) over all values in \( A \) namely we consider the set \( \left\{ U _ a \times V _ a : a \in A \right\}  \) then it becomes an open cover of \(  A \times B \), but since \( A \times B \) is compact, then there is a finite subcover for the form \( \left\{ U _ { a _ 1 } \times V _ { a _ 1 }, \ldots ,  U _ { a _ l } \times V _ { a _ l } \right\}  \).
+        </p>
+        <p>
+            Now similarly we set \( U = \bigcup _ { i = 1 } ^ l U _ { a _ i } \) and \( V = \bigcap _ { i = 1 } ^ l V _ { a _ i } \) where we know that \( U, V \) are open in \( X, Y \) respectively, we'll try to prove that \( A \times B \subseteq U \times V \subseteq W \). So let \( \left( x, y  \right) \in A \times B  \) then there exists some \( s \in \left[ k \right]  \) such that \( \left( x, y \right)  \in U _ { a _ s } \times V _ { a _ s } \), now as \( U \) is a union of the \( U _ { a _ i } \)'s then we have that \( x \in U \), on the other hand since each \( V _ { a _ i } \) contains \( B \) then so does the intersection, that is \( B \subseteq V \), so now since we know \( y \in B \) we automatically get that \( y \in V \) showing \( x, y \in U \times V \), so that \( A \times B \subseteq U \times V \).
+        </p>
+        <p>
+            Now if we consider \( \left( x, y \right) \in U \times V  \) then again there is some \( l \) such that \( \left( x, y  \right) \in U _ { a _ l } \times V _ { a _ l }  \) and then from earlier we recall that \( U _ { a _ l } \times V _ { a _ l } \subseteq W \) as it is an element from the original open cover where this held true.
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-properties-of-the-infimum-metric-and-compact-spaces" >
+    <div class="title">Properties of the Infimum Metric and Compact Spaces</div>
+    <div class="content">
+        Let \( X \) be a metric space and let \( A \subseteq X \) be non-empty. Let \( d \left( x, A \right) = \inf _ { a \in A } d \left( x, a \right)   \) and let \( U _ \epsilon \left( A \right) = \left\{ x : d \left( x, A \right) \lt \epsilon   \right\}   \).
+        <ol>
+            <li>Show that \( d \left( x, A \right) = 0  \) iff \( x \in A \)  </li>
+            <li>Show that if \( A \) is compact then \( d \left( x, A \right) = d \left( x, a \right)   \) for some \( a \in A \)  </li>
+            <li>Show that \( U _ \epsilon \left( A \right)  \) is the union of all the \( \epsilon  \)-balls whose centers lie in \( A \)   </li>
+            <li>
+                If \( A \) is compact and \( U \supseteq A \) is open, show that there is some \( \epsilon \gt 0 \) wherein \( U _ \epsilon \left( A \right) \subseteq A  \) 
+            </li>
+            <li>
+                Find a counterexample to the result in the above if \( A \) is not assumed to be compact
+            </li>
+        </ol>
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( d \left( x, A \right) = \delta \gt 0   \), then \( B _ d \left( x, \delta  \right) \cap A = \emptyset \) so \( x \notin \bar A \), because we've found an open set around \( x \) which doesn't intersect \( A \). For the other direction we assume that \( x \notin \bar A \) then by the definition there is an open set containing \( x \) that doesn't intersect \( A \), which is equivalent to some \( \delta \gt 0 \) existing where we have \( B _ d \left( x, \delta  \right) \cap A = \emptyset  \) so we can deduce that \( d \left( x, A \right) \gt \frac{ \delta  }{ 2 } \gt 0 \) 
+        </p>
+        <p>
+            We'll now prove that if \( A \) is compact then \( d \left( x, A \right) = d \left( x, a \right)   \).
+        </p>
+        <p>
+            Recall that we've proven the distance function continuous, given \( x \in X \)  define the function \( d _ x \left( a \right) = d \left( x, a \right) : A \to \mathbb{ R }    \) which is also continuous. Now since \( A \) was a compact set then by the extreme value theorem we obtain some \( m \in A \) such that \( d _ x \left( m \right) \) is the minimum value on \( A \), that is \( d \left( x, m \right) \le d \left( x, y \right)   \) for any \( y \in A \) in otherwords this is the infiumum so we conclude that \( d \left( x, A \right) = d \left( x, m  \right)   \) as needed.
+        </p>
+        <p>
+            We now prove that \( U _ \epsilon \left( A \right)  \) is the union of all \( \epsilon  \) balls whose centers lie in \( A \). Let \( p \in U _ \epsilon  \left( A \right)  \) therefore we know that \( d \left( p, A \right) = \inf \left\{ d \left( p, a \right) : a \in A  \right\} \lt \epsilon    \), therefore there must be an \( a \in A \) such that \( d \left( p, a \right) \lt \epsilon   \) or else the infimum could not be less than \( \epsilon  \) which implies that \( p \in B _ d \left( a, \epsilon  \right)  \), therefore \( U  _ \epsilon \left( A \right) \subseteq \bigcup _ { a \in A } B _ d \left( a, \epsilon  \right)   \).
+        </p>
+        <p>
+            Now suppose that \( x \) is in the union, ie there is some \( a \in A \) such that \( x \in B _ d \left( a, \epsilon  \right)  \) so then we know that \( d \left( x, A \right) \le d \left( x, a \right) \lt \epsilon    \) so therefore \( x \in U \left( A, \epsilon  \right)  \) showing the other inclusion, therefore \( U _ \epsilon \left( a \right) = \bigcup _ { a \in A }B _ d \left( a, \epsilon  \right)   \) 
+        </p>
+        <p>
+            If \( A \) is compact and \( U \supseteq A \) is open, then there exists some \( \epsilon  \gt 0 \) such that \( U _ \epsilon \left( A \right) \subseteq U  \). Since \( U \) is open and \( A \subseteq U \) then for any \( x \in A \) we know that ther is some \( \epsilon _x \gt 0 \) so that \( B _ d \left( x, \epsilon _ x \right) \subseteq U  \) thus we may construct the open cover \( \left\{ B _d \left( x, \epsilon _x \right) : x \in A  \right\}  \) of \( A \), since it is compact then we obtain a finite subcover of the form \( \left\{ B _ d \left( x _ i , \epsilon _ { x _ i }  \right) : i \in \left[ n \right]   \right\}  \). If we set \( l \) to be the lebesgue number for this covering, then by considering \( \epsilon = \frac{ l }{ 2 }  \), then any ball of the form \( B _ d \left( a, \epsilon  \right)  \) has a diameter less than \( l \) so we obtain some \( j \in \left[ n \right]  \) such that \( B _ d \left( a, \epsilon  \right) \subseteq B _ d \left( x _ i, \epsilon _ { x _ i } \right)   \) so we have that \( \bigcup _  { a \in A } B _ d \left( a, \epsilon  \right) \subseteq \bigcup _ { i = 1 } ^ n B _ d \left( x _ i , \epsilon _ { x _ i } \right) \subseteq U  \), since we just proved that \( U _ \epsilon \left( a \right) = \bigcup _ { a \in A } B _ d \left( a, \epsilon \right)   \), then we are done.
+        </p>
+        <p>
+            Note that the above is not necessarily true if \( A \) is not compact, as if we consider the closed set \( A = \left\{ \left( x, \tan \left( x \right)  \right): x \in \left( \frac{ -\pi  }{ 2 }, \frac{ \pi }{ 2 }   \right)   \right\}  \) which fails to be compact as it is not bounded, and consider \( U = \left( \frac{ -\pi }{ 2 }, \frac{ \pi }{ 2 } \right) \times \mathbb{ R }   \) which is open in \( \mathbb{ R } ^ 2 \) but if we consider any \( \epsilon \gt 0 \) then there is a \( p \in A \) such that \( B _ d \left( p, \epsilon  \right) \cap \left( \mathbb{ R } ^ 2 \setminus U \right) \neq \emptyset    \), to see this for any epsilon ball as we slide up \( \tan \left( x \right)  \) we get aribtrariliy close to the line \( x = \frac{ \pi }{ 2 }  \) and thus we eventually break out of the box. Thus we've shown that there is no epsilon neighborhood of \( A \) which is entirely contained within \( U \) as needed.
+        </p>
+    </div>
+</div>
+
+<p>
+</p>
+

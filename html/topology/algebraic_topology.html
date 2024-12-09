@@ -1,0 +1,632 @@
+<div class="definition" id="definition-path" >
+    <div class="title">Path</div>
+    <div class="content">
+        A path in a topological space \( X \) is a continuous function \( \gamma : \left[ 0, 1 \right] \to X  \) 
+    </div>
+</div>
+<p>
+    Note that we will say \( \gamma  \) is a path in \( X \) to mean that the output space is \( X \) 
+</p>
+<div class="definition" id="definition-shared-ends" >
+    <div class="title">Shared Ends</div>
+    <div class="content">
+        Given paths \( \gamma _a , \gamma _ b \), we say that they have shared ends when 
+        \[
+          \gamma _ a \left( 0 \right) = \gamma _ b \left( 0 \right) 
+        \] 
+        and 
+        \[
+          \gamma _ a \left( 1 \right) = \gamma _ b \left( 1 \right) 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-path-homotopic" >
+    <div class="title">Path Homotopic</div>
+    <div class="content">
+        Given paths \( \gamma _a , \gamma _ b \) with shared ends, we say that they are <b>path homotopic</b> and write \( \gamma _0 \sim \gamma _1 \) if there exists a continuous function \( H : \left[ 0, 1 \right] \times \left[ 0, 1 \right] \to X   \) such that 
+        \[
+          H \left( s, 0 \right) = \gamma _ a \left( s \right) \qquad \text{ and } \qquad H \left( s, 1 \right) = \gamma _ b \left( s \right) 
+        \] 
+        and 
+        \[
+          H \left( 0, t \right) = \gamma _ a \left( 0 \right) = \gamma _b \left( 0 \right)  \qquad \text{ and } \qquad H \left( 1, t \right) = \gamma _ a \left( 1 \right) = \gamma _b \left( 1 \right) 
+        \] 
+    </div>
+</div>
+<p>
+    We reference this relation as <b>path homotopy</b>.
+</p>
+<div class="proposition" id="propoisition-path-homotopy-is-invariant-modulo-continuous-function-composition" >
+    <div class="title">Path Homotopy Is Invariant Modulo Continuous Function Composition</div>
+    <div class="content">
+        If \(\gamma\) is a path in \(X\) and if \(F: X \rightarrow Y\) is continuous, we define a path in \(Y\) by \( F \circ \gamma\). Show that if \(\gamma_0\) and \(\gamma_1\) are path homotopic in \(X\) then \(F \circ  \gamma_0\) and \(F \circ \gamma_1\) are path homotopic in \(Y\).
+    </div>
+
+    <div class="proof">
+        <p>
+            Out of the gate, first be sure to note that \( F \circ \alpha \) for any path \( \alpha \) is still a path, as it remains continuous as the composition of two continuous functions and still maps out of \( \left[ 0, 1 \right]  \). Now we start by supposing that \( \gamma _ a \sim \gamma _b \), ie there exists some <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-path-homotopic">homotopy</a> \( H \) between them going from \( \gamma _ a \) to \( \gamma _b \). 
+        </p>
+        <p>
+            Now to show that \( F \circ \gamma _a  \) and \( F \circ \gamma _ b \) are homotopic, we just have to construct a function \( G : I \times I \to Y \) with the required properties of a homotopy, but if we simply do \( G \left( s, t \right) = F \left( H \left( s, t \right)  \right)   \) which is continuous as a composition of continuous functions, then we can verify that:
+            \[
+              G \left( s, 0 \right) = F \left( H \left( s, 0 \right)  \right) = F \left( \gamma _ a \left( s \right)  \right) = F \circ \gamma _ a \left( s \right) 
+            \] 
+            and similarly 
+            \[
+              G \left( s, 1 \right) = F \left( H \left( s, 1 \right)  \right) = F \left( \gamma _ b \left( s \right)  \right) = F \circ \gamma _ b \left( s \right) 
+            \] 
+            also
+            \[
+              G \left( 0, t \right) = F \left( H \left( 0, t \right)  \right) = F \left( \gamma _ a \left( 0 \right)  \right) = F \circ \gamma _ a \left( 0 \right) 
+            \] 
+            and finally that 
+            \[
+              G \left( 1, t \right) = F \left( H \left( 1, t \right)  \right) = F \left( \gamma _ a \left( 1 \right)  \right) = F \circ \gamma _ a \left( 1 \right) 
+            \] 
+            as needed.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-path-homotopy-is-an-equivalence-relation" >
+    <div class="title">Path Homotopy Is an Equivalence Relation</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<p>
+    Since we we have an equivalence relation, then we know that we can form equivalence classes of the form \( \left[ \gamma  \right] = \left\{ \gamma ^ \prime : \gamma ^  \prime  \sim \gamma \right\}   \). We call these <b>homotopy classes of paths</b>.
+</p>
+<div class="definition" id="definition-path-concatenation" >
+    <div class="title">Path Concatenation</div>
+    <div class="content">
+        Given paths \( \gamma _ a , \gamma _ b \) such that \( \gamma _ a \left( 1 \right) = \gamma _ b \left( 0 \right)    \) then we define 
+        \[
+          \gamma _a \cdot  \gamma _ 2 \left( t \right) 
+        = 
+        \begin{cases}
+            \gamma _ a \left( 2t \right) &\text{ if } t \le \frac{ 1 }{ 2 } \\
+            \gamma _ b \left( 2t - 1 \right) &\text{ if } t \ge \frac{ 1 }{ 2 } \\
+        \end{cases}
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-path-concatentation-yields-a-path" >
+    <div class="title">Path Concatentation Yields a Path</div>
+    <div class="content">
+        Given paths \( \gamma _ a , \gamma _ b \) such that \( \gamma _ a \left( 1 \right) = \gamma _ b \left( 0 \right)    \) then \( \gamma _ a \cdot \gamma _ b \) is a path
+    </div>
+
+    <div class="proof">
+        Use the gluing lemma
+    </div>
+</div>
+<div class="proposition" id="proposition-path-homotopy-leads-to-concatenation-homotopy" >
+    <div class="title">Path Homotopy Leads to Concatenation Homotopy</div>
+    <div class="content">
+        Suppose that \( \gamma _ a \sim  \gamma _ b  \) and \( \gamma _ c \sim \gamma _d \) then we have 
+        \[
+          \gamma _ a \cdot \gamma _ c \sim \gamma _ b \cdot \gamma _ d
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-closed-path" >
+    <div class="title">Closed Path</div>
+    <div class="content">
+        Suppose that \( \gamma  \) is a path, then we say that it is <b>closed</b> when:
+        \[
+          \gamma \left( 0 \right) = \gamma \left( 1 \right) 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-fundamental-group-based-at-a-point" >
+    <div class="title">Fundamental Group Based at a Point</div>
+    <div class="content">
+        Suppose that \( X \) is a topological space and that \( p \in X \) then we define 
+        \[
+          \pi _ 1 \left( X, p \right) =  \left\{ \left[ \gamma  \right] : \gamma \text{ is a closed path in } X \right\} 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-the-fundamental-group-is-a-group-with-concatenation" >
+    <div class="title">The Fundamental Group Is a Group With Concatenation</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-homotopic-functions" >
+    <div class="title">Homotopic Functions</div>
+    <div class="content">
+        Given \(X\) and \(Y\) topological spaces, and two continuous functions \(F_ a: X \rightarrow Y\) and \(F_b: X \rightarrow Y\). Then we say that they are homotopic if there exists a continuous function \(H: X \times \left[ 0, 1 \right]  \rightarrow Y\) such that for all \(x \in X, \)
+        \[
+        H(x, 0) = F_a(x) \qquad \text{ and } \qquad H(x, 1) = F_b(x)
+        \] 
+        In that case, we write \(F_a \sim F_b \).
+    </div>
+</div>
+<p>
+    We call this relation function homotopy. An easy way to think about this is that \( H \) takes us continuously from \( F _ a \) to \( F _ b \) 
+</p>
+<div class="proposition" id="proposition-function-homotopy-is-an-equivalence-relation" >
+    <div class="title">Function Homotopy Is an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">Equivalence Relation</a></div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( A, B, C : X \to Y \) are continuous, first we prove reflexivity, so we show that \( A \sim A \), to do so we must construct a continuous function between them as specified <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-homotopic-functions">here</a>, but we can take \( H \left( x, t \right) = A \left( x \right)   \) which satisfies the requirements and is also continuous as its equal to \( A \).
+        </p>
+        <p>
+            Now suppose that \( A \sim B \) and let's prove that \( B \sim A \), since \( A \sim B \) then we know that there exists \( H : X \times \left[ 0, 1 \right] \to Y  \) such that \( H \left( x, 0 \right) = A \left( x \right)   \) and \( H \left( x, 1 \right) = B \left( x \right)  \), then all we have to is consider the function \( H ^ \prime \left( x, t \right) = H \left( x, 1 - t \right)   \) which is still continuous with the desired properties.
+        </p>
+        <p>
+            Finally suppose that \( A \sim B \) and that \( B \sim C \) we must prove \( A \sim C \) to show that transitivity still holds true, so now we have \( H _ 1 , H _ 2 \) between the previous two respectively, thus in the same way as we've proven it for path's we construct 
+            \[
+              H \left( x, t \right) = 
+            \begin{cases}
+                H _ 1 \left( x, 2t \right) &\text{ if } t \le \frac{ 1 }{ 2 } \\
+                H _ 2 \left( x, 2t - 1 \right) &\text{ if } t \ge \frac{ 1 }{ 2 }
+            \end{cases}
+            \] 
+            which remains continuous by the pasting lemma
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-function-homotopy-leads-to-composition-homotopy" >
+    <div class="title">Function Homotopy Leads to Composition Homotopy</div>
+    <div class="content">
+        Prove that if \(A, B: X \rightarrow Y\) and \(C, D: Y \rightarrow Z\) are continuous and if \( A  \sim B\) via \( H _ 1 \)  and \(C  \sim D\) via \( H _ 2 \)  then \(C \circ A \sim D \circ B\).
+    </div>
+
+    <div class="proof">
+        We consider \( H \left( x, t \right) = H _ 2 \left( H _ 1 \left( x, t \right), t \right)  \) which is continuous as it is a composition of continuous functions, but then also we have that \( H \left( x, 0 \right) = H _ 2 \left( H _ 1 \left( x, 0 \right) , 0  \right) = C \left( H _ 1 \left( x, 0 \right)  \right)  = C \left( A \left( x \right)  \right)    = C \circ A \left( x \right)  \) and similarly we have that \( H \left( x, 1 \right) = H _ 2 \left( H _ 1 \left( x, 1 \right) , 1  \right) = D \left( H _ 1 \left( x, 1 \right)  \right)  = D \left( B \left( x \right)  \right) = D \circ B \left( x \right)  \)
+    </div>
+</div>
+<div class="definition" id="definition-nullhomotopic" >
+    <div class="title">Nullhomotopic</div>
+    <div class="content">
+        A function \( f : X \to Y \) between two topological spaces is said to be <b>nullhomotopic</b> when it is <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-homotopic-functions">homotopic</a> to a constant function \( c : X \to Y \) where \( c \left( x \right) = y _ 0  \) for all \( x \in X \) 
+    </div>
+</div>
+
+<div class="definition" id="definition-simply-connected" >
+    <div class="title">Simply Connected</div>
+    <div class="content">
+            We say that a topological space \( X \) is simply connected if it is <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-path-connected">path connected</a> and \( \pi \left( X,  p\right) = \left\{ e \right\}   \) for some \( p \in X \) 
+    </div>
+</div>
+<div class="corollary" id="corollary-rn-is-simply-connected" >
+    <div class="title">Rn Is Simply Connected</div>
+    <div class="content">
+        TODO: Add the content for the corollary here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<p>
+    Also note that any convex subset of \( \mathbb{ R } ^ n \) is also simply connected, for example a ball.
+</p>
+<div class="proposition" id="proposition-simply-connected-iff-any-two-paths-with-shared-ends-are-homotopic" >
+    <div class="title">Simply Connected Iff Any Two Paths With Shared Ends Are Homotopic</div>
+    <div class="content">
+        A topological space \( X \) is simply connected if and only if given any two paths \( \gamma _ a \) and \( \gamma _ b \) with shared ends in \( X \) they are path homotopic.
+    </div>
+
+    <div class="proof">
+        <p>
+        \( \implies  \) Suppose that \( X \) is simply connected, and suppose that \( \gamma _ a \) and \( \gamma _ b \) are paths with shared ends, both starting and ending at \( x, y \in X \) respectively, thus we can conclude that \( \gamma _ a \cdot \bar \gamma _ b \sim e \), but now we observe the following chain of path homotopies:
+        \[
+            \begin{align*}
+                \gamma _ a &\sim \gamma _ a \cdot \left( \bar \gamma _ b \cdot \gamma _ b \right) \\
+        &\sim \left( \gamma _ a \cdot \bar \gamma _ b \right) \cdot \gamma _ b \\
+        &\sim \gamma _ b
+            \end{align*} 
+        \] 
+        thus by transitivity we know that \( \gamma _ a \sim \gamma _ b \) 
+        </p>
+        <p>
+            \( \impliedby \) Now suppose that \( \left[ \gamma  \right] \in \pi _ 1 \left( X, p \right)   \), then \( \gamma  \) is closed ( a loop) , so that \( \gamma \left( 0 \right) = \gamma \left( 1 \right) = p   \), but also \( e _ p \) has this property, thus \( e _ p \sim  \gamma  \) so that \( \left[ \gamma  \right] = \left[ e _ p \right] = e   \) as needed.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-simply-connected-iff-every-circle-function-is-nullhomotopic" >
+    <div class="title">Simply Connected Iff Every Circle Function Is Nullhomotopic</div>
+    <div class="content">
+        \( X \) is simply connected iff every condtinuous function \( \lambda : S ^ 1 \to X \) is <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-nullhomotopic">nullhomotopic</a>
+    </div>
+
+    <div class="proof">
+            Suppose that \( X \) is simply connected, and that \( \lambda  \) is a function as specified, we want to show that its <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-homotopic-functions">homotopic</a> to a constant function. If we consider the function \( f \left( t \right) = e ^ { 2 \pi i t }  \) then the the function \( \lambda \circ f \) is actually a path in \( X \) that starts and begins at the same place \( p = \left( 1, 0 \right)  \) , therefore since \( X \) is simply connected, then we know that \( \pi _ 1 \left( X, p \right) = \left\{ e \right\}    \), so that \( \lambda \circ f \) is <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-path-homotopic">path homotopic</a> to the constant path \( c _ p \) via some homotopy \( \bar H \)
+    </div>
+</div>
+<div class="proposition" id="proposition-circle-representative-and-simply-connected-equivalences" >
+    <div class="title">Circle Representative and Simply Connected Equivalences</div>
+    <div class="content">
+        Suppose that \( X \) is a topological space, the the following are equivalent
+        <ol>
+            <li>
+                Every map \(S^1 \rightarrow X\) is homotopic to a constant map, with image a point.
+            </li>
+            <li>
+                    Every map \(S^1 \rightarrow X\) extends to a map \(D^2 \rightarrow X\).
+            </li>
+            <li>
+            \(\pi_1\left(X \cdot x_0\right)=0\) for all \(x_0 \in X\)
+            </li>
+        </ol>
+    </div>
+    <div class="proof">
+        <p>
+             \( 1 \Rightarrow 2\) Suppose \(f: S^1 \rightarrow  X\). By hypothesis, there's a homotopy \(H: S^1 \times I \rightarrow\) \(X\) from \(f\) to a constant map. That is, \(H \left( s, 0 \right) = f \left( s \right) \) and there is a point \(x \in X\) such that, for all \(s \in S^1, H\left(s,  1\right)=x\). Because of the latter condition, \( H \) factors through the quotient \(S^1 \times I / S^1 \times\{1\}\), which is to say there exists a function \( \widetilde{H} : S ^ 1 \times I \setminus S ^ 1 \times \left\{ 1 \right\} \to X  \) such that \( H = \widetilde{H} \circ q \) where the \( q \)  is the quotient map.
+        </p>
+        <p>
+            Note that the pair \(\left(S^1 \times I / S^1 \times\{1\}, S^1 \times\{0\}\right)\) is homeomorphic to \(\left(D^2 , S^1\right) \), the homeomorphism is given by the map \(\phi : S^1 \times I \rightarrow D^2\) defined by \(\phi\left(a,  x\right)= a \cdot(1-x) \), where we look at \(a\) and \(x\) as complex numbers. Therefore \( \widetilde{H} \)  gives a map \(D^2 \rightarrow X\) such that the restriction to \(S^1\) is equal to \(f\)
+        </p>
+        <p>
+            \( 2 \Rightarrow 3\) 
+
+            Suppose that every map \( \lambda : S ^ 1 \to  X \) extends to a map \( \lambda ^ \prime : D \to X \), now let \( p \in X _ 0 \) and suppose that \( \gamma  \) is a loop based at \( p \), since the mapp \( f \left( x \right) = e ^ { 2 \pi  i x }  \) is a quotient map, then we obtain some \( \widetilde{ \gamma } : S ^ 1 \to X \) such that \( \gamma = \widetilde{\gamma } \circ f \), moreover \( \widetilde{ \gamma } \) is continouous, and therefore it extends to a map \( \widehat{\gamma } ^ \prime : D \to X \). 
+        </p>
+        <p>
+            Since \( D \) is a convex set, then we may construct the straight line homotopy from the constant loop \( c _ p \) and the loop \( f : \left[ 0, 1 \right] \to S ^ 1 \subseteq D  \) where we consider \( f \) as a function into \( D \). Denote this homotopy as \( H : I \times I \to D \) and consider the composite map \( \widetilde{\gamma } ^ \prime  \circ H : I \times I \to X \) 
+            \[
+            \begin{align*}
+                & \widetilde{\gamma}^\prime \circ H(s, 0)=\widetilde{\gamma} \circ H(s, 0)=\widetilde{\gamma} \circ c_p(s)= p, \\
+                & \widetilde{\gamma}^\prime \circ H(s, 1)=\widetilde{\gamma} \circ H(s, 1)=\widetilde{\gamma} \circ f(s)= \gamma (s), \\
+                & \widetilde{\gamma}^\prime \circ H(0, t)=\widetilde{\gamma} \circ H(0, t)=\widetilde{\gamma}(1)=p, \\
+                & \widetilde{\gamma}^\prime \circ H(1, t)=\widetilde{\gamma} \circ H(1, t)=\widetilde{\gamma}(1)=p,
+            \end{align*}
+            \]
+        and is therefore a path homotopy from \(c_p\) to \( \gamma \).
+        </p>
+        <p>
+            \( 3 \Rightarrow 1\) We assume that there is some \( x _ 0 \in X \) such that \( \pi _ 1 \left( X, x_0 \right) = \left\{ e \right\}   \), now suppose that \( \lambda : S ^ 1 \to X \) is continous, we want to show that it is a homotopic to a constant function. If we consider the continuous composition: \( \lambda \circ f:  \left[ 0, 1 \right] \to X \) where \( f \left( x \right) = e ^ { 2 \pi i x }  \) then it is a loop in \( X \) and is therefore homotopic to the constant path \( c \). We also know that \( f \times \operatorname{ id } :I \times I \to S ^ 1 \times I \) is a quotient map by the closed map theorem since it is closed surjective and continuous. Thus we obtain a map \( \widetilde{H} : S ^ 1 \times I \to X \) which is a homotopy between \( \lambda  \) and the constant map sending \( S ^ 1 \) to \( x _ 0 \) 
+        </p>
+        <p>
+            To see why we note that \( H \left( s, t \right) = \widetilde{H} \left( f \left( s \right), t  \right)  \), and then it can be shown that the equation \( \widetilde{H} \left( s, t \right) = H \left( f ^ { -1 } \left( \left\{ s \right\}  \right), t  \right) \) (noting that all images and pre-images only ever return sets with one element), so we have \( \widetilde{H} \left( x, 0 \right) = H \left( f ^ { -1 } \left( \left\{ x \right\}  \right), 0  \right) = \lambda \circ f \left( f ^ { -1 } \left( \left\{ x \right\}  \right)  \right) = \lambda \left( x \right)  \), similarly the other equations hold true.
+        </p>
+    </div>
+</div>
+<p>
+    Note that the above allows us to deduce that a space \(X\) is simply-connected iff all maps \(S^1 \rightarrow X\) are homotopic. [In this problem, "homotopic" means "homotopic without regard to basepoints".] This exercise essentially shows that a space is simply-connected if and only if it has no "holes".
+</p>
+<div class="proposition" id="proposition-a-continous-function-from-s1-to-s2-is-homotopic-to-the-same-which-is-not-surjective" >
+    <div class="title">A Continous Function From S1 to S2 Is Homotopic to the Same Which Is Not Surjective</div>
+    <div class="content">
+        Any function \( \lambda : S ^ 1 \to S ^ 2 \) is homotopic to a continuous \( \lambda _ 0 : S ^ 1 \to S ^ 2 \) which is not surjective
+    </div>
+
+    <div class="proof">
+        <p>
+            We first make the observation that \( S ^ 2 \) can be covered by 6 open half-spheres \( \left\{ U_1, U_2, \ldots , U _ 6 \right\}  \)  placed onto the sphere as if it was a cube with 6 sides. If we set \( h \left( x \right) = e ^ { i 2 \pi x }  \) then we see that \( G := \lambda \circ h : \left[ 0, 1 \right] \to S ^ 2  \) and that \( \left\{ G ^ { -1 } \left( U_ i \right)  \right\}  \) is an open cover of \( \left[ 0, 1 \right]  \), since it is compact, then by the lebesgue number lemma there exists some \( \delta \gt 0 \) such that for each subset of \( \left[ 0, 1 \right]  \) having length less than \( \delta  \) there is an element in the open cover containing it.
+        </p>
+        <p>
+            So now we make an equally spaced partition of \( \left[ 0, 1 \right]  \) of size \( n \) chosen large enough ie \( \frac{ 1 }{ n } \lt \delta  \) so that each sub-interval has size less than \( \delta  \), and let these intervals be denoted by \( I _ 1, I _2 , \ldots , I _ n \), again by the lebesgue number lemma, for any such interval \( I _ j \) we know that there exists a \( G ^ { -1 } \left( U _ m \right)  \) (where \( m \in [6] \)) that contains \( I _ j \) completely. On the other hand this implies that \( G \left( I _ j \right) = \lambda \circ h \left( I _ j \right) \subseteq U _ m  \). 
+        </p>
+        <p>
+            Firstly note that each half sphere is homeomorphic with \( \mathbb{ R } ^ 2 \) which is simply connected. Now can think of \( G | _ { I _ j } \) as being its own path from the sub-interval into \( S ^ 2 \) and with the above fact, then we know this path along the surface of \( S ^ 2 \) with endpoints \( a, b \in U _ m \), as it is simply connected, then we know that the path of the great circle connecting \( a, b  \) is contained within \( U _ m \) and that the great circle path and the sub-interval path are homeomorphic.
+        </p>
+        <p>
+            By repeating this process for each \( I _ k \) we obtain a sequence of great circle paths connecting each of the endpoints, by concatenating them we obtain a path \( C \left[ 0, 1 \right] \to S ^ 2  \) that is homotopic to the path given by \( G = \lambda \circ h \), but it should be clear that a finite union of great circle paths can never cover \( S ^ 2 \). Since \( C : \left[ 0, 1 \right] \to S ^ 1   \) and \( h : \left[ 0, 1 \right] \to S ^ 1  \) is a quotient map then we obtain some function \( c : S ^ 1 \to S ^ 2 \) such that \( c \circ h = C \), in other words we know that \( c \circ h \)  and \( \lambda \circ h \) are path homotopic, showing that \( c \) and \( \lambda  \) are homotopic as functions.
+        </p>
+        <p>
+            But since \( C \left( \left[ 0, 1 \right]  \right) = c \circ h \left( \left[ 0, 1 \right] \right)   \) which is equal to the path which is a finite number of great circle segments concatenated which we already found out does not cover \( S ^ 2 \), then also since \( h \) is surjective then \( c \circ h \left( \infty 0, 1 \right) = c \left( S _ 1 \right)    \)  showing that \( c \) is not surjective, thus  \( \lambda  \) is homotopic to a function \( c : S ^ 1 \to S ^ 2  \) which is not surjective as needed.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-s2-is-simply-connected" >
+    <div class="title">S2 Is Simply Connected</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        <p>
+            We start by proving that given a continuous function \( \lambda _ 0 : S ^ 1 \to S ^ 2 \) that is not surjective is homotopic to a constant function, since \( \lambda _ 0 \) is not surjective, then there exists a point \( p  \) that is never reached by \( \lambda _ 0 \). Now we know that \( S ^ 2 \setminus \left\{ p \right\} \) is homeomorphic to \( \mathbb{ R } ^ 2 \) via the stereographic projection \( \phi \)  and that \( \mathbb{ R } ^ 2 \) is simply connected, if we take \( f \left( t \right) = e ^ { 2 pi i t }  \) then we know that \( \lambda \circ f : \left[ 0, 1 \right] \to S ^ 2  \) is a loop, and is thus homotopic to a constant path \( C : \left[ 0, 1 \right] \to S ^ 2  \)  given by the path homotopy \( H \). Since \( f \left( x \right)  \) is a quotient map as noted earlier so we obtain some \( c : S ^ 1 \to S ^ 2 \) such that \( C = c \circ f \) so that we know the paths \( \lambda \circ f \) and \( c \circ f \) are homotopic, since \( f \) is surjective, then we can conclude that \( c \) itself is constant, and also then that \( \lambda  \) and \( c \) are homotopic, as needed.
+        </p>
+    </div>
+</div>
+<p>
+    Note that we have shown that every continuous function from \( S ^ 1 \to S ^ 2 \) is homotopic to the constant function, and therefore by what we showed in the previous question we conclude that \( S ^ 2 \) is connected.
+</p>
+<div class="definition" id="definition-covering" >
+    <div class="title">Covering</div>
+    <div class="content">
+        Given a continuous surjection \( p : E \to B \) we say that \( p \) is a <b>covering</b> if there exists an open cover \( OC \) of \( B \) such that for every \( U \in OC \) there is a discrete set \( D \) and a homomorphism \( \phi : U \times D \to p ^ { -1 } \left( U \right)  \) such that \( p \circ \phi = \pi _ U \) is the projection on the first component.
+    </div>
+</div>
+
+<div class="definition" id="definition-evenly-covered" >
+    <div class="title">Evenly Covered</div>
+    <div class="content">
+        Let \(p: E \rightarrow B\) be a continuous surjective map. The open set \(U\) of \(B\) is said to be evenly covered by \(p\) if the inverse image \(p^{-1}(U)\) can be written as the union of disjoint open sets \(V_\alpha\) in \(E\) such that for each \(\alpha\), the restriction of \(p\) to \(V_\alpha\) is a homeomorphism of \(V_\alpha\) onto \(U\). The collection \(\left\{V_\alpha\right\}\) will be called a partition of \(p^{-1}(U)\) into slices.
+    </div>
+</div>
+<div class="definition" id="definition-lift" >
+    <div class="title">Lift</div>
+    <div class="content">
+    If \(\pi: E \rightarrow B\) is a covering map and \(f: X \rightarrow B\) is continuous then a lift of \(f\) is any continuous map \(\tilde{f}: X \rightarrow E\) such that 
+        \[
+            f = \pi \circ \tilde{f}
+        \]
+    </div>
+</div>
+
+<div class="lemma" id="lemma-path-lifting" >
+    <div class="title">Path Lifting</div>
+    <div class="content">
+        If \(\pi:\left(E, e_0\right) \rightarrow\left(B, b_0\right)\) is a covering map, then for all paths \(\gamma: I \rightarrow B\) with \(\gamma(0)=b_0\), there exists a unique map \(\tilde{\gamma}: I \rightarrow E\) lifting \(\gamma\) with \(\tilde{\gamma}(0)=e_0\).
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \(\mathcal{O}\) be a covering of \(B\) by good neighborhoods. Then \(\left\{\gamma^{-1}(U): U \in \mathcal{O}\right\}\) is an open cover of \(I\) and hence has a Lebesgue number. Thus we can decompose \(I\) into subintervals \(\left[t_i, t_{i+1}\right]\) where \( 0=t_0\lt t_1 \lt \cdots \lt t_{n-1} \lt t_n = 1 \) such that \(\gamma\left(\left[t_i, t_{i+1}\right]\right)\) is contained in some good neighborhood for \(i=0, \ldots, n-1\).
+        </p>
+        <p>
+            We will build \(\tilde{\gamma}\) inductively. If \(\gamma([0, t]) \subseteq V\) for some good neighborhood and \(\pi^{-1}(V)=\cup_{\alpha \in I} V_\alpha\), suppose \(e_0 \in V_0\) (one of the \(V_\alpha\) 's). Define \(\tilde{\gamma}_{[0, t]}=\left(\left.\pi\right|_{V_0}\right)^{-1} \circ \gamma\) (as \(\left.\pi\right|_{V_0}\) is a homeomorphism, this makes sense). Having defined \(\tilde{\gamma}\) on \(\left[0, t_i\right]\), do the same for \(\left[t_i, t_{i+1}\right]:\) If \(\gamma\left(\left[t_i, t_{i+1}\right]\right) \subseteq U\) for some good neighborhood and \(\gamma\left(\tilde{t}_i\right)=x \in U_0\) for one of the parts of \(\pi^{-1}(U)\), define \(\left.\tilde{\gamma}\right|_{\left[t_i, t_{i+1}\right]}=\left(\left.\pi\right|_{U_0}\right)^{-1} \circ \gamma\). Then \(\tilde{\gamma}\) defined this way is continuous by the Pasting Lemma and is a lift of \(\gamma\) by construction.
+        </p>
+        <p>
+            Suppose now \(\tilde{\gamma}, \tilde{\gamma}^{\prime}\) are two lifts of \(\gamma\) with \(\tilde{\gamma}(0)=e_0=\tilde{\gamma}^{\prime}(0)\). Suppose they agree on \(\left[0, t_i\right]\) for some \(i=0, \ldots, n\) (certainly true for \(i=0\) ). On \(\left[t_i, t_{i+1}\right]\), there is a good neighborhood of \(V\) with \(\gamma\left(\left[t_i, t_{i+1}\right]\right) \subseteq V\) and \(\tilde{\gamma}\left(t_i\right)=\tilde{\gamma}^{\prime}\left(t_i\right) \in V_0\), one of the parts of \(\pi^{-1}(V)\). We have \(\tilde{\gamma}\left(\left[t_i, t_{i+1}\right]\right), \tilde{\gamma}^{\prime}\left(\left[t_i, t_{i+1}\right]\right) \subseteq \pi^{-1}(V)\) which has a separation \(\left\{V_0, \pi^{-1}(V) \backslash V_0\right\}\).
+        </p>
+        <p>
+            Since \(\left[t_i, t_{i+1}\right]\) is connected, we see \(\tilde{\gamma}\left(\left[t_i, t_{i+1}\right]\right), \tilde{\gamma}^{\prime}\left(\left[t_i, t_{i+1}\right]\right) \subseteq V_0\). So \(\left.\left.\pi\right|_{V_0} \circ \tilde{\gamma}\right|_{\left[t_i, t_{i+1}\right]}=\left.\left.\pi\right|_{V_0} \circ \tilde{\gamma}^{\prime}\right|_{\left[t_i, t_{i+1}\right]}\). As \(\left.\pi\right|_{V_0}\) is invertible, we see \(\left.\tilde{\gamma}\right|_{\left[t_i, t_{i+1}\right]}=\left.\tilde{\gamma}^{\prime}\right|_{\left[t_i, t_{i+1}\right]}\). By induction, \(\bar{\gamma}=\tilde{\gamma}^{\prime}\).
+        </p>
+    </div>
+</div>
+
+<p>
+    Suppose that definition 1 holds true, since we have an open cover \( OC \) of \( B \) then let \( U \in OC \) and by assumption we obtain a discrete set \( D \) and a homeomorphism \( \phi : U \times D \to p ^ { -1 } \left( U \right)  \) such that \( p \circ \phi = \pi _ U \), with this discrete set we consider \( U _ d : = \phi \left( U \times \left\{ d \right\}  \right) \subseteq E \) so that \( p ^ { -1 } \left( U \right) = \bigsqcup _ { d \in D } U _ d   \) because \( D \) was a discrete set and since \( \phi  \) is a homeomorphism and thus a bijection, none of the images collide. 
+</p>
+<p>
+    We will now prove that \( p \restriction _ { U _ d } \) is a homeomorphism \( U _ d \) with \( U \), so first we show that it is a bijection, but since we see that \( p \left( U _ d \right) = p \left( \phi \left( U \times \left\{ d \right\}  \right)  \right) = \pi _ U \left( U \times \left\{ d \right\}  \right) = U    \) so then it is a surjection onto \( U \), and also if \( p \restriction _ { U _ d } \left( x \right) = p \restriction _ { U _ d } \left( y \right)   \) for \( x, y \in U _ d \) then we have \( p \restriction _ { U _ d } \left( \phi \left( \phi ^ { -1 } \left( x \right)  \right)  \right) = p \restriction _ { U _ d } \left( \phi \left( \phi ^ { -1 } \left( y \right)  \right)  \right)   \) since \( \phi  \) is invertible but then function composition is associative so that is equivalent to \( \pi _ U \restriction _ { U \times \left\{ d \right\}  } \left( x \right) = \pi _ U \restriction _ { U \times \left\{ d \right\}  } \left( y \right)    \) meaning that \( x = y \) so that it is injective as well.
+</p>
+<p>
+    Now we verify continuity we use a similar inverse trick, first verifying that: \( p ^ { -1 } \left( V \right) = \phi \left( \phi ^ { -1 } \left( p ^ { -1 } \left( V \right)  \right)  \right)  = \phi \left( \pi _ U ^ { -1 } \left( V \right)  \right)  \) and since \( \pi _ U   \) is continuous and \( \phi  \) is a homeomorphism, this shows that \( p ^ { -1 } \left( V \right)  \) is open. Now in a similar fashion we check that \( p \left( V \right) = p \left( \phi \left( \phi ^ { -1 } \left( V \right)  \right)  \right) = \pi _ U \left( \phi ^ { -1 } \left( V \right)  \right)    \) which is also open since \( \phi _ U  \) is an open map and \( \phi  \) is a homeomorphism.
+</p>
+
+<p>
+    Now suppose that definition 2 holds true, again take \( U \in OC \) and so we have that \( p ^ { -1 } \left( U \right)  \) is a union of disjoint open sets \( U _ \beta \in E \) and let \( D = B \) in the discrete topology, and if we define \( \phi : U \times D \to p ^ { -1 } \left( U \right)  \) via \( \phi \left( u , d \right) = \left( p \restriction _ { U _ d }  \right) ^ { -1 }  \left( U \right)    \) which is well defined only because we assumed that \( p \restriction _ { U _ d } \) is a homeomorphism also showing that it is bijective. Moreover we have that \( p \circ \phi \left( u, d \right) = p \left( p ^ { -1 } \left( u \right)  \right) = u   \) so that we have \( p \circ \phi = \pi _ U  \). 
+</p>
+<p>
+    Let \( V \subseteq p ^ { -1 } \left( U \right) \) be an open set, since \( p ^ { -1 } \left( U \right)  \) is a disjoint union of open sets then we can intersect each of those sets with \( V \) to obtain a collection \( \left\{ V _ \beta \right\}  \) which is a disjoint union of \( V \) so that \( \phi ^ { -1 } \left( V \right) = \bigcup _ { \beta } \left( \phi ^ { -1 } \left( V _ \beta a \right)  \right) = \bigcup _ \beta \left( p \restriction _ { U _ \beta } \right) \left( V _ \beta \right)   \) which is open as \( p \restriction _ { U _ \beta } \) is a homeomorphism.
+</p>
+<p>
+    Now suppose that \( V \subseteq U \times D \) then \( V = \bigcup _ {d \in G} \left( u, d \right)   \) where \( G \subseteq D \) then we have \( \phi \left( V \right) = \bigcup _ { d \in G } \left( p \restriction _ { U _ d }  \right) ^ { -1 } \left( u  \right)    \) which is open as \( p \restriction _ { U _ d } \) is a homeomorphism, thus \( \phi  \) is a homeomorphism, as needed.
+</p>
+
+
+
+<div class="proposition" id="proposition-covering-alternate-characterization" >
+    <div class="title">Covering Alternate Characterization</div>
+    <div class="content">
+        Given a continuous surjection \( p :E \to B \) it is a <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-covering">covering</a> iff there is an open cover \( OC \) of \( B \) such that for every \( U \in OC \) it is <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-evenly-covered">evenly covered</a> by \( p \)
+    </div>
+
+    <div class="proof">
+https://math.stackexchange.com/questions/505317/equivalent-definitions-of-evenly-covered?noredirect=1&lq=1
+        <p>
+            \( \impliedby \) Suppose that \( U \in OC \), since it is evenly covered by \( p \) then there exists a collection \( \left\{ V _ \alpha : \alpha \in I \right\}  \) of disjoint sets whose union equals \( p ^ { -1 } \left( U \right)  \), and lets construction a function \( f : \bigsqcup _ { \alpha \in I } V _ \alpha \to I  \) such that \( f \left( p \right) = \beta  \) if \( p \in V _ \beta \). Given any \( \gamma \in I \) then we know that \( f ^ { -1 } \left( \gamma  \right) = V _ \gamma   \) which is an open set, therefore \( f \) is a continuous function.
+        </p>
+        <p>
+            If we construct \( \phi : \bigsqcup _ { \alpha \in I } V _ \alpha \to U \times I \) via \( \phi \left( x \right) = \left( p \left( x \right), f \left( x \right)    \right)   \) then we know that \( \phi  \) is a continuous function as the product of continuous functions, and is invertible given by \( \phi ^ { -1 }  \) which maps \( \left( y, i \right)  \) to the unique point \( x \in V _ \beta \) wherein \( p \left( x \right) = y \). Moreover we know that \( \phi ^ { -1 }  \) is continuous because if \( W \) is an open set in \( U \times I \) then \( \phi \left( W \right)  \) is the disjoint union of \( p \left( W \cap V _ \alpha  \right) \times \left\{ \alpha  \right\}   \) 
+        </p>
+        <p>
+            \( \implies  \) Note that the set \( p ^ { -1 } \left( U \right) = \phi ^ { -1 } \left( U \times I \right)   \) which is a disjoint union of open sets \( V _ i = \phi ^ { -1 } \left( U \times \left\{ \alpha  \right\}  \right)  \), each of which is mapped homoeomorphically onto \( U \).
+        </p>
+    </div>
+</div>
+
+<div class="definition" id="definition-locally-path-connected" >
+    <div class="title">Locally Path Connected</div>
+    <div class="content">
+        A space \(X\) is called "locally path connected" if for every \(x \in X\) and every open set \(U \subset X\) with \(x \in U\), there is a path-connected open set \(V\) such that \(x \in V \subset U\).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-connected-covering-yields-a-lift" >
+    <div class="title">Connected Covering Yields a Lift</div>
+    <div class="content">
+        Show that if \(p:\left(E, e_0\right) \rightarrow\left(B, b_0\right)\) is a covering, if \(\left(X, x_0\right)\) is path connected, locally path connected, and simply connected and if \(\psi:\left(X, x_0\right) \rightarrow\left(B, b_0\right)\) is given, then there is a unique \(\bar{\psi}:\left(X, x_0\right) \rightarrow\left(B, b_0\right)\) such that \(p \circ \bar{\psi}=\psi\).
+
+        Hint. For every point \(y \in X\) there is a path from \(x_0\) to \(y\) and it can be lifted. But does this define \(\bar{\psi}\) uniquely? Is the result continuous?
+    </div>
+
+    <div class="proof">
+http://www.homepages.ucl.ac.uk/~ucahjde/tg/html/gal-01.html - watch vid, 
+
+        then specialize - https://math.stackexchange.com/questions/1675181/simply-connected-means-universal-covering-spaces
+        TODO: Add the proof here.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-lifting-criterion" >
+    <div class="title">Lifting Criterion</div>
+    <div class="content">
+        Let \(p:\left( E, e_0 \right) \longrightarrow\left(B, b_0\right)\) is a covering and let \( f : \left(X, x_0\right) \longrightarrow\left(B, b_0\right)\) be a a map with \( X \) path-connected and locally path-connected. Then \( f \) lifts to \( \tilde{f}:\left( X, x_0\right) \longrightarrow \left(E, e_0 \right) \) iff 
+        \[ 
+        f_*\left(\pi_1\left(X, x_0\right)\right) \subset p_*\left(\pi_1\left(E, e_0\right)\right)
+        \]
+    </div>
+
+    <div class="proof">
+        <p>
+            \( \implies  \) Suppose that there is a lift \( \widetilde{ f } : X \to E \), that is: \( f = p \circ \widetilde{ f }  \), we'll now prove the inclusion, to do so we consider an element \( f _ * \left[ \gamma  \right]  \), where \( \gamma  \) is a loop in \( X \) based at \( x _ 0 \), then note:
+            \[
+            f _ * \left[ \gamma \right] = \left( p \circ \widetilde{ f } \right) _ * \left[ \gamma  \right] = p _ * \left( f _ * \left[ \gamma  \right]  \right) 
+            \] 
+            but now we note that \( f _ * \left[ \gamma  \right] \) is a loop in \( E \) based at \( e _ 0 \), therefore \( p _ * \left( f _ * \left[ \gamma  \right]  \right) \in p _ * \left( \pi _1 \left( E, e _ 0 \right)  \right)  \) as needed.
+        </p>
+        <p>
+            \( \impliedby  \) Now we assume that the inclusion holds true and now we must construct a lift, \( \widetilde{ f } : \left( X, x _ 0 \right) \to \left( B, b_0 \right)   \), so we know that \( \widetilde{ f } \left( x _ 0 \right) = b _ 0  \) must be the case, but we still must define this function for all other different points in \( X \), so let \( x \in X \) be such a point, then because \( X \) was assumed to be path connected, then we obtain a path \( \alpha \left[ 0, 1 \right] \to X  \) from \( x _ 0 \) to \( x \), now if we consider \( f \circ \alpha : I \to B \) which is a path in \( B \) starting at \( b _ 0 = f \left( x _ 0 \right)  \) and ending at \( f \left( x \right)  \) [1: this fact will become important later on] then by the <a class="knowledge-link" href="/topology/algebraic_topology.html#lemma-path-lifting">path lifting lemma</a> we obtain a path \( \widetilde{ f \circ \alpha  } _ x : I \to E \) such that \( \widetilde{ f \circ \alpha  } _ x \left( 0 \right) = e _ 0 \), for reasons that will come to be clear we now define \( \widetilde{ f } \left( x \right)  = \widetilde{ f \circ \alpha  } _ x \left( 1 \right)  \)  
+        </p>
+        <p>
+            We must now verify that the equation we just wrote above defining \( \widetilde{ f } \) must lead to an actual function, that is continuous, that it is a lift of \( f \) and moreover that it is the unique one satisfying \( \widetilde{ f  } \left( x _ 0 \right) = e _ 0  \).
+        </p>
+        <p>
+            To verify that \( \widetilde{ f } \) is a lift, we must check that \( p \circ \widetilde{ f } = f \), but for any \( x \in X \) we have that
+            \[
+            p \circ \widetilde{ f } \left( x \right) = p \left( \widetilde{ f } \left( x \right)  \right) = p \left( \widetilde{ f \circ \alpha  } _ x \left( 1 \right)  \right) = f \left( \alpha \left( 1 \right)  \right) = f \left( x \right) 
+            \] 
+            ie, \( p \circ \widetilde{ f } = f \), as needed.
+        </p>
+        <p>
+            To show the uniqueness of \( \widetilde{ f } \) we don't have to do much, because as we set it equal to the lift \( \widetilde{ f \circ \alpha  } \) and in the path lifting lemma we showed that it was a unique lift, then it implies that our constructed \( \widetilde{ f } \) is also unique.
+        </p>
+        <p>
+            We must also show that \( \widetilde{ f } \) is well defined because it was defined in terms of the first path we got from \( x _ 0  \) to \( x \) since \( X \) was path connected, but since there could be many such resulting paths from \( x \) to \( x _ 0 \) we must verify that on these paths \( \widetilde{ f } \) outputs the same value. So let \( x \in X \) and suppose that \( \alpha , \beta  \) are two paths in \( X \) from \( x _ 0 \) to \( x \), we must verify that 
+            \[
+            \widetilde{ f \circ \alpha  } \left( 1 \right) = \widetilde{ f } \left( x \right) = \widetilde{ f \circ \beta } \left( 1 \right) 
+            \] 
+            Since \( \alpha, \beta  \) have <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-shared-ends">shared ends</a> and both end at \( x \) then we can conclude that \( f \left( \alpha \left( 1 \right)  \right) = f \left( x \right) = f \left( \beta \left( 1 \right)  \right)  \), then the loop \( \gamma := \beta ^ { -1 } \cdot \alpha  \) is a loop in \( X \) based at \( x _ 0 \), and therefore \( f \circ \gamma  \) is a loop in \( E \) based at \( e _ 0 \), since we assumed that \( f_*\left(\pi_1\left(Y, y_0\right)\right) \subset p_*\left(\pi_1\left(\tilde{X}, x_0\right)\right) \), which implies that that there is a loop \( \delta  \) in \( B \) based at \( b _ 0 \) such that \( p \circ \delta = f \circ \gamma  \).
+        </p>
+        <p>
+            We'll prove that \( \widetilde{ f \circ \alpha  } \left( 1 \right) = \delta \left( \frac{ 1 }{ 2 }  \right) = \widetilde{ f \circ \beta  } \left( 1 \right)    \), to see why we see that \( \delta \restriction _ { \left[ 0, \frac{ 1 }{ 2 }  \right]  } \) is a lift of \( f \circ \alpha  \) starting at \( b _ 0 \), since by the path lifting lemma since it deduces that the lift is unique then we must have that \( \widetilde{ f \circ \alpha  } = \gamma \restriction _ { \left[ 0, \frac{ 1 }{ 2 }  \right]  } \) so we must have that \( \delta \left( \frac{ 1 }{ 2 }  \right) = \widetilde{ f \circ \gamma  } \left( 1 \right) = f \left( x \right)    \). In a symmetrical way we can see that \( \delta  ^ { -1 } \restriction _ { \left[ 0, \frac{ 1 }{ 2 }  \right]  } \) is a lift of \( \widetilde{ f \circ \beta  } \) starting at \( b _ 0 \) so similarly we conclude that \( \delta ^ { -1 } \left( \frac{ 1 }{ 2 }  \right)   \), but since \( \delta \left( \frac{ 1 }{ 2 }  \right) = \delta ^ { -1 } \left( \frac{ 1 }{ 2 }  \right)   \) then that shows that \( \widetilde{ f \circ \alpha  } = \widetilde{ f \circ \beta } \), ie that \( \widetilde{ f } \) is well defined.
+        </p>
+        <p>
+            Finally we will prove that \( \widetilde{ f } \) is continuous, so let \( U \subseteq E \) be an open set and we need to prove that \( \widetilde{ f } ^ { -1 } \left( V \right)  \) is open. To do this we will show that for any \( x \in \widetilde{ f } ^ { -1 } \left( U \right)  \) there exists an open set \( V \) such that \( x \in V \subseteq f ^ { -1 } \left( U \right)  \) showing that \( f ^ { -1 } \left( U \right)  \) <a class="knowledge-link" href="/topology/topological_spaces.html#proposition-a-set-filled-with-open-sets-is-open">is open</a>
+        </p>
+        <p>
+            Since \( p \) is a covering, then recall that this means that we have an open cover \( OC \) of \( B \) with <a class="knowledge-link" href="/topology/algebraic_topology.html#proposition-covering-alternate-characterization">various properties</a>, in our case if we consider \( f \left( x \right)  \) then we obtain an open set \( W \) that is <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-evenly-covered">evenly covered</a> by \( p \) and consider the set \( f ^ { -1 } \left( W \right) \subseteq X  \) which is open as \( f \) is continuous and since \( X \) is <a class="knowledge-link" href="/topology/algebraic_topology.html#definition-locally-path-connected">locally path connected</a> then there exists an open set \( V \) such that \( x \in V \subseteq f ^ { -1 } \left( W \right)  \) and \( V \) is path connected.
+        </p>
+        <p>
+            Now fix a path \( \gamma  \)  from \( x _ 0 \) to \( x \) and for any \( v \in V \) let \( \eta \) be a path from \( x  \) to \( v \) both of which can be done as \( X \) was path connected, then \( \gamma \cdot \eta \) is a path from \( x _ 0 \) to \( v \), and \( f \circ \left( \gamma \cdot \eta \right)  \) is a path in \( B \) starting at \( f \left( x \right)  \) and ending at \( f \left( v \right)  \), since \( p \) was a homoemorphism then we also have \( p ^ { -1 }  \) so that \( p ^ { -1 } \circ f \circ \left( \gamma \cdot \eta \right)  \) is a path in \( E \) that starts at \( \widetilde{ f } \left( x  \right)  \) and ends at \( \widetilde{ f } \left( v \right)  \) which is contained in \( U \) , in other words \( \widetilde{ f } ^ { -1 } \left( U \right) \supseteq W  \) as needed.
+        </p>
+
+    </div>
+</div>
+<p>
+    Note that if \( X \)  is simply conntected then you know that \( \pi _ 1(X, x0) \)  is trivial and thus \( f _ * \left( \pi _ 1 \left( X, x_0 \right)  \right) \)  is a trivial loop in \( B \)  (the constant \( b _ 0 \)  loop), which is an element of \( p _ * \left( \pi _ 1 \left( E , e _ 0 \right)  \right)  \) so the \( \impliedby \)  from the iff holds and we get what we wanted.
+</p>
+
+<hr>
+
+<p>
+    To show that it still remains a group, we first verify that we have an identity, which is simply \( \left( e _ G, e _ H \right)  \) as we see 
+    \[
+      \left( e _ G, e _ H \right) \left( g, h \right) = \left( e _ G g, e _ H h \right) = \left( g, h \right) = \left( g e _ G, h e _ H \right) = \left( g , h \right) \left( e _ G, e _ H \right) 
+    \] 
+</p>
+<p>
+    Inverses are almost as easy, as we take \( \left( g , h \right) ^ { -1 } = \left( g ^ { -1 } , h ^ { -1 }  \right)   \) because we have
+    \[
+      \left( g, h \right) \left( g ^ { -1 } , h^ { -1 }  \right) = \left( e _ G, e _ H \right) 
+    \] 
+    and
+    \[
+      
+      \left( h, g \right) \left( h ^ { -1 } , g^ { -1 }  \right) = \left( e _ H, e _ G \right) 
+    \] 
+</p>
+<p>
+    Finally we note that multiplication is associative 
+    \[
+    \left( g _ 1, h _ 1 \right) \left( \left( g _ 2, h _ 2 \right) \left( g _ 3, h _ 3 \right)   \right) = \left( g _ 1, h _ 1 \right) \left( \left( g _ 2 g _ 3, h _ 2 h _ 3 \right) \right) = \left( g _ 1 \left( g _ 2 g _ 3 \right) , h _ 1 \left( h _ 2 h _ 3 \right)   \right) = \left( \left( g _ 1 g _ 2 \right) g _ 3, \left( h _ 1 h _ 2 \right) h _ 3   \right) = \left( \left( g _ 1 , h _ 1 \right) \left( g _ 2, h _ 2 \right)    \right) \left( g _ 3, h _ 3 \right) 
+    \] 
+</p>
+
+
+<div class="proposition" id="proposition-the-fundamental-group-of-a-product-is-isomorphic-to-a-product-of-fundamental-groups">
+    <div class="title">The Fundamental Group of a Product Is Isomorphic to a Product of Fundamental Groups</div>
+    <div class="content">
+        If \(\left(X, x_0\right)\) and ( \(\left.y, y_0\right)\) are based spaces, we let \(\left(X, x_0\right) \times\left(Y, y_0\right)\) be the based space \(\left(X \times Y,\left(x_o, y_0\right)\right)\). Show that \(\pi_1\left(\left(X, x_0\right) \times\left(Y, y_0\right)\right) \cong \pi_1\left(X, x_0\right) \times \pi_1\left(Y, y_0\right)\)
+    </div>
+
+    <div class="proof">
+        <p>
+            Recall that \( \pi _ X : X \times Y \to X \), \( \pi _ Y : X \times Y \to Y \) are the projections onto \( X \) and \( Y \) respectively. Now to show that these two groups are isomorphic we construction a function \( \phi : \pi _ 1 \left( X \times Y, \left( x _ 0, y _ 0 \right)  \right) \to \pi _ 1 \left( X, x _ 0 \right) \times \pi  _ 1 \left( Y, y _ 0 \right)    \), we do it by taking \( \left[ \gamma  \right] \mapsto \left( \left[ \pi _ X \circ \gamma  \right], \left[ \pi _ Y \circ \gamma  \right]   \right)   \), also do not forget that \( \gamma  \) is a loop based at \( \left( x _ 0, y _ 0 \right)  \).
+        </p>
+        <p>
+            First we have to prove that \( \phi  \) is well-defined, that is if \( \left[ \alpha  \right] = \left[ \gamma  \right]    \) where \( \alpha \) is another loop in \( X \times Y \) based at \( \left( x _ 0, y _ 0 \right)  \) then we need to show that \( \left( \left[ \pi _ X \circ \alpha \right]  , \left[ \pi _ Y \circ \alpha \right]   \right) =  \left( \left[ \pi _ X \circ \gamma  \right], \left[ \pi _ Y \circ \gamma  \right]   \right)  \). 
+        </p>
+        <p>
+            By assuming that \( \left[ \alpha  \right] = \left[ \gamma  \right]   \) we know that \( \alpha \sim \gamma  \) meaning that they are path homotopic, moreover since \( \pi _ X, \pi _ Y  \) are continuous, <a class="knowledge-link" href="/topology/algebraic_topology.html#propoisition-path-homotopy-is-invariant-modulo-continuous-function-composition">then we know that</a> \( \pi _ X \circ \gamma \sim  \pi _ X \circ \alpha  \) and that \( \pi _ Y \circ \gamma \sim  \pi _ Y \circ \alpha  \) are also path homotopic, which shows that \( \left( \left[ \pi  _ X \circ \alpha  \right], \left[ \pi _ Y \circ \alpha  \right]   \right) = \left( \left[ \pi  _ X \circ \gamma   \right], \left[ \pi _ Y \circ \gamma  \right]   \right)   \) as needed.
+        </p>
+        <p>
+            We construct \( \phi ^ { -1 }  \) (which will be the inverse) is defined by \( \phi ^ { -1 } \left( \left[ \gamma  \right], \left[ \alpha  \right]   \right) = \left[ \left( \gamma , \alpha  \right)  \right]   \) where \( \left( \gamma, \alpha  \right) \left( t \right) = \left( \gamma \left( t \right), \alpha  \left( t \right)   \right)    \) is a loop in \( X \times Y \). So we also have to verify that this is well defined, so suppose that \( \left[ \widetilde{ \alpha  } \right] = \left[ \alpha  \right]   \) and that \( \left[ \widetilde{ \gamma  } \right] = \left[ \gamma  \right]   \) then we have to prove that \( \left[ \left( \gamma , \alpha \right)   \right] = \left[ \left( \widetilde{ \gamma  }, \widetilde{ \alpha  } \right)  \right]   \). Since we assumed that \( \gamma \sim \widetilde{ \gamma  } \) and that \( \alpha \sim \widetilde{ \alpha  } \)  have have path homotopies \( H _ 1, H _ 2 \) for each pair respectively, then if we consider \( \left( H _ 1 \left( s, t \right) , H _ 2 \left( s, t \right)  \right) \left( s, t \right)   \) it is a path homotopy from \( \left( \gamma , \alpha  \right)  \) to \( \left( \widetilde{ \gamma  }, \widetilde{ \alpha  } \right)  \) as needed.
+        </p> 
+        <p>
+            Now \( \phi  \) is a <a class="knowledge-link" href="/algebra/groups/homomorphisms.html#definition-group-homomorphism">homomorphism</a>, because we have 
+            \[
+            \begin{align*}
+            \phi \left( \left[ \gamma  \right] \cdot \left[ \alpha  \right]   \right) &= \phi \left( \left[ \gamma \cdot \alpha  \right]  \right) \\
+            &= \left( \left[ \pi _ X \circ \left( \gamma \cdot \alpha  \right)  \right], \left[ \pi _ Y \circ \left( \gamma \cdot \alpha  \right)   \right]   \right) \\
+            &= \left( \left[ \pi _ X \circ \gamma  \right] \cdot \left[ \pi _ X \circ \alpha \right], \left[ \pi _ Y \circ \gamma  \right] \cdot \left[ \pi _ Y \circ \alpha  \right]     \right) \\
+            &= \left( \left[ \pi _ X \circ \gamma  \right] , \left[ \pi _ Y \circ \gamma  \right]   \right) \cdot \left( \left[ \pi _ X \circ \alpha  \right], \left[ \pi _ Y \circ \alpha  \right]   \right) \\
+            &= \phi \left( \left[ \gamma  \right]  \right) \cdot \phi \left( \left[ \alpha  \right]  \right) 
+            \end{align*}
+            \] 
+        </p>
+    </div>
+</div>
+
+<p>
+    People often ignore basepoints and write \(\pi_1(X \times Y)=\pi_1(X) \times \pi_1(Y)\), but that's a bit less accurate.
+</p>
+
+<div class="exercise" id="exercise-the-fundamental-group-of-the-figure-8-is-in-bijection-to-the-free-group-of-two-elements" >
+    <div class="title">The Fundamental Group of the Figure 8 Is in Bijection to the Free Group of Two Elements</div>
+    <div class="content">
+        Let 8 be the space that looks like the numeral 8 , with the basepoint in the centre. Use the "Mexican cross" covering of 8 to show that \(\pi_1(8)\) is equal, as a set, to the set of words of the form  \( W = \left\{  a^{\alpha_1} b^{\beta_1} a^{\alpha_2} b^{\beta_2} \cdots a^{\alpha_n} b^{\beta_n} : \text{ such that } 1 \right\} \), where 1: \(n\) is a positive integer and \(\alpha_i\) and \(\beta_i\) are non-zero integers for all \(i\), except that \(\alpha_1\) is allowed to be 0 and \(\beta_n\) is allowed to be 0 . (For simplicity we ignore the group structure on \(\pi_1(8)\) here).
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \( C \) denote the cross (the free group diagram) of the two elements \( a, b \) then recall that the mapping \( p : C \to 8 \) which wraps horizontal lines from left to right clockwise around the unit circle shifted up by one unit, and vertical line segments going from bottom to top to the unit circle shifted down by one unit also clockwise and finally it maps all intersection points to the singular intersection point of the two unit circles which we denote by \( t \), recall that in class we showed this was a covering map as the inverse image of any open set was a discrete collection of sets that are homeomorphic to the original open set. Recall that this was done as for any open set entirely contained within \( a \) it gets mapped to a straight line and thus the map which turns a straight line to a segment on the unit circle works, and that similar constructions also work for open sets entirely contained in \( b \) and open sets that contain \( t \) both by a straightening.
+        </p>
+        <p>
+            Recall that given any intersection point in \( C \) it's true that there is a unique shortest set of "directions" for us to start from the origin and get there. Also given two directions or words of the form specfied in the question it leads us to a unique intersection point in \( C \), so that this function which we denote as \( f \) is a bijection from the set of intersection points of \( C \) into \( W \).
+        </p>
+        <p>
+            Now we'll construct \( \phi : \pi _ 1 \left( 8 , t \right) \to W   \) via \( \phi \left( \left[ \gamma  \right]  \right) = h \left( \widetilde{ \gamma  } \left( 1 \right)  \right)   \), also note that since \( p ^ { -1 } \left( \left\{ t \right\}  \right)  \) is the set of all intersection points of \( C \) and that \( p \circ \widetilde{ \gamma  } \left( 1 \right) = \gamma \left( 1 \right) = c   \) then we know that \( \widetilde{ \gamma  } \left( 1 \right)  \) is an intersection point. The proof showing that this function is well defined was done in lecture when we proved that \( \pi _ 1 \left( S_ 1, 0 \right) \cong \mathbb{ Z } \) and thus will not be replicated, but just recall that if we had \( \gamma _ 1 \sim \gamma _2  \) which are homotopic via \( H \) then we were able to show that \( \widetilde{ \gamma _ 1 } \sim \widetilde{ \gamma _2 } \) via \( \widetilde{ H } \) where there elements are the lifted versions respectively.
+        </p>
+        <p>
+            Now if given any \( w \in W \) we define \( \gamma _ w \) to be a path in \( C \) from the origin to an intersection in \( C \), namely: \( f \left( w \right) \)  (getting there is as easy as driving your taxi in manhattan) then we can define a potential inverse function \( \psi : W \to \pi _ 1 \left( 8 , t \right)  \) by \( \psi \left( w \right) = \left[ p \left( \gamma _ w \right)  \right]   \).
+        </p>
+        <p>
+            Now we verify that \( \phi , \psi  \) are inverses of eachother, for \( \phi \circ \psi  \) then we note that given a \( w \in W \) we have that \( \psi \left( w \right) = \left[ p \left( \gamma _ w \right)  \right]   \) the unique lift of \( p \left( \gamma _w \right)  \)  which is a path in \( 8 \) is given by \( \gamma _w \) therefore \( \phi \left( \psi \left( w \right)  \right) = \phi \left( \left[ \gamma _w \right]  \right) = f \left( \widetilde{ \gamma  } _ w \left( 1 \right)  \right) = w \) where the final equality comes from the definition of \( f \).
+        </p>
+        <p>
+            Now suppose that \( \left[ \gamma  \right] \in \pi _ 1 \left( 8, t \right)   \) then we know that \( \phi \left( \left[ \gamma  \right]  \right) = h \left( \widetilde{ \gamma  } \left( 1 \right)  \right) := w \in W \), then \( \psi \left( w \right) = \left[ p \left( \gamma _ w \right)  \right]   \), our goal is to show that \( \psi \circ \phi  \) is the identity so we must show that \( \left[ p \left( \gamma _ w \right)  \right] = \left[ \gamma  \right]   \). 
+        </p>
+        <p>
+            It can be seen that \( C \) is simply connected, firstly because it is clearly path connected, by just going through the maze to get between any two points, also any loop is path homotopic to the constant loop, this while harder to be seen is true because we find the smallest branch in the loop and "compress it" by no longer tracing over that branch but instead passing over it, by recursively doing this we can maintain path homotopy with the previous layer, thus inductively showing the entire loop is path homotopic to the constant loop.
+        </p>
+        <p>
+            With that being said we wote that \( \widetilde{ \gamma  }, \gamma _w \) are both paths in \( C \) and thus due to the above we have a path homotopy \( H ^ \prime  \) between the two then homotopy \( H = p \circ H ^ \prime  \) is a path homotopy between \( \gamma  \) and \( p \left( \gamma _ w \right)  \) showing that \( \psi \circ \phi  \) is the identity and that they are inverses of eachother.
+        </p>
+    </div>
+</div>
+
+
+
+https://etnyre.math.gatech.edu/class/6441Spring21/Section%20IE.pdf - review the ending
+Lemma 1.35 (Lifting criterion). https://www.math.utoronto.ca/mgualt/MAT1300/Week%204%20Term%202.pdf - uniqueness
+https://dept.math.lsa.umich.edu/~jchw//2022Math592Material/Homework5-Math592-W2022.pdf
+
+
+
+If \(G\) and \(H\) are groups, we define a multiplication on \(G \times H\) by \(\left(g_1, h_1\right)\left(g_2, h_2\right)=\left(g_1 g_2, h_1 h_2\right)\).
+mark.com/assignments/homework-assignment-9-c4f86/preview
+
+Homework Assignment 9 preview | Crowdmark
+A. (5 points) Verify that \(G \times H\) is again a group.
+
+use the below to solve B
+https://math.stackexchange.com/questions/2655918/prove-that-pi-1x-times-y-x-0-y-0-is-isomorphic-to-pi-1x-x-0-times-p
+
+
+Let 8 be the space that looks like the numeral 8 , with the basepoint in the centre. Use the "Mexican cross" covering of 8 to show that \(\pi_1(8)\) is equal, as a set, to the set of words of the form \(a^{\alpha_1} b^{\beta_1} a^{\alpha_2} b^{\beta_2} \cdots a^{\alpha_n} b^{\beta_n}\), where \(n\) is a positive integer and \(\alpha_i\) and \(\beta_i\) are non-zero integers for all \(i\), except that \(\alpha_1\) is allowed to be 0 and \(\beta_n\) is allowed to be 0 . (For simplicity we ignore the group structure on \(\pi_1(8)\) here).

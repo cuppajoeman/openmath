@@ -1,0 +1,124 @@
+<div class="definition" id="definition-category" >
+    <div class="title">Category</div>
+    <div class="content">
+    A category \(\mathscr{C}\) consists of
+        <ul>
+            <li>a collection ob \((\mathscr{C})\) of <b>objects</b></li>
+            <li>for each \(A, B \in \mathrm{ob}(\mathscr{C})\), a collection \( \operatorname{ mor } (A, B) \) of what we call <b>morphisms</b> from \(A\) to \(B\)</li>
+            <li>for each \( A, B, C \in \operatorname{ob}(\mathscr{C})\), a function which we call <b>composition</b> \( \circ _ \mathscr{C} : \operatorname{ mor } (B, C) \times \operatorname{ mor } (A, B) \rightarrow \operatorname{ mor } (A, C)  \) </li>
+            \[
+                \circ _ \mathscr{C} \left( g, f \right) : = g \circ f
+            \]
+            <li> for each \(A \in \mathrm{ob}(\mathscr{C})\), an element \(1_A\) of \( \operatorname{ mor } (A, A)\), called the identity on \(A\), satisfying the following axioms: </li>
+            <ul>
+                <li>associativity: for each \(f \in \operatorname{ mor } (A, B), g \in \operatorname{ mor } (B, C)\) and \(h \in \operatorname{ mor } (C, D)\), we have \((h \circ g) \circ f=h \circ(g \circ f)\); </li>
+                <li>identity laws: for each \(f \in \operatorname{ mor } (A, B)\), we have \(f \circ 1_A = f = 1_B \circ f\). </li>
+            </ul>
+        </ul>
+
+    </div>
+</div>
+<div class="definition" id="definition-functor" >
+    <div class="title">Functor</div>
+    <div class="content">
+        Let \(\mathscr{A}\) and \(\mathscr{B}\) be categories. A functor \(F: \mathscr{A} \rightarrow \mathscr{B}\) consists of 
+        <ul>
+            <li>
+                a function \( \mathrm{ob}(\mathscr{A}) \rightarrow \mathrm{ob}(\mathscr{B}) \), written as \(A \mapsto F(A)\)
+            </li>
+            <li>
+                - for each \(A, A^{\prime} \in \mathscr{A}\), a function
+
+                \[
+                \operatorname{ mor } _  \mathscr{A}\left(A, A^{\prime}\right) \rightarrow \operatorname{ mor } _  \mathscr{B}\left(F(A), F\left(A^{\prime}\right)\right)
+                \]
+
+                written as \(f \mapsto F(f)\),
+                satisfying the following axioms:
+            </li>
+            <ul>
+                <li>
+                    \(F\left(f^{\prime} \circ f\right)=F\left(f^{\prime}\right) \circ F(f)\) whenever \(A \xrightarrow{f} A^{\prime} \xrightarrow{f^{\prime}} A^{\prime \prime}\) in \(\mathscr{A}\);
+                </li>
+                <li>
+                    \(F\left(1_A\right)=1_{F(A)}\) whenever \(A \in \mathscr{A}\).
+                </li>
+            </ul>
+        </ul>
+    </div>
+</div>
+
+<div class="definition" id="definition-pointed-topological-spaces-category" >
+    <div class="title">Pointed Topological Spaces Category</div>
+    <div class="content">
+        The category of pointed topological spaces denoted by \( \operatorname{ Top } _ 0  \)  is one where objects are pairs \(\left(X, x_0\right)\), where \(X\) is a topological space, and \(x_0 \in X\) is a point of \(X\). Morphisms between \(\left(X, x_0\right)\) and \(\left(Y, y_0\right)\) are continuous functions \(f: X \rightarrow Y\) such that \(f\left(x_0\right)=y_0\).
+    </div>
+</div>
+
+<div class="definition" id="definition-group-category" >
+    <div class="title">Group Category</div>
+    <div class="content">
+        The category \( \operatorname{ Grp }  \)  has the class of all groups for objects and group homomorphisms for morphisms
+    </div>
+</div>
+
+<div class="proposition" id="proposition-the-fundamental-group-is-a-functor" >
+    <div class="title">The Fundamental Group Is a Functor</div>
+    <div class="content">
+        \( \pi _ 1 : \operatorname{ Top } _ 0 \to \operatorname{ Grp }   \) can be completed to a functor
+    </div>
+
+    <div class="proof">
+        <p>
+            For each \( \left( X, x_0 \right) \in \operatorname{ ob } \left( \operatorname{ Top } _ 0  \right)    \) we map it to \( \pi _ 1 \left( X , x _ 0 \right)  \) which is the object functor. We call this function \( \pi _ 1 ^ \operatorname{ ob }  : \operatorname{ ob } \left( \operatorname{ Top } _ 0  \right) \to \operatorname{ ob } \left( \operatorname{ Grp } \right)      \) 
+        </p>
+        <p>
+            Now we will construct our morphism functor, that is given \( f \in \operatorname{ hom } \left( \left( X, x _ 0 \right), \left( Y, y _ 0 \right)   \right)   \) we map it to a function , defined by \( \left[ \gamma  \right] \mapsto \left[ f \circ \gamma  \right]   \) we call this mapping \( h \), that is: \( F _ { \left( X, x_0 \right), \left( Y, y _ 0 \right)   } \) where \( F _ { \left( X, x_0 \right), \left( Y, y _ 0 \right)   } \left( f \right) = h  \) 
+        </p>
+        <p>
+            We now show that \( h \in \operatorname{ hom } \left( \pi _ 1 \left( X , x _ 0 \right), \pi _ 1 \left( Y , y _ 0 \right)   \right)   \), to do this, we must prove that it is a group homomorphism, and also that it is well defined. For the well definedness we note that if \( \left[ \alpha  \right] = \left[ \beta \right]   \) then <a class="knowledge-link" href="/topology/algebraic_topology.html#propoisition-path-homotopy-is-invariant-modulo-continuous-function-composition">we have that</a> \( \left[ f \circ \alpha  \right] = \left[ f \circ \beta \right]   \). For ease of notation recall that \( f _ * \left( \left[ \gamma  \right]  \right) : = \left[ f \circ \gamma  \right]   \), and we prove that our function \( h \) is a group homomorphism, that is we show that 
+            \[
+              f _ * \left( \left[ \alpha  \right] \left[ \beta  \right]   \right) = f _ * \left( \left[ \alpha  \right]  \right) f  _ * \left( \left[ \beta  \right]  \right) 
+            \] 
+            but on the left we have 
+            \[ 
+            \begin{align*}
+            f _ * \left( \left[ \alpha  \right] \cdot  \left[ \beta  \right]   \right) &= f _ * \left( \left[ \alpha \cdot  \beta  \right]  \right)\\
+            &= \left[ f \circ \left( \alpha \cdot \beta  \right)  \right] \\
+            &= \left[ \left( f \circ \alpha  \right) \cdot \left( f \circ \beta  \right)   \right] \\
+            &= \left[ f \circ \alpha  \right] \cdot \left[ f \circ \beta  \right] \\
+            &= f _ * \left( \alpha  \right) \cdot f _ * \left( \beta  \right) 
+            \end{align*} 
+            \]
+            which is the right, so we are done.
+        </p>
+        <p>
+            We now verify the functor properties:
+            \[ 
+            F _ { \left( X, x _ 0 \right), \left( X, x _ 0 \right)   } \left( \operatorname{ id } _ { \left( X, x _ 0 \right)  }  \right)  = \operatorname{ id } _ { \pi _ 1 ^ { \operatorname{ ob }  } \left( X, x_0 \right)  } = \operatorname{ id } _ { \pi _ 1  } \left( X, x_0 \right)  } 
+            \] 
+            We have that \( F _ { \left( X, x _ 0 \right), \left( X, x _ 0 \right)   } \left( \operatorname{ id } _ { \left( X, x _ 0 \right)  }  \right)  = h \) where \( h \left( \left[ \gamma  \right]  \right) = \left[ \operatorname{ id } _ { \left( X, x _ 0 \right)  } \circ \gamma   \right] = \left[ \gamma  \right]    \), in other words \( h \) takes an element from \( \pi _ 1 \left( X, x_0 \right)  \) and returns that same element, so that \( h = \operatorname{ id } _ { \pi _ 1 \left( X, x _ 0 \right)  }  \) as needed.
+        </p>
+        <p>
+            We now verify that 
+            \[
+              F _ { \left( X , x _ 0 \right), \left( Y, y _ 0 \right)   } \left( g \circ f \right) = F _ { \left( Y , y _ 0 \right), \left( Z, z _ 0 \right)   } \left( g \right) \circ F _ { \left( X , x _ 0 \right), \left( Y, y _ 0 \right)   } \left( f \right)
+            \] 
+            If we focus on the right hand side and give the two functions simpler names ; \( h _ g : \pi _ 1 \left( Y, y _ 0 \right) \to \pi _ 1 \left( Z, z _ 0 \right)   \) and \( h _ f : \pi _ 1 \left( X, x _ 0 \right) \to \pi _ 1 \left( Y, y _ 0 \right)  \) respectively, and thus on the right hand side we have: 
+            \[
+            \begin{align*}
+              \left( h _ g \circ h _ f \right)  \left( \left[ \gamma \right]    \right) &= h _ g \left( h _ f \left( \left[ \gamma  \right] \right)  \right) \\
+            &= h _ g \left( \left[ f \circ \gamma  \right]  \right) \\
+            &= \left[ g \circ \left( f \circ \gamma  \right)  \right] \\
+            &= \left[ \left( g \circ f \right) \circ \gamma  \right] \\
+            &= F _ { \left( X , x _ 0 \right), \left( Y, y _ 0 \right)   } \left( g \circ f \right)
+            \end{align*} 
+            \] 
+            so our original equation holds true.
+        </p>
+        <p>
+            Thus since we've verified all the conditions, we conclude that \( \pi _ 1 \) is a functor.
+        </p>
+    </div>
+</div>
+
