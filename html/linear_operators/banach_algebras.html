@@ -1,0 +1,371 @@
+<div class="definition" id="definition-algebra" >
+    <div class="title">Algebra</div>
+    <div class="content">
+        Suppose that \( A \) is a vector spac,e and a map \( A \times A \to A \) which is bilinear. An algebra is such a structure such that \( \left( a b \right) c = a \left( b c \right) \) 
+    </div>
+</div>
+<div class="definition" id="definition-unital" >
+    <div class="title">Unital</div>
+    <div class="content">
+        An algebra is said to be unity if there exists an element \( 1 \in A \) such that 
+        \[
+          1 a =  a 1 = a
+        \] 
+        for any \( a \in A \) 
+    </div>
+</div>
+<div class="definition" id="definition-unital-subalgebra" >
+    <div class="title">Unital Subalgebra</div>
+    <div class="content">
+        \( B \) is called a unital subalgebra if \( B \) is a subalgebra of \( A \) and \( 1 \in B \) 
+    </div>
+</div>
+<p>
+    Consider \( A = C \left( \left[ 0, 1 \right] \cup \left[ 2, 3 \right]   \right) \) which is a unital algebra over pointwise operations, then if we set \( B = \left\{ f \in A : f | \left[ 2, 3 \right] = 0  \right\} \equiv C \left( \left[ 0, 1 \right]  \right)  \) which is not a unital subalgebra.
+</p>
+<div class="definition" id="definition-subalgebra" >
+    <div class="title">Subalgebra</div>
+    <div class="content">
+        A subalgebra of \( A  \) is a subacpe of \( B \subseteq A \) such that for any \( a, b \in B \) such that \( ab \in B \) 
+    </div>
+</div>
+<div class="definition" id="definition-normed-algebra" >
+    <div class="title">Normed Algebra</div>
+    <div class="content">
+        if \( \lVert \cdot  \rVert  \) is a norm on \( A \) and \( \lVert \cdot  \rVert  \) is submultiplicative, that is 
+        \[
+            \lVert a b \rVert \le \lVert a \rVert \lVert b \rVert 
+        \] 
+        Then \( A \) is a normed algebra
+    </div>
+</div>
+<div class="definition" id="definition-unital-normed-algebra" >
+    <div class="title">Unital Normed Algebra</div>
+    <div class="content">
+        If \( A \) is a normed algebra and \( \lVert 1 \rVert = 1  \) then \( A \) is said to be a <b>unital normed algebra</b>
+    </div>
+</div>
+<div class="definition" id="definition-banach-algebra" >
+    <div class="title">Banach Algebra</div>
+    <div class="content">
+        A completed normed algebra is a <b>Banach Algebra</b>
+    </div>
+</div>
+<div class="definition" id="definition-sup-norm" >
+    <div class="title">Sup Norm</div>
+    <div class="content">
+        \[
+          \left\lVert f  \right\rVert _ \infty = \sup _ { x \in S } \left\lVert f \left( x \right)  \right\rVert 
+        \] 
+    </div>
+</div>
+<h1>week 6</h1>
+<div class="exercise" id="exercise-continuous-and-bounded-functions-with-the-sup-norm-form-a-unital-c*-algebra" >
+    <div class="title">Continuous and Bounded Functions With the Sup-norm Form a Unital C* Algebra</div>
+    <div class="content">
+        Suppose that \( X \) is a compact hausdorff topological space, then \( C _ b \left( X \right) = \left\{ f : X \to \mathbb{ C } : f \text{ is continuous and bounded } \right\}   \) is a unital \( C ^ \ast \)-algebra when equipped with the sup-norm
+    </div>
+    <div class="proof">
+        <p>
+            The set \( C_b(X) \) consists of functions from \( X \) to \( \mathbb{C} \) that are continuous and bounded. It is closed under addition and scalar multiplication, if \( f, g \in C_b(X) \), then the function \( (f + g)(x) = f(x) + g(x) \) is continuous (since the sum of continuous functions is continuous) and bounded (since the sum of two bounded functions is bounded). Similariy for any \( \alpha \in \mathbb{C} \) and \( f \in C_b(X) \), the function \( (\alpha f)(x) = \alpha f(x) \) is also continuous and bounded. Therefore, \( C_b(X) \) is a vector space over \( \mathbb{C} \).
+        </p>
+        <p>
+            We also need to show that \( C_b(X) \) is closed under pointwise multiplication, so if \( f, g \in C_b(X) \), the function \( (f \cdot g)(x) = f(x) g(x) \) is continuous (since the product of continuous functions is continuous) and bounded (the product of two bounded functions is bounded) so, \( C_b(X) \) is an algebra over \( \mathbb{C} \).
+        </p>
+        <p>
+            We define the sup-norm \( \|f\|_\infty = \sup_{x \in X} |f(x)| \). We check the properties of a norm: For non-negativity, we see: \( \|f\|_\infty \geq 0 \) for all \( f \), and \( \|f\|_\infty = 0 \) if and only if \( f = 0 \). Scalar multiplication also holds for \( \alpha \in \mathbb{C} \) and \( f \in C_b(X) \),
+            \[
+                \|\alpha f\|_\infty = \sup_{x \in X} |\alpha f(x)| = |\alpha| \sup_{x \in X} |f(x)| = |\alpha| \|f\|_\infty.
+            \]
+
+            as does the triangle inequality, given \( f, g \in C_b(X) \),
+            \[
+                \|f + g\|_\infty = \sup_{x \in X} |f(x) + g(x)| \leq \sup_{x \in X} |f(x)| + \sup_{x \in X} |g(x)| = \|f\|_\infty + \|g\|_\infty.
+            \]
+        </p>
+        <p>
+            We must verify the C*-algebra condition, we need to show that:
+            \[
+            \|f^* f\|_\infty = \|f\|_\infty^2.
+            \]
+            Here, \( f^* \) is defined as the complex conjugate of \( f \), so:
+            \[
+            f^* f(x) = |f(x)|^2.
+            \]
+            Thus,
+            \[
+            \|f^* f\|_\infty = \sup_{x \in X} |f(x)|^2 = \left(\sup_{x \in X} |f(x)|\right)^2 = \|f\|_\infty^2.
+            \]
+        </p>
+        <p>
+            The constant function \( 1 \) (where \( 1(x) = 1 \) for all \( x \in X \)) is in \( C_b(X) \) and acts as a multiplicative identity:
+            \[
+            f \cdot 1 = f \quad \text{for all } f \in C_b(X).
+            \]
+            This shows that our algebra is unital
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-left-ideal" >
+    <div class="title">Left Ideal</div>
+    <div class="content">
+        A <b>left ideal</b> in an algebra \( A \) is a vector subspace \( I \subseteq A \) such that if \( a \in A \) and \( b \in I \) then we have
+        \[
+        a b \in I
+        \] 
+    </div>
+</div>
+<p>
+    The definition for right ideal is the same, but instead we have that \( b a \in I \). The definition for a general ideal is one such that \( ab \in I \) and \( ba \in I \) (which would happen automatically if the algebra was commutative. 
+</p>
+<p>
+  Note that the sets \( \left\{ 0 \right\}  \) and \( A \) are ideals, and so we call them the trivial ideals, thus we call those ideals which are not ideals proper ones.
+</p>
+<div class="definition" id="definition-maximal-ideal" >
+    <div class="title">Maximal Ideal</div>
+    <div class="content">
+        A maximal ideal in \( A \) is a proper ideal in \( A \) that is not contained in any other proper ideal
+    </div>
+</div>
+<div class="definition" id="definition-invertible-elements-of-an-algebra" >
+    <div class="title">Invertible Elements of an Algebra</div>
+    <div class="content">
+        Suppose that \( A \) is an algebra, then we define 
+        \[
+            \operatorname{ Inv } \left( A \right) = \left\{ a \in A: a \text{ is invertible } \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    Note that the above is a group under mulitplication.
+</p>
+
+
+<div class="definition" id="definition-spectrum" >
+    <div class="title">Spectrum</div>
+    <div class="content">
+        \[
+         \sigma \left( a \right)  = \left\{ \lambda \in \mathbb{ C } : \lambda 1 _ A - a \notin \operatorname{ inv } \left( A \right)    \right\} 
+        \] 
+    </div>
+</div>
+
+<div class="proposition" id="proposition-polynomials-and-spectrum-commute" >
+    <div class="title">Polynomials and Spectrum Commute</div>
+    <div class="content">
+        Let \( a \in A \) where \( A \) is a unital algebra. If \( \sigma \left( a \right)  \) is non-empty and \( p \in \mathbb{ C }  \left[ z \right]  \) then we have 
+        \[
+          \sigma \left( p \left( a \right)  \right) = p \left( \sigma \left( a \right)  \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        We may suppose that \( p \) is non constant. Then if \( w \in \mathbb{ C }  \) then we have \( r _0, \ldots , r _ n \in \mathbb{ C }  \) with \( r _ 0 \neq 0 \) such that 
+        \[
+          p \left( z \right)  - w = r _ 0 \left( z - r _ 1 \right) \ldots \left( z - r _ n \right) 
+        \] 
+        so that \( p \left( a \right) = r _ 0 \left( a - r _ 1 \right) \ldots \left( a - r _ n \right) \) to conclude that \( p \left( a  \right) - w  \) is invertible iff \( a - r _ 1, \ldots , r _ n \) are invertible. So now \( w \in \sigma \left( p \left( a \right)  \right)  \) iff \( w = p \left( j \right)  \) for some \( j \in \sigma \left( a \right)  \) so that \( \sigma \left( p \left( a \right)  \right) = p \left( \sigma \left( a \right)  \right)   \) as needed.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-newmann-series" >
+    <div class="title">Newmann Series</div>
+    <div class="content">
+        Let \( A \) be a unital Banach algebra and let \( a \in A \) such that \( \left\lVert a \right\rVert \lt 1 \), then \( 1 - a \in \operatorname{ Inv } \left( a \right)   \) and 
+        \[
+          \left( 1 - a \right) ^ { -1 } = \sum _ { n = 0 } ^ \infty a ^ n 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            We leverge the geometric series and properties of the norm to see that 
+            \[
+              \sum _ { n = 0 } ^ \infty \left\lVert a ^ n \right\rVert  = \sum _ { n = 0 } ^ \infty \left\lVert a  \right\rVert  ^ n= \frac{ 1 }{ 1 - \left\lVert a \right\rVert  } \lt \infty
+            \] 
+            thus we see that that the series \( \sum _ { n = 0 } \to \infty a ^ n\) is convergent to some element \( c \in A \).
+        </p>
+        <p>
+            In the proof of the geometric series we noted that 
+            \[
+              \left( 1 - a \right) \left( \sum _ {  i = 0 } ^ n a ^ i \right) = 1 - a ^ { n + 1 }
+            \] 
+            then as \( n \to \infty \) we note that this equality becomes 
+            \[
+              \left( 1 - a \right) c = c \left(  1- a \right)  = 1 
+            \] 
+            showing that \( 1 - a \) is invertible and its inverse is \( c = \sum _ { i = 0 } ^ \infty a ^ i \) as needed.
+        </p>
+    </div>
+</div>
+
+<div class="theorem" id="theorem-the-spectrum-of-an-element-from-a-unital-banach-algebra-is-non-empty" >
+    <div class="title">The Spectrum of an Element From a Unital Banach Algebra Is Non-Empty</div>
+    <div class="content">
+        If \( a \in A\) where \( A \) is a unital banach algebra, then \( \sigma \left( a \right) \neq \emptyset   \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that \(\sigma(a)=\emptyset\). If  \( \left\lvert \lambda  \right\rvert \gt 2 \left\lVert a \right\rVert   \), then \( \left\lVert \lambda ^ { -1 } a \right\rVert \lt \frac{ 1 }{ 2 }   \) so that ,\( 1 - \left\lVert \lambda ^ { -1 } a \right\rVert \ge \frac{ 1 }{ 2 }   \). So we have:
+
+            \[
+            \begin{align*}
+                \left\lVert \left( 1 - \lambda ^ { -1 } a \right) ^ { -1 } -1  \right\rVert &= \left\lVert \sum _ { n = 1 } ^ \infty  \left( \lambda ^ { -1 } a \right) ^ n  \right\rVert \\
+                    &\le \frac{ \left\lVert \lambda ^ { -1 } a \right\rVert  }{ 1 - \left\lVert \lambda ^ { -1 } a   \right\rVert  } \\
+                    &\le 2 \left\lVert \lambda ^ { -1 } a \right\rVert \\
+                    &\lt 1
+            \end{align*}
+            \]
+
+            To deduce that \( \left\lVert \left( 1 - \lambda ^ { -1 } a \right)^ { -1 }   \right\rVert \lt 2  \) so we have \( \left\lVert \left( a - \lambda  \right) ^ { -1 }   \right\rVert = \left\lVert \lambda ^ { -1 } \left( 1 - \lambda ^ { -1 } a \right) ^ { -1 }   \right\rVert \lt \frac{ 2 }{ \left\lvert \lambda  \right\rvert   } \lt \left\lVert a \right\rVert ^ { -1 }     \) which is justified since \( \sigma \left( a \right) = \emptyset   \) so \( a \neq 0 \) 
+        </p>
+        <p>
+            Now note that the map \( \lambda \mapsto \left( a - \lambda  \right) ^ { -1 }   \) is continuous and that it is bounded over the disk of radius \( 2 \left\lVert a \right\rVert  \) (as the disk is compact) so that we can conclude it must be bounded on all of \( \mathbb{ C }  \) so there is some \( R \in \mathbb{ R } ^ +  \) where we have \( \left\lVert \left( a - \lambda  \right) ^ { -1 }   \right\rVert \le R  \) for every \( \lambda \in \mathbb{ C }  \) 
+        </p>
+        <p>
+            If \( \tau  \in A ^ * \) (the dual space of \( A \)) then the function (the evaluation) \( \lambda \mapsto \tau \left( a - \lambda  \right) ^ { -1 }   \) is entire (because the dual space evaluation preseves the analyticity of \( \left( a - \lambda I \right) ^ { -1 }   \))  and bounded by \( R \left\lVert \tau  \right\rVert  \).
+        </p>
+        <p>
+            Thus by Liouville's theorem we conclude that evaluation map is constant, and that in particular we have that \( \tau  \left( a ^ { -1 }  \right) = \tau \left( \left( a - 1 \right) ^ { -1 }   \right)   \) for every \( \tau  \in A ^ * \) we can say that \( a ^ { -1 } = \left( a - 1 \right) ^ { -1 }   \) so that \( a = a - 1 \) which is a contradiction.
+        </p>
+    </div>
+</div>
+<div class="theorem" id="theorem-gelfand" >
+    <div class="title">Gelfand</div>
+    <div class="content">
+        If \( a \) is an element of a unital banach algebra \( A \) then \( \sigma \left( a \right) \neq \emptyset   \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-spectral-radius" >
+    <div class="title">Spectral Radius</div>
+    <div class="content">
+        Suppose that \( a \) is an element of a banach algebra \( A \) then its spectral radius is defined as 
+        \[
+          r \left( a \right) = \sup _ { \lambda \in \sigma \left( a \right)  } \left\lvert \lambda  \right\rvert 
+        \] 
+    </div>
+</div>
+
+<div class="definition" id="definition-multiplicative-linear-functional" >
+    <div class="title">Multiplicative Linear Functional</div>
+    <div class="content">
+        A <b>multiplicative linear functional</b> \( \tau \) is a linear map \( \tau : A \to \mathbb{C} \) that satisfies:
+        <ul>
+            <li>
+                 Multiplicativity: \( \tau(ab) = \tau(a) \tau(b) \) for all \( a, b \in A \).
+            </li>
+            <li>
+                Unital property: \( \tau(1) = 1 \), where \( 1 \) is the multiplicative identity in \( A \).
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-gelfand-space" >
+    <div class="title">Gelfand Space</div>
+    <div class="content">
+        In the context of a unital commutative Banach algebra \( A \), \( \Delta(A) \) denotes the <b>Gelfand space</b> of \( A \) defined as:
+        \[
+        \Delta(A) = \{ \tau : A \to \mathbb{C} \mid \tau \text{ is a nonzero multiplicative linear functional on } A \}.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-gelfand-transformation" >
+    <div class="title">Gelfand Transformation</div>
+    <div class="content">
+        Let \(A\) be an algebra. For \(a \in A\), one defines
+        \[
+        \widehat{a}(\tau):=\tau(a) \quad(\tau \in \Delta(A))
+        \]
+
+        The function
+
+        \[
+        \begin{align*}
+        \widehat{a}: \Delta(A) & \rightarrow \mathbb{C} \\
+        \tau & \mapsto \widehat{a}(\tau) .
+        \end{align*}
+        \]
+
+        is called the Gelfand transform of \(a\).
+    </div>
+</div>
+
+<h2>unitization</h2>
+
+<div class="definition" id="definition-unitization" >
+    <div class="title">Unitization</div>
+    <div class="content">
+        Let \(A\) be an algebra. If \(A\) is unital, one defines \(\widetilde{A}:=A\). Assume now that \(A\) has no unit. One then defines \(\widetilde{A}:=\mathbb{C} \oplus A\) (direct sum of vector spaces). One imbeds \(A\) into \(\widetilde{A}\) via \(a \mapsto(0, a)\). One defines \(e:=(1,0)\), so that \((\lambda, a)=\lambda e+a\) for \(\lambda \in \mathbb{C}\), \(a \in A\). In order for \(\widetilde{A}\) to become a unital algebra with \(e\) as unit and with multiplication extending the one in \(A\), the multiplication in \(\widetilde{A}\) must be defined by
+
+        \[
+        (\lambda e+a)(\mu e+b)=(\lambda \mu) e+(\lambda b+\mu a+a b) \quad(\lambda, \mu \in \mathbb{C}, a, b \in A)
+        \]
+
+        and this definition indeed satisfies the requirements. One says that \(\widetilde{A}\) is the unitisation of \(A\). If \(A\) is a \(*\)-algebra, one makes \(\widetilde{A}\) into a unital *-algebra by putting
+
+        \[
+        (\lambda e+a)^*:=\bar{\lambda} e+a^* \quad(\lambda \in \mathbb{C}, a \in A) .
+        \]
+
+    </div>
+</div>
+
+<div class="theorem" id="theorem-abstract-wiener's" >
+    <div class="title">Abstract Wiener's</div>
+    <div class="content">
+        Let \( A \) be a unital commutative banach algebra. An element \( a \) is not invertible in \( A \) iff \( \widehat{a}  \) vanishes at some \( \tau \in \Delta \left( A \right)  \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-spectrum-is-the-gelfand-image-of-multiplicative-functionals" >
+    <div class="title">Spectrum Is the Gelfand Image of Multiplicative Functionals</div>
+    <div class="content">
+        Let \( A \) be a commutative Banach algebra. For \( a \in \widetilde{A} \) then we have 
+        \[
+          \operatorname{ sp } \left( a \right) = \widehat{a} \left( \Delta \left( \widetilde{A} \right)  \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+    Note that the following statements are equivalent.
+    \[
+        \begin{align*}
+        & \lambda \in \operatorname{sp}(a), \\
+        & \lambda e-a \text { is not invertible in } \widetilde{A}, \\
+        & (\widehat{\lambda e-a})(\widetilde{\tau})=0 \text { for some } \widetilde{\tau} \in \Delta(\widetilde{A}), \quad \text { by Abstract Weiner's }\\
+        & \lambda=\widehat{a}(\widetilde{\tau}) \text { for some } \widetilde{\tau} \in \Delta(\widetilde{A}) .
+        \end{align*}
+    \]
+    </div>
+</div>
+
+<h1>week 7</h1>
+<div class="proposition" id="proposition-spectral-sub-additivity-and-multiplicativity" >
+    <div class="title">Spectral Sub Additivity and Multiplicativity</div>
+    <div class="content">
+    Let A be a commutative Banach algebra. For two elements \(a, b\) of \(A\) we have
+    \[
+        \begin{align*}
+        \mathrm{sp}(a+b) & \subset \operatorname{sp}(a)+\operatorname{sp}(b) \\
+        \operatorname{sp}(a b) & \subset \operatorname{sp}(a) \operatorname{sp}(b)
+        \end{align*}
+    \]
+    </div>
+    <div class="proof">
+        <p>
+            Suppose that \( \lambda \in \operatorname{ sp } \left( a + b \right)   \) then <a class="knowledge-link" href="/analysis/linear_operators.html#proposition-spectrum-is-the-gelfand-image-of-multiplicative-functionals">there exists</a> \(\widetilde{\tau} \in \Delta(\widetilde{A})\) such that \(\widetilde{\tau}(a + b)=\lambda\), but then \( \widetilde{\tau}  \) was linear so that we have \( \lambda = \widetilde{\tau} \left( a \right) + \widetilde{\tau} \left( a \right)  \) which is an element of \( \operatorname{ sp } \left( a \right) + \operatorname{ sp } \left( b \right)     \) by the same proposition, as needed.
+        </p>
+        <p>
+            For multiplication the same reasoning holds but instead of using the linearity we use the multiplicativity. 
+        </p>
+    </div>
+</div>

@@ -12,3 +12,6 @@
     path = scripts/precompiled_html_generation/fast-html
     url = https://github.com/simple-web-tools/fast-html.git
     pushurl = git@github.com:simple-web-tools/fast-html.git
+[submodule "scripts/multiplayer_development/fs_utils"]
+	path = scripts/multiplayer_development/fs_utils
+	url = git@github.com:py-garden/fs_utils.git

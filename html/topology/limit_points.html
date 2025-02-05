@@ -18,13 +18,13 @@
 </div>
 <div class="corollary" id="corollary-limit-point-iff-element-of-closure-minus-a-point">
     <div class="title">
-        Limit Point iff element of Closure minus a Point
+        Limit Point iff Element of Closure minus a Point
     </div>
     <div class="content">
         \( x \) is a limit point iff \( x \in \overline { A \setminus \left\{ x \right\} } \)
     </div>
     <div class="proof">
-        \( x \) is a limit point <a class="knowledge-link" href="/topology/limit_points.html#definition-limit-point">iff</a> every neighborhood of \( x \) intersects \( A \) in some point other than \( x \) itself, which is equivalent to every neighborhood intersecting \( A \setminus \left\{ x \right\} \) <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">iff</a> \( x \in \overline { A \\ \left\{ x \right\} } \).
+        \( x \) is a limit point <a class="knowledge-link" href="/topology/limit_points.html#definition-limit-point">iff</a> every neighborhood of \( x \) intersects \( A \) in some point other than \( x \) itself, which is equivalent to every neighborhood intersecting \( A \setminus \left\{ x \right\} \) <a class="knowledge-link" href="/topology/interior_and_closure.html#theorem-closure-intersection-equivalence">iff</a> \( x \in \overline { A \setminus \left\{ x \right\} } \).
     </div>
 </div>
 <p>
@@ -66,6 +66,9 @@
         This boils down to proving that \( A \cup A ^ \prime = A \sqcup \left( A ^ \prime \cap B \right)   \). This is the case because if we take an element from the left then if it's in \( A \) then it's clearly in the right hand side so assume instead its in \( A ^ \prime  \) then either \( x \in A \) or \( x \notin A \) in either case its an element from right hand side. Taking an element from the right, and disposing of the case of \( x \in A \) similarly then whenever \( x \in A ^ \prime \cap B \) then \( x \in A ^ \prime  \) still so it's an element of the left hand side.
     </div>
 </div>
+<p>
+    The above corollary might seem a little useless, but the point of it is to help you be able to find the closure faster, fundamentally this is because you already know that \( \bar A \) will already contain all of \( A \), and thus to find the rest of the closure you just have to inspect elements which are not in \( A \) which are limit points. This reduces your search space when trying to show that a set is closed for example.
+</p>
 <div class="corollary" id="corollary-closed-iff-contains-limit-points">
     <div class="title">
         A Subset of a Topological Space is Closed if and only if it contains all it's Limit Points
@@ -74,7 +77,7 @@
         Suppose \( A \) is a subset of a topological space \( X \) then it is closed if and only if it contains it's limit points
     </div>
     <div class="proof">
-        A set is closed iff \( A = \overline{ A } \) since \( \overline{ A } = A \cup A ^ \prime \), then this is true iff \( A ^ \prime \subseteq A \).
+        A set is closed <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#proposition-closed-iff-equals-closure">iff</a> \( A = \overline{ A } \) <a class="knowledge-link" href="/topology/limit_points.html#proposition-closure-equals-limit-points-union-itself">since</a> \( \overline{ A } = A \cup A ^ \prime \), then this is true iff \( A ^ \prime \subseteq A \).
     </div>
 </div>
 <div class="corollary" id="corollary-closed-iff-every-point-outside-the-set-is-not-a-limit-point" >

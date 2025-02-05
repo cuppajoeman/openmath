@@ -1,11 +1,11 @@
 <div class="definition" id="definition-t1-space" >
     <div class="title">T1 Space</div>
     <div class="content">
-        A space \( X \) is called \( T _ 1 \) diff for every \( x \neq y \in X \) there exists \( U \in \mathcal{ T } _ X  \) such that \( x \notin U \) and \( y \in U \) 
+        A space \( X \) is called \( T _ 1 \) iff for every \( x \neq y \in X \) there exists \( U \in \mathcal{ T } _ X  \) such that \( x \notin U \) and \( y \in U \) 
     </div>
 </div>
 <p>
-    There are a few ways of saying the above, such as the set \( X \setminus \left\{ x \right\}  \) is open.
+    There are a few ways of saying the above, such as the set \( X \setminus \left\{ x \right\}  \) is open, another being that \( X \) can separate two different points with an open set.
 </p>
 <div class="proposition" id="proposition-limit-point-iff-every-neighborhood-contains-infinitely-many-points" >
     <div class="title">Limit Point Iff Every Neighborhood Contains Infinitely Many Points</div>
@@ -50,6 +50,16 @@
     <div class="title">T2 Space</div>
     <div class="content">
         A \( T_2 \) space is a <a class="knowledge-link" href="/topology/hausdorff_spaces.html#definition-hausdorff-space">hausdorff space</a>
+    </div>
+</div>
+<div class="corollary" id="corollary-a-subspace-of-a-t2-space-remains-t2" >
+    <div class="title">A Subspace of a T2 Space Remains T2</div>
+    <div class="content">
+        Suppose that \( X \) is \( T2 \) and that \( A \subseteq X \) then \( A \) is also \( T2 \) 
+    </div>
+
+    <div class="proof">
+        Suppose that \( a \neq b \in A \) then \( a, b \in X \) and therefore there exists \( U _ a, U _ b \) disjoint neighborhoods containing \( a, b \) respectively, then \( A \cap U _ a, A \cap U _ b \) are disjoint neighborhoods of \( a, b \) respectively in \( A \) as needed.
     </div>
 </div>
 <div class="proposition" id="proposition-unique-limits-in-a-hausdorff-space" >

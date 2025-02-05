@@ -3,10 +3,12 @@
         Closed Set
     </div>
     <div class="content">
-        A subset \( A \) of a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a> \( X \) is said to be closed in \( X \) if <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#definition-set-difference">\( X \backslash A \)</a> is open in \( X \)
-        <p>Note: When \( X \) is known by context then we may say \( A \) is closed to mean that \( A \) is closed in \( X \)</p>
+        A subset \( A \) of a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a> \( X \) is said to be closed in \( X \) if <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#definition-set-difference">\( X \backslash A \)</a> is <a class="knowledge-link" href="/topology/topological_spaces.html#definition-open-set">open</a> in \( X \)
     </div>
 </div>
+<p>
+    When \( X \) is known by context then we may say \( A \) is closed to mean that \( A \) is closed in \( X \)
+</p>
 <div class="theorem" id="theorem-closed-topology">
     <div class="title">
         Closed Topology
@@ -33,12 +35,37 @@
         Let \( Y \) be a <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace</a> of \( X \), then a set \( A \) is closed in \( Y \) if and only if it equals the intersection of a closed set of \( X \) with \( Y \)
     </div>
     <div class="proof">
-        <p>Let's start by assuming that we have a set \( A = C \cap Y \) where \( C \) is closed in \( X \), therefore \( X \backslash C \) is open in \( X \), therefore \( Y \cap \left ( X \backslash C \right ) \) <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">is open</a> in \( Y \)</p>
-        <p>Note that \( Y \cap \left ( X \backslash C \right ) \) <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-intersection-distributes-through-intersection">\( = \)</a> \( \left ( X \cap Y \right ) \backslash C \) <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-redundant-intersection-in-difference">\( = \)</a> \( \left ( X \cap Y \right ) \backslash \left ( C \cap Y \right ) \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">\( = \)</a> \( Y \backslash A \) (where the last step is justified since we know \( Y \subseteq X \) ), this shows that \( Y \setminus A \) is open, meaning that \( A \) is closed in \( Y \)</p>
-        <p>Now let's assume that \( A \) is closed in \( Y \), therefore \( A \subseteq Y \) and \( Y \backslash A \) is open in \( Y \), meaning that there is some set \( U \) open in \( X \) such that \( Y \backslash A = Y \cap U \)</p>
-        <p>Let's note that \( Y \setminus \left ( Y \setminus A \right ) \) <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-triple-difference-equality">\( = \)</a> \( \left ( Y \cap A \right ) \cup \left ( Y \setminus Y \right ) = A \cup \emptyset = A\) so that</p><!-- https://groups.google.com/g/mathjax-users/c/2KjQgbjmMkI/m/vo_vOFpmgJIJ  -->
-        \[ \begin{align*} A &amp;= Y \setminus \left ( Y \setminus A \right ) \\ &amp;= Y \setminus \left ( Y \cap U \right ) \\ &amp;= \left ( Y \setminus Y \right ) \cup \left ( Y \setminus U\right ) \\ &amp;= Y \setminus U \\ &amp;= \left ( X \cap Y \right ) \setminus U \\ &amp;= Y \cap \left ( X \setminus U \right) \end{align*} \]
-        <p>Since \( X \setminus U \) is closed in \( X \) this shows that \( A \) equals the intersection of a closed set with \( Y \) as needed.</p>
+        <p>
+            \( \impliedby \) Let's start by assuming that we have a set \( A = C \cap Y \) where \( C \) is closed in \( X \), therefore \( X \backslash C \) is open in \( X \), therefore \( Y \cap \left ( X \backslash C \right ) \) <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">is open</a> in \( Y \)
+        </p>
+        <p>
+            Note that \( Y \cap \left ( X \backslash C \right ) \) <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-intersection-distributes-through-intersection">\( = \)</a> \( \left ( X \cap Y \right ) \backslash C \) <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-redundant-intersection-in-difference">\( = \)</a> \( \left ( X \cap Y \right ) \backslash \left ( C \cap Y \right ) \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">\( = \)</a> \( Y \backslash A \) (where the last step is justified since we know \( Y \subseteq X \) ), this shows that \( Y \setminus A \) is open, meaning that \( A \) is closed in \( Y \)
+        </p>
+        <p>
+            \( \implies  \) Now let's assume that \( A \) is closed in \( Y \), therefore \( A \subseteq Y \) and \( Y \backslash A \) is open in \( Y \), meaning that there is some set \( U \) open in \( X \) such that \( Y \backslash A = Y \cap U \)
+        </p>
+        <p>
+            Let's note that \( Y \setminus \left ( Y \setminus A \right ) \) <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-triple-difference-equality">\( = \)</a> \( \left ( Y \cap A \right ) \cup \left ( Y \setminus Y \right ) = A \cup \emptyset = A\) so that</p><!-- https://groups.google.com/g/mathjax-users/c/2KjQgbjmMkI/m/vo_vOFpmgJIJ  -->
+        \[ 
+        \begin{align*} A &amp;= Y \setminus \left ( Y \setminus A \right ) \\ &amp;= Y \setminus \left ( Y \cap U \right ) \\ &amp;= \left ( Y \setminus Y \right ) \cup \left ( Y \setminus U\right ) \\ &amp;= Y \setminus U \\ &amp;= \left ( X \cap Y \right ) \setminus U \\ &amp;= Y \cap \left ( X \setminus U \right) \end{align*}
+        \]
+        <p>
+            Since \( X \setminus U \) is closed in \( X \) this shows that \( A \) equals the intersection of a closed set with \( Y \) as needed.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-transitivity-of-closure">
+    <div class="title">Transitivity of Closure</div>
+    <div class="content">
+        If \( Y \subseteq X \) is closed in \( X \) and \( B \subseteq Y \) is closed in \( Y \) then \( B \) is closed in \( X \) 
+    </div>
+
+    <div class="proof">
+        Since \( B \) is closed in \( Y \) then we know that \( B = C \cap Y \) where \( C \) is open in \( X \). Now <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-union-intersection-inversion-through-set-difference">we have</a> 
+        \[
+          X \setminus B = X \setminus \left( C \cap Y \right) =  \left( X \setminus C \right)  \cup \left( X \setminus Y \right) 
+        \] 
+        Since \( C, Y \) were both closed in \( X \) then their complements are open showing that \( X \setminus B \) is the intersectino of two open sets and thus open and therefore \( B \) is closed in \( X \) as needed.
     </div>
 </div>
 <div class="definition" id="definition-interior">
@@ -54,7 +81,7 @@
         Closure
     </div>
     <div class="content">
-        Suppose that \( A \) is a subset of a topological space, then the closure of \( A \) is defined to as the intersection of all closed sets containing \( A \) and is denoted by \( \bar{A} \)
+        Suppose that \( A \) is a subset of a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a>, then the closure of \( A \) is defined to as the intersection of all <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-closed-set">closed sets</a> containing \( A \) and is denoted by \( \bar{A} \)
     </div>
 </div>
 <div class="corollary" id="corollary-closure-is-closed">
@@ -117,11 +144,14 @@
         Interior is Smaller, Closure is Bigger
     </div>
     <div class="content">
-        Suppose that \( A \) is a subset of a topological space, then we have \[ \operatorname{Int}\left( A \right) \subseteq A \subseteq \bar{A} \]
+        Suppose that \( A \) is a subset of a topological space, then we have 
+        \[ 
+        \operatorname{Int}\left( A \right) \subseteq A \subseteq \bar{A} 
+        \]
     </div>
     <div class="proof">
         <p> 
-          Let A be a subset of the topological space \(X\). Let \(x\) be an arbitrary point in \(Int(A)\). By definition, there exist an open ball \(B_\epsilon(p)\) such that \(B_\epsilon(p)\subseteq A\). Since the open ball is entirely contained in \(A\), \(x\) must be an element of A. Since \(\bar{A}=A^*\cup A\) by definition, since \(x\) is in A, \(x\in \bar{A}\). Since \(x\), which is an element of the interior of A, was chosen arbitrarily, the interior of A is a subset of A and is a subset of the closure.
+            We know that \( \operatorname{ Int } \left( A \right)   \) is a union sets which are subsets of \( A \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-union-of-subsets-is-still-a-subset">thus it is a subset</a>. On the other hand we know that \( \bar A \) is an intersection of sets which are supersets of \( A \) and therefore we know that <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-of-supersets-is-still-a-superset">it is a superset</a>.
         </p>
     </div>
 </div>
@@ -142,10 +172,10 @@
         Closed Sets Equal their Closure
     </div>
     <div class="content">
-        If \( A \) is a subset of a topological space \( X \), then \( A \) is closed if and only if \( A = \overline{ A } \)
+        If \( A \) is a subset of a topological space \( X \), then \( A \) is <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-closed-set">closed</a> if and only if \( A = \overline{ A } \)
     </div>
     <div class="proof">
-        <p>Suppose that \( \mathcal{ A } \) is the collection of closed sets which are also supersets of \( A \), then \( \overline{ A } = \bigcap \mathcal{ A } = \bigcap \left( \mathcal{ A } \setminus \left\{ A \right\} \right) \cap A \), and since each element in \( \mathcal{ A } \setminus \left\{ A \right\} \) is a superset of \( A \), then so is it's intersection, <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">therefore</a> \( \bigcap \left( \mathcal{ A } \setminus \left\{ A \right\} \right) \cap A = A \)</p>
+        <p>Suppose that \( \mathcal{ A } \) is the collection of closed sets which are also supersets of \( A \), then \( \overline{ A } = \bigcap \mathcal{ A } = \bigcap \left( \mathcal{ A } \setminus \left\{ A \right\} \right) \cap A \), and since each element in \( \mathcal{ A } \setminus \left\{ A \right\} \) is a superset of \( A \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-intersection-of-supersets-is-still-a-superset">then so is it's intersection</a>, <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">therefore</a> \( \bigcap \left( \mathcal{ A } \setminus \left\{ A \right\} \right) \cap A = A \)</p>
         <p>Now suppose that \( A = \overline{ A } \), since \( \overline{ A } \) <a class="knowledge-link" href="/topology/interior_and_closure.html#corollary-closure-is-closed">is closed</a> then we know \( A \) is closed</p>
     </div>
 </div>
@@ -182,6 +212,9 @@
         <p>Now the reverse direction: assuming that we have some open set \( U \) containing \( x \) that doesn't intersect \( A \), <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-empty-intersection-implies-superset-difference">we have</a> \( A \subseteq X \setminus U \) and \( X \setminus U \) is closed <a class="knowledge-link" href="/topology/interior_and_closure.html#proposition-closed-supersets-are-supersets-of-the-interior">therefore</a> \( \bar{A} \subseteq X \setminus U \), so that \( \bar{A} \cap U = \emptyset \), since we know \( x \in U \) we know that \( x \notin \bar{A} \) as needed.</p>
     </div>
 </div>
+<p>
+    Note that \( \bar \mathbb{ Q } = \mathbb{ R } \) because for every \( x \in \mathbb{ R } \) we have that for any  \( \left( a, b \right)  \) that contains \( x \) then \( \left( a, b \right) \cap \mathbb{ Q } \neq \emptyset \) 
+</p>
 <div class="corollary" id="corollary-closure-basis-intersection-equivalence">
     <div class="title">
         Closure Basis Intersection Equivalence

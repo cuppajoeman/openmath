@@ -53,27 +53,27 @@
 <div class="proposition" id="proposition-continuous-identity-implies-one-topology-is-finer-than-the-other" >
     <div class="title">Continuous Identity Implies One Topology Is Finer Than the Other</div>
     <div class="content">
-        Suppose that \( \mathcal{ T }_1, \mathcal{ T } _2   \) are both topologies on \( X \) then <a class="knowledge-link" href="/fundamentals/functions.html#definition-identity-functio">identity</a> \( \operatorname{ id }  : \left( X, \mathcal{ T } _ 1  \right) \to \left( X, \mathcal{ T } _ 2  \right)   \) is continuous, then 
+        Suppose that \( \mathcal{ T }_1, \mathcal{ T } _2   \) are both topologies on \( X \) then if the <a class="knowledge-link" href="/fundamentals/functions.html#definition-identity-function">identity</a> \( \operatorname{ id }  : \left( X, \mathcal{ T } _ 1  \right) \to \left( X, \mathcal{ T } _ 2  \right)   \) is continuous, then 
         \[
           \mathcal{ T }  _ 1 \supseteq \mathcal{ T } _ 2
         \] 
     </div>
 
     <div class="proof">
-        Suppose that \( U \in \mathcal{ T } _ 2  \), then since \( \operatorname{ id } ^ { -1 } = \operatorname{ id }   \) then we know that \( \operatorname{ id } ^ { -1 } \left( U \right) = U   \) is open in \( \mathcal{ T }  _ 1 \) since \( \operatorname{ id }  \) is continuous, therefore we are done
+        Suppose that \( U \in \mathcal{ T } _ 2  \), then <a class="knowledge-link" href="/fundamentals/functions.html#corollary-the-inverse-of-the-identity-function-is-itself">since</a> \( \operatorname{ id } ^ { -1 } = \operatorname{ id }   \) then we know that \( \operatorname{ id } ^ { -1 } \left( U \right) = U   \) is open in \( \mathcal{ T }  _ 1 \) since \( \operatorname{ id }  \) is continuous, therefore we are done
     </div>
 </div>
 <div class="corollary" id="corollary-two-topologies-are-equal-if-the-identity-is-a-homeomorphism" >
     <div class="title">Two Topologies Are Equal If the Identity Is a Homeomorphism</div>
     <div class="content">
-        Suppose that \( \mathcal{ T }_1, \mathcal{ T } _2   \) are both topologies on \( X \) then <a class="knowledge-link" href="/fundamentals/functions.html#definition-identity-functio">identity</a> \( \operatorname{ id }  : \left( X, \mathcal{ T } _ 1  \right) \to \left( X, \mathcal{ T } _ 2  \right)   \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> then 
+        Suppose that \( \mathcal{ T }_1, \mathcal{ T } _2   \) are both topologies on \( X \) if the <a class="knowledge-link" href="/fundamentals/functions.html#definition-identity-function">identity</a> \( \operatorname{ id }  : \left( X, \mathcal{ T } _ 1  \right) \to \left( X, \mathcal{ T } _ 2  \right)   \) is a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> then 
         \[
           \mathcal{ T }  _ 1 = \mathcal{ T } _ 2
         \] 
     </div>
 
     <div class="proof">
-        TODO: Add the proof here.
+        We already know that \( \mathcal{ T } _ 1 \supseteq \mathcal{ T } _ 2  \), now since \( \operatorname{ id } ^ { -1 } : \left( X, \mathcal{ T } _ 2  \right) \to \left( X, \mathcal{ T } _ 1  \right)   \) was assumed continuous then we know that \( \mathcal{ T } _ 2 \supseteq \mathcal{ T } _ 1   \) 
     </div>
 </div>
 <div class="exercise" id="exercise-a-function-is-continuous-when-taken-with-the-finite-complement-topology-iff-it-is-constant-or-finite-one-to-one">
@@ -185,6 +185,12 @@
     </div>
     <div class="content">
         Let \( X, Y \) be topological spaces, and let \( f: X \rightarrow Y \) be a bijection. If the function \( f \) and it's inverse function \( f ^ { -1 } : Y \rightarrow X \) are <a class="knowledge-link" href="/topology/continuous_functions.html#definition-continuous-function">continuous</a>, then \( f \) is called a <b>homeomorphism</b>
+    </div>
+</div>
+<div class="definition" id="definition-two-topologies-are-homeomorphic" >
+    <div class="title">Two Topologies Are Homeomorphic</div>
+    <div class="content">
+        Let \( X, Y \) be topological spaces, if there exists a <a class="knowledge-link" href="/topology/continuous_functions.html#definition-homeomorphism">homeomorphism</a> between them then we say that \( X \) and \( Y \) are <b>homeomorphic</b>.
     </div>
 </div>
 <div class="proposition" id="proposition-homeomorphism-set-and-its-image-are-open-equivalence">

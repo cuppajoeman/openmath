@@ -38,7 +38,7 @@
         Suppose that we have a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f: X \rightarrow Y \) such that there is a value \( c \in Y \) such that for every \( x \in X \), we have \( f \left( x \right) = c \), then we say that \( f \) is <b>constant</b> with value \( c \)
     </div>
 </div>
-<div class="definition" id="definition-identity-functio">
+<div class="definition" id="definition-identity-function">
     <div class="title">
         Identity Function
     </div>
@@ -309,7 +309,24 @@
         Inverse Function
     </div>
     <div class="content">
-        Suppose that \( f \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">invertible</a>, then there is a function \( g \) satifying said properties, then we define the notation \( f ^ { -1 } := g \) and say that \( f ^ { -1 } \) is the inverse function of \( f \)
+        Suppose that \( f \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">invertible</a>, then there is a function \( g \) satifying said properties, then we define the notation \( f ^ { -1 } := g \) and say that \( f ^ { -1 } \) is the <b>inverse function</b> of \( f \)
+    </div>
+</div>
+<div class="corollary" id="corollary-the-inverse-of-the-identity-function-is-itself" >
+    <div class="title">The Inverse of the Identity Function Is Itself</div>
+    <div class="content">
+        Suppose that \( X \) is a set, then we have 
+        \[
+          \operatorname{ id } _ X = \left( \operatorname{ id } _ X  \right)  ^ { -1 } 
+        \] 
+    </div>
+
+    <div class="proof">
+        Let \( x \in X \) then note: 
+        \[ 
+            \operatorname{ id } _ X \left(\operatorname{ id } _ X \left( x \right)  \right) = \operatorname{ id } _ X \left( x \right) = x
+        \] 
+        as needed. 
     </div>
 </div>
 <p>Note that this seems quite similar to the <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">inverse image notation</a>, which looks like \( f ^ { -1 } \left( S \right) \) where \( S \subseteq Y \), note that they differ as the inverse image is a function from <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-power-set">\( P \left( Y \right) \)</a> to \( P \left( X \right) \), so it is a function that maps sets to sets.</p>
@@ -459,4 +476,13 @@
         Suppose that \( g : A \to B \) and \( h : A \to A \), then if \( f \) is a defined such that \[ f \left( g \left( a \right), g \left( b \right) \right) = g \left( h \left( a, b \right) \right) \] is a function iff for any \( x, y, z, w \in A \) \[ \left(g \left( x \right) = g \left( z \right) \land g \left( y \right) = g \left( w \right) \right) \implies g \left( h \left( x, y \right) \right) = g \left( h \left( z, w \right) \right) \]
     </div>
     <div class="proof"></div>
+</div>
+<div class="definition" id="definition-support-of-a-function" >
+    <div class="title">Support of a Function</div>
+    <div class="content">
+        Suppose that \( f : X \to \mathbb{ R }  \) is a function then 
+        \[
+          \operatorname{ supp } \left( f \right) = \left\{ x \in X : f \left( x \right) \neq 0  \right\} 
+        \] 
+    </div>
 </div>

@@ -72,7 +72,18 @@
     <div class="content">
         Suppose that \( p \) is <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">prime</a> and \( n \in \mathbb{ Z } \) then \( p \nmid n \) iff \( \gcd \left( p, n \right) = 1 \)
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>
+            \( \implies  \) Since \( p \) is prime, then its only divisors are \( 1 \) and itself. We assume that \( p \) does not divide \( n \) therefore that's the same as saying that \( n  \) is not a multiple of \( p \). Now if we consider \( \operatorname{ gcd } \left( p, n \right)   \) then its subset of the divisors of \( p \) so the gcd could only \( p \) or \( 1 \), if it were \( p \) that would imply that \( p \mid n \) but that's a contradiction, therefore the gcd is \( 1 \).
+        </p>
+        <p>
+            Suppose that \( \operatorname{ gcd } \left( p, n \right) = 1   \) and for the sake of contradiction that \( p \mid n \) that means there is a \( k \in \mathbb{ N }  \) such that \( n = kp \) in that case we have
+            \[
+              \operatorname{ gcd } \left( p, n \right) = \operatorname{ gcd } \left( p, kp \right) 
+            \] 
+            therefore \( \operatorname{ gcd } \left( p, kp \right) \ge p   \) which is a contradiction because any prime is greater than one.
+        </p>
+    </div>
 </div>
 <div class="proposition" id="proposition-a-prime-divisor-of-a-product-divides-at-least-one">
     <div class="title">
@@ -82,7 +93,7 @@
         If \( p, a, b \in \mathbb{ Z } \) and we know \( p \) is <a class="knowledge-link" href="/number_theory/primes.html#definition-prime">prime</a> and \( p \mid ab \) then \( p \mid a \) or \( p \mid b \).
     </div>
     <div class="proof">
-        If \( p \) were to divide \( a \), the proof is over so we assume that it does not. <a class="knowledge-link" href="/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else">therefore</a> \( \gcd \left( p, a \right) = 1 \) <a class="knowledge-link" href="/number_theory/primes.html#corollary-relatively-prime-implies-there-is-a-linear-combination-of-one">and then</a> \( 1 = as + pt \), then \( b = \left( ab \right) s + ptb = \left( k \cdot p \right) s + ptb \), so then \( p \) divides the right hand side, therefore \( p \mid b \), as needed.
+        If \( p \) were to divide \( a \), the proof is over so we assume that it does not. <a class="knowledge-link" href="/number_theory/primes.html#lemma-a-prime-is-relatively-prime-to-anything-else-that-is-not-a-multiple-of-it">therefore</a> \( \gcd \left( p, a \right) = 1 \) <a class="knowledge-link" href="/number_theory/gcd_and_lcm.html#proposition-gcd-is-a-linear-combination">and then</a> \( 1 = as + pt \), then \( b = \left( ab \right) s + ptb = \left( k \cdot p \right) s + ptb \), so then \( p \) divides the right hand side, therefore \( p \mid b \), as needed.
     </div>
 </div>
 <div class="theorem" id="theorem-every-number-is-divisible-by-a-prime">

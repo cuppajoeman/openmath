@@ -1,9 +1,9 @@
 <div class="definition" id="definition-intersected-topology">
     <div class="title">
-        intersected topology
+        Intersected Topology
     </div>
     <div class="content">
-        Let \( X \) be a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a> with toplogy \( \mathcal{T} \). If \( Y \) is a subset of \( X \), then we define the the toplogy \( \mathcal{T} \) intersected with \( Y \) as the set
+        Let \( X \) be a <a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">topological space</a> with toplogy \( \mathcal{T} \). If \( Y \) is a subset of \( X \), then we define the toplogy \( \mathcal{T} \) intersected with \( Y \) as the set
         <div class="centered-content">
             \( T_{\cap Y} := \left \lbrace Y \cap U : U \in \mathcal{T} \right \rbrace \)
         </div>
@@ -11,10 +11,10 @@
 </div>
 <div class="proposition" id="proposition-intersected-topology-is-a-topology">
     <div class="title">
-        intersected topology is a topology
+        Intersected Topology is a Topology
     </div>
     <div class="content">
-        The set <a class="knowledge-link" data-href="/topology/subspace_topology.html#definition-intersected-topology">\( T_{\cap Y} \)</a> is a topology on \( Y \)
+        The set <a class="knowledge-link" href="/topology/subspace_topology.html#definition-intersected-topology">\( T_{\cap Y} \)</a> is a topology on \( Y \)
     </div>
     <div class="proof">
         <p><a class="knowledge-link" href="/topology/topological_spaces.html#definition-topology-on-a-set">We'll show</a> that \( \emptyset \) and \( Y \) are elements of \( T_{\cap Y} \), this can be seen as since \( \emptyset \in T \), then \( Y \cap \emptyset = \emptyset \in T_{\cap Y} \) and also since \( Y \subseteq X \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">then</a> \( Y \cap X = Y \) so \( Y \in T_{\cap Y} \)</p>
@@ -33,7 +33,7 @@
 <div class="theorem" id="theorem-subspace-topology-by-universal-properties" >
     <div class="title">Subspace Topology by Universal Properties</div>
     <div class="content">
-        Given \( \left( X, \mathcal{ T } _ X  \right)  \) and \( Y \subseteq X \) the the subspace topology is the unique topology such that 
+        Given \( \left( X, \mathcal{ T } _ X  \right)  \) and \( Y \subseteq X \) then the subspace topology is the unique topology such that 
         <ul>
             <li>The <a class="knowledge-link" href="/fundamentals/functions.html#definition-inclusion-function">inclusion</a> from \( Y \) into \( X \) is continuous </li>
             <li>Given a function \( f : Z \to Y \), if \( \iota \circ f \) is continuous, then \( f \) is too </li>

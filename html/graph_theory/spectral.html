@@ -1,0 +1,693 @@
+<h1>Essay 1</h1>
+<p>
+    In this essay we will talk about graphs and a way to represent them via matrices, we will then study some elementary properties of these matrices. We start our discussion off with some fundamental definitions for graph theory.
+</p>
+<div class="definition" id="definition-graph" >
+    <div class="title">Graph</div>
+    <div class="content">
+        A graph is an ordered pair \( G = \left( V, E \right)  \) of sets where 
+        \[
+          E \subseteq \left\{ \left\{ x, y \right\} : x, y \in V, x \neq y  \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    We call \( E \) the set of edges and \( V \) the vertices, also note that edges don't have an order to them, as we know that \( \left\{ x, y \right\} = \left\{ y, x \right\}   \), sometimes we want them to have a direction, and in that case we have this definition:
+</p>
+<div class="definition" id="definition-directed-graph" >
+    <div class="title">Directed Graph</div>
+    <div class="content">
+        A directed graph is an ordered pair \( G = \left( V, E \right)  \) of sets where 
+        \[
+          E \subseteq \left\{ \left( x, y \right)  : x, y \in V, x \neq y  \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    Throughout this entire discussion we will assume our graphs to be finite, unless otherwise stated.
+</p>
+<p>
+    When working graphs it's useful to talk about the way vertices are related to eachother, the first one we'll look at is when two vertices have an edge between them:
+</p>
+<div class="definition" id="definition-neighboring-vertices" >
+    <div class="title">Neighboring Vertices</div>
+    <div class="content">
+        Given a graph \( G = \left( V, E \right)  \) and \( x, y \in V \) then we say that \( x, y \) are <b>neighbors</b> if \( \left\{ x, y \right\} \in G  \) 
+    </div>
+</div>
+<div class="definition" id="definition-set-of-neighbors-of-a-vertex" >
+    <div class="title">Set of Neighbors of a Vertex</div>
+    <div class="content">
+        Given a graph \( G = \left( V, E \right)  \) and \( x \in V \) then we denote the set of neighbors of \( x \) as \( \operatorname{ nbs } \left( x \right)   \) 
+    </div>
+</div>
+<div class="definition" id="definition-degree-of-a-vertex" >
+    <div class="title">Degree of a Vertex</div>
+    <div class="content">
+        Given a graph \( G = \left( V, E \right)  \) and \( x \in V \) then we denote <b>degree</b> of \( x \) as 
+        \[
+          \operatorname{ deg } \left( x \right) = \left\lvert \operatorname{ nbs } \left( x \right)   \right\rvert 
+        \] 
+    </div>
+</div>
+<p>
+    With these defintions in place we can define matrices that encode a graph entirely:
+</p>
+<div class="definition" id="definition-adjacency-matrix" >
+    <div class="title">Adjacency Matrix</div>
+    <div class="content">
+        Given a graph \( G = \left( V, E \right)  \) then we denote the <b>adjacency matrix</b> of the graph \( G \) by \( A _ G \) where 
+        \[
+          a _ { i, j } = 
+        \begin{cases}
+        1 & \text{ if }  \left\{ i, j \right\} \in E  \\
+        0 & \text{ otherwise }
+        \end{cases} 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-laplacian-matrix" >
+    <div class="title">Laplacian Matrix</div>
+    <div class="content">
+        Given a graph \( G = \left( V, E \right)  \) then we denote the <b>Laplacian matrix</b> of the graph \( G \) by \( L _ G \) where 
+        \[
+          l _ { i, j } = 
+        \begin{cases}
+        -1 & \text{ if }  \left\{ i, j \right\} \in E  \\
+        \operatorname{ deg } \left( i \right)   & \text{ if } i = j \\
+        0  & \text{ otherwise }
+        \end{cases} 
+        \] 
+    </div>
+</div>
+<p>
+    Note that both the adjacency matrix and laplacian iterate through all possible pairs of vertices, that is to say that the shape of both these matrices is \( \left\lvert V \right\rvert \times \left\lvert V \right\rvert   \) 
+</p>
+<p>
+    Note that if we focus on a row we are looking at elements of the form \( l _ { i, \cdot  } \) where \( i \) is fixed, and therefore for the diagonal element of that row we store the degree of \( i \) and for each other element in that row we cout each neighbor with a \( -1 \) and therefore the sum of each row is zero.
+</p>
+<div class="definition" id="definition-a-vertex-incident-to-an-edge" >
+    <div class="title">A Vertex Incident to an Edge</div>
+    <div class="content">
+        Given a graph \( G = \left( V, E \right)  \) and some \( v \in V \) then we say it is incident to an edge \( \left\{ x, y \right\}  \) if \( v \in \left\{ x, y \right\}  \) 
+    </div>
+</div>
+<div class="definition" id="definition-walk" >
+    <div class="title">Walk</div>
+    <div class="content">
+        A walk on a graph is an alternating series of vertices and edges beginning and ending with a vertex such that each edge is incident with the vertex directly before it and and directly after it.
+    </div>
+</div>
+<p>
+    Note that when we have a walk between two vertices \( u, v \) we call it it a \( u - v \) walk, moreover a walk from \( v - u \) is different . Now we can connect a few of the above ideas together
+</p>
+<div class="proposition" id="proposition-the-entries-of-the-power-of-an-adjacency-matrix-represent-walks" >
+    <div class="title">The Entries of the Power of an Adjacency Matrix Represent Walks</div>
+    <div class="content">
+        Given a graph \( G = \left( \left\{ 1, \ldots , m \right\}, E  \right)  \) where \( m \in \mathbb{ N } _ 1 \) then given an entry \( a _ { i, j } \) of the matrix \( A _ G ^ n \) equals the number of \( i - j \) walks of length \( n \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            We go by induction, so for \( n = 1 \) then the \( n \)-th power is just the regular adjacency matrix, additionally each \( a _ { i , j  } \) represents if there is an edge between the two vertices, which is the same as the number of walks from \( i \) to \( j \) of length \( 1 \).
+        </p>
+        <p>
+            Now suppose that the statement holds true for any \( n \in \mathbb{ N } _ 1 \) then let's prove that it holds true for \( n + 1 \). Since it holds true on \( n \) then we know that \( A _ G ^ n \) has the desired property, but note that \( A _ G ^ { n + 1 } = A _ G ^ n A _ G  \). 
+        </p>
+        <p>
+            If we denote the elements of  \( A _ G ^ { n + 1 }   \) by \( a _ { i, j } \), those of  \( A _ G ^ n  \) by \( b _ { i, j } \) and those of \( A _ G  \) by \( c _ { i, j } \) then by the definition of matrix multiplication
+            \[
+              a _ { i, j } =  \sum _ { k = 1 } ^ m b _ { i, k } c _ { k, j }
+            \] 
+            by our induction hypothesis we know that \( b _ { i, k } \) are the number of \( i - k \) walks of length \( n \) and by the regular definition of \( A _ G \) we know that \( c _ { k, j } \) represents whether or not there is a edge connecting \( k, j \), that is, the value is either \( 0 \) or \( 1 \).
+        </p>
+        <p>
+            If \( c _ { k, j } = 1 \) then we can take each possible path of length \( n \) from \( i - k \) and then extend the path to \( j \) via the edge \( \left\{ k, j \right\}  \), note that all path from \( i - j \)  are of this form for some \( k  \) therfore \( \sum _ { k = 1 } ^ m b _ { i, k } c _ { k, j } \) represents the total number of \( i - j \) walks of length \( n + 1 \) as needed. Therefore the statement holds true by induction.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-laplacian-of-an-edge" >
+    <div class="title">Laplacian of an Edge</div>
+    <div class="content">
+        Suppose \( G = \left( \left\{ 1, 2, \ldots , m \right\}, E  \right)  \) and \( \left\{ u, v \right\} \in E  \) then we define the <b>Laplacian for the edge</b> \( \left\{ u, v \right\}  \) as \( L _ { G _ { \left\{ u, v \right\}  } } \) as 
+        \[
+          l _ { i, j } = 
+        \begin{cases}
+        1 & \text{ if } i = j \land i \in \left\{ u, v \right\}   \\
+        -1  & \text{ if }  \left\{ i, j \right\} = \left\{ u, v \right\}   \\
+        0  & \text{ otherwise }
+        \end{cases} 
+        \] 
+    </div>
+</div>
+<p>
+    The above matrix is mostly zeros, but along a diagonal element of the matrix \( l _ { k, k } \) if \( k \) is part of the edge, then it is a \( 1 \) and there will be exactly two cases where \( l _ { i, j } = -1 \)  based on the definition.
+</p>
+<div class="corollary" id="corollary-the-laplacian-is-the-sum-of-edge-laplacians" >
+    <div class="title">The Laplacian Is the Sum of Edge Laplacians</div>
+    <div class="content">
+        \[
+          L _ G = \sum _ { \left\{ u, v \right\} \in E  } L _ { G _ { \left\{ u, v \right\}  } }
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-quadratic-form-of-the-edge-laplacian-is-a-squared-difference" >
+    <div class="title">Quadratic Form of the Edge Laplacian Is a Squared Difference</div>
+    <div class="content">
+        For any \( x \in \mathbb{ R } ^ n \) we have 
+        \[
+          x ^ T L _ { G _ { \left\{ u, v \right\}  } } x = \left( x _ u - x _ v \right) ^ 2
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-positive-semidefinite" >
+    <div class="title">Positive Semi-definite</div>
+    <div class="content">
+        Given an \( n \times n \) matrix \( M \) then it is <b>positive-semidefinite</b> if for any \( x \in \mathbb{ R } ^ n \) we have 
+        \[
+          x ^ T M x \ge 0
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-the-laplacian-is-positive-semidefinite" >
+    <div class="title">The Laplacian Is Positive-semidefinite</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-every-eigenvalue-of-the-laplacian-is-non-negative" >
+    <div class="title">Every Eigenvalue of the Laplacian Is Non-negative</div>
+    <div class="content">
+        As per title. 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( \lambda  \) is an eigen value, and \( x \in \mathbb{ R } ^ n \) an eigenvector for \( \lambda  \)  (non-zero). We already know that \( x ^ T L _ G x \ge 0 \), but also note \( x ^ T L _ G x = x ^ T \left( \lambda x \right) = \lambda x ^ T x  \)
+        </p>
+        <p>
+            Since \( x \neq 0 \) then we have \( x ^ T x \gt 0 \), therefore we must have that \( \gamma \ge 0 \), as needed.
+        </p>
+    </div>
+</div>
+<p>
+    By the real spectral theorem we deduce now that \( L _ G \) has an orthonormal basis consisting of eigen vectors of \( L _ G \), in that case denote them as \( 0 \le \lambda _ 1 \le \lambda _ 2 \le \ldots \le \lambda _ n \) 
+</p>
+<div class="definition" id="definition-path" >
+    <div class="title">Path</div>
+    <div class="content">
+        A <b>path</b> is a non-empty graph \( P = \left( V, E \right)  \) of the form \( V = \left\{ v _ 0, v _ 1, \ldots , v _ n \right\}  \) and \( E = \left\{ \left\{ v _ 0, v _ 1 \right\}, \left\{ v _ 1, v _ 2 \right\}, \ldots , \left\{ v _ { n - 1 }, v _ n \right\}    \right\}  \) where the vertices \( v _ i \) are distinct.
+    </div>
+</div>
+<p>
+    In other-words a path is just a walk such that you don't go over the same vertex.
+</p>
+<div class="definition" id="definition-connected" >
+    <div class="title">Connected</div>
+    <div class="content">
+        Given a non-empty graph \( G \) we say that it is <b>connected</b> if given any two vertices in \( G \) there is a path between them.
+    </div>
+</div>
+<p>
+    We'll now start our exploration of eigenvalues of the laplacian and what they tell us about the original graph.
+</p>
+<div class="proposition" id="proposition-0-is-an-eigenvalue-for-the-laplacian" >
+    <div class="title">0 Is an Eigenvalue for the Laplacian</div>
+    <div class="content">
+        Let \( G \) be a graph then \( 0 \) is an eigenvalue of \( L _ G \) 
+    </div>
+
+    <div class="proof">
+        Consider \( x = \left( 1, 1, \ldots , 1 \right)  \) then note that the column matrix \( c = L _ G x \)  has \( c _ i = \sum _ { k = 1 } ^ n  l _ { i, k }\) equivalently this is the sum of a row of the laplacian and we've already mentioned that this value is 0, showing that \( c = 0 \) and therefore \( 0 \) is an eigenvalue of \( L _ G \) 
+    </div>
+</div>
+<p>
+    Here we have the first connection with the connectivity of a graph, note that this is quite an interesting property to have, as we can compute eigenvalues quickly and computers operate quickly on matrices, this can provide a speedup 
+</p>
+<div class="proposition" id="proposition-there-is-only-one-zero-eigen-value-for-the-laplacian-of-a-connected-graph" >
+    <div class="title">There Is Only One Zero Eigen Value for the Laplacian of a Connected Graph</div>
+    <div class="content">
+        Let \( G \) be a connected graph then \( 0 \) is an eigenvalue and all other eigenvalues of \( L _ G \) are positive
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \( z \in \mathbb{ R } ^ n \) be a non-zero eigenvector, then note that \( z ^ T L _ G z = z ^ T 0 = 0 \) and also that \( z ^ T L _ G z = \sum _ { \left\{ u, v \right\} \in E  } \left( z _ u - z _ v \right) ^ 2 = 0 \), in otherwords for each \( \left\{ u, v \right\} \in E  \) we have \( z _ u = z _ v \). 
+        </p>
+        <p>
+            Now since \( G \) is connected, we know that given any \( i, j \in V \) there is a path connecting \( z _ i  \) to \( z _ j \) this means that for each edge in this path the two incident vertices are equal by what was just discussed, and therefore by transitivity of equality we see that \( z _ i =  z _ j \), therefore we conclude that \( z = \alpha \left( 1, 1, \ldots , 1 \right)  \), therefore the eigen space associated with the eigenvalue of 0 is \( \operatorname{ span } \left( \left( 1, 1, \ldots , 1 \right)  \right)   \).
+        </p>
+        <p>
+             From there we deduce that the multiplicity of the eigenvalue 0 is equal to \( 1 \) thus we must have that \( \lambda  _ 2 \neq 0 \) for if it was equal to zero, then since as before the \( 0 = \lambda _ 1 \le  \lambda _ 2 \le  \ldots \le  \lambda _ n \) were the eigenvalues for an <b>orthonormal basis</b> then if \( \lambda _ 2 = 0 \) we would get that the multiplicity would be \( 2 \), a contradiction, therefore \( \lambda _ 2 \neq 0 \), that is \( \lambda _ 2 \gt 0 \) as needed.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-subgraph" >
+    <div class="title">Subgraph</div>
+    <div class="content">
+        Suppose \( G = \left( V, E \right)  \) is a graph, then a <b>subgraph</b> \( S \) of \( G \) is a graph \( S = \left( E ^ \prime , V ^ \prime  \right)  \) such that \( V ^ \prime \subseteq V  \) and 
+        \[
+          E ^ \prime = \left\{ \left\{ x, y  \right\} : x, y \in V ^ \prime \land \left\{ x, y \right\} \in E  \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    In other words a subgraph is a graph that's already a part of the original graph. 
+</p>
+<div class="definition" id="definition-connected-component" >
+    <div class="title">Connected Component</div>
+    <div class="content">
+        A <b>connected component</b> of a graph \( G \) is a subgraph \( G ^ \prime = \left( V ^ \prime , E ^ \prime  \right)  \) such that  \( i, j \in V ^ \prime \) are connected, but also that for any \( k \in V \setminus V ^ \prime  \) we have that \( i, k \) are not connected.
+    </div>
+</div>
+<p>
+    A connected component is a component such that it itself is connected, but for any vertex outside of it, there is no way to get there, so a graph with 3 connected components would look like a graph with three parts to it, but no way to get from one part to another.
+</p>
+<div class="corollary" id="corollary-the-geometric-multiplicity-of-the-eigenvalue-zero-of-the-laplacian-is-the-number-of-connected-components" >
+    <div class="title">The Geometric Multiplicity of the Eigenvalue Zero of the Laplacian Is the Number of Connected Components</div>
+    <div class="content">
+        Let \( G = \left( V, E \right)  \) be a graph, then the geometric multiplicity of \( 0 \) for \( L _ G \) is equal to the number of connected components in \( G \).
+    </div>
+
+    <div class="proof">
+        Suppose that \( G _ i = \left( V _ i, E _ i \right)  \) for \( i \in \left[ k \right]  \) for some \( k \in \mathbb{ N } _1 \) are the connected components of a graph \( G \) then if we construct \( k \) vectors of the form \( w _ i \in \mathbb{ R } ^ \left\lvert V \right\rvert  \) holding information about which vertices from the original graph exist in the component, that is:
+        \[
+          \left( w _ i \right) _ j = 
+        \begin{cases}
+        1 & \text{ if } j \in V _ i   \\
+        0  & \text{ otherwise }
+        \end{cases} 
+        \] 
+        Now given an non-zero eigenvector \( x \)  of \( L _ G \) then we know that \( x _ i = x _ j \) whenever \( i, j \in V \) are in the same connected component from the last proposition, therefore we deduce that the eigenspace for \( 0 \) is \( \operatorname{ span } \left( w _ 1, w _ 2,  \ldots , w _ k \right)   \), by construction, the collection \( \left\{ w _ 1, w _ 2, \ldots , w _ k \right\}  \) are linearly indpendent so the dimension of the eigenspace is \( k \), that is to say that the geometric multiplicity of the eigenspace of \( 0 \) for \( L _ G \) is the number of connected components.
+    </div>
+</div>
+<p>
+    Now we explore the eigenvalues and eigenvectors of some known graphs.
+</p>
+<div class="definition" id="definition-complete" >
+    <div class="title">Complete</div>
+    <div class="content">
+        We say that a graph \( G = \left( V, E \right)  \) is <b>complete</b> whenever \( V = \left\{ 1 , 2, \ldots , m \right\}  \) and \( E = \left\{ \left\{ i, j \right\} : i \neq j \in V  \right\}  \). In that case we refer to \( G \) as \( K _ m \) 
+    </div>
+</div>
+<div class="proposition" id="proposition-the-eigenvalues-of-the-laplacian-of-a-connected-graph" >
+    <div class="title">The Eigenvalues of the Laplacian of a Connected Graph</div>
+    <div class="content">
+        The laplcian of \( K _ m  \) has \( 0 \) as an eigenvalue with geometric multiplicity \( 1 \) and \( m \) as an eigenvalue with geometric multiplicity \( m - 1 \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            We already know that since there is one connected component, then <a class="knowledge-link" href="/graph_theory/spectral.html#corollary-the-geometric-multiplicity-of-the-eigenvalue-zero-of-the-laplacian-is-the-number-of-connected-components">we should have</a> that the geometric multiplicity of \( 0 \) is \( 1 \).
+        </p>
+        <p>
+            Now since each vertex \( K _ n \) is connected to \( n - 1 \) other vertices, then we know that the laplacian of \( K _ n  \) is such that 
+            \[
+              k _ { i, j } = 
+            \begin{cases}
+            -1 \text{ if } i \neq j \\
+            n -1 \text{ if } i = j \\
+            \end{cases} 
+            \] 
+            therefore \( L _ { K _ n } - n I \) is a matrix of all -1's which has rank one and is not invertible, thus \( n \) is an eigenvalue of the laplacian of \( K _ n \), finally by the rank nullity theorem we conclude that \( \operatorname{ null } \left( L _ { K  _ n  } - n I \right) = n - 1   \) so then the eigenvalue \( n \) has multiplicity \( n - 1 \) 
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-cycle-graph" >
+    <div class="title">Cycle Graph</div>
+    <div class="content">
+        The <b>cycle graph</b> on \( n \) vertices is denoted by \( C _ n \) is a graph \( G = \left( V, E \right)  \) where \( V = \left[ n \right]  \) and \( E = \left\{ \left\{ i, i + 1 \right\} : i \in \left[ n \right]   \right\} \cup \left\{ \left\{ 1, n \right\}  \right\}   \) 
+    </div>
+</div>
+<div class="corollary" id="corollary-laplacian-of-the-cycle-graph" >
+    <div class="title">Laplacian of the Cycle Graph</div>
+    <div class="content">
+        \[
+          L _ {C _ n} = 
+        \left(\begin{array}{ccccc}
+        2 & -1 & 0 & \cdots & -1 \\
+        -1 & 2 & -1 & \cdots & 0 \\
+        \vdots & & \ddots & & \vdots \\
+        0 & \cdots & -1 & 2 & -1 \\
+        -1 & \cdots & 0 & -1 & 2
+        \end{array}\right)
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="corollary" id="corollary-an-eigenvector-of-the-laplacian-of-the-cycle-graph-yields-more-eigenvectors-by-its-cyclic-permutations" >
+    <div class="title">An Eigenvector of the Laplacian of the Cycle Graph Yields More Eigenvectors by Its Cyclic Permutations</div>
+    <div class="content">
+        Suppose that \( x \in \mathbb{ R } ^ n \) is an eigenvector of \( L _ { C  _ n } \), then for any \( x ^ \prime  \) which is a cyclic permutation of \( x \), then it is also an eigenvector of \( L _ { C _ n } \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            If \( L _ { C _ n  } x = \lambda x \) then we have a series of equations, let us label these equations:
+        </p>
+        <ul>
+            <li>(Equation 1): \( 2 x _ 1 - x _ 2 - x _ n = \lambda x _ 1 \) also  and </li>
+            <li>(Equation \( n \) ): \( -x _ 1 - x _ { n - 1 } + 2 x _ n = \lambda x _ n \)</li>
+            <li>For each \( 1 \lt k \lt n   \) we have (Equation \( k \)):   \( - x _ { k - 1 } + 2 x _ k - x _ { k + 1 } = \lambda x _ m \)</li>
+        </ul>
+        <p>
+            Now suppose that \( x ^ \prime  \) is a cyclic permutation of \( x \), ie, there is a bijection \( f : \left[ n \right] \to \left[ n \right]   \) such that \( x _ { f \left( i \right)   } = x ^ \prime  _ { i   } \).
+        </p>
+        <p>
+            We want to prove that \( x ^ \prime  \) is an eigen vector for \( \lambda  \), thus we must verify that \( L _ { C _ n } x ^ \prime  = \lambda x ^ \prime   \), but that generates another \( n \) equations similar to those above, but note that given the \( i \)-th equation generated by this situation of the form 
+            \[
+              - x ^ \prime _ { i - 1 } + 2 x ^ \prime _ i - x ^ \prime _ { i + 1 } = \lambda x ^ \prime  _ i
+            \] 
+            is equivalent to this equation 
+            \[
+              - x _ { f \left( i - 1 \right)  } + 2 x _ { f \left( i \right)  } - x _ { f \left( i + 1 \right)  } = \lambda x _ { f \left( i \right)  }
+            \] 
+            which holds true due to our original equations from \( L _ { C _ n } x = \lambda x \), thus since all equations hold true then \( x ^ \prime  \) is an eigenvector.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-laplacian-of-the-cycle-graph-has-trigonometric-eigenvalues" >
+    <div class="title">Laplacian of the Cycle Graph Has Trigonometric Eigenvalues</div>
+    <div class="content">
+        The Laplacian of \( C _ n \) has eigenvalues given by \( 2 - 2 \cos \left( \frac{ 2 \pi k }{ n }  \right)  \) for \( k \in \mathbb{ Z }  \) and associated eigenvectors of the form:
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( \lambda  \) is an eigenvector of \( L _ { C _ n } \) and \( x \) an eigenvector for that eigenvalue,then recall from the previous proof we have:
+        </p>
+        <ul>
+            <li>(Equation 1): \( 2 x _ 1 - x _ 2 - x _ n = \lambda x _ 1 \) also  and </li>
+            <li>(Equation \( n \) ): \( -x _ 1 - x _ { n - 1 } + 2 x _ n = \lambda x _ n \)</li>
+            <li>For each \( 1 \lt k \lt n   \) we have (Equation \( k \)):   \( - x _ { k - 1 } + 2 x _ k - x _ { k + 1 } = \lambda x _ m \)</li>
+        </ul>
+        <p>
+            <a class="knowledge-link" href="/graph_theory/spectral.html#corollary-an-eigenvector-of-the-laplacian-of-the-cycle-graph-yields-more-eigenvectors-by-its-cyclic-permutations">We know that</a> if \(P\) is a cyclic permutation, then \(P x\) is also an eigenvector for \(\lambda\). This means that \(x, P x, \ldots, P^{n-1} x\) are all eigenvectors of \(\lambda\). However, the maximum dimension of any eigenspace is \(n-1\) because we already knew that 0 was an eigenvalue of multiplicity 1. So there must be some \( j \) such that:
+
+            \[
+            P^j x \in \operatorname{span}\left(\left\{x, P x, \ldots, P^{j-1} x\right\}\right)
+            \]
+            If \( j  \) happened to be one, then we would be saying that \( P x = \alpha x \) for some \( \alpha \), meaning that we are able to multiply all the numbers in this vector by a constant, and it will "loop" them around, so we will assume that  \( x _ i = a ^ i \) for some constant \( a \), and see if we get any progress. That is if we plug in a potential solution of this form into the equations we have:
+            \[
+            \begin{align*}
+                2-a-a^{n-1} & =\lambda \\
+                2-a^{1-n}-a^{-1} & =\lambda \text { and } \\
+                2-a^{-1}-a & =\lambda \text { for all } 1 \lt i \lt n
+            \end{align*}
+            \]
+        </p>
+        <p>
+            If we add the third equation to the first we obtain that \( - a ^ n - 1 + a ^ { -1 } = 0 \) so that \( a ^ { -1 } = a ^ { n - 1 } \) therefore \( 1 = a ^ n \) which would imply that for each \( a _ k = e ^ { \frac{ 2 \pi k i }{ n }  } \) (where \( i \in \mathbb{ C }  \) the imaginary number \( i \)), we see that \( a _ k \) is a solution to the above equations, in other words \( x _ 1 = a _ k \) for each \( k \in \left[ n \right]  \) with \( x _ i = \left( x _ 1 \right) ^ i  \) (as assumed earlier) will produce a valid eigen vector.
+
+        </p>
+        <p>
+            For each of the \( n \) eigen vectors, we can explicitly determine their eigenvalue, based on (Equation 1) we note that their associated eigenvalues are given by \( \lambda_k = 2 - 2 \cos \left(\frac{2 \pi k}{n}\right) \), we note that these values are real, but \( x \) may consist of complex coefficients. Writing our vector \( x \) using Euler's formula it is of the form:
+            \[
+                z_m(k)=\cos \left(\frac{2 \pi k m}{n}\right)+i \sin \left(\frac{2 \pi k m}{n}\right)
+            \]
+
+            Since \(L_{C_{\mathrm{n}}} z(k)=\lambda_k z(k)\) and both \(L_{C_{\mathrm{n}}}\) and \(\lambda_k\) are real, this means that both the real part and the imaginary part of \(z(k)\) are invariant under \(L_{C_n}\) because \(L_{C_n}\) consists of real entries. Thus we can conclude that \(x_m(k) = \cos \left(\frac{2 \pi k m}{n}\right)\) and \(y_m(k)=\sin \left(\frac{2 \pi k m}{n}\right)\) are both eigenvectors for \(\lambda_k=2-2 \cos \left(\frac{2 \pi k}{n}\right)\). Then, for \(k \gt \frac{n}{2}\),
+
+            \[
+            \begin{align*}
+            x(k) &\in \operatorname{Span}(\{x(1), x(2), \ldots, x(j)\}) \quad\left(j \leq \frac{n}{2}\right), \text { and }\\
+            y(k) &\in \operatorname{Span}(\{y(1), y(2), \ldots, y(j)\}) \quad\left(j \leq \frac{n}{2}\right)
+            \end{align*}
+            \]
+
+            So the eigenvalues are \(2-2 \cos \left(\frac{2 \pi k}{n}\right)\) with \(k \le \frac{n}{2}\).
+            The list above is exhaustive since we have formed \(n\) independent eigenvectors correspondingly to these eigenvalues:
+            When \(n\) is odd, we have one eigenvector \(x(0)\) for \(\lambda_0=0(y(0)=\overrightarrow{0})\), and two eigenvectors \(x(k)\) and \(y(k)\) for all \(0<k<\frac{n}{2}\).
+            When \(n\) is even, we have one eigenvector \(x(0)\) for \(\lambda_0=0(y(0)=\overline{0})\) and two eigenvectors \(x(k)\) and \(y(k)\) for all \(0<k<\frac{n}{2}\) and one eigenvector \(x\left(\frac{n}{2}\right)\) for \(\lambda_{\frac{n}{2}}=4\) ( \(y\left(\frac{n}{2}\right)=\overrightarrow{0}\) ).
+        </p>
+    </div>
+</div>
+<h1>Essay 2</h1>
+<p>
+    Continuing on with what I learned in my first essay I decided to look at these eigenvalues in more detail, making a detour on the proof of Courant-Fischer which helps us obtain some bounds on these eigenvalues. Knowing this is important because the smallest non-zero eigenvalue of the Laplacian of a graph tells us how connected a graph is. We start with some preliminaries:
+</p>
+<div class="definition" id="definition-rayleigh-quotient" >
+    <div class="title">Rayleigh Quotient</div>
+    <div class="content">
+        Given a vector \( x \neq 0 \) and \( M \) a compatible matrix, then we define the <b>Rayleigh quotient</b> as
+        \[
+          \frac{ x ^ T M x }{ x T x } 
+        \] 
+    </div>
+</div>
+<div class="corollary" id="corollary-the-rayleigh-quotient-of-an-eigenvector-is-its-eigenvalue" >
+    <div class="title">The Rayleigh Quotient of an Eigenvector Is Its Eigenvalue</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+     if \(M x=\mu x\), then
+
+    \[
+        \frac{x^T M x}{x^T x}=\frac{x^T \mu x}{x^T x}=\mu
+    \]
+    </div>
+</div>
+
+<div class="lemma" id="lemma-quadradic-form-as-a-summation-of-eigenvalues" >
+    <div class="title">Quadradic Form as a Summation of Eigenvalues</div>
+    <div class="content">
+        Let \(M\) be a symmetric matrix with eigenvalues \(\mu_1, \ldots, \mu_n\) and a corresponding orthonormal basis of eigenvectors \(\psi_1, \ldots, \psi_n\). Let \(x\) be a vector whose expansion in the eigenbasis is
+        \[
+            x=\sum_{i=1}^n c_i \psi_i
+        \]
+
+        Then,
+
+        \[
+            x^T M x=\sum_{i=1}^n c_i^2 \mu_i
+        \]
+    </div>
+
+    <div class="proof">
+        Note the following algebra, where \( \alpha _ i \) and \( \beta _i  \) are temporary vector valued variables to help ease you into the next line:
+        \[
+        \begin{align*}
+            x^T M x & =\left(\sum_ { i = 1 } ^ n c_i \psi_i\right)^T M\left(\sum_ { j = 1 } ^ n c_j \psi_j\right) \\
+            & =\left(\sum _ { i = 1 } ^ n c_i \psi_i\right)^T\left(\sum _ { j = 1 } ^ n c _ j \mu _ j \psi_j\right) \\
+            & =\left(\sum _ { i = 1 } ^ n \alpha _ i \right)^T \left(\sum _ { j = 1 } ^ n \beta _ j \right) \\
+            & =\sum_{i, j \in \left[ n \right] } \alpha _ i ^ T \beta _ j \\
+            & =\sum_{i, j \in \left[ n \right] } c_i c_{j}  \mu_j \psi_i^T \psi_j \\
+        \end{align*}
+        \]
+        But we know that
+        \[
+            \psi_i^T \psi_j= \begin{cases}0 & \text { for } i \neq j \\ 1 & \text { for } i=j\end{cases}
+        \]
+        therefore 
+        \[
+          x^T M x = \sum_i c_i^2 \mu_i
+        \] 
+
+    </div>
+</div>
+<p>
+    The Courant-Fischer Theorem tells us that the vectors \( x \) that maximize the Rayleigh quotient are exactly the eigenvectors of the largest eigenvalue of the given matrix.
+</p>
+<div class="theorem" id="theorem-courant-fischer" >
+    <div class="title">Courant Fischer</div>
+    <div class="content">
+        Let \(M\) be a symmetric matrix with eigenvalues \(\mu_1 \geq \mu_2 \geq \cdots \geq \mu_n\). Then,
+
+        \[
+            \begin{align*}
+                \mu_k &= \max _{\substack{S \subseteq \mathbf{R}^n \\ \operatorname{dim}(S)=k}} \min _{\substack{x \in S \\ x \neq 0}} \frac{x^T M x}{x^T x} \\
+                &=\min _{\substack{T \subset \mathbf{R}^n \\ \operatorname{dim}(T)=n-k+1}} \max _{\substack{x \in T \\ x \neq \mathbf{0}}} \frac{x^T M x}{x^T x}
+            \end{align*}
+        \]
+        where the maximization and minimization are over subspaces \(S\) and \(T\) of \(\mathbb{R}^n\).
+        <!--Be warned that we will often neglect to include the condition \(x \neq \mathbf{0}\), but we always intend it.-->
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \(\psi_1, \ldots, \psi_n\) be an orthonormal set of eigenvectors of \(M\) corresponding to \(\mu_1, \ldots, \mu_n\). We will only prove that 
+            \[
+             \mu _ k =  \max _{\substack{S \subseteq \mathbf{R}^n \\ \operatorname{dim}(S)=k}} \min _{\substack{x \in S \\ x \neq 0}} \frac{x^T M x}{x^T x}
+            \] 
+            Only because the other is symetrically similar.
+        </p>
+        <p>
+            In order to prove that \(\mu_k\) is achievable. Let \(S\) be the span of \(\psi_1, \ldots, \psi_k\). We can expand every \(x \in S\) as
+            \[
+                x = \sum_{i = 1} ^ k c_i \psi_i
+            \]
+
+            Now since \( \mu _ i \ge \mu _ k \) for \( i \in  \left[ k \right]  \)  <a class="knowledge-link" href="/graph_theory/spectral.html#lemma-quadradic-form-as-a-summation-of-eigenvalues">we have that</a>
+            \[
+            \frac{x^T M x}{x^T x}=\frac{\sum_{i=1}^k \mu_i c_i^2}{\sum_{i=1}^k c_i^2} \geq \frac{\sum_{i=1}^k \mu_k c_i^2}{\sum_{i=1}^k c_i^2}=\mu_k
+            \]
+            And thus a lower bound on the minimum value, that is: 
+            \[
+                \min _{x \in S} \frac{x^T M x}{x^T x} \geq \mu_k
+            \]
+        </p>
+        <p>
+            To show that this is in fact the maximum, we will prove that for all subspaces \(S\) of dimension \(k\),
+            \[
+            \min _{x \in S} \frac{x^T M x}{x^T x} \leq \mu_k
+            \]
+        </p>
+        <p>
+            Let \(T\) be the span of \(\psi_k, \ldots, \psi_m\). As \(T\) has dimension \(n-k+1\), every \(S\) of dimension \(k\) has an intersection with \(T\) of dimension at least 1 because \( \left( n - k + 1 \right) + k = n + 1 \), therefore:
+            \[
+                \min _{x \in S} \frac{x^T M x}{x^T x} \leq \min _{x \in S \cap T} \frac{x^T M x}{x^T x} \leq \max _{x \in T} \frac{x^T M x}{x^T x}
+            \]
+            <!--where the first inequality holds, as a min over a smaller set can only get bigger, and the second inequality holds because a max over a larger set can only get larger.-->
+
+        </p>
+        <p>
+            Now recall \(x\) in \(T\) may be expressed as
+
+            \[
+            x=\sum_{i=k}^n c_i \psi_i
+            \]
+            and so for \(x\) in \(T\) since \( \mu _ k \ge \mu _ i \) where \( k \le i \le n \), we get:
+            \[
+            \frac{x^T M x}{x^T x}=\frac{\sum_{i-k}^n \mu_i c_i^2}{\sum_{i=k}^n c_i^2} \leq \frac{\sum_{i-k}^n \mu_k c_i^2}{\sum_{i=k}^n c_i^2}=\mu_k
+            \]
+            which shows that 
+            \[
+                \min _{x \in S} \frac{x^T M x}{x^T x} \leq \mu _ k
+            \] 
+            so we conclude : 
+            \[
+                \mu_k = \max _{\substack{S \subseteq \mathbf{R}^n \\ \operatorname{dim}(S)=k}} \min _{\substack{x \in S \\ x \neq 0}} \frac{x^T M x}{x^T x} 
+            \] 
+        </p>
+    </div>
+</div>
+<p>
+    For our purposes we will use a more speicific version of the theorem:
+</p>
+<div class="corollary" id="corollary-courant-fischer-specific" >
+    <div class="title">Courant Fischer Specific</div>
+    <div class="content">
+        Let \(A\) be an \(n \times n\) symmetric matrix and let \(1 \leq k \leq n\). Let \(\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n\) be the eigenvalues of \(A\) and \(v_1, v_2, \ldots, v_n\) be the corresponding eigenvectors. Then,
+        \[
+        \begin{align*}
+            \lambda_1 & =\min _{x \neq 0} \frac{x^T A x}{x^T x} \\
+            \lambda_2 & =\min _{x \neq 0 \text{ and } x \perp v _ 1} \frac{x^T A x}{x^T x}  \\
+            \lambda_n & =\max _{x \neq 0} \frac{x^T A x}{x^T x}
+        \end{align*}
+        \]
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<p>
+    With this new version of the theorem we can get a lower bound on the largest eigenvalue of the Laplacian of a graph. For the next theorem we will denote the \( k \)-th  eigen value of of the laplacian of a graph \( G \) by \( \lambda _ k \left( G \right)  \), note that in the context of having \( n \) eigenvalues since they were ordered in an non-decreasing way then \( \lambda _ n \left( G \right)  \) is the largest eigenvalue.
+</p>
+<div class="theorem" id="theorem-the-largest-eigenvalue-of-the-laplacian-of-a-graph-is-at-least-as-large-as-the-degree-of-any-vertex" >
+    <div class="title">The Largest Eigenvalue of the Laplacian of a Graph Is at Least as Large as the Degree of Any Vertex</div>
+    <div class="content">
+        Let \(G=(V, E)\) be a graph with \(V=\{1,2, \ldots, n\}\) and \(u \in V\). If \(u\) has degree \(d\), then
+        \[
+            \lambda_n(G) \geq d
+        \]
+
+
+    </div>
+
+    <div class="proof">
+        <p>
+            By Courant-Fischer Theorem,
+            \[
+            \lambda_n(G)=\max _{x \neq 0} \frac{x^T L_G x}{x^T x}
+            \]
+            By the combination of this <a class="knowledge-link" href="/graph_theory/spectral.html#corollary-the-laplacian-is-the-sum-of-edge-laplacians">corollary</a> and this <a class="knowledge-link" href="/graph_theory/spectral.html#proposition-quadratic-form-of-the-edge-laplacian-is-a-squared-difference">proposition</a> we have
+            \[
+                x^T L_G x = \sum_{\{u, v\} \in E}\left(x_u-x_v\right)^2
+            \]
+        </p>
+        <p>
+            Note that \( \sum_{\{u, v\} \in E}\left(\left( e _ j \right) _u- \left( e _ j \right) _v\right)^2 = d \) because for each edge \( \left\{ u, v \right\} \in E  \) such that \( j \) is incident to that edge, ie \( j \in \left\{ u, v \right\}  \) then we know that \( \left\{ \left( e _ j  \right) _ u, \left( e _ j  \right) _ v  \right\} = \left\{ 0, 1 \right\}     \) and thus \( \left( \left( e _ j \right) _u - \left( e _ j \right) _v\right)^2 = 1  \), on the other hand the number of edges such that \( j \) is incident to is simply the degree of \( j \) thus said equation holds true.
+        </p>
+        <p>
+            Now using the information gathered in the last paragraph recall the standard basis: \(e_1, e_2, \ldots, e_n\) and consider \(x = e_ j \) for some \( j \in \left[ n \right]  \), we have:
+            \[
+            \begin{align*}
+                \frac{e_j ^T L_G e_j }{e_u ^ T e_u} & = \frac{\sum_{\{u, v\} \in E}\left(\left( e _ j \right) _u- \left( e _ j \right) _v\right)^2}{\sum \left( e _ j \right) _u^2} \\
+                & =\frac{d}{1} \\
+                & =d
+            \end{align*}
+            \]
+
+
+            So \(\lambda_n(G) \geq \frac{x^T L_G x}{x^T \cdot x}=d\).
+        </p>
+    </div>
+</div>
+<p>
+    Now we focus on the second smallest eigenvalue, whose importance we learned of in the first essay.
+</p>
+<div class="theorem" id="theorem-the-second-smallest-eigenvalue-of-the-laplacian-of-the-path-graph-on-n-vertices-is-in-the-big-o-of-one-over-n-squared" >
+    <div class="title">The Second Smallest Eigenvalue of the Laplacian of the Path Graph on N Vertices Is in the Big O of One Over N Squared</div>
+    <div class="content">
+        Let \(P_{\mathrm{n}}\) be the path graph, then 
+        \(
+            \lambda_2\left(P_n\right) \in \mathcal{ O } \left(\frac{1}{n^2}\right) 
+        \).
+
+    </div>
+
+    <div class="proof">
+        We start by considering the vector \(u\) such that \(u_i=(n+1)-2 i\), the reason why is so that it becomes perpendicular with \( \overrightarrow{1} \), the vector of all ones:
+        \[
+        u \cdot \overrightarrow{1}=\sum_ { i = 1 } ^ n \left( (n+1)- 2 i \right)  = \sup _ { i = 1 } ^ n \left( n + 1 \right) + 2 \sum _ { i = 1 } ^ n i   =0
+        \]
+        As seen earlier on \(\overrightarrow{1}\) spans the eigenspace for the eigenvalue \(\lambda_1 = 0\). Then by Courant-Fischer we get an upperbound:
+        \[
+        \begin{align*}
+            \lambda_2\left(P_n\right) & =\min _{x \perp \overrightarrow{1}} \frac{x^T L_{P_n} x}{x^T x} \\
+            & \leq \frac{u^T L_{P_n} u}{u^T u}
+        \end{align*}
+        \]
+
+        We have also shown that:
+        \[
+        x^T L_G x=\sum_{\{u, v\} \in E}\left(x_u-x_v\right)^2
+        \]
+        By the nature of \( u \) we have that 
+        \[
+          u _ i - u _ { i + 1 } = \left( n + 1 \right) - 2i - \left( \left( n + 1 \right) - 2 \left( i + 1 \right)   \right) = 2
+        \] 
+        So therefore:
+        \[
+        \begin{align*}
+        \frac{u^T L_{P_n} u}{u^T u} &= \frac{\sum _ { i = 1 } ^ { n - 1 } \left(u_i-u_{i+1}\right)^2}{\sum_i\left(u_i\right)^2} \\
+        & \lt \frac{n 2^2}{\sum_{ i = 1 } ^ { n - 1 }(n+1-2 i)^2}
+        \end{align*}
+        \]
+        The denominator \(\sum(n+1-2 i)^2 \in \mathcal{ O } \left( n ^ 3 \right) \), so we can conclude that
+        \[
+        \lambda_2 \in \mathcal{ O } \left(\frac{1}{n^2}\right)
+        \]
+    </div>
+</div>
+<p>
+    This concludes my exploration of spectral graphs for the moment.
+</p>

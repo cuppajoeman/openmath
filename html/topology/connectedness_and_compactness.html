@@ -1,7 +1,7 @@
 <div class="definition" id="definition-separation" >
     <div class="title">Separation</div>
     <div class="content">
-        A separation of \( X \) are two open and non-empty disjoint sets \( A, B \) such that 
+        A separation of \( X \) are two open and non-empty <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-disjoint-sets">disjoint sets</a> \( A, B \) such that 
         \[
             X = A \sqcup B
         \] 
@@ -13,29 +13,85 @@
 <div class="definition" id="definition-clopen" >
     <div class="title">Clopen</div>
     <div class="content">
-        We say that \( A \subseteq X \) is <b>clopen</b> when \( A \) is open and \( A \) is <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-closed-set">closed</a>
+        We say that \( A \subseteq X \) is <b>clopen</b> when \( A \) is <a class="knowledge-link" href="/topology/topological_spaces.html#definition-open-set">open</a> and \( A \) is <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-closed-set">closed</a>
     </div>
 </div>
 <div class="corollary" id="corollary-separation-iff-there-exists-a-non-trivial-clopen-set" >
     <div class="title">Separation Iff There Exists a Non-trivial Clopen Set</div>
     <div class="content">
-       A set \( X \)  is separable iff there exists some clopen \( A \subseteq X \) such that \( A \neq \emptyset , X \) 
+       A set \( X \)  is <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-separation">separable</a> iff there exists some <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-clopen">clopen</a> \( A \subseteq X \) such that \( A \neq \emptyset , X \) 
     </div>
 
     <div class="proof">
-        TODO: Add the proof here.
+        <p>
+            \( \implies  \) Suppose that \( X \) is separable, then therefore we have that \( X = A \sqcup B \) where \( A, B \neq \emptyset \) are both open, but then we have that \( B = X \setminus A \) and since \( B \) is open this shows that \( A \) is closed, so it is clopen, thus we've located a non-trivial clopen set.
+        </p>
+        <p>
+            \( \impliedby \) Now suppose that we have some non-trivial \( A \subseteq X \) that is clopen, so then \( A \) is open and closed, <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#corollary-double-set-difference-cancels-for-subsets">then</a> \( X \setminus \left( X \setminus A \right) = A  \) so the set \( X \setminus \left( X \setminus A \right)  \) is a closed set, and therefore \( X \setminus A \) is open, since \( A \) is non-trivial so is \( X \setminus A \) finally we note that \( X = X \setminus A \sqcup A \), thus we've constructed our separation, as needed.
+        </p>
     </div>
 </div>
 <div class="definition" id="definition-connected" >
     <div class="title">Connected</div>
     <div class="content">
-        We say that \( X \) is connected if it is non-empty and it has no separation
+        We say that \( X \) is <b>connected</b> if it is non-empty and it has no <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-separation">separation</a>
     </div>
 </div>
 <div class="corollary" id="corollary-connected-iff-every-clopen-is-trivial" >
     <div class="title">Connected Iff Every Clopen Is Trivial</div>
     <div class="content">
         \( X \) is connected iff every clopen set \( A \subseteq X \) is one of \( \emptyset , X \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose \( X \) is connected, then if there was a clopen set that was not one of \( \emptyset , X \) then <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#corollary-separation-iff-there-exists-a-non-trivial-clopen-set">there would be a separation</a>, which is a contradiction.
+        </p>
+    </div>
+</div>
+<p>
+    Note that the above corollary is a good way to prove things. If  \( X \) has no clopen sets then you'd be done, otherwise given a non-empty clopen set we must prove that it must be \( X \) itself, note that if the clopen set was the empty set that would be alright too. The following proposition shows how to take a non-empty clopen set and make it envelop the entire set.
+</p>
+<div class="proposition" id="proposition-a-real-interval-is-connected" >
+    <div class="title">A Real Interval Is Connected</div>
+    <div class="content">
+        \( \left[ 0, 1 \right]  \) is <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-connected">connected</a>.
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( A \) is a non-empty clopen set in \( \left[ 0 , 1 \right]  \) (ie, in the <a class="knowledge-link" href="/topology/subspace_topology.html#definition-subspace-topology">subspace topology</a>) and without loss of generality assume that \( 0 \in A \) (which can be done because if \( 0 \notin A \) then \( \left[ 0, 1 \right] \setminus A  \) is an open set containing \( 0 \)), and now lets prove that \( A \) contains everything else, that is we prove: \( A = \left[ 0, 1  \right]  \).
+        </p>
+        <p>
+            Now let \( G = \left\{ g : \left[ 0, g \right] \subseteq A  \right\}  \), so that our goal is to show that \( 1 \in G \) which would prove that \( A = \left[ 0, 1 \right]  \), since \( 0 \in G \) and \( G \) is bounded above by \( 1 \) then then \( m = \sup \left( G \right)  \) <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#theorem-R-has-the-least-upper-bound-property">exists</a>.
+        </p>
+        <p>
+            Note that \( m \gt  0 \) as \( 0 \in A \) and since \( A \) is open then there exists some \( \epsilon \gt 0 \) such that \( \left[ 0, 1 \right] \cap  B \left( 0, \epsilon  \right) = \left[ 0, \epsilon  \right) \subseteq A \) therefore \( \left[ 0, \frac{ \epsilon  }{ 2 }  \right] \subseteq A  \) so \( \frac{ \epsilon  }{ 2 } \in G  \) therefore \( m \ge \frac{ \epsilon  }{ 2 }  \). We will now continue by showing that \( m \lt 1 \) leads to a contradiction, and therefore we must conclude that \( m \ge 1 \) showing that \( m = 1 \).
+        </p>
+        <p>
+            Since \( m = \sup \left( G \right)  \) then there exists a sequence of elements \( g _ i \lt m \) such that \( g _ i \in G \) and \( g _ i \to m \). Since \( \left[ 0, g _ i  \right] \subseteq A  \) then \( g _ i \in A \) and since \( A \) was closed, <a class="knowledge-link" href="/topology/limit_points.html#corollary-closed-iff-contains-limit-points">then</a> \( m \in A \). Since \( A \) is open and \( m \lt 1 \) then there exists \( \epsilon \gt 0 \) such that \( m +  \epsilon \le 1 \) and \( \left( m - \epsilon , m + \epsilon  \right) \subseteq \left[ 0, 1 \right] = A   \) but then there exists some \( k \in \mathbb{ N }  \) such that \( g _ k \gt m - \epsilon  \) so \( \left[ 0, g _ k \right] \subseteq A  \) so that \( \left[ 0, g _ K \right] \cup  \left( m - \epsilon , m + \epsilon  \right) = \left[ 0, m + \epsilon  \right]  \subseteq A  \) so \( m + \epsilon \in G \) contradictiong that \( m = \sup \left( G \right)  \) so we must have that \( m \ge 1 \) and that \( m = 1 \).
+        </p>
+    </div>
+</div>
+<div class="lemma" id="lemma-a-union-of-connected-sets-that-intersect-is-connected" >
+    <div class="title">A Union of Connected Sets That Intersect Is Connected</div>
+    <div class="content">
+        Suppose that \( \forall \alpha \in I, A _ \alpha \subseteq X \)are connected, and that \( \bigcap A _ \alpha \neq \emptyset  \) then \( \bigcup A _ \alpha  \) is connected
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( B \subseteq \bigcup A _ \alpha  \) is a clopen non-empty set, therefore it has some element \( b \) such that there is aome \( \alpha _ 0 \) such that \( b \in A _ { \alpha _ 0 } \), in otherwords showing that \( B \cap A _ { \alpha _ 0 } \neq \emptyset  \), but \( A _ { \alpha _ 0 } \) is connected, therefore we have that \( B \supseteq A _ { \alpha _ 0  } \neq \emptyset  \) or else it would have been a non trivial clopen set in \( A _ { \alpha _ 0 } \). 
+        </p>
+        <p>
+            Since we know that \( B \supseteq A _ { \alpha _ 0 } \supseteq \bigcap A _ \alpha \neq \emptyset \), therefore we have that \( \forall \alpha , B \cap A _ \alpha \neq \emptyset  \) and therefore for each \( \alpha \in I \) we have that \( B \supseteq A  _ \alpha  \) and therefore \( B \supseteq \bigcup A _ \alpha  \), showing that \( B \) is connected.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-the-continuous-image-of-a-connected-set-is-connected" >
+    <div class="title">The Continuous Image of a Connected Set Is Connected</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
     </div>
 
     <div class="proof">
@@ -49,7 +105,9 @@
     </div>
 
     <div class="proof">
-        TODO: Add the proof here.
+        <p>
+            Note that , now suppose for the sake of contradiction taht for any \( x \) we have that \( f \left( x \right) \neq 0  \) , so therefore \(  X =  f ^ { -1 } \left( \left( - \infty, 0 \right)  \right) \cup f ^ { -1 } \left( \left( 0, \infty \right)  \right)   \), which is a union of open sets that are non-empty so therefore \( f ^ { -1 } \left( \left( - \infty, 0 \right)  \right)  \) and \( f ^ { -1 } \left( \left( 0, \infty \right)  \right)  \) is a non-trivial separation of \( X \) 
+        </p>
     </div>
 </div>
 <div class="exercise" id="exercise-circle-function-has-a-meet-point" >

@@ -161,7 +161,13 @@
         DeMorgan's Laws
     </div>
     <div class="content">
-        Suppose that \( M \) is a family of sets, then \( X \backslash \left ( \bigcup_{A \in M} A \right ) = \bigcap_{A \in M} \left ( X \backslash A \right ) \) and \( X \backslash \left ( \bigcap_{A \in M} A \right ) = \bigcup_{A \in M} \left ( X \backslash A \right ) \)
+        Suppose that \( M \) is a family of sets, then 
+        \[
+            X \backslash \left ( \bigcup_{A \in M} A \right ) = \bigcap_{A \in M} \left ( X \backslash A \right ) 
+        \] and 
+        \[ 
+            X \backslash \left ( \bigcap_{A \in M} A \right ) = \bigcup_{A \in M} \left ( X \backslash A \right ) 
+        \]
     </div>
     <div class="proof">
         <p>Note that, \( p \in X \backslash \left ( \bigcup_{A \in M} A \right ) \), if and only if \( p \in X \) and \( x \notin \bigcup_{A \in M} A \), which is equivalent to: for all \( A \in M \) \( p \notin A \), which is the same as \( p \in \left ( X \backslash A \right ) \) for each \( A \in M \), so by definition \( p \in \bigcap_{A \in M} \left ( X \backslash A \right ) \). Since each connective in the previous paragraph was an iff, then this implies the two sets are equal</p>

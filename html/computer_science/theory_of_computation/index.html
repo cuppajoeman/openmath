@@ -1,0 +1,1466 @@
+<!--
+todo : 
+more closure properties, good articl here: 
+https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
+-->
+<div class="definition" id="definition-the-set-of-all-possible-finite-tuples" >
+    <div class="title">The Set of All Possible Finite Tuples</div>
+    <div class="content">
+        Suppose that \( X \) is a set, then we denote the set of all possible finite tuples as 
+        \[
+           X ^ * = \bigcup _ { n \in \mathbb{ N } _ 0 } X ^ n
+        \] 
+    </div>
+</div>
+<p>
+    Note that in the context of computers we will usually refer to tuples as strings, so instead of writing something like \( \left( 0, 1, 2, 3, 4 \right)  \) we instead just write "01234" to represent the same thing.
+</p>
+<div class="definition" id="definition-finite-automaton" >
+    <div class="title">Finite Automaton</div>
+    <div class="content">
+        A <b>finite automaton</b> is a 5-tuple \( Q, \Sigma, \delta , q_0, F, I \) where
+        <ol>
+            <li>\( Q \) is a finite set called the <b>states</b></li>
+            <li>\( \Sigma \) is a finite set called the <b>alphabet</b></li>
+            <li>\( I =  \Sigma ^ * \)  is the set of <b>possible inputs</b></li>
+            <li>\( \delta : Q \times \Sigma \to Q \) is a finite set called the <b>transition function</b></li>
+            <li>\( q _ 0 \in Q \) is the <b>start state</b></li>
+            <li>\( F \subseteq Q \) is the set of <b>accept states</b></li>
+        </ol>
+    </div>
+</div>
+<p>
+    Note that when \( k = 0 \) then we get \( \left(  \right)  \) as a possible input, which it the empty tuple, we denote this as \( \epsilon  \). 
+</p>
+<div class="definition" id="definition-machine">
+    <div class="title">Machine</div>
+    <div class="content">
+        A <b>machine</b> is a finite automaton.
+    </div>
+</div>
+<div class="definition" id="definition-output-of-a-finite-automaton-on-an-input" >
+    <div class="title">Output of a Finite Automaton on an Input</div>
+    <div class="content">
+        Suppose that \( M \) is a machine and \( a = \left( a _ 1 , \ldots , a _ k \right)  \) is a finite sequence of elements from \( M _ \Sigma \) then we define the following:
+        <ul>
+            <li>
+            if \( 1 \le n \le k \) then \( o _ n =  \delta \left( o _ { n - 1 }, a _ n \right) \) 
+            </li>
+            <li>
+            \( o _ 0 = q _ 0  \) 
+            </li>
+        </ul>
+        and define the output of \( M \) after processing \( a \) as \( o _ k \) which is denoted by \( \operatorname{ out } \left( M, a \right) \) 
+    </div>
+</div>
+<div class="definition" id="definition-compute-sequence-of-an-input-for-a-finite-automaton" >
+    <div class="title">Compute Sequence of an Input for a Finite Automaton</div>
+    <div class="content">
+        Suppose that \( M \) is a machine and \( a = \left( a _ 1 , \ldots , a _ k \right)  \) is a finite sequence of elements from \( M _ \Sigma \), then we define its compute sequence as 
+        \[
+        \operatorname{ compseq } \left( M, a \right) = \left( o _ 0, o _ 1, \ldots , o _ k \right)
+        \] 
+        and note that \( \left\lvert \operatorname{ compseq } \left( M, a \right) \right\rvert = \left\lvert a \right\rvert + 1     \) 
+    </div>
+</div>
+<div class="definition" id="definition-a-finite-automaton-accepts-an-input" >
+    <div class="title">A Finite Automaton Accepts an Input</div>
+    <div class="content">
+        Suppose that \( M \) is a machine and \( a = \left( a _ 1 , \ldots , a _ k \right)  \) is a finite sequence of elements from \( M _ \Sigma \) then we say that \( M \) accepts \( a \) iff:
+        \[
+          \operatorname{ out }  \left( M, a \right) \in M _ F
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-a-finite-automaton-rejects-an-input" >
+    <div class="title">A Finite Automaton Rejects an Input</div>
+    <div class="content">
+        Suppose that \( M \) is a machine and \( a = \left( a _ 1 , \ldots , a _ k \right)  \) is a finite sequence of elements from \( M _ \Sigma \) then we say that \( M \) accepts \( a \) iff it does not <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#definition-a-finite-automaton-accepts-an-input">accept</a> it, and we write \( \operatorname{ acc } \left( M, a \right)   \) 
+    </div>
+</div>
+<div class="definition" id="definition-language" >
+    <div class="title">Language</div>
+    <div class="content">
+        A language \( L \) is simply a set of tuples.
+    </div>
+</div>
+<div class="definition" id="definition-language-legible-for-a-machine" >
+    <div class="title">Language Legible for a Machine</div>
+    <div class="content">
+        Suppose that \( M \) is a finite automaton, and that \( L \) is a language, we say that \( L \) is legible for \( M \) is \( L \subseteq M _ I \).
+    </div>
+</div>
+<p>
+    If a langauge is not legible by a particlular machine, then there will exists an input \( x \) in the language such that \( \operatorname{ out } \left( M , x \right) \) is not well defined, thus in those cases we cannot say much about the language.
+</p>
+<div class="definition" id="definition-language-of-a-finite-automaton" >
+    <div class="title">Language of a Finite Automaton</div>
+    <div class="content">
+        \[
+          \operatorname{ lang }  \left( M \right)  = \left\{ a \in M _ I : \operatorname{ acc } \left( M, a \right)   \right\} 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-a-finite-automaton-models-a-language" >
+    <div class="title">A Finite Automaton Models a Language</div>
+    <div class="content">
+        Given a <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#definition-language-legible-for-a-machine">legible language</a> \( A \) for \( M \), we say that \( M \) <b>models</b> \( A \) iff
+        \[
+            A = \operatorname{ lang }  \left( M \right) 
+        \] 
+    </div>
+</div>
+
+<div class="exercise" id="exercise-dfa-that-recognizes-everything-except-11-and-111" >
+    <div class="title">DFA That Recognizes Everything Except 11 and 111</div>
+    <div class="content">
+        Give a state diagram of a DFA that regonizes the following language over the alphabet \( \Sigma = \left\{ 0, 1 \right\}  \) 
+        \[
+          \left\{ w \in \Sigma ^ * : w \notin \left\{ 11, 111 \right\}   \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            We claim that the following DFA works:
+        </p>
+
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="115.5" cy="178.5" rx="30" ry="30"/>
+                <text x="105.5" y="184.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="115.5" cy="178.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="293.5" cy="178.5" rx="30" ry="30"/>
+                <text x="283.5" y="184.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="293.5" cy="178.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="454.5" cy="178.5" rx="30" ry="30"/>
+                <text x="444.5" y="184.5" font-family="Times New Roman" font-size="20">q&#8323;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="626.5" cy="178.5" rx="30" ry="30"/>
+                <text x="616.5" y="184.5" font-family="Times New Roman" font-size="20">q&#8324;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="376.5" cy="356.5" rx="30" ry="30"/>
+                <text x="366.5" y="362.5" font-family="Times New Roman" font-size="20">q&#8325;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="376.5" cy="356.5" rx="24" ry="24"/>
+                <polygon stroke="black" stroke-width="1" points="145.5,178.5 263.5,178.5"/>
+                <polygon fill="black" stroke-width="1" points="263.5,178.5 255.5,173.5 255.5,183.5"/>
+                <text x="198.5" y="169.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="323.5,178.5 424.5,178.5"/>
+                <polygon fill="black" stroke-width="1" points="424.5,178.5 416.5,173.5 416.5,183.5"/>
+                <text x="368.5" y="169.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="484.5,178.5 596.5,178.5"/>
+                <polygon fill="black" stroke-width="1" points="596.5,178.5 588.5,173.5 588.5,183.5"/>
+                <text x="534.5" y="169.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="140.285,195.403 351.715,339.597"/>
+                <polygon fill="black" stroke-width="1" points="351.715,339.597 347.923,330.959 342.289,339.22"/>
+                <text x="229.5" y="288.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="442.459,205.978 388.541,329.022"/>
+                <polygon fill="black" stroke-width="1" points="388.541,329.022 396.331,323.702 387.172,319.688"/>
+                <text x="397.5" y="263.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="602.062,195.9 400.938,339.1"/>
+                <polygon fill="black" stroke-width="1" points="400.938,339.1 410.355,338.533 404.555,330.387"/>
+                <text x="485.5" y="258.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="306.178,205.689 363.822,329.311"/>
+                <polygon fill="black" stroke-width="1" points="363.822,329.311 364.973,319.947 355.909,324.173"/>
+                <text x="316.5" y="283.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 389.725,383.297 A 22.5,22.5 0 1 1 363.275,383.297"/>
+                <text x="360.5" y="445.5" font-family="Times New Roman" font-size="20">0, 1</text>
+                <polygon fill="black" stroke-width="1" points="363.275,383.297 354.527,386.83 362.618,392.708"/>
+                <polygon stroke="black" stroke-width="1" points="47.5,178.5 85.5,178.5"/>
+                <polygon fill="black" stroke-width="1" points="85.5,178.5 77.5,173.5 77.5,183.5"/>
+        </svg>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-dfa-that-regonizes-only-0-and-the-empty-string" >
+    <div class="title">DFA That Regonizes Only 0 and the Empty String</div>
+    <div class="content">
+        Give a state diagram of a DFA that regonizes the following language over the alphabet \( \Sigma = \left\{ 0, 1 \right\}  \) 
+        \[
+          \left\{ 0, \epsilon \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="238.5" cy="145.5" rx="30" ry="30"/>
+                <text x="228.5" y="151.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="238.5" cy="145.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="472.5" cy="145.5" rx="30" ry="30"/>
+                <text x="462.5" y="151.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="472.5" cy="145.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="351.5" cy="316.5" rx="30" ry="30"/>
+                <text x="341.5" y="322.5" font-family="Times New Roman" font-size="20">q&#8323;</text>
+                <polygon stroke="black" stroke-width="1" points="268.5,145.5 442.5,145.5"/>
+                <polygon fill="black" stroke-width="1" points="442.5,145.5 434.5,140.5 434.5,150.5"/>
+                <text x="349.5" y="166.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="455.171,169.989 368.829,292.011"/>
+                <polygon fill="black" stroke-width="1" points="368.829,292.011 377.531,288.368 369.368,282.592"/>
+                <text x="373.5" y="223.5" font-family="Times New Roman" font-size="20">0, 1</text>
+                <polygon stroke="black" stroke-width="1" points="255.04,170.529 334.96,291.471"/>
+                <polygon fill="black" stroke-width="1" points="334.96,291.471 334.721,282.04 326.378,287.553"/>
+                <text x="277.5" y="250.5" font-family="Times New Roman" font-size="20">1</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 364.725,343.297 A 22.5,22.5 0 1 1 338.275,343.297"/>
+                <text x="335.5" y="405.5" font-family="Times New Roman" font-size="20">0, 1</text>
+                <polygon fill="black" stroke-width="1" points="338.275,343.297 329.527,346.83 337.618,352.708"/>
+                <polygon stroke="black" stroke-width="1" points="138.5,145.5 208.5,145.5"/>
+                <polygon fill="black" stroke-width="1" points="208.5,145.5 200.5,140.5 200.5,150.5"/>
+        </svg>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-dfa-that-recognizes-even-number-of-zeros-or-exactly-two-1s" >
+    <div class="title">Dfa That Recognizes Even Number of Zeros or Exactly Two 1s</div>
+    <div class="content">
+        Give a state diagram of a DFA that regonizes the following language over the alphabet \( \Sigma = \left\{ 0, 1 \right\}  \) 
+        \[
+        \left\{ w \in \operatorname{ alltup } \left( \Sigma \right) : \operatorname{ even } \left( \operatorname{ count } \left( w, 0 \right)   \right) \lor \operatorname{ count } \left( w, 1 \right) = 2      \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="137.5" cy="138.5" rx="30" ry="30"/>
+                <text x="127.5" y="144.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="318.5" cy="138.5" rx="30" ry="30"/>
+                <text x="308.5" y="144.5" font-family="Times New Roman" font-size="20">q&#8324;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="514.5" cy="138.5" rx="30" ry="30"/>
+                <text x="504.5" y="144.5" font-family="Times New Roman" font-size="20">q&#8326;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="514.5" cy="138.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="137.5" cy="334.5" rx="30" ry="30"/>
+                <text x="127.5" y="340.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="137.5" cy="334.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="318.5" cy="334.5" rx="30" ry="30"/>
+                <text x="308.5" y="340.5" font-family="Times New Roman" font-size="20">q&#8323;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="318.5" cy="334.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="514.5" cy="334.5" rx="30" ry="30"/>
+                <text x="504.5" y="340.5" font-family="Times New Roman" font-size="20">q&#8325;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="514.5" cy="334.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="705.5" cy="138.5" rx="30" ry="30"/>
+                <text x="695.5" y="144.5" font-family="Times New Roman" font-size="20">q&#8328;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="705.5" cy="334.5" rx="30" ry="30"/>
+                <text x="695.5" y="340.5" font-family="Times New Roman" font-size="20">q&#8327;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="705.5" cy="334.5" rx="24" ry="24"/>
+                <polygon stroke="black" stroke-width="1" points="167.5,138.5 288.5,138.5"/>
+                <polygon fill="black" stroke-width="1" points="288.5,138.5 280.5,133.5 280.5,143.5"/>
+                <text x="222.5" y="159.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="348.5,138.5 484.5,138.5"/>
+                <polygon fill="black" stroke-width="1" points="484.5,138.5 476.5,133.5 476.5,143.5"/>
+                <text x="410.5" y="159.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="544.5,138.5 675.5,138.5"/>
+                <polygon fill="black" stroke-width="1" points="675.5,138.5 667.5,133.5 667.5,143.5"/>
+                <text x="604.5" y="159.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="48.5,334.5 107.5,334.5"/>
+                <polygon fill="black" stroke-width="1" points="107.5,334.5 99.5,329.5 99.5,339.5"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 117.178,312.524 A 129.03,129.03 0 0 1 117.178,160.476"/>
+                <polygon fill="black" stroke-width="1" points="117.178,160.476 108.424,163.994 116.504,169.886"/>
+                <text x="76.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="167.5,334.5 288.5,334.5"/>
+                <polygon fill="black" stroke-width="1" points="288.5,334.5 280.5,329.5 280.5,339.5"/>
+                <text x="222.5" y="355.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="348.5,334.5 484.5,334.5"/>
+                <polygon fill="black" stroke-width="1" points="484.5,334.5 476.5,329.5 476.5,339.5"/>
+                <text x="410.5" y="355.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="544.5,334.5 675.5,334.5"/>
+                <polygon fill="black" stroke-width="1" points="675.5,334.5 667.5,329.5 667.5,339.5"/>
+                <text x="604.5" y="355.5" font-family="Times New Roman" font-size="20">1</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 155.761,162.232 A 142.033,142.033 0 0 1 155.761,310.768"/>
+                <polygon fill="black" stroke-width="1" points="155.761,310.768 164.206,306.564 155.682,301.335"/>
+                <text x="181.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 337.008,162.038 A 140.306,140.306 0 0 1 337.008,310.962"/>
+                <polygon fill="black" stroke-width="1" points="337.008,310.962 345.492,306.836 337.016,301.528"/>
+                <text x="363.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 299.205,311.609 A 135.128,135.128 0 0 1 299.205,161.391"/>
+                <polygon fill="black" stroke-width="1" points="299.205,161.391 290.601,165.262 298.914,170.82"/>
+                <text x="260.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 495.205,311.609 A 135.128,135.128 0 0 1 495.205,161.391"/>
+                <polygon fill="black" stroke-width="1" points="495.205,161.391 486.601,165.262 494.914,170.82"/>
+                <text x="456.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 532.889,162.132 A 141.137,141.137 0 0 1 532.889,310.868"/>
+                <polygon fill="black" stroke-width="1" points="532.889,310.868 541.353,306.703 532.854,301.434"/>
+                <text x="559.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 721.871,163.585 A 157.083,157.083 0 0 1 721.871,309.415"/>
+                <polygon fill="black" stroke-width="1" points="721.871,309.415 730.013,304.65 721.155,300.008"/>
+                <text x="744.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 687.36,310.675 A 142.899,142.899 0 0 1 687.36,162.325"/>
+                <polygon fill="black" stroke-width="1" points="687.36,162.325 678.934,166.568 687.481,171.759"/>
+                <text x="650.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 718.725,361.297 A 22.5,22.5 0 1 1 692.275,361.297"/>
+                <text x="699.5" y="423.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon fill="black" stroke-width="1" points="692.275,361.297 683.527,364.83 691.618,370.708"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 692.275,111.703 A 22.5,22.5 0 1 1 718.725,111.703"/>
+                <text x="699.5" y="62.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon fill="black" stroke-width="1" points="718.725,111.703 727.473,108.17 719.382,102.292"/>
+        </svg>
+    </div>
+</div>
+
+
+<div class="definition" id="definition-regular-language" >
+    <div class="title">Regular Language</div>
+    <div class="content">
+        Suppose that \( L \)  is a language, then we say that it is regular iff there exists a finite automaton \( M \) that recognizes it. We denote this by \( \operatorname{ reg } \left( L \right)   \), in symbols that is:
+        \[
+        \operatorname{ reg }  \left( L \right)  \iff \exists M ,  \operatorname{ lang } \left( M \right) = L
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-concatenation-of-two-languages" >
+    <div class="title">Concatenation of Two Languages</div>
+    <div class="content">
+        \[
+          A \circ B = \left\{ \operatorname{ concat } \left( x, y \right) : x \in A, y \in B   \right\} 
+        \] 
+    </div>
+</div>
+<div class="corollary" id="corollary-concatenation-of-languages-is-associative" >
+    <div class="title">Concatenation of Languages Is Associative</div>
+    <div class="content">
+        \[
+          \left( A \circ B \right) \circ C = A \circ \left( B \circ C \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-star-of-a-language" >
+    <div class="title">Star of a Language</div>
+    <div class="content">
+        \[
+          A ^ * =  \left\{ \operatorname{ concat } \left( x _ 1, \ldots , x _ k \right) : k \in \mathbb{ N } _ 0, x _ i \in A   \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    Note that when \( k = 0 \) then an empty concatenation is defined as \( \epsilon  \) so that the star of any lanuage will always contain \( \epsilon  \).
+</p>
+<div class="definition" id="definition-nondeterministic-finite-automaton" >
+    <div class="title">Nondeterministic Finite Automaton</div>
+    <div class="content">
+        A <b>nondeterministic finite automaton</b> is a 6-tuple \( Q, \Sigma, \delta , q_0, F, I \) where
+        <ol>
+            <li>\( Q \) is a finite set called the <b>states</b></li>
+            <li>\( \Sigma \) is a finite set called the <b>alphabet</b></li>
+            <li>\( I = \left\{ \left( a _ 1, \ldots , a _ k \right) : k \in \mathbb{ N } _ 0, a _ i \in \Sigma   \right\} \)  is the set of <b>possible inputs</b></li>
+            <li>\( \delta : Q \times \Sigma _ \epsilon  \to P \left( Q \right)  \) is the <b>transition function</b></li>
+            <li>\( q _ 0 \in Q \) is the <b>start state</b></li>
+            <li>\( F \subseteq Q \) is the set of <b>accept states</b></li>
+        </ol>
+    </div>
+</div>
+<p>
+    A NFA is shorthand for the above, to differentiate we call a finite automaton as a DFA where the D stands for deterministic. Additionally sometimes when drawing these out, then you'll notice that sometimes for a given state there is not an arrow for each character in the alphabet, whenever this is the case it means that \( \delta \left( q, a \right) = \emptyset \) which means that there is no transition from starting at \( q \) and reading \( a \), this means that an NFA can get "stuck" this is when it is not possible for the NFA to read in the next state in any possible context.
+</p>
+<div class="definition" id="definition-multiple-state-transition-function">
+    <div class="title">Multiple State Transition Function</div>
+    <div class="content">
+        Given an NFA \( N \), \( c \in \Sigma _ N \) and any \( R \subseteq  Q _ N \) we define the following overloaded function:
+        \[
+          \delta \left( R, c \right) = \bigcup _ { r \in R } \delta \left( r, c \right) 
+        \] 
+    </div>
+</div>
+<p>
+    One visual that helps me remember the above is like you're trakcing the whereabouts of multiple trains in a subway station, you want to get on one of the trains as fast as possible, so you see what stations they'll be at next, so you can get on at the nearest station, tha above takes in the collection of train stations they're at now, and tells you where they'll be next.
+</p>
+<div class="definition" id="definition-epsilon-reachable-states" >
+    <div class="title">Epsilon Reachable States</div>
+    <div class="content">
+        Suppose that \( N \) is an NFA and \( R \subseteq Q _ N \) then we define the set of reachable states from \( R \) by travelling along 0 or more epsilon arrows by:
+        \[
+          \epsilon \left( R \right) 
+        \] 
+    </div>
+</div>
+<p>
+    Note that \( \epsilon \left( A \cup B \right) = \epsilon \left( A  \right) \cup \epsilon \left( B \right)    \) and that \( \epsilon \left( R \right) \supseteq R  \) 
+</p>
+
+<div class="definition" id="definition-epsilon-reachable-multiple-state-transition-function" >
+    <div class="title">Epsilon Reachable Multiple State Transition Function</div>
+    <div class="content">
+        Given an NFA \( N \), \( c \in \Sigma _ N \) and any \( R \subseteq  Q _ N \) we define 
+        \[
+          \delta ^ \epsilon  \left( R, c \right) = \epsilon \left( \delta \left( R, a \right)  \right) 
+        \] 
+    </div>
+</div>
+
+<div class="corollary" id="corollary-every-dfa-is-an-nfa" >
+    <div class="title">Every DFA Is an NFA</div>
+    <div class="content">
+        Every DFA can trivially be converted to an equivalent NFA
+    </div>
+
+    <div class="proof">
+        Suppose we have a DFA, then construct an NFA as follows
+        <ul>
+            <li> \( Q ^ ' = Q \) </li>
+            <li> \( Q ^ ' = Q \) </li>
+            <li>\( \Sigma ^ \prime = \Sigma \)</li>
+            <li>\( \Sigma ^ \prime = \Sigma \)</li>
+            <li> \( \delta ^ \prime \left( q, a \right) = \left\{ \delta \left( q, a \right)  \right\}   \) </li>
+            <li> \( q _ 0 ^ ' =  \) </li>
+        </ul>
+        <p>
+            Then given a string \( s \in \Sigma ^ * \) then by induction we can prove that \( \left\lvert \operatorname{ compseq } \left( D, s \right)   \right\rvert = \left\lvert \operatorname{ compseq } \left( N, s \right)   \right\rvert   \) and for any valid \( k \in \mathbb{ N } _ 1 \)    \( \operatorname{ compseq } \left( D, s \right) _ k = \operatorname{ compseq } \left( N, s \right) _ k  \), thus \( \operatorname{ out } \left( D, s \right) = \operatorname{ out } \left( N, s \right)     \) so we can conclude that so \( \operatorname{ acc } \left( D, s \right) \iff \operatorname{ acc } \left( N, s \right)     \) showing that \( \operatorname{ lang } \left( D \right) = \operatorname{ lang } \left( N \right)  \) 
+        </p>
+    </div>
+</div>
+
+
+<div class="exercise" id="exercise-conversion-of-an-nfa-to-a-dfa" >
+    <div class="title">Conversion of an NFA to a DFA</div>
+    <div class="content">
+        Convert the following NFA to a DFA:
+
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="270.5" cy="159.5" rx="30" ry="30"/>
+                <text x="264.5" y="165.5" font-family="Times New Roman" font-size="20">1</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="493.5" cy="159.5" rx="30" ry="30"/>
+                <text x="487.5" y="165.5" font-family="Times New Roman" font-size="20">2</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="493.5" cy="159.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="381.5" cy="342.5" rx="30" ry="30"/>
+                <text x="375.5" y="348.5" font-family="Times New Roman" font-size="20">3</text>
+                <polygon stroke="black" stroke-width="1" points="137.5,159.5 240.5,159.5"/>
+                <polygon fill="black" stroke-width="1" points="240.5,159.5 232.5,154.5 232.5,164.5"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 292.812,139.519 A 151.156,151.156 0 0 1 471.188,139.519"/>
+                <polygon fill="black" stroke-width="1" points="471.188,139.519 467.68,130.762 461.779,138.836"/>
+                <text x="376.5" y="101.5" font-family="Times New Roman" font-size="20">e</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 469.103,176.892 A 171.721,171.721 0 0 1 294.897,176.892"/>
+                <polygon fill="black" stroke-width="1" points="294.897,176.892 299.255,185.259 304.328,176.641"/>
+                <text x="376.5" y="221.5" font-family="Times New Roman" font-size="20">a</text>
+                <polygon stroke="black" stroke-width="1" points="397.16,316.912 477.84,185.088"/>
+                <polygon fill="black" stroke-width="1" points="477.84,185.088 469.399,189.301 477.928,194.522"/>
+                <text x="443.5" y="269.5" font-family="Times New Roman" font-size="20">a, b</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 406.673,326.396 A 22.5,22.5 0 1 1 409.594,352.685"/>
+                <text x="455.5" y="339.5" font-family="Times New Roman" font-size="20">b</text>
+                <polygon fill="black" stroke-width="1" points="409.594,352.685 414.071,360.989 419.02,352.299"/>
+                <polygon stroke="black" stroke-width="1" points="286.058,185.15 365.942,316.85"/>
+                <polygon fill="black" stroke-width="1" points="365.942,316.85 366.068,307.417 357.518,312.603"/>
+                <text x="308.5" y="269.5" font-family="Times New Roman" font-size="20">a</text>
+        </svg>
+    </div>
+
+    <div class="proof">
+        As per the conversion process, we set \( Q ^ \prime = \mathcal{ P } \left( Q \right)   \), and then for any \( R \in Q ^ \prime  \) and \( c \in \Sigma \) we define our transition function by \( \delta ^ \epsilon \left( R \right)  \). 
+        <ul>
+            <li> \( \delta ^ \epsilon \left( \left\{ 1, 2 \right\} , a \right)  = \epsilon \left( \left\{ 1, 3 \right\}  \right) = \left\{ 1, 2, 3 \right\} \)   </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 1, 2 \right\} , b \right)  = \epsilon \left( \emptyset \cup \emptyset  \right) = \emptyset \)     </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 1, 2, 3 \right\} , a \right)  = \left\{ 1, 2, 3 \right\}  \)  </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 1, 2, 3 \right\} , b \right)  = \epsilon \left( \emptyset \cup \emptyset \cup \left\{ 2, 3 \right\}  \right) = \left\{ 2, 3 \right\} \)      </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 2, 3 \right\} , a \right)  = \epsilon \left( \left\{ 1, 2 \right\}  \right) = \left\{ 1, 2 \right\}    \)  </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 2, 3 \right\} , b \right)  = \left\{ 2, 3 \right\} \) </li>
+            <li>\( \delta ^ \epsilon \left( \emptyset , a \right)   = \emptyset  = \delta ^ \epsilon \left( \emptyset , b \right) \)</li>
+        </ul>
+        <p>
+            Note that we could analyze what it does to other states, but they will not be reachable in the final diagram and thus can be removed, this is true because we explored the graph starting at the root following the BFS algorithm which we know will entirely explore all reachable states, thus here is the final simplified NFA:
+        </p>
+
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="290.5" cy="221.5" rx="30" ry="30"/>
+                <text x="268.5" y="227.5" font-family="Times New Roman" font-size="20">{1,2}</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="290.5" cy="221.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="221.5" rx="30" ry="30"/>
+                <text x="419.5" y="227.5" font-family="Times New Roman" font-size="20">{1, 2, 3}</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="221.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="97.5" rx="30" ry="30"/>
+                <text x="446.5" y="103.5" font-family="Times New Roman" font-size="20">{}</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="349.5" rx="30" ry="30"/>
+                <text x="430.5" y="355.5" font-family="Times New Roman" font-size="20">{2, 3}</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="349.5" rx="24" ry="24"/>
+                <polygon stroke="black" stroke-width="1" points="320.5,221.5 425.5,221.5"/>
+                <polygon fill="black" stroke-width="1" points="425.5,221.5 417.5,216.5 417.5,226.5"/>
+                <text x="367.5" y="212.5" font-family="Times New Roman" font-size="20">a</text>
+                <polygon stroke="black" stroke-width="1" points="314.483,203.477 431.517,115.523"/>
+                <polygon fill="black" stroke-width="1" points="431.517,115.523 422.118,116.332 428.126,124.327"/>
+                <text x="355.5" y="150.5" font-family="Times New Roman" font-size="20">b</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 442.275,70.703 A 22.5,22.5 0 1 1 468.725,70.703"/>
+                <text x="438.5" y="20.5" font-family="Times New Roman" font-size="20">a, b</text>
+                <polygon fill="black" stroke-width="1" points="468.725,70.703 477.473,67.17 469.382,61.292"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 482.297,208.275 A 22.5,22.5 0 1 1 482.297,234.725"/>
+                <text x="528.5" y="227.5" font-family="Times New Roman" font-size="20">a</text>
+                <polygon fill="black" stroke-width="1" points="482.297,234.725 485.83,243.473 491.708,235.382"/>
+                <polygon stroke="black" stroke-width="1" points="455.5,251.5 455.5,319.5"/>
+                <polygon fill="black" stroke-width="1" points="455.5,319.5 460.5,311.5 450.5,311.5"/>
+                <text x="460.5" y="291.5" font-family="Times New Roman" font-size="20">b</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 482.297,336.275 A 22.5,22.5 0 1 1 482.297,362.725"/>
+                <text x="528.5" y="355.5" font-family="Times New Roman" font-size="20">b</text>
+                <polygon fill="black" stroke-width="1" points="482.297,362.725 485.83,371.473 491.708,363.382"/>
+                <polygon stroke="black" stroke-width="1" points="431.796,331.112 314.204,239.888"/>
+                <polygon fill="black" stroke-width="1" points="314.204,239.888 317.46,248.743 323.589,240.841"/>
+                <text x="356.5" y="306.5" font-family="Times New Roman" font-size="20">a</text>
+                <polygon stroke="black" stroke-width="1" points="200.5,221.5 260.5,221.5"/>
+                <polygon fill="black" stroke-width="1" points="260.5,221.5 252.5,216.5 252.5,226.5"/>
+        </svg>
+        <!--we first have the start state which is given by \( \epsilon \left( \left\{ 1 \right\}  \right) = \left\{ 1, 2  \right\}    \) -->
+    </div>
+</div>
+
+<div class="corollary" id="corollary-every-language-modelled-by-a-dfa-is-modelled-by-an-nfa" >
+    <div class="title">Every Language Modelled by a DFA Is Modelled by an NFA</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        Since for every DFA, there is a trivial conversion to an equivalent NFA, then if a language \( L \) is modelled by some DFA D, so that \( \operatorname{ lang } \left( D \right) = L   \) then since given our eqiuvalent NFA \( N \) which is to say that \( \operatorname{ lang } \left( N \right) = \operatorname{ lang } \left( D \right)     \) then we conclude that  \( \operatorname{ lang } \left( N \right) = L   \) showing that \( N \) models \( L \) .
+    </div>
+</div>
+<div class="definition" id="definition-machine" >
+    <div class="title">Machine</div>
+    <div class="content">
+        A machine is a DFA or a NFA
+    </div>
+</div>
+<div class="definition" id="definition-two-machines-are-equivalent">
+    <div class="title">Two Machines Are Equivalent</div>
+    <div class="content">
+        We say that \( M _ 1, M_ 2 \) are equivalent iff 
+        \[
+        \operatorname{ lang } \left( M _ 1 \right) =  \operatorname{ lang } \left( M _ 2 \right) 
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-every-language-recognized-by-an-nfa-is-recognized-by-a-dfa">
+    <div class="title">Every Language Recognized by an NFA Is Recognized by a DFA</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="corollary" id="corollary-a-language-is-regular-iff-there-is-an-nfa-that-recognizes-it" >
+    <div class="title">A Language Is Regular Iff There Is an NFA That Recognizes It</div>
+    <div class="content">
+        \[
+            \operatorname{ reg } \left( A \right) \iff \exists N , \operatorname{ lang } \left( N \right) = A
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that there exists an NFA \( N \) such that \( \operatorname{ rec } \left( N, A \right)   \), then by the above theorem there exists some DFA \( D \) such that \( \operatorname{ rec } \left( D, A \right)   \) therefore \( \operatorname{ reg } \left( A \right)   \) .
+        </p>
+        <p>
+            The other direction is simpler since \( \operatorname{ reg } \left( A \right)   \) then there exists some DFA D such that \( \operatorname{ rec } \left( D, A \right)   \) but a DFA is an NFA so then we've shown that there is some NFA that recognizes \( A \) as needed.
+        </p>
+    </div>
+</div>
+<p>
+    Because this is true it means that a language is regular iff there is an NFA or DFA which recognizes it.
+</p>
+<div class="corollary" id="corollary-regular-languages-are-recognized-under-intersection" >
+    <div class="title">Regular Languages Are Recognized Under Intersection</div>
+    <div class="content">
+        Suppose that \( \operatorname{ reg } \left( A \right)   \)  and \( \operatorname{ reg } \left( B \right)   \) then \( \operatorname{ reg } \left( A \cap B \right) \) 
+    </div>
+
+    <div class="proof">
+        This is simply true beucase \( A \cap B \subseteq A, B \) therefore both machines will recognize a subset of a language they already recognize.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-union" >
+    <div class="title">Regular Languages Are Closed Under Union</div>
+    <div class="content">
+        Suppose that \( \operatorname{ reg } \left( A \right)   \)  and \( \operatorname{ reg } \left( B \right)   \) then \( \operatorname{ reg } \left( A \cup B \right) \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-concatenation" >
+    <div class="title">Regular Languages Are Closed Under Concatenation</div>
+    <div class="content">
+        Suppose that \( \operatorname{ reg } \left( A \right)   \)  and \( \operatorname{ reg } \left( B \right)   \) then \( \operatorname{ reg } \left( A \circ  B \right) \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-the-star-operation">
+    <div class="title">Regular Languages Are Closed Under the Star Operation</div>
+    <div class="content">
+        Suppose that \( \operatorname{ reg } \left( A \right)   \) then \( \operatorname{ reg } \left( A ^ * \right) \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-reversal-of-a-lanuage" >
+    <div class="title">Reversal of a Lanuage</div>
+    <div class="content">
+        Suppose that \( A \) is a language, then we define the reverse of the language by 
+        \[
+        A ^ \mathcal{ R } = \left\{ \operatorname{ rev } \left( a \right) : a \in A \right\} 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-reversal" >
+    <div class="title">Regular Languages Are Closed Under Reversal</div>
+    <div class="content">
+        \[
+          \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( A ^ \mathcal{ R }  \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-homomorphism-from-one-alphabet-to-strings-over-another" >
+    <div class="title">Homomorphism From One Alphabet to Strings Over Another</div>
+    <div class="content">
+        A <b>homomorphism from one alphabet to strings over another</b> is a function \(f: \Sigma \longrightarrow \Gamma^*\) from one alphabet to strings over another alphabet. We can extend \(f\) to operate on strings by defining \(f(w)=\) \(f\left(w_1\right) f\left(w_2\right) \cdots f\left(w_n\right)\), where \(w=w_1 w_2 \cdots w_n\) and each \(w_i \in \Sigma\). We further extend \(f\) to operate on languages by defining \(f(A)=\{f(w) \mid w \in A\}\), for any language \(A\).
+    </div>
+</div>
+<p>
+    It was defined as above to allow you to map single characters from an alpabet to strings of another to be more general from the get go, but you can certainly have homomorphisms from characters of one alphabet to characters of another alphabet just the same.
+</p>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-homomorphism" >
+    <div class="title">Regular Languages Are Closed Under Homomorphism</div>
+    <div class="content">
+        Suppose that \( f \) is a homomorphism, then 
+        \[
+        \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( f \left( A \right)  \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-the-inverse-image-of-a-homomorphism" >
+    <div class="title">Regular Languages Are Closed Under the Inverse Image of a Homomorphism</div>
+    <div class="content">
+        Suppose that \( f \) is a homomorphism, then 
+        \[
+          \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( f ^ { -1 } \left( A \right)  \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-perfect-shuffle" >
+    <div class="title">Regular Languages Are Closed Under Perfect Shuffle</div>
+    <div class="content">
+        For languages \(A\) and \(B\), let the perfect shuffle of \(A\) and \(B\) be the language \( \operatorname{ perfectshuffle } \left( A, B \right)   \) defined as:
+        \[ 
+         \left\{ w \mid w=a_1 b_1 \cdots a_k b_k \text{ where } a_1 \cdots a_k \in A \text{ and } b_1 \cdots b_k \in B \text{ each } a_i, b_i \in \Sigma \right\}
+        \]
+        Show that 
+        \[
+          \operatorname{ reg } \left( A \right) \land \operatorname{ reg } \left( B \right) \implies \operatorname{ reg } \left( \operatorname{ perfectshuffle } \left( A, B \right)   \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Instead of making an explicit construction we will instead use the fact that regular languages are closed under intersection and homomorphisms to prove that the shuffle is regular.
+        </p>
+        <p>
+            First note that given \( \Sigma \times \Sigma \) we can extend concatentation from \( \Sigma \)  to be componentwise concatention, so that \( \left( a, b \right) \left( c, d \right) = \left( ac, bd \right)    \). Under this setup if we consider 
+            \[
+                \begin{align*}
+              \left( \Sigma \times \Sigma \right) ^ * &= \left\{ \left( a _ 1, b _ 2 \right) \ldots \left( a _ n, b _ n \right) :n \in \mathbb{ N } _ 0,  a _ i, b _ i \in \Sigma   \right\} \\
+            &=  \left\{ \left( a _ 1 \ldots a _ n , b _ 1 \ldots b _ n \right) : n \in \mathbb{ N } _ 0, a _ i , b _ i \in \Sigma  \right\} \\
+            &= \left\{ \left( a, b \right) : \left\lvert a \right\rvert = \left\lvert b \right\rvert, a, b \in \Sigma ^ *     \right\} 
+                \end{align*}
+            \] 
+            So that if we consider the function \( \operatorname{ right } : \left( \Sigma \times \Sigma \right) ^ * \to \Sigma * \) defined as:
+            \[
+              \operatorname{ right } \left( \left( a, b \right) \right) = a
+            \] 
+            then it is a homomorphism because 
+            \[
+              \operatorname{ right } \left( \left( a, b \right) \left( c, d \right)   \right) = \operatorname{ right } \left( a c, b d \right) = a c = \operatorname{ right } \left( a, b \right) \operatorname{ right } \left( c, d \right) 
+            \] 
+            Similarly the analogous function \( \operatorname{ left }  \) is also a homomorphism for the same reasons.
+        </p>
+        <p>
+            But now if we consider \( X = \operatorname{ left } ^ { -1 } \left( A \right) \), then 
+            \[
+              X = \left\{ \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) : n \in \mathbb{ N } _ 0, \left( a _i, b _ i \right) \in \Sigma \times \Sigma \text{ s.t. } a _ 1 \ldots a _n  \in A \right\} 
+            \] 
+            where the last condition \( a _ 1 \ldots a _n  \in A \) comes about because we require that 
+            \[
+\operatorname{ left }\left(  \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) \right) = \operatorname{ left } \left( a _ 1 \ldots a _ n, b _ 1 \ldots b _ n \right) = a _ 1 \ldots a _ n \in A
+            \] 
+            Note that since \( \operatorname{ left }  \) is a homomorphism and \( \operatorname{ reg } \left( A \right)   \) then we have \( \operatorname{ reg } \left( \operatorname{ left } ^ { -1 } \left( A \right)   \right)   \) equivalently \( \operatorname{ reg } \left( X \right)   \) 
+        </p>
+        <p>
+            Analgously we find that 
+            \[ 
+            Y = \operatorname{ right } ^ { -1 } \left( B \right) = \left\{ \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) : n \in \mathbb{ N } _ 0, \left( a _i, b _ i \right) \in \Sigma \times \Sigma \text{ s.t. } b _ 1 \ldots b _n  \in B \right\} 
+            \]  
+            is regular. Now since we have 
+            \[
+              X \cap Y = \left\{ \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) : n \in \mathbb{ N } _ 0, \left( a _i, b _ i \right) \in \Sigma \times \Sigma \text{ s.t. } a _ 1 \ldots a _ n \in A, b _ 1 \ldots b _n  \in B \right\} 
+            \] 
+            Then the homomorphism \( \operatorname{ unpack } : \left( \Sigma \times \Sigma \right) ^ * \to \Sigma ^ *   \) defined as \( \operatorname{ unpack } \left( \left( a, b \right)  \right) = ab  \) (it is a homomorphism, because \( \operatorname{ unpack } \left( \left( a, b \right) \left( c, d \right)   \right) = ac bd   \) and you can check the rest), is interesting because it threads them one by one, so that 
+            \[
+              \operatorname{ unpack } \left( X \cap Y \right) = \operatorname{ perfectshuffle } \left( A, B \right) 
+            \] 
+            Since we know that \( \operatorname{ reg } \left( X \right)  \) and \( \operatorname{ reg } \left( Y \right)   \) and that regular languages are closed under homomorphism and intersection we conclude that \( \operatorname{ perfectshuffle } \left( A, B \right)   \) is regular.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-the-language-of-binary-digits-divisible-by-a-constant-is-regular" >
+    <div class="title">The Language of Binary Digits Divisible by a Constant Is Regular</div>
+    <div class="content">
+        Suppose that \( n \in \mathbb{ N } _ 1 \), then the language 
+        \[
+          C _ n = \left\{ x : x \text{ is a binary number such that }, n \mid x  \right\} 
+        \] 
+        is regular.
+    </div>
+
+    <div class="proof">
+        <p>
+            Before we continue we cast away two trivial cases, when \( n = 1 \), then since every number is divisible by 1, then we construct a trivial DFA with one state which is the accept state and all arrows point back towards itself. The case of \( n = 2 \) can also be disposed of quite quickly as we can construct a two state dfa, where we start in the accept state, and if we read a one, we got to or stay in the non-accept state, if we read a zero we go back and stay inside the accept state, this will work because our DFA reads from left to right, and the last digit of a binary number is at the right, and a binary number is odd iff the last digit is one, therefore this DFA would only ever be in the non-accept state if the last read digit is one, as needed.
+        </p>
+        <p>
+            We construct a DFA as follows, we have states \( q _ 0, q _ 1, \ldots , q _ {  n - 1 } \) where \( q _ i \) will be the state when the currently read in binary number \( b \)  has remainder \( i  \) mod \( n \) that is \( b ~\%~ n = i \)  , to make this claim true, we define our transition function as follows
+            \[
+              \delta \left( q _ j, 0 \right) = q _ { \left( 2 \cdot j \right) ~\%~ n  }
+            \] 
+            and 
+            \[
+              \delta \left( q _ j, 1 \right) = q _ { \left( 2 \cdot j + 1 \right) ~\%~ n  }
+            \] 
+        </p>
+        <p>
+            We do this because when we read the next binary number it pushes all previous number one power higher (ie multiply by two), and then based on if that new digit is one or zero it adds on as well.
+        </p>
+        <p>
+            Note that given a number \( k \in \mathbb{ N } _1 \) then its true that 
+            \[ 
+            \left( ak + b \right) ~\%~ n =  \left( \left( a ~\%~ n \right) \left( k ~\%~ n  \right) + b ~\%~ n  \right) ~\%~ n   
+            \], since in this case we know that \( n \ge 3 \) and actually \( a = 2 \) and \( b \in \left\{ 0, 1 \right\}  \) then \( a ~\%~ n = a \) and \( b ~\%~ n = b \) so we have 
+            \[
+            \left( 2 k + b \right)   ~\%~ n = \left( 2 \left( k ~\%~ n \right) + b \right) ~\%~ n
+            \] 
+        </p>
+        <p>
+            This shows that the remainder of multiplying \( k \) by 2 and then either adding \( 0 \) or \( 1 \) is the same as multiplying \( k ~\%~ n \) by 2 and then adding \( 0 \) or \( 1 \), by induction this property holds when iterated, thus this shows that our construction of the transition function actually satisfies the claim that \( q _ i  \) is the state when the currently read in binary number \( b \) has remainder \( i \) mod \( n \), therefore after reading the entire number if it has remainder \( r \) mod \( n \) the DFA will be on state \( q _ r \) thus by only making \( q _ 0 \) the accept state our DFA is correct, and so \( C _ n \) is regular.
+        </p>
+    </div>
+</div>
+
+<div class="definition" id="definition-regular-expression" >
+    <div class="title">Regular Expression</div>
+    <div class="content">
+        We say that a language \( R \) is a <b>regular expression</b> over an alphabet \( \Sigma \)  if \( R \) equals to:
+        <ul>
+            <li>\( \left\{ a \right\}  \) for some \( a \) in the alphabet \( \Sigma \)</li>
+            <li>\( \left\{ \epsilon  \right\} \)</li>
+            <li>\( \emptyset \)</li>
+            <li>The union of two regular expressions \( R _ 1, R _ 2 \), denoted by \( \left( R _ 1 \cup R _ 2 \right)  \) </li>
+            <li>The concatentation of two regular expressions \( R _ 1, R _ 2 \) denoted by \( \left( R _ 1 \circ  R _ 2 \right)  \)</li>
+            <li>The star of a regular expression \( R _ 1 \) denoted by \( \left( R _ 1 ^ * \right) \)</li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-the-set-of-all-regexes-over-an-alphabet" >
+    <div class="title">The Set of All Regexes Over an Alphabet</div>
+    <div class="content">
+        Suppose that \( \Sigma \) is an alphabet, then we denote all possible regexes over \( \Sigma \) as \( \operatorname{ RX } \left( \Sigma \right)   \) 
+    </div>
+</div>
+<div class="definition" id="definition-regular-expression-shorthand" >
+    <div class="title">Regular Expression Shorthand</div>
+    <div class="content">
+        Suppose that \( R _ 1, \ldots R _ k \in \operatorname{ RX } \left( \Sigma \right)  \) , then we develop the following shorthand to write out regular expressions easier:
+        <ul>
+            <li>
+                \( \left( R _ 1 \circ R _ 2 \circ   \ldots \circ R _ k  \right) = R _ 1 R _ 2 \ldots R _ k \) 
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="lemma" id="lemma-a-regular-expression-is-a-regular-language" >
+    <div class="title">A Regular Expression Is a Regular Language</div>
+    <div class="content">
+        For any language \( L \):
+        \[
+          L \in \operatorname{ RX } \left( \Sigma \right) \implies \operatorname{ reg } \left( L \right) 
+        \] 
+    </div>
+    <div class="proof">
+        <p>
+            Given a regular expression \( L \in \operatorname{ RX } \left( \Sigma \right)   \) we show that there is an NFA \( N \) that models \( L \) <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#corollary-a-language-is-regular-iff-there-is-an-nfa-that-recognizes-it">thus</a> showing that \( L \) would be regular.
+        </p>
+        <p>
+            Since the definition of a regular language is recursive by nature we split cases on the possibilities and complete the proof using structural induction.
+        </p>
+        <p>
+            The first case is if \( R = \left\{ a \right\}  \) for \( a \in \Sigma \), if that's the case then a two state NFA N with a start state on the left, and an accept state on the right, with a single transition when the letter \( a \) is read will work, as \( \operatorname{ lang } \left( N \right) = \left\{ a \right\} \). Formally we have \( N = \left( \left\{ q _ 1, q _ 2 \right\}, \Sigma, \delta , q_1, \left\{ q _ 2 \right\}   \right)  \) where \( \delta \left( q _ 1, a \right) = \left\{ q _ 2 \right\}   \) and \( \delta \left( r, b \right) = \emptyset   \) for \( r \neq q _ 1 \) or \( b \neq a \) 
+        </p>
+        <p>
+            If \( R = \left\{ \epsilon  \right\}  \) then \( N = \left( \left\{ q _ 1 \right\}, \Sigma, \delta , q _ 1, \left\{ q _ 1 \right\} \right) \) with \( \delta \left( r, b \right) = \emptyset   \) for any \( r , b \), then \( \operatorname{ lang } \left( N \right) = \left\{ \epsilon \right\}    \) 
+        </p>
+        <p>
+            If \( R = \emptyset  \) then \( N = \left( \left\{ q \right\}, \Sigma, \delta , q, \emptyset  \right)  \) with \( \delta \left( r, b \right) = \emptyset   \) for any \( r, b \) 
+        </p>
+        <p>
+             Now by structural induction suppose that \( R _ 1, R _ 2 \in \operatorname{ RX } \left( \Sigma \right)   \) such that \( \operatorname{ reg } \left( R _ 1 \right)   \) and \( \operatorname{ reg } \left( R _ 2 \right)   \).
+        </p>
+        <p>
+            If \( R = R _ 1 \cup R _ 2 \) then since <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#proposition-regular-languages-are-closed-under-union">regular languages are closed under union</a>, we have that \( \operatorname{ reg } \left( R \right)   \).
+        </p>
+        <p>
+            If \( R = R _ 1 \circ R _ 2 \), since <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#proposition-regular-languages-are-closed-under-concatenation">regular languages are closed under concatenation</a> then \( \operatorname{ reg } \left( R \right)   \) 
+        </p>
+        <p>
+            If \( R = R _ 1 ^ * \), since <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#proposition-regular-languages-are-closed-under-the-star-operation">regular languages are closed under the star operation</a> then \( \operatorname{ reg } \left( R \right) \) 
+        </p>
+        <p>
+            Thus by structural induction we can conclude that the statement holds true.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-generlized-nondeterministic-finite-automaton" >
+    <div class="title">Generlized Nondeterministic Finite Automaton</div>
+    <div class="content">
+        A <b>generalized nondeterministic finite automaton</b> is a 6-tuple \( Q, \Sigma, \delta , q_0, F, I \) where
+        <ol>
+            <li>\( Q \) is a finite set called the <b>states</b></li>
+            <li>\( \Sigma \) is a finite set called the <b>alphabet</b></li>
+            <li>\( I = \left\{ \left( a _ 1, \ldots , a _ k \right) : k \in \mathbb{ N } _ 0, a _ i \in \Sigma   \right\} \)  is the set of <b>possible inputs</b></li>
+            <li>\( \delta : \left( E \setminus \left\{ q_ \operatorname{ accept }  \right\}  \right)  \times \left( Q \setminus \left\{ q _ \operatorname{ start }  \right\}  \right)   \to \operatorname{ RX } \left( \Sigma \right)    \) is the <b>transition function</b></li>
+            <li>\( q _ \operatorname{ start } \in Q \) is the <b>start state</b></li>
+            <li>\( q _ \operatorname{ accept } \in Q \) is the <b>accept state</b></li>
+        </ol>
+    </div>
+</div>
+<div class="lemma" id="lemma-for-every-dfa-there-is-an-equivalent-gnfa" >
+    <div class="title">For Every Dfa There Is an Equivalent Gnfa</div>
+    <div class="content">
+        TODO: Add the content for the lemma here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="lemma" id="lemma-the-language-of-any-gnfa-equals-some-regular-expression" >
+    <div class="title">The Language of Any GNFA Equals Some Regular Expression</div>
+    <div class="content">
+        For any GNFA G, there exists some \( L \in \operatorname{ RX } \left( \Sigma \right)   \) such that 
+        \[
+        \operatorname{ lang } \left( G \right) = L
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="corollary" id="corollary-if-a-language-is-regular-then-it-is-a-regular-expression" >
+    <div class="title">If a Language Is Regular Then It Is a Regular Expression</div>
+    <div class="content">
+        Suppose that \( L \) is a language over \( \Sigma \), then 
+        \[
+            \operatorname{ reg } \left( L \right)  \implies L \in \operatorname{ RX } \left( \Sigma \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="theorem" id="theorem-a-language-is-regular-iff-it-equals-a-regular-expression" >
+    <div class="title">A Language Is Regular Iff It Equals a Regular Expression</div>
+    <div class="content">
+        Let \( \Sigma  \) be an alphabet, and let \( L \) be a language over that alphabet, then 
+        \[
+          \operatorname{ reg } \left( L \right) \iff \exists R \in \operatorname{ RX } \left( \Sigma \right), L = R
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+<div class="lemma" id="lemma-pumping" >
+    <div class="title">Pumping</div>
+    <div class="content">
+        If \( \operatorname{ reg } \left( A \right)   \) then there exists \( p \in \mathbb{ N } _ 1 \) such that if \( s \in A\) such that \( \left\lvert s \right\rvert \ge p  \) there exists \( x, y, z \) such that \( s = x y z \) where
+        <ul>
+            <li>
+                for every \( i \in \mathbb{ N } _ 0 \) we have \( x y ^ i z \in A \) 
+            </li>
+            <li>
+                \( \left\lvert y \right\rvert \gt 0  \) 
+            </li>
+            <li>
+                \( \left\lvert xy \right\rvert \le p  \) 
+            </li>
+        </ul>
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \( M = \left( Q, \Sigma, \delta , q_ 1, F \right)  \) be a DFA recognizing \( A \) then we set \( p = \left\lvert Q \right\rvert  \). Now suppose that \( s \in A \) such that \( \left\lvert s \right\rvert \ge p \), since \( \left\lvert \operatorname{ compseq } \left( M, s \right)   \right\rvert = \left\lvert s \right\rvert + 1   \) then we know that \( \left\lvert \operatorname{ compseq } \left( M, s \right)   \right\rvert \gt p  \), so that by the pigeonhole principle there must exist a duplicated state \( q _ d \in \operatorname{ compseq } \left( M, s \right)  \).
+        </p>
+        <p>
+            Thus
+            \[
+              \operatorname{ compseq } \left( M, s \right) =   \left( q _ 0, \ldots, q _ b , q _ d ,\ldots q _ d , \ldots, q _ k \right) 
+            \] 
+            where we note that \( q _ k \in F \) as \( \operatorname{ rec } \left( M, L \right)   \), so now let \( s = x y z \) where \( q _ d \) is the first instance of the duplicate
+            \[ 
+            \operatorname{ compseq } \left( M, x \right) = \left( q _ 0, \ldots , q _ d  \right) 
+            \] 
+            for \( y \) the part between the duplicates:
+            \[
+              \operatorname{ compseq } \left( M, y, q _ d \right) = \left( q _ d ,\ldots, q _ d \right) 
+            \] 
+            for \( z \) the part after the duplicate:
+            \[
+            \operatorname{ compseq } \left( M, z, q _ d \right) = \left( q _ d, \ldots, q _ k \right) 
+            \] 
+        </p>
+        <p>
+            Now we claim that the three properties hold true, for the first property let \( i \in \mathbb{ N } _ 0 \) and so if \( i = 0 \), then we know that we're looking at the string \( xz \) which is accepted as 
+            \[ 
+            \operatorname{ compseq } \left( M, xz \right) = \operatorname{ concat } \left( \operatorname{ compseq } \left( M, x \right), \operatorname{ compseq } \left( M, z, q _ d \right)[ 1 : ] \right)
+            \]
+            because on the sequence on the right ends in a accept state. Whenever \( i \ge 1 \) then in a similar manner
+            \[
+              \operatorname{ compseq } \left( M, xy ^ i z \right) = \operatorname{ concat } \left( \operatorname{ compseq } \left( M, x \right), \left( \operatorname{ compseq } \left( M, y, q _ d \right) [1:] \right) ^ i , \operatorname{ compseq } \left( M, z, q_d \right)[1:] \right) 
+            \] 
+            for the same reason, the sequence on the right ends in an accept state, so the first property holds true.
+        </p>
+        <p>
+            The reason why \( \left\lvert y \right\rvert \gt 0  \) is because in order to move to another state you must process a character, since we encounter \( q _ d \) twice, it means that we must read at least one character to do this.
+        </p>
+        <p>
+            We know that it's guarenteed that within the first \( p + 1 \) states there must be a repeated state due to the pigeon hole principle, and add to our assumptions that \( q_d \) is the first repetition in the sequence, then we know that
+        </p>
+    </div>
+</div>
+
+<h2>Pumping for Non-Regularity</h2>
+<p>
+    While the pumping lemma gives us a characterization about strings of regular languages it also provides us a way of determining when something is not regular, for example if we wanted to show that a language was not regular, we would assume for the sake of contradiction that it was regular and thus there would exists some \( p \) such that any string of length greaer or equal to \( p \) would have the three properties.
+</p>
+<p>
+    Thus we can obtain our contradiction by constructing a string of length greater than \( p \) which does not satisfy all the conditions. Most of the time condition one provides the most flexibility, because if we choose our input string in a smart way, then ew cna raise \( y \) to a power which creates a string which is no longer part of the input language. This is a common technique to prove that a language is not regular.
+</p>
+
+<!--<p>-->
+<!--    Because in the proof of the pumping lemma, we assume the language is regular and thus we obtain a DFA that recognizes it and then we set \( p \) to be the number of states in the DFA and the proof will work. Then since this proof will work on every DFA that recognizes it, it changes the lowerbound on what \( p \) can be, specfically for the smallest DFA which recognizes the language \( p \) is at its smallest, therefore when we apply the pumping lemma we may instead say:-->
+<!--</p>-->
+<div class="corollary" id="corollary-pumping-lemma-choice-of-dfa" >
+    <div class="title">Pumping Lemma Choice of DFA</div>
+    <div class="content">
+        If \( \operatorname{ reg } \left( A \right)   \) and any DFA \( D \) recognizing \( A \) with \( p \) states, such that then for any \( s \in A\) with \( \left\lvert s \right\rvert \ge p  \) there exists \( x, y, z \) such that \( s = x y z \) where
+        <ul>
+            <li>
+                for every \( i \in \mathbb{ N } _ 0 \) we have \( x y ^ i z \in A \) 
+            </li>
+            <li>
+                \( \left\lvert y \right\rvert \gt 0  \) 
+            </li>
+            <li>
+                \( \left\lvert xy \right\rvert \le p  \) 
+            </li>
+        </ul>
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-for-any-k-there-is-a-binary-language-and-a-dfa-with-k-states-that-recognizes-it,-but-no-dfa-with-k---1-states-that-recognizes-it" >
+    <div class="title">For Any k There Is a Binary Language and a DFA With K States That Recognizes It, but No DFA With K - 1 States That Recognizes It</div>
+    <div class="content">
+        For every \( k \in \mathbb{ N } _ 2 \) there exists a language \( A _k \subseteq \left\{ 0, 1 \right\} ^ *  \) and a DFA with \( k \) states that recognizes it, but no DFA with \( k - 1 \) states that recognizes it.
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \( k \in \mathbb{ N } _2 \) and consider the language given by 
+            \[
+            A _ k = \left\{ s \in \left\{ 0, 1 \right\} ^ * : \operatorname{ substr } \left( 0 ^ { k - 1 }, s \right)    \right\} 
+            \] 
+            that is the set of strings that have \( 0 ^ \left( k - 1 \right)  \) as a substring.
+        </p>
+        <p>
+            Clearly there is a DFA with \( k \) states which recognizes this language, the DFA constructed by having \( k \) states all in a line, with the last state being an accept state, and chained together with arrows which allow movement when reading a \( 0 \), and sent back to the initial state whenever a \( 1 \) is read, the only way to get to the end state is to read in \( k - 1 \) consecutive zeros, which is the exact condition on having \( 0 ^ { k - 1 } \) as a substring.
+        </p>
+        <p>
+            On the other hand if we assume for the sake of contradiction that there was a DFA C with \( k - 1 \) states which could recognize \( A _ k \) there will be a problem. Since \( A _k  \) is a subset of a regular language then it is regular, thus using the above corollary from the pumping lemma, since C is a DFA with \( k - 1 \) states that recognizes \( A _ k \) and \( 0 ^ { k - 1 } \) is a string with length greater or equal to \( k - 1 \) then by the pumping lemma there exists \( x, y, z \) such that \( 0 ^ { k - 1 } = x y z \), along with the three properties.
+        </p>
+        <p>
+            By the second property we know that \( \left\lvert y \right\rvert \ge 0  \) therefore \( y = 0 ^ j \) for some \( j \in \mathbb{ N } _1 \) and that which implies \( xz = 0 ^ { k - 1 -j  }  \) simply because when all three are concatentated together we must get \( 0 ^ { k - 1 } \), but then based on the first property we have that \( x y ^ i z \in A _k  \) for any \( i \in \mathbb{ N } _ 0 \) so specifically if we choose \( i = 0 \) then we know that \( xz \in A _ k \) but this is a problem because \( x z = 0 ^ { k - 1 - j } \) and \( j \ge 1 \) so that \( x z \) is a sequence of \( m \) zeros where \( m \lt k - 1 \) but clearly \( 0 ^ { k - 1 }  \) could not be a substring of this, therefore \( xz \notin A _ k \), this is a contradiction, therefore no such DFA must exist.
+        </p>
+    </div>
+</div>
+
+
+<p>
+    TODO come back to the above later on
+</p>
+<p>
+    In english the above lemma is saying that whenever you have a regular language, there is a threshold wherein given a string in length exceeding that threshold then it can be decomposed in into three pieces such that the middle piece can be duplicated over and over, and the string remains part of that regular language (under two other small conditions).
+</p>
+
+<div class="definition" id="definition-rotational-closure-of-a-language" >
+    <div class="title">Rotational Closure of a Language</div>
+    <div class="content">
+        \[
+          \operatorname{ RC } \left( A \right) = \left\{ yx : xy \in A \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    Intuitively this is allowing you to split an string in \( A \) and then glue it the other way around.
+</p>
+<div class="proposition" id="proposition-the-rotational-closure-only-applies-once" >
+    <div class="title">The Rotational Closure Only Applies Once</div>
+    <div class="content">
+        \[
+          \operatorname{ RC } \left( A \right) = \operatorname{ RC } \left( \operatorname{ RC } \left( A \right) \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Note that since for any \( x \in A \) we have \( \epsilon x \in A \) therefore \( x \epsilon = x \in \operatorname{ RC } \left( A \right)   \) showing that \( A \subseteq \operatorname{ RC } \left( A \right)   \), moreover that holds in general for any set \( A \), so therefore we have \( \operatorname{ RC } \left( A \right) \subseteq \operatorname{ RC } \left( \operatorname{ RC } \left( A \right)  \right) \) 
+        </p>
+        <p>
+            Now suppose that \( a \in \operatorname{ RC } \left( \operatorname{ RC } \left( A \right)   \right)   \) and we want to prove that \( a \in \operatorname{ RC } \left( A \right)    \). By assumption we know that if \( a = y x \) then \( xy \in \operatorname{ RC } \left( A \right)   \) if that's true then we can split that string and glue it in reverse order and it would have to be an element of \( A \), there are a few cases, that is \( x y \in \operatorname{ RC } \left( A \right)   \) iff 
+            <ol>
+                <li>\( x y = x _ a x _ b y \) and \( x _ b y x _ a \in A \)</li>
+                <li>\( x y = x y _ a y _ b \) and \( y _ b x y _ a \in A \)</li>
+            </ol>
+           If 1 holds true then we can "undo" it because \( x _ a x _ b y =  x y \in \operatorname{ RC } \left( A \right)   \) as needed, similarly if \( 2 \) holds true we can also say that \( x y _ a y _ b \in \operatorname{ RC } \left( A \right)   \) in either case we've shown that \( a = xy \in \operatorname{ RC } \left( A \right)   \) thus we have both inclusions so the sets are equal.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-rotaitional-closure" >
+    <div class="title">Regular Languages Are Closed Under Rotaitional Closure</div>
+    <div class="content">
+        \[
+        \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( \operatorname{ RC } \left( A \right)   \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Since \( \operatorname{ reg } \left( A \right) \) then there is a DFA D that recognizes \( A \), we first come up with an idea for a single string and show how to extend it to all strings. 
+        </p>
+        <p>
+            Given the string \( a \in \operatorname{ RC } \left( A \right)   \) then we know that it means that \( a = xy \) for some \( x, y \in \Sigma ^ * \) where \( xy \in A \), since \( L \left( D \right) = A  \) then we know that \( xy \) is accepted by \( D \), therefore after reading \( x \) the DFA D will be at some state \( q _ 1 \) and then after reading \( y \) it should end up in an accept state. 
+        </p>
+        <p>
+            We construct an NFA by extending the DFA by running the DFA from \( q _ 1 \) (since a DFA is an NFA this is fine), once we get to the accepting state add an epsilon transition back to the start state of the DFA and continue running the logic of the DFA, if the NFA ends back at at state \( q _ 1 \) after reading \( y \) this would only be true if \( x y \in A = L \left( D \right)  \).
+        </p>
+        <p>
+            To generalize this to work for all possible strings we allow any state to take the place of \( q _ 1 \) , to allow the NFA to start and end at \( q _ 1 \) we duplicate our \( DFA \) once for each state and add epslion transitions for each accepting state back to the start state, then to finish the generalization we have our start state and provide an epslion transition to all of the other states.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-context-free-grammar" >
+    <div class="title">Context Free Grammar</div>
+    <div class="content">
+        A <b>context-free</b> grammar is a 4-tuple \( \left( V, \Sigma, R, S \right)  \) sucht that 
+        <ul>
+            <li>\( V \) is a finite set called the <b>variables</b></li>
+            <li>\( \Sigma \) is a finite set, disjoint from \( V \) called the <b>terminals</b></li>
+            <li>\( R \) is a tuple of the form \( \left( Y, y \right) \) where \( Y \in V \) and \( y = \left( y _1, \ldots ,y _ n \right)  \) is a sequence of elements from \( V \cup \Sigma \) which is notated by 
+                \[
+                  Y \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n
+                \] 
+            </li>
+            <li>
+                An \( S \in V \) which is the start variable
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-application-of-a-rule" >
+    <div class="title">Application of a Rule</div>
+    <div class="content">
+        Suppose that \( Y \in V \cup \Sigma \) and a rule \( R = Y \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n \), then we define 
+        \[
+          \operatorname{ app } \left( R, x \right) = 
+            \begin{cases}
+                \left\{ y _ 1, \ldots , y _n , x  \right\} &\text{ if } x = Y \\
+                \left\{ x \right\}   &\text{ otherwise}
+            \end{cases}
+        \] 
+    </div>
+</div>
+<p>
+    Note that if a rule matches we also allow for app, to not do anything by adding in \( x \) to the set it evaluates to.
+</p>
+<ul>
+    <li>\( A \to 0A1 \) </li>
+    <li>\( A \to B \) </li>
+    <li>\( B \to \# \) </li>
+</ul>
+<div class="definition" id="definition-one-layer-productions-of-a-rule" >
+    <div class="title">One Layer Productions of a Rule</div>
+    <div class="content">
+        Suppose \( X \subseteq \left( V \cup \Sigma \right) ^ *  \) where \( X = \left( x _ 1, \ldots , x _ k \right)  \)  and we have a rule \( R \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n \), we define 
+        \[
+          \operatorname{ olprod } \left( R, X \right) = \operatorname{ app } \left( R, x _ i \right) \times \ldots \times \operatorname{ app } \left( R, x _ k \right) 
+        \] 
+        and note that \( \operatorname{ olprod } \left( R, X \right) : \left( V \cup \Sigma \right) ^ * \to \left( V \cup \Sigma \right) ^ * \) 
+    </div>
+</div>
+<p>
+    The above definition captures all the possible strings that you can produce given a string in your CFG and then applying a specific rule. We now overload the noatation to show all possible productions using all rules for a specific string:
+</p>
+<div class="definition" id="definition-one-layer-productions-for-all-rules" >
+    <div class="title">One Layer Productions for All Rules</div>
+    <div class="content">
+        Suppose \( X \subseteq \left( V \cup \Sigma \right) ^ *  \) with rules \( R _ 1, \ldots , R _ n \), then we define 
+        \[
+        \operatorname{ olprod } \left( \left\{ R_1, \ldots , R _ n \right\}, X  \right) = \bigcup _ { i = 1 } ^ n \operatorname{ olprod } \left( R_i, X \right) 
+        \] 
+    </div>
+</div>
+<p>
+    Now we have to generalize this definition to be able to recursively apply onto a string, and not just one layer
+</p>
+<div class="definition" id="definition-productions-of-a-string" >
+    <div class="title">Productions of a String</div>
+    <div class="content">
+        Suppose \( X \subseteq \left( V \cup \Sigma \right) ^ *  \) for a CFG with rules \( R \) , then we define via <a class="knowledge-link" href="/fundamentals/functions.html#definition-function-composition">function composition</a>
+        \[
+          \operatorname{ prod } \left( X \right) = \bigcup _ { i = 1 } ^ \infty \operatorname{ olprod } ^ { \circ i } \left( X, R \right) 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-language-of-a-context-free-grammar" >
+    <div class="title">Language of a Context Free Grammar</div>
+    <div class="content">
+        \[
+        \operatorname{ lang }\left( C \right) = \operatorname{ prod } \left( S \right) \cap \Sigma ^ *
+        \] 
+    </div>
+</div>
+<p>
+    Note that this implies that for any \( x \in \operatorname{ lang } \left( C \right)   \) there is at least one sequence of rules \( R _ 1, \ldots , R _ k \) such that 
+    \[
+    x \in \operatorname{ olprod } \left( R _ k, \operatorname{ olprod } \left( R _ { k - 1 } \ldots \operatorname{ olprod }  \left( R _ 1, S \right)  \right), \ldots   \right)   
+    \] 
+</p>
+<p>
+    Note that sometimes productions can result in strings which are not all terminal symbols, therefore a language of a CFG are those productions which are entirely terminal symbols.
+</p>
+<div class="definition" id="definition-a-language-is-context-free" >
+    <div class="title">A Language Is Context Free</div>
+    <div class="content">
+        We say that a given language \( L \) is context free if there is some CFG C such that 
+        \[
+            \operatorname{ lang } \left( C \right) = L
+        \] 
+        and we write \( \operatorname{ cf } \left( L \right)   \) 
+    </div>
+</div>
+<div class="proposition" id="proposition-star-is-context-free" >
+    <div class="title">Star Is Context Free</div>
+    <div class="content">
+        Suppose that \( A \) is finite, then \( A ^ * \) is context free.
+    </div>
+
+    <div class="proof">
+        We define the following CFG C 
+        <ul>
+            <li>\( V = \left\{ S \right\} \) </li>
+            <li>\( \Sigma = A \)</li>
+            <li>
+                Since \( A \) is finite, then \( A = \left\{ a _ 1, a _ 2, \ldots , a _ k \right\}  \) and then we define the single rule:
+                \[
+                  S \to a _ 1 S \mid a _ 2 S \mid \ldots \mid a _ k S \mid \epsilon 
+                \] 
+            </li>
+        </ul>
+        <p>
+            Now given any element \( x \in A ^ *  \) then \( x = \left( a _ f \left( 1 \right), \ldots a _ f \left( j \right)   \right)  \) for some function \( f \) and some \( j \) thus by sequentially picking the associated rule of the form \( S \to a _ f \left( i \right)  \), then then using the epsilon rule, we've shown that \( A ^ * \subseteq \operatorname{ lang } \left( C \right)   \) 
+        </p>
+        <p>
+            The other direction is obvious since \( \operatorname{ lang } \left( C \right) = \operatorname{ prod } \left( S \right) \cap A ^ * \subseteq A ^ *    \) 
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-context-free-grammar-for-the-language-of-binary-strings-whcich-start-and-end-with-the-same-character" >
+    <div class="title">Context Free Grammar for the Language of Binary Strings Whcich Start and End With the Same Character</div>
+    <div class="content">
+        Construct a CFG C such that 
+        \[
+        \operatorname{ lang } \left( C \right) = \left\{ w \in \left\{ 0, 1 \right\} ^ * : s \left[ 0 \right] = s \left[ -1 \right]    \right\} 
+        \] 
+        Note that \( 0, 1 \) are in the above language
+    </div>
+
+    <div class="proof">
+        We construct \( C \) 
+        <ul>
+            <li>\( \Sigma = \left\{ 0, 1 \right\}  \) </li>
+            <li>
+                We take inspiration from the CFG which generates the star, and introduce one extra rule
+            </li>
+            <ul>
+                <li>\( S \to 0 X 0 \mid 1 X 1 \mid 0 \mid 1  \) </li>
+                <li>\( X \to 0X \mid 1 X \mid \epsilon \) </li>
+            </ul>
+        </ul>
+        <p>
+            We claim that \( \operatorname{ lang } \left( C \right)   \) is the desired set, so suppose that \( s \) is a string in the desired set, and if it is any of \( \left\{ 0, 1 \right\}  \) it is immediately in the generated langugae by rule 1. Otherwise it is a string of the form \( 0z0 \) or \( 1z1 \), where \( z \in \left\{ 0, 1 \right\} ^ *  \) and we proved previously that that rule alone will generate \( \left\{ 0, 1 \right\} ^ *  \) then we know that the second rule will match \( z \) as needed. We've just shown that any string from the desired set is in the language.
+        </p>
+        <p>
+            Now if we instead suppose that we have any \( x \in \operatorname{ lang } \left( C \right)   \), then we have to show that its in the desired set, since \( \operatorname{ lang } \left( C \right) = \operatorname{ prod } \left( S \right) \cap \left\{ 0, 1 \right\} ^ *      \) then any element in there is produced by starting with the first rule and then any sequence of rules, but rule one, automatically guarentees that the first and last character are the same as any subsequent rules cannot modify the first and last character of the string so therefore \( \operatorname{ lang } \left( C \right)   \) is a subset of the desired set, showing that the two sets are equal as required.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-for-every-dfa-there-is-an-equivalent-cfg" >
+    <div class="title">For Every Dfa There Is an Equivalent Cfg</div>
+    <div class="content">
+        Suppose that \( D \) is a DFA, then there exists a CFG \( C \) such that 
+        \[
+        \operatorname{ lang } \left( D \right) =  \operatorname{ lang } \left( C \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Make a variable \( R _ i \) for each state \( q _ i \) in the DFA. Add the rule \( R _ i \to  a R _ j \) to the CFG if \( \delta \left( q _ i, a \right) = q _ j  \) is a transition in the DFA. Add the rule \( R _ i \to  \epsilon  \) if \( q _ i \) is an accept state of the DFA. Make \( R _ 0 \) the start variable of the grammaer, where \( q  _ 0 \) is the start state of the machine.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-chomsky-normal-form" >
+    <div class="title">Chomsky Normal Form</div>
+    <div class="content">
+        A CFG is in <b>Chomsky normal form</b> if every rule is of the form
+        <ul>
+            <li>\( A \to BC\)</li>
+            <li>\( A \to a \) </li>
+            <li>\( S \to \epsilon \) </li>
+        </ul>
+        Where \( A, B, C \in V \setminus \left\{ S \right\}  \) and \( a \in \Sigma \), and we write \( \operatorname{ cnf } \left( C \right)   \)
+    </div>
+</div>
+<div class="proposition" id="proposition-every-context-free-language-his-equivalent-to-a-context-free-language-in-chomsky-normal-form" >
+    <div class="title">Every Context Free Language His Equivalent to a Context Free Language in Chomsky Normal Form</div>
+    <div class="content">
+        For every CFG \( C \) there exists a CFG \( B \) such that \( \operatorname{ cnf } \left( B \right)   \) and
+        \[
+        \operatorname{ lang } \left( C \right) = \operatorname{ lang } \left( B \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-pushdown-automaton" >
+    <div class="title">Pushdown Automaton</div>
+    <div class="content">
+        A <b>pushdown automaton</b> is a 6-tuple \( Q, \Sigma, \Gamma, \delta , q _ 0, F \) where \( Q, \Sigma, \Gamma \) and \( F \) are all finite sets and 
+        <ol>
+            <li>\( Q \) is the set of states</li>
+            <li>\( \Sigma \) is input alphabet</li>
+            <li>\( \Gamma \) is the stack alphabet</li>
+            <li>\( \delta : Q \times \Sigma _ \epsilon  \times \Gamma _ \epsilon  \to \mathcal{ P } \left( Q \times \Gamma _ \epsilon  \right)  \) is the transition function</li>
+            <li>\( q _ 0 \in Q \) is the start state </li>
+            <li>\( F \subseteq Q \) is the set of accept states</li>
+        </ol>
+        <p>
+    </div>
+</div>
+<div class="definition" id="definition-a-pushdown-automata-accepts-an-input" >
+    <div class="title">A Pushdown Automata Accepts an Input</div>
+    <div class="content">
+        Given an input \( w = \left( w _ 1, \ldots , w _ m \right)  \) where \( w _ i \in \Sigma _ \epsilon  \) we say that the push down automata \( P \) <b>accepts</b> \( w \) if there exists a sequence of states \( r _ 0, \ldots r _ m \in Q \) and stack history strings \( h _ 0, h _ 1, \ldots h _ m \in \Gamma ^ * \)  such that:
+        <ul>
+            <li>\( r _ 0 =  q _ 0 \)  and \( s _ 0 = \epsilon  \)  </li>
+            <li>
+                \( i  \in \left\{ 0, \ldots , m - 1 \right\}    \) we have \(  \left( r _ { i + 1 }, b \right) \in \delta \left( r _ i, w _ { i + 1 }, a \right)   \) where \( s _ i = a t \) and \( s _ { i + 1 } =  bt \) for some \( a, b \in \Gamma _ \epsilon  \)  and \( t \in \Gamma ^ * \)
+            </li>
+            <li>\( r_ m \in F \) </li>
+        </ul>
+    </div>
+</div>
+<p>
+    We define the following notation for the transition function of a pushdown automata:
+</p>
+<ul>
+    <li>\( a , \epsilon \to c \): the machine may make this transition by reading \( a \) and pushing \( c \) to the stack</li>
+    <li>\( a , b  \to \epsilon  \): the machine may make this transition by reading \( a \) popping \( b \) from the stack</li>
+    <li>\( a , \epsilon \to \epsilon  \): the machine may make this transition by reading \( a \) and not doing anything to the stack</li>
+    <li>
+        \( \epsilon , b \to c \) : the machine may make this transition by doing the above logic, without having to read \( a \) from the input.
+    </li>
+</ul>
+<p>
+    If you are at a state, and one of the outgoing rules is \( a, b \to c \), then if \( b \neq \epsilon  \) and the top of the stack is not \( b \) then this rule cannot be used. If \( b = \epsilon  \), then the rule can be used.
+</p>
+<p>
+    Similar to an NFA, when we write out a PDA, if there are no arrows for a particular, state, character, stack character pair, then this means that it maps to the empty set. If you get to a point where there are no possible outgoing rules to be used, then the PDA is said to be stuck, and that line of execution terminates.
+</p>
+<div class="exercise" id="exercise-push-down-automata-that-models-the-language-of-binary-strings-which-start-and-end-with-the-same-character" >
+    <div class="title">Push Down Automata That Models the Language of Binary Strings Which Start and End With the Same Character</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="141.5" cy="283.5" rx="30" ry="30"/>
+                <text x="131.5" y="289.5" font-family="Times New Roman" font-size="20">q&#8320;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="385.5" cy="283.5" rx="30" ry="30"/>
+                <text x="375.5" y="289.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="634.5" cy="283.5" rx="30" ry="30"/>
+                <text x="624.5" y="289.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="634.5" cy="283.5" rx="24" ry="24"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 612.89,304.295 A 340.253,340.253 0 0 1 163.11,304.295"/>
+                <polygon fill="black" stroke-width="1" points="612.89,304.295 603.582,305.83 610.191,313.334"/>
+                <text x="298.5" y="410.5" font-family="Times New Roman" font-size="20">0, &#949; -&gt; &#949;        1, &#949; -&gt; &#949;</text>
+                <polygon stroke="black" stroke-width="1" points="171.5,283.5 355.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="355.5,283.5 347.5,278.5 347.5,288.5"/>
+                <text x="228.5" y="274.5" font-family="Times New Roman" font-size="20">0, &#949; -&gt; 0</text>
+                <polygon stroke="black" stroke-width="1" points="415.5,283.5 604.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="604.5,283.5 596.5,278.5 596.5,288.5"/>
+                <text x="474.5" y="274.5" font-family="Times New Roman" font-size="20">0, 0 -&gt; &#949;</text>
+                <polygon stroke="black" stroke-width="1" points="415.5,283.5 604.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="604.5,283.5 596.5,278.5 596.5,288.5"/>
+                <text x="474.5" y="304.5" font-family="Times New Roman" font-size="20">1, 1 -&gt; &#949;</text>
+                <polygon stroke="black" stroke-width="1" points="171.5,283.5 355.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="355.5,283.5 347.5,278.5 347.5,288.5"/>
+                <text x="228.5" y="304.5" font-family="Times New Roman" font-size="20">1, &#949; -&gt; 1</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 372.275,256.703 A 22.5,22.5 0 1 1 398.725,256.703"/>
+                <text x="298.5" y="207.5" font-family="Times New Roman" font-size="20">0, &#949; -&gt; &#949;       1, &#949; -&gt; &#949;</text>
+                <polygon fill="black" stroke-width="1" points="398.725,256.703 407.473,253.17 399.382,247.292"/>
+                <polygon stroke="black" stroke-width="1" points="62.5,283.5 111.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="111.5,283.5 103.5,278.5 103.5,288.5"/>
+        </svg>
+    </div>
+</div>
+<div class="exercise" id="exercise-pushdown-automata-that-models-the-language-of-binary-strings-of-odd-length-with-a-zero-in-the-middle" >
+    <div class="title">Pushdown Automata That Models the Language of Binary Strings of Odd Length With a Zero in the Middle</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="146.5" cy="260.5" rx="30" ry="30"/>
+                <text x="136.5" y="266.5" font-family="Times New Roman" font-size="20">q&#8320;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="294.5" cy="372.5" rx="30" ry="30"/>
+                <text x="284.5" y="378.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="478.5" cy="372.5" rx="30" ry="30"/>
+                <text x="468.5" y="378.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="622.5" cy="260.5" rx="30" ry="30"/>
+                <text x="612.5" y="266.5" font-family="Times New Roman" font-size="20">q&#8323;</text>
+                <polygon stroke="black" stroke-width="1" points="170.422,278.603 270.578,354.397"/>
+                <polygon fill="black" stroke-width="1" points="270.578,354.397 267.216,345.582 261.181,353.556"/>
+                <text x="146.5" y="337.5" font-family="Times New Roman" font-size="20">&#949;, &#949; -&gt; $</text>
+                <polygon stroke="black" stroke-width="1" points="324.5,372.5 448.5,372.5"/>
+                <polygon fill="black" stroke-width="1" points="448.5,372.5 440.5,367.5 440.5,377.5"/>
+                <text x="352.5" y="363.5" font-family="Times New Roman" font-size="20">0, &#949; -&gt; &#949;</text>
+                <polygon stroke="black" stroke-width="1" points="502.181,354.082 598.819,278.918"/>
+                <polygon fill="black" stroke-width="1" points="598.819,278.918 589.435,279.883 595.574,287.777"/>
+                <text x="555.5" y="337.5" font-family="Times New Roman" font-size="20">&#949;, $ -&gt; &#949;</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 307.725,399.297 A 22.5,22.5 0 1 1 281.275,399.297"/>
+                <text x="219.5" y="461.5" font-family="Times New Roman" font-size="20">1, &#949; -&gt; 1  0, &#949; -&gt; 0</text>
+                <polygon fill="black" stroke-width="1" points="281.275,399.297 272.527,402.83 280.618,408.708"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 491.725,399.297 A 22.5,22.5 0 1 1 465.275,399.297"/>
+                <text x="404.5" y="461.5" font-family="Times New Roman" font-size="20">{0, 1}, {0, 1} -&gt; &#949;</text>
+                <polygon fill="black" stroke-width="1" points="465.275,399.297 456.527,402.83 464.618,408.708"/>
+        </svg>
+    </div>
+</div>
+<div class="exercise" id="exercise-a-cfg-which-is-not-regular" >
+    <div class="title">A Cfg Which Is Not Regular</div>
+    <div class="content">
+        Let \( G = \left( V, \Sigma, R, S \right)  \) with \( V = \left\{ S, T, U \right\}  \) and \( \Sigma = \left\{ 0, # \right\}  \) be the following grammar defined by the following rules:
+        <ul>
+            <li>\( S \to TT \mid U \) </li>
+            <li>\( T \to 0T \mid T0 \mid # \) </li>
+            <li>\( U \to 0U00 \mid # \) </li>
+        </ul>
+        Show that \( \operatorname{ lang } \left( G \right)   \) is not regular
+    </div>
+
+    <div class="proof">
+        <p>
+            First we give an informal description of the language, since the language of a CFG equals to \( \operatorname{ prod } \left( S \right) \cap \Sigma ^ *  \), then by induction on the length of the string produced by the second rule, starting with length 1, we can prove that productions of this rule are given by all strings in \( \Sigma ^ * \) such that the string contains exactly one \( # \).
+        </p>
+        <p>
+            Using a similar analysis the productions of the third rule in isolation are given by all strings in \( \Sigma ^ * \) such that there is exactly one \( # \) and if there are \( n \) zeros to the left of \( # \) then there are \( 2n \) \( # \)'s on the right.
+        </p>
+        <p>
+            Finally the initial rule creates the union of these two langauges. We now move on to showing that the language is not regular.
+        </p>
+        <p>
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-a-language-is-context-free-iff-there-is-some-pushdown-automaton-that-models-it" >
+    <div class="title">A Language Is Context Free Iff There Is Some Pushdown Automaton That Models It</div>
+    <div class="content">
+        Suppose that \( L \) is a language then 
+        \[
+          \operatorname{ cf } \left( L \right) \iff \exists P, \operatorname{ lang } \left( P \right) = L
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="lemma" id="lemma-pumping-for-context-free-languages" >
+    <div class="title">Pumping for Context-free Languages</div>
+    <div class="content">
+        If \( \operatorname{ cf } \left( A \right)   \) for some language \( A \), then there is a number \( p \) where if \( s \in A \) and \( \left\lvert s \right\rvert \ge p  \) then \( s = wvxyz\) such that 
+        <ol>
+            <li>for each \( i \ge 0, u v ^ i x y ^ iz \in A \)</li>
+            <li>\( \left\lvert vy \right\rvert \gt 0  \) </li>
+            <li>\( \left\lvert vxy \right\rvert \le p  \) </li>
+        </ol>
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+
+
+
+
