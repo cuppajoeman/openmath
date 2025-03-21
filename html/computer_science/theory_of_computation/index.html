@@ -3,7 +3,7 @@ todo :
 more closure properties, good articl here: 
 https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
 -->
-<div class="definition" id="definition-the-set-of-all-possible-finite-tuples" >
+<div class="definition" id="definition-the-set-of-all-possible-finite-tuples">
     <div class="title">The Set of All Possible Finite Tuples</div>
     <div class="content">
         Suppose that \( X \) is a set, then we denote the set of all possible finite tuples as 
@@ -606,6 +606,30 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
         TODO: Add the proof here.
     </div>
 </div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-complementation">
+    <div class="title">Regular Languages Are Closed Under Complementation</div>
+    <div class="content">
+        \[
+          \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( \Sigma ^ * \setminus L \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-intersection">
+    <div class="title">Regular Languages Are Closed Under Intersection</div>
+    <div class="content">
+        \[
+        \operatorname{ reg } \left( A \right) \land \operatorname{ reg } \left( B \right) \implies \operatorname{ reg } \left( A \cap B \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
 <div class="definition" id="definition-reversal-of-a-lanuage" >
     <div class="title">Reversal of a Lanuage</div>
     <div class="content">
@@ -908,7 +932,7 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
     <div class="title">Pumping</div>
     <div class="content">
         If \( \operatorname{ reg } \left( A \right)   \) then there exists \( p \in \mathbb{ N } _ 1 \) such that if \( s \in A\) such that \( \left\lvert s \right\rvert \ge p  \) there exists \( x, y, z \) such that \( s = x y z \) where
-        <ul>
+        <ol>
             <li>
                 for every \( i \in \mathbb{ N } _ 0 \) we have \( x y ^ i z \in A \) 
             </li>
@@ -918,7 +942,7 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
             <li>
                 \( \left\lvert xy \right\rvert \le p  \) 
             </li>
-        </ul>
+        </ol>
     </div>
 
     <div class="proof">
@@ -1092,9 +1116,9 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
         <ul>
             <li>\( V \) is a finite set called the <b>variables</b></li>
             <li>\( \Sigma \) is a finite set, disjoint from \( V \) called the <b>terminals</b></li>
-            <li>\( R \) is a tuple of the form \( \left( Y, y \right) \) where \( Y \in V \) and \( y = \left( y _1, \ldots ,y _ n \right)  \) is a sequence of elements from \( V \cup \Sigma \) which is notated by 
+            <li>\( R \) is a tuple of the form \( \left( v, Y \right) \) where \( v \in V \) and \( Y = \left( y _1, \ldots ,y _ n \right)  \) is a sequence of elements from \( \left( V \cup \Sigma \right) ^ *  \) which is notated by 
                 \[
-                  Y \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n
+                  v \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n
                 \] 
             </li>
             <li>
@@ -1103,8 +1127,8 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
         </ul>
     </div>
 </div>
-<div class="definition" id="definition-application-of-a-rule" >
-    <div class="title">Application of a Rule</div>
+<div class="definition" id="definition-application-of-a-rule-to-a-variable">
+    <div class="title">Application of a Rule to a Variable</div>
     <div class="content">
         Suppose that \( Y \in V \cup \Sigma \) and a rule \( R = Y \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n \), then we define 
         \[
@@ -1127,13 +1151,16 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
 <div class="definition" id="definition-one-layer-productions-of-a-rule" >
     <div class="title">One Layer Productions of a Rule</div>
     <div class="content">
-        Suppose \( X \subseteq \left( V \cup \Sigma \right) ^ *  \) where \( X = \left( x _ 1, \ldots , x _ k \right)  \)  and we have a rule \( R \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n \), we define 
+        Suppose \( X \in \left( V \cup \Sigma \right) ^ * \) where \( X = \left( x _ 1, \ldots , x _ k \right)  \)  and we have a rule \( R \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n \), we define 
         \[
           \operatorname{ olprod } \left( R, X \right) = \operatorname{ app } \left( R, x _ i \right) \times \ldots \times \operatorname{ app } \left( R, x _ k \right) 
         \] 
         and note that \( \operatorname{ olprod } \left( R, X \right) : \left( V \cup \Sigma \right) ^ * \to \left( V \cup \Sigma \right) ^ * \) 
     </div>
 </div>
+<p>
+    Note that we have \( ABCD \in \operatorname{ olprod } \left( X \to A \mid B \mid C \mid D, XXXX \right)   \), but sometimes we want to only allow one rule to be applied at a time. 
+</p>
 <p>
     The above definition captures all the possible strings that you can produce given a string in your CFG and then applying a specific rule. We now overload the noatation to show all possible productions using all rules for a specific string:
 </p>
@@ -1175,7 +1202,27 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
 <p>
     Note that sometimes productions can result in strings which are not all terminal symbols, therefore a language of a CFG are those productions which are entirely terminal symbols.
 </p>
-<div class="definition" id="definition-a-language-is-context-free" >
+<p>
+    Note that sometimes we will want to be able to count the number of steps required to derive a string from a CFG, in that case it can be hard to deduce how many steps would be required to make the derivation because so many characters could change in of the one layer productions, so we instroduce the yields of a rule, which only allow one character to change
+</p>
+<div class="definition" id="definition-one-layer-yields-of-a-rule" >
+    <div class="title">One Layer Yields of a Rule</div>
+    <div class="content">
+        \[
+          \operatorname{ ylds } \left( R, x \right) = \left\{ y \in \operatorname{ olprod } \left( R, x \right) \land \operatorname{ hamdist } \left( x, y  \right) = 1  \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    Note that we may use \( \operatorname{ ylds }  \) instead of \( \operatorname{ olprod }  \) and receive the same langauge.
+</p>
+<div class="definition" id="definition-derivation" >
+    <div class="title">Derivation</div>
+    <div class="content">
+        A derivation is a string that is produced by a sequence of yields.
+    </div>
+</div>
+<div class="definition" id="definition-a-language-is-context-free">
     <div class="title">A Language Is Context Free</div>
     <div class="content">
         We say that a given language \( L \) is context free if there is some CFG C such that 
@@ -1185,6 +1232,24 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
         and we write \( \operatorname{ cf } \left( L \right)   \) 
     </div>
 </div>
+<div class="proposition" id="proposition-context-free-languages-are-closed-under-union" >
+    <div class="title">Context Free Languages Are Closed Under Union</div>
+    <div class="content">
+        \[
+          \operatorname{ cf } \left( A \right) \land \operatorname{ cf } \left( B \right) \implies \operatorname{ cf } \left( A \cup B \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Since \( \operatorname{ cf } \left( A \right)   \) and \( \operatorname{ cf } \left( B \right)   \), then we have CFGs \( C _ A \) and \( C _ B \) such that \( \operatorname{ lang } \left( C _ A \right) = A \) and \( \operatorname{ lang } \left( C _ B \right) = B \). We construct a new CFG \( C \) such that \( \operatorname{ lang } \left( C \right) = A \cup B \), we do so by first differentiating varibles in each grammar for \( A \) and \( B \), we do so by subscripting each variable with \( A, B \) respectively, and then setting our variables as the union of the the variables in both, and also unioning the rules in both, then we tack on one rule which is \( S \to S _ A \mid S _ B \).
+        </p>
+        <p>
+            proof that this actually generates what we expect.
+        </p>
+    </div>
+</div>
+
 <div class="proposition" id="proposition-star-is-context-free" >
     <div class="title">Star Is Context Free</div>
     <div class="content">
@@ -1234,7 +1299,7 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
             </ul>
         </ul>
         <p>
-            We claim that \( \operatorname{ lang } \left( C \right)   \) is the desired set, so suppose that \( s \) is a string in the desired set, and if it is any of \( \left\{ 0, 1 \right\}  \) it is immediately in the generated langugae by rule 1. Otherwise it is a string of the form \( 0z0 \) or \( 1z1 \), where \( z \in \left\{ 0, 1 \right\} ^ *  \) and we proved previously that that rule alone will generate \( \left\{ 0, 1 \right\} ^ *  \) then we know that the second rule will match \( z \) as needed. We've just shown that any string from the desired set is in the language.
+            We claim that \( \operatorname{ lang } \left( C \right)   \) is the desired set, so suppose that \( s \) is a string in the desired set, and if it is any of \( \left\{ 0, 1 \right\}  \) it is immediately in the generated langugae by rule 1. Otherwise it is a string of the form \( 0z0 \) or \( 1z1 \), where \( z \in \left\{ 0, 1 \right\} ^ *  \) and we proved previously that that rule \( X \to \ldots \)  alone will generate \( \left\{ 0, 1 \right\} ^ *  \) then we know that the second rule will match \( z \) as needed. We've just shown that any string from the desired set is in the language.
         </p>
         <p>
             Now if we instead suppose that we have any \( x \in \operatorname{ lang } \left( C \right)   \), then we have to show that its in the desired set, since \( \operatorname{ lang } \left( C \right) = \operatorname{ prod } \left( S \right) \cap \left\{ 0, 1 \right\} ^ *      \) then any element in there is produced by starting with the first rule and then any sequence of rules, but rule one, automatically guarentees that the first and last character are the same as any subsequent rules cannot modify the first and last character of the string so therefore \( \operatorname{ lang } \left( C \right)   \) is a subset of the desired set, showing that the two sets are equal as required.
@@ -1268,8 +1333,8 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
         Where \( A, B, C \in V \setminus \left\{ S \right\}  \) and \( a \in \Sigma \), and we write \( \operatorname{ cnf } \left( C \right)   \)
     </div>
 </div>
-<div class="proposition" id="proposition-every-context-free-language-his-equivalent-to-a-context-free-language-in-chomsky-normal-form" >
-    <div class="title">Every Context Free Language His Equivalent to a Context Free Language in Chomsky Normal Form</div>
+<div class="proposition" id="proposition-every-context-free-language-is-equivalent-to-a-context-free-language-in-chomsky-normal-form">
+    <div class="title">Every Context Free Language is Equivalent to a Context Free Language in Chomsky Normal Form</div>
     <div class="content">
         For every CFG \( C \) there exists a CFG \( B \) such that \( \operatorname{ cnf } \left( B \right)   \) and
         \[
@@ -1278,7 +1343,144 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
     </div>
 
     <div class="proof">
-        TODO: Add the proof here.
+        <p>
+            We lay out an iterative process which constructs a new grammar in Chomsky Normal form as follows:
+        </p>
+        <p>
+            We first define our set of rules \( R _ 0 = R \times \left\{ T, F \right\}  \) to be the original set of rules, where \( T \) means we've processed the rule and \( F \) means we haven't. We first add a new start variable \( S _ 0 \) and the rule \( S _ 0 \to S \), ie \( R _ 1 = R _ 0 \cup \left\{ \left( \left( S _ 0, S \right), T \right)   \right\}   \)  where \( S \) was the original start variable.
+        </p>
+        <p>
+            Now for each element in \( R _ i \) of the form \( \left( \left( v \to \epsilon \right), F \right)  \), then we get all rules of the form \( \left( \left( v _ 2 \to A \right), F \right)   \) where \( v \in A \) then we add the rules \( \operatorname{ olprod } \left( \left( v \to \epsilon \right), A \right) \) and remove \( \left( \left( v, \epsilon  \right) , F \right)  \). On each iteration the number of epsilon rules goes down by one, thus after a finite number of iterations there will be no more epsilon rules of the form \( \left( v \to \epsilon , F \right)  \) although there may be epsilon rules of the form \( \left( \left( v \to \epsilon  \right), T \right)   \) which is ok.
+        </p>
+        <p>
+            Next we remove all rules of the form \( \left( v \to w, F \right)  \) which are rules which map a variable to a variable, we do so by finding all rules of the form \( \left( w \to W, \_ \right)   \) and add the rule \( \left( v \to W \right) \), unless this rule was previoulsy removed (TODO define the removed set)
+        </p>
+        <p>
+            Finally we convert all the remaining rules to the proper form, the remaining possibilities of rules that need conversion are rules 
+        </p>
+        <ul>
+            <li>\( v \to W \) where \(W \in \left( V \cup \Sigma \right) ^ *, \left\lvert W \right\rvert \ge 3  \) </li>
+            <li>\( v \to xy \) where \( x, y \in \Sigma  \) </li>
+        </ul>
+        <p>
+            For the first case since \( W = \left( w _ 1, \ldots , w _ k \right)  \) where \( k \in \mathbb{ N } _3 \) 
+        </p>
+        <p>
+            For the second case we just replce the terminals with rules pointint to them.
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-chomsky-conversion" >
+    <div class="title">Chomsky Conversion</div>
+    <div class="content">
+        Consider the following grammar:
+        <ul>
+            <li>\( A \to B A B \mid B \mid \epsilon  \) </li>
+            <li>\( B \to 00 \mid \epsilon \) </li>
+        </ul>
+        find an equivalent grammar in Chomsky Normal form.
+    </div>
+
+    <div class="proof">
+        Our initial rules are:
+        <ul>
+            <li>\( A \to ABA \) </li>
+            <li>\( A \to B \) </li>
+            <li>\( A \to \epsilon \) </li>
+            <li>\( B \to 00 \) </li>
+            <li>\( B \to \epsilon \) </li>
+        </ul>
+        we start by removing \( B \to \epsilon \) based on the conversion algorithm tue rules of interested are \( A \to B, A \to ABA \), now we have (note that \( \operatorname{ olprod } \)  are all the "one layer" productions of a rule against a string)
+        \[
+          \operatorname{ olprod } \left( B \to \epsilon , B \right) = \left\{ B, \epsilon \right\} 
+        \] 
+        and 
+        \[
+          \operatorname{ olprod } \left( B \to \epsilon , ABA \right) = \left\{ ABA, AA \right\} 
+        \] 
+        Thus the rule \( A \to B \) becomes \(  A \to B \mid \epsilon  \) and the rule \( A \to ABA \) becomes \( A \to ABA \mid AA \) thus the current set of rules are 
+        <ul>
+            <li>\( A \to ABA \) </li>
+            <li>\( A \to B \) </li>
+            <li>\( A \to \epsilon  \) </li>
+            <li>\(  A \to AA  \) </li>
+            <li>\(   B \to 00 \) </li>
+        </ul>
+
+        <p>
+            Now we remove the rule \( A \to \epsilon  \) the rules of interest are \( A \to ABA \) and \( A \to AA \) we have:
+            \[
+              \operatorname{ olprod } \left( A \to \epsilon , ABA \right) = \left\{ ABA, BA, AB, B \right\} 
+            \] 
+            and 
+            \[
+              \operatorname{ olprod } \left( A \to \epsilon , AA \right) = \left\{ AA, A, \epsilon \right\} 
+            \] 
+            so the current set of rules becomes 
+            <ul>
+                <li>\( A \to ABA \) </li>
+                <li>\(  A \to AB\) </li>
+                <li>\(  A \to  BA\) </li>
+                <li>\(  A \to B\) </li>
+                <li>\(  A \to AA \) </li>
+                <li>\( B \to 00 \) </li>
+            </ul>
+            note that the rule \( A \to A \) was not added as it does nothing, and the rule \( A \to \epsilon  \) was not added as it was removed previously
+        </p>
+        <p>
+            Since all epsilon rules have been eliminated we start remove variable to variable rules, we start with the rule \( A \to B \) the only rule of interest is \( B \to 00 \) then our rules become
+        </p>
+        <ul>
+            <li>\( S _ 0 \to A \mid \epsilon  \) </li>
+            <li>\( A \to BAB \mid BA \mid AB \mid 00 \mid BB \)</li>
+            <li>\( B \to 00 \) </li>
+        </ul>
+        <p>
+            Another unit rule is \( S _ 0 \to A \), the rules thus this generates
+        </p>
+        <ul>
+            <li>\( S _ 0 \to BAB \mid BA \mid AB \mid 00 \mid BB \mid \epsilon  \) </li>
+            <li>\( A \to BAB \mid BA \mid AB \mid 00 \mid BB \)</li>
+            <li>\( B \to 00 \) </li>
+        </ul>
+        <p>
+            Since \( B \to 00 \) is of the form \( v \to xy \) where \( x, y \in \Sigma \) then we replace it with the rules
+        </p>
+        <ul>
+            <li>\( S _ 0 \to BAB \mid BA \mid AB \mid 00 \mid BB \mid \epsilon  \) </li>
+            <li>\( A \to BAB \mid BA \mid AB \mid 00 \mid BB \)</li>
+            <li>\( B \to UU \) </li>
+            <li>\( U \to 0 \) </li>
+        </ul>
+        <p>
+            Now the last two rules that need simplification are \( S _ 0 \to BAB \) and \( A \to BAB \), as per the conversion procedure we replace the rule \( S _ 0 \to BAB \) with \( S _ 0 \to B W_1 \) \( W_1 \to AB \), and similarly we replace the rule \( A \to BAB \) with \( A \to B W _ 2  \) and \( W_2 \to AB \), but note that the rules for \( W_ 1 \) and \( W _ 2 \) are the same, and thus can be joined into the single rule \( W _ 1 \to AB \) yielding
+        </p>
+        <ul>
+            <li>\( S _ 0 \to BW_1 \mid BA \mid AB \mid UU \mid BB \mid \epsilon  \) </li>
+            <li>\( A \to BW_1 \mid BA \mid AB \mid UU \mid BB \)</li>
+            <li>\( W_1 \to AB \) </li>
+            <li>\( B \to UU \) </li>
+            <li>\( U \to 0 \) </li>
+        </ul>
+
+    </div>
+</div>
+<div class="proposition" id="proposition-for-any-context-free-grammar-in-normal-form-there-are-exactly-2n---1-steps-are-required-for-any-derivation" >
+    <div class="title">For Any Context Free Grammar in Normal Form There Are Exactly 2n - 1 Steps Are Required for Any Derivation</div>
+    <div class="content">
+        If \( G \) is a CFG in Chomsky normal form, then for any \( w \in \operatorname{ lang } \left( G \right)   \) of length \( n \in \mathbb{ N } _1 \), exactly \( 2 n - 1 \) steps are required for any derivation of \( w \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            Since \( G \) is in normal form, then there may be a rule of \( S _ 0 \to \epsilon  \), if that's the case then this rule could only ever derive a string of length zero, that is \( \epsilon  \), since we only care about strings of length greater or equal to one, then that implies that the rule \( S _ 0 \to \epsilon  \) can never be used to deduce a string of length greater or equal to one.
+        </p>
+        <p>
+            Thus only rules used must be of the form \( v \to v _ 1 v _ 2 \) or \( v \to t \) where \( t \in \Sigma \). Note that every rule of the form \( v \to t \) will never modify the length of a string of an intermediate string, and the rule \( v \to v _ 1 v _ 2 \) will always extend the length of the intermediate string by \( 1 \) each time it is applied.
+        </p>
+        <p>
+            Thus if we are able to derive a string of length \( n \) and a derivation always starts with a single variable \( S _ 0 \) then a rule of the form \( v \to v _ 1 v _ 2  \) must be used \( n - 1 \) times to have a string of length \( n \), additionally since the rule of the form \( v \to v _ 1 v _ 2 \) only introduces variables and never any terminal symbols, then we will require the rule \( v \to t \) to be used \( n \) times to convert each of the \( n \) variables produced by \( v \to v _ 1 v _ 2 \), thus there will be exactly \( 2n - 1 \) steps in any derivation for a string of length \( n \).
+        </p>
     </div>
 </div>
 <div class="definition" id="definition-pushdown-automaton" >
@@ -1313,6 +1515,7 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
     We define the following notation for the transition function of a pushdown automata:
 </p>
 <ul>
+    <li>\( a , b \to c \): the machine may make this transition by reading \( a \), popping \( b \) from the stack and push \( c \) to the stack</li>
     <li>\( a , \epsilon \to c \): the machine may make this transition by reading \( a \) and pushing \( c \) to the stack</li>
     <li>\( a , b  \to \epsilon  \): the machine may make this transition by reading \( a \) popping \( b \) from the stack</li>
     <li>\( a , \epsilon \to \epsilon  \): the machine may make this transition by reading \( a \) and not doing anything to the stack</li>
@@ -1366,6 +1569,12 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
                 <polygon stroke="black" stroke-width="1" points="62.5,283.5 111.5,283.5"/>
                 <polygon fill="black" stroke-width="1" points="111.5,283.5 103.5,278.5 103.5,288.5"/>
         </svg>
+        <p>
+            The above PDA works because the bottom path will accept the string \( 0, 1 \), and going through the top path reads the first character and pushes it into the stack, then non-determinism kicks in and it will read  some number of ccharacters from the input without pushing anything to the stack, in one of paths of non-determinism there will be one where all but one character is read from the input, then the last transition will read a character and attempt to pop off a that character from the stack, if that occurs it ends up in the terminal state, if there were any more characters to read, then since there are no subsequent states the path would terminate, thus this implies that the only way a string could get accepted by this PDA if it starts and ends with the same character.
+        </p>
+        <p>
+            Note that we could also model this "termination behavior" discussed above by pushing the dollar sign on, and then having a trasition that takes it off the stack.
+        </p>
     </div>
 </div>
 <div class="exercise" id="exercise-pushdown-automata-that-models-the-language-of-binary-strings-of-odd-length-with-a-zero-in-the-middle" >
@@ -1403,6 +1612,35 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
                 <text x="404.5" y="461.5" font-family="Times New Roman" font-size="20">{0, 1}, {0, 1} -&gt; &#949;</text>
                 <polygon fill="black" stroke-width="1" points="465.275,399.297 456.527,402.83 464.618,408.708"/>
         </svg>
+        <p>
+            The second half of this PDA reads an input, and removes whatever character is on the top of the stack over and over non-deterministically, since there are no outgoing transitions from the terminal state, then a string is only accepted if it is entirely read by the non-determinism, additionally the fact that there is a dollar sign transition to the last state means that the stack must also be emptied by the time we get to the state before the terminal state. 
+        </p>
+        <p>
+            If less than half the string \( \left\lfloor \frac{ \left\lvert s \right\rvert   }{ 2 }  \right\rfloor  \)  is read during the first part of the PDA, then the stack will become empty before all the characters are read, causing the string to not be accept, similarly if more than half the string is read during the first part of the PDA, then the stack will not have the dollar sign when we get to the terminal state.
+        </p>
+        <p>
+            Therefore if a string is accept it must be that exactly that half the string is read during the first part of the PDA. Now note that there is a transition which reads \( 0 \) but does nothing to the stack, this implies that exactly half the characters must be read during the first half of the PDA, and then in the second half of the PDA it will read a character and pop a character off the stack, which will make sure that the number of characters in the first half will equal the number of characters in the second half, showing that it accepts all strings of odd length with \( 0 \) in the middle.
+        </p>
+    </div>
+</div>
+
+<div class="lemma" id="lemma-the-half-zero-hash-sandwhiches-are-non-regular" >
+    <div class="title">The Half Zero Hash Sandwhiches Are Non-regular</div>
+    <div class="content">
+        The language
+        \[
+        L = \left\{ 0 ^ { k } # 0 ^ { 2k } : k \in \mathbb{ N } _0 \right\}      
+        \] 
+        is not regular
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that this language was regular, <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#lemma-pumping">therefore </a> there is some \( p \in \mathbb{ N } _ 1 \) sucht that the properties hold true, if we consider the string \( 0 ^ { p } # 0 ^ { 2p } \in L \) then by the lemma we have that \( 0 ^ { p } # 0 ^ { 2p } = xyz \).
+        </p>
+        <p>
+            By the third property we have that \( \left\lvert xy \right\rvert \lt p  \) since the first \( p \) characters of our string are \( p \) this implies that \( x = 0 ^ j \) and \( y = 0 ^ l \) by the second property of the lemma we also know that \( l \ge 1 \) now we also know that \( # \in z \) therefore by the first property we can set \( i = 0 \) to show that \( x y ^ 0 z = xz \in L \), but \( x y = 0 ^ { p - l } # 0 ^ { 2p } \notin L \) thus a contradiction so \( L \) is not regular
+        </p>
     </div>
 </div>
 <div class="exercise" id="exercise-a-cfg-which-is-not-regular" >
@@ -1428,7 +1666,21 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
             Finally the initial rule creates the union of these two langauges. We now move on to showing that the language is not regular.
         </p>
         <p>
+            Since we assumed \( \operatorname{ lang } \left( G \right)   \) was regular, then we'll try and obtain a contradiction through the pumping route, we do this by using the closure rules for regular langauges to focus on an even more specific subset of the language which should also be regular.
         </p>
+        <p>
+            Since \( \operatorname{ lang } \left( G \right)   \) is regular, and the regular expression \( 0 ^ * # 0 ^ * \) <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#theorem-a-language-is-regular-iff-it-equals-a-regular-expression">is also regular</a>, then \( A = \operatorname{ lang } \left( G \right) \cap 0 ^ * # 0 ^ * = \left\{ 0 ^ { k } # 0 ^ { 2k } : k \in \mathbb{ N } _ 0 \right\}     \) is <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#corollary-regular-languages-are-recognized-under-intersection">regular</a>, but we <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#lemma-the-half-zero-hash-sandwhiches-are-non-regular">know that it is not</a>, thus a condtradiction, so then \( \operatorname{ lang } \left( G \right)   \) must not be regular.
+        </p>
+    </div>
+</div>
+<div class="lemma" id="lemma-if-a-language-is-context-free-then-there-is-some-pushdown-automaton-that-models-it" >
+    <div class="title">If a Language Is Context Free Then There Is Some Pushdown Automaton That Models It</div>
+    <div class="content">
+        
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
     </div>
 </div>
 <div class="proposition" id="proposition-a-language-is-context-free-iff-there-is-some-pushdown-automaton-that-models-it" >
@@ -1459,8 +1711,555 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
         TODO: Add the proof here.
     </div>
 </div>
+<div class="exercise" id="exercise-the-language-of-abcs-is-not-context-free" >
+    <div class="title">The Language of Abcs Is Not Context Free</div>
+    <div class="content">
+        The language
+        \[
+          L = \left\{ a ^ n b ^ n c ^ n : n \in \mathbb{ N } _ 0 \right\} 
+        \] 
+        is not context free
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that the language is context free, therefore the pumping lemma holds, and thus there is some \( p \) with some properties. Consider \( s = a ^ p b ^ p c ^ p \in L \) since \( \left\lvert s \right\rvert \ge p  \) then by the pumping lemma we can write \( x = u v x y z \), where at least one of \( v \) or \( y \) is non-empty.
+        </p>
+        <p>
+            If \( v, y \in a ^ *, b ^ *, c ^ * \) which is to say the consist only of the same character, then \( s ^ \prime = u v ^ 2 x y ^ 2 z \) makes the following false \( \operatorname{ count } \left( s ^ \prime , a \right) = \operatorname{ count } \left( s ^ \prime , b \right) = \operatorname{ count } \left( s ^ \prime, c \right)       \) thus \( s ^ \prime  \notin L \).
+        </p>
+        <p>
+            If either \( v \) or \( y \) contain more than one alphabet character then suppose wlog that \( v \in \ldots a \ldots b \ldots   \), therefore \( u v ^ 2 x y ^ 2 z \in \ldots a \ldots b \ldots a \ldots b \ldots  \) and we know that \( \ldots a \ldots b \ldots a \ldots b \ldots \cap L = \emptyset   \) thus \( s ^ \prime \notin L \) 
+        </p>
+        <p>
+            Thus no matter what we obtain a contradiction so it must be that \( L \) is not context free.
+        </p>
+    </div>
+</div>
+<div class="corollary" id="corollary-context-free-languages-are-not-closed-under-intersection" >
+    <div class="title">Context Free Languages Are Not Closed Under Intersection</div>
+    <div class="content">
+        If \( \operatorname{ cf } \left( A \right) \land \operatorname{ cf } \left( B \right)     \) does <b>NOT</b> imply that \( \operatorname{ cf } \left( A \cap B \right)   \) 
+    </div>
+
+    <div class="proof">
+        The languages \( L _ 1 = \left\{ a ^ n b ^ n c ^ m : n, m \in \mathbb{ N } _ 0 \right\}  \)  and \( L _ 2 = \left\{ a ^ m b ^ n c ^ n: n \in \mathbb{ N } _ 0 \right\}  \) are context free, but 
+        \[
+        L _ 1 \cap L _ 2 = \left\{ a ^ n b ^ n c ^ n : n \in \mathbb{ N }  _ 0 \right\}
+        \] 
+        shows that the intersection is not context free.
+    </div>
+</div>
+<div class="exercise" id="exercise-zero-one-zero-one-language-is-not-context-free" >
+    <div class="title">Zero One Zero One Language Is Not Context Free</div>
+    <div class="content">
+        Show that the language 
+        \[
+          L = \left\{ 0 ^ n 1 ^ n 0 ^ n 1 ^ n : n \in  \mathbb{ N } _ 0 \right\} 
+        \] 
+        is not context free
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that the language is context free for contradiction, therefore the pumping lemma for context free languages holds true and we obtain some \( p \in  \mathbb{ N } _ 1 \) such that if a string is longer than it some properties hold true.
+        </p>
+        <p>
+            Now the string \( s = 0 ^ p 1 ^ p 0 ^ p 1 ^ p \in L \) and clearly \( \left\lvert s \right\rvert \ge p  \) therefore \( s = uvxyz \), we know that \( \left\lvert vy \right\rvert \ge  1  \) so they are both non-empty. Its either the case \( v, y \in 0 ^ * \cup 1 ^ * \) or not.
+        </p>
+        <p>
+            If \( v, y \in 0 ^ * \cup 1 ^ * \), then there are couple of similar cases to consider, specficially if \( v \in 0 ^ * \) and \( y \in 1 ^ * \), and suppose that \( v \neq \epsilon  \) so that \( v = 0 ^ j \) where \( j \in \mathbb{ N } _ 1 \)  f we consider \( x = uv ^ 2 x y ^ 2 z = u 0 ^ { 2j }  xy ^ 2 z \). Observe that in the given language \( L \) for every \( l \in L \) we have that \( \operatorname{ count } \left( l , 0 \right) = \operatorname{ count } \left( l, 1 \right)  \), since \( \operatorname{ count } \left( x, 1 \right) \neq \operatorname{ count } \left( x, 0 \right)     \) then \( x \notin L \), therefore this is a contradiction.
+        </p>
+        <p>
+            Similarly if \( v = 1 ^ j \) we will obtain a symmetrical contradiction, for the case it is \( y \neq \epsilon  \) an identical anlysis on \( y \) holds.
+        </p>
+        <p>
+            If its not true that \( v, y \in 0 ^ * \cup 1 ^ * \) then since not both of \( v, y \) are empty then at least one of \( v, y \) is an element of \( \left\{ 0, 1 \right\} ^ * \setminus \left\{ \epsilon \right\}   \), suppose it is \( v \), then 
+            \[ 
+            v = \ldots 0 \ldots 1 \ldots  \qquad \lor \qquad v = \ldots 1 \ldots 0 \ldots 
+            \] 
+
+            since all strings in \( L \) are a sequence of \( 0 \) then a sequence of \( 1 \)s then a sequence of \( 0 \)s then a sequence of \( 1 \)s, clearly \( uv ^ 2 xy ^ 2z \notin L \) as it contains more than four sequences of \( 0 \) and \( 1 \)s as \( v ^ 2 = \ldots 0 \ldots 1 \ldots 0 \ldots 1 \) or \( v ^ 2 = \ldots 1 \ldots 0 \ldots 1 \ldots 0 \ldots  \), if it is \( y \) that is non-empty the same analysis applies, which is a contradiction. 
+        </p>
+        <p>
+            Thus not matter the case of \( v, y \) we always get a contradiction, therefore \( L \) is not context free.
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-the-language-of-palindromes-with-an-equal-number-of-0s-and-1s-is-not-context-free" >
+    <div class="title">The Language of Palindromes With an Equal Number of 0s and 1s Is Not Context Free</div>
+    <div class="content">
+        \[
+          L = \left\{ w \in \left\{ 0, 1 \right\} ^ * : \operatorname{ count } \left( w, 0 \right) = \operatorname{ count } \left( w, 1 \right) \land \operatorname{ rev } \left( w \right) = w  \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( L \) is context free for the sake of contradiction, then the pumping lemma holds on this language and thus there is some \( p \in \mathbb{ N } _ 1 \), then we consider the string \( s = 0 ^ p 1 ^ { 2p  } 0 ^ p \) which clearly has \( \left\lvert s \right\rvert \ge p \), thus \( s = uvxyz \).
+        </p>
+        <p>
+            We know that one of \( v, y \) is non-empty, and they cannot both be empty, suppose that \( v \) is empty and that \( y \) is non-empty, then \( y \in \left\{ 0, 1 \right\} ^ * \setminus \left\{ \epsilon  \right\}   \), if \( \operatorname{ count } \left( y, 1 \right) \neq \operatorname{ count } \left( y, 0 \right)     \) we will have a problem because the string \( s ^ \prime = uv^ 2 xy ^ 2 z \) has the property that \( \operatorname{ count } \left( s ^ ', 0 \right) \neq \operatorname{ count } \left( s ^ \prime , 1 \right)     \) thus \( s ^ \prime \notin L \) . Therefore we must have that \( \operatorname{ count } \left( y, 0 \right) = \operatorname{ count } \left( y, 1 \right)     \), since we assumed \( v = \epsilon  \) then \( s ^ \prime = u v ^ 2 xy ^ 2 \) no longer has the property that \( \operatorname{ rev } \left( s ^ \prime  \right) = s ^ \prime    \) because it will change the string where the \( 0 \)'s meet the \( 1 \)'s.
+        </p>
+        <p>
+            Now suppose that both \( v, y  \) are non-empty,if \( v \) resides on the left half of the string and \( y \) resides on the right half of the string, then because \( \left\lvert vxy \right\rvert \le p  \) then it must be that \( v, y \in 1 ^ * \setminus \left\{ \epsilon \right\}  \), thus this could yield a contradiction since \( s ^ \prime  =  u v ^ 2 x y ^ 2 z \) has more \( 1 \)'s than \( 0 \)'s. Therefore, they most both be substrings of either the right or left hand side of the string, so without loss of generality asssume that they reside within the left side of the string. If \( v, y \in 1 ^ *  \) then \( u v ^ 2 x y ^ 2 z \) contains more 1s than 0s, which is a contradiction, if \( v \in 0 ^ * \setminus \left\{ \epsilon  \right\}  \) similarly if \( v, y \in 0 ^ + \) we get the same problem. If \( 01 \subseteq v \) then \( u v ^ 2 x y ^ 2 z \) has two \( 01 \)'s as substrings in the left side of the string whereas the right side only has one which is a contradiction.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-turing-machine" >
+    <div class="title">Turing Machine</div>
+    <div class="content">
+        A turing machine is the following data:
+        <ul>
+            <li>\( Q \) is the set of states </li>
+            <li>\( \Sigma \) is the input alphabet not containing the blank symbol</li>
+            <li>\( \Gamma \) is the tape alphaphet which contains the blank symbol and \( \Sigma \subseteq \Gamma \)   </li>
+            <li>\( q : Q \times  \) </li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-configuration-of-a-turing-machine" >
+    <div class="title">Configuration of a Turing Machine</div>
+    <div class="content">
+        A setting of the current state, the current tape contents, and the current head location is called a <b>configuration</b> of the turing machine
+    </div>
+</div>
+<div class="definition" id="definition-start-configuration" >
+    <div class="title">Start Configuration</div>
+    <div class="content">
+        Given a Turing Machine \( M \) with an input \( w \), then the <b>start configuration</b> is the configuration \( q _ 0 w \) 
+    </div>
+</div>
+<div class="definition" id="definition-accepting-configuration" >
+    <div class="title">Accepting Configuration</div>
+    <div class="content">
+        Is one such that the state of the configuration is \( q _ a \)
+    </div>
+</div>
+<div class="definition" id="definition-rejecting-configuration" >
+    <div class="title">Rejecting Configuration</div>
+    <div class="content">
+        The state of the configuration is \( q _ r \).
+    </div>
+</div>
+<div class="definition" id="definition-halting-configuraiton" >
+    <div class="title">Halting Configuraiton</div>
+    <div class="content">
+        The state is an accepting configuration or a rejecting configuration
+    </div>
+</div>
+<p>
+    The machien is defined to halt when in the states \( q _ a \) or \( q _ r \) 
+</p>
+<div class="definition" id="definition-a-turing-machine-accepts-an-input" >
+    <div class="title">A Turing Machine Accepts an Input</div>
+    <div class="content">
+        Suppose that \( M \) is a turing machine and \( w \) is an input, then we say that \( M \) accepts \( w \) if a sequence of configurations \( C _ 1, C _ 2, \ldots, C _k  \) exist where 
+        <ul>
+            <li>\( C _ 1 \) is the start configuration of \( M \) on input \( w \)</li>
+            <li>each \( C _ i \) yields \( C _ { i + 1 } \)  </li>
+            <li>\( C _ k \) is an accepting configuration</li>
+        </ul>
+        When this is true we write that \( \operatorname{ acc } \left( M, w \right)   \) 
+    </div>
+</div>
+<div class="definition" id="definition-a-turing-machine-rejects-an-input" >
+    <div class="title">A Turing Machine Rejects an Input</div>
+    <div class="content">
+        The turing machine enters \( q _ r \)         
+    </div>
+</div>
+<div class="definition" id="definition-a-turing-machine-loops-on-an-input" >
+    <div class="title">A Turing Machine Loops on an Input</div>
+    <div class="content">
+        The turing machine never enters a halting configuration
+    </div>
+</div>
+
+<div class="definition" id="definition-language-of-a-turning-machine" >
+    <div class="title">Language of a Turning Machine</div>
+    <div class="content">
+        \[
+          \operatorname{ lang } \left( M \right) = \left\{ w : \operatorname{ acc } \left( M, w \right)   \right\} 
+        \] 
+    </div>
+</div>
+
+<div class="definition" id="definition-turing-recognizable" >
+    <div class="title">Turing Recognizable</div>
+    <div class="content">
+        Given a language \( L \) we say that it is <b>Turing Recognizable</b> if there is some Turing machine \( M \) such that 
+        \[
+          L = \operatorname{ lang } \left( M \right) 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-decider-turing-machine" >
+    <div class="title">Decider Turing Machine</div>
+    <div class="content">
+        A <b>decider</b> is a turing machine that doesn't loop on any input
+    </div>
+</div>
+<div class="definition" id="definition-a-turing-machine-decides-a-language" >
+    <div class="title">A Turing Machine Decides a Language</div>
+    <div class="content">
+        We say that a turing machine \( M \) decides a language \( L \) if it is recognized by a decider turing machine
+    </div>
+</div>
+<div class="definition" id="definition-turing-decidable" >
+    <div class="title">Turing Decidable</div>
+    <div class="content">
+        We say that a language \( L \) is <b>turing decidable</b> if there is a turing machine that decides it.
+    </div>
+</div>
+<div class="definition" id="definition-non-deterministic-turing-machine" >
+    <div class="title">Non-deterministic Turing Machine</div>
+    <div class="content">
+        A non determinstic turing machineeeeeeee is a turing machine that may proceed according to several possiblitiles, with a transition function of the form
+        \[
+          \delta : Q \times \Gamma \to \mathcal{ P } \left( Q \times  \Gamma \times \left\{ L, R \right\} \right) 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-every-nondeterministic-turing-machine-has-an-equivalent-determinstic-turing-machine" >
+    <div class="title">Every Nondeterministic Turing Machine Has an Equivalent Determinstic Turing Machine</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-the-acceptance-set-for-dfas" >
+    <div class="title">The Acceptance Set for Dfas</div>
+    <div class="content">
+        \[
+          A _ { DFA } = \left\{ \left\langle B, w \right\rangle : B \text{ is a DFA that accepts input string } w  \right\} 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-the-acceptance-set-for-dfas-is-a-decidable-language" >
+    <div class="title">The Acceptance Set for Dfas Is a Decidable Language</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        To do so we just have to construct a turing machine \( M \) which decides \( A _ { DFA } \) 
+    </div>
+</div>
+<div class="exercise" id="exercise-a-language-is-turing-recognizable-iff-it-is-a-projection-of-a-decidable-language" >
+    <div class="title">A Language Is Turing Recognizable Iff It Is a Projection of a Decidable Language</div>
+    <div class="content">
+        Let \( C \) be a language. Prove that \( C \) is Turing-recognizable iff a dedcidable language \( D \) exists such that 
+        \[
+          C = \left\{ x : \exists y , \left\langle x, y \right\rangle \in D  \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( C \) is Turing-recognizable, therefore there is some turing machine \( M \) that recognizes \( C \) so that \( \operatorname{ lang } \left( M \right) = C   \) which means that for any \( x \in C \) that \( M \) accepts and halts on input \( x \), for each input, suppose the number of steps taken by the turing machine before halting is given by \( h _ x \in \mathbb{ N } _ 1 \), then we define the language \( D = \left\{ \left\langle x, y \right\rangle : \operatorname{ acc } \left( M, x \right) \text{ in } h _ x \text{ steps } \right\}  \), this language is decidable. An element \( x \in C \) iff \( \operatorname{ acc } \left( M, x \right)   \) in \( h _ x \) steps iff \( \left\langle x, h _ x \right\rangle \in D  \) as needed.
+        </p>
+        <p>
+            Suppose that such a language \( D \) exists, since it is decidable then it is clearly recognizable and thus some enumerator enumerates, if it enumerates \( D \), then if we drop the second component \( y \), we obtain an enumerator for \( C \), and therefore is Turing-recognizable.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-an-enumerator-enumerates-a-language" >
+    <div class="title">An Enumerator Enumerates a Language</div>
+    <div class="content">
+        We say that an enumerator enumerates a language \( L \) if it prints out at least \( L \) 
+    </div>
+</div>
+<div class="proposition" id="proposition-a-language-is-turing-recognizable-if-and-only-if-some-enumerator-enumerates-it" >
+    <div class="title">A Language Is Turing Recognizable If and Only If Some Enumerator Enumerates It</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-separating-language" >
+    <div class="title">Separating Language</div>
+    <div class="content">
+        Suppose that \( A, B \) are two disjoint languages, we say that a language \( C \) separates \( A \) and \( B \) if \( A \subseteq C \) and \( B \subseteq \bar C \) 
+    </div>
+</div>
+<div class="definition" id="definition-co-turing-recognizable" >
+    <div class="title">Co Turing Recognizable</div>
+    <div class="content">
+        We say that a language is <b>co-Turing-recognizable</b>if it is the compoennt of a Turing recognizable language
+    </div>
+</div>
+ <div class="exercise" id="exercise-any-two-disjoint-co-turing-recognizable-languages-are-separable-by-some-decidable-language" >
+    <div class="title">Any Two Disjoint Co Turing Recognizable Languages Are Separable by Some Decidable Language</div>
+    <div class="content">
+    Let \( A \)  and \( B \)  be two disjoint languages. Say that language \( C \)  separates \( A \)  and \( B \)  if \( A \subseteq C \)  and \( B \subseteq \overline{ C }  \) . Show that any two disjoint co-Turing-recognizable languages are separable by some decidable language.
+    </div>
+
+    <div class="proof">
+        <p>
+            Since we assumed that \( A \) and \( B \) are co-Turing Recognizable that means that \( \overline{ A }  \) and \( \overline{ B } \) are recognizable.
+        </p>
+        <p>
+            Since a language is turing recognizable iff it is enumerable by some enumerator then there exist enumerators \( E _ \overline{ A } , E _ \overline{ B }  \) that enumerate \( \overline{ A }, \overline{ B }   \) respectively.
+        </p>
+        <p>
+            We will now construct a turing machine \( M \) and if we can make it a decider then we'll use \( C = \operatorname{ lang } \left( M \right)   \).
+        </p>
+        <p>
+            Consider the turing machine such taht given an input \( w \) it will run \( E _ { \overline{ A }  } \) and \( E _ { \overline{ B }  } \) in parallell, if \( E _ \overline{ A }  \) prints \( w \) then we reject the input ; if \( E _ \overline{ B }  \) prints \( w \) accept.
+        </p>
+        <p>
+            Now we must show that \( A \subseteq C \) so suppose that \( w \in A \) then since \( A \cap B = \emptyset  \) then we know that \( w \notin B \), that is \( w \in \overline{ B }  \) and \( w \notin \overline{ A }  \), thus \( w \) will eventually get printed out only by \( E _ \overline{ B }  \) so the machine will accept, so \( w \in C \)
+        </p>
+        <p>
+            We also have to show that \( B \subseteq \overline{ C }  \) so let \( w \in B \) again, \( A, B \) are disjoint so this implies that \( w \notin A \) that is \( w \in \overline{ A }  \) and we also know \( w \notin \overline{ B }  \) thus \( w \) will eventually get printed by only \( E _ \overline{ A }  \) so the machine will reject, and so \( w \notin C \), so \( w \in \overline{ C }  \) as needed.
+        </p>
+        <p>
+            If \( w \notin \left( A \cup B \right)  \) then \( w \in \overline{ A } \cap \overline{ B }   \) therefore \( E _ \overline{ A }  \) and \( E _ \overline{ B }  \) will print it in finitely many steps, thus our turing machine will halt. If \( E _ \overline{ A }  \) prints it first, then reject, otherwise if its \( E _ \overline{ B }  \) then accept
+        </p>
+        <p>
+            Thus we've shown that \( M \) halts on all inputs and thus is a decider, since we showed that \( A \subseteq C \) and \( B \subseteq \overline{ C }  \) then it's separated by a decidable language.
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-turing-diagonalization" >
+    <div class="title">Turing Diagonalization</div>
+    <div class="content">
+     Let A be a Turing-recognizable language consisting of descriptions of Turing machines,\( \left\{ \left\langle M _ 1 \right\rangle, \left\langle M _ 2 \right\rangle, \ldots .   \right\}  \) , where every \( M _ i \)  is a decider. Prove that some decidable language \( D \)  is not decided by any decider \( M _ i \)  whose description appears in \( A \) . 
+    </div>
+
+    <div class="proof">
+        <p>
+            If \( A \) was finite, then since there are infinitely many decidable languages, then at least one of them must be decided by a machine that is not in \( A \), therefore assume that \( A \) is infinite, since \( A \) is turing recognizable, then we know that its enumerable by some enumerator \( E \), now we define the following turing maachine
+        </p>
+        <p>
+            Let \( M \) be the turing machine operating on positive integers such that given the input \( \left\langle n \right\rangle  \) we run the enumerator until we have printed out \( n \) unique turing machines, say \( M _ 1, \ldots , M _ n \), then run \( M _ n \) with the input \( \left\langle n \right\rangle  \) and do the opposite of whatever \( M _ n \) outputs.
+        </p>
+        <p>
+            \( M \) is a decider, this is because \( E \) must enumerate all of the elements in a finite number of steps and because every turing machine encoded in \( A \) was a decider, so nothing will loop forever in the above definition.
+        </p>
+        <p>
+            Since we have inverted the behavior for each \( \left\langle i \right\rangle  \) then we have induced a diagonalization argument, this is because we have inverted the behavior of the selected machine meaning that  \( \left\langle i \right\rangle \in \operatorname{ lang }  \left( M \right)     \) XOR \( \left\langle i \right\rangle \in \operatorname{ lang } \left( M _ i \right)    \) must hold true, this shows that \( M _ i  \) cannot decide \( \operatorname{ lang } \left( M \right) \) for each \( i \), and therefore no turing machine encoded in \( A \) can, on the other hand \( M \) decides that language, as needed.
+        </p>
+    </div>
+</div>
+
+<div class="definition" id="definition-computable-function" >
+    <div class="title">Computable Function</div>
+    <div class="content">
+        A function \( f : \Sigma ^  * \to \Sigma ^ * \) is a computable function if some Turing machine \( M \) such that for every input \( w \) the TM \( M \) halts with just \( f \left( w \right)  \) on its tape
+    </div>
+</div>
+<div class="definition" id="definition-mapping-reducible" >
+    <div class="title">Mapping Reducible</div>
+    <div class="content">
+        A language \( A \) is said to be mapping reducible to a language \( B \) written as \( A \le _ m B \) if there is a computable function \( f : \Sigma ^ * \to \Sigma ^ * \) where for every \( w \) 
+        \[
+          w \in A \iff f \left( w \right) \in B
+        \] 
+        the function \( f \) is called the reduction from \( A \)  to \( B \) 
+    </div>
+</div>
+<div class="exercise" id="definition-if-a-language-is-mapping-reducible-to-a-regular-language-then-it-might-not-be-reducible" >
+    <div class="title">If a Language Is Mapping Reducible to a Regular Language Then It Might Not Be Reducible</div>
+    <div class="content">
+        Suppose that \( A \le _ m B \) and \( B \) is regular, then it doesn't imply that \( A \) is a regular language.
+    </div>
+    <div class="proof">
+        <p>
+            If we consider the language \( A = \left\{ 0 ^ n 1 ^  n : n \in \mathbb{ N } _ 0 \right\}  \) which is not a regular language as seen earlier. We will show that \( A \) is mapping reducible to \( B = \left\{ 11 \right\}  \), also note that this finite language is clearly regular.
+        </p>
+        <p>
+            So we have to show that there is a computable function \( f \) such that \( w \in A \iff f \left( w \right) = 11  \). If we define the function 
+            \[
+                f \left( w \right) = 
+            \begin{cases}
+                11 &\text{ if } w \in A \\
+                00 &\text{ otherwise }
+            \end{cases} 
+            \] 
+            then it satsfies the requirement that \( w \in A \iff f \left( w \right) \in B  \)
+        </p>
+        <p>
+            This function is computable because we can create a turing machine \( M \) that uses a stack to recognize strings from \( A \) as they are of the form \( 0 ^ n 1 ^ n \), whenever it recognizes a string then it writes \( 11 \) to the tape, and outputs \( 00 \) if it rejects the input string \( w \), thus this function is computable. Additionally this function halts on all inputs, as for every finite string by the time we get to the end of the string in finitely many steps the stack is observed and a decision is made.
+        </p>
+        <p>
+            Thus we've shown that \( A \le _ m B \) where \( B \) is regular, but \( A \) is not.
+        </p>
+    </div>
+</div>
 
 
 
+<!--https://cobweb.cs.uga.edu/~cai/courses/2670/2012fall/HW8Solutions.pdf-->
+ 
 
 
+5.9
+
+<div class="exercise" id="exercise-the-encodings-of-reversal-accepting-turing-machines-is-undecidable" >
+    <div class="title">The Encodings of Reversal Accepting Turing Machines Is Undecidable</div>
+    <div class="content">
+        Show that the collection \( R \)  of encodings of turing machines that accept a string \( \operatorname{ rev } \left( w \right)   \) whenever it accepts \( w \) is undecidable.
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that \( R \) was decidable, we'll get a contradiction by showing that \( A _ { TM } \) is decidable.
+        </p>
+        <p>
+            Since \( R \) is decidable, then there exists some decider \( D \) for the language \( R \), we'll now construct a decider for \( A _ { TM }  \) to obtain our contradiction.
+        </p>
+        <p>
+            We will do this by constructing a decider for \( A _ { TM } \) by using the following idea, given \( \left\langle M, w \right\rangle  \) we only accept if \( D  \) accepts \( M ^ \prime \) where \( M^ \prime  \) is a turing machine that we will define during an intermediate phase, \( M ^ \prime  \) will have the property that \( M  \) accepts \( w \) if and only if \( \left\langle M ^ \prime  \right\rangle \in R  \). 
+        </p>
+        <p>
+            If all that is set in place, then we have \( \left\langle M, w \right\rangle  \) is accepted by \( A \) iff \( D  \) accepts \( M :^ \prime  \) iff \( M \) accepts \( w \), that is \( A \) accepts \( \left\langle M, W \right\rangle  \) iff \( M \) accepts \( w \).
+        </p>
+        <p>
+            Now that we have the idea, we can formally construct \( A \) based on the specification of \( R \). 
+        </p>
+        <ul>
+            <li>Given \( \left\langle M, w \right\rangle  \)</li>
+            <li>Construct \( M ^ \prime  \) as follows </li>
+            <ul>
+                <li>on input \( y \) </li>
+                <ul>
+                    <li>if \( y \in 0 ^ + 1 ^ + \) accept </li>
+                    <li>if \( y \notin  0 ^ + 1 ^ + \)</li>
+                    <ul>
+                        <li>run \( M \) on the input \( w \) if it accepts, then accept, otherwise reject</li>
+                    </ul>
+                </ul>
+            </ul>
+            <li>Run \( D \) on the input \( \left\langle M ^ \prime  \right\rangle  \) and output what it outputs</li>
+        </ul>
+        <p>
+            Note that \( M ^ \prime  \) is a decider, this is because the construction of \( M ^ \prime  \) takes finitely many steps as we are not actually running anything, just constructing, then when we run the encoding of this machine on \( D \) since it is a decider then it is guarenteed to halt in finitely many steps.
+        </p>
+        <p>
+            The language \( 0 ^ +  1 ^ + \) seems arbitrary, but it was simply chosen as it is one of the many languages that thas the property that that there exists some string \( x \) in the language such that \( \operatorname{ rev } \left( x \right)   \) is not in in the language, for this example we can see that the string \( 001 \) is in the language but \( 100 \) is not. Keep in mind we could have used any language that satifies this property.
+        </p>
+        <p>
+            Thus if we have any turing machine \( T \) such that \( \operatorname{ lang } \left( T \right) = 0 ^ + 1 ^ +   \) then we know that \( \left\langle T \right\rangle \notin R  \), while at the same time if \( \operatorname{ lang } \left( T \right) = \left\{ 0, 1 \right\} ^ *    \) then clearly \( T \in R \).
+        </p>
+        <p>
+            Therefore if we observe our definition of \( A \) we can see that if \( M \) accepts \( w \) then \( \operatorname{ lang } \left( M ^ \prime  \right) = \left\{ 0, 1 \right\} ^ *    \) so then \( \left\langle M ^ ' \right\rangle \in R  \). and also if \( M \) does not accept \( w \) then \( \operatorname{ lang } \left( m ^ \prime  \right) = 0 ^ + 1 ^ +   \) so that implies that \( \left\langle M ^ \prime \right\rangle \notin R  \), thus \( M \) accepts \( w \) iff \( \left\langle M ^ \prime  \right\rangle \in R  \).
+        </p>
+        <p>
+            Since we have a decider \( D \) for \( R \) then we just have to run \( D \) with the input \( \left\langle M ^ \prime \right\rangle   \). Therefore we've constructed a decider for \( A _ { TM } \) which is a contradiction, therefore it must not be true that \( R \) is decidable, therefore it is undecidable.
+        </p>
+    </div>
+</div>
+
+
+<!--https://web.njit.edu/~marvin/cs341/hw/hw09-soln.pdf-->
+
+<div class="exercise" id="exercise-the-busy-beaver-function-is-not-computable" >
+    <div class="title">The Busy Beaver Function Is Not Computable</div>
+    <div class="content">
+Let \( \Gamma = \left\{ 0, 1, \_ \right\}  \)  be the tape alphabet, and  define the busy 
+beaver function \( BB: \mathbb{ N } \to \mathbb{ N }  \) as follows. For each value of k, consider all k-state TMs that halt when started with a blank tape. Let \( BB(k) \)  be the maximum number of 1s that remain on the tape among all of these machines. Show that \( BB \)  is not a computable function.
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that \( BB \) was a computable function, that is there is some Turing machine \( M \) such that on every input \( w \) it halts with just \( BB\left( w \right)  \) on its tape.Specifically we'll assume without loss of generality that it does so in unary, so we have some turing machien \( M \) such that whenever the input is \( 1 ^ n \) then \( M \) halts with \( 1 ^ { BB \left( n \right)  } \) on the tape.
+        </p>
+        <p>
+            We'll now observe a special TM \( M ^ \prime  \)  that will yield a contradiction, this turing machine will fit those turing machines that the busy beaver function talks about, and so it will be a turing machine that halts when started on a blank tape. It will write \( n \) ones to the tape, it then doubles the number of ones and then simulates the turing machine \( M \) on what is currently on the tape (\( 1 ^ { 2n } \)), and therefore will halt with \( BB\left( 2 n \right)  \) ones on the tape.
+        </p>
+        <p>
+            Next we can show that \( BB \) is a strictly increasing function, this is because for every \( k \)-state turing machine that halts when started on a blank tape, there is an analagous \( k + 1 \)-state turing machine that also halts when started on tha blank tape and simulates the other machine with one extra state which does nothing, this shows us that   \( BB \left( k \right) \le BB \left( k + 1 \right)   \), also if we use that extra state to write another one to the tape, then we have that \( BB\left( k \right) \lt BB\left( k + 1 \right)   \).
+        </p>
+        <p>
+            \( M ^ \prime  \) takes \( n \) states to write each \( 1 \) to the tape initially, but doubling the ones on the tape only requires a constant number of states to do, and simulating \( M \) only takes a finite number of states, therefore \( M ^ \prime _ n \) would have \( n + k \)-states. \( M ^ \prime  \) is a turing machine that halts when started with an empty tape, and when it terminates it has \( BB \left( 2 n \right)  \) ones on the tape, since \( BB \left( n + k \right)  \) is the maximum number of ones over all turing machines with \( n + k \) states that terminate when started on an empty tape, then we can conclude that \( BB \left( n + k \right) \ge BB \left( 2n \right)   \).
+        </p>
+        <p>
+            Since \( k \) is some constant, then once \( n \gt k \) then we have that \( n + k \lt 2n \) and since we concluded that \( BB \) was a strictly increasing function then this would imply that \( BB \left( n + k \right) \lt BB \left( 2n \right)   \) which is a contradiction, therefore our assumption that \( BB \) was computable is false.
+        </p>
+    </div>
+</div>
+
+5.16
+<!--https://www.cs.nthu.edu.tw/~wkhon/assignments/assign4ans.pdf-->
+
+<div class="exercise" id="exercise-a-language-is-turing-recognizable-iff-it-is-mapping-reducible-to-the-acceptance-set-for-turing-machines" >
+    <div class="title">A Language Is Turing Recognizable Iff It Is Mapping Reducible to the Acceptance Set for Turing Machines</div>
+    <div class="content">
+        \( A \) is Turing recognizable iff \( A \le _ m A _ { TM } \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( A \) is turing-recognizable and and so there exists a turing machine \( M \) that recognizes A.If we consider the function \( f \left( w  \right) = \left\langle M, w \right\rangle   \), clearly there is a turing machine such that for every \( w \) it halts with just \( \left\langle M, w \right\rangle  \) on its tape because all it would have to do is paste the encoding of \( M \) and then \( w \).
+        </p>
+        <p>
+            Moreover we know \( w \in A \) iff \( w \in \operatorname{ lang } \left( M \right)   \) iff \( \left\langle M, w \right\rangle \in A _ { TM }  \) iff \( f \left( w \right) \in A _ { TM }  \), that is to say that \( w \in A \iff f \left( w \right) \in A _ { TM }  \) showing that \( A \) is mapping reducible to \( A _ { TM } \) 
+        </p>
+        <p>
+            Now we show the other direction, where we assume that \( A \le _m A _  { TM } \), since \( A _ { TM } \) is Turing recognizable by the Universal Turing machine (the turing machine that just simulates other turing machines), then that implies that \( A \) is turing recognizable, as needed.
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-a-language-is-decidable-if-and-only-if-it-is-mapping-reducible-to-zeros-then-ones" >
+    <div class="title">A Language Is Decidable If and Only If It Is Mapping Reducible to Zeros Then Ones</div>
+    <div class="content">
+        \( A \) is decidable if and only if \( A \le  _ m 0 ^ * 1 ^ * \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            \( \implies  \) Suppose that \( A \) is decidable, therefore there is some turing machine \( D \) such that given some \( w \) it accepts if \( w \in A \) and rejects if \( w \notin A \) , now if we make a simple wrapper turing machine \( R \) that simply takes in an input simulates \( w \) on \( D \), and if \( D \) accepts output \( 01 \) and if it rejects output \( 10 \), then this creates a computable function \( f \left( x \right)  \) such that \( f \left( x \right) = 01  \) if \( x \in A \) and \( f \left( x \right) = 10  \) if \( x \notin A \).
+        </p>
+        <p>
+            Since \( \operatorname{ ran } \left( f \right) = \left\{ 01, 10 \right\}    \) then we can say that \( x \in A \iff f \left( x \right) \in 0 ^ * 1 ^ *  \), therefore we have \( A \le _ m 0 ^ * 1 ^ * \) 
+        </p>
+        <p>
+            \( \impliedby  \) Now we assume that \( A \le  _m  0 ^ * 1 ^ * \), since we already discovered that regexs are decidable, then \( 0 ^ * 1 ^ * \) is decidable, and thus \( A \) is decidable.
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-prefixing-the-acceptance-set-for-turing-machines-makes-it-not-turing-recognizable" >
+    <div class="title">Prefixing the Acceptance Set for Turing Machines Makes It Not Turing Recognizable</div>
+    <div class="content">
+        Consider the set:
+        \[
+          J = \left\{ w : w = 0 x \text{ f.s. } x \in A _ { TM }  \right\}  \cup \left\{ w : w = 1 x \text{ f.s. } x \in \overline{ A _ { TM } }   \right\}
+        \] 
+        Show that \( J \) nor \( \overline{ J }  \) are Turing recognizable
+    </div>
+
+    <div class="proof">
+        <p>
+
+        </p>
+        <p>
+            We claim that \( \overline{ A _ { TM  } }  \) is mapping reducible to \( J \) by the function \( f \left( w \right) = 1w  \). The reason this is so is \( f \) is computable as there is a certainly a turing that can append \( 1 \) to the front of an input string onto the tape, additonally if \( w \in \overline{ A _ { TM } }   \) then \( f \left( w \right) =  1w \in J \), and if \( 1w \in J  \) it implies that \( 1w \in \left\{ y : y = 1 w \text{ f.s. } y \in \overline{ A _ { TM } }  \right\}  \) therefore \( w \in \overline{ A _ { TM } }  \), so we have \( \overline{ A _ { TM } }  \lt _ m J \), since \( \overline{ A _ { TM } }  \) is not turing recognizable, then neither is \( J \).
+        </p>
+        <p>
+
+            We also claim that \( \overline{ A _ { TM } }  \) is mapping reducible to \( \overline{ J }  \), if we use the function \( f \left( w \right) = 0w  \) the details are similar to the above in that \( f \) is computable, and also in that if \( w \in \overline{ A _ { TM } }  \), then \( f \left( w \right) = 0w \in \overline{ J }   \), and that if \( 0w \in \overline{ J }  \) then it must be that \( w \in \overline{ J }  \), thus we have \( \overline{ A _ { TM  } }  \le _m  \overline{ J }  \) and since \( \overline{ A _ { TM } }  \) is not turing recognizable, then neither is \( \overline{ J }  \) 
+        </p>
+    </div>
+</div>
+
+
+
+5.22, 5.23
+<!--https://homepage.divms.uiowa.edu/~hzhang/c135/CS4330_HW9_Solution.pdf-->
+<!--https://www.cs.umb.edu/~fejer/cs420/hw11s.pdf-->
+5.225.22
+
+
+<!--use this for exam review-->
+<!--https://web.njit.edu/~marvin/cs341/oldexams/practice-final-soln.pdf-->
