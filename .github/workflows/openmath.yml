@@ -42,9 +42,10 @@ jobs:
       - name: Run Custom Script
         run: |
           cd scripts/precompiled_html_generation/
-          cd fast-html
-          python main.py --base-dir ../../../html/ --gen-dir ../../../generated_html --base-template-file ../templates/openmath_template.html --custom-template-conversion-file ../main.py 
-          cd .. 
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt 
+          ./build.sh
           python generate_search_data.py
 
       - name: Setup Pages
