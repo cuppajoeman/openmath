@@ -35,7 +35,6 @@ jobs:
         run: |
           cd scripts/precompiled_html_generation/
           python -m venv generation_venv
-          source venv/bin/activate
           pip install -r requirements.txt 
           ./build.sh
           python generate_search_data.py
