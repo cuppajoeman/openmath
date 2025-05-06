@@ -6,3 +6,4 @@ node_modules
 openmath_startup.vim
 __pycache__
 generated_html
+**/venv/

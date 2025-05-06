@@ -12,6 +12,18 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
         \] 
     </div>
 </div>
+
+<div class="proposition" id="proposition-the-set-of-all-strings-over-a-finite-alphabet-is-countable" >
+    <div class="title">The Set of All Strings Over a Finite Alphabet Is Countable</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        There are only \( \left\lvert X \right\rvert ^ n  \) possible strings of length \( n \) therefore the above is a countable union of finite sets and thus countable.
+    </div>
+</div>
+
 <p>
     Note that in the context of computers we will usually refer to tuples as strings, so instead of writing something like \( \left( 0, 1, 2, 3, 4 \right)  \) we instead just write "01234" to represent the same thing.
 </p>
@@ -704,32 +716,12 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
             Instead of making an explicit construction we will instead use the fact that regular languages are closed under intersection and homomorphisms to prove that the shuffle is regular.
         </p>
         <p>
-            First note that given \( \Sigma \times \Sigma \) we can extend concatentation from \( \Sigma \)  to be componentwise concatention, so that \( \left( a, b \right) \left( c, d \right) = \left( ac, bd \right)    \). Under this setup if we consider 
-            \[
-                \begin{align*}
-              \left( \Sigma \times \Sigma \right) ^ * &= \left\{ \left( a _ 1, b _ 2 \right) \ldots \left( a _ n, b _ n \right) :n \in \mathbb{ N } _ 0,  a _ i, b _ i \in \Sigma   \right\} \\
-            &=  \left\{ \left( a _ 1 \ldots a _ n , b _ 1 \ldots b _ n \right) : n \in \mathbb{ N } _ 0, a _ i , b _ i \in \Sigma  \right\} \\
-            &= \left\{ \left( a, b \right) : \left\lvert a \right\rvert = \left\lvert b \right\rvert, a, b \in \Sigma ^ *     \right\} 
-                \end{align*}
-            \] 
-            So that if we consider the function \( \operatorname{ right } : \left( \Sigma \times \Sigma \right) ^ * \to \Sigma * \) defined as:
-            \[
-              \operatorname{ right } \left( \left( a, b \right) \right) = a
-            \] 
-            then it is a homomorphism because 
-            \[
-              \operatorname{ right } \left( \left( a, b \right) \left( c, d \right)   \right) = \operatorname{ right } \left( a c, b d \right) = a c = \operatorname{ right } \left( a, b \right) \operatorname{ right } \left( c, d \right) 
-            \] 
-            Similarly the analogous function \( \operatorname{ left }  \) is also a homomorphism for the same reasons.
         </p>
         <p>
             But now if we consider \( X = \operatorname{ left } ^ { -1 } \left( A \right) \), then 
-            \[
-              X = \left\{ \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) : n \in \mathbb{ N } _ 0, \left( a _i, b _ i \right) \in \Sigma \times \Sigma \text{ s.t. } a _ 1 \ldots a _n  \in A \right\} 
-            \] 
             where the last condition \( a _ 1 \ldots a _n  \in A \) comes about because we require that 
             \[
-\operatorname{ left }\left(  \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) \right) = \operatorname{ left } \left( a _ 1 \ldots a _ n, b _ 1 \ldots b _ n \right) = a _ 1 \ldots a _ n \in A
+                \operatorname{ left }\left(  \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) \right) = \operatorname{ left } \left( a _ 1 \ldots a _ n, b _ 1 \ldots b _ n \right) = a _ 1 \ldots a _ n \in A
             \] 
             Note that since \( \operatorname{ left }  \) is a homomorphism and \( \operatorname{ reg } \left( A \right)   \) then we have \( \operatorname{ reg } \left( \operatorname{ left } ^ { -1 } \left( A \right)   \right)   \) equivalently \( \operatorname{ reg } \left( X \right)   \) 
         </p>
@@ -1992,7 +1984,7 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
 <div class="definition" id="definition-co-turing-recognizable" >
     <div class="title">Co Turing Recognizable</div>
     <div class="content">
-        We say that a language is <b>co-Turing-recognizable</b>if it is the compoennt of a Turing recognizable language
+        We say that a language is <b>co-Turing-recognizable</b>if it is the complement of a Turing recognizable language
     </div>
 </div>
  <div class="exercise" id="exercise-any-two-disjoint-co-turing-recognizable-languages-are-separable-by-some-decidable-language" >
@@ -2253,6 +2245,227 @@ beaver function \( BB: \mathbb{ N } \to \mathbb{ N }  \) as follows. For each va
     </div>
 </div>
 
+<div class="definition" id="definition-acceptance-set-for-context-free-grammars" >
+    <div class="title">Acceptance Set for Context Free Grammars</div>
+    <div class="content">
+\[ 
+A _ { CFG } = \left\{ \left\langle G, w \right\rangle : G \text{ is a CFG that generates the string } w \right\} 
+\] 
+    </div>
+</div>
+
+
+<div class="proposition" id="proposition-the-acceptance-set-for-context-free-grammars-is-decidable" >
+    <div class="title">The Acceptance Set for Context Free Grammars Is Decidable</div>
+    <div class="content">
+\( A _ { CFG }  \) is decidable
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+
+
+<div class="definition" id="definition-the-set-of-equivalent-context-free-grammars" >
+    <div class="title">The Set of Equivalent Context Free Grammars</div>
+    <div class="content">
+        \[ 
+        EQ _ {CFG} =  \left\{ \left\langle G, H \right\rangle : G , H \text{ are CFG's and }  \operatorname{ lang } \left( G \right) = \operatorname{ lang } \left( H \right)  \right\} 
+        \] 
+    </div>
+</div>
+
+
+<div class="proposition" id="proposition-the-set-of-equivalent-context-free-grammars-is-co-turing-recognizable" >
+    <div class="title">The Set of Equivalent Context Free Grammars Is Co Turing Recognizable</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+In order to show that this is true we have to show that the complement of \( EQ _ \left{ CFG \right}   \) is turing recognizable. So we need a turing machine that can recognize the language 
+\[ 
+\overline{ EQ _ { CFG }   } = \left\{ \left\langle G, H \right\rangle : G , H \text{ are CFG's and }  \operatorname{ lang } \left( G \right) \neq  \operatorname{ lang } \left( H \right)  \right\} 
+\] 
+
+In order to know if the two languages differ we just need to find an example of a string which is in one, but not the other, we also note that the set of strings over a language is countable, meaning that they can be enumerated by \( s _ 1, s _ 2, \ldots  \)  now we create a recognizer as follows
+    <ul>
+    <li>on input \( \left\langle G, H \right\rangle  \):</li>
+        <ul>
+            <li>for each string \( s _ 1, s _ 2, \ldots  \) </li>
+            <li>since \( A _ { CFG }   \) is decidable there is a decider \( D \) for it, so we can run \( \left\langle G, s_i \right\rangle  \) on \( D \) and \( \left\langle H, s _ i \right\rangle  \) on \( D \) and compare the results, if they are the same go to the next iteration, otherwise if they are different accept</li>
+        </ul>
+    </ul>
+    <p>
+        We claim that this is a recognizer, this is because \( \left\langle G, H \right\rangle \in EQ _ { CFG }   \) if and only if there exists some \( i \in \mathbb{ N } \)  \( s _ i \) such that \( \left\langle G, s _ i \right\rangle \in D  \) and \( \left\langle H, s _ i \right\rangle \notin D  \) (or vise versa), iff the above turing machine terminates in the accept state after \( i \) iterations.
+    </p>
+    <p>
+        Therefore the above turing machine terminates in the accept state if and only iff \( \left\langle G, H \right\rangle \in EQ _ { CFG }   \) therefore it is a recognizer.
+    </p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-there-is-an-undecidable-subset-of-the-kleene-star-of-one" >
+    <div class="title">There Is an Undecidable Subset of the Kleene Star of One</div>
+    <div class="content">
+        There exists a subset \( S \subseteq 1 ^ * \) that is undecidable
+    </div>
+
+    <div class="proof">
+    <p>
+        Instead of doing a turing machine argument we do it by counting, first of all we show that \( \mathcal{ P } \left( 1 ^ * \right)   \) is in bijection with \( \left\{ 0, 1 \right\} ^ \infty \) to do this, we consider any subset of \( 1 ^ * \) which is of the form \( S = \left\{ s _1, s _ 2, \ldots  \right\}  \) where each \( s _ i \in 1 ^ * \) each \( s _ i \) has a length, that is it is a sequenece of \( n _ i \) ones in a row, thus for each \( s _ i \) wherein we have \( \left\lvert s _ i \right\rvert = n _ i  \) we set the \( n _ i \)th element of the infinite binary string to \( 1 \) and the rest to zero, this sets up the mapping. 
+    </p>
+    <p>
+        Clearly this function can hit any output, so given any infinite binary string, we just select the elements in \( \mathcal{ P } \left( 1 ^ * \right)   \) of corresponding length. Additionally given any collection of subsets we know which string will hit it, all that remains is injectivity which is simple to prove, and we will not go into that detail.
+    </p>
+    <p>
+        Thus we have a bijection from \( \mathcal{ P } \left( 1 ^ * \right)   \) to \( \left\{ 0, 1 \right\} ^ \infty   \) therefore since we already know that the latter is uncountable, then so is the former.
+    </p>
+    <p>
+        Since the set of all turing machines is a subset of all possible strings which is countable, then the number of possible turing machines is countable, and thus the number of languages that are recgonized is also countable, therefore there is some element of \( \mathcal{ P } \left( 1 ^ * \right)   \) which is not recognized by some turing machine, select that one, this is our example of a subset of \( 1 ^ * \) which is undecidable, because we already know it is unrecognizable.
+    </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-fixed-point-of-the-accept-and-reject-switching-function-for-turing-machines" >
+    <div class="title">Fixed Point of the Accept and Reject Switching Function for Turing Machines</div>
+    <div class="content">
+        In the fixed point version of the recusion theorem, let the transformation \( t \) be a function that interchanges the states \( q _ { accept }  \) and \( q _ { reject }  \) in turing machine descriptions, find a fixed point for \( t \).
+    </div>
+
+    <div class="proof">
+        <p>
+            Recall that the fixed point is a turing machine which when fed through \( t \) yields a turing machine equivalent to the original. Suppose we had such a machine \( \left\langle M \right\rangle  \) and lets see the restrictions on this machine, if we gave this machine some input \( w \) and it halts, then this must be because it either entered the accept or reject state, since \( t \left( \left\langle M \right\rangle  \right)  \) inverts this behavior, then on this input the two machines would differ (one accept and one reject), thus if such a fixed point machine were to exist, it must be that it never halts.
+        </p>
+        <p>
+            If \( M \) is a turing machine that loops forever, then by definition this means that it never enters the accept or reject state, therefore if we consider \( t \left( \left\langle M \right\rangle  \right)  \) then this is still a machine that loops forever on all inputs, thus the language of the two machines is the same (empty) and they are equivalent, thus any machine that loops on all possible inputs is a fixed point.
+        </p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-for-any-two-languages-there-is-always-another-language-that-is-is-turing-reducible-to" >
+    <div class="title">For Any Two Languages There Is Always Another Language That Is Is Turing Reducible To</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        <p>
+            Something that works well here is embedding both languages into the following set \( J = 0A \sqcup 1B \). The reason we use such a set is that we know that \( w \in A \iff 0w \in J  \) and that \( w \in B \iff 1w \in J \)   Now we will start by proving that \( A \le _ T J \), to do this we assume that we have an oracle \( O \) for \( J \), and now we construct a decider for \( A \), to do this we construct a turing machine as follows:
+        </p>
+        <ul>
+            <li>on input \( w \) we query the orcale if \( 0w \) is an element of \( J \), if it is we accept, and otherwise reject</li>
+        </ul>
+        <p>
+            As mentioned above \( 0w \in J \iff w \in A \) thus the above turing machine accepts if \( w \in A \) and rejects if \( w \notin A \), that is it is a decider for \( A \) 
+        </p>
+        <p>
+            The exact same construction where we query the oracle with \( 1w \) decides \( B \) 
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-computing-the-descriptive-complexity-with-an-oricale-for-the-acceptance-set-for-turing-machines" >
+    <div class="title">Computing the Descriptive Complexity With an Oricale for the Acceptance Set for Turing Machines</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+    <p>
+        We need to come up with an algorithm which will compute the descritpive complexity of a binary string \( x \), we'll first introduce the idea, and then refine it so to actually work correctly. A naive approach would be to simply go through all binary strings in lexographic order, if we were on string \( s \) we would then try all possible ways of parsing it into the form \( \left\langle M, w \right\rangle  \) where \( M \) is a turing machine \( w \) an arbitrary input string, if no parsing works for string \( s \) then we would try the next string.
+    </p>
+    <p>
+        If it so happened that \( s \) was parsable into \( \left\langle M, w \right\rangle  \) then our goal would be to check if \( M \) on input \( w \) halts with \( x \) on its tape, and we would return \( \left\lvert s \right\rvert  \), this would work because lexiographic order forces shorter strings to come before longer strings, thus enforcing the two requirements that descriptive complexitiby be as small as possible and in the case of ties choosing the one that comes first in the lexicographic ordering.
+    </p>
+    <p>
+        The one problem with our plan is that running \( M \) on input \( w \) may never halt, as its just a regular turing machine, and so we need a way to get around this, this is why the assumption of having the oracle is there, as it gives us a method to determine if a turing machine will halt. Consdier the turing machine \( M \) if we construct a new turing machine \( N  \) that is \( M \) but whenever there is a transition that leads to a reject state, it instead takes us to the accept state, then when we query the oracle with \( \left\langle N, w \right\rangle  \) then it accepts iff \( M \) on input \( w \) halts (either enters a reject or accept state). This provides us with a way to check if \( M \) on input \( w \) will halt in a finite number of steps making our algorithm tractable. Thus our final algorithm as as follows:
+    </p>
+    <ul>
+        <li>For each binary string \( s \) iterated in lexicographic order</li>
+        <li>attempt to parse \( s \) into \( \left\langle M, w \right\rangle  \) where \( M \) is a turing machine \( w \) an input, if it cannot be parsed, then move to the next string otherwise continue to the next step</li>
+    <li>Make the modifiation of \( M \) to \( N \) as specified in the previous paragraph, and check if \( \left\langle N, w \right\rangle \in A _ { TM }   \) using the oracle, if it is not an element then go to the previous step, otherwise \( \left\langle N, w \right\rangle \in A  _ { TM }   \) therefore we know that \( M \) on input \( w \) halts</li>
+        <li>Run \( M \) on input \( w \) and if what remains on the tape is \( x \) then return \( \left\lvert s \right\rvert  \) and stop this algorithm</li>
+    </ul>
+    <p>
+        Also note that even though the above seems to be a potentially infinite loop, but we can make it finite as we already know that there is some \( c \in \mathbb{ N }  \) such that \( K \left( x \right) \le x + c \) and so we only have to test strings up until this cut off.
+    </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-the-acceptance-set-for-oracle-turing-machines-is-undecidable" >
+    <div class="title">The Acceptance Set for Oracle Turing Machines Is Undecidable</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that \( A _ { TM } ^ \prime   \) is decidable relative to \( A _ { TM }  \), which is to say that there is an oracle machine \( H ^ { A _ { TM }  }   \) that decides \( A _ { TM } ^ \prime   \), and now we construct the following which we will call \( N \) 
+        </p>
+        <ul>
+            <li>On input \( \left\langle M \right\rangle  \)  </li>
+            <li>Run \( H ^ { A _ { TM }  }  \) on \( \left\langle M, \left\langle M \right\rangle  \right\rangle  \)  </li>
+            <li>If \( H ^ { A _ { TM }  }  \) accepts, then reject and if it rejects then accept</li>
+        </ul>
+        <p>
+            Since this turing machine just inverts the output of a decider it is also a decider. If we run \( N \) on the input \( \left\langle N \right\rangle  \), then it will accept iff \( N \) rejects \( \left\langle N \right\rangle  \), which is a contradiction, and it will reject iff \( N \) accepts \( \left\langle N \right\rangle  \) which is also a contradiction, therefore our assumption is incorrect and so \( A _ { TM }^ \prime   \) is undecidable.
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-there-exists-languages-that-are-not-recognizable-by-a-turing-machine-with-an-oracle-for-the-acceptance-set-for-turing-machines" >
+    <div class="title">There Exists Languages That Are Not Recognizable by a Turing Machine With an Oracle for the Acceptance Set for Turing Machines</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        We already know that there are uncountably many languages, and we also discovered that there are countably many turing machines, and thus there are countably many turing machines that have an oracle for \( A _ { TM }  \), therefore each such turing machine defines a language, but there will still only be countably many of those, and thus since there are uncountably many languages, there must be a langauage for which a turing machine with such an oracle can never generate; as needed.
+    </div>
+</div>
+
+<div class="exercise" id="exercise-the-language-of-turing-machines-that-halt-on-all-inputs-is-neither-recognizable-nor-co-recognizable" >
+    <div class="title">The Language of Turing Machines That Halt on All Inputs Is Neither Recognizable nor Co-recognizable</div>
+    <div class="content">
+       As per title. 
+    </div>
+
+    <div class="proof">
+        <p>
+            Recall that \( H = \left\{ \left\langle M, w  \right\rangle : M \left( w \right) \text{ halts }  \right\}  \) is not decidable, but it is recognizable. Because of that we know that \( \overline{ H }  \) must not be recognizable, if it were then we would be able to construct a decider for \( H \). 
+        </p>
+        <p>
+            If \( \overline{ H }  \) is not recognizable, then if we can make a mapping reduction to \( HA = \left\{ \left\langle N \right\rangle : N \text{ halts on all inputs } \right\}  \), then we could deduce that \( HA \) is unrecognizable as well. In order to do this we would have to come up with a function \( f \) such that \( x \in \overline{ H }  \iff f \left( x \right) \in HA   \), in otherwords we need a computable function \( f \) such that whenever we have a turing machine and input \( \left\langle M, x \right\rangle  \)  that does not halt, it gets mapped to a turing machine \( N \)  that always halts, and if \( f \left( x \right)  \) is a turing machine that always halts, then it must be that \( x \) is of the form \( \left\langle M, w \right\rangle  \) where \( M \) loops on input \( w \).
+        </p>
+        <p>
+            We construct the function \( f \) as follows, so that on input \( \left\langle M, w \right\rangle  \):
+        </p>
+        <ul>
+            <li>We construct a turing machine \( N \) such that on input \( x \)  </li>
+            <li>Simulate \( M \) on input \( w \) for \( \left\lvert x \right\rvert  \) iterations</li>
+            <li>If \( M \) halted, then go into an infinite loop </li>
+            <li>If \( M \) has not yet halted, then halt </li>
+        </ul>
+        <p>
+            Now supose that \( x \in \overline{ H }  \), therefore \( x = \left\langle M, w \right\rangle  \) where \( M \) loops on input \( w \), then \( f \left( x \right) = N  \) where \( N \) is specified above. Then for any input \( y \) if we run \( N \left( y \right)  \) then since \( M \) loops, we will hit the second if statement, and \( N \) will halt, which implies that \( N \in HA \), so \( x \in \overline{ H } \implies f \left( x \right) \in HA   \) 
+        </p>
+        <p>
+            Now suppose that \( x \notin \overline{ H }  \) so that \( x = \left\langle M, w \right\rangle  \) where \( M \) halts on input \( w \), then \( f \left( x \right) = N  \) now since \( M  \) halts on \( w \), suppose that it halts in \( k \) steps, if that's the case then we select an input \( y \) such that \( \left\lvert y \right\rvert \gt \left\lvert k \right\rvert   \), so that after \( \left\lvert y \right\rvert  \) iterations, we've guarenteed that \( H \) has halted on \( w \) so that we go into the first if statement and loop forever, this implies that \( N \notin HA \). This concludes showing that \( x \in \overline{ H } \iff f \left( x \right) \in HA   \), therefore since \( f \) is computable, then we've showing that \( \overline{ H }  \) is mapping reducible to \( HA \) and since \( \overline{ H }  \) is unrecognizable so is \( HA \).
+        </p>
+        <p>
+            We will show that the complement of \( HA \) which is the set \( \overline{ HA } = \left\{ \left\langle M \right\rangle: M \text{ loops on at least one input }   \right\}   \) is not recognizable.  We do a similar reduction from \( \overline{ H }  \), given any \( \left\langle M, w \right\rangle  \) we construct a machine \( N \) such that on input \( x \), it ignores input \( x \) and just simulates \( M \) on input \( w \).
+        </p>
+        <p>
+            Suppose \( x \in \overline{ H }  \), therefore \( x = \left\langle M, w \right\rangle  \), and \( M \) does not halt on \( w \), therefore the machine \( M \) doesn't halt on any input, and so \( \left\langle M \right\rangle \in L  \).
+        </p>
+        <p>
+            Now suppose that \( x \notin \overline{ H }  \) that is to say that \( x = \left\langle M, w \right\rangle  \) and we know that \( M \) halts on input \( w \), therefore \( M \) halts on every input, meaning that \( M \notin \overline{ HA }  \), this shows that \( x \in \overline{ H } \iff f \left( x \right) \in \overline{ HA }    \), thus since \( \overline{ H }  \) was unrecognizable, so is \( \overline{ HA }  \).
+        </p>
+    </div>
+</div>
 
 
 5.22, 5.23
