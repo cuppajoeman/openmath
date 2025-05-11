@@ -1,9 +1,49 @@
 <div class="theorem", id="theorem-partial-summation">
     <div class="title">
-        Partial Summation
+        Partial Summation (or Abel's Summation)
     </div>
     <div class="content">
-    </div>
+        Let \(\{a_n\}\) be a sequence of complex numbers and \(f(t)\) be a continuously differentiable function. Let \(A(t)=\sum_{n\leq t}a_n\), then 
+        \(\begin{equation}
+        \sum_{n\leq x}a_nf(n) = A(x)f(x)-\int_1^x A(t)f^\prime(x)dt
+        \end{equation}\)
+        </div>
     <div class="proof">
+        Use the fact stated below, 
+        \[\begin{align*} 
+        \sum_{n\leq x}a_nf(n) &=\sum_{n\leq x}(A(n)-A(n-1))f(n)\\
+        &=\sum_{n\leq x}A(n)f(n) - \sum_{n\leq x-1}A(n)f(n+1)\\
+        &=\sum_{n\leq x-1}A(n)(f(n)-f(n+1))+A(x)f(x)\\
+        &=A(x)f(x)+\sum_{n\leq x-1}A(n)\int_{n+1}^{n}f'(t)dt\\
+        &=A(x)f(x)+\sum_{n\leq x-1}\int_{n+1}^{n}A(n)f'(t)dt\\
+        &=A(x)f(x)-\int_{1}^{x}A(n)f'(t)dt\\
+        \end{align*}\]
     </div>
+</div>
+<p>
+    Remark:
+<ol>
+    <li>Here \(a_n\) is an Arithmetic function
+    <li>Fact: \(a_n=A(n)-A(n-1)\)
+    <li>When \(x\notin\mathbb{N}\), then 
+        \(\begin{equation} 
+        A(x)f(x)-f(\lfloor x \rfloor)-\int_{\lfloor x \rfloor}^{x} A(t)f'(t)dt=0
+        \end{equation}\)
+ </ol>   
+</p>
+<div class="theorem", id="theorem-partial-summation2">
+    <div class="title">
+        More General Version
+    </div>
+    <div class="content">
+        Let \(0\leq \lambda_1< \lambda_2 < ... \) be an increasing real sequence and \(C_n\) be a complex sequence. 
+        Let \(C(t)=\sum_{\lambda_n\leq t}C_n\) and \(f(t)\) be a continuous derivative, then for \(x\geq\lambda_1\),
+        \(\begin{equation}
+        \sum_{\lambda_n\leq x}C_nf(\lambda_n) = C(x)f(x)-\int_{\lambda_1}^x C(t)f^\prime(x)dt
+        \end{equation}\)
+        and if \(C(x)f(x)\rightarrow0\) as \(x\rightarrow\infty\), then 
+        \(\begin{equation}
+        \sum^{\infty}_{n=1}Cnf(\lambda_n)=-\int_{\infty}^{\lambda_1}C(t)f'(t)dt
+        \end{equation}\)
+        </div>
 </div>
