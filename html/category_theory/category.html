@@ -18,6 +18,42 @@
 
     </div>
 </div>
+
+<div class="definition" id="definition-isomorphism">
+  <div class="title">Isomorphism / Isomorphic</div>
+  <div class="content">
+    Let \(\mathcal{C}\) be a category, \(A, B \in \operatorname{ob}(\mathcal{C})\).
+    \(f : A \to B\) is an <b>isomorphism</b> if and only if
+    \[
+    \begin{align*}
+    \exists \, g \,:\, B \to A \,.\, &amp; g \circ f = 1_A \land\\
+    &amp; f \circ g = 1_B
+    \end{align*}
+    \]
+    In which case \(A, B\) are <b>isomorphic</b> and denoted as \(A \cong B\)
+  </div>
+</div>
+
+<div class="definition" id="definition-endomorphism">
+  <div class="title">Endomorphism</div>
+  <div class="content">
+    Let \(\mathcal{C}\) be a category, \(A \in \operatorname{ob}(\mathcal{C})\).
+    \(f : A \to A\) is an <b>endomorphism</b> if and only if \(f\) hasthe same domain and codomain
+  </div>
+</div>
+
+<div class="definition" id="definition-automorphism">
+  <div class="title">Automorphism</div>
+  <div class="content">
+    A morphism \(f\) is an <b>automorphism</b> if and only if
+    <ol type="1">
+      <li>\(f\) is an endomorphism</li>
+      <li>\(f\) is an isomorphism</li>
+    </ol>
+  </div>
+</div>
+
+
 <div class="definition" id="definition-functor" >
     <div class="title">Functor</div>
     <div class="content">
