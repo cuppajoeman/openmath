@@ -7,3 +7,6 @@ openmath_startup.vim
 __pycache__
 generated_html
 **/venv/
+
+# Emacs
+**/*~
