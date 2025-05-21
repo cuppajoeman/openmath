@@ -4,7 +4,7 @@
     A category \(\mathscr{C}\) consists of
         <ul>
             <li>a collection ob \((\mathscr{C})\) of <b>objects</b></li>
-            <li>for each \(A, B \in \mathrm{ob}(\mathscr{C})\), a collection \( \operatorname{ mor } (A, B) \) of what we call <b>morphisms</b> from \(A\) to \(B\)</li>
+            <li>for each \(A, B \in \mathrm{ob}(\mathscr{C})\), a collection \( \operatorname{ mor } (A, B) \) of what we call <b>morphisms / arrows</b> from \(A\) to \(B\)</li>
             <li>for each \( A, B, C \in \operatorname{ob}(\mathscr{C})\), a function which we call <b>composition</b> \( \circ _ \mathscr{C} : \operatorname{ mor } (B, C) \times \operatorname{ mor } (A, B) \rightarrow \operatorname{ mor } (A, C)  \) </li>
             \[
                 \circ _ \mathscr{C} \left( g, f \right) : = g \circ f
@@ -15,8 +15,29 @@
                 <li>identity laws: for each \(f \in \operatorname{ mor } (A, B)\), we have \(f \circ 1_A = f = 1_B \circ f\). </li>
             </ul>
         </ul>
-
     </div>
+</div>
+
+<div class="definition" id="definition-domain-codomain">
+  <div class="title">Domain and Codomain</div>
+  <div class="content">
+    Each morphism has associated <b>domain and codomain</b>, denoted
+    \[f \,:\, A \to B\]
+    <ul>
+      <li>The <b>domain</b> of \(f\), denoted \(\operatorname{dom}(f)\), is \(A\)</li>
+      <li>The <b>codomain</b> of \(f\), denoted \(\operatorname{cod}(f)\), is \(B\)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="definition" id="definition-morphism-notations">
+  <div class="title">Some Notations on Morphism</div>
+  <div class="content">
+    <ul>
+      <li>\(f, g \,:\, A \rightrightarrows B \) denotes two morphisms with the same domain and codomain</li>
+      <li>\(f ,:\, A \rightleftarrows B \,:\, g\) denotes two morphisms, \(f \,:\, A \to B\) and \(g \,:\, B \to A\)</li>
+    </ul>
+  </div>
 </div>
 
 <div class="definition" id="definition-isomorphism">
@@ -50,6 +71,25 @@
     </ol>
   </div>
 </div>
+
+<div class="definition" id="definition-duality-opposite">
+  <div class="title">Opposite Category, Duality</div>
+  <div class="content">
+    Let \(\mathcal{C}\) be a category. Then the <b>opposite category</b> \(\mathcal{C}^\mathrm{op}\) is defined as follow:
+    <ul>
+      <li>
+	\(\operatorname{ob}(\mathcal{C}^{\mathrm{op}}) = \operatorname{ob}(\mathcal{C}^{\mathrm{op}})) \)
+      </li>
+      <li>
+	\(f^{\mathrm{op}} \in \operatorname{mor}_{\mathcal{C}^{\mathrm{op}}}(A, B) \iff f \in \operatorname{mor}_{\mathcal{C}}(B, A)\)
+      </li>
+      <li> 
+	\(f^{\mathrm{op}} \circ_{\mathcal{C}^{\mathrm{op}}} g^{\mathrm{op}} = g \circ_{\mathcal{C}} f\)
+      </li>
+    </ul>
+  </div>
+</div>
+
 
 
 <div class="definition" id="definition-functor" >
@@ -155,4 +195,3 @@
         </p>
     </div>
 </div>
-
