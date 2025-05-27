@@ -4,7 +4,7 @@
     A category \(\mathscr{C}\) consists of
         <ul>
             <li>a collection ob \((\mathscr{C})\) of <b>objects</b></li>
-            <li>for each \(A, B \in \mathrm{ob}(\mathscr{C})\), a collection \( \operatorname{ mor } (A, B) \) of what we call <b>morphisms</b> from \(A\) to \(B\)</li>
+            <li>for each \(A, B \in \mathrm{ob}(\mathscr{C})\), a collection \( \operatorname{ mor } (A, B) \) of what we call <b>morphisms / arrows</b> from \(A\) to \(B\)</li>
             <li>for each \( A, B, C \in \operatorname{ob}(\mathscr{C})\), a function which we call <b>composition</b> \( \circ _ \mathscr{C} : \operatorname{ mor } (B, C) \times \operatorname{ mor } (A, B) \rightarrow \operatorname{ mor } (A, C)  \) </li>
             \[
                 \circ _ \mathscr{C} \left( g, f \right) : = g \circ f
@@ -15,9 +15,120 @@
                 <li>identity laws: for each \(f \in \operatorname{ mor } (A, B)\), we have \(f \circ 1_A = f = 1_B \circ f\). </li>
             </ul>
         </ul>
-
     </div>
 </div>
+
+<div class="definition" id="definition-domain-codomain">
+  <div class="title">Domain and Codomain</div>
+  <div class="content">
+    Each morphism has associated <b>domain and codomain</b>, denoted
+    \[f \,:\, A \to B\]
+    <ul>
+      <li>The <b>domain</b> of \(f\), denoted \(\operatorname{dom}(f)\), is \(A\)</li>
+      <li>The <b>codomain</b> of \(f\), denoted \(\operatorname{cod}(f)\), is \(B\)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="definition" id="definition-morphism-notations">
+  <div class="title">Some Notations on Morphism</div>
+  <div class="content">
+    <ul>
+      <li>\(f, g \,:\, A \rightrightarrows B \) denotes two morphisms with the same domain and codomain</li>
+      <li>\(f \,:\, A \rightleftarrows B \,:\, g\) denotes two morphisms, \(f \,:\, A \to B\) and \(g \,:\, B \to A\)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="definition" id="definition-isomorphism">
+  <div class="title">Isomorphism / Isomorphic</div>
+  <div class="content">
+    Let \(\mathcal{C}\) be a category, \(A, B \in \operatorname{ob}(\mathcal{C})\). \(f \,:\, A \to B\) is an <b>isomorphism</b> if and only if
+    \[
+    \begin{align*}
+    \exists \, g \,:\, B \to A \,.\, &amp; g \circ f = 1_A \land\\
+    &amp; f \circ g = 1_B
+    \end{align*}
+    \]
+    In which case \(A, B\) are <b>isomorphic</b> and denoted as \(A \cong B\)
+  </div>
+</div>
+
+<div class="definition" id="definition-endomorphism">
+  <div class="title">Endomorphism</div>
+  <div class="content">
+    Let \(\mathcal{C}\) be a category, \(A \in \operatorname{ob}(\mathcal{C})\). \(f \,:\, A \to A\) is an <b>endomorphism</b> if and only if \(f\) has the same domain and codomain
+  </div>
+</div>
+
+<div class="definition" id="definition-automorphism">
+  <div class="title">Automorphism</div>
+  <div class="content">
+    A morphism \(f\) is an <b>automorphism</b> if and only if
+    \[
+    f \text{ is an endomorphism} \land f \text{ is an isomorphism}
+    \]
+  </div>
+</div>
+
+<div class="definition" id="definition-duality-opposite">
+  <div class="title">Opposite Category, Duality</div>
+  <div class="content">
+    Let \(\mathcal{C}\) be a category. Then the <b>opposite category</b> \(\mathcal{C}^\mathrm{op}\) is defined as follow:
+    <ul>
+      <li>
+	\(\operatorname{ob}(\mathcal{C}^{\mathrm{op}}) = \operatorname{ob}(\mathcal{C}) \)
+      </li>
+      <li>
+	For each \(f \in \operatorname{mor}_{\mathcal{C}}(B, A) \), a morphism \(f^{\mathrm{op}} \in \operatorname{mor}_{\mathcal{C}^{\mathrm{op}}}(A, B)\)
+      </li>
+      <li>
+	\(g^{\mathrm{op}} \circ_{\mathcal{C}^{\mathrm{op}}} f^{\mathrm{op}} = (f \circ_{\mathcal{C}} g)^\mathrm{op}\)
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="proposition" id="proposition-opposite-forms-a-category">
+  <div class="title">The opposite category is a category</div>
+  <div class="content">
+    The construction \(\mathcal{C}^{\mathrm{op}}\) indeed form a new category.
+  </div>
+  <div class="proof">
+    <p>
+      The definition already gives us the mathematical objects of a category. We only need to show composition satisfies associativity and identity law.
+    </p>
+    <p>
+      We first show associativity. Let \(f^\mathrm{op} \,:\, A \to B, g^\mathrm{op} \,:\, B \to C, h^\mathrm{op} \,:\, C \to D\) be morphisms in \(\mathcal{C}^\mathrm{op}\). Correspondingly, we have morphisms \( f \,:\, B \to A, g \,:\, C \to B, h \,:\, D \to C\) in \(\mathcal{C}\).
+      We then have the following reasoning (composition subscript omitted):
+      \[ \begin{align*}
+      & (h^\mathrm{op} \circ g^\mathrm{op}) \circ f^\mathrm{op} \\
+      =& (g \circ h)^\mathrm{op} \circ f^\mathrm{op} \\
+      =& (f \circ (g \circ h))^\mathrm{op} \\
+      =& ((f \circ g) \circ h)^\mathrm{op} \\
+      =& h^\mathrm{op} \circ (f \circ g)^\mathrm{op} \\
+      =& h^\mathrm{op} \circ (g^\mathrm{op} \circ f^\mathrm{op})
+      \end{align*} \]
+    </p>
+    <p>
+      Lastly we show the existence of identity morphism along with their desired property. Let \(A,B \in \mathcal{C}^\mathrm{op}\), we choose the identity morphism of this object to be \(1_A^\mathrm{op}, 1_B^\mathrm{op}\) respectively.
+    </p>
+    <p>
+      Let \(f^\mathrm{op} \,:\, A \to B \) be a morphism in \(\mathcal{C}\). We can show the following:
+      \[ \begin{align*}
+      f^\mathrm{op} \circ 1_A^\mathrm{op} = & (1_A \circ f)^\mathrm{op} \\
+      = & (f)^\mathrm{op} \\
+      1_B^\mathrm{op} \circ f^\mathrm{op} = & (f \circ 1_B)^\mathrm{op} \\
+      = & (f)^\mathrm{op}
+      \end{align*} \]
+    </p>
+    <p>
+      Thus all desired properties are shown, we conclude \(\mathcal{C}^\mathrm{op}\) is a category.
+    </p>
+  </div>
+</div>
+
+
 <div class="definition" id="definition-functor" >
     <div class="title">Functor</div>
     <div class="content">
@@ -121,4 +232,3 @@
         </p>
     </div>
 </div>
-
