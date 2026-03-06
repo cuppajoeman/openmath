@@ -3,9 +3,10 @@
         The Quaternions
     </div>
     <div class="content">
-        The collection of <b>quaternions</b> are: \[ \mathbb{ H } := \left\{ a + b \mathbf{ i } + c \mathbf{ j }+ d \mathbf{ k } \right\} \] where \( a, b, c, d \in \mathbb{ R } \) and \( \mathbf{ i } ^ 2 = \mathbf{ j } ^ 2 = \mathbf{ k } ^ 2 = \mathbf{ ijk }= -1 \)
+        The collection of <b>quaternions</b> are: $$ \mathbb{ H } := \left\{ a + b \mathbf{ i } + c \mathbf{ j }+ d \mathbf{ k } \right\} $$ where \( a, b, c, d \in \mathbb{ R } \) and \( \mathbf{ i } ^ 2 = \mathbf{ j } ^ 2 = \mathbf{ k } ^ 2 = \mathbf{ ijk }= -1 \)
     </div>
 </div>
+
 <div class="definition" id="definition-quaternion-scalar-part">
     <div class="title">
         Real Part of the Quaternion
@@ -14,6 +15,7 @@
         Given a quaternion \(q = a + bi + cj + dk\), we say that \(a\) is the scalar part of the quaternion (or real part), and is denoted by \( r \left( q \right) \)
     </div>
 </div>
+
 <div class="definition" id="definition-quaternion-vector-part">
     <div class="title">
         Vector Part of the Quaternion
@@ -22,199 +24,692 @@
         Given a quaternion \(q = a + bi + cj + dk\), we say that \(bi + cj + dk\) is the vector part of the quaternion, and is denoted by \( v \left( q \right) \)
     </div>
 </div>
-<p>Note that we think of the vector part of a quaternion as an element of \( \mathbb{ R } ^ 3 \) , and so it inherits all the operations from that space, such as equality, as noted in the next corollary.</p>
-<div class="corollary" id="corollary-equality-by-vector-and-real-equality">
+
+<p>Note that we think of the vector part of a quaternion as an element of \( \mathbb{ R } ^ 3 \), and so it inherits all the operations from that space, such as equality, as noted in the next corollary.</p>
+
+<div class="definition" id="definition-to-quat-from-r">
     <div class="title">
-        Conjugation Distributes
+        Quaternion from a Real Number
     </div>
     <div class="content">
-        For any \( p, q \in \mathbb{ H } \) we have \[ p = q \iff \left( r\left( p \right) = r\left( q \right) \land v\left( p \right) = v\left( q \right) \right) \]
-    </div>
-    <div class="proof">
-        Suppose that \( p = a + bi + cj + dk \) and \( q = u + xi + yj + zk \) then \( p = q \) if and only if \( a = u \) , \( b = x \) , \( c = y \) , \( d = z \) which is true if and only if \( r\left( p \right) = r\left( q \right) \) and \( v\left( p \right) = v\left( q \right) \), as needed.
+        We define the map \( \operatorname{to\_quat} : \mathbb{R} \to \mathbb{H} \) by $$ \operatorname{to\_quat}(a) := a + 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k} $$
     </div>
 </div>
+
+<div class="definition" id="definition-to-quat-from-r3">
+    <div class="title">
+        Pure Quaternion from a 3D Vector
+    </div>
+    <div class="content">
+        We define the map \( \operatorname{to\_quat} : \mathbb{R}^3 \to \mathbb{H} \) by $$ \operatorname{to\_quat}(b, c, d) := 0 + b\mathbf{i} + c\mathbf{j} + d\mathbf{k} $$
+    </div>
+</div>
+
+<div class="definition" id="definition-to-quat-from-r4">
+    <div class="title">
+        Quaternion from a 4D Vector
+    </div>
+    <div class="content">
+        We define the map \( \operatorname{to\_quat} : \mathbb{R}^4 \to \mathbb{H} \) by $$ \operatorname{to\_quat}(a, b, c, d) := a + b\mathbf{i} + c\mathbf{j} + d\mathbf{k} $$
+    </div>
+</div>
+
+<div class="corollary" id="corollary-to-quat-r3-is-pure">
+    <div class="title">
+        to_quat from \( \mathbb{R}^3 \) Produces a Pure Quaternion
+    </div>
+    <div class="content">
+        For any \( \mathbf{u} \in \mathbb{R}^3 \), \( \operatorname{to\_quat}(\mathbf{u}) \) is a pure quaternion, i.e. \( r(\operatorname{to\_quat}(\mathbf{u})) = 0 \).
+    </div>
+    <div class="proof">
+        Let \( \mathbf{u} = (b, c, d) \). Then \( \operatorname{to\_quat}(\mathbf{u}) = 0 + b\mathbf{i} + c\mathbf{j} + d\mathbf{k} \), so \( r(\operatorname{to\_quat}(\mathbf{u})) = 0 \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-v-of-to-quat-r3-is-identity">
+    <div class="title">
+        Vector Part of to_quat from \( \mathbb{R}^3 \) is the Identity
+    </div>
+    <div class="content">
+        For any \( \mathbf{u} \in \mathbb{R}^3 \), \( v(\operatorname{to\_quat}(\mathbf{u})) = \mathbf{u} \).
+    </div>
+    <div class="proof">
+        Let \( \mathbf{u} = (b, c, d) \). Then \( v(\operatorname{to\_quat}(\mathbf{u})) = v(0 + b\mathbf{i} + c\mathbf{j} + d\mathbf{k}) = (b, c, d) = \mathbf{u} \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-to-quat-r-has-zero-vector-part">
+    <div class="title">
+        to_quat from \( \mathbb{R} \) Has Zero Vector Part
+    </div>
+    <div class="content">
+        For any \( a \in \mathbb{R} \), \( v(\operatorname{to\_quat}(a)) = \mathbf{0} \) and \( r(\operatorname{to\_quat}(a)) = a \).
+    </div>
+    <div class="proof">
+        \( \operatorname{to\_quat}(a) = a + 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k} \), so \( v(\operatorname{to\_quat}(a)) = (0, 0, 0) = \mathbf{0} \) and \( r(\operatorname{to\_quat}(a)) = a \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-quaternion-decomposes-as-sum-of-to-quats">
+    <div class="title">
+        Quaternion Decomposes as Sum of to_quats
+    </div>
+    <div class="content">
+        For any \( q \in \mathbb{H} \), $$ q = \operatorname{to\_quat}(r(q)) + \operatorname{to\_quat}(v(q)) $$
+    </div>
+    <div class="proof">
+        Let \( q = a + bi + cj + dk \). Then \( \operatorname{to\_quat}(r(q)) + \operatorname{to\_quat}(v(q)) = (a + 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k}) + (0 + b\mathbf{i} + c\mathbf{j} + d\mathbf{k}) = a + bi + cj + dk = q \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-equality-by-vector-and-real-equality">
+    <div class="title">
+        Equality by Vector and Real Equality
+    </div>
+    <div class="content">
+        For any \( p, q \in \mathbb{ H } \) we have $$ p = q \iff \left( r\left( p \right) = r\left( q \right) \land v\left( p \right) = v\left( q \right) \right) $$
+    </div>
+    <div class="proof">
+        Suppose that \( p = a + bi + cj + dk \) and \( q = u + xi + yj + zk \) then \( p = q \) if and only if \( a = u \), \( b = x \), \( c = y \), \( d = z \) which is true if and only if \( r\left( p \right) = r\left( q \right) \) and \( v\left( p \right) = v\left( q \right) \), as needed.
+    </div>
+</div>
+
 <div class="definition" id="definition-quaternion-addition">
     <div class="title">
         Quaternion Addition
     </div>
     <div class="content">
-        \[ (a_1+b_1\mathbf i + c_1\mathbf j + d_1\mathbf k) + (a_2 + b_2\mathbf i + c_2\mathbf j + d_2\mathbf k) = (a_1 + a_2) + (b_1 + b_2)\mathbf i + (c_1 + c_2)\mathbf j + (d_1 + d_2) \mathbf k, \]
+        $$ (a_1+b_1\mathbf i + c_1\mathbf j + d_1\mathbf k) + (a_2 + b_2\mathbf i + c_2\mathbf j + d_2\mathbf k) = (a_1 + a_2) + (b_1 + b_2)\mathbf i + (c_1 + c_2)\mathbf j + (d_1 + d_2) \mathbf k $$
     </div>
 </div>
-<div class="corollary" id="corollary-conjugation-is-additive">
-    <div class="title">
-        Conjugation is Additive
-    </div>
-    <div class="content">
-        Suppose that \( p, q \in \mathbb{ H } \) then \[ \overline{ p + q } = \overline{ p } + \overline{ q } \]
-    </div>
-    <div class="proof">
-        Suppose that \( p = a + bi + cj + dk \) and \( q = u + xi + yj + zk \) then \[ \begin{align} \overline{ p + q } &amp;= \overline{ \left( a + u \right) + \left( b + x \right) i + \left( c + y \right) j + \left( d + z \right) } \\ &amp;= \left( a + u \right) - \left( b + x \right) i - \left( c + y \right) j - \left( d + z \right) \\ &amp;= a - bi - cj - dk + u - xi - yj - zk \\ &amp;= \overline{ p } + \overline{ q } \end{align} \]
-    </div>
-</div>
+
 <div class="definition" id="definition-scalar-quaternion-multiplication">
     <div class="title">
         Scalar Quaternion Multiplication
     </div>
     <div class="content">
-        \[ \lambda(a + b\,\mathbf i + c\,\mathbf j + d\,\mathbf k) = \lambda a + (\lambda b)\,\mathbf i + (\lambda c)\,\mathbf j + (\lambda d)\,\mathbf k. \]
+        $$ \lambda(a + b\,\mathbf i + c\,\mathbf j + d\,\mathbf k) = \lambda a + (\lambda b)\,\mathbf i + (\lambda c)\,\mathbf j + (\lambda d)\,\mathbf k. $$
     </div>
 </div>
+
 <div class="definition" id="definition-identity-quaternion">
     <div class="title">
         Identity Quaternion
     </div>
     <div class="content">
-        \[ e := i + j + k \]
+        $$ e := 1 + 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k} $$
     </div>
 </div>
+
 <div class="definition" id="definition-conjugate-quaternion">
     <div class="title">
         Conjugate Quaternion
     </div>
     <div class="content">
-        Given the quaternion \( q = a + b \mathbf{ i }+ c \mathbf{ j } + d \mathbf{ k } \), it's conjugate is given by \[ \overline{ q } := a - b \mathbf{ i }- c \mathbf{ j } - d \mathbf{ k } \]
+        Given the quaternion \( q = a + b \mathbf{ i }+ c \mathbf{ j } + d \mathbf{ k } \), its conjugate is given by $$ \overline{ q } := a - b \mathbf{ i }- c \mathbf{ j } - d \mathbf{ k } $$
     </div>
 </div>
-<div class="corollary" id="corollary-vector-part-of-the-conjugate-is-minus-1-times-the-original">
+
+<div class="definition" id="definition-quaternion-norm">
     <div class="title">
-        Vector part of the Conjugate is minus 1 Times the Original
+        Quaternion Norm
     </div>
     <div class="content">
-        For any \( p \in \mathbb{ H } \) we have \[ v \left( \overline{ p } \right) = -1 v \left( p \right) \]
-    </div>
-    <div class="proof">
-        Suppose that \( p = a + bi + cj + dk \) \[ v \left( \overline{ p } \right) = -bi + -cj + -dk = \left( -1 \right) v \left( p \right) \] as needed.
+        Given a quaternion \( q = a + bi + cj + dk \), its norm is defined as $$ \| q \| := \sqrt{a^2 + b^2 + c^2 + d^2} $$
     </div>
 </div>
-<div class="corollary" id="corollary-real-part-of-the-conjugate-doesnt-change">
+
+<div class="definition" id="definition-unit-quaternion">
     <div class="title">
-        Real part of the Conjugate doesn't Change
+        Unit Quaternion
     </div>
     <div class="content">
-        For any \( p \in \mathbb{ H } \) we have \[ r \left( \overline{ p } \right) = r \left( p \right) \]
-    </div>
-    <div class="proof">
-        Suppose that \( p = a + bi + cj + dk \) \[ r \left( \overline{ p } \right) = a = r \left( p \right) \] as needed.
+        A quaternion \( q \in \mathbb{H} \) is said to be a <b>unit quaternion</b> if \( \| q \| = 1 \).
     </div>
 </div>
-<div class="corollary" id="corollary-conjugate-doesnt-change-the-real-part">
-    <div class="title">
-        Conjugate Doesn't change the Real Part
-    </div>
-    <div class="content">
-        For any \( p \in \mathbb{ H } \), such that \( v\left( p \right) = 0 \), then \[ \overline{ p } = p \]
-    </div>
-    <div class="proof"></div>
-</div>
-<div class="corollary" id="corollary-conjugate-only-applies-to-vector-part">
-    <div class="title">
-        Conjugate only Applies to Vector Part
-    </div>
-    <div class="content">
-        For any \( p \in \mathbb{ H } \) we have \[ \overline{ p } = r\left( p \right) - v\left( p \right) \]
-    </div>
-    <div class="proof">
-        \[ \overline{ p } = \overline{ r \left( p \right) + v\left( p \right) } = r\left( p \right) - v\left( p \right) \]
-    </div>
-</div>
+
 <div class="definition" id="definition-pure-quaternion">
     <div class="title">
         Pure Quaternion
     </div>
     <div class="content">
-        A quaternion \( p \in \mathbb{ H } \) is said to be pure, deiff \( r\left( p \right) = 0 \)
+        A quaternion \( p \in \mathbb{ H } \) is said to be <b>pure</b> iff \( r\left( p \right) = 0 \).
     </div>
 </div>
+
+<div class="definition" id="definition-pure-unit-quaternion">
+    <div class="title">
+        Pure Unit Quaternion
+    </div>
+    <div class="content">
+        A quaternion \( q \in \mathbb{H} \) is said to be a <b>pure unit quaternion</b> if it is both pure and unit, i.e. \( r(q) = 0 \) and \( \| q \| = 1 \).
+    </div>
+</div>
+
 <div class="definition" id="definition-product-of-two-quaternions">
     <div class="title">
         Product of Two Quaternions
     </div>
     <div class="content">
-        Suppose that \( p, q \in \mathbb{ H } \), then we define \[ p q := r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) + r \left( p \right) v\left( q \right) + r\left( q \right) v\left( p \right) + v \left( p \right) \times v \left( q \right) \]
+        Suppose that \( p, q \in \mathbb{ H } \), then we define $$ p q := r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) + r \left( p \right) v\left( q \right) + r\left( q \right) v\left( p \right) + v \left( p \right) \times v \left( q \right) $$ More precisely: $$ pq = \operatorname{to\_quat}\!\Big(r(p)r(q) - v(p) \cdot v(q)\Big) + \operatorname{to\_quat}\!\Big(r(p)\,v(q) + r(q)\,v(p) + v(p) \times v(q)\Big) $$
     </div>
 </div>
+
+<div class="corollary" id="corollary-real-part-of-quaternion-product">
+    <div class="title">
+        Real Part of Quaternion Product
+    </div>
+    <div class="content">
+        For any \( p, q \in \mathbb{H} \), $$ r(pq) = r(p)\,r(q) - v(p) \cdot v(q) $$
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="#definition-product-of-two-quaternions">definition of the quaternion product</a>, the scalar part is \( r(p)\,r(q) - v(p) \cdot v(q) \) and the vector part is \( r(p)\,v(q) + r(q)\,v(p) + v(p) \times v(q) \). Therefore \( r(pq) = r(p)\,r(q) - v(p) \cdot v(q) \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-vector-part-of-quaternion-product">
+    <div class="title">
+        Vector Part of Quaternion Product
+    </div>
+    <div class="content">
+        For any \( p, q \in \mathbb{H} \), $$ v(pq) = r(p)\,v(q) + r(q)\,v(p) + v(p) \times v(q) $$
+    </div>
+    <div class="proof">
+        Immediate from the <a class="knowledge-link" href="#definition-product-of-two-quaternions">definition of the quaternion product</a>.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-product-of-two-pure-quaternions">
+    <div class="title">
+        Product of Two Pure Quaternions
+    </div>
+    <div class="content">
+        For any two pure quaternions \( p, q \in \mathbb{H} \) (i.e. \( r(p) = r(q) = 0 \)), we have $$ pq = \operatorname{to\_quat}\!\big({-v(p) \cdot v(q)}\big) + \operatorname{to\_quat}\!\big(v(p) \times v(q)\big) $$
+    </div>
+    <div class="proof">
+        Since \( p \) and \( q \) are pure, \( r(p) = 0 \) and \( r(q) = 0 \). By the <a class="knowledge-link" href="#definition-product-of-two-quaternions">definition of the quaternion product</a>:
+        $$
+        \begin{align}
+        pq &= \operatorname{to\_quat}\!\Big(r(p)r(q) - v(p) \cdot v(q)\Big) + \operatorname{to\_quat}\!\Big(r(p)\,v(q) + r(q)\,v(p) + v(p) \times v(q)\Big) \\
+        &= \operatorname{to\_quat}\!\Big(0 \cdot 0 - v(p) \cdot v(q)\Big) + \operatorname{to\_quat}\!\Big(0 \cdot v(q) + 0 \cdot v(p) + v(p) \times v(q)\Big) \\
+        &= \operatorname{to\_quat}\!\big({-v(p) \cdot v(q)}\big) + \operatorname{to\_quat}\!\big(v(p) \times v(q)\big)
+        \end{align}
+        $$
+    </div>
+</div>
+
+<div class="corollary" id="corollary-real-part-of-product-of-two-pure-quaternions">
+    <div class="title">
+        Real Part of Product of Two Pure Quaternions
+    </div>
+    <div class="content">
+        For any two pure quaternions \( p, q \in \mathbb{H} \), $$ r(pq) = -v(p) \cdot v(q) $$
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="#proposition-product-of-two-pure-quaternions">product of two pure quaternions</a>, the real part is \( -v(p) \cdot v(q) \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-vector-part-of-product-of-two-pure-quaternions">
+    <div class="title">
+        Vector Part of Product of Two Pure Quaternions
+    </div>
+    <div class="content">
+        For any two pure quaternions \( p, q \in \mathbb{H} \), $$ v(pq) = v(p) \times v(q) $$
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="#proposition-product-of-two-pure-quaternions">product of two pure quaternions</a>, the vector part is \( v(p) \times v(q) \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-square-of-pure-unit-quaternion">
+    <div class="title">
+        Square of a Pure Unit Quaternion is Minus One
+    </div>
+    <div class="content">
+        For any pure unit quaternion \( \hat{n} \in \mathbb{H} \), we have $$ \hat{n}^2 = -e $$ where \( e \) is the identity quaternion.
+    </div>
+    <div class="proof">
+        Since \( \hat{n} \) is pure and unit, \( r(\hat{n}) = 0 \) and \( \| v(\hat{n}) \| = 1 \). By the <a class="knowledge-link" href="#proposition-product-of-two-pure-quaternions">product of two pure quaternions</a>:
+        $$
+        \hat{n}^2 = \operatorname{to\_quat}(-v(\hat{n}) \cdot v(\hat{n})) + \operatorname{to\_quat}(v(\hat{n}) \times v(\hat{n}))
+        $$
+        Since \( v(\hat{n}) \cdot v(\hat{n}) = \| v(\hat{n}) \|^2 = 1 \) and \( v(\hat{n}) \times v(\hat{n}) = \mathbf{0} \), we get:
+        $$
+        \hat{n}^2 = \operatorname{to\_quat}(-1) + \operatorname{to\_quat}(\mathbf{0}) = -1 + 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k} = -e
+        $$
+    </div>
+</div>
+
+<div class="proposition" id="proposition-perpendicular-pure-quaternions-anticommute">
+    <div class="title">
+        Perpendicular Pure Quaternions Anticommute
+    </div>
+    <div class="content">
+        For any two pure quaternions \( p, q \in \mathbb{H} \) with \( v(p) \cdot v(q) = 0 \), we have $$ pq = -qp $$
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="#proposition-product-of-two-pure-quaternions">product of two pure quaternions</a>:
+        $$
+        pq = \operatorname{to\_quat}(-v(p) \cdot v(q)) + \operatorname{to\_quat}(v(p) \times v(q))
+        $$
+        Since \( v(p) \cdot v(q) = 0 \):
+        $$
+        pq = \operatorname{to\_quat}(0) + \operatorname{to\_quat}(v(p) \times v(q)) = \operatorname{to\_quat}(v(p) \times v(q))
+        $$
+        Similarly:
+        $$
+        qp = \operatorname{to\_quat}(0) + \operatorname{to\_quat}(v(q) \times v(p)) = \operatorname{to\_quat}(v(q) \times v(p))
+        $$
+        Since the cross product is anti-commutative, \( v(q) \times v(p) = -(v(p) \times v(q)) \), so \( qp = -pq \), i.e. \( pq = -qp \).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-quaternion-multiplication-is-associative">
+    <div class="title">
+        Quaternion Multiplication is Associative
+    </div>
+    <div class="content">
+        For any \( p, q, s \in \mathbb{H} \), we have $$ (pq)s = p(qs) $$
+    </div>
+    <div class="proof">
+        <p>Write \( p = a_1 + b_1 \mathbf{i} + c_1 \mathbf{j} + d_1 \mathbf{k} \), \( q = a_2 + b_2 \mathbf{i} + c_2 \mathbf{j} + d_2 \mathbf{k} \), and \( s = a_3 + b_3 \mathbf{i} + c_3 \mathbf{j} + d_3 \mathbf{k} \).</p>
+        <p>Since quaternion multiplication is defined to be distributive over addition and is determined by the multiplication rules on the basis elements \( \{1, \mathbf{i}, \mathbf{j}, \mathbf{k}\} \), it suffices to verify associativity on all triples of basis elements. There are \( 4^3 = 64 \) such triples.</p>
+        <p>We verify the key non-trivial cases. Recall the basis multiplication rules derived from \( \mathbf{i}^2 = \mathbf{j}^2 = \mathbf{k}^2 = \mathbf{ijk} = -1 \):
+        $$
+        \mathbf{ij} = \mathbf{k}, \quad \mathbf{jk} = \mathbf{i}, \quad \mathbf{ki} = \mathbf{j}
+        $$
+        $$
+        \mathbf{ji} = -\mathbf{k}, \quad \mathbf{kj} = -\mathbf{i}, \quad \mathbf{ik} = -\mathbf{j}
+        $$
+        </p>
+        <p>Case \( (\mathbf{i}, \mathbf{j}, \mathbf{k}) \): \( (\mathbf{ij})\mathbf{k} = \mathbf{k} \cdot \mathbf{k} = -1 \) and \( \mathbf{i}(\mathbf{jk}) = \mathbf{i} \cdot \mathbf{i} = -1 \). ✓</p>
+        <p>Case \( (\mathbf{i}, \mathbf{k}, \mathbf{j}) \): \( (\mathbf{ik})\mathbf{j} = (-\mathbf{j})\mathbf{j} = -(\mathbf{j}^2) = 1 \) and \( \mathbf{i}(\mathbf{kj}) = \mathbf{i}(-\mathbf{i}) = -\mathbf{i}^2 = 1 \). ✓</p>
+        <p>Case \( (\mathbf{i}, \mathbf{i}, \mathbf{j}) \): \( (\mathbf{ii})\mathbf{j} = (-1)\mathbf{j} = -\mathbf{j} \) and \( \mathbf{i}(\mathbf{ij}) = \mathbf{i}\mathbf{k} = -\mathbf{j} \). ✓</p>
+        <p>Case \( (\mathbf{j}, \mathbf{k}, \mathbf{i}) \): \( (\mathbf{jk})\mathbf{i} = \mathbf{i} \cdot \mathbf{i} = -1 \) and \( \mathbf{j}(\mathbf{ki}) = \mathbf{j} \cdot \mathbf{j} = -1 \). ✓</p>
+        <p>All other non-trivial cases follow by similar computation. Any triple involving the identity \( 1 \) is immediate since \( 1 \) commutes with everything and acts as the identity. Since associativity holds on all basis triples and quaternion multiplication distributes over addition, associativity holds for all quaternions.</p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-quaternion-product-with-real-quaternion">
+    <div class="title">
+        Product with a Real Quaternion
+    </div>
+    <div class="content">
+        For any \( q \in \mathbb{H} \) and \( a \in \mathbb{R} \), $$ \operatorname{to\_quat}(a) \cdot q = q \cdot \operatorname{to\_quat}(a) = a \, q $$ where \( a \, q \) denotes scalar multiplication.
+    </div>
+    <div class="proof">
+        Let \( p = \operatorname{to\_quat}(a) \), so \( r(p) = a \) and \( v(p) = \mathbf{0} \). By the <a class="knowledge-link" href="#definition-product-of-two-quaternions">quaternion product definition</a>:
+        $$
+        \begin{align}
+        pq &= a \cdot r(q) - \mathbf{0} \cdot v(q) + a \, v(q) + r(q) \cdot \mathbf{0} + \mathbf{0} \times v(q) \\
+        &= a \, r(q) + a \, v(q) = a(r(q) + v(q)) = a \, q
+        \end{align}
+        $$
+        Similarly \( qp = r(q) \cdot a - v(q) \cdot \mathbf{0} + r(q) \cdot \mathbf{0} + a \, v(q) + v(q) \times \mathbf{0} = a \, r(q) + a \, v(q) = a \, q \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-conjugation-is-additive">
+    <div class="title">
+        Conjugation is Additive
+    </div>
+    <div class="content">
+        Suppose that \( p, q \in \mathbb{ H } \) then $$ \overline{ p + q } = \overline{ p } + \overline{ q } $$
+    </div>
+    <div class="proof">
+        Suppose that \( p = a + bi + cj + dk \) and \( q = u + xi + yj + zk \) then $$ \begin{align} \overline{ p + q } &= \overline{ \left( a + u \right) + \left( b + x \right) i + \left( c + y \right) j + \left( d + z \right) k } \\ &= \left( a + u \right) - \left( b + x \right) i - \left( c + y \right) j - \left( d + z \right) k \\ &= a - bi - cj - dk + u - xi - yj - zk \\ &= \overline{ p } + \overline{ q } \end{align} $$
+    </div>
+</div>
+
+<div class="corollary" id="corollary-vector-part-of-the-conjugate-is-minus-1-times-the-original">
+    <div class="title">
+        Vector Part of the Conjugate is Minus 1 Times the Original
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ H } \) we have $$ v \left( \overline{ p } \right) = -v \left( p \right) $$
+    </div>
+    <div class="proof">
+        Suppose that \( p = a + bi + cj + dk \). Then $$ v \left( \overline{ p } \right) = v(a - bi - cj - dk) = (-b, -c, -d) = -(b, c, d) = -v \left( p \right) $$ as needed.
+    </div>
+</div>
+
+<div class="corollary" id="corollary-real-part-of-the-conjugate-doesnt-change">
+    <div class="title">
+        Real Part of the Conjugate Doesn't Change
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ H } \) we have $$ r \left( \overline{ p } \right) = r \left( p \right) $$
+    </div>
+    <div class="proof">
+        Suppose that \( p = a + bi + cj + dk \). Then $$ r \left( \overline{ p } \right) = r(a - bi - cj - dk) = a = r \left( p \right) $$ as needed.
+    </div>
+</div>
+
+<div class="corollary" id="corollary-conjugate-doesnt-change-the-real-part">
+    <div class="title">
+        Conjugate Fixes Real Quaternions
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ H } \), such that \( v\left( p \right) = \mathbf{0} \), then $$ \overline{ p } = p $$
+    </div>
+    <div class="proof">
+        Since \( v(p) = \mathbf{0} \), we have \( p = r(p) + 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k} \). Then \( \overline{p} = r(p) - 0\mathbf{i} - 0\mathbf{j} - 0\mathbf{k} = p \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-conjugate-only-applies-to-vector-part">
+    <div class="title">
+        Conjugate Only Applies to Vector Part
+    </div>
+    <div class="content">
+        For any \( p \in \mathbb{ H } \) we have $$ \overline{ p } = \operatorname{to\_quat}(r(p)) + \operatorname{to\_quat}(-v(p)) $$
+    </div>
+    <div class="proof">
+        $$
+        \begin{align}
+        \overline{p} &= r(p) - v(p) \\
+        &= \operatorname{to\_quat}(r(p)) + \operatorname{to\_quat}(-v(p))
+        \end{align}
+        $$
+        where the first equality follows from the <a class="knowledge-link" href="#definition-conjugate-quaternion">definition of conjugation</a> and the <a class="knowledge-link" href="#corollary-quaternion-decomposes-as-sum-of-to-quats">decomposition of a quaternion</a>.
+    </div>
+</div>
+
+<div class="corollary" id="corollary-conjugate-of-pure-quaternion-is-negation">
+    <div class="title">
+        Conjugate of a Pure Quaternion is its Negation
+    </div>
+    <div class="content">
+        For any pure quaternion \( p \in \mathbb{H} \), $$ \overline{p} = -p $$
+    </div>
+    <div class="proof">
+        Since \( p \) is pure, \( r(p) = 0 \). Then by the <a class="knowledge-link" href="#corollary-conjugate-only-applies-to-vector-part">conjugate formula</a>:
+        $$
+        \overline{p} = \operatorname{to\_quat}(0) + \operatorname{to\_quat}(-v(p)) = \operatorname{to\_quat}(-v(p)) = -p
+        $$
+    </div>
+</div>
+
 <div class="corollary" id="corollary-product-commutes-in-the-real-part">
     <div class="title">
         Product Commutes in the Real Part
     </div>
     <div class="content">
-        For any \( p, q \in \mathbb{ H } \) we have \[ r \left( pq \right) = r\left( qp \right) \]
+        For any \( p, q \in \mathbb{ H } \) we have $$ r \left( pq \right) = r\left( qp \right) $$
     </div>
     <div class="proof">
-        \[ r\left( pq \right) = r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) = r \left( q \right) r \left( p \right) - v\left( q \right) \cdot v\left( p \right) = r\left( qp \right) \]
+        $$ r\left( pq \right) = r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) = r \left( q \right) r \left( p \right) - v\left( q \right) \cdot v\left( p \right) = r\left( qp \right) $$
+        where we used commutativity of real multiplication and commutativity of the dot product.
     </div>
 </div>
+
+<div class="proposition" id="proposition-quaternion-times-its-conjugate">
+    <div class="title">
+        Quaternion Times its Conjugate
+    </div>
+    <div class="content">
+        For any \( q \in \mathbb{H} \), $$ q \overline{q} = \overline{q} q = \operatorname{to\_quat}(\| q \|^2) $$
+    </div>
+    <div class="proof">
+        Let \( q = a + bi + cj + dk \). Then \( r(q) = a \), \( v(q) = (b, c, d) \), \( r(\overline{q}) = a \), \( v(\overline{q}) = (-b, -c, -d) \).
+        $$
+        \begin{align}
+        r(q\overline{q}) &= r(q)\,r(\overline{q}) - v(q) \cdot v(\overline{q}) \\
+        &= a \cdot a - (b, c, d) \cdot (-b, -c, -d) \\
+        &= a^2 - (-b^2 - c^2 - d^2) \\
+        &= a^2 + b^2 + c^2 + d^2 = \| q \|^2
+        \end{align}
+        $$
+        $$
+        \begin{align}
+        v(q\overline{q}) &= r(q)\,v(\overline{q}) + r(\overline{q})\,v(q) + v(q) \times v(\overline{q}) \\
+        &= a(-b, -c, -d) + a(b, c, d) + (b, c, d) \times (-b, -c, -d) \\
+        &= \mathbf{0} + \mathbf{0} = \mathbf{0}
+        \end{align}
+        $$
+        where \( (b, c, d) \times (-b, -c, -d) = -(b, c, d) \times (b, c, d) = \mathbf{0} \) since the cross product of any vector with itself is zero. Therefore \( q\overline{q} = \operatorname{to\_quat}(\| q \|^2) \). The proof that \( \overline{q}\,q = \operatorname{to\_quat}(\| q \|^2) \) is analogous.
+    </div>
+</div>
+
+<div class="corollary" id="corollary-unit-quaternion-inverse-is-conjugate">
+    <div class="title">
+        Unit Quaternion Inverse is its Conjugate
+    </div>
+    <div class="content">
+        For any unit quaternion \( q \in \mathbb{H} \), $$ q^{-1} = \overline{q} $$
+    </div>
+    <div class="proof">
+        Since \( \| q \| = 1 \), by the <a class="knowledge-link" href="#proposition-quaternion-times-its-conjugate">previous proposition</a>, \( q \overline{q} = \operatorname{to\_quat}(1) = e \) and \( \overline{q}\, q = e \). Therefore \( \overline{q} \) is the multiplicative inverse of \( q \).
+    </div>
+</div>
+
 <div class="definition" id="definition-dot-product-of-two-quaternions">
     <div class="title">
         Dot Product of Two Quaternions
     </div>
     <div class="content">
-        Suppose that \( p, q \in \mathbb{H} \), then we define \[ p \cdot q := \operatorname{re}(p) \operatorname{re}(q) + \operatorname{v}(p) \cdot \operatorname{v}(q) \]
+        Suppose that \( p, q \in \mathbb{H} \), then we define $$ p \cdot q := r(p)\,r(q) + v(p) \cdot v(q) $$
     </div>
 </div>
+
 <div class="lemma" id="lemma-conjugation-is-a-homomorphism-in-the-real-part">
     <div class="title">
         Conjugation is a Homomorphism in the Real Part
     </div>
     <div class="content">
-        For any \( p, q \in \mathbb{ H } \) we have \[ r \left( \overline{ pq } \right) = r\left( \overline{ p } ~ \overline{ q } \right) \]
+        For any \( p, q \in \mathbb{ H } \) we have $$ r \left( \overline{ pq } \right) = r\left( \overline{ p } \; \overline{ q } \right) $$
     </div>
     <div class="proof">
-        First of all, we know <a class="knowledge-link" href="/algebra/quaternions.html#corollary-real-part-of-the-conjugate-doesnt-change">conjugation doesn't change the real part</a>, so we have: \[ r \left( \overline{ pq } \right) = r\left( pq \right) = r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) \] and then we know that \[ r \left( \overline{ p } ~ \overline{ q } \right) = r \left( \overline{ p } \right) r \left( \overline{ q } \right) - v\left( \overline{ p } \right) \cdot v\left( \overline{ q } \right) \] Since <a class="knowledge-link" href="/algebra/quaternions.html#corollary-vector-part-of-the-conjugate-is-minus-1-times-the-original">minus comes out of the vector part</a>, and constants can get pulled out of the dot product we have that \[ r \left( \overline{ p } \right) r \left( \overline{ q } \right) - v\left( \overline{ p } \right) \cdot v\left( \overline{ q } \right) = r\left( p \right) r \left( q \right) - \left( - 1 \right) \left( - 1 \right) v\left( p \right) \cdot v\left( q \right) = r\left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) \] therefore we have that \( r\left( \overline{ pq } \right) = r\left( \overline{ p } ~ \overline{ q } \right) \)
+        First of all, we know <a class="knowledge-link" href="#corollary-real-part-of-the-conjugate-doesnt-change">conjugation doesn't change the real part</a>, so we have: $$ r \left( \overline{ pq } \right) = r\left( pq \right) = r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) $$ and then we know that $$ r \left( \overline{ p } \; \overline{ q } \right) = r \left( \overline{ p } \right) r \left( \overline{ q } \right) - v\left( \overline{ p } \right) \cdot v\left( \overline{ q } \right) $$ Since <a class="knowledge-link" href="#corollary-vector-part-of-the-conjugate-is-minus-1-times-the-original">minus comes out of the vector part</a>, and constants can get pulled out of the dot product we have that $$ r \left( \overline{ p } \right) r \left( \overline{ q } \right) - v\left( \overline{ p } \right) \cdot v\left( \overline{ q } \right) = r\left( p \right) r \left( q \right) - \left( -1 \right) \left( -1 \right) v\left( p \right) \cdot v\left( q \right) = r\left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) $$ therefore we have that \( r\left( \overline{ pq } \right) = r\left( \overline{ p } \; \overline{ q } \right) \).
     </div>
 </div>
+
 <div class="lemma" id="lemma-conjugation-swaps-order-in-vector-part">
     <div class="title">
         Conjugation Swaps Order in the Vector Part
     </div>
     <div class="content">
-        For any \( p, q \in \mathbb{ H } \) we have \[ v \left( \overline{ pq } \right) = v\left( \overline{ q } ~ \overline{ p } \right) \]
+        For any \( p, q \in \mathbb{ H } \) we have $$ v \left( \overline{ pq } \right) = v\left( \overline{ q } \; \overline{ p } \right) $$
     </div>
     <div class="proof">
-        We recall <a class="knowledge-link" href="/algebra/quaternions.html#corollary-conjugate-only-applies-to-vector-part">that</a>, and so \[ v \left( \overline{ pq } \right) = v \left( r\left( pq \right) - v\left( pq \right) \right) = -v\left( pq \right) \] and then we know that \[ \begin{align} v\left( \overline{ q } ~ \overline{ p } \right) &amp;= r \left( \overline{ q } \right) v\left( \overline{ p } \right) + r\left( \overline{ p } \right) v\left( \overline{ q } \right) + v \left( \overline{ q } \right) \times v \left( \overline{ p } \right) \\ &amp;= - r \left( q \right) v\left( p \right) - r\left( p \right) v\left( q \right) + v \left( \overline{ q } \right) \times v \left( \overline{ p } \right) \\ &amp;= - r \left( q \right) v\left( p \right) - r\left( p \right) v\left( q \right) + \left( -1 \right) \left( -1 \right) v \left( q \right) \times v \left( p \right) \\ &amp;= - r\left( p \right) v\left( q \right) - r \left( q \right) v \left( p \right) - v\left( p \right) \times v \left( q \right) \\ &amp;= - v\left( qp \right) \end{align} \] as needed.
+        We recall <a class="knowledge-link" href="#corollary-conjugate-only-applies-to-vector-part">that</a>, and so $$ v \left( \overline{ pq } \right) = -v\left( pq \right) $$ and then we compute:
+        $$
+        \begin{align}
+        v\left( \overline{ q } \; \overline{ p } \right) &= r \left( \overline{ q } \right) v\left( \overline{ p } \right) + r\left( \overline{ p } \right) v\left( \overline{ q } \right) + v \left( \overline{ q } \right) \times v \left( \overline{ p } \right) \\
+        &= r(q)(-v(p)) + r(p)(-v(q)) + (-v(q)) \times (-v(p)) \\
+        &= -r(q)\,v(p) - r(p)\,v(q) + v(q) \times v(p) \\
+        &= -r(p)\,v(q) - r(q)\,v(p) - v(p) \times v(q) \\
+        &= -\big(r(p)\,v(q) + r(q)\,v(p) + v(p) \times v(q)\big) \\
+        &= -v(pq)
+        \end{align}
+        $$
+        where we used that \( v(q) \times v(p) = -(v(p) \times v(q)) \). Therefore \( v(\overline{pq}) = -v(pq) = v(\overline{q}\;\overline{p}) \).
     </div>
 </div>
+
 <div class="proposition" id="proposition-conjugation-distributes-by-swapping">
     <div class="title">
         Conjugation Distributes by Swapping
     </div>
     <div class="content">
-        For any \( p, q \in \mathbb{ H } \) we have \[ \overline{ pq } = \overline{ q } ~ \overline{ p } \]
+        For any \( p, q \in \mathbb{ H } \) we have $$ \overline{ pq } = \overline{ q } \; \overline{ p } $$
     </div>
     <div class="proof">
-        We show they are <a class="knowledge-link" href="/algebra/quaternions.html#corollary-equality-by-vector-and-real-equality">equal</a>: \[ r\left( \overline{ pq } \right) = r\left( \overline{ p } ~ \overline{ q } \right) = r\left( \overline{ q } ~ \overline{ p } \right) \] and then we <a class="knowledge-link" href="/algebra/quaternions.html#lemma-conjugation-swaps-order-in-vector-part">recall</a> \( v\left( \overline{ pq } \right) = v\left( \overline{ q } ~ \overline{ p } \right) \), so that \( \overline{ pq } = \overline{ q } ~ \overline{ p } \)
+        We show they are <a class="knowledge-link" href="#corollary-equality-by-vector-and-real-equality">equal</a> by checking both parts. For the real part: $$ r\left( \overline{ pq } \right) = r(pq) = r(qp) = r\left( \overline{qp} \right) = r\left( \overline{q}\;\overline{p} \right) $$ where the first and third equalities use that <a class="knowledge-link" href="#corollary-real-part-of-the-conjugate-doesnt-change">conjugation preserves the real part</a>, the second uses that the <a class="knowledge-link" href="#corollary-product-commutes-in-the-real-part">product commutes in the real part</a>, and the last uses the <a class="knowledge-link" href="#lemma-conjugation-is-a-homomorphism-in-the-real-part">conjugation homomorphism lemma</a>. For the vector part, we have by the <a class="knowledge-link" href="#lemma-conjugation-swaps-order-in-vector-part">conjugation swaps order lemma</a> that \( v\left( \overline{ pq } \right) = v\left( \overline{ q } \; \overline{ p } \right) \). Therefore \( \overline{ pq } = \overline{ q } \; \overline{ p } \).
     </div>
-</div><!--  https://planetmath.org/proofofrodriguesrotationformula -->
-<!--  https://math.stackexchange.com/questions/704094/product-of-reflections-is-a-rotation-by-elementary-vector-methods -->
-<div class="proposition" id="proposition-dot-product-and-regular-product-commute">
-    <div class="title">
-        Dot Product and Regular Product Commute
-    </div>
-    <div class="content">
-        Suppose that \( p, q \in \mathbb{H} \), then we define \[ \left( pq \right) \cdot \left( pr \right) = \left( p \cdot p \right) \left( q \cdot r \right) \]
-    </div>
-    <div class="proof"></div>
 </div>
-<div class="proposition" id="proposition-quaternion-times-its-conjugate-equation">
-    <div class="title">
-        Quaternion times its Conjugate Equation
-    </div>
-    <div class="content">
-        Suppose that \( p \in \mathbb{H} \), then we have: \[ q \overline{ q } = \left( q \cdot q \right) e \]
-    </div>
-    <div class="proof"></div>
-</div>
-<div class="theorem" id="theorem-quaternion-conjugation-is-a-rotation-operation" >
-    <div class="title">Quaternion Conjugation Is a Rotation Operation</div>
-    <div class="content">
-        Fix \( u \in \mathbb{ R } ^ 3 \)  \( q = \cos \left( \frac{ \theta  }{ 2 }  \right) +   \) 
-    </div>
 
+<div class="lemma" id="lemma-conjugation-preserves-norm">
+    <div class="title">
+        Conjugation Preserves Norm
+    </div>
+    <div class="content">
+        For any \( q \in \mathbb{H} \), $$ \| \overline{q} \| = \| q \| $$
+    </div>
     <div class="proof">
-        TODO: Add the proof here.
+        Let \( q = a + bi + cj + dk \). Then \( \overline{q} = a - bi - cj - dk \), so $$ \| \overline{q} \| = \sqrt{a^2 + (-b)^2 + (-c)^2 + (-d)^2} = \sqrt{a^2 + b^2 + c^2 + d^2} = \| q \| $$
     </div>
 </div>
-<!-- https://www.youtube.com/watch?v=jTgdKoQv738 -->
-<!-- https://www.youtube.com/watch?v=Idlv83CxP-8 -->
+
+<div class="lemma" id="lemma-quaternion-product-is-norm-multiplicative">
+    <div class="title">
+        Quaternion Product is Norm-Multiplicative
+    </div>
+    <div class="content">
+        For any \( p, q \in \mathbb{H} \), $$ \| pq \| = \| p \| \cdot \| q \| $$
+    </div>
+    <div class="proof">
+        We compute:
+        $$
+        \begin{align}
+        \| pq \|^2 &= r(pq \cdot \overline{pq}) \\
+        &= r(pq \cdot \overline{q}\;\overline{p})
+        \end{align}
+        $$
+        by <a class="knowledge-link" href="#proposition-conjugation-distributes-by-swapping">conjugation distributing by swapping</a>. By <a class="knowledge-link" href="#proposition-quaternion-multiplication-is-associative">associativity</a>:
+        $$
+        pq \cdot \overline{q}\;\overline{p} = p(q\overline{q})\overline{p} = p \cdot \operatorname{to\_quat}(\| q \|^2) \cdot \overline{p} = \| q \|^2 (p\overline{p}) = \| q \|^2 \cdot \operatorname{to\_quat}(\| p \|^2)
+        $$
+        where we used that \( q\overline{q} = \operatorname{to\_quat}(\| q \|^2) \) and that <a class="knowledge-link" href="#proposition-quaternion-product-with-real-quaternion">real quaternions commute with everything</a>. Therefore \( \| pq \|^2 = \| p \|^2 \| q \|^2 \), and taking square roots gives \( \| pq \| = \| p \| \cdot \| q \| \).
+    </div>
+</div>
+
+<div class="lemma" id="lemma-conjugation-of-pure-by-unit-is-pure">
+    <div class="title">
+        Conjugation of a Pure Quaternion by a Unit Quaternion is Pure
+    </div>
+    <div class="content">
+        For any pure quaternion \( p \in \mathbb{H} \) and unit quaternion \( q \in \mathbb{H} \), the quaternion \( qp\overline{q} \) is pure, i.e. $$ r(qp\overline{q}) = 0 $$
+    </div>
+    <div class="proof">
+        <p>We use the fact that a quaternion \( x \) is pure if and only if \( \overline{x} = -x \). We verify this for \( x = qp\overline{q} \):</p>
+        $$
+        \begin{align}
+        \overline{qp\overline{q}} &= \overline{\overline{q}} \; \overline{p} \; \overline{q} \\
+        &= q(-p)\overline{q} \\
+        &= -(qp\overline{q})
+        \end{align}
+        $$
+        <p>where we used <a class="knowledge-link" href="#proposition-conjugation-distributes-by-swapping">conjugation distributes by swapping</a> (applied twice), the fact that \( \overline{\overline{q}} = q \), and the fact that \( \overline{p} = -p \) since \( p \) is <a class="knowledge-link" href="#corollary-conjugate-of-pure-quaternion-is-negation">pure</a>. Since \( \overline{qp\overline{q}} = -(qp\overline{q}) \), the quaternion \( qp\overline{q} \) is pure.</p>
+    </div>
+</div>
+
+<div class="lemma" id="lemma-conjugation-preserves-vector-norm">
+    <div class="title">
+        Conjugation by a Unit Quaternion Preserves the Norm of the Vector Part
+    </div>
+    <div class="content">
+        For any pure quaternion \( p \in \mathbb{H} \) and unit quaternion \( q \in \mathbb{H} \), $$ \| qp\overline{q} \| = \| p \| $$
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="#lemma-quaternion-product-is-norm-multiplicative">norm-multiplicativity</a>:
+        $$
+        \| qp\overline{q} \| = \| q \| \cdot \| p \| \cdot \| \overline{q} \| = 1 \cdot \| p \| \cdot 1 = \| p \|
+        $$
+        where we used that \( \| q \| = 1 \) and \( \| \overline{q} \| = \| q \| = 1 \).
+    </div>
+</div>
+
+
+<div class="definition" id="definition-parallel-and-perpendicular-decomposition">
+    <div class="title">
+        Parallel and Perpendicular Decomposition
+    </div>
+    <div class="content">
+        Given a vector \( \mathbf{w} \in \mathbb{R}^3 \) and a unit vector \( \hat{n} \in \mathbb{R}^3 \), we define the <b>parallel</b> and <b>perpendicular</b> components of \( \mathbf{w} \) with respect to \( \hat{n} \) as:
+        $$
+        \mathbf{w}_\parallel := (\hat{n} \cdot \mathbf{w})\,\hat{n}, \qquad \mathbf{w}_\perp := \mathbf{w} - \mathbf{w}_\parallel
+        $$
+        so that \( \mathbf{w} = \mathbf{w}_\parallel + \mathbf{w}_\perp \), where \( \hat{n} \cdot \mathbf{w}_\perp = 0 \).
+    </div>
+</div>
+
+<div class="lemma" id="lemma-pure-quat-product-with-parallel">
+    <div class="title">
+        Pure Unit Quaternion Times a Parallel Pure Quaternion
+    </div>
+    <div class="content">
+        Let \( \hat{n} \) be a pure unit quaternion and let \( p_\parallel \) be a pure quaternion such that \( v(p_\parallel) = \lambda\, v(\hat{n}) \) for some \( \lambda \in \mathbb{R} \). Then $$ \hat{n}\, p_\parallel = \operatorname{to\_quat}(-\lambda) $$ In particular, \( \hat{n}\, p_\parallel \) is a real quaternion.
+    </div>
+    <div class="proof">
+        Since both are pure, by the <a class="knowledge-link" href="#proposition-product-of-two-pure-quaternions">product of two pure quaternions</a>:
+        $$
+        \begin{align}
+        \hat{n}\, p_\parallel &= \operatorname{to\_quat}(-v(\hat{n}) \cdot v(p_\parallel)) + \operatorname{to\_quat}(v(\hat{n}) \times v(p_\parallel)) \\
+        &= \operatorname{to\_quat}(-v(\hat{n}) \cdot \lambda\,v(\hat{n})) + \operatorname{to\_quat}(v(\hat{n}) \times \lambda\,v(\hat{n})) \\
+        &= \operatorname{to\_quat}(-\lambda\,\| v(\hat{n}) \|^2) + \operatorname{to\_quat}(\lambda\,(v(\hat{n}) \times v(\hat{n}))) \\
+        &= \operatorname{to\_quat}(-\lambda) + \operatorname{to\_quat}(\mathbf{0}) \\
+        &= \operatorname{to\_quat}(-\lambda)
+        \end{align}
+        $$
+        where we used \( \| v(\hat{n}) \| = 1 \) and \( v(\hat{n}) \times v(\hat{n}) = \mathbf{0} \).
+    </div>
+</div>
+
+<div class="lemma" id="lemma-pure-quat-product-with-perpendicular">
+    <div class="title">
+        Pure Unit Quaternion Times a Perpendicular Pure Quaternion
+    </div>
+    <div class="content">
+        Let \( \hat{n} \) be a pure unit quaternion and let \( p_\perp \) be a pure quaternion such that \( v(\hat{n}) \cdot v(p_\perp) = 0 \). Then $$ \hat{n}\, p_\perp = \operatorname{to\_quat}(v(\hat{n}) \times v(p_\perp)) $$ In particular, \( \hat{n}\, p_\perp \) is a pure quaternion.
+    </div>
+    <div class="proof">
+        Since both are pure, by the <a class="knowledge-link" href="#proposition-product-of-two-pure-quaternions">product of two pure quaternions</a>:
+        $$
+        \begin{align}
+        \hat{n}\, p_\perp &= \operatorname{to\_quat}(-v(\hat{n}) \cdot v(p_\perp)) + \operatorname{to\_quat}(v(\hat{n}) \times v(p_\perp)) \\
+        &= \operatorname{to\_quat}(0) + \operatorname{to\_quat}(v(\hat{n}) \times v(p_\perp)) \\
+        &= \operatorname{to\_quat}(v(\hat{n}) \times v(p_\perp))
+        \end{align}
+        $$
+    </div>
+</div>
+
+
+<div class="theorem" id="theorem-pure-unit-quaternion-sandwich-is-reflection">
+    <div class="title">
+        Pure Unit Quaternion Sandwich is a Reflection
+    </div>
+    <div class="content">
+        Let \( \hat{n} \in \mathbb{H} \) be a pure unit quaternion, and let \( p \in \mathbb{H} \) be a pure quaternion. Then $$ \hat{n}\, p\, \hat{n} = \operatorname{to\_quat}\!\big(-v(p)_\parallel + v(p)_\perp\big) $$ where \( v(p)_\parallel = (v(\hat{n}) \cdot v(p))\,v(\hat{n}) \) and \( v(p)_\perp = v(p) - v(p)_\parallel \) are the parallel and perpendicular components of \( v(p) \) with respect to \( v(\hat{n}) \). This is the reflection of \( v(p) \) through the plane perpendicular to \( v(\hat{n}) \).
+    </div>
+    <div class="proof">
+        <p>Decompose \( p = p_\parallel + p_\perp \) where \( p_\parallel = \operatorname{to\_quat}(v(p)_\parallel) \) and \( p_\perp = \operatorname{to\_quat}(v(p)_\perp) \). Both are pure quaternions, and \( v(\hat{n}) \cdot v(p_\perp) = 0 \), while \( v(p_\parallel) = \lambda\, v(\hat{n}) \) where \( \lambda = v(\hat{n}) \cdot v(p) \).</p>
+
+        <p><b>Parallel part:</b> We compute \( \hat{n}\, p_\parallel\, \hat{n} \). By the <a class="knowledge-link" href="#lemma-pure-quat-product-with-parallel">parallel product lemma</a>, \( \hat{n}\, p_\parallel = \operatorname{to\_quat}(-\lambda) \). Since this is a real quaternion, by <a class="knowledge-link" href="#proposition-quaternion-product-with-real-quaternion">the real product property</a>:
+        $$
+        \hat{n}\, p_\parallel\, \hat{n} = \operatorname{to\_quat}(-\lambda) \cdot \hat{n} = -\lambda\, \hat{n} = \operatorname{to\_quat}(-\lambda\, v(\hat{n})) = \operatorname{to\_quat}(-v(p)_\parallel)
+        $$
+        The parallel component is <b>negated</b>.</p>
+
+        <p><b>Perpendicular part:</b> We compute \( \hat{n}\, p_\perp\, \hat{n} \). Since \( v(\hat{n}) \cdot v(p_\perp) = 0 \), the quaternions \( \hat{n} \) and \( p_\perp \) <a class="knowledge-link" href="#proposition-perpendicular-pure-quaternions-anticommute">anticommute</a>: \( \hat{n}\, p_\perp = -p_\perp\, \hat{n} \). Therefore:
+        $$
+        \hat{n}\, p_\perp\, \hat{n} = (-p_\perp\, \hat{n})\, \hat{n} = -p_\perp\, (\hat{n}\, \hat{n}) = -p_\perp\, \hat{n}^2
+        $$
+        By the <a class="knowledge-link" href="#corollary-square-of-pure-unit-quaternion">square of a pure unit quaternion</a>, \( \hat{n}^2 = -e \), so:
+        $$
+        -p_\perp(-e) = p_\perp \cdot e = p_\perp = \operatorname{to\_quat}(v(p)_\perp)
+        $$
+        The perpendicular component is <b>preserved</b>.</p>
+
+        <p><b>Combining:</b> By <a class="knowledge-link" href="#proposition-quaternion-multiplication-is-associative">associativity</a> and the distributive law:
+        $$
+        \hat{n}\, p\, \hat{n} = \hat{n}(p_\parallel + p_\perp)\hat{n} = \hat{n}\, p_\parallel\, \hat{n} + \hat{n}\, p_\perp\, \hat{n} = \operatorname{to\_quat}(-v(p)_\parallel) + \operatorname{to\_quat}(v(p)_\perp) = \operatorname{to\_quat}(-v(p)_\parallel + v(p)_\perp)
+        $$
+        This is exactly the reflection of \( v(p) \) through the plane perpendicular to \( v(\hat{n}) \).</p>
+    </div>
+</div>
+
+
+<div class="lemma" id="lemma-unit-quaternion-factors-into-two-pure-unit-quaternions">
+    <div class="title">
+        Unit Quaternion Factors into Two Pure Unit Quaternions
+    </div>
+    <div class="content">
+        Let \( q = \cos\!\left(\frac{\theta}{2}\right) + \hat{n}\sin\!\left(\frac{\theta}{2}\right) \) be a unit quaternion, where \( \hat{n} \) is a pure unit quaternion. Then there exist pure unit quaternions \( \hat{a}, \hat{b} \in \mathbb{H} \) with \( v(\hat{a}) \cdot v(\hat{n}) = 0 \) and \( v(\hat{b}) \cdot v(\hat{n}) = 0 \), such that:
+        $$
+        q = \hat{b}\,\hat{a}
+        $$
+        Moreover, the angle between \( v(\hat{a}) \) and \( v(\hat{b}) \) is \( \frac{\theta}{2} \), and the two reflection planes (perpendicular to \( v(\hat{a}) \) and \( v(\hat{b}) \) respectively) intersect along the axis \( v(\hat{n}) \).
+    </div>
