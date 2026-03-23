@@ -114,6 +114,32 @@
     </div>
     <div class="proof"></div>
 </div>
+<div class="proposition" id="proposition-remainder-of-sum-less-than-first-summand">
+    <div class="title">
+        Remainder of Sum Less Than First Summand When Sum Exceeds Modulus
+    </div>
+    <div class="content">
+        Suppose that \( n \in \mathbb{N}_1 \) and \( a, b \in [0, \ldots, n-1] \) such that \( a + b \geq n \), then \[ (a + b) ~\%~ n < a \]
+    </div>
+    <div class="proof">
+        <p>
+            Since \( a \leq n - 1 \) and \( b \leq n - 1 \) we have \( a + b \leq 2n - 2 \), combined with our assumption that \( a + b \geq n \) we obtain 
+
+            \[ n \leq a + b \leq 2n - 2 \] 
+
+            and therefore 
+
+            \[ 0 \leq a + b - n \leq n - 2 < n \]
+
+            succinctly: \( 0 \leq a + b - n < n \) and since we know \( a + b = n + (a + b - n) \) then by <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#theorem-quotient-remainder">quotient remainder</a> we conclude 
+
+            \[ (a + b) ~\%~ n = a + b - n \]
+        </p>
+        <p>
+            Another way of seeing the above is that \( (a + b) ~\%~ n = a - (n - b) \), and this is a better form because if we knew that \( n - b >= 1 \) then we could conclude that \( (a + b) ~\%~ n  < a\), but we did know that \( b \in [0, \ldots, n - 1] \)  therefore \( b \leq n - 1 \) which yields \( n - b \geq 1 \)  as needed.
+        </p>
+    </div>
+</div>
 <div class="proposition" id="proposition-repeated-application-of-the-remainder-function-does-nothing">
     <div class="title">
         Repeated Application of the Remainder Function does Nothing

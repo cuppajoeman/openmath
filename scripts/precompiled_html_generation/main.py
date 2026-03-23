@@ -203,9 +203,7 @@ def convert_latex_to_mathml(html_content):
     """Convert LaTeX expressions in the HTML content to MathML."""
     latex_pattern = re.compile(
         r'\\\((.+?)\\\)'
-        r'|\\$$(.+?)\\$$'
-        r'|\$\$(.+?)\$\$'
-        r'|\$(.+?)\$',
+        r'|\\\[(.+?)\\\]',
         re.DOTALL
     )
 
