@@ -6,13 +6,17 @@ import os
 import latex2mathml.converter
 
 
+# Get the directory where this script lives, so relative paths work correctly
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
 def restore_ampersands(html_content: str) -> str:
     """When there is a literal & in html then since this is a special char then 
     BeautifulSoup(html_content, ...) will turn them into &amp; which is how html 
     represents special chars such as < being writeen as &lt; to avoid clashing with < for tags
     this function restores the & which is used in latex environments for alignment.
     """
-    return html_content.replace("&amp;", "&");
+    return html_content.replace("&amp;", "&")
 
 
 def read_html_file(file_path):
@@ -20,18 +24,20 @@ def read_html_file(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
         return file.read()
 
+
 def write_html_file(file_path, content):
     """Write the given content to an HTML file."""
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(content)
 
+
 def set_up_statement_with_proof_templates(html_content: str, logging: bool = False) -> str:
     """Set up statements with proof templates in the HTML content."""
     soup = BeautifulSoup(html_content, "html.parser")
 
-    # Load the statement with proof template, going back a dir because it's running from fast-html
-    # TODO in future do this relative to the script dir
-    template_file_path = "../templates/statement_with_proof.html"
+    # Load the statement with proof template relative to the script directory
+    template_file_path = os.path.join(SCRIPT_DIR, "templates", "statement_with_proof.html")
+    template_file_path = os.path.normpath(template_file_path)
     if logging:
         print(f"Reading template file from: {template_file_path}")
 
@@ -48,10 +54,15 @@ def set_up_statement_with_proof_templates(html_content: str, logging: bool = Fal
         for statement_with_proof in statements_with_proof:
             # create a new template each time.
             statement_with_proof_template = BeautifulSoup(template_content, "html.parser").find("div")
-            replace_statement_with_proof_from_template(statement_with_proof, type_of_statement_requiring_proof, statement_with_proof_template, logging)
-
+            replace_statement_with_proof_from_template(
+                statement_with_proof,
+                type_of_statement_requiring_proof,
+                statement_with_proof_template,
+                logging
+            )
 
     return str(soup)
+
 
 def replace_statement_with_proof_from_template(
     statement_with_proof: Tag,
@@ -106,7 +117,6 @@ def replace_statement_with_proof_from_template(
         print("Warning: Template title element is None or existing title is None.")
 
     if template_content_element and existing_content_element:
-        # Use .decode_contents() to handle nested HTML
         template_content_element.replace_with(existing_content_element)
         if logging:
             print(f"Updated template content with nested HTML.")
@@ -115,8 +125,7 @@ def replace_statement_with_proof_from_template(
 
     if template_proof_content_element and existing_proof_element:
         existing_proof_element['class'] = "content"
-        template_proof_content_element.replace_with(existing_proof_element);
-        # have to do the following because replacing with an element clobbers the class as well
+        template_proof_content_element.replace_with(existing_proof_element)
         if logging:
             print(f"Updated template proof content with nested HTML.")
     else:
@@ -134,6 +143,7 @@ def replace_statement_with_proof_from_template(
         print(f"Replaced {type_of_statement_requiring_proof}: {statement_with_proof['id']} with the template.")
 
     return
+
 
 def set_up_proof_toggle_buttons(html_content, logging=False):
     """Set up proof toggle buttons in the HTML content."""
@@ -167,7 +177,7 @@ def set_up_proof_toggle_buttons(html_content, logging=False):
 
                 toggle_button['onclick'] = (
                     "console.log('Toggle button clicked. Current hidden state:', this.getAttribute('data-hidden')); "
-                    "var content = this.parentNode.nextElementSibling; "  # Use nextElementSibling to get the content
+                    "var content = this.parentNode.nextElementSibling; "
                     "if (this.getAttribute('data-hidden') === 'true') { "
                     "    console.log('Showing proof for:', content); "
                     "    if (content) { content.style.display = 'block'; } "
@@ -188,32 +198,49 @@ def set_up_proof_toggle_buttons(html_content, logging=False):
     
     return str(soup)
 
+
 def convert_latex_to_mathml(html_content):
     """Convert LaTeX expressions in the HTML content to MathML."""
-    # Define a regex pattern to match LaTeX inside \( ... \), \[ ... \], or $ ... $ (handling multi-line expressions)
-    latex_pattern = re.compile(r'\\\((.+?)\\\)|\\\[(.+?)\\\]|\$(.+?)\$', re.DOTALL)
+    latex_pattern = re.compile(
+        r'\\\((.+?)\\\)'
+        r'|\\$$(.+?)\\$$'
+        r'|\$\$(.+?)\$\$'
+        r'|\$(.+?)\$',
+        re.DOTALL
+    )
 
     def replace_latex_with_mathml(match):
-        """Convert LaTeX to MathML, setting the display attribute based on LaTeX syntax."""
-        if match.group(1):  # \( ... \) - inline math
+        if match.group(1):
             latex = match.group(1)
             display = "inline"
-        elif match.group(2):  # \[ ... \] - block math
+        elif match.group(2):
             latex = match.group(2)
             display = "block"
-        else:  # $ ... $ - inline math
+        elif match.group(3):
             latex = match.group(3)
+            display = "block"
+        else:
+            latex = match.group(4)
             display = "inline"
-        
-        # Convert LaTeX to MathML using the display attribute
-        print("about to convert", latex)
-        # add the \displaystyle command if in block mode, need to make issue about this in latex2mathml
-        latex = ("\displaystyle " if display == "block" else "") + latex
-        mathml = latex2mathml.converter.convert(latex, display=display)
-        return mathml
 
-    # Replace LaTeX with MathML in the HTML content
+        latex = latex.strip()
+
+        if not latex:
+            print(f"WARNING: Empty LaTeX expression found, skipping.")
+            return match.group(0)
+
+        print("about to convert ", latex)
+
+        try:
+            latex = ("\\displaystyle " if display == "block" else "") + latex
+            mathml = latex2mathml.converter.convert(latex, display=display)
+            return mathml
+        except Exception as e:
+            print(f"ERROR converting LaTeX: '{latex}' — {e}")
+            return match.group(0)
+
     return latex_pattern.sub(replace_latex_with_mathml, html_content)
+
 
 def setup_page(html_content: str) -> str:
     logging = False
@@ -222,10 +249,12 @@ def setup_page(html_content: str) -> str:
     modified_html_content = set_up_proof_toggle_buttons(modified_html_content, logging)
     return modified_html_content
 
+
 def strip_leading_dotslash(path):
     while path.startswith("../"):
         path = path[3:]
     return path
+
 
 def generate_breadcrumb(path_to_content_file: str) -> str:
     """
@@ -235,7 +264,7 @@ def generate_breadcrumb(path_to_content_file: str) -> str:
     '~/a/b/c/' where a, b, c are clickable and link to /a/index.html, /a/b/index.html, etc.
     """
     breadcrumb_html = '<nav class="breadcrumb">\n'
-    parts = strip_leading_dotslash(path_to_content_file.replace("generated_html/", "")).split("/")[:-1]  # exclude the file name
+    parts = strip_leading_dotslash(path_to_content_file.replace("generated_html/", "")).split("/")[:-1]
     current_path = "/"
     
     breadcrumb_html += f'<a href="/index.html">~</a>'
@@ -253,7 +282,7 @@ def openmath_template_conversion(path_to_content_file: str, file_name: str, temp
     If it's processing a/b/c/file.html, then path_to_content_file refers to that whole path, and 
     file_name refers to file.html, template_file refers to the template file being used for file.html
     """
-    with open(template_file, "r") as f:
+    with open(template_file, 'r', encoding='utf-8') as f:
         template_lines = f.readlines()
 
     file_name = os.path.splitext(os.path.basename(file_name))[0]
@@ -263,17 +292,13 @@ def openmath_template_conversion(path_to_content_file: str, file_name: str, temp
     title_line_index = next(i for i, s in enumerate(template_lines) if "<title>PAGE TITLE</title>" in s)
     template_lines[title_line_index] = template_lines[title_line_index].replace("PAGE TITLE", page_title)
 
-    # Update the header title (if needed) - Here, assuming header title can be added similarly.
-    # If you have a specific header title line in your template, include it; otherwise, this part can be omitted.
-    # For now, we'll assume it's not included since the header line isn't provided.
-    
     print(f"DEBUG PATH TO CONTENT FILE {path_to_content_file}")
     
     # Generate breadcrumb navigation
     breadcrumb_html = generate_breadcrumb(path_to_content_file)
 
-    with open(path_to_content_file, "r") as f:
-            content_string = f.read()
+    with open(path_to_content_file, "r", encoding="utf-8") as f:
+        content_string = f.read()
 
     content_string = restore_ampersands(content_string)
 
@@ -281,26 +306,12 @@ def openmath_template_conversion(path_to_content_file: str, file_name: str, temp
     main_content_area_index = next(i for i, s in enumerate(template_lines) if "CONTENT" in s)
     template_lines[main_content_area_index] = breadcrumb_html + template_lines[main_content_area_index].replace("CONTENT", content_string)
 
-    # # Update link to file on git
-    # link_to_file_on_git_index = next(i for i, s in enumerate(template_lines) if "FILENAME" in s)
-    # # Remove the temporary directory from path
-    # corrected_path = path_to_content_file.replace("generated_html/", "")
-    # template_lines[link_to_file_on_git_index] = template_lines[link_to_file_on_git_index].replace("FILENAME", corrected_path)
-
-    with open(path_to_content_file, "w") as f:
+    with open(path_to_content_file, "w", encoding="utf-8") as f:
         contents = "".join(template_lines)
         contents = setup_page(contents)
         f.write(contents)
 
 
-template_file_to_conversion : Dict[str, Callable[[str, str, str], None]] = {
+template_file_to_conversion: Dict[str, Callable[[str, str, str], None]] = {
     "openmath_template.html": openmath_template_conversion
 }
-
-# # If this script is run directly, execute the main function
-# if __name__ == "__main__":
-#     input_html_file = "test.html"  # Input HTML file
-#     output_html_file = "test_with_mathml.html"  # Output HTML file
-#     logging_enabled = True  # Set this to True to enable logging
-#
-#     main(input_html_file, output_html_file, logging=logging_enabled)
