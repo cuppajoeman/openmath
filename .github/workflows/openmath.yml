@@ -23,22 +23,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          submodules: recursive
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.x'  
+          node-version: 22
 
-      - name: Run Custom Script
-        run: |
-          cd scripts/precompiled_html_generation/
-          python -m venv generation_venv
-          source generation_venv/bin/activate
-          pip install -r requirements.txt 
-          ./build.sh
-          python generate_search_data.py
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -46,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'generated_html'
+          path: 'dist'
 
   deploy:
     needs: build  # Wait for the build job to complete
@@ -65,5 +60,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
 

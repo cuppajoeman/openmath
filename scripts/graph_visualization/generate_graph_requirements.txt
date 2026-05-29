@@ -1,4 +1,0 @@
-matplotlib
-networkx
-gravis
-beautifulsoup4

@@ -1,7 +1,10 @@
 .vscode
 .idea
+.DS_Store
 *.pyc
 *.swp
+*.swo
+a.out
 node_modules
 openmath_startup.vim
 __pycache__
