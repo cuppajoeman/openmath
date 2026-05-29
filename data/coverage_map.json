@@ -1,0 +1,450 @@
+{
+  "areas": [
+    {
+      "title": "Foundations",
+      "description": "Sets, functions, relations, logic, induction, and the basic language used everywhere else.",
+      "results": [
+        {
+          "title": "Principle of Induction",
+          "href": "/number_theory/induction.html#theorem-induction"
+        },
+        {
+          "title": "Strong Induction",
+          "href": "/number_theory/induction.html#theorem-strong-induction"
+        },
+        {
+          "title": "Well-ordering Principle",
+          "href": "/number_theory/induction.html#proposition-well-ordering-principle"
+        },
+        {
+          "title": "Schroeder-Bernstein Theorem"
+        },
+        {
+          "title": "Cantor's Theorem"
+        }
+      ]
+    },
+    {
+      "title": "Number Theory",
+      "description": "Divisibility, primes, congruences, arithmetic functions, and classical modular arithmetic.",
+      "results": [
+        {
+          "title": "Euclidean Algorithm",
+          "href": "/number_theory/euclidean_algorithm.html#theorem-eucliden-algorithm"
+        },
+        {
+          "title": "Bezout Identity",
+          "href": "/number_theory/gcd_and_lcm.html#proposition-gcd-is-a-linear-combination"
+        },
+        {
+          "title": "Chinese Remainder Theorem",
+          "href": "/number_theory/congruence.html#theorem-chinese-remainder"
+        },
+        {
+          "title": "Fundamental Theorem of Arithmetic",
+          "href": "/number_theory/primes.html#theorem-fundamental-theorem-of-algebra"
+        },
+        {
+          "title": "Infinitely Many Primes",
+          "href": "/number_theory/primes.html#theorem-there-are-infinitely-many-primes"
+        },
+        {
+          "title": "Fermat's Little Theorem",
+          "href": "/number_theory/primes.html#theorem-fermats-little"
+        },
+        {
+          "title": "Wilson's Theorem",
+          "href": "/number_theory/primes.html#theorem-generalized-wilsons-theorem"
+        },
+        {
+          "title": "Euler's Theorem",
+          "href": "/number_theory/eulers_totient_function.html#theorem-euler"
+        },
+        {
+          "title": "Mobius Inversion"
+        },
+        {
+          "title": "Quadratic Reciprocity"
+        },
+        {
+          "title": "Dirichlet's Theorem on Arithmetic Progressions",
+          "href": "/number_theory/dirichlet_theorem.html#theorem-dirichlet-theorem1"
+        }
+      ]
+    },
+    {
+      "title": "Algebra",
+      "description": "Groups, rings, fields, modules, polynomials, and Galois theory.",
+      "results": [
+        {
+          "title": "Lagrange's Theorem"
+        },
+        {
+          "title": "Cauchy's Theorem"
+        },
+        {
+          "title": "Cayley's Theorem"
+        },
+        {
+          "title": "Orbit-Stabilizer Theorem"
+        },
+        {
+          "title": "Class Equation"
+        },
+        {
+          "title": "First Isomorphism Theorem"
+        },
+        {
+          "title": "Second Isomorphism Theorem"
+        },
+        {
+          "title": "Third Isomorphism Theorem"
+        },
+        {
+          "title": "Correspondence Theorem"
+        },
+        {
+          "title": "Sylow Theorems"
+        },
+        {
+          "title": "Simplicity of the Alternating Group"
+        },
+        {
+          "title": "Jordan-Holder Theorem"
+        },
+        {
+          "title": "Fundamental Theorem of Finitely Generated Abelian Groups"
+        },
+        {
+          "title": "Semidirect Product Classification"
+        },
+        {
+          "title": "Solvability by Normal Series"
+        },
+        {
+          "title": "Ring Isomorphism Theorems"
+        },
+        {
+          "title": "Chinese Remainder Theorem for Rings"
+        },
+        {
+          "title": "Every Euclidean Domain is a PID"
+        },
+        {
+          "title": "Every PID is a UFD"
+        },
+        {
+          "title": "Gauss's Lemma"
+        },
+        {
+          "title": "Eisenstein's Criterion"
+        },
+        {
+          "title": "Prime Ideals and Domains",
+          "href": "/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#proposition-a-proper-ideal-is-prime-iff-the-quotient-ring-is-a-domain"
+        },
+        {
+          "title": "Maximal Ideals and Fields",
+          "href": "/algebra/galois_theory/prime_ideals_and_maximal_ideals.html#proposition-a-proper-ideal-is-maximal-iff-the-quotient-ring-is-a-field"
+        },
+        {
+          "title": "Irreducible Polynomial Creates a Basis",
+          "href": "/algebra/galois_theory/quotient_rings.html#proposition-irreducible-polynomial-creates-a-basis"
+        },
+        {
+          "title": "Quotient Module Homomorphism Theorem"
+        },
+        {
+          "title": "Structure Theorem for Finitely Generated Modules over a PID"
+        },
+        {
+          "title": "Rational Canonical Form"
+        },
+        {
+          "title": "Jordan Canonical Form"
+        },
+        {
+          "title": "Tower Law for Field Extensions"
+        },
+        {
+          "title": "Existence of Splitting Fields"
+        },
+        {
+          "title": "Existence of Algebraic Closures"
+        },
+        {
+          "title": "Primitive Element Theorem"
+        },
+        {
+          "title": "Classification of Finite Fields"
+        },
+        {
+          "title": "Cyclotomic Polynomial Irreducibility"
+        },
+        {
+          "title": "Fundamental Theorem of Galois Theory"
+        },
+        {
+          "title": "Solvability by Radicals"
+        },
+        {
+          "title": "Quaternion Multiplication is Associative",
+          "href": "/algebra/quaternions.html#proposition-quaternion-multiplication-is-associative"
+        }
+      ]
+    },
+    {
+      "title": "Linear Algebra",
+      "description": "Vector spaces, linear maps, matrices, bases, dimension, eigenvalues, and canonical forms.",
+      "results": [
+        {
+          "title": "Basis Existence Theorem"
+        },
+        {
+          "title": "Dimension Theorem"
+        },
+        {
+          "title": "Rank-nullity Theorem"
+        },
+        {
+          "title": "Invertible Matrix Theorem"
+        },
+        {
+          "title": "Spectral Theorem"
+        },
+        {
+          "title": "Jordan Normal Form"
+        }
+      ]
+    },
+    {
+      "title": "Analysis",
+      "description": "Limits, continuity, compactness, differentiation, integration, sequences, series, and approximation.",
+      "results": [
+        {
+          "title": "Intermediate Value Theorem",
+          "href": "/analysis/multi_variable/intermediate_value_theorem.html"
+        },
+        {
+          "title": "Extreme Value Theorem",
+          "href": "/analysis/single_variable/extreme_value_theorem.html"
+        },
+        {
+          "title": "Mean Value Theorem",
+          "href": "/analysis/single_variable/mean_value_theorem.html"
+        },
+        {
+          "title": "Fundamental Theorem of Calculus",
+          "href": "/analysis/multi_variable/the_fundamental_theorem_of_calculus.html"
+        },
+        {
+          "title": "Bolzano-Weierstrass Theorem"
+        },
+        {
+          "title": "Heine-Borel Theorem"
+        },
+        {
+          "title": "Arzela-Ascoli Theorem"
+        },
+        {
+          "title": "Stone-Weierstrass Theorem"
+        }
+      ]
+    },
+    {
+      "title": "Vector Calculus",
+      "description": "Multivariable differentiation, vector fields, line and surface integrals, and the classical integral theorems.",
+      "results": [
+        {
+          "title": "Inverse Function Theorem"
+        },
+        {
+          "title": "Implicit Function Theorem"
+        },
+        {
+          "title": "Change of Variables Theorem"
+        },
+        {
+          "title": "Fundamental Theorem for Line Integrals"
+        },
+        {
+          "title": "Green's Theorem"
+        },
+        {
+          "title": "Divergence Theorem"
+        },
+        {
+          "title": "Stokes' Theorem"
+        }
+      ]
+    },
+    {
+      "title": "Complex Analysis",
+      "description": "Holomorphic functions, contour integration, singularities, residues, and conformal maps.",
+      "results": [
+        {
+          "title": "Cauchy-Riemann Equations"
+        },
+        {
+          "title": "Goursat's Theorem"
+        },
+        {
+          "title": "Cauchy Integral Theorem"
+        },
+        {
+          "title": "Cauchy Integral Formula"
+        },
+        {
+          "title": "Morera's Theorem"
+        },
+        {
+          "title": "Liouville's Theorem"
+        },
+        {
+          "title": "Fundamental Theorem of Algebra via Liouville's Theorem"
+        },
+        {
+          "title": "Maximum Modulus Principle"
+        },
+        {
+          "title": "Open Mapping Theorem"
+        },
+        {
+          "title": "Identity Theorem"
+        },
+        {
+          "title": "Taylor Theorem for Holomorphic Functions"
+        },
+        {
+          "title": "Laurent Series Theorem"
+        },
+        {
+          "title": "Classification of Isolated Singularities"
+        },
+        {
+          "title": "Residue Theorem"
+        },
+        {
+          "title": "Argument Principle"
+        },
+        {
+          "title": "Rouche's Theorem"
+        },
+        {
+          "title": "Schwarz Lemma"
+        },
+        {
+          "title": "Riemann Mapping Theorem"
+        }
+      ]
+    },
+    {
+      "title": "Topology",
+      "description": "Topological spaces, bases, products, quotients, compactness, connectedness, and separation.",
+      "results": [
+        {
+          "title": "Basis Generates a Topology"
+        },
+        {
+          "title": "Continuous Functions Preserve Compactness"
+        },
+        {
+          "title": "Continuous Functions Preserve Connectedness"
+        },
+        {
+          "title": "Tychonoff's Theorem"
+        },
+        {
+          "title": "Urysohn's Lemma"
+        },
+        {
+          "title": "Seifert-van Kampen Theorem"
+        }
+      ]
+    },
+    {
+      "title": "Combinatorics",
+      "description": "Counting, recurrence, generating functions, extremal arguments, and discrete structures.",
+      "results": [
+        {
+          "title": "Pigeonhole Principle"
+        },
+        {
+          "title": "Inclusion-Exclusion"
+        },
+        {
+          "title": "Burnside's Lemma"
+        },
+        {
+          "title": "Polya Enumeration Theorem"
+        },
+        {
+          "title": "Ramsey's Theorem"
+        }
+      ]
+    },
+    {
+      "title": "Graph Theory",
+      "description": "Graphs, trees, connectivity, coloring, matchings, flows, and spectral methods.",
+      "results": [
+        {
+          "title": "Handshaking Lemma"
+        },
+        {
+          "title": "Euler Characterization of Trees"
+        },
+        {
+          "title": "Menger's Theorem"
+        },
+        {
+          "title": "Max-flow Min-cut Theorem"
+        },
+        {
+          "title": "Hall's Marriage Theorem"
+        },
+        {
+          "title": "Kuratowski's Theorem"
+        }
+      ]
+    },
+    {
+      "title": "Probability",
+      "description": "Probability spaces, random variables, expectation, convergence, and distributions.",
+      "results": [
+        {
+          "title": "Linearity of Expectation"
+        },
+        {
+          "title": "Law of Total Probability"
+        },
+        {
+          "title": "Bayes' Theorem"
+        },
+        {
+          "title": "Weak Law of Large Numbers"
+        },
+        {
+          "title": "Central Limit Theorem"
+        }
+      ]
+    },
+    {
+      "title": "Category Theory",
+      "description": "Categories, functors, natural transformations, limits, adjunctions, and universal properties.",
+      "results": [
+        {
+          "title": "Yoneda Lemma"
+        },
+        {
+          "title": "Adjoint Functor Theorem"
+        },
+        {
+          "title": "Limits as Universal Constructions"
+        },
+        {
+          "title": "Equivalence of Categories"
+        }
+      ]
+    }
+  ]
+}

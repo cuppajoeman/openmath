@@ -15,7 +15,7 @@
 </p>
 <p>
   Fork the
-  <a href="https://github.com/cuppajoeman/openmath">openmath repository</a>, then clone your fork:
+  <a href="https://github.com/cuppajoeman/openmath">Openmath repository</a>, then clone your fork:
 </p>
 <pre><code>git clone YOUR_GIT_URL_HERE
 cd openmath
@@ -36,6 +36,39 @@ npm install</code></pre>
 <p>
   The server serves files from
   <code>dist</code>. Re-run the build after editing source files, then refresh the browser.
+</p>
+
+<h2>Proof Coverage</h2>
+<p>
+  The build checks each page's proof coverage. A page's proof coverage is the percentage of its proof blocks that contain content. Pages below the threshold are hidden from directory pages and listed on the
+  <a href="proof_coverage.html">pages needing proofs</a>
+  worklist.
+</p>
+<p>
+  The default threshold is 50%. To use a different threshold locally, set
+  <code>OPENMATH_PROOF_COVERAGE_THRESHOLD</code>
+  to a number from
+  <code>0</code>
+  to
+  <code>1</code>
+  before building.
+</p>
+<pre><code>OPENMATH_PROOF_COVERAGE_THRESHOLD=0.8 npm run build</code></pre>
+<p>
+  The broader
+  <a href="coverage_map.html">coverage map</a>
+  is seeded by
+  <code>data/coverage_map.json</code>. Add missing disciplines or major results there, and include an
+  <code>href</code>
+  when the result exists in the site.
+</p>
+
+<h2>Improving Existing Pages</h2>
+<p>
+  Contributions do not have to begin from a blank page. Often a knowledgeable writer can record the shape of an argument before every detail has been expanded. Another contributor can then check the missing step, add the standard result being used, or turn compressed reasoning into a clearer proof.
+</p>
+<p>
+  This kind of decompression is valuable work. If a page contains a true idea but moves too quickly, improving it means making the implicit reasoning explicit enough for the next reader.
 </p>
 
 <h2 id="organization">Organization</h2>

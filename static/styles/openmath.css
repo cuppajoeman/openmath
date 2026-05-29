@@ -97,6 +97,97 @@ pre code {
   white-space: pre;
 }
 
+.quality-list {
+  padding-left: 1.25em;
+}
+
+.quality-list li {
+  margin: 0.45em 0;
+}
+
+.coverage-map-area {
+  border-top: 1px solid color-mix(in srgb, var(--main-text-color) 35%, transparent);
+  margin-top: 2.2em;
+  padding-top: 1.2em;
+}
+
+.coverage-map-area h2 {
+  margin-bottom: 0.2em;
+}
+
+.coverage-map-covered {
+  list-style-type: "✓ ";
+}
+
+.coverage-map-open {
+  list-style-type: "○ ";
+}
+
+.proof-coverage-list {
+  margin: 1em 0;
+}
+
+.proof-coverage-detail {
+  margin: 0.45em 0;
+}
+
+.proof-coverage-detail summary {
+  cursor: pointer;
+  display: block;
+}
+
+.proof-coverage-detail summary::marker {
+  content: "";
+}
+
+.proof-coverage-detail summary::-webkit-details-marker {
+  display: none;
+}
+
+.proof-coverage-title {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.proof-coverage-detail ul {
+  margin-top: 0.45em;
+}
+
+.quality-coverage {
+  display: inline-block;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-size: 0.72em;
+  line-height: 1.1;
+  margin-left: 0.55em;
+  padding: 0.16em 0.38em 0.2em;
+}
+
+.quality-low {
+  color: rgb(214, 68, 68);
+}
+
+.quality-medium {
+  color: rgb(214, 153, 68);
+}
+
+.quality-high {
+  color: rgb(72, 150, 90);
+}
+
+.contribution-callout {
+  border: 2px solid var(--main-text-color);
+  border-radius: 8px;
+  font-size: 1.18em;
+  margin: 2em 0;
+  padding: 0.9em 1em;
+  text-align: center;
+}
+
+.contribution-callout a {
+  font-weight: bold;
+}
+
 .knowledge-link,
 .rlink {
   color: var(--knowledge-link-text-color);
