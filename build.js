@@ -61,6 +61,13 @@ function pageTitleFromPath(filePath) {
 
 function renderMath(html, filePath) {
     let errors = 0;
+    const protectedBlocks = [];
+
+    html = html.replace(/<(pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi, function (match) {
+        const placeholder = `%%OPENMATH_PROTECTED_BLOCK_${protectedBlocks.length}%%`;
+        protectedBlocks.push(match);
+        return placeholder;
+    });
 
     html = html.replace(/\\\[([\s\S]*?)\\\]/g, function (match, tex) {
         try {
@@ -82,6 +89,10 @@ function renderMath(html, filePath) {
             console.error(e.message);
             return match;
         }
+    });
+
+    html = html.replace(/%%OPENMATH_PROTECTED_BLOCK_(\d+)%%/g, function (match, index) {
+        return protectedBlocks[Number(index)] || match;
     });
 
     return { html, errors };
@@ -142,6 +153,7 @@ function build() {
         process.exit(1);
     }
 
+    fs.rmSync(distDir, { recursive: true, force: true });
     ensureDir(distDir);
     copyDir(staticDir, path.join(distDir, "static"));
     copyTemmlAssets();

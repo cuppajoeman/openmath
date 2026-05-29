@@ -66,6 +66,37 @@ a {
   text-decoration: none;
 }
 
+pre {
+  box-sizing: border-box;
+  overflow-x: auto;
+  color: var(--knowledge-content-text-color);
+  background-color: color-mix(in srgb, var(--knowledge-content-background-color) 72%, var(--main-bg-color));
+  border: 1px solid color-mix(in srgb, var(--main-text-color) 38%, transparent);
+  border-radius: 6px;
+  margin: 1.25em 0;
+  padding: 0.85em 1em;
+}
+
+code {
+  font-family: ui-monospace, "Cascadia Mono", "Consolas", monospace;
+  font-size: 0.78em;
+}
+
+p code,
+li code {
+  color: var(--knowledge-content-text-color);
+  background-color: color-mix(in srgb, var(--knowledge-content-background-color) 68%, transparent);
+  border-radius: 4px;
+  padding: 0.08em 0.24em;
+}
+
+pre code {
+  display: block;
+  font-size: 0.82em;
+  line-height: 1.45;
+  white-space: pre;
+}
+
 .knowledge-link,
 .rlink {
   color: var(--knowledge-link-text-color);
