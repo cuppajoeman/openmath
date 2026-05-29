@@ -36,7 +36,7 @@
 
 @font-face {
   font-family: "Latin Modern Roman";
-  src: url("/static/js/Temml-0.13.02/dist/LMRoman10-Regular.woff2") format("woff2");
+  src: url("/static/fonts/LMRoman10-Regular.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
 }

@@ -7,6 +7,8 @@ const contentDir = path.join(rootDir, "content");
 const staticDir = path.join(rootDir, "static");
 const templatePath = path.join(rootDir, "templates", "page.html");
 const distDir = path.join(rootDir, "dist");
+const temmlPackageDir = path.dirname(require.resolve("temml/package.json"));
+const temmlDistDir = path.join(temmlPackageDir, "dist");
 
 function ensureDir(dir) {
     if (!fs.existsSync(dir)) {
@@ -35,6 +37,17 @@ function copyDir(source, destination) {
             fs.copyFileSync(sourcePath, destinationPath);
         }
     }
+}
+
+function copyTemmlAssets() {
+    const destination = path.join(distDir, "static", "vendor", "temml");
+    const latinModernMathFont = path.join(staticDir, "fonts", "latinmodernmath.woff2");
+
+    // Math is baked to MathML, but browsers still need Temml's CSS/fonts to render it consistently.
+    copyDir(temmlDistDir, destination);
+
+    // The Temml npm package CSS references this font, but the package does not ship it.
+    fs.copyFileSync(latinModernMathFont, path.join(destination, "latinmodernmath.woff2"));
 }
 
 function pageTitleFromPath(filePath) {
@@ -131,6 +144,7 @@ function build() {
 
     ensureDir(distDir);
     copyDir(staticDir, path.join(distDir, "static"));
+    copyTemmlAssets();
 
     const template = fs.readFileSync(templatePath, "utf-8");
     const stats = { files: 0, errors: 0 };
