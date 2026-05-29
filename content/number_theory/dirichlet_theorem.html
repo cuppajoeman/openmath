@@ -1,0 +1,117 @@
+<div class="definition" id="definition-dirichlet-charater1">
+    <div class="title">
+        Dirichlet Character
+    </div>
+    <div class="content">
+        Consider the multiplicative group of \( q \) for \( q \in\mathbb{Z}\). A homomorphism between the 2 groups \(\chi:(\mathbb{Z}/ q\mathbb{Z})^\times\rightarrow\mathbb{C}^\times\) is called a Dirichlet Character modulus q if \(\forall a,b\in\mathbb{Z}\):
+        <ol>
+            <li>\(\chi(ab)=\chi(a)\chi(b)\), i.e.\(\chi\) is completely multiplicative (also directly by property of homomorphism)</li>
+            <li>\(\chi(a)=\begin{cases} 
+                0 & gcd(a,q)>1 \\
+                \chi(a \text{ mod q}) & gcd(a,q)=1 
+             \end{cases}\)</li>
+            <li>\(\chi(a+q)=\chi(a)\), i.e. \(\chi\) is periodic with period q</li>
+          </ol>
+    </div>
+</div>
+<p>
+    <ol>
+        Remark:
+        <li>For every \(q\in\mathbb{Z}\), we defined a trivial character as \(\chi_0(g)=1,\,\forall g\in (\mathbb{Z}/q\mathbb{Z})^\times\). This is also called principle character mod q.
+        <li>Since by the fact that \(|(\mathbb{Z}/q\mathbb{Z})^\times|=\phi(q)\) and Euler’s theorem, \(\forall a\in(\mathbb{Z}/q\mathbb{Z})^\times\), \(\chi(a^{\phi(q)})=\chi(a)^{\phi(q)}=1\). 
+            Thus \(\forall a\in(\mathbb{Z}/q\mathbb{Z})^\times\), \(\chi(a)\) is a \(\phi(q)\) th roots of unity.
+    </ol>
+</p> 
+<div class="example">
+    <div class="title">
+        Dirichlet character mod 4  
+    </div>
+    <div class="title">
+        Table of Dirichlet character mod 4
+    </div>
+</div>
+<div class="definition" id="definition-dirichlet-charater2">
+    <div class="title">
+        Even/Odd Character
+    </div>
+    <div class="content">
+    A Dirichlet character is called even if \(\chi(-1)=1\) and odd if \(\chi(-1)=-1\).
+    </div>
+</div>
+<p>
+    It is clear that the trivial character is even.
+</p>
+<div class="theorem" id="theorem-dirichlet-theorem1">
+    <div class="content">
+        If p is prime, then \((\mathbb{Z}/p\mathbb{Z})^\times\) is cyclic.
+    </div>
+    <div class="proof">
+        Let p be a prime. 
+    </div>
+</div>
+<p>
+    Remark: the generator(s) of \((\mathbb{Z}/p\mathbb{Z})^\times\) is called primitive roots modulus p.
+</p>
+<div class="proposition" id="proposition-dirichlet-charater1">
+    <div class="content">
+        If \(\chi\neq\chi_0\), then \(
+        \begin{equation}
+        \sum_{a(mod\,q)}\chi(a)=0
+        \end{equation}
+        \).
+    </div>
+    <div class="proof">
+        1+2=1
+    </div>
+</div>
+<div class="proposition" id="proposition-dirichlet-charater2">
+    <div class="content">
+       \(
+        \begin{equation} 
+        \sum_{\chi(mod\,q)} \chi(n)=
+            \begin{cases} 
+            \phi(q) & if\,\,n\equiv 1 (mod\,q)\\
+            0 & otherwise
+            \end{cases}
+        \end{equation}
+       \)
+    </div>
+    <div class="proof">
+        1+2=1
+    </div>
+</div>
+<div class="theorem", id="definition-dirichlet-charater">
+    <div class="title">
+        Dirichlet Theorem
+    </div>
+    <div class="content">
+        For any natural number q, and a reduced residue class a (mod q), there are infinitely many primes p ≡ a (mod q). 
+        Namely, \(\lim_{s\to 1^+} \sum_{p\equiv a(mod\,q)}\frac{1}{p^s}=\infty\)
+    </div>
+</div>
+<div class="definition", id="definition-dirichlet-charater3">
+    <div class="title">
+        Dirichlet L-function
+    </div>
+    <div class="content">
+        For \(s\in\mathbb{C}\) with \(\Re(s)>1\), the Dirichlet L-function attached to character \(\chi\) is defined as \(L(s,\chi)=\sum_{n=1}^{\infty} \frac{\chi(n)}{n^s}\).
+    </div>
+</div>
+<p>
+    Remark:
+    <ol>
+        <li>The Riemann zeta‐function is a special case of L-function where the character attached is the trivial character, namely \(L(s,\chi_0)=\zeta(s)=\sum^{\infty}_{n=1}\frac{1}{n^s}\)
+        <li>Dirichlet L-function is absolutely convergent for \(\Re(s)>1\).
+        <li>Just as the Riemann zeta‐function, the Dirichlet L-function can also be analytically continued to a meromorphic function with simple pole at \(s=1\) and statisfied the functional equation.
+        </ol>
+</p>
+<div class="theorem", id="theorem-dirichlet-theorem2">
+    <div class="title">
+        Euler product of L-function
+    </div>
+    <div class="content">
+        For \(\Re(s)>1\), \(L(s,\chi)=\prod_{p\,prime}(1-\chi(p)p^{-s})^{-1}\).
+    </div>
+    <div class="proof">
+    </div>
+</div>

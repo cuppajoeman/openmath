@@ -1,0 +1,260 @@
+<div class="exercise" id="exercise-programming-team">
+    <div class="title">
+        Programming Team
+    </div>
+    <div class="content">
+        You are managing a team of programmers for n weeks. Each week you need to assign this group a job. There are two types of jobs, divided between “high-stress” and “low-stress” jobs, given as arrays H, L where H[i] and L[i] are the expected earnings from taking a high stress job or a low stress job in week i respectively. However, high stress job requires preparation, and so if a high stress job is assigned to the team in week i, then they cannot work on any job in week i − 1. On the other hand, a low stress job may be taken in week i regardless of what job has been assigned in the previous week. Your job as a manager is to assign the team a job (or not) each week given the arrays H, L, in such a way that the expected earnings of the team is maximized.
+        <ul>
+            <li>Derive the Bellman equation for a dynamic programming solution value. Clearly define all the variables in the Bellman equation and explain your solution.</li>
+            <li>Analyze the time and space complexity of the dynamic programming algorithm. (We did not ask you for the algorithm explicitly but you can still explain based on how the DP table is filled.)</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>We can start with the bellman equation (we will use indexing starting at 1)</p>
+        <pre>
+                def opt(i):
+                    if i == 0: # refers to the empty list
+                        return 0
+                    if i == 1:
+                        return L[i]
+                    if (i &gt;= 2):
+                        return max(opt(i - 1) + L[i], opt(i - 2) + H[i])
+            </pre>
+        <hr>
+        <p>Using dynamic programming we require that the values we use in this function call be already computed and stored in memory, therefore we take a bottom up approach</p>
+        <pre>
+                M[0] = 0
+
+                for i in [1, ..., n]:
+                    M[i] = opt(i)
+
+                return m[n]
+            </pre>
+        <p>Since the size of the memoization table is \( n \) and we compute each value exactly once, then the runtime of the algorithm is \( \Theta \left( n \right) \).</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-romeo-and-juliet">
+    <div class="title">
+        Romeo and Juliet
+    </div>
+    <div class="content">
+        <p>Juliet has a secret to tell Romeo. However, every message that Juliet sends to Romeo needs to be examined by Capulet, Juliet's father. So Juliet decides to encrypt the message such that Capulet cannot understand easily. To simplify the problem, suppose there are only three letters in Juliet's alphabet \( \Sigma = \{ a , b, c \} \). Juliet defines a mapping \( f : \Sigma \to \{0,1\}^* \), where \( f(a) = 0, f(b) = 01, f(c) = 11 \) . Suppose Juliet wants to send a message \( m \in \{ a, b, c \}^k \). She sends the encrypted message \( f(m) = f(m_1) \circ f(m_2) \circ ... \circ f(m_k) \) , where \( m_i \) is the \( i \) th character of $m$, and \( \circ \) means concatenation.</p>
+        <ol>
+            <li>Given \( f(m) = 1101100110001110 \), how many possible messages are there, and what are they? (No justification required)</li>
+            <li>Design a dynamic programming algorithm using memoization technique that decrypts any encrypted message \( s \) sent by Juliet. Your algorithm should return the original message \( m \) where \( f(m) = s \). If the pre-image \( f^{-1}(s) \) does not exist, return \( {\tt JUNK} \). Sometimes, Juliet sends meaningless junk to confuse her father.</li>
+            <li>What is the time and space complexity of your algorithm? Briefly explain why.</li>
+            <li>Consider \( \Sigma = \{ a, b, c, d\} \), and the mapping \( f: \Sigma \to \{0,1\}^* \) is now \( f(a) = 0, f(b) = 01, f(c) = 011, f(d) = 1110 \). Is there a greedy algorithm to decrypt messages encrypted by this mapping? Briefly explain why.</li>
+        </ol>
+    </div>
+    <div class="proof">
+        <h3>1</h3>
+        <p>Given the string \( 1101100110001110 \) and assuming that it can be decoded to at least one input string, then specifically there is only one way to decode this message, this is true because we can observe, that the sequence of characters \( 110 \) can only ever be decoded to \( c 0 \) this is because there is only one way to produce two \( 1 \)'s in a row.</p>
+        <p>Therefore we can decode the string to \( c0c00c0001c0 \), now we can decode any \( 01 \)'s we find which would be decoded to \( b \) so we obtain \( c0c00c00bc0 \), now the rest can only be \( a \)'s, to obtain a final decoding of \( cacaacaabca \)</p>
+        <p>On top of all this, we actually note that it is a uniquely decodeable encoding, which means that given any encrypted string there is one way to decode it or no way to decode it.</p>
+        <h3>2</h3>
+        <p>Firstly note that we can pretty easily do this without dynamic programming by taking a right to left approach:</p>
+        <pre>
+    decrypt(m):
+        if len(m) &gt;= 2
+            if m[-2:] == "11"
+                return decrypt(m[-2:]) o "c"
+            if m[-2:] == "01":
+                return decrypt(m[-2:]) o "b"
+            if m[-1] == "0"
+                return decrypt(m[-1]) o "a"
+        if len(m) == 1:
+            if m = "0" return a
+            else return JUNK
+        if len(m) == 0:
+            return ""
+    </pre>
+        <p>Recall that for any given prefix free encoding we can left to right greedily decode it, therefore for any postfix free encoding we can right to left greedily decode it. Since the given encryption scheme was postfix free, this is why we were able to come up with the above greedy algorithm.</p>
+        <p>Nonetheless, let's come up with a dynamic programming approach. We can do this by noting the optimal substructure property by attempting to decode from left to right, where we note the following:</p>
+        <ul>
+            <li>If the first two chars are "00", then the first character may be decoded to \( b \)</li>
+            <li>If the first two chars are "01", then it's not possible to immediately decrypt this because it's possible that the string is "011", which would decode to \( ac \), on the other hand it's also possible the entire string is "0111" which would decrypt to \( bc \)</li>
+        </ul>
+        <p>The second case, leads to two cases, one where we first assume that the "0" gets decoded to \( a \) and a second where the "01" gets decode to \( b \), with this split, we now take advantage of the fact that we know that there is a either a unique encoding or no encoding. So if we assume "0" decodes to \( b \) and try and decode the rest of the string, this will either result in a decoded string, or JUNK, the same is true if we assume that "01" gets decoded to \( b \), but note that in this case, there is only three possibilities, either the former returns a decoded string and the latter JUNK, or the former returns JUNK and the latter a decoded string, or both the former and the latter both return JUNK, which means the entire string cannot be decrypted.</p>
+        <p>We'll now specify the bellman equation as pseudocode, as nested piecewise functions don't yield the most readable syntax.</p>
+        <pre>
+    decrypt(m):
+        if len(m) &gt;= 2:
+
+            first_two = m[:2]
+            if first_two == "00"
+                return "b" o decrypt(m[1:])
+
+            if first_two == "11"
+                return "c" o decrypt(m[2:])
+
+            if first_two == "01":
+                rec_attempt_a = decrypt(m[1:])
+                rec_attempt_b = decrypt(m[2:])
+
+                # we know exactly one of these if statements will be true
+                if rec_attempt_a != JUNK:
+                  return "a" o rec_attempt_a
+                elif rec_attempt_b != JUNK:
+                  return "b" o rec_attempt_b
+                else: # both junk
+                  return JUNK
+
+        if len(m) == 1:
+            if m = "0":
+              return a
+            else:
+              return JUNK
+
+        if len(m) == 0:
+            return ""
+    </pre>
+        <p>Now we'll write the code which implements this, which starts at the right of a encoded string and moves leftward, re-using any solutions it found previously</p>
+        <pre>
+        Let N = len(m) - 1
+        Let K be a fixed array of length len(m) where K[i] represents the decryption of m[ N - i : N]
+        decode_bottom_up(m: str):
+            cur_mes = ""
+            for i in len(m):
+                j = (m - 1) - i # the goal is to grab the rightmost char
+                cur_mes = m[j] + cur_mes
+
+                if len(cur_mes) &gt;= 2:
+
+                    first_two = cur_mes[:2]
+                    if first_two == "00"
+                        return "b" o K[i - 1]
+
+                    if first_two == "11"
+                        return "c" o K[i - 2]
+
+                    if first_two == "01":
+                        rec_attempt_a = K[i - 1]
+                        rec_attempt_b = K[i - 2]
+
+                        # we know exactly one of these if statements will be true
+                        if rec_attempt_a != JUNK:
+                          K[i] = "a" o rec_attempt_a
+                        elif rec_attempt_b != JUNK:
+                          K[i] =  "b" o rec_attempt_b
+                        else: # both junk
+                          K[i] = JUNK
+
+                if len(cur_mes) == 1:
+                    if m = "0":
+                      K[i] = "a"
+                    else:
+                      K[i] = JUNK
+
+                if len(m) == 0:
+                    return ""
+
+            return K[len(m) - 1]
+    </pre>
+        <h3>3</h3>
+        <p>Clearly, there are exactly \( n \) iterations where \( n \) is the length of the list, each iteration costs a constant amount of time, because it falls into one of the if clauses, and does some assignments or uses a previously computed K value. Thus the runtime is \( \Theta \left( n \right) \).</p>
+        <p>Consider the encoding "000...000", in this case each K value will be an increasing number of sequential \( a \)'s which would lead to space \( \mathcal{ O } \left( n ^ 2 \right) \) to store the previous solutions. We can correct for this by noting that we only need to reference a postfix with length one or two smaller than our current, allowing us to throw away anything smaller, therefore our space complexity can be reduced to \( \mathcal{ O } \left( 2 n \right) = \mathcal{ O } \left( n \right) \) .</p>
+        <h3>4</h3>
+        <p>We claim that there is a greedy method to decode this. Let's first observe the following facts</p>
+        <ul>
+            <li>if "...1110..." is ever observed then it will be decoded to "...\( d \)..."</li>
+            <li>if "...0110..." is ever observed it will be decoded to "...\( c \)0..."</li>
+            <li>if "...010..." is ever observed it will be decoded to "...\( b \)0..."</li>
+            <li>if "...000..." is ever observed it will be decoded to "...0\( a \)0..."</li>
+        </ul>
+        <p>Therefore given any valid encoding, we simply use the above substitution rules greedily, each of which strictly reduce the number of encrypted characters, we would also use the rule that if we have decrypted the string "1110010111" to the point "\( d \) 01 \( c \)", we can also decrypt and individual encryption, so to get \( dbc \).</p>
+        <p>The above works but is not very constructive, so we can also specify a right to left greedy algorithm:</p>
+        <pre>
+        decypt(m):
+            if len(m) &gt;= 4:
+                if m[-4:] = "1110"
+                    return decrypt(m[-4:]) o "d"
+
+            if len(m) &gt;= 3:
+                if m[-3:] = "011"
+                    return decrypt(m[-3:]) o "c"
+
+            if len(m) &gt;= 2:
+                if m[-2:] = "01":
+                    return decrypt(m[-2:]) o "b"
+
+            if len(m) &gt;= 1:
+                if m[-1] == "0":
+                    return decrypt(m[-1:]) o "a"
+
+            if len(m) == 0:
+                return ""
+
+    </pre>
+        <p>Note that the reason why the above works is that if we recall from before given a prefix free encoding, we can greedily decode it from left to right, on the other side of that coin, if we have a postfix free encoding, we can decrypt it from right to left. In our given ecryption scheme, we note that they are mostly prefix free aside from "0" and "1110", and we can deal with this collision by first checking if the string has length at least 4, and it's last four characters are "1110", otherwise if it ends in a "0" it must be in the other case, which guarentees correctness of our "if len(m) &gt;= 1" branch.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-mario-and-bowser">
+    <div class="title">
+        Mario and Bowser
+    </div>
+    <div class="content">
+        <p>Bowser, a monster and a talented singer, is kidnapped by Princess Peach. Mario, who bought a ticket to Bowser's concert, is going to rescue Bowser. You are given a \( m \times n \) grid \( M \). Mario starts from the top-left corner \( M[1,1] \), and Bowser is locked in the bottom-right corner \( M[m,n] \). Mario has an initial health value. At each step, Mario can choose to move either right or down one slot. In each slot, there is either a Goomba or a mushroom. For simplicity, a Goomba is represented by a negative integer that reduces Mario's health, and a mushroom is represented by a positive integer that increases Mario's health. Mario dies if his health drops to \( 0 \) or below. Note that there is mushroom or Goomba in the top-left and bottom-right corner, too. For example, \( M = \)</p>\[ \begin{array}{ |c|c|c| } \hline -2 & -3 & 1 \\ \hline -4 & -2 & 3 \\ \hline 3 & 1 & -5 \\ \hline \end{array} \]
+        <p>When Mario starts from the top-left corner, he needs at least initial health \( 3 \) such that he will not die immediately. When Mario rescue's Bowser in the bottom-right corner, Mario needs to take the \( -5 \) damage first and not die before he can rescue Bowser.</p>
+        <ul>
+            <li>In the example above, what is the minimum health Mario can start with such that he can rescue Bowser? And what is the path that Mario should follow? You can use a string \( {\tt RDRD} \) to denote that Mario moves right, then down, then right, then down. No justification required.</li>
+            <li>Design a dynamic programming algorithm using bottom-up technique that works for a general \( m\times n \) grid \( M \) to determine the minimum initial health Mario can have such that he can rescue Bowser. Mario has to start with at least \( 1 \) health before he arrives at \( M[1,1] \). You also need to (in the same algorithm or in a helper algorithm) output the string in \(\{{\tt R}, {\tt D}\}^{m+n-2} \) that indicates the path to rescue Bowser.</li>
+            <li>What is the time and space complexity of your algorithm(s)? Briefly explain why.</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>Note that in order for Mario to escape the top left 2x2 grid, the minimum amount of damage he will have to take is 5, by taking the top wall, also we by maximizing the number of turns he is on the right or bottom wall we can increase marios health, which would produce a lower required initial heatlh, since both the right and bottom wall can increase marios health by 4, then we simply choose the initial exit path from the top left 2x2 square which minimizes the damage, therefore the path RRDD is the best possible path.</p>
+        <h3>2</h3>
+        <p>We want to figure out the minimal amount of helath mario needs to get to bowser in general, one way of thinking about this is that as mario traverses the grid, his health will change based on the path he's taken so far. For example in the example grid \( M \), then mario intially takes \( -2 \) damage, by moving to the right he's taken \( -2 - 3 = -5 \) total damage, then by moving right again, he gains \( 1 \) health so that the total health change is \( -4 \), by moving down once the health change becomes \( -1 \) finally landing on the the final square yields a health change of \( -6 \).</p>
+        <p>Looking at the above sequence \( -2, -5, -4, -1, -6 \), we can see that as he moves through this path he's going to need to have at least \( 7 \) health to survive this journey. Note that it's not enough to simply look at the numbers on the grid, as then we might come to believe we would only need \( 6 \) health to survive the last block, but we need to keep track of how much health we've gained and lost as we move.</p>
+        <p>At the same time, mario could have taken a different path to get to the goal state, for example if he went down twice and then right twice we would have a health change sequence as follows \( -2, -6, -3, -2, -7 \) which would say that mario needs at least \( 8 \) health to get to the end state. There would be other paths to get to the goal state, but in general we want to know the minimum health mario would need to get to the goal state, so out of all the paths that could get us there, we only care about the one that requires mario having minimal health.</p>
+        <p>Before continuing we'll make some definitions to make speaking about this problem easier. If mario takes some path on the map, it generates a "health change sequence", as discussed in the previous paragraph, note that the last term in the sequence is the total health change obtained by getting to the current square, let's denote this as the health change amount (HCA) of a given square. We'll denote the original grid taken as input as the (AHC) absolute health change grid</p>
+        <p>If we have some health change amount (HCA) \( h \in \mathbb{ Z } \), then the larger it is, the better it is for mario because it would mean that you lose less health. Also at any given position in the map, there may be multiple ways to get there, each sequence yielding their own HCA, by taking the maximum of these paths, we can determine the path which gives mario the highest HCA at this square.</p>
+        <p>Let's try constructing a maximal HCA grid, given any position \( \left( i, j \right) \) on the AHC grid, suppose we know the max HCA value for \( \left( i - 1, j \right) \) and \( \left( i, j - 1 \right) \), denoted by \( \mathrm{ MHCA } _L , \mathrm{ MHCA }_ U \) respectively then the max HCA value for \( i, j \) would be given by</p>\[ \max \left( \mathrm{ MHCA } _L , \mathrm{ MHCA } _ U\right) + a \]
+        <p>Where \( a \) is the value at that particular cell, note that it must be included because you took a path and ended up at this square, meaning you have to change your health by the definition of the game.</p>
+        <p>Since we subtracted one from the \( x \) or \( y \) component of \( \left( i, j \right) \) without considering if the resulting position is within the grid, we can correct for this by noting that if we're on say the left wall, we'd only have to look up, to compute our MHCA value, that is:</p>MHCA[i][j] =
+        <ul>
+            <li>if i == j == 0</li>
+            <ul>
+                <li>AHC[0][0] (base case)</li>
+            </ul>
+            <li>elif i == 0 &amp;& j &gt; 0</li>
+            <ul>
+                <li>MHCA[i][j - 1] + AHC[i][j] (on left wall, look up)</li>
+            </ul>
+            <li>elif j == 0 &amp;& i &gt; 0</li>
+            <ul>
+                <li>MHCA[i - 1][j] + AHC[i][j] (on top wall, look left)</li>
+            </ul>
+            <li>else</li>
+            <ul>
+                <li>max(MHCA[i - 1][j], MHCA[i][j - 1]) + AHC[i][j]</li>
+            </ul>
+        </ul>
+        <p>Now that we have this new MHCA grid constructed, it doesn't straight away give us the minimum amount of health mario will need to survive the journey, any given square simply tells us the maximum change in health mario could have at this position. For example suppose we have the following grid. \( N = \)</p>\[ \begin{array}{ |c|c|c| } \hline -1 & -1 & -100 \\ \hline -1 & -100 & 100 \\ \hline -1 & -1 & 0 \\ \hline \end{array} \qquad \text{ then the MHCA grid is: } \qquad \begin{array}{ |c|c|c| } \hline -1 & -2 & -102 \\ \hline -2 & -103 & -2 \\ \hline -3 & -4 & -2 \\ \hline \end{array} \]
+        <p>The top right element of the MHCA grid says that the maximum health change mario could get at this grid position is \( -102 \) which means that any path that takes mario to this position, will give a net result of mario losing at least \( 102 \) health. Therefore we can deduce that the path \( \tt{RRDD} \) would require mario to have at least \( 103 \) health, whereas \( \tt{DDRR} \) would only require mario to have \( 5 \) health.</p>
+        <p>Let's use the MHCA grid to compute marios minimum required health. We'll do this by constructing one more grid such that a position on the grid is the minimum amount of health required for mario to make it to this grid square. We'll denote this grid by the "MHR grid" (min health required). Given the MHCA grid that we most recently discussed, we'll note that it's MHR grid is as follows:</p>\[ \begin{array}{ |c|c|c| } \hline -1 & -2 & -102 \\ \hline -2 & -103 & -102 \\ \hline -3 & -4 & -4 \\ \hline \end{array} \]
+        <p>Which was obtained by taking any position in the MCHA grid and taking the max of left and up denoting that value by \( m \) and then taking the min of \( m \) and the MCHA value at that square. Specifically each square is computed as follows</p>MHR[i][j] =
+        <ul>
+            <li>if i == j == 0</li>
+            <ul>
+                <li>MHCA[0][0] (base case)</li>
+            </ul>
+            <li>elif i == 0 &amp;& j &gt; 0</li>
+            <ul>
+                <li>min(MHCA[i][j - 1], MHCA[i][j]) (on left wall, look up)</li>
+            </ul>
+            <li>elif j == 0 &amp;& i &gt; 0</li>
+            <ul>
+                <li>min(MHCA[i - 1][j] + MHCA[i][j]) (on top wall, look left)</li>
+            </ul>
+            <li>else</li>
+            <ul>
+                <li>min(MHCA[i - 1][j], MHCA[i][j - 1], MHCA[i][j])</li>
+            </ul>
+        </ul>
+        <p>Now once that entire grid has been computed to find the minimum health required by mario we simply just look at MHR[N][M], which is our solution.</p>
+        <h3>3</h3>
+        <p>In order to compute the MHCA grid, we take a bottom up approach only computing each element of the grid once which will take \( \Theta \left( n \cdot m \right) \) time, we only need a single row or column to produce the next, and therefore we can reduce our space complexity to \( \mathcal{ O } \left( \min ( m, n ) \right) \) by selecting the smaller dimension, and removing previous rows from memory.</p>
+        <p>The same analysis holds true for the MHR grid, thus, the runtime and space complexity does not change as this would only add a constant to the front of each.</p>
+    </div>
+</div>

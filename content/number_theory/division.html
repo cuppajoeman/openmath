@@ -1,0 +1,270 @@
+<div class="definition" id="definition-divides">
+    <div class="title">
+        Divides
+    </div>
+    <div class="content">
+        an integer \( n \) is divisible by another integer \( m \) if there exists an integer \( k \) such that \( n = k \cdot m \). If this is all true we write \( m | n \).
+    </div>
+</div>
+<div class="corollary" id="corollary-divisible-implies-integer-quotient">
+    <div class="title">
+        Divisible iff Integer Quotient
+    </div>
+    <div class="content">
+        Suppose that \( a \mid b \) iff \( \frac{b}{a} \in \mathbb{ Z } \)
+    </div>
+    <div class="proof">
+        Suppose that \( a \mid b \), then there is some \( k \in \mathbb{ Z } \) such that \( a \cdot k = b \) therefore \( k = \frac{b}{a} \), and since \( k \in \mathbb{ Z } \) then \( \frac{b}{a} \in \mathbb{ Z } \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-n-factorial-is-divisible-by-its-factors">
+    <div class="title">
+        n Factorial is Divisible by Its Factors
+    </div>
+    <div class="content">
+        For any \( k \in \left[ 1, \ldots, n \right] \) \[ k \mid n! \]
+    </div>
+    <div class="proof">
+        \[ n! = 1 \cdots k \cdots n \] therefore \[ \frac{n!}{k} = 1 \cdots \left( \frac{k}{k} \right) \cdots n \in \mathbb{ Z } \] so <a class="knowledge-link" href="/number_theory/division.html#corollary-divisible-implies-integer-quotient">therefore</a> \( k \mid n! \)
+    </div>
+</div>
+<div class="corollary" id="corollary-">
+    <div class="title">
+        Not Divisible iff Non-Integer Quotient
+    </div>
+    <div class="content">
+        \( a \nmid b \) iff \( \frac{b}{a} \notin \mathbb{ Z } \)
+    </div>
+    <div class="proof">
+        By the fact that \( P \iff Q \) iff \( \neg P \iff \neg Q \)
+    </div>
+</div>
+<div class="proposition" id="proposition-one-divides-everything">
+    <div class="title">
+        1 Divides Everything
+    </div>
+    <div class="content">
+        Suppose that \( j \in \mathbb{Z} \), then \( 1 | j \)
+    </div>
+    <div class="proof">
+        In the <a class="knowledge-link" href="/number_theory/division.html#definition-divides">definition of divides</a> take \( k = j \), then we can see that \( j = j \cdot 1 \) thus we can say that \( 1 | j \)
+    </div>
+</div>
+<div class="proposition" id="proposition-if-something-divides-one-then-it-is-one-or-negative-one">
+    <div class="title">
+        If something Divides One then it is One or Negative One
+    </div>
+    <div class="content">
+        Suppose \( d \mid 1 \) then \( d = \pm 1 \)
+    </div>
+    <div class="proof">
+        We have that \( 1 = k d \) but the only numbers in \( \mathbb{ Z } \) that have a multiplicative inverse are \( 1, -1 \) so \( d \) must be one of those or else we have a contradiction.
+    </div>
+</div>
+<div class="proposition" id="proposition-if-zero-divides-a-number-then-that-number-is-zero">
+    <div class="title">
+        If Zero Divides a Number, then that Number is Zero
+    </div>
+    <div class="content">
+        Suppose \( 0 \mid d \) then \( d = 0 \)
+    </div>
+    <div class="proof">
+        By definition we have \( d = k \cdot 0 = 0 \) so \( d = 0 \)
+    </div>
+</div>
+<div class="proposition" id="proposition-zero-is-divisible-by-everything">
+    <div class="title">
+        0 is Divisible by Everything
+    </div>
+    <div class="content">
+        for any \( d \in \mathbb{Z} , d | 0 \)
+    </div>
+    <div class="proof">
+        In the <span class="knowledge-link" data-href="/number_theory/number_theory.html#definition-divides">definition of divides</span> take \( k = 0 \), then we can see that \( 0 = 0 \cdot d \) thus we can say that \( d | 0 \)
+    </div>
+</div>
+<div class="proposition" id="proposition-everything-divides-itself">
+    <div class="title">
+        Everything Divides Itself
+    </div>
+    <div class="content">
+        Let \( a \in \mathbb{ Z } \) then \( a \mid a \)
+    </div>
+    <div class="proof">
+        Clearly \( 1 \cdot a = a \) therefore \( a \mid a \)
+    </div>
+</div>
+<div class="proposition" id="proposition-division-is-transitive">
+    <div class="title">
+        Division is Transitive
+    </div>
+    <div class="content">
+        Suppose \( a \mid b \) and \( b \mid c \) then \( a \mid c \)
+    </div>
+    <div class="proof">
+        We have that \( b = k _ a a \) and \( c = k _ b b \) therefore \( c = k _ b \left( k _ a a \right) \) therefore by taking \( k _ c = \left( k _ a k _ b \right) \) we see that \( a \mid c \)
+    </div>
+</div>
+<div class="proposition" id="proposition-if-you-divide-a-number-then-you-divide-their-multiples">
+    <div class="title">
+        If you Divide a Number, then You Divide their Multiples
+    </div>
+    <div class="content">
+        For any \( a, b, c \in \mathbb{ Z } \) \[ a \mid b \implies a \mid b c \]
+    </div>
+    <div class="proof">
+        Suppose that \( a \mid b \) therefore there is \( k \in \mathbb{ Z } \) such that \( b = ka \), therefore multiply both sides to get \( bc = \left( kc \right) a \) and therefore \( a \mid bc \) as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">
+    <div class="title">
+        If it Divides it's Less than or Equal with Absolute Values
+    </div>
+    <div class="content">
+        Suppose that \( n, d \in \mathbb{ Z } \), such that \( n \neq 0 \) then if \( d \) <a class="knowledge-link" href="/number_theory/division.html#definition-divides">divides</a> \( n \), then \( \lvert d \rvert \le \lvert n \rvert \)
+    </div>
+    <div class="proof">
+        <p>We see that \( n = k d \) for some \( k \in \mathbb{ Z } \), since \( n \neq 0 \) then also we must have \( k, d \neq 0 \) specifically note that \( \lvert k \rvert \ge 1 \) so that we have \[ \lvert n \rvert = \lvert k d \rvert = \lvert k \rvert \cdot \lvert d \rvert \ge 1 \lvert d \rvert = \lvert d \rvert \] so that \( \lvert n \rvert \ge \lvert d \rvert \)</p>
+    </div>
+</div>
+<p>We have to specify \( n \neq 0 \) because we know that everything divides zero, and therefore without that assumption we could use it to claim that since \( -42 \mid 0 \) that \( \lvert -42 \rvert \le 0 \) which is clearly false.</p>
+<div class="corollary" id="corollary-larger-absolute-value-implies-no-disivion">
+    <div class="title">
+        Larger Absolute value Implies no Division
+    </div>
+    <div class="content">
+        for any \( n, d \in \mathbb{ Z } \) such that \( n \neq 0 \) if \( \lvert d \rvert \gt \lvert n \rvert \) then \( d \nmid n \)
+    </div>
+    <div class="proof">
+        This follows by <a class="knowledge-link" href="/fundamentals/logic.html#proposition-contrapositive">the contrapositive</a> and <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">this</a>
+    </div>
+</div>
+<div class="proposition" id="proposition-if-two-numbers-divide-each-other-then-their-absolute-values-are-equal">
+    <div class="title">
+        If two Numbers Divide each other then Their Absolute Values are Equal
+    </div>
+    <div class="content">
+        For any \( a, b \in \mathbb{ Z } \), if \( a \mid b \) and \( b \mid a \) then \( \lvert a \rvert = \lvert b \rvert \)
+    </div>
+    <div class="proof">
+        <p>If \( a = 0 \) then because \( a \mid b \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-zero-divides-a-number-then-that-number-is-zero">then this forces</a> \( b = 0 \) so that \( a = b = 0 \), also if we assumed \( b = 0 \) the same thing occurs.</p>
+        <p>In the case that neither of \( a, b = 0 \) then recall that if \( a \mid b \) <a class="knowledge-link" href="/number_theory/division.html#proposition-if-it-divides-its-less-than-or-equal-with-absolute-values">we have</a> \( \lvert a \rvert \le \lvert b \rvert \) also since \( b \mid a \) then also \( \lvert a \rvert \le \lvert b \rvert \) so that \( \lvert a \rvert = \lvert b \rvert \).</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-if-a-number-divides-another-then-given-a-common-factor-their-quotients-divide-each-other">
+    <div class="title">
+        If a Number Divides another Then Given a Common Factor Their Quotients Divide Each Other
+    </div>
+    <div class="content">
+        Suppose that \( a, b, d \in \mathbb{ N } _ 1 \) such that \( a \mid b \) and that \( d \) is a common divisor of \( a, b \), then \[ \frac{a}{d} \mid \frac{b}{d} \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-divisibility-is-a-partial-order-on-the-natural-numbers">
+    <div class="title">
+        Divisibility is a Partial Order on the Natural Numbers
+    </div>
+    <div class="content">
+        Divisibility is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-partial-order">partial order</a> on \( \mathbb{ N } _ 0 \).
+    </div>
+    <div class="proof">
+        It is reflexive because we know that <a class="knowledge-link" href="/number_theory/division.html#proposition-everything-divides-itself">everything divides itself</a>, we know it is <a class="knowledge-link" href="/number_theory/division.html#proposition-division-is-transitive">transitive</a>, and we also know that it is anti-symmetric, because for any \( n \in \mathbb{ N } _ 0, \lvert n \rvert = n \) and using <a class="knowledge-link" href="/number_theory/division.html#proposition-if-two-numbers-divide-each-other-then-their-absolute-values-are-equal">this proposition</a>.
+    </div>
+</div>
+<p>Note that we can't quite get a partial order \( \mathbb{ Z } \) because of the fact that \( -a \mid a \).</p>
+<div class="proposition" id="proposition-linearity-of-division">
+    <div class="title">
+        Linearity of Division
+    </div>
+    <div class="content">
+        Suppose that \( a \mid b _ 1, \ldots , b _ n \) then \[ a \mid c _ 1 b _ 1 + \cdots + c _ n b _ n \] where \( a, b _ i, c _ i \in \mathbb{ Z } \)
+    </div>
+    <div class="proof">
+        <p>For the base case of \( n = 2 \) if \( a \mid b _ 1 \) and \( a \mid b _ 2 \) then we know that there are \( k _ 1, k _ 2 \in \mathbb{ Z } \) such that \( b _ 1 = k _ 1 a \) and \( b _ 2 = k _ 2 a \) so that \( c _ 1 b _ 1 + c _ 2 b _ 2 = c _ 1 \left( k _ 1 a \right) + c _ 2 \left( k _ 2 a \right) = a \left( c _ 1 k _ 1 + c _ 2 k _ 2 \right) \).</p>
+        <p>For the induction step, assume the statement holds true for \( k \in \mathbb{ N } _ 1 \) and we'll show that it holds true for \( k + 1 \) so suppose that \( a \mid b _ 1, \ldots b _ { k + 1 } \) by the induction hypothesis we know that \( a \mid c _ 1 b _ 1 + \cdots + c _ k b _ k \) so we get some \( j ^ \prime \in \mathbb{ Z } \) such that \( c _ 1 b _ 1 + \cdots + c _ k b _ k = j ^ \prime a \) and also some \( j ^ { \prime \prime } \in \mathbb{ Z } \) such that \( b _ { k + 1 } = j ^ { \prime \prime } a \) and therefore \[ c _ 1 b _ 1 + \cdots + c _ k b _ k + c _ { k + 1 } b _ { k + 1 } = j ^ \prime a + j ^ { \prime \prime } a = a \left( j ^ \prime + j ^ { \prime \prime } \right) \] so therefore \( a \mid c _ 1 b _ 1 + \cdots + c _ { k + 1 } b _ { k + 1 } \)</p>
+    </div>
+</div>
+<div class="definition" id="definition-even-number">
+    <div class="title">
+        Even Number
+    </div>
+    <div class="content">
+        We say that an integer \( n \in \mathbb{ Z } \) is even if there is some \( k \in \mathbb{ Z } \) such that \[ n = 2k \]
+    </div>
+</div>
+<div class="proposition" id="proposition-a-power-of-an-even-number-is-even">
+    <div class="title">
+        A power of an Even Number is Even
+    </div>
+    <div class="content">
+        If \( n \in \mathbb{ Z } \) is even, then for any \( m \in \mathbb{ N } _ 1 \) we have \( n ^ m \) is even
+    </div>
+    <div class="proof">
+        If \( n \) is even then there is some \( k \in \mathbb{ Z } \) such that \( n = 2k \) and therefore \( n ^ m = \left( 2k \right) ^ m = 2 ^ m k ^ m = 2 \left( 2 ^ { m - 1 } k ^ m \right) \) so that \( n ^ m \) is also even.
+    </div>
+</div>
+<div class="definition" id="definition-odd-number">
+    <div class="title">
+        Odd Number
+    </div>
+    <div class="content">
+        We say that an integer \( n \in \mathbb{ Z } \) is odd if there is some \( k \in \mathbb{ Z } \) such that \[ n = 2k + 1 \]
+    </div>
+</div>
+<div class="proposition" id="proposition-a-power-of-an-odd-number-is-odd">
+    <div class="title">
+        A power of an Even Number is Odd
+    </div>
+    <div class="content">
+        If \( n \in \mathbb{ Z } \) is odd, then for any \( m \in \mathbb{ N } _ 0 \) we have \( n ^ m \) is odd
+    </div>
+    <div class="proof">
+        <p>Base case, set \( m = 0 \) then \( n ^ m = 1 \) which is odd. For the induction step assume it holds true for \( k \in \mathbb{ N } _ 0 \) so that \( n ^ k \) is odd, which means that there is some \( j \in \mathbb{ Z } \) such that \( n ^ k = 2j + 1 \) therefore \( n ^ { k + 1 } = \left( 2 j + 1 \right) n \) but \( n \) is odd so there is some \( j ^ \prime \in \mathbb{ Z } \) such that \( n = 2 j ^ \prime + 1 \) and thus \[ n ^ { k + 1 } = \left( 2 j + 1 \right) \left( 2 j ^ \prime + 1 \right) = 4j j ^ \prime + 2j + 2 j ^ \prime + 1 = 2 \left( 2 j j ^ \prime + j + j ^ \prime \right) + 1 \] hence \( n ^ { k + 1 } \) is prime so the statement follows from the principle of induction.</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-product-of-two-equal-factors-means-they-are-square-roots">
+    <div class="title">
+        Product of Two Equal Factors means They are Square Roots
+    </div>
+    <div class="content">
+        Suppose that \( a = bc \) then \( b = \sqrt{ a } \) iff \( b = c \)
+    </div>
+    <div class="proof">
+        <p>\( \implies \) suppose that \( b = \sqrt{ a } \) then for sake of contradiction if \( b \neq c \) then if \( c \lt b \) then we see that \( a = b c \lt b b = \sqrt{ a } \sqrt{ a } = a \) which is impossible, on the other hand if \( c \gt b = \sqrt{ a } \) then we see \( a = b c \lt c c \lt \sqrt{ a } \sqrt{ a } \) which yields the same contradiciton.</p>
+        <p>\( \impliedby \) Now suppose that \( b = c \) therefore \( a = b c = b b \) therefore \( b ^ 2 = a \) and so \( b = \sqrt{ a } \) as needed, moreover in this case note that \( c = \sqrt{ a } \) as well.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-product-implies-square-root-bound-on-factors">
+    <div class="title">
+        Product Implies Square Root bound on Factors
+    </div>
+    <div class="content">
+        Suppose that \( a, b, c \in \mathbb{ N } _ 1 \) and that \( b \neq c \) where \( a = b c \) then \[ \left( b \gt \sqrt{ a } \land c \lt \sqrt{ a } \right) \lor \left( b \lt \sqrt{ a } \land c \gt \sqrt{ a } \right) \]
+    </div>
+    <div class="proof">
+        Suppose for the sake of contradiction that it was not true, so that we knew that \[ \left( b \le \sqrt{ a } \lor c \ge \sqrt{ a } \right) \land \left( b \ge \sqrt{ a } \lor c \le \sqrt{ a } \right) \] Suppose that \( b \le \sqrt{ a } \) and \( b \ge \sqrt{ a } \) holds true, then \( b = \sqrt{ a } \) since \( c \neq b \) then if \( c \lt b \) we see that \( b c \lt \sqrt{ a } \sqrt{ a } = a \) which is a contradiction since we know that \( b c = a \), if it turns out that \( c \le \sqrt{ a } \) and \( c \ge \sqrt{ a } \) it is handeled symetrically.
+        <p>On the other hand if we know that \( b \le \sqrt{ a } \) and that \( c \le \sqrt{ a } \), since \( b \neq a \) <a class="knowledge-link" href="/number_theory/division.html#lemma-product-of-two-equal-factors-means-they-are-square-roots">then we know that</a> \( b \neq \sqrt{ a } \), therefore more specifically we see that \( b \lt \sqrt{ a } \) this implies that \( a = b c \lt \sqrt{ a } \sqrt{ a } = a \) which is a contradiction. In the case of \( c \ge \sqrt{ a } \) and \( b \ge \sqrt{ a } \) it follows in a symmetrical manner.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-number-to-the-power-m-minus-1-divides-number-to-the-power-n-if-m-divides-n">
+    <div class="title">
+        Number To the Power m Minus 1 Divides Number To the Power n if m Divides n
+    </div>
+    <div class="content">
+        Let \( a, m, n \in \mathbb{ N } _ 1 \) then \[ m \mid n \implies \left( a ^ m - 1 \right) \mid \left( a ^ n - 1 \right) \]
+    </div>
+    <div class="proof">
+        <p>We have that \( n = mk \) for some \( k \in \mathbb{ Z } \) and we want to prove that \( a ^ { mk } - 1 = \left( a ^ m - 1 \right) j \) for some \( j \in \mathbb{ Z } \), a good guess would be that \( j = a ^ { \left( m - 1 \right) k } \) which produces \( \left( a ^ m - 1 \right) \left( a ^ { \left( m - 1 \right)k } \right) = a ^ { mk } - a ^ { \left( m - 1 \right) k } \) and so we have to get rid of the \( a ^ { \left( m - 1 \right)k } \) term, which inspires us to try \( j = a ^ { \left( m - 1 \right)k } + a ^ { \left( m - 2 \right) k } \) which yields \[ \left( a ^ m - 1 \right) \left( a ^ { \left( m - 1 \right)k } + a ^ { \left( m - 2 \right) k } \right) = a ^ { km } + a ^ { \left( m - 1 \right)k } - \left( a ^ { \left( m - 1 \right) k } + a ^ { \left( m - 2 \right) k } \right) = a ^ { km } - a ^ { \left( m - 2 \right) k } \]</p>
+        <p>As we've just run into the same problem as last time we see that adding \( a ^ { \left( m - 3 \right) k } \) would remove the most recent residue term, but then leave the new residue term \( a ^ { \left( m - 3 \right) k } \) . Therefore formally using induction we can show that \[ \left( a ^ m - 1 \right) \left( \sum _ { i = 0 } ^ { m - 1 } a ^ { ik } \right) = a ^ { mk } - 1 = a ^ n - 1 \] where \( 1 \) is really the residue term \( a ^ { \left( 0 \right)k } \)</p>
+    </div>
+</div><!--        <div class="proposition" id="proposition-forced-division-of-sum">-->
+<!--            <div class="title">-->
+<!--                Forced Division of Sum-->
+<!--            </div>-->
+<!--            <div class="content">-->
+<!--                Suppose that \( m \mid a \) and that \( m \mid \left ( a + b \right ) \) then \( m \mid b \)-->
+<!--            </div>-->
+<!--            <div class="proof">-->
+<!--                TODO-->
+<!--            </div>-->
+<!--        </div>-->

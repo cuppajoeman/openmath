@@ -1,0 +1,107 @@
+<div class="definition" id="definition-directional-derivative">
+    <div class="title">
+        directional derivative
+    </div>
+    <div class="content">
+        Let \( f{:} \mathbb{R}^{n} \to \mathbb{R} \) and let \( a , v \in \mathbb{R}^{n} \), then the directional derivative of \( f \) at \( a \) along \( v \) is defined as
+        <div class="centered-content">
+            \( \nabla_{v} f{\left ( a \right )} := \lim_{h \to 0} \frac{f{\left ( a + h v \right )} - f{\left ( a \right )}}{h} \)
+        </div>
+    </div>
+</div>
+<div class="definition" id="definition-partial-derivative">
+    <div class="title">
+        Partial Derivative
+    </div>
+    <div class="content">
+        Let \( f{:} \mathbb{R}^{n} \to R \) then the partial derivative with respect to \( x_{i} \) is the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-directional-derivative">directional derivative of \( f \) at \( a \) along \( e_{i} \)</a>
+        <div class="centered-content">
+            \( \frac{\partial}{\partial x_{i}} f{\left ( a \right )} := \nabla_{e_{i}} f{\left ( a \right )} \)
+        </div>
+    </div>
+</div>
+<div class="definition">
+    <div class="title">
+        Frozen Function
+    </div>
+    <div class="content">
+        Suppose that \( f{:} \mathbb{R}^{n} \to \mathbb{R} \) and \( a \in \mathbb{R}^{n} \) then we can define a new function \( f_{i , a}{:} \mathbb{R} \to \mathbb{R} \) by \( f_{i , a}{\left ( h \right )} := f{\left ( a + h e_{i} \right )} \).
+    </div>
+</div>
+<p>The frozen function get's it's name because it can be thought of by taking the sample point \( a \) and then freezing in all directions except for along the \( i \)-th component of the input for \( f \)</p>
+<div class="proposition" id="proposition-partial-derivative-becomes-frozen-function">
+    <div class="title">
+        Partial Derivative becomes frozen function derivative
+    </div>
+    <div class="content">
+        \( \frac{\partial f}{\partial x_{i}} \left ( a \right ) = \frac{d}{d h} \left [ f_{i , a}{\left ( h \right )} \right ] \)
+    </div>
+    <div class="proof">
+        TODO
+    </div>
+</div>
+<div class="exercise" id="exercise-frozen">
+    <div class="title">
+        Todo
+    </div>
+    <div class="content">
+        Consider the function \( f{\left ( x , y , z \right )} = x^{2} + y^{2} + z^{2} \), and the point \( \left ( a_{1} , a_{2} , a_{3} \right ) \in \mathbb{R}^{3} \) then show that \( f_{y , a}{\left ( h \right )} \) equals the function \( g{\left ( x \right )} = a_{1}^{2} + \left ( x \right )^{2} + a_{3}^{2} \)
+    </div>
+    <div class="proof">
+        Let's start by looking at the definition of \( f_{2 , a}{\left ( h \right )} = f{\left ( a + h e_{2} \right )} \) now recall that \( e_{2} = \left ( 0 , 1 , 0 \right ) \), so that \( f{\left ( a + h e_{2} \right )} = f{\left ( \left ( a_{1} , a_{2} , a_{3} \right ) + \left ( 0 , h , 0 \right ) \right )} = f{\left ( a_{1} , a_{2} + h , a_{3} \right )} = \left ( a_{1} \right )^{2} + \left ( a_{2} + h \right )^{2} + \left ( a_{3} \right )^{2} \)
+    </div>
+</div>
+<div class="exercise" id="exercise-partial-derivative-computation">
+    <div class="title">
+        Todo
+    </div>
+    <div class="content">
+        compute the partial derivative with resepct to y of \( f{\left ( x , y , z \right )} = x^{2} + y^{2} + z^{2} \)
+    </div>
+    <div class="proof">
+        Leaving x and z as constants, and evaluating the derivative as \( f{\left ( x , y , z \right )} = C + y^{2} + C \), using the sum rule and the power rule, the derivative becomes \( \frac{\partial}{\partial y} f{\left ( x , y , z \right )} = 2 y \)
+    </div>
+</div>
+<div class="definition">
+    <div class="title">
+        Gradient
+    </div>
+    <div class="content">
+        The gradient of a function \( f{:} \mathbb{R}^{n} \to R \) at the point \( p \) is defined as \( \nabla f{\left ( p \right )} := \left ( \frac{\partial f}{\partial} \left ( x_{1} \right ) \left ( p \right ) , \frac{\partial f}{\partial} \left ( x_{2} \right ) \left ( p \right ) , \ldots , \frac{\partial f}{\partial} \left ( x_{n} \right ) \left ( p \right ) \right ) \)
+    </div>
+</div>
+<div class="exercise" id="exercise-gradient">
+    <div class="title">
+        Todo
+    </div>
+    <div class="content">
+        Suppose we have the fnction \( f{\left ( x , y \right )} = \sin{\left ( x \right )} \), and \( \left ( p_{1} , p_{2} \right ) \in \mathbb{R}^{2} \) show that \( \nabla f{\left ( p \right )} = \left ( \cos{\left ( p_{1} \right )} , 0 \right ) \)
+    </div>
+    <div class="proof">
+        By definition \( \nabla f{\left ( p \right )} = \left ( \frac{\partial f}{\partial x_{1}} \left ( p \right ) , \frac{\partial f}{\partial x_{2}} \left ( p \right ) \right ) \). Since we know that \( \frac{\partial f}{\partial x_{1}} = \frac{d}{d h} \left ( f_{1 , p}{\left ( h \right )} \right ) \), and we know that \( f_{1 , p}{\left ( h \right )} = f{\left ( p + h e_{1} \right )} \) since \( h e_{1} = \left ( h , 0 \right ) \) so \( p = \left ( p_{1} , p_{2} \right ) \) so \( p + h e_{1} = \left ( p_{1} + h , p_{2} \right ) \) so then \( f{\left ( p + h e_{1} \right )} = \sin{\left ( p_{1} + h \right )} \), evaluating the limit from the directional derivative, it evaluates to \( \cos{\left ( p_{1} \right )} \)
+        <p>we will show that \( \frac{\partial f}{\partial x_{2}} \left ( p \right ) = 0 \), we know that \( f_{2 , p}{\left ( h \right )} = f{\left ( p + h e_{2} \right )} = \cos{\left ( p_{1} \right )} \) and thus it is a constant funtion, this implies tha directional derivative is 0</p>
+        <p>Therefore we can se that \( \nabla f{\left ( p \right )} = \left ( \cos{\left ( p_{1} \right )} , 0 \right ) \)</p>
+    </div>
+</div>
+<div class="definition" id="definition-differentiability">
+    <div class="title">
+        differentaibility
+    </div>
+    <div class="content">
+        a function \( f{:} A \to \mathbb{R}^{m} \) with \( A \subseteq \mathbb{R}^{n} \) is differentiable at the point \( a \in \mathbb{R}^{n} \) if there exists a linear transformation \( T : \mathbb{R}^{n} \to \mathbb{R}^{m} \) such that
+        <div class="centered-content">
+            \( \lim_{x \to a} \frac{\left \| f{\left ( x \right )} - \left ( f{\left ( a \right )} + T \left ( x - a \right ) \right ) \right \| }{\left \| x - a \right \| } = 0 \)
+        </div>
+    </div>
+</div>
+<div class="theorem" id="theorem-continuous-partials-implies-differentiabiity">
+    <div class="title">
+        continuous partials implies differentiability
+    </div>
+    <div class="content">
+        If all the partial derivatives of a function exist in a neighborhood of a point \( x_{0} \) and are continuous at the point \( x_{0} \), then the function is differentiable at that point \( x_{0} \)
+    </div>
+    <div class="proof">
+        ToDo
+    </div>
+</div>

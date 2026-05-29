@@ -1,0 +1,226 @@
+<h1>Compact Operators</h1>
+<div class="definition" id="definition-compact-operator" >
+    <div class="title">Compact Operator</div>
+    <div class="content">
+        Let \( \mathcal{ H }  \) be a <a class="knowledge-link" href="/linear_operators/everything.html#definition-hilbert-space">hilbert space</a> and let \( T : \mathcal{ H } \to \mathcal{ H }   \) be a bounded linear operator then we say that it is <b>compact</b> if for every bounded subset \( B \subseteq \mathcal{ H }  \), the image \( T \left( B \right)  \) is relatively compact, meaning that the closure of \( T \left( B \right)  \) is compact  in the <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-norm-topology">norm topology</a> of \( \mathcal{ H }  \) 
+    </div>
+</div>
+<p>
+    The set of compact transformations in \(L(X, Y)\) will be denoted by \(K(X, Y)\).
+</p>
+<div class="corollary" id="corollary-bounded-operator-in-terms-of-sequences">
+    <div class="title">Bounded Operator in Terms of Sequences</div>
+    <div class="content">
+        Let \(X\) and \(Y\) be normed spaces. A linear transformation \(T \in L(X, Y)\) is compact if, for any bounded sequence \( \left( x _ n \right)  \) in \(X\), the sequence \( \left( T x _ n \right) \) in \(Y\) contains a convergent subsequence. 
+    </div>
+
+    <div class="proof">
+        <p>
+            \( \implies  \) If \( T \) is assumed compact and \( \left( x _ n \right)  \) is bounded ie) the set \( \operatorname{ im } \left( x _ n \right) =   \left\{ x _ n : n \in \mathbb{ N } _ 1 \right\}  \) is bounded, and therefore \( \overline{ T \left( \operatorname{ im } \left( x _ n \right)   \right) }   \) is compact in \( Y \) and <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-sequential-compactness-of-a-metric-space">therefore</a> contains a convergent subsequence
+        </p>
+        <p>
+            \( \impliedby  \) Now suppose that every bounded sequence \( \left( x _ n \right)  \) contains a subsequence \( x _ { n _ k } \) such that \( \left( T x _ { n _ k } \right)  \) converges in \( Y \). Our goal is to show that given any bounded subset \( B \subseteq X \) we must show that \( \overline{ T \left( B \right)  }  \) is compact, but recall that <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#proposition-every-compact-subspace-of-a-metric-space-is-closed-and-bounded">every compact set is closed</a> as we are working in a metric space induced by the norm, therefore if we prove that \( T \left( B \right)  \) is compact, then it is closed so that \( T \left( B  \right) = \overline{ T \left( B \right)  }   \) showing that \( \overline{ T \left( B \right)  }  \) is compact.
+        </p>
+        <p>
+            So moving towards this given any bounded subset \( B \subseteq X \), let \( \left( y _ n \right)  \) be any sequence in \( T \left( B \right)  \). Then \( y _ n = T x _ n \) for some sequence \( \left( x _n  \right)  \) in \( B \). Since \( B \) was bounded, then so is \( \left( x _ n \right)  \) , therefore by our assumption we know \( \left( T x _ n \right)  \) contains a convergent subsequence, that is \( \left( y _ n \right)  \) contains a convergent subsequence <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-sequential-compactness-of-a-metric-space">therefore</a> \( T \left( B \right)  \) is compact, and as discussed this shows that \( \overline{ T \left( B \right)  }  \) is compact.
+        </p>
+    </div>
+</div>
+<div class="theorem" id="theorem-a-compact-operator-is-bounded">
+    <div class="title">A Compact Operator Is Bounded</div>
+    <div class="content">
+        Let \(X\) and \(Y\) be normed spaces an let \(T \in K(X, Y)\). Then \(T\) is bounded. 
+    </div>
+
+    <div class="proof">
+        Suppose that \(T\) is not bounded. Then for each integer \(n \geq 1\) there exists a unit vector \(x_n\) such that \(\left\|T x_n\right\| \geq n\). Since the sequence \(\left\{x_n\right\}\) is bounded, by the compactness of \(T\) there exists a subsequence \(\left\{T x_{n(r)}\right\}\) which converges. This contradicts \(\left\|T x_{n(r)}\right\| \geq n(r)\). (ie. convergence implies boundedness)
+    </div>
+</div>
+<p>
+    Note that the above shows that: \(K(X, Y) \subset B(X, Y)\).
+</p>
+<div class="proposition" id="proposition-the-compact-operators-are-a-linear-subspace-of-the-bounded-operators" >
+    <div class="title">The Compact Operators Are a Linear Subspace of the Bounded Operators</div>
+    <div class="content">
+        Suppose that \( S, T \in K \left( X, Y \right)  \) and that \( \alpha , \beta \in \mathbb{ C }  \) then \( \alpha S + \beta T \in K \left( X, Y \right)  \).
+    </div>
+    <div class="proof">
+        Let \(\left\{x_n\right\}\) be a bounded sequence in \(X\). Since \(S\) is compact, there is a subsequence \(\left\{x_{n(r)}\right\}\) such that \(\left\{S x_{n(r)}\right\}\) converges. Then, since \(\left\{x_{n(r)}\right\}\) is bounded and \(T\) is compact, there is a subsequence \(\left\{x_{n(r(s))}\right\}\) of the sequence \(\left\{x_{n(r)}\right\}\) such that \(\left\{T x_{n(r(s))}\right\}\) converges. Since the sum of convergent sequences converges, it follows that the sequence \(\left\{\alpha S x_{n(r(s))}+\right.\) \(\left.\beta T x_{n(r(s))}\right\}\) converges. Thus \(\alpha S+\beta T\) is compact.
+    </div>
+</div>
+<div class="proposition" id="proposition-the-composition-of-linear-operators-is-compact-if-at-least-one-is" >
+    <div class="title">The Composition of Linear Operators Is Compact If at Least One Is</div>
+    <div class="content">
+        Suppose that \(S \in B(X, Y), T \in B(Y, Z)\) and at least one of the operators \(S, T\) is compact, then \(T \circ  S \in B(X, Z)\) is compact.
+    </div>
+    <div class="proof">
+        Let \(\left\{x_n\right\}\) be a bounded sequence in \(X\). If \(S\) is compact then there is a subsequence \(\left\{x_{n(r)}\right\}\) such that \(\left\{S x_{n(r)}\right\}\) converges. Since \(T\) is bounded (and so is continuous), the sequence \(\left\{T S x_{n(r)}\right\}\) converges. Thus \(T S\) is compact. If \(S\) is bounded but not compact the the sequence \(\left\{S x_n\right\}\) is bounded. Then since \(T\) must be compact, there is a subsequence \(\left\{S x_{n(r)}\right\}\) such that \(\left\{T S x_{n(r)}\right\}\) converges, and again \(T S\) is compact.
+    </div>
+</div>
+<div class="lemma" id="lemma-riesz'" >
+    <div class="title">Riesz'</div>
+    <div class="content">
+        Suppose that \( X \) is a normed vector space, and that \( Y \) is a closed subspace of \( X \) where \( Y \neq X \) and \( \alpha \in \left( 0, 1 \right)  \) then there exists a \( \left\lVert x _ \alpha  \right\rVert = 1  \) and \( \left\lVert x _ \alpha  - y  \right\rVert \gt \alpha   \) for all \( y \in Y \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="theorem" id="theorem-the-unit-disk-nor-the-unit-circle-is-compact-in-an-infinite-dimensional-space" >
+    <div class="title">The Unit Disk nor the Unit Circle Is Compact in an Infinite Dimensional Space</div>
+    <div class="content">
+        TODO: Add the content for the theorem here.
+    </div>
+
+    <div class="proof">
+        Suppose that \( x _ 1 \in K \) then since \( X \) is not finite dimensional it must be the case that \( \operatorname{ span } \left( x _ 1 \right) \neq X  \), <a class="knowledge-link" href="/analysis/linear_operators.html#corollary-every-finite-dimensional-subspace-of-a-normed-vector-space-is-closed">now we know that \( \operatorname{ span } \left( x _ 1 \right)   \) is closed</a> and therefore we obtain some \( x _ 2 \in K \) such that 
+        \[
+        \left\lVert x _ 2 - \alpha x _ 1 \right\rVert \ge \frac{ 3 }{ 4 } 
+        \] 
+    </div>
+</div>
+<div class="theorem" id="theorem-the-identity-operator-on-an-infinite-dimensional-space-is-not-compact" >
+    <div class="title">The Identity Operator on an Infinite Dimensional Space Is Not Compact</div>
+    <div class="content">
+        If \( X \)  is an infinite dimensional normed vector space then \( \operatorname{ id } _ X  \) is not compact
+    </div>
+    <div class="proof">
+        Recall that since there exists a sequence of unit vectors \( \left( x _ n \right) \in X  \) that does not have a convergent subsequence. This is a problem because \( \left( x _ n \right)  \) is a bounded sequence, but \( \left( \operatorname{ id } _ X \left( x _ n \right)   \right) = \left( x _ n \right)   \) doesn't have a convergent subsequence so \( \operatorname{ id } _ X  \) is not compact.
+    </div>
+</div>
+<h1>week 4</h1>
+<div class="corollary" id="corollary-a-compact-operator-on-a-infinite-dimensional-space-is-not-invertible" >
+    <div class="title">A Compact Operator on a Infinite Dimensional Space Is Not Invertible</div>
+    <div class="content">
+        If \( X \) is an infinite-dimensional normed space and \( T \in K \left( X \right)  \), then \( T \) is not invertible
+    </div>
+
+    <div class="proof">
+        Suppose that \( T \) were invertible, so that \( T ^ { -1 }  \) exists, and that \( \operatorname{ id } _ X = T ^ { -1 }  \circ T  \), so that <a class="knowledge-link" href="/analysis/linear_operators.html#proposition-the-composition-of-linear-operators-is-compact-if-at-least-one-is">\( \operatorname{ id } _ X  \) is compact</a>, but then \( X \) was infinite dimensional, <a class="knowledge-link" href="/analysis/linear_operators.html#theorem-the-identity-operator-on-an-infinite-dimensional-space-is-not-compact">so \( \operatorname{ id } _ X  \) is not compact </a> so that \( T \) is not invertible.
+    </div>
+</div>
+<div class="proposition" id="proposition-compact-symmetric-operators-that-commute-can-be-simultaneously-diagonalized" >
+    <div class="title">Compact Symmetric Operators That Commute Can Be Simultaneously Diagonalized</div>
+    <div class="content">
+Suppose that \( \mathcal{ H }  \) is a hilbert space,  if \(T, S: \mathcal{H} \rightarrow \mathcal{H}\) are compact symmetric operators which commute, i.e. \(\left(T S=\right.\) \(S T\) ), show that they can be diagonalized simultaneously. In other words, there exists an orthonormal basis for \(\mathcal{H}\) which consists of eigenvectors for both \(T\) and \(S\).
+    </div>
+
+    <div class="proof">
+        Suppose \(\lambda_i\) are the collection of eigenvalues of \(T\) and \(E_{\lambda_i}\left(T\right)\) are the corresponding eigenspaces. Then we will show that an orthogonal collection in \(E_{\lambda_i}\) also are eigenvectors of \(S\). Suppose that \(f_1, f_2, \ldots f_n\) forms a basis for \(E_\lambda\), then
+        \[
+        T f_j=\lambda_1 f_j .
+        \]
+        So that,
+        \[
+        T S f_j=S T f_j=\lambda S f_j,
+        \]
+        i.e., \(S f_j \in E_\lambda\left(T\right)\), i.e.
+        \[
+        S f_j=\sum_{i=1}^n \alpha_{i, j} f_i
+        \]
+        Thus, \(S: E_\lambda \rightarrow E_\lambda\) can be represented as an \(n \times n\) matrix with entries \(\alpha_{i, j}\). From the symmetry of \(S\), it follows that \(\alpha_{i, j}=\alpha_{j, i}\) and thus, the orthogonal matrix has a collection of orthogonal eigenvectors of the mapping \(S\). This, shows that every eigenvector of \(T\) with eigenvalue not equal to 0 is also an eigenvector of \(S\). For \(\lambda=0\), a similar proof shows that \(S: \operatorname{ null } \left(T\right) \rightarrow \operatorname{ null } \left(T\right)\) and it follows from the spectral theorem, that there exists an orthogonal basis of \( \operatorname{ null } \left(T\right)\) which are the eigenvectors of \(S\) too.
+    </div>
+</div>
+<div class="proposition" id="proposition-complex-form-of-a-linear-operator" >
+    <div class="title">Complex Form of a Linear Operator</div>
+    <div class="content">
+Let \( \mathcal{ H }  \)  be a separable Hilbert space and assume that \( T : \mathcal{ H } \to \mathcal{ H } \)  is a compact normal bounded operator, then there exist a pair of commuting compact self-adjoint operators \( A, B: \mathcal{ H } \to \mathcal{ H }   \)  such that \( T = A + Bi \) 
+    </div>
+    <div class="proof">
+        <p>
+            Define the real part \( A \) and imaginary part \( B \) of \( T \) as follows:
+            \[
+            A := \frac{T + T^*}{2}, \quad B := \frac{T - T^*}{2i},
+            \]
+            where \( T^* \) denotes the adjoint of \( T \).
+        </p>
+        <p>
+            We now show that \( A \) and \( B \) are self-adjoint, we verify that \( A^* = A \) and \( B^* = B \).
+            \[
+            A^* = \left( \frac{T + T^*}{2} \right)^* = \frac{T^* + (T^*)^*}{2} = \frac{T^* + T}{2} = A.
+            \]
+            so that, \( A \) is self-adjoint, onto \( B \) 
+            \[
+            B^* = \left( \frac{T - T^*}{2i} \right)^* = \frac{T^* - T}{-2i} = \frac{T - T^*}{2i} = B.
+            \]
+            Thus, \( B \) is also self-adjoint. 
+        </p>
+        <p>
+            \( A, B \) are also compact as the compact linear operators form a linear subspace of the bounded operators.
+        </p>
+    </div>
+</div>
+
+<h1>hw5</h1>
+
+<div class="proposition" id="proposition-if-a-bounded-linear-operator-has-finite-rank-then-it-is-compact" >
+    <div class="title">If a Bounded Linear Operator Has Finite Rank Then It Is Compact</div>
+    <div class="content">
+        Let \( X, Y \) be normed spaces and \( T \in B \left( X, Y \right)  \) then if \( T \) has finite rank then \( T \) is compact
+    </div>
+
+    <div class="proof">
+        Since \( T \) has finite rank then the space \( Z = \operatorname{ im } \left( T \right)   \) is a finite dimensional normed space. Now given any bounded sequence \( \left( x _ n \right)   \) in \( X \) then the sequence \( \left( T x _ n \right)   \) is bounded in \( Z \) and thus by the Bolzano-Weierstrass theorem this sequence must have a convergence subsequence, meaning that \( T \) is compact.
+    </div>
+</div>
+
+<h1>hw8</h1>
+<div class="proposition" id="proposition-every-compact-operator-is-bounded" >
+    <div class="title">Every Compact Operator Is Bounded</div>
+    <div class="content">
+        Let \( X, Y \) be normed vector spaces, then for any compact linear operator \( T : X \to Y \) is bounded
+    </div>
+
+    <div class="proof">
+        It's clear that the unit sphere \( U = \left\{ x \in X : \left\lVert x \right\rVert = 1  \right\}   \) is bounded by construction, since \( T \) is compact, <a class="knowledge-link" href="/linear_operators/compact_operators.html#definition-compact-operator">then we know that</a> \( \overline{ T \left( U \right) }   \) is compact <a class="knowledge-link" href="/linear_operators/banach_spaces.html#lemma-a-compact-subset-of-a-metric-space-is-closed-and-bounded">therefore</a> we know that \( T \left( U \right) \subseteq \overline{ T \left( U \right)  }  \) is bounded, and thus we have:
+        \[
+          \sup _ { \left\lVert x \right\rVert = 1  } \left\lvert T x \right\rvert \lt \inf
+        \] 
+        therefore \( T \) is bounded
+    </div>
+</div>
+<div class="corollary" id="corollary-every-compact-operator-is-continuous" >
+    <div class="title">Every Compact Operator Is Continuous</div>
+    <div class="content">
+        Let \( X, Y \) be normed vector spaces, then for any compact linear operator \( T : X \to Y \) is continuous
+    </div>
+
+    <div class="proof">
+        Since we <a class="knowledge-link" href="/linear_operators/compact_operators.html#theorem-a-compact-operator-is-bounded">just realized</a> that it must be bounded, then it also <a class="knowledge-link" href="/linear_operators/banach_spaces.html#proposition-continuity-boundedness-equivalence-of-linear-operators">must be</a> continuous, as needed.
+    </div>
+</div>
+<div class="definition" id="definition-finite-rank-operator" >
+    <div class="title">Finite Rank Operator</div>
+    <div class="content">
+        Given a linear operator \( T \)  we say that it has <b>finite rank</b> whenever:
+        \[
+         \operatorname{ dim }  \left( \operatorname{ im } \left( T \right)   \right) \lt \infty
+        \] 
+    </div>
+</div>
+
+<div class="proposition" id="proposition-a-bounded-finite-rank-operator-is-compact" >
+    <div class="title">A Bounded Finite Rank Operator Is Compact</div>
+    <div class="content">
+        Suppose that \( T \) is a bounded finite rank linear operator, then \( T \) is compact
+    </div>
+
+    <div class="proof">
+        Let \( \left( x _ n  \right)  \) be any bounded sequence in \( X \), then since we have 
+        \[
+          \left\lVert T x _n  \right\rVert _ Y \le \left\lVert T \right\rVert _ \operatorname{ op } \left\lVert x _ n  \right\rVert 
+        \] 
+        then we deduce that \( \left( T x _n  \right)  \) is a bounded, thus \( \left\{ T x _ n : n \in :\mathbb{ N } 1 \right\}  \) is a subspace of a finite dimensional normed vector space and thus closed, <a class="knowledge-link" href="/linear_operators/banach_spaces.html#proposition-in-a-finite-dimensional-normed-space-compactness-is-equivalent-to-closed-and-bounded">therefore</a> it is compact, and therefore we know that it has a convergent subsequence. <a class="knowledge-link" href="/linear_operators/compact_operators.html#corollary-bounded-operator-in-terms-of-sequences">Therefore</a> \( T \) is compact, as needed.
+    </div>
+</div>
+<div class="proposition" id="proposition-if-a-linear-operator-has-a-finite-dimensional-domain-then-it-is-compact" >
+    <div class="title">If a Linear Operator Has a Finite Dimensional Domain Then It Is Compact</div>
+    <div class="content">
+        Suppose that \( T \) is a linear operator such that \( \operatorname{ dim } \left( \operatorname{ dom } \left( T \right)   \right) \lt \infty   \) then \( T \) is compact.
+    </div>
+
+    <div class="proof">
+        Since the domain is finite dimensional <a class="knowledge-link" href="/linear_operators/banach_spaces.html#proposition-if-a-linear-operator-has-a-finite-dimensional-domain-then-the-domain-of-its-image-is-less-than-it">then we know</a> \( T \) is a finite rank operator, therefore by the above proposition we know that \( T \) is compact.
+    </div>
+</div>

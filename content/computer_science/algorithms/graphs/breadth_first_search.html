@@ -1,0 +1,265 @@
+<div class="code-file" data-file-name="../implementation/breadth_first_search.cpp"></div>
+<div class="exercise" id="exercise-bfs-example">
+    <div class="title">
+        BFS Example
+    </div>
+    <div class="content">
+        <p>Assuming that we push characters onto the frontier in alphabetical order (A before B ...), specify the order of the nodes that would be explored by BFS.</p>
+        <ul>
+            <li>If we use the above source code</li>
+            <li>If we don't use the <code>node_has_been_visited</code> check</li>
+        </ul>
+        <div class="centered-content"><img alt="" src="directed_graph.svg" width="500px"></div>
+        <p>Assume that S is the initial node, while G is the goal node.</p>
+    </div>
+    <div class="proof">
+        <p>Note that the frontier is a queue, first we'll look at if the regular implementation is used:</p>
+        <table>
+            <tr>
+                <td>expansion order</td>
+                <td>frontier</td>
+                <td>about to expanded</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>S</td>
+                <td>S</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>B, C</td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td>S-B</td>
+                <td>C, A, D, E</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td>S-B-C</td>
+                <td>A, D, E, E</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A</td>
+                <td>D, E, E, F</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D</td>
+                <td>E, E, F</td>
+                <td>E</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E</td>
+                <td>E, F, D</td>
+                <td>E</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E</td>
+                <td>F, D</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E-F</td>
+                <td>D, G</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E-F</td>
+                <td>G</td>
+                <td>G</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E-F-G</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>If we do it without cycle checking we get the following</p>
+        <table>
+            <tr>
+                <td>expansion order</td>
+                <td>frontier</td>
+                <td>about to expand</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>S</td>
+                <td>S</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>B, C</td>
+                <td>B</td>
+            </tr>
+            <tr>
+                <td>S-B</td>
+                <td>C, A, D, E</td>
+                <td>C</td>
+            </tr>
+            <tr>
+                <td>S-B-C</td>
+                <td>A, D, E, E</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A</td>
+                <td>D, E, E, F</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D</td>
+                <td>E, E, F</td>
+                <td>E</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E</td>
+                <td>E, F, D</td>
+                <td>E</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E-E</td>
+                <td>F, D, D</td>
+                <td>F</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E-E-F</td>
+                <td>D, D, G</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E-E-F-D</td>
+                <td>D, G</td>
+                <td>D</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E-E-F-D-D</td>
+                <td>G</td>
+                <td>G</td>
+            </tr>
+            <tr>
+                <td>S-B-C-A-D-E-E-F-D-D-G</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="theorem" id="theorem-breadth-first-search-is-correct">
+    <div class="title">
+        Breadth First Search is Correct
+    </div>
+    <div class="content">
+        Given any graph, breadth first search traverses all nodes in the graph
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-enqueued">
+    <div class="title">
+        Enqueued
+    </div>
+    <div class="content">
+        Suppose that \( v \) is a vertex in a graph being explored by BFS, then we say that \( v \) is enqueued, if it has been added to the queue.
+    </div>
+</div>
+<div class="definition" id="definition-expanded">
+    <div class="title">
+        Expanded
+    </div>
+    <div class="content">
+        Suppose that \( v \) is a vertex in a graph being explored by BFS, then we say that \( v \) is expanded if all of it's successors have been added to the queue.
+    </div>
+</div>
+<div class="definition" id="definition-depth">
+    <div class="title">
+        Depth
+    </div>
+    <div class="content">
+        Suppose that \( v, w \) are two connected vertices in a graph, then we say that <b>the depth of \( w \) with respect to \( v \)</b> is the length of the shortest path from \( v \) to \( w \) in the graph, and we notate it by \( \operatorname{ depth } \left( v, w \right) \)
+    </div>
+</div>
+<div class="definition" id="definition-found">
+    <div class="title">
+        Found
+    </div>
+    <div class="content">
+        We say that a specific vertex \( v \) is said to be <b>found</b> if it has been expanded.
+    </div>
+</div>
+<div class="proposition" id="proposition-bfs-searches-less-deep-vertices-first">
+    <div class="title">
+        BFS Searches Less Deep Vertices First
+    </div>
+    <div class="content">
+        Let \( s \) be the initial vertex that BFS is called on, and let us define the set \( X _ k := \left\{ v \in V: \operatorname{ depth } \left( s, v \right) = k \right\} \), then for any \( i \lt j \in \mathbb{ N } _ 0 \) BFS will expand everything in \( X _ i \) before it will expand anything in \( X _ j \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-bfs-expands-by-depth-layer">
+    <div class="title">
+        BFS Expands by Depth Layer
+    </div>
+    <div class="content">
+        Specifically given the following sequence of sets: \( X _ 0, X _ 1, X _ 2, \ldots \) BFS will expand every node in the previous set before expanding any vertex in the next set.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-bfs-expands-all-enqueued-vertices">
+    <div class="title">
+        BFS Expands All Enqueued Vertices
+    </div>
+    <div class="content">
+        Suppose that the queue consists of some finite collection of vertices \( V \), then BFS will expand every vertex in this set
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-bfs-is-complete">
+    <div class="title">
+        BFS is Complete
+    </div>
+    <div class="content">
+        Suppose that we have a potentially infinite graph \( G = \left( V, E \right) \) with an <a class="knowledge-link" href="/graph_theory/graphs.html#definition-maximum-branching-factor">maximum branching factor of</a> \( b \). Given two specific vertices \( s, g \in V \) denoted as the start state and the goal state respectively if there exists a path from \( s \) to \( g \) then if BFS is initialized on \( s \), it will expand \( g \) in a finite number of iterations.
+    </div>
+    <div class="proof">
+        <p>Let \( X _ k \) be the collection of all nodes which have a path of length \( k \) connecting them to \( s \) and that \( X _ 0 = \left\{ s \right\} \). We will prove by that BFS will expand every node in \( X _ k \) by induction.</p>
+        <p>For the base case we know that \( X _ 0 = \left\{ s \right\} \) will be expanded on the initial iteration, so the claim holds. Now assume that it holds true for every \( k \in \mathbb{ N } _ 0 \), and we'll show that it holds true for \( k + 1 \).</p>
+        <p>We know that BFS will expand every node in \( X _ k \), we also know that any vertex that has depth \( k + 1 \), is a neighbor of a node that had length \( k \), therefore by expanding every node in \( X _ k \), this means that \( X _ { k + 1 } \) will be contained on the queue, and therefore <a class="knowledge-link" href="/computer_science/algorithms/graphs/breadth_first_search.html#proposition-bfs-expands-all-enqueued-vertices">will expand every vertex in \( X _ { k + 1 } \)</a></p>
+    </div>
+</div>
+<p>Consider a graph that has one root node, and then infinitely many child nodes, and then in the third layer all the child nodes lead to a singlar goal node. BFS will get stuck on this graph because it will be spending an infinite amount of time adding every child of the root node to the queue, and thus will never terminate even though there is a trivial path from the root to the goal node.</p>
+<div class="theorem" id="theorem-bfs-time-complexity">
+    <div class="title">
+        BFS Time Complexity
+    </div>
+    <div class="content">
+        Suppose that BFS is run on a potentially infinite graph that has maximum branching factor \( b \), then given two connected nodes \( s, g \), such that \( d = \operatorname{ depth } \left( s, g \right) \) , then the number of steps taken by BFS by starting it on \( s \) until it expands \( g \) is \[ \mathcal{ O } \left( b ^ { b + 1 } \right) \]
+    </div>
+    <div class="proof">
+        <p>Observe that there are at most \( b ^ k \) nodes in \( X _ k \) (symbolically \( \lvert X _ k \rvert \le b ^ k \)), therefore to expand everything in layer \( X _ k \) it will take at most \( b \cdot b ^ { k } = b ^ { k + 1 } \) steps to expand every vertex in \( X _ k \) while enqueuing their neighbors. Therefore, since we've proven that BFS expands by depth layer, then we would say that the runtime is upper bounded by</p>\[ b ^ 1 + b ^ 2 + \ldots b ^ { k + 1 } \]
+        <p>We'll also note that during the last layer, we could find our goal node immediately if it is the first thing we expand at depth \( d \). But in the worst case, we iterate through every vertex in \( X _ { d - 1 } \), and finally add in the node \( g \) at the end of the queue, this means we will have to expand \( \lvert X _ d \rvert - 1 \) vertices before we finally expand \( g \), which results in at most \( b \cdot \left( \lvert X _ d \rvert - 1 \right) \le b \left( b ^ d - 1 \right) = b ^ { d + 1 } - b ^ d \) steps taken by BFS, which is why our upper bound involving just \( b ^ { k + 1 } \) above is justified. Also we can simplify inside the big-o:</p>\[ \mathcal{ O } \left( b ^ 1 + b ^ 2 + \ldots + b ^ { k + 1 } \right) = \mathcal{ O } \left( b ^ { k + 1 } \right) \] as needed.
+    </div>
+</div>
+<div class="theorem" id="theorem-bfs-space-complexity">
+    <div class="title">
+        BFS Space Complexity
+    </div>
+    <div class="content">
+        The space complexity of BFS is given by \[ \mathcal{ O } \left( b ^ { d + 1 } \right) \]
+    </div>
+    <div class="proof">
+        The space taken by BFS is directly given by the amount of space used up by the queue, we can assume that everything in the queue has constant size, but we note that in the worst case as we iterate over vertices in \( X _ d \), \( g \) is the last one to be popped off, therefore the queue would contain \( b \cdot \left( \lvert X _ d \rvert - 1 \right) \le b \left( b ^ d -1 \right) \) vertices, which is upper bounded by \( b ^ d + 1 \) vertices, as needed.
+    </div>
+</div>
+<p>Note that if you run BFS on a graph with edge weights hoping that it will produce a minimum cost solution to the goal node, it will not.</p>
+<div class="exercise" id="exercise-bfs-cost-optimal?">
+    <div class="title">
+        BFS Cost Optimal?
+    </div>
+    <div class="content">
+        Suppose that there is a solution path within a finite search space, is it true that BFS is cost-optimal if given any level of the search tree, all step costs are greater than the step costs in the previous level.
+    </div>
+    <div class="proof">
+        This is not true, because suppose we have the graph consisting of one root node and 3 child nodes, all of which are goal states, then there is no guarentee in which order the nodes are explored, and thus BFS may return a goal state which has a very high cost
+    </div>
+</div>

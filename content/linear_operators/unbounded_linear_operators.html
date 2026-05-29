@@ -1,0 +1,166 @@
+<div class="theorem" id="theorem-hellinger-toeplitz" >
+    <div class="title">Hellinger-Toeplitz</div>
+    <div class="content">
+        If a linear operator \( T \) is defined on every element of a complex <a class="knowledge-link" href="/linear_operators/everything.html#definition-hilbert-space">hilbert space</a> \( H \)  and \( T \) is <a class="knowledge-link" href="/linear_operators/everything.html#definition-self-adjoint-linear-operator">self-adjoint</a> then \( T \) is <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-bounded-linear-operator">bounded</a>
+
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that \( T \) is unbounded, therefore for each \( N \in \mathbb{ N } _ 1 \) we obtain an element of \( x _ N \in \operatorname{ dom } \left( f \right)   \) such that \( \left\lVert T x _ N \right\rVert \gt N \left\lVert x _ N \right\rVert   \), therefore we can construct a sequence \( \left( y _ n  \right)  \) such that \( \left\lVert y _ n  \right\rVert = 1  \) and \( \left\lVert T y _ n \right\rVert \to \infty  \) 
+        </p>
+        <p>
+            We now construct a sequence of functionals of the form 
+            \[ 
+            f _ n \left( x \right) = \left\langle Tx, y _n  \right\rangle = \left\langle x , T y _ n \right\rangle 
+            \] 
+            where we note that each such \( f _ n  \) is defined on all of \( H \) and is linear and moreover for each \( n \) by the Schwarz inequality we have that:
+            \[
+              \left\lvert f _ n \left( x \right)  \right\rvert = \left\lvert \left\langle x, T y _ n  \right\rangle  \right\rvert  \le \left\lVert T y _ n  \right\rVert \left\lVert x \right\rVert 
+            \] 
+            which shows that the functional \( f _ n \) is bounded as a linear operator.
+        </p>
+        <p>
+            Additionally for any \( x \in H \) the real sequence \( \left( f _ n \left( x \right)  \right)  \) is also bounded because we have: 
+            \[
+              \left\lvert f _ n \left( x \right)  \right\rvert = \left\lvert \left\langle Tx, y  _ n \right\rangle  \right\rvert \le \left\lVert T x \right\rVert 
+            \] 
+            <a class="knowledge-link" href="/linear_operators/hilbert_spaces.html#theorem-uniform-boundedness-theorem">therefore</a> there exists some \( c \in \mathbb{ R } ^ +  \) such that \( \left\lVert f _ n  \right\rVert _ \operatorname{ op } \le c   \) for every \( n \in \mathbb{ N } _ 1 \) therefore for each \( x \in H \) we have that 
+            \[
+              \left\lvert f _ n \left( x \right)  \right\rvert \le \left\lVert f _ n \right\rVert _ \operatorname{ op } \left\lVert x \right\rVert \le c \left\lVert x \right\rVert 
+            \] 
+            thus taking \( x = T y _ n \) we have that 
+            \[
+              \left\lVert T y _ n \right\rVert ^ 2 = \left\langle T y _ n, T y _ n \right\rangle = \left\lvert f _ n \left( T y _ n \right)  \right\rvert \le c \left\lVert T y _ n \right\rVert 
+            \] 
+            therefore \( \left\lVert T y _ n  \right\rVert \le c  \) which is a contradiction because we assumed that \( \left\lVert T y _ n \right\rVert \to \infty  \) 
+        </p>
+    </div>
+</div>
+<p>
+    The above implies that given any unbounded linear operator it will never be defined on all elements of a hilbert space.
+</p>
+<div class="definition" id="definition-extension-of-a-linear-operator" >
+    <div class="title">Extension of a Linear Operator</div>
+    <div class="content">
+        Suppose that \( S, T \) are linear operators, then we say that \( T \) is an <b>extension</b> of \( S \) if 
+        <ul>
+            <li>\( \operatorname{ dom } \left( S \right) \subseteq \operatorname{ dom } \left( T \right)     \) </li>
+            <li>\( S = T \restriction _ { \operatorname{ dom } \left( S \right)   } \) </li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-densely-defined-linear-operator" >
+    <div class="title">Densely Defined Linear Operator</div>
+    <div class="content">
+        We say that a linear operator \( T \) is densely defined in \( H \) if \( \operatorname{ dom } \left( T \right)   \) is dense in \( H \) 
+    </div>
+</div>
+<div class="definition" id="definition-hilbert-adjoint-operator" >
+    <div class="title">Hilbert Adjoint Operator</div>
+    <div class="content">
+        Let \( T : X \to H \) be a linear opeartor (possibly unbounded) denslely defined linear operator in a complex hilbert where \( H \) is a complex hilbert space, then the <b>Hilbert adjoint operator</b> \( T ^ * : Y \to H \) of \( T \) where 
+        \[
+        Y = \left\{ y \in H : \exists y ^ * \in H \text{ st } \forall x \in H,  \left\langle Tx, y \right\rangle = \left\langle x, y ^ * \right\rangle   \right\}      
+        \] 
+        then \( T ^ * \left( y \right)  \) is defined to be equal to \( y ^ * \) 
+    </div>
+</div>
+<div class="proposition" id="proposition-adjoint-operators-respect-the-subset-relation" >
+    <div class="title">Adjoint Operators Respect the Subset Relation</div>
+    <div class="content">
+        Let \( S : X \to  H   \) and \( T : Y \to Y \) be densely defined linear operators in a complex hilbert space \( H \) then if \( S \subseteq T \) we have
+        \[
+            T ^ * \subseteq S ^ * 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            By the definition of \( T ^ * \) we have that for all \( a \in Y, b \in \operatorname{ dom } \left( T ^ * \right)    \) that 
+            \[ 
+                \alpha : \qquad \left\langle T a, b \right\rangle = \left\langle a, T ^ * b \right\rangle   
+            \] 
+            and since \( S \subseteq T \) then also that for every \( s \in \operatorname{ dom } \left( S \right)    \) we have 
+            \[ 
+                \beta : \qquad \left\langle S s , b \right\rangle = \left\langle s, T ^ * b \right\rangle   
+            \] 
+        </p>
+        <p>
+            Now we want to prove that \( \operatorname{ dom } \left( T ^ * \right) \subseteq \operatorname{ dom } \left( S ^ * \right) \). But recall by definition 
+            \[
+                \operatorname{ dom } \left( S ^ * \right) = \left\{ y \in H : \exists y ^ * \in H \text{ st } \forall x \in H,  \left\langle Sx, y \right\rangle = \left\langle x, y ^ * \right\rangle   \right\}      
+            \] 
+            Now the \( b \)'s such that \( \beta \)  holds  must be a subset of \( \operatorname{ dom } \left( S \right)   \) because it is an even more specific representation, ie \( y ^ * \) must exist and be of the form \( T ^ * y \) which is more restrictive, so we have that \( \operatorname{ dom } \left( T ^ * \right) \subseteq \operatorname{ dom } \left( S ^ * \right)     \). 
+        </p>
+        <p>
+            Finally we note that for any \( y \in \operatorname{ dom } \left( T ^ * \right)   \) we have that \( S ^ * y = T ^ * y \) by chaining \( \alpha  \) and \( \beta  \) therefore we have that \( T ^ * \subseteq S ^ * \) 
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-double-adjoint-is-a-superset" >
+    <div class="title">Double Adjoint Is a Superset</div>
+    <div class="content">
+        Suppose that \( T : X \to H \) is a linear operator which is densely defined in a complex hilbert space \( H \) then if \( \operatorname{ dom } \left( T ^ * \right)   \) is dense in \( H \) then \( T \subseteq T ^ { ** } \) 
+    </div>
+
+    <div class="proof">
+        We know that for all \( x \in X \) and \( y \in \operatorname{ dom } \left( T ^ * \right)   \) that we have 
+        \[
+          \alpha : \qquad \left\langle T x, y  \right\rangle = \left\langle x, T ^ * y \right\rangle 
+        \] 
+        therefore by taking complex conjugates that is: 
+        \[
+            \beta : \qquad \left\langle T ^ * x , y \right\rangle = \left\langle y, T x \right\rangle 
+        \] 
+        since \( \operatorname{ dom } \left( T ^ * \right)   \) was dense then we know that \( T ^ { ** } \) exists and by definition we have that for all \( a \in \operatorname{ dom } \left( T ^ * \right)   \) and all \( b \in \operatorname{ dom } \left( T ^ { ** } \right)   \) thus using \( \alpha  \) and \( \beta \) in the same way as the above prove we conclude that \( \operatorname{ dom } \left( T \right) \subseteq \operatorname{ dom } \left( T ^ { ** } \right)     \) and that \( T ^ { ** } x = T x \) for any \( x \in \operatorname{ dom } \left( T \right)   \), that is \( T \subseteq T ^ { ** } \) 
+    </div>
+</div>
+<div class="proposition" id="proposition-if-a-linear-operator-is-injective-and-has-dense-image-then-the-adjoint-has-an-inverse" >
+    <div class="title">If a Linear Operator Is Injective and Has Dense Image Then the Adjoint Has an Inverse</div>
+    <div class="content">
+        Suppose that \( T : X \to H \) is a densely defined linear operator in a dense hilbert space \( H \), if \( T \) is injective and \( \operatorname{ im } \left( T \right)   \) is dense in \( H \) then \( T ^ * \) is injective and 
+        \[
+          \left( T ^ * \right) ^ { -1 } = \left( T ^ { -1 }  \right) ^ * 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            We know that \( T ^ * \) exists because \( T \) is densely defined in \( H \), also that \( T ^ { -1 }  \) exists because \( T \) is injective. Also \( \operatorname{ im } \left( T \right) = \operatorname{ dom } \left( T ^ { -1 }  \right)     \) is dense in \( H \) therefore \( \left( T ^ { -1 }  \right) ^ *  \) exists. 
+        </p>
+        <p>
+            We must now show that \( \left( T ^ * \right) ^ { -1 }   \) exists and satisfies the equation as stated in the outset. So let \( y \in \operatorname{ dom } \left( T ^ * \right)   \), then for every \( x \in \operatorname{ dom } \left( T ^ { -1 }  \right)   \) we have that \( T ^ { -1 } \left( x \right) \in \operatorname{ dom } \left( T \right)    \) satisfying
+            \[
+                \alpha : \qquad \left\langle T ^ { -1 } x, T ^ * y \right\rangle = \left\langle T T ^ { -1 } x, y \right\rangle = \left\langle x, y \right\rangle 
+            \] 
+            then by the definition of the hilbert adjoint operator of \( T ^ { -1 }  \) we have for every \( x \in \operatorname{ dom } \left( T ^ { -1 }  \right)   \) 
+            \[
+                \left\langle T ^ { -1 } x, T ^ * y \right\rangle = \left\langle x, \left( T ^ { -1 }  \right) ^ * T ^ * y   \right\rangle 
+            \] 
+            so we conlcude that \( T ^ * y \in \operatorname{ dom } \left( \left( T ^ { -1 }  \right) ^ *  \right)   \) combined with \( \alpha  \) we conclude that 
+            \[
+              \beta : \qquad \left( T ^ { -1 }  \right) ^ * T ^ * y = y
+            \] 
+            when \( T ^ * y = 0 \) we have that \( y = 0 \) thus \( \left( T ^ * \right) ^ { -1 } : \operatorname{ im } \left( T ^ * \right) \to \operatorname{ dom } \left( T ^ * \right)      \) exists. Since \( \left( T ^ * \right) ^ { -1 } T ^ *  \) is the identity operator on \( \operatorname{ dom } \left( T ^ * \right)   \) then \( \beta  \) implies that \( \left( T ^ * \right) ^ { -1 } \subseteq \left( T ^ { -1 }  \right) ^ *   \)
+        </p>
+        <p>
+            To complete the proof we must now show that \( \left( T ^ * \right) ^ { -1 } \supseteq \left( T ^ { -1 }  \right) ^ *   \), so note that for any \( x \in \operatorname{ dom } \left( T \right)   \) and \( y \in \operatorname{ dom } \left( \left( T ^ { -1 }  \right) ^ *  \right)   \), then \( Tx \in \operatorname{ im } \left( T \right) = \operatorname{ dom } \left( T ^ { -1 }  \right)     \) and 
+            \[
+              \left\langle Tx, \left( T ^ { -1 }  \right) ^ *y  \right\rangle = \left\langle T ^ { -1 } T x, y \right\rangle = \left\langle x, y \right\rangle 
+            \] 
+            but also by the definition of the hilbert adjoint operator of \( T \) we note for each \( x \in \operatorname{ dom } \left( T \right)   \) 
+            \[
+              \left\langle Tx, \left( T ^ { -1 }  \right) ^ * y  \right\rangle = \left\langle x, T ^ * \left( T ^ { -1 }  \right) y  \right\rangle 
+            \] 
+            so we have \( \left( T ^ { -1 }  \right) ^ * y \in \operatorname{ dom } \left( T ^ * \right)    \) and that 
+            \[
+              \gamma : \qquad T ^ * \left( T ^ { -1 }  \right) ^ * y = y 
+            \] 
+            for every \( y \in \operatorname{ dom } \left( \left( T ^ { -1 }  \right)^ *  \right)   \).
+        </p>
+        <p>
+            Now we know that \( T ^ * \left( T ^ * \right) ^ { -1 }   \) is the identity operator on \( \operatorname{ dom } \left( \left( T ^ * \right) ^ { -1 }   \right) = \operatorname{ im } \left( T ^ * \right)      \) and \( \left( T ^ * \right) ^ { -1 } : \operatorname{ im } \left( T ^ * \right) \to \operatorname{ dom } \left( T ^ * \right)      \) is surjective, so by \( \gamma  \) we have that \( \operatorname{ dom } \left( \left( T ^ * \right) ^ { -1 }   \right) \supseteq \operatorname{ dom } \left( \left( T ^ { -1 }  \right) ^ *  \right)     \) to conclude that \( \left( T ^ * \right) ^ { -1 } \supseteq  \left( T ^ { -1 }  \right) ^ *   \) so we are done.
+        </p>
+    </div>
+</div>

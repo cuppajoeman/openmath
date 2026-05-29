@@ -1,0 +1,268 @@
+<div class="definition" id="definition-linear-functional" >
+    <div class="title">Linear Functional</div>
+    <div class="content">
+        Suppose that \( V \) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> over a field \( K \in \left\{ \mathbb{ R } , \mathbb{ C }  \right\}  \), then a <b>linear functional</b> is a <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-linear-operator">linear operator</a> \( f : V \to K \) 
+    </div>
+</div>
+<p>
+    Note that in the case of the reals or complex we have the norm as the absolute value. Also we say that a linear functional is real if \( F = \mathbb{ R }  \) and say that it is complex if \( F = \mathbb{ C }  \) 
+</p>
+<div class="definition" id="definition-bounded-linear-functional" >
+    <div class="title">Bounded Linear Functional</div>
+    <div class="content">
+        We say that a linear functional \( f \) is <b>bounded</b> when it is a <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-bounded-linear-operator">bounded linear operator</a>
+    </div>
+</div>
+<p>
+    The above equates to saying that there exists some \( c \in \mathbb{ R } ^ + \) such that for all \( x \in \operatorname{ dom } \left( f \right) , \left\lvert f \left( x \right)  \right\rvert \le c \left\lVert x \right\rVert    \) 
+</p>
+<div class="definition" id="definition-dual-space" >
+    <div class="title">Dual Space</div>
+    <div class="content">
+        Suppose that \( X \) is a normed vector space over a field \( F \)  then we define the the dual space to be the set of all bounded linear functionals, denoted by \( X ^ * \) 
+    </div>
+</div>
+<div class="corollary" id="corollary-the-dual-space-is-a-normed-vector-space" >
+    <div class="title">The Dual Space Is a Normed Vector Space</div>
+    <div class="content">
+        Given a vector space \( X \) then \( X ^ * \) is a normed vector space using the operator norm.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-the-dual-space-is-a-banach-space" >
+    <div class="title">The Dual Space Is a Banach Space</div>
+    <div class="content">
+        Given a vector space \( X \) then \( X ^ * \) is a banach space
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<p>
+    What's interesting is that the above holds whether or not \( X \) is a banach space.
+</p>
+<div class="proposition" id="proposition-the-dual-space-of-rn-is-rn" >
+    <div class="title">The Dual Space of Rn Is Rn</div>
+    <div class="content">
+        The dual space of \( \left( \mathbb{ R }  \right) ^ n  \) is isomorphic to \( \mathbb{ R } ^ n \)  
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-the-dual-of-lp-is-lq" >
+    <div class="title">The Dual of Lp Is Lq</div>
+    <div class="content">
+        The dual space of \( l ^ p \) is \( l ^ q \) where \( q \in \left( 1, \infty \right)  \) and \( \frac{ 1 }{ p } + \frac{ 1 }{ q } = 1 \) 
+    </div>
+
+    <div class="proof">
+        A Schauder basis for \(l^p\) is \(\left(e_k\right)\), where \(e_k=\left(\delta_{k i}\right)\) as in the preceding example. Then every \(x \in l^p\) has a unique representation
+        (9)
+
+        \[
+        x=\sum_{k=1}^{\infty} \xi_k e_k
+        \]
+
+
+        Given any \( f \) in the dual space of \(l^p\), since it is \(f\) is linear and bounded we have:
+
+        \[
+        f(x)=\sum_{k=1}^{\infty} \xi_k \gamma_k \quad \gamma_k=f\left(e_k\right)
+        \]
+
+
+        Let \(q\) be the conjugate of \(p\) (cf. 1.2-3) and consider \(x_n=\left(\xi_k^{(n)}\right)\) with
+
+        \[
+            \xi_k^{(n)}=\left\{\begin{array}{cl}
+            \left|\gamma_k\right|^q / \gamma_k & \text { if } k \leqq n \text { and } \gamma_k \neq 0 \\
+            0 & \text { if } k>n \text { or } \quad \gamma_k=0
+            \end{array}\right.
+        \]
+        Thus we have:
+        \[
+        f\left(x_n\right)=\sum_{k=1}^{\infty} \xi_k^{(n)} \gamma_k=\sum_{k=1}^n\left|\gamma_k\right|^4
+        \]
+        We also have, using (11) and \((q-1) p=q\),
+
+        \[
+        \begin{aligned}
+        f\left(x_n\right) \leqq\|f\|\left\|x_n\right\| & =\|f\|\left(\sum\left|\xi_k^{(n)}\right|^p\right)^{1 / p} \\
+        & =\|f\|\left(\sum\left|\gamma_k\right|^{(q-1) p}\right)^{1 / p} \\
+        & =\|f\|\left(\sum\left|\gamma_k\right|^q\right)^{1 / p}
+        \end{aligned}
+        \]
+
+        (sum from 1 to \(n\) ). Together,
+
+        \[
+        f\left(x_n\right)=\sum\left|\gamma_k\right|^q \leq\|f\|\left(\sum\left|\gamma_k\right|^q\right)^{1 / p}
+        \]
+
+
+        Dividing by the last factor and using \(1-1 / p=1 / q\), we get
+
+        \[
+        \left(\sum_{k=1}^n\left|\gamma_k\right|^q\right)^{1-1 / p}=\left(\sum_{k=1}^n\left|\gamma_k\right|^q\right)^{1 / q} \leq\|f\| .
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-the-dual-space-of-l1-is-l-infinity" >
+    <div class="title">The Dual Space of l1 Is l Infinity</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+We first recall that a Schauder basis for \(l^1\) is given by \( e_k = \left(\delta_{k j}\right)\), that is \( e _ k \) has 1 in the kth place and zeros everywhere else, so that every \(x \in l^1\) has a unique representation of the form 
+
+\[
+    x=\sum_{k=1}^{\infty} c_k e_k .
+\]
+
+
+We consider any \(f \) in the dual space of \(l^1\). Since \(f\) is linear and bounded then we know
+
+\[
+    f(x)=\sum_{k=1}^{\infty} c_k f \left( e _ k \right)  
+\]
+
+By construction we note that \(\| e_k \mid=1\) and therefore we have:
+
+\[
+\left\lvert f \left( e _ k \right)  \right\rvert = \le \left\lVert f \right\rVert _ \operatorname{ op } \left\lVert e _ k \right\rVert = \left\lVert f \right\rVert _ \operatorname{ op } 
+\]
+
+Therefore we can conclude that \( \sup _ k \left\lvert f \left( e _ k \right)  \right\rvert \le \left\lVert f \right\rVert _ \operatorname{ op }    \) so then \((f \left( e _ k \right) ) _ k \in l^{\infty}\). But for every \( b=\left(\beta_k\right) \in l^\infty \) then \( g \) defined by 
+
+\[
+g(x)=\sum_{k=1}^{\infty} c _ k \beta _ k 
+\]
+
+where \((c _ n) \in l^1\) is linear, additionally it is bounded:
+
+\[
+\left\lvert g \left( x \right)  \right\rvert \le \sum _ { k = 1} ^ \infty  \left\lvert c _ k \beta _ k  \right\rvert \le \sup _ i \left\lvert \beta _ i \right\rvert \sum _ {k = 1} ^ \infty \left\lvert c _ k \right\rvert = \left\lVert x \right\rVert \sup _ i \left\lvert \beta _ i \right\rvert 
+\]
+
+Therefore we can conclude that \( g \) is in the dual of \( l ^ 1 \). We will now show that the norm of \(f\) is the norm on the space \(l^{\infty}\)
+
+\[
+\left\lvert f \left( x \right)  \right\rvert = \left\lvert \sum _ { k = 1 } ^ \infty c _ k f \left( e _ k \right)  \right\rvert \le  \sup _ j \left\lvert f \left( e _ k \right)  \right\rvert \sum _ { k = 1 } ^ \infty \left\lvert c _ k \right\rvert = \left\lVert x \right\rVert \sup _ j \left\lvert f \left( e _ j \right)  \right\rvert 
+\]
+Therefore when we take this supremum over all \( x \) on the unit circle we attain that:
+
+\[
+        \left\lVert f \right\rVert  _ \operatorname{ op } \le \sup _ j \left\lvert f \left( e _ k \right)  \right\rvert 
+\] 
+But earlier in the proof we had the other direction of the above inequality so we have \( \left\lVert f \right\rVert _ \operatorname{ op }  = \sup _ j \left\lvert f \left( e _ j \right)  \right\rvert    \) which is the \( l ^ \infty \) norm, that is we have \( \left\lVert f \right\rVert _ \operatorname{ op } = \left\lVert y \right\rVert _ \infty    \) where \( y = \left( f \left( e _ k \right)  \right) \in l ^ \infty  \), showing that the mapping \( f \mapsto \left( y \right)  \) is a bijective linear mapping of \( l ^ 1 \) onto \( l ^ \infty \) therefore it is an isomorphism, as needed.
+
+    </div>
+</div>
+
+<div class="theorem" id="theorem-hahn-banach" >
+    <div class="title">Hahn Banach</div>
+    <div class="content">
+        Let \(X\) be a real vector space, \(p\) a sublinear functional on \(\mathcal{X}, \mathcal{M}\) a subspace of \(\mathcal{X}\), and \(f\) a linear functional on \(\mathcal{M}\) such that \(f(x) \leq p(x)\) for all \(x \in \mathcal{M}\). Then there exists a linear functional \(F\) on \(\mathcal{X}\) such that \(F(x) \leq p(x)\) for all \(x \in \mathcal{X}\) and \(F \mid \mathcal{M}=f\).
+    </div>
+
+    <div class="proof">
+         We begin by showing that if \(x \in X \backslash 2 \mathrm{M}, f\) can be extended to a linear functional \(g\) on \(\mathcal{M}+\mathbb{R} x\) satisfying \(g(y) \leq p(y)\) there. If \(y_1, y_2 \in \mathcal{M}\), we have
+
+        \[
+        f\left(y_1\right)+f\left(y_2\right)=f\left(y_1+y_2\right) \leq p\left(y_1+y_2\right) \leq p\left(y_1-x\right)+p\left(x+y_2\right),
+        \]
+
+        or
+
+        \[
+        f\left(y_1\right)-p\left(y_1-x\right) \leq p\left(x+y_2\right)-f\left(y_2\right) .
+        \]
+
+
+        Hence
+
+        \[
+        \sup \{f(y)-p(y-x): y \in \mathcal{M}\} \leq \inf \{p(x+y)-f(y): y \in \mathcal{M}\} .
+        \]
+
+
+        Let \(\alpha\) be any number satisfying
+
+        \[
+        \sup \{f(y)-p(y-x): y \in \mathcal{N}\} \leq \alpha \leq \inf \{p(x+y)-f(y): y \in \mathcal{M}\}
+        \]
+
+        and define \(g: \mathcal{M}+\mathbb{R} x \rightarrow \mathbb{R}\) by \(g(y+\lambda x)=f(y)+\lambda \alpha\). Then \(g\) is clearly linear, and \(g \mid \mathcal{M}=f\), so that \(g(y) \leq p(y)\) for \(y \in \mathcal{M}\). Moreover, if \(\lambda>0\) and \(y \in \mathcal{M}\).
+
+        \[
+        g(y+\lambda x)=\lambda[f(y / \lambda)+\alpha] \leq \lambda[f(y / \lambda)+p(x+(y / \lambda))-f(y / \lambda)]=p(y+\lambda x),
+        \]
+
+        whereas if \(\lambda=-\mu<0\),
+
+        \[
+        g(y+\lambda w)-\mu[f(y / \mu)-a] \leq \mu[f(y / \mu)-f(y / \mu)+p((y / \mu)-x)]=p(y+\lambda x)
+        \]
+
+
+        Thus \(g(z) \leq p(z)\) for all \(z \in \mathcal{M}+\mathbb{R} x\).
+        Evidently the same reasoning can be applied to any linear extension \(F\) of \(f\) satisfying \(F \leq p\) on its domain, and it shows that the domain of a maximal linear extension satisfying \(F \leq p\) must be the whole space \(X\). But the family \(\mathcal{F}\) of all tinear extensions \(F\) of \(f\) satisfying \(F \leq p\) is partially ordered by inclusion (maps from subspaces of \(X\) to \(\mathbb{R}\) being regarded as subsets of \(X \times \mathbb{R}\) ). Since the union of any increasing family of subspaces of \(X\) is agath a subspace, one casily sees that the union of a linearly ordered subfamily of \(\mathcal{F}\) lies in \(\mathcal{F}\). The proof is therefore completed by invoking Zom's lemma.
+
+    </div>
+</div>
+
+<hr>
+5.6 The Hahn-Banach Theorem. <hr>
+5.7 The Complex Hahn-Banach Theorem. Let \(\mathcal{X}\) be a complex vector space, \(p\) a seminorm on \(X, \mathcal{M}\) a subspace of \(\mathcal{X}\), and \(f\) a complex linear functional on \(\mathcal{M}\) such that \(|f(x)| \leq p(x)\) for \(x \in \mathcal{M}\). Then there exists a complex linear functional \(F\) on \(X\) such that \(|F(x)| \leq p(x)\) for all \(x \in \mathcal{X}\) and \(F \mid \mathcal{M}=f\).
+
+Proof. Let \(u=\operatorname{Re} f\). By Theorem 5.6 there is a real linear extension \(U\) of \(u\) to \(X\) such that \(|U(x)| \leq p(x)\) for all \(x \in X\). Let \(F(x)=U(x)-i U(i x)\) as in Proposition 5.5. Then \(F\) is a complex linear extension of \(f\), and as in the proof of Proposition 5.5, if \(\alpha=\overline{\operatorname{sgn} F(x)}\) we have \(|F(x)|=\alpha F(x)=F(\alpha x)=U(\alpha x) \leq p(\alpha x)=p(x)\).
+<hr>
+5.8 Theorem. Let \(x\) be a normed vector space.
+a. If \(\mathcal{M}\) is a closed subspace of \(\dot{X}\) and \(x \in \dot{X} \backslash \mathcal{M}\), there exists \(f \in X\) such that \(f(x) \neq 0\) and \(f \mid \mathcal{M}=0\). In fact, if \(\delta=\inf _{y \in \mathcal{M}}\|x-y\| . f\) can be taken to satisfy \(\|f\|=1\) and \(f(x)=\delta\).
+b. If \(x \neq 0 \in X\), there exists \(f \in X^*\) such that \(\|f\|=1\) and \(f(x)=\|x\|\).
+c. The bounded linear functionals on \(X\) separate points.
+d. If \(x \in X\), define \(\widehat{x}: X^{+} \rightarrow \mathbb{C}\) by \(\widehat{x}(f)=f(x)\). Then the map \(x \mapsto \widehat{x}\) is a linear isometry from \(X\) into \(X^{* *}\) (the dual of \(X^*\) ).
+
+Proof. To prove (a), define \(f\) on \(\mathcal{M}+\mathbb{C} x\) by \(f(y+\lambda x)=\lambda \delta(y \in \mathcal{M}, \lambda \in \mathbb{C})\). Then \(f(x)=\delta, f \mid \mathcal{M}=0\), and for \(\lambda \neq 0,|f(y+\lambda x)|=|\lambda| \delta \leq|\lambda| \| \lambda^{-1} y+x| |=\) \(\|y+\lambda x\|\). Thus the Hahn-Banach theorem can be applied, with \(p(x)=\|x\|\) and \(\mathcal{M}\) replaced by \(\mathrm{M}+\mathbb{C} x\). (b) is the spectal case of (a) with \(\mathrm{M}=\{0\}\), and (c) follows immediately: if \(x \neq y\), there exists \(f \in X^{+}\)with \(f(x-y) \neq 0\), i.e., \(f(x) \neq f(y)\). As for (d), obviously \(\hat{x}\) is a linear functional on \(X^*\) and the map \(x \mapsto \widehat{x}\) is linear. Moroever, \(|\hat{x}(f)|=|f(x)| \leq\|f\|\|x\|\), so \(\|\hat{x}\| \leq\|x\|\). On the other hand, (b) implies that \(\|\widehat{2}\| \geq\|x\|\).
+
+With notation as in Theorem 5.8d, let \(\widehat{X}=\{\hat{x}: x \in X\}\). Since \(x^*\) is always complete, the closure \(\overline{\widehat{X}}\) of \(\widehat{X}\) in \(X^{* *}\) is a Banach space, and the map \(x \mapsto \widehat{x}\) embeds \(x\) into \(\bar{X}\) as a dense subspace. \(\bar{x}\) is called the completion of \(X\). In particular, if \(X\) is itself a Banach space then \(\bar{x}=\widehat{x}\).
+
+If \(x\) is finite-dimensional, then of course \(\widehat{x}=x^{* *}\), since these spaces have the same dimension. For infinite-dimensional Banach spaces it may or may not happen that \(\hat{x}=x \cdot *\); if it does, \(x\) is called reflexive. The examples of Banach spaces we have examined so far are not reflexive except in trivial cases where they turn out to be finite-dimensional. We shall prove some cases of this assertion and present examples of reflexive Banach spaces in later sections.
+
+Usually we shall identify \(\widehat{x}\) with \(x\) and thus regard \(x^{* *}\) as a superspace of \(x\); reflexivity then means that \(x^{* *}=x\)
+<hr>
+
+We already know (Background Information):
+(Folland)Theorem 5.8 - Let \(\mathcal{X}\) be a normed vector space.
+a.) If \(M\) is a closed subspace of \(\mathcal{X}\) and \(x \in \mathcal{X} \backslash M\), there exists \(f \in \mathcal{X}^*\) such that \(f(x) \neq 0\) and \(f(M)=\{0\}\). In fact, if \(\delta=\inf _{y \in M}\|x-y\|, f\) can be taken to satisfy \(\|f\|=1\) and \(f(x)=\delta\).
+
+Question:
+
+Let \(X\) be a normed vector space.
+a.) If \(M\) is a closed subspace and \(x \in X \backslash M\) then \(M+\mathbb{C} x\) is closed. (Use Theorem 5.8a.)).
+b.) Every finite-dimensional subspace of \(X\) is closed.
+
+Proof a.) - Let \(M\) be a proper closed subspace of \(X\) and let \(x \in X \backslash M\). There exists \(f \in X^*\) such that \(f(x) \neq 0\) and \(f(M)=\{0\}\). Let \(\left\{u_n+a_n x\right\}_1^{\infty}\) be a sequence in \(M+K x\) that converges to \(y \in X\). Then
+
+\[
+f(y)=f\left(\lim _{n \rightarrow \infty}\left(u_n+a_n x\right)\right)=\lim _{n \rightarrow \infty} f\left(u_n+a_n x\right)=\lim _{n \rightarrow \infty} a_n f(x)
+\]
+
+since \(f\) is continuous, so \(\left\{a_n\right\}_1^{\infty}\) converges to \(a:=f(y) / f(x)\), which implies that \(\left\{a_n x\right\}_1^{\infty}\) converges to \(a x\). Therefore
+
+\[
+\left\{u_n\right\}_1^{\infty}=\left\{\left(u_n+a_n x\right)-a_n x\right\}_1^{\infty} \rightarrow(y-a x)
+\]
+
+which lies in \(M\) because \(M\) is closed. It follows that \(y \in M+K x\), which shows that \(M+K x\) is closed.
+Proof b.) - Let \(Y\) be a finite dimensional subspace of \(X\). Let \(\left\{e_1, \ldots, e_n\right\}\) be a basis of \(Y\). Now, note that \(M=\{0\}\) is a closed subspace of \(X\). So, by item a.), \(M+\mathrm{C} e_1\) is a closed subspace of \(X\). Again, by item a.) we have that \(M+\mathbb{C} e_1+\mathbb{C e} e_2\) is a closed subspace of \(X\). Repeating the argument enough times, we have that \(M+\mathbb{C e} e_1+\ldots+\mathbb{C} e_n\) is a closed subspace of \(X\). But \(M+\mathbb{C e} e_1+\ldots+\mathbb{C} e_n=Y\). So we have proved that \(Y\) is a closed subspace of \(X\).
+<hr>

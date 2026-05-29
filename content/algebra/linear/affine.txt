@@ -1,0 +1,3 @@
+homogenius coordinates, when you represent 2d information in 3d space so that we can do translations of 2d objects using linear algebra
+
+

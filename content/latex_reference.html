@@ -1,0 +1,133 @@
+
+<h1>LaTeX Cheat Sheet</h1>
+<h2>Basic Syntax</h2>
+<ul>
+  <li>Inline:
+    <code>\( ... \)</code>
+    → Example:
+    <code>$a^2 + b^2 = c^2$</code></li>
+  <li>Display:
+    <code>\[ ... \]</code>
+    or
+    <code>equation</code>
+    environment</li>
+</ul>
+<h2>Common Symbols</h2>
+<table>
+  <tr><th>Write…</th><th>In LaTeX</th></tr>
+  <tr><td>Greek letters (lowercase)</td><td><code>\alpha</code>,
+      <code>\beta</code>, ...,
+      <code>\omega</code></td></tr>
+  <tr><td>Greek letters (uppercase)</td><td><code>\Gamma</code>,
+      <code>\Delta</code>,
+      <code>\Omega</code>, etc.</td></tr>
+  <tr><td>Subscripts</td><td><code>x_i</code></td></tr>
+  <tr><td>Superscripts</td><td><code>x^2</code></td></tr>
+  <tr><td>Fractions</td><td><code>\frac{a}{b}</code></td></tr>
+  <tr><td>Square root</td><td><code>\sqrt{x}</code>,
+      <code>\sqrt[n]{x}</code></td></tr>
+  <tr><td>Infinity</td><td><code>\infty</code></td></tr>
+  <tr><td>Approximately equal</td><td><code>\approx</code></td></tr>
+  <tr><td>Not equal</td><td><code>\neq</code></td></tr>
+  <tr><td>Less/Greater than equal</td><td><code>\leq</code>,
+      <code>\geq</code></td></tr>
+  <tr><td>Plus-minus</td><td><code>\pm</code></td></tr>
+  <tr><td>Degree</td><td><code>^\circ</code></td></tr>
+  <tr><td>Dots</td><td><code>\ldots</code>,
+      <code>\cdots</code>,
+      <code>\vdots</code>,
+      <code>\ddots</code></td></tr>
+  <tr><td>Vector arrow</td><td><code>\vec{v}</code></td></tr>
+  <tr><td>Hat</td><td><code>\hat{x}</code></td></tr>
+  <tr><td>Bar</td><td><code>\bar{x}</code></td></tr>
+  <tr><td>Tilde</td><td><code>\tilde{x}</code></td></tr>
+</table>
+<h2>Functions</h2>
+<pre><code>\sin, \cos, \tan, \log, \ln, \exp, \min, \max, \lim, \sup, \inf</code></pre>
+<pre><code>\[
+f(x) = \sin x + \log x
+\]</code></pre>
+<h2>Piecewise Functions</h2>
+<pre><code>f(x) = \begin{cases}
+x^2 & \text{if } x \geq 0 \\
+-x & \text{otherwise}
+\end{cases}</code></pre>
+<h2>Summation</h2>
+<pre><code>\sum_{i=1}^{n} i^2</code></pre>
+<pre><code>\[
+\sum_{i=0}^{\infty} \frac{1}{2^i}
+\]</code></pre>
+<h2>Integrals</h2>
+<pre><code>\int f(x)\,dx</code></pre>
+<pre><code>\int_{a}^{b} x^2\,dx</code></pre>
+<pre><code>\iint, \iiint, \oint</code></pre>
+<h2>Matrices</h2>
+<pre><code>\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}</code></pre>
+<p>Other styles:
+  <code>pmatrix</code>,
+  <code>vmatrix</code>,
+  <code>Vmatrix</code></p>
+<h2>Cases and Conditions</h2>
+<pre><code>\begin{cases}
+1 & \text{if } x > 0 \\
+0 & \text{otherwise}
+\end{cases}</code></pre>
+<h2>Arrows and Relations</h2>
+<table>
+  <tr><th>Write…</th><th>In LaTeX</th></tr>
+  <tr><td>Right arrow</td><td><code>\rightarrow</code></td></tr>
+  <tr><td>Left arrow</td><td><code>\leftarrow</code></td></tr>
+  <tr><td>Double arrow</td><td><code>\Rightarrow</code>,
+      <code>\Leftarrow</code></td></tr>
+  <tr><td>Bidirectional arrow</td><td><code>\leftrightarrow</code>,
+      <code>\Leftrightarrow</code></td></tr>
+  <tr><td>Maps to</td><td><code>\mapsto</code></td></tr>
+  <tr><td>Proportional to</td><td><code>\propto</code></td></tr>
+  <tr><td>Element of</td><td><code>\in</code></td></tr>
+  <tr><td>Not in</td><td><code>\notin</code></td></tr>
+  <tr><td>Subset</td><td><code>\subset</code>,
+      <code>\subseteq</code></td></tr>
+  <tr><td>Union / Intersection</td><td><code>\cup</code>,
+      <code>\cap</code></td></tr>
+</table>
+<h2>Brackets and Delimiters</h2>
+<pre><code>\left( \frac{a}{b} \right)
+\left[ \cdots \right], \left\{ \cdots \right\}</code></pre>
+<pre><code>\left| x \right|</code></pre>
+<h2>Limits and Derivatives</h2>
+<pre><code>\lim_{x \to 0} \frac{\sin x}{x}</code></pre>
+<pre><code>\frac{dy}{dx}, \frac{d^2y}{dx^2}</code></pre>
+<pre><code>\frac{\partial f}{\partial x}</code></pre>
+<h2>Logic Symbols</h2>
+<table>
+  <tr><th>Write…</th><th>In LaTeX</th></tr>
+  <tr><td>For all</td><td><code>\forall</code></td></tr>
+  <tr><td>There exists</td><td><code>\exists</code></td></tr>
+  <tr><td>Not</td><td><code>\neg</code></td></tr>
+  <tr><td>And</td><td><code>\land</code></td></tr>
+  <tr><td>Or</td><td><code>\lor</code></td></tr>
+  <tr><td>Implies</td><td><code>\Rightarrow</code></td></tr>
+  <tr><td>If and only if</td><td><code>\Leftrightarrow</code></td></tr>
+</table>
+<h2>Alignment and Equations</h2>
+<pre><code>\begin{align}
+a &= b + c \\
+x &= y + z
+\end{align}</code></pre>
+<h2>Sets</h2>
+<pre><code>\{ x \in \mathbb{R} \mid x > 0 \}</code></pre>
+<pre><code>\in, \notin, \subset, \subseteq, \cup, \cap, \setminus</code></pre>
+<pre><code>\mathbb{R}, \mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{C}</code></pre>
+<h2>Misc Tips</h2>
+<ul>
+  <li><code>\,</code>,
+    <code>\;</code>,
+    <code>\!</code>
+    for spacing in math mode</li>
+  <li><code>\text{}</code>
+    for inserting regular text in math mode</li>
+</ul>
+<pre><code>x = 0 \text{ if } y > 2</code></pre>

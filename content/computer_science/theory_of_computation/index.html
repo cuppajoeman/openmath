@@ -1,0 +1,2484 @@
+<!--
+todo : 
+more closure properties, good articl here: 
+https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
+-->
+<div class="definition" id="definition-the-set-of-all-possible-finite-tuples">
+    <div class="title">The Set of All Possible Finite Tuples</div>
+    <div class="content">
+        Suppose that \( X \) is a set, then we denote the set of all possible finite tuples as 
+        \[
+           X ^ * = \bigcup _ { n \in \mathbb{ N } _ 0 } X ^ n
+        \] 
+    </div>
+</div>
+
+<div class="proposition" id="proposition-the-set-of-all-strings-over-a-finite-alphabet-is-countable" >
+    <div class="title">The Set of All Strings Over a Finite Alphabet Is Countable</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        There are only \( \left\lvert X \right\rvert ^ n  \) possible strings of length \( n \) therefore the above is a countable union of finite sets and thus countable.
+    </div>
+</div>
+
+<p>
+    Note that in the context of computers we will usually refer to tuples as strings, so instead of writing something like \( \left( 0, 1, 2, 3, 4 \right)  \) we instead just write "01234" to represent the same thing.
+</p>
+<div class="definition" id="definition-finite-automaton" >
+    <div class="title">Finite Automaton</div>
+    <div class="content">
+        A <b>finite automaton</b> is a 5-tuple \( Q, \Sigma, \delta , q_0, F, I \) where
+        <ol>
+            <li>\( Q \) is a finite set called the <b>states</b></li>
+            <li>\( \Sigma \) is a finite set called the <b>alphabet</b></li>
+            <li>\( I =  \Sigma ^ * \)  is the set of <b>possible inputs</b></li>
+            <li>\( \delta : Q \times \Sigma \to Q \) is a finite set called the <b>transition function</b></li>
+            <li>\( q _ 0 \in Q \) is the <b>start state</b></li>
+            <li>\( F \subseteq Q \) is the set of <b>accept states</b></li>
+        </ol>
+    </div>
+</div>
+<p>
+    Note that when \( k = 0 \) then we get \( \left(  \right)  \) as a possible input, which it the empty tuple, we denote this as \( \epsilon  \). 
+</p>
+<div class="definition" id="definition-machine">
+    <div class="title">Machine</div>
+    <div class="content">
+        A <b>machine</b> is a finite automaton.
+    </div>
+</div>
+<div class="definition" id="definition-output-of-a-finite-automaton-on-an-input" >
+    <div class="title">Output of a Finite Automaton on an Input</div>
+    <div class="content">
+        Suppose that \( M \) is a machine and \( a = \left( a _ 1 , \ldots , a _ k \right)  \) is a finite sequence of elements from \( M _ \Sigma \) then we define the following:
+        <ul>
+            <li>
+            if \( 1 \le n \le k \) then \( o _ n =  \delta \left( o _ { n - 1 }, a _ n \right) \) 
+            </li>
+            <li>
+            \( o _ 0 = q _ 0  \) 
+            </li>
+        </ul>
+        and define the output of \( M \) after processing \( a \) as \( o _ k \) which is denoted by \( \operatorname{ out } \left( M, a \right) \) 
+    </div>
+</div>
+<div class="definition" id="definition-compute-sequence-of-an-input-for-a-finite-automaton" >
+    <div class="title">Compute Sequence of an Input for a Finite Automaton</div>
+    <div class="content">
+        Suppose that \( M \) is a machine and \( a = \left( a _ 1 , \ldots , a _ k \right)  \) is a finite sequence of elements from \( M _ \Sigma \), then we define its compute sequence as 
+        \[
+        \operatorname{ compseq } \left( M, a \right) = \left( o _ 0, o _ 1, \ldots , o _ k \right)
+        \] 
+        and note that \( \left\lvert \operatorname{ compseq } \left( M, a \right) \right\rvert = \left\lvert a \right\rvert + 1     \) 
+    </div>
+</div>
+<div class="definition" id="definition-a-finite-automaton-accepts-an-input" >
+    <div class="title">A Finite Automaton Accepts an Input</div>
+    <div class="content">
+        Suppose that \( M \) is a machine and \( a = \left( a _ 1 , \ldots , a _ k \right)  \) is a finite sequence of elements from \( M _ \Sigma \) then we say that \( M \) accepts \( a \) iff:
+        \[
+          \operatorname{ out }  \left( M, a \right) \in M _ F
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-a-finite-automaton-rejects-an-input" >
+    <div class="title">A Finite Automaton Rejects an Input</div>
+    <div class="content">
+        Suppose that \( M \) is a machine and \( a = \left( a _ 1 , \ldots , a _ k \right)  \) is a finite sequence of elements from \( M _ \Sigma \) then we say that \( M \) accepts \( a \) iff it does not <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#definition-a-finite-automaton-accepts-an-input">accept</a> it, and we write \( \operatorname{ acc } \left( M, a \right)   \) 
+    </div>
+</div>
+<div class="definition" id="definition-language" >
+    <div class="title">Language</div>
+    <div class="content">
+        A language \( L \) is simply a set of tuples.
+    </div>
+</div>
+<div class="definition" id="definition-language-legible-for-a-machine" >
+    <div class="title">Language Legible for a Machine</div>
+    <div class="content">
+        Suppose that \( M \) is a finite automaton, and that \( L \) is a language, we say that \( L \) is legible for \( M \) is \( L \subseteq M _ I \).
+    </div>
+</div>
+<p>
+    If a langauge is not legible by a particlular machine, then there will exists an input \( x \) in the language such that \( \operatorname{ out } \left( M , x \right) \) is not well defined, thus in those cases we cannot say much about the language.
+</p>
+<div class="definition" id="definition-language-of-a-finite-automaton" >
+    <div class="title">Language of a Finite Automaton</div>
+    <div class="content">
+        \[
+          \operatorname{ lang }  \left( M \right)  = \left\{ a \in M _ I : \operatorname{ acc } \left( M, a \right)   \right\} 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-a-finite-automaton-models-a-language" >
+    <div class="title">A Finite Automaton Models a Language</div>
+    <div class="content">
+        Given a <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#definition-language-legible-for-a-machine">legible language</a> \( A \) for \( M \), we say that \( M \) <b>models</b> \( A \) iff
+        \[
+            A = \operatorname{ lang }  \left( M \right) 
+        \] 
+    </div>
+</div>
+
+<div class="exercise" id="exercise-dfa-that-recognizes-everything-except-11-and-111" >
+    <div class="title">DFA That Recognizes Everything Except 11 and 111</div>
+    <div class="content">
+        Give a state diagram of a DFA that regonizes the following language over the alphabet \( \Sigma = \left\{ 0, 1 \right\}  \) 
+        \[
+          \left\{ w \in \Sigma ^ * : w \notin \left\{ 11, 111 \right\}   \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            We claim that the following DFA works:
+        </p>
+
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="115.5" cy="178.5" rx="30" ry="30"/>
+                <text x="105.5" y="184.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="115.5" cy="178.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="293.5" cy="178.5" rx="30" ry="30"/>
+                <text x="283.5" y="184.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="293.5" cy="178.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="454.5" cy="178.5" rx="30" ry="30"/>
+                <text x="444.5" y="184.5" font-family="Times New Roman" font-size="20">q&#8323;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="626.5" cy="178.5" rx="30" ry="30"/>
+                <text x="616.5" y="184.5" font-family="Times New Roman" font-size="20">q&#8324;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="376.5" cy="356.5" rx="30" ry="30"/>
+                <text x="366.5" y="362.5" font-family="Times New Roman" font-size="20">q&#8325;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="376.5" cy="356.5" rx="24" ry="24"/>
+                <polygon stroke="black" stroke-width="1" points="145.5,178.5 263.5,178.5"/>
+                <polygon fill="black" stroke-width="1" points="263.5,178.5 255.5,173.5 255.5,183.5"/>
+                <text x="198.5" y="169.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="323.5,178.5 424.5,178.5"/>
+                <polygon fill="black" stroke-width="1" points="424.5,178.5 416.5,173.5 416.5,183.5"/>
+                <text x="368.5" y="169.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="484.5,178.5 596.5,178.5"/>
+                <polygon fill="black" stroke-width="1" points="596.5,178.5 588.5,173.5 588.5,183.5"/>
+                <text x="534.5" y="169.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="140.285,195.403 351.715,339.597"/>
+                <polygon fill="black" stroke-width="1" points="351.715,339.597 347.923,330.959 342.289,339.22"/>
+                <text x="229.5" y="288.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="442.459,205.978 388.541,329.022"/>
+                <polygon fill="black" stroke-width="1" points="388.541,329.022 396.331,323.702 387.172,319.688"/>
+                <text x="397.5" y="263.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="602.062,195.9 400.938,339.1"/>
+                <polygon fill="black" stroke-width="1" points="400.938,339.1 410.355,338.533 404.555,330.387"/>
+                <text x="485.5" y="258.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="306.178,205.689 363.822,329.311"/>
+                <polygon fill="black" stroke-width="1" points="363.822,329.311 364.973,319.947 355.909,324.173"/>
+                <text x="316.5" y="283.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 389.725,383.297 A 22.5,22.5 0 1 1 363.275,383.297"/>
+                <text x="360.5" y="445.5" font-family="Times New Roman" font-size="20">0, 1</text>
+                <polygon fill="black" stroke-width="1" points="363.275,383.297 354.527,386.83 362.618,392.708"/>
+                <polygon stroke="black" stroke-width="1" points="47.5,178.5 85.5,178.5"/>
+                <polygon fill="black" stroke-width="1" points="85.5,178.5 77.5,173.5 77.5,183.5"/>
+        </svg>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-dfa-that-regonizes-only-0-and-the-empty-string" >
+    <div class="title">DFA That Regonizes Only 0 and the Empty String</div>
+    <div class="content">
+        Give a state diagram of a DFA that regonizes the following language over the alphabet \( \Sigma = \left\{ 0, 1 \right\}  \) 
+        \[
+          \left\{ 0, \epsilon \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="238.5" cy="145.5" rx="30" ry="30"/>
+                <text x="228.5" y="151.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="238.5" cy="145.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="472.5" cy="145.5" rx="30" ry="30"/>
+                <text x="462.5" y="151.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="472.5" cy="145.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="351.5" cy="316.5" rx="30" ry="30"/>
+                <text x="341.5" y="322.5" font-family="Times New Roman" font-size="20">q&#8323;</text>
+                <polygon stroke="black" stroke-width="1" points="268.5,145.5 442.5,145.5"/>
+                <polygon fill="black" stroke-width="1" points="442.5,145.5 434.5,140.5 434.5,150.5"/>
+                <text x="349.5" y="166.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="455.171,169.989 368.829,292.011"/>
+                <polygon fill="black" stroke-width="1" points="368.829,292.011 377.531,288.368 369.368,282.592"/>
+                <text x="373.5" y="223.5" font-family="Times New Roman" font-size="20">0, 1</text>
+                <polygon stroke="black" stroke-width="1" points="255.04,170.529 334.96,291.471"/>
+                <polygon fill="black" stroke-width="1" points="334.96,291.471 334.721,282.04 326.378,287.553"/>
+                <text x="277.5" y="250.5" font-family="Times New Roman" font-size="20">1</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 364.725,343.297 A 22.5,22.5 0 1 1 338.275,343.297"/>
+                <text x="335.5" y="405.5" font-family="Times New Roman" font-size="20">0, 1</text>
+                <polygon fill="black" stroke-width="1" points="338.275,343.297 329.527,346.83 337.618,352.708"/>
+                <polygon stroke="black" stroke-width="1" points="138.5,145.5 208.5,145.5"/>
+                <polygon fill="black" stroke-width="1" points="208.5,145.5 200.5,140.5 200.5,150.5"/>
+        </svg>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-dfa-that-recognizes-even-number-of-zeros-or-exactly-two-1s" >
+    <div class="title">Dfa That Recognizes Even Number of Zeros or Exactly Two 1s</div>
+    <div class="content">
+        Give a state diagram of a DFA that regonizes the following language over the alphabet \( \Sigma = \left\{ 0, 1 \right\}  \) 
+        \[
+        \left\{ w \in \operatorname{ alltup } \left( \Sigma \right) : \operatorname{ even } \left( \operatorname{ count } \left( w, 0 \right)   \right) \lor \operatorname{ count } \left( w, 1 \right) = 2      \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="137.5" cy="138.5" rx="30" ry="30"/>
+                <text x="127.5" y="144.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="318.5" cy="138.5" rx="30" ry="30"/>
+                <text x="308.5" y="144.5" font-family="Times New Roman" font-size="20">q&#8324;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="514.5" cy="138.5" rx="30" ry="30"/>
+                <text x="504.5" y="144.5" font-family="Times New Roman" font-size="20">q&#8326;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="514.5" cy="138.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="137.5" cy="334.5" rx="30" ry="30"/>
+                <text x="127.5" y="340.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="137.5" cy="334.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="318.5" cy="334.5" rx="30" ry="30"/>
+                <text x="308.5" y="340.5" font-family="Times New Roman" font-size="20">q&#8323;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="318.5" cy="334.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="514.5" cy="334.5" rx="30" ry="30"/>
+                <text x="504.5" y="340.5" font-family="Times New Roman" font-size="20">q&#8325;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="514.5" cy="334.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="705.5" cy="138.5" rx="30" ry="30"/>
+                <text x="695.5" y="144.5" font-family="Times New Roman" font-size="20">q&#8328;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="705.5" cy="334.5" rx="30" ry="30"/>
+                <text x="695.5" y="340.5" font-family="Times New Roman" font-size="20">q&#8327;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="705.5" cy="334.5" rx="24" ry="24"/>
+                <polygon stroke="black" stroke-width="1" points="167.5,138.5 288.5,138.5"/>
+                <polygon fill="black" stroke-width="1" points="288.5,138.5 280.5,133.5 280.5,143.5"/>
+                <text x="222.5" y="159.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="348.5,138.5 484.5,138.5"/>
+                <polygon fill="black" stroke-width="1" points="484.5,138.5 476.5,133.5 476.5,143.5"/>
+                <text x="410.5" y="159.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="544.5,138.5 675.5,138.5"/>
+                <polygon fill="black" stroke-width="1" points="675.5,138.5 667.5,133.5 667.5,143.5"/>
+                <text x="604.5" y="159.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="48.5,334.5 107.5,334.5"/>
+                <polygon fill="black" stroke-width="1" points="107.5,334.5 99.5,329.5 99.5,339.5"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 117.178,312.524 A 129.03,129.03 0 0 1 117.178,160.476"/>
+                <polygon fill="black" stroke-width="1" points="117.178,160.476 108.424,163.994 116.504,169.886"/>
+                <text x="76.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <polygon stroke="black" stroke-width="1" points="167.5,334.5 288.5,334.5"/>
+                <polygon fill="black" stroke-width="1" points="288.5,334.5 280.5,329.5 280.5,339.5"/>
+                <text x="222.5" y="355.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="348.5,334.5 484.5,334.5"/>
+                <polygon fill="black" stroke-width="1" points="484.5,334.5 476.5,329.5 476.5,339.5"/>
+                <text x="410.5" y="355.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon stroke="black" stroke-width="1" points="544.5,334.5 675.5,334.5"/>
+                <polygon fill="black" stroke-width="1" points="675.5,334.5 667.5,329.5 667.5,339.5"/>
+                <text x="604.5" y="355.5" font-family="Times New Roman" font-size="20">1</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 155.761,162.232 A 142.033,142.033 0 0 1 155.761,310.768"/>
+                <polygon fill="black" stroke-width="1" points="155.761,310.768 164.206,306.564 155.682,301.335"/>
+                <text x="181.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 337.008,162.038 A 140.306,140.306 0 0 1 337.008,310.962"/>
+                <polygon fill="black" stroke-width="1" points="337.008,310.962 345.492,306.836 337.016,301.528"/>
+                <text x="363.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 299.205,311.609 A 135.128,135.128 0 0 1 299.205,161.391"/>
+                <polygon fill="black" stroke-width="1" points="299.205,161.391 290.601,165.262 298.914,170.82"/>
+                <text x="260.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 495.205,311.609 A 135.128,135.128 0 0 1 495.205,161.391"/>
+                <polygon fill="black" stroke-width="1" points="495.205,161.391 486.601,165.262 494.914,170.82"/>
+                <text x="456.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 532.889,162.132 A 141.137,141.137 0 0 1 532.889,310.868"/>
+                <polygon fill="black" stroke-width="1" points="532.889,310.868 541.353,306.703 532.854,301.434"/>
+                <text x="559.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 721.871,163.585 A 157.083,157.083 0 0 1 721.871,309.415"/>
+                <polygon fill="black" stroke-width="1" points="721.871,309.415 730.013,304.65 721.155,300.008"/>
+                <text x="744.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 687.36,310.675 A 142.899,142.899 0 0 1 687.36,162.325"/>
+                <polygon fill="black" stroke-width="1" points="687.36,162.325 678.934,166.568 687.481,171.759"/>
+                <text x="650.5" y="242.5" font-family="Times New Roman" font-size="20">0</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 718.725,361.297 A 22.5,22.5 0 1 1 692.275,361.297"/>
+                <text x="699.5" y="423.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon fill="black" stroke-width="1" points="692.275,361.297 683.527,364.83 691.618,370.708"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 692.275,111.703 A 22.5,22.5 0 1 1 718.725,111.703"/>
+                <text x="699.5" y="62.5" font-family="Times New Roman" font-size="20">1</text>
+                <polygon fill="black" stroke-width="1" points="718.725,111.703 727.473,108.17 719.382,102.292"/>
+        </svg>
+    </div>
+</div>
+
+
+<div class="definition" id="definition-regular-language" >
+    <div class="title">Regular Language</div>
+    <div class="content">
+        Suppose that \( L \)  is a language, then we say that it is regular iff there exists a finite automaton \( M \) that recognizes it. We denote this by \( \operatorname{ reg } \left( L \right)   \), in symbols that is:
+        \[
+        \operatorname{ reg }  \left( L \right)  \iff \exists M ,  \operatorname{ lang } \left( M \right) = L
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-concatenation-of-two-languages" >
+    <div class="title">Concatenation of Two Languages</div>
+    <div class="content">
+        \[
+          A \circ B = \left\{ \operatorname{ concat } \left( x, y \right) : x \in A, y \in B   \right\} 
+        \] 
+    </div>
+</div>
+<div class="corollary" id="corollary-concatenation-of-languages-is-associative" >
+    <div class="title">Concatenation of Languages Is Associative</div>
+    <div class="content">
+        \[
+          \left( A \circ B \right) \circ C = A \circ \left( B \circ C \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-star-of-a-language" >
+    <div class="title">Star of a Language</div>
+    <div class="content">
+        \[
+          A ^ * =  \left\{ \operatorname{ concat } \left( x _ 1, \ldots , x _ k \right) : k \in \mathbb{ N } _ 0, x _ i \in A   \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    Note that when \( k = 0 \) then an empty concatenation is defined as \( \epsilon  \) so that the star of any lanuage will always contain \( \epsilon  \).
+</p>
+<div class="definition" id="definition-nondeterministic-finite-automaton" >
+    <div class="title">Nondeterministic Finite Automaton</div>
+    <div class="content">
+        A <b>nondeterministic finite automaton</b> is a 6-tuple \( Q, \Sigma, \delta , q_0, F, I \) where
+        <ol>
+            <li>\( Q \) is a finite set called the <b>states</b></li>
+            <li>\( \Sigma \) is a finite set called the <b>alphabet</b></li>
+            <li>\( I = \left\{ \left( a _ 1, \ldots , a _ k \right) : k \in \mathbb{ N } _ 0, a _ i \in \Sigma   \right\} \)  is the set of <b>possible inputs</b></li>
+            <li>\( \delta : Q \times \Sigma _ \epsilon  \to P \left( Q \right)  \) is the <b>transition function</b></li>
+            <li>\( q _ 0 \in Q \) is the <b>start state</b></li>
+            <li>\( F \subseteq Q \) is the set of <b>accept states</b></li>
+        </ol>
+    </div>
+</div>
+<p>
+    A NFA is shorthand for the above, to differentiate we call a finite automaton as a DFA where the D stands for deterministic. Additionally sometimes when drawing these out, then you'll notice that sometimes for a given state there is not an arrow for each character in the alphabet, whenever this is the case it means that \( \delta \left( q, a \right) = \emptyset \) which means that there is no transition from starting at \( q \) and reading \( a \), this means that an NFA can get "stuck" this is when it is not possible for the NFA to read in the next state in any possible context.
+</p>
+<div class="definition" id="definition-multiple-state-transition-function">
+    <div class="title">Multiple State Transition Function</div>
+    <div class="content">
+        Given an NFA \( N \), \( c \in \Sigma _ N \) and any \( R \subseteq  Q _ N \) we define the following overloaded function:
+        \[
+          \delta \left( R, c \right) = \bigcup _ { r \in R } \delta \left( r, c \right) 
+        \] 
+    </div>
+</div>
+<p>
+    One visual that helps me remember the above is like you're trakcing the whereabouts of multiple trains in a subway station, you want to get on one of the trains as fast as possible, so you see what stations they'll be at next, so you can get on at the nearest station, tha above takes in the collection of train stations they're at now, and tells you where they'll be next.
+</p>
+<div class="definition" id="definition-epsilon-reachable-states" >
+    <div class="title">Epsilon Reachable States</div>
+    <div class="content">
+        Suppose that \( N \) is an NFA and \( R \subseteq Q _ N \) then we define the set of reachable states from \( R \) by travelling along 0 or more epsilon arrows by:
+        \[
+          \epsilon \left( R \right) 
+        \] 
+    </div>
+</div>
+<p>
+    Note that \( \epsilon \left( A \cup B \right) = \epsilon \left( A  \right) \cup \epsilon \left( B \right)    \) and that \( \epsilon \left( R \right) \supseteq R  \) 
+</p>
+
+<div class="definition" id="definition-epsilon-reachable-multiple-state-transition-function" >
+    <div class="title">Epsilon Reachable Multiple State Transition Function</div>
+    <div class="content">
+        Given an NFA \( N \), \( c \in \Sigma _ N \) and any \( R \subseteq  Q _ N \) we define 
+        \[
+          \delta ^ \epsilon  \left( R, c \right) = \epsilon \left( \delta \left( R, a \right)  \right) 
+        \] 
+    </div>
+</div>
+
+<div class="corollary" id="corollary-every-dfa-is-an-nfa" >
+    <div class="title">Every DFA Is an NFA</div>
+    <div class="content">
+        Every DFA can trivially be converted to an equivalent NFA
+    </div>
+
+    <div class="proof">
+        Suppose we have a DFA, then construct an NFA as follows
+        <ul>
+            <li> \( Q ^ \prime = Q \) </li>
+            <li> \( Q ^ \prime = Q \) </li>
+            <li>\( \Sigma ^ \prime = \Sigma \)</li>
+            <li>\( \Sigma ^ \prime = \Sigma \)</li>
+            <li> \( \delta ^ \prime \left( q, a \right) = \left\{ \delta \left( q, a \right)  \right\}   \) </li>
+            <li> \( q _ 0 ^ \prime =  \) </li>
+        </ul>
+        <p>
+            Then given a string \( s \in \Sigma ^ * \) then by induction we can prove that \( \left\lvert \operatorname{ compseq } \left( D, s \right)   \right\rvert = \left\lvert \operatorname{ compseq } \left( N, s \right)   \right\rvert   \) and for any valid \( k \in \mathbb{ N } _ 1 \)    \( \operatorname{ compseq } \left( D, s \right) _ k = \operatorname{ compseq } \left( N, s \right) _ k  \), thus \( \operatorname{ out } \left( D, s \right) = \operatorname{ out } \left( N, s \right)     \) so we can conclude that so \( \operatorname{ acc } \left( D, s \right) \iff \operatorname{ acc } \left( N, s \right)     \) showing that \( \operatorname{ lang } \left( D \right) = \operatorname{ lang } \left( N \right)  \) 
+        </p>
+    </div>
+</div>
+
+
+<div class="exercise" id="exercise-conversion-of-an-nfa-to-a-dfa" >
+    <div class="title">Conversion of an NFA to a DFA</div>
+    <div class="content">
+        Convert the following NFA to a DFA:
+
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="270.5" cy="159.5" rx="30" ry="30"/>
+                <text x="264.5" y="165.5" font-family="Times New Roman" font-size="20">1</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="493.5" cy="159.5" rx="30" ry="30"/>
+                <text x="487.5" y="165.5" font-family="Times New Roman" font-size="20">2</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="493.5" cy="159.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="381.5" cy="342.5" rx="30" ry="30"/>
+                <text x="375.5" y="348.5" font-family="Times New Roman" font-size="20">3</text>
+                <polygon stroke="black" stroke-width="1" points="137.5,159.5 240.5,159.5"/>
+                <polygon fill="black" stroke-width="1" points="240.5,159.5 232.5,154.5 232.5,164.5"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 292.812,139.519 A 151.156,151.156 0 0 1 471.188,139.519"/>
+                <polygon fill="black" stroke-width="1" points="471.188,139.519 467.68,130.762 461.779,138.836"/>
+                <text x="376.5" y="101.5" font-family="Times New Roman" font-size="20">e</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 469.103,176.892 A 171.721,171.721 0 0 1 294.897,176.892"/>
+                <polygon fill="black" stroke-width="1" points="294.897,176.892 299.255,185.259 304.328,176.641"/>
+                <text x="376.5" y="221.5" font-family="Times New Roman" font-size="20">a</text>
+                <polygon stroke="black" stroke-width="1" points="397.16,316.912 477.84,185.088"/>
+                <polygon fill="black" stroke-width="1" points="477.84,185.088 469.399,189.301 477.928,194.522"/>
+                <text x="443.5" y="269.5" font-family="Times New Roman" font-size="20">a, b</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 406.673,326.396 A 22.5,22.5 0 1 1 409.594,352.685"/>
+                <text x="455.5" y="339.5" font-family="Times New Roman" font-size="20">b</text>
+                <polygon fill="black" stroke-width="1" points="409.594,352.685 414.071,360.989 419.02,352.299"/>
+                <polygon stroke="black" stroke-width="1" points="286.058,185.15 365.942,316.85"/>
+                <polygon fill="black" stroke-width="1" points="365.942,316.85 366.068,307.417 357.518,312.603"/>
+                <text x="308.5" y="269.5" font-family="Times New Roman" font-size="20">a</text>
+        </svg>
+    </div>
+
+    <div class="proof">
+        As per the conversion process, we set \( Q ^ \prime = \mathcal{ P } \left( Q \right)   \), and then for any \( R \in Q ^ \prime  \) and \( c \in \Sigma \) we define our transition function by \( \delta ^ \epsilon \left( R \right)  \). 
+        <ul>
+            <li> \( \delta ^ \epsilon \left( \left\{ 1, 2 \right\} , a \right)  = \epsilon \left( \left\{ 1, 3 \right\}  \right) = \left\{ 1, 2, 3 \right\} \)   </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 1, 2 \right\} , b \right)  = \epsilon \left( \emptyset \cup \emptyset  \right) = \emptyset \)     </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 1, 2, 3 \right\} , a \right)  = \left\{ 1, 2, 3 \right\}  \)  </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 1, 2, 3 \right\} , b \right)  = \epsilon \left( \emptyset \cup \emptyset \cup \left\{ 2, 3 \right\}  \right) = \left\{ 2, 3 \right\} \)      </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 2, 3 \right\} , a \right)  = \epsilon \left( \left\{ 1, 2 \right\}  \right) = \left\{ 1, 2 \right\}    \)  </li>
+            <li> \( \delta ^ \epsilon \left( \left\{ 2, 3 \right\} , b \right)  = \left\{ 2, 3 \right\} \) </li>
+            <li>\( \delta ^ \epsilon \left( \emptyset , a \right)   = \emptyset  = \delta ^ \epsilon \left( \emptyset , b \right) \)</li>
+        </ul>
+        <p>
+            Note that we could analyze what it does to other states, but they will not be reachable in the final diagram and thus can be removed, this is true because we explored the graph starting at the root following the BFS algorithm which we know will entirely explore all reachable states, thus here is the final simplified NFA:
+        </p>
+
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="290.5" cy="221.5" rx="30" ry="30"/>
+                <text x="268.5" y="227.5" font-family="Times New Roman" font-size="20">{1,2}</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="290.5" cy="221.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="221.5" rx="30" ry="30"/>
+                <text x="419.5" y="227.5" font-family="Times New Roman" font-size="20">{1, 2, 3}</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="221.5" rx="24" ry="24"/>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="97.5" rx="30" ry="30"/>
+                <text x="446.5" y="103.5" font-family="Times New Roman" font-size="20">{}</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="349.5" rx="30" ry="30"/>
+                <text x="430.5" y="355.5" font-family="Times New Roman" font-size="20">{2, 3}</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="455.5" cy="349.5" rx="24" ry="24"/>
+                <polygon stroke="black" stroke-width="1" points="320.5,221.5 425.5,221.5"/>
+                <polygon fill="black" stroke-width="1" points="425.5,221.5 417.5,216.5 417.5,226.5"/>
+                <text x="367.5" y="212.5" font-family="Times New Roman" font-size="20">a</text>
+                <polygon stroke="black" stroke-width="1" points="314.483,203.477 431.517,115.523"/>
+                <polygon fill="black" stroke-width="1" points="431.517,115.523 422.118,116.332 428.126,124.327"/>
+                <text x="355.5" y="150.5" font-family="Times New Roman" font-size="20">b</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 442.275,70.703 A 22.5,22.5 0 1 1 468.725,70.703"/>
+                <text x="438.5" y="20.5" font-family="Times New Roman" font-size="20">a, b</text>
+                <polygon fill="black" stroke-width="1" points="468.725,70.703 477.473,67.17 469.382,61.292"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 482.297,208.275 A 22.5,22.5 0 1 1 482.297,234.725"/>
+                <text x="528.5" y="227.5" font-family="Times New Roman" font-size="20">a</text>
+                <polygon fill="black" stroke-width="1" points="482.297,234.725 485.83,243.473 491.708,235.382"/>
+                <polygon stroke="black" stroke-width="1" points="455.5,251.5 455.5,319.5"/>
+                <polygon fill="black" stroke-width="1" points="455.5,319.5 460.5,311.5 450.5,311.5"/>
+                <text x="460.5" y="291.5" font-family="Times New Roman" font-size="20">b</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 482.297,336.275 A 22.5,22.5 0 1 1 482.297,362.725"/>
+                <text x="528.5" y="355.5" font-family="Times New Roman" font-size="20">b</text>
+                <polygon fill="black" stroke-width="1" points="482.297,362.725 485.83,371.473 491.708,363.382"/>
+                <polygon stroke="black" stroke-width="1" points="431.796,331.112 314.204,239.888"/>
+                <polygon fill="black" stroke-width="1" points="314.204,239.888 317.46,248.743 323.589,240.841"/>
+                <text x="356.5" y="306.5" font-family="Times New Roman" font-size="20">a</text>
+                <polygon stroke="black" stroke-width="1" points="200.5,221.5 260.5,221.5"/>
+                <polygon fill="black" stroke-width="1" points="260.5,221.5 252.5,216.5 252.5,226.5"/>
+        </svg>
+        <!--we first have the start state which is given by \( \epsilon \left( \left\{ 1 \right\}  \right) = \left\{ 1, 2  \right\}    \) -->
+    </div>
+</div>
+
+<div class="corollary" id="corollary-every-language-modelled-by-a-dfa-is-modelled-by-an-nfa" >
+    <div class="title">Every Language Modelled by a DFA Is Modelled by an NFA</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        Since for every DFA, there is a trivial conversion to an equivalent NFA, then if a language \( L \) is modelled by some DFA D, so that \( \operatorname{ lang } \left( D \right) = L   \) then since given our eqiuvalent NFA \( N \) which is to say that \( \operatorname{ lang } \left( N \right) = \operatorname{ lang } \left( D \right)     \) then we conclude that  \( \operatorname{ lang } \left( N \right) = L   \) showing that \( N \) models \( L \) .
+    </div>
+</div>
+<div class="definition" id="definition-machine" >
+    <div class="title">Machine</div>
+    <div class="content">
+        A machine is a DFA or a NFA
+    </div>
+</div>
+<div class="definition" id="definition-two-machines-are-equivalent">
+    <div class="title">Two Machines Are Equivalent</div>
+    <div class="content">
+        We say that \( M _ 1, M_ 2 \) are equivalent iff 
+        \[
+        \operatorname{ lang } \left( M _ 1 \right) =  \operatorname{ lang } \left( M _ 2 \right) 
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-every-language-recognized-by-an-nfa-is-recognized-by-a-dfa">
+    <div class="title">Every Language Recognized by an NFA Is Recognized by a DFA</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="corollary" id="corollary-a-language-is-regular-iff-there-is-an-nfa-that-recognizes-it" >
+    <div class="title">A Language Is Regular Iff There Is an NFA That Recognizes It</div>
+    <div class="content">
+        \[
+            \operatorname{ reg } \left( A \right) \iff \exists N , \operatorname{ lang } \left( N \right) = A
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that there exists an NFA \( N \) such that \( \operatorname{ rec } \left( N, A \right)   \), then by the above theorem there exists some DFA \( D \) such that \( \operatorname{ rec } \left( D, A \right)   \) therefore \( \operatorname{ reg } \left( A \right)   \) .
+        </p>
+        <p>
+            The other direction is simpler since \( \operatorname{ reg } \left( A \right)   \) then there exists some DFA D such that \( \operatorname{ rec } \left( D, A \right)   \) but a DFA is an NFA so then we've shown that there is some NFA that recognizes \( A \) as needed.
+        </p>
+    </div>
+</div>
+<p>
+    Because this is true it means that a language is regular iff there is an NFA or DFA which recognizes it.
+</p>
+<div class="corollary" id="corollary-regular-languages-are-recognized-under-intersection" >
+    <div class="title">Regular Languages Are Recognized Under Intersection</div>
+    <div class="content">
+        Suppose that \( \operatorname{ reg } \left( A \right)   \)  and \( \operatorname{ reg } \left( B \right)   \) then \( \operatorname{ reg } \left( A \cap B \right) \) 
+    </div>
+
+    <div class="proof">
+        This is simply true beucase \( A \cap B \subseteq A, B \) therefore both machines will recognize a subset of a language they already recognize.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-union" >
+    <div class="title">Regular Languages Are Closed Under Union</div>
+    <div class="content">
+        Suppose that \( \operatorname{ reg } \left( A \right)   \)  and \( \operatorname{ reg } \left( B \right)   \) then \( \operatorname{ reg } \left( A \cup B \right) \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-concatenation" >
+    <div class="title">Regular Languages Are Closed Under Concatenation</div>
+    <div class="content">
+        Suppose that \( \operatorname{ reg } \left( A \right)   \)  and \( \operatorname{ reg } \left( B \right)   \) then \( \operatorname{ reg } \left( A \circ  B \right) \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-the-star-operation">
+    <div class="title">Regular Languages Are Closed Under the Star Operation</div>
+    <div class="content">
+        Suppose that \( \operatorname{ reg } \left( A \right)   \) then \( \operatorname{ reg } \left( A ^ * \right) \) 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-complementation">
+    <div class="title">Regular Languages Are Closed Under Complementation</div>
+    <div class="content">
+        \[
+          \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( \Sigma ^ * \setminus L \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-intersection">
+    <div class="title">Regular Languages Are Closed Under Intersection</div>
+    <div class="content">
+        \[
+        \operatorname{ reg } \left( A \right) \land \operatorname{ reg } \left( B \right) \implies \operatorname{ reg } \left( A \cap B \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-reversal-of-a-lanuage" >
+    <div class="title">Reversal of a Lanuage</div>
+    <div class="content">
+        Suppose that \( A \) is a language, then we define the reverse of the language by 
+        \[
+        A ^ \mathcal{ R } = \left\{ \operatorname{ rev } \left( a \right) : a \in A \right\} 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-reversal" >
+    <div class="title">Regular Languages Are Closed Under Reversal</div>
+    <div class="content">
+        \[
+          \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( A ^ \mathcal{ R }  \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-homomorphism-from-one-alphabet-to-strings-over-another" >
+    <div class="title">Homomorphism From One Alphabet to Strings Over Another</div>
+    <div class="content">
+        A <b>homomorphism from one alphabet to strings over another</b> is a function \(f: \Sigma \longrightarrow \Gamma^*\) from one alphabet to strings over another alphabet. We can extend \(f\) to operate on strings by defining \(f(w)=\) \(f\left(w_1\right) f\left(w_2\right) \cdots f\left(w_n\right)\), where \(w=w_1 w_2 \cdots w_n\) and each \(w_i \in \Sigma\). We further extend \(f\) to operate on languages by defining \(f(A)=\{f(w) \mid w \in A\}\), for any language \(A\).
+    </div>
+</div>
+<p>
+    It was defined as above to allow you to map single characters from an alpabet to strings of another to be more general from the get go, but you can certainly have homomorphisms from characters of one alphabet to characters of another alphabet just the same.
+</p>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-homomorphism" >
+    <div class="title">Regular Languages Are Closed Under Homomorphism</div>
+    <div class="content">
+        Suppose that \( f \) is a homomorphism, then 
+        \[
+        \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( f \left( A \right)  \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-the-inverse-image-of-a-homomorphism" >
+    <div class="title">Regular Languages Are Closed Under the Inverse Image of a Homomorphism</div>
+    <div class="content">
+        Suppose that \( f \) is a homomorphism, then 
+        \[
+          \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( f ^ { -1 } \left( A \right)  \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-perfect-shuffle" >
+    <div class="title">Regular Languages Are Closed Under Perfect Shuffle</div>
+    <div class="content">
+        For languages \(A\) and \(B\), let the perfect shuffle of \(A\) and \(B\) be the language \( \operatorname{ perfectshuffle } \left( A, B \right)   \) defined as:
+        \[ 
+         \left\{ w \mid w=a_1 b_1 \cdots a_k b_k \text{ where } a_1 \cdots a_k \in A \text{ and } b_1 \cdots b_k \in B \text{ each } a_i, b_i \in \Sigma \right\}
+        \]
+        Show that 
+        \[
+          \operatorname{ reg } \left( A \right) \land \operatorname{ reg } \left( B \right) \implies \operatorname{ reg } \left( \operatorname{ perfectshuffle } \left( A, B \right)   \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Instead of making an explicit construction we will instead use the fact that regular languages are closed under intersection and homomorphisms to prove that the shuffle is regular.
+        </p>
+        <p>
+        </p>
+        <p>
+            But now if we consider \( X = \operatorname{ left } ^ { -1 } \left( A \right) \), then 
+            where the last condition \( a _ 1 \ldots a _n  \in A \) comes about because we require that 
+            \[
+                \operatorname{ left }\left(  \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) \right) = \operatorname{ left } \left( a _ 1 \ldots a _ n, b _ 1 \ldots b _ n \right) = a _ 1 \ldots a _ n \in A
+            \] 
+            Note that since \( \operatorname{ left }  \) is a homomorphism and \( \operatorname{ reg } \left( A \right)   \) then we have \( \operatorname{ reg } \left( \operatorname{ left } ^ { -1 } \left( A \right)   \right)   \) equivalently \( \operatorname{ reg } \left( X \right)   \) 
+        </p>
+        <p>
+            Analgously we find that 
+            \[ 
+            Y = \operatorname{ right } ^ { -1 } \left( B \right) = \left\{ \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) : n \in \mathbb{ N } _ 0, \left( a _i, b _ i \right) \in \Sigma \times \Sigma \text{ s.t. } b _ 1 \ldots b _n  \in B \right\} 
+            \]  
+            is regular. Now since we have 
+            \[
+              X \cap Y = \left\{ \left( a_1, b_1 \right) \ldots \left( a _ n, b _ n \right) : n \in \mathbb{ N } _ 0, \left( a _i, b _ i \right) \in \Sigma \times \Sigma \text{ s.t. } a _ 1 \ldots a _ n \in A, b _ 1 \ldots b _n  \in B \right\} 
+            \] 
+            Then the homomorphism \( \operatorname{ unpack } : \left( \Sigma \times \Sigma \right) ^ * \to \Sigma ^ *   \) defined as \( \operatorname{ unpack } \left( \left( a, b \right)  \right) = ab  \) (it is a homomorphism, because \( \operatorname{ unpack } \left( \left( a, b \right) \left( c, d \right)   \right) = ac bd   \) and you can check the rest), is interesting because it threads them one by one, so that 
+            \[
+              \operatorname{ unpack } \left( X \cap Y \right) = \operatorname{ perfectshuffle } \left( A, B \right) 
+            \] 
+            Since we know that \( \operatorname{ reg } \left( X \right)  \) and \( \operatorname{ reg } \left( Y \right)   \) and that regular languages are closed under homomorphism and intersection we conclude that \( \operatorname{ perfectshuffle } \left( A, B \right)   \) is regular.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-the-language-of-binary-digits-divisible-by-a-constant-is-regular" >
+    <div class="title">The Language of Binary Digits Divisible by a Constant Is Regular</div>
+    <div class="content">
+        Suppose that \( n \in \mathbb{ N } _ 1 \), then the language 
+        \[
+          C _ n = \left\{ x : x \text{ is a binary number such that }, n \mid x  \right\} 
+        \] 
+        is regular.
+    </div>
+
+    <div class="proof">
+        <p>
+            Before we continue we cast away two trivial cases, when \( n = 1 \), then since every number is divisible by 1, then we construct a trivial DFA with one state which is the accept state and all arrows point back towards itself. The case of \( n = 2 \) can also be disposed of quite quickly as we can construct a two state dfa, where we start in the accept state, and if we read a one, we got to or stay in the non-accept state, if we read a zero we go back and stay inside the accept state, this will work because our DFA reads from left to right, and the last digit of a binary number is at the right, and a binary number is odd iff the last digit is one, therefore this DFA would only ever be in the non-accept state if the last read digit is one, as needed.
+        </p>
+        <p>
+            We construct a DFA as follows, we have states \( q _ 0, q _ 1, \ldots , q _ {  n - 1 } \) where \( q _ i \) will be the state when the currently read in binary number \( b \)  has remainder \( i  \) mod \( n \) that is \( b ~\%~ n = i \)  , to make this claim true, we define our transition function as follows
+            \[
+              \delta \left( q _ j, 0 \right) = q _ { \left( 2 \cdot j \right) ~\%~ n  }
+            \] 
+            and 
+            \[
+              \delta \left( q _ j, 1 \right) = q _ { \left( 2 \cdot j + 1 \right) ~\%~ n  }
+            \] 
+        </p>
+        <p>
+            We do this because when we read the next binary number it pushes all previous number one power higher (ie multiply by two), and then based on if that new digit is one or zero it adds on as well.
+        </p>
+        <p>
+            Note that given a number \( k \in \mathbb{ N } _1 \) then its true that 
+            \[ 
+            \left( ak + b \right) ~\%~ n =  \left( \left( a ~\%~ n \right) \left( k ~\%~ n  \right) + b ~\%~ n  \right) ~\%~ n   
+            \], since in this case we know that \( n \ge 3 \) and actually \( a = 2 \) and \( b \in \left\{ 0, 1 \right\}  \) then \( a ~\%~ n = a \) and \( b ~\%~ n = b \) so we have 
+            \[
+            \left( 2 k + b \right)   ~\%~ n = \left( 2 \left( k ~\%~ n \right) + b \right) ~\%~ n
+            \] 
+        </p>
+        <p>
+            This shows that the remainder of multiplying \( k \) by 2 and then either adding \( 0 \) or \( 1 \) is the same as multiplying \( k ~\%~ n \) by 2 and then adding \( 0 \) or \( 1 \), by induction this property holds when iterated, thus this shows that our construction of the transition function actually satisfies the claim that \( q _ i  \) is the state when the currently read in binary number \( b \) has remainder \( i \) mod \( n \), therefore after reading the entire number if it has remainder \( r \) mod \( n \) the DFA will be on state \( q _ r \) thus by only making \( q _ 0 \) the accept state our DFA is correct, and so \( C _ n \) is regular.
+        </p>
+    </div>
+</div>
+
+<div class="definition" id="definition-regular-expression" >
+    <div class="title">Regular Expression</div>
+    <div class="content">
+        We say that a language \( R \) is a <b>regular expression</b> over an alphabet \( \Sigma \)  if \( R \) equals to:
+        <ul>
+            <li>\( \left\{ a \right\}  \) for some \( a \) in the alphabet \( \Sigma \)</li>
+            <li>\( \left\{ \epsilon  \right\} \)</li>
+            <li>\( \emptyset \)</li>
+            <li>The union of two regular expressions \( R _ 1, R _ 2 \), denoted by \( \left( R _ 1 \cup R _ 2 \right)  \) </li>
+            <li>The concatentation of two regular expressions \( R _ 1, R _ 2 \) denoted by \( \left( R _ 1 \circ  R _ 2 \right)  \)</li>
+            <li>The star of a regular expression \( R _ 1 \) denoted by \( \left( R _ 1 ^ * \right) \)</li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-the-set-of-all-regexes-over-an-alphabet" >
+    <div class="title">The Set of All Regexes Over an Alphabet</div>
+    <div class="content">
+        Suppose that \( \Sigma \) is an alphabet, then we denote all possible regexes over \( \Sigma \) as \( \operatorname{ RX } \left( \Sigma \right)   \) 
+    </div>
+</div>
+<div class="definition" id="definition-regular-expression-shorthand" >
+    <div class="title">Regular Expression Shorthand</div>
+    <div class="content">
+        Suppose that \( R _ 1, \ldots R _ k \in \operatorname{ RX } \left( \Sigma \right)  \) , then we develop the following shorthand to write out regular expressions easier:
+        <ul>
+            <li>
+                \( \left( R _ 1 \circ R _ 2 \circ   \ldots \circ R _ k  \right) = R _ 1 R _ 2 \ldots R _ k \) 
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="lemma" id="lemma-a-regular-expression-is-a-regular-language" >
+    <div class="title">A Regular Expression Is a Regular Language</div>
+    <div class="content">
+        For any language \( L \):
+        \[
+          L \in \operatorname{ RX } \left( \Sigma \right) \implies \operatorname{ reg } \left( L \right) 
+        \] 
+    </div>
+    <div class="proof">
+        <p>
+            Given a regular expression \( L \in \operatorname{ RX } \left( \Sigma \right)   \) we show that there is an NFA \( N \) that models \( L \) <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#corollary-a-language-is-regular-iff-there-is-an-nfa-that-recognizes-it">thus</a> showing that \( L \) would be regular.
+        </p>
+        <p>
+            Since the definition of a regular language is recursive by nature we split cases on the possibilities and complete the proof using structural induction.
+        </p>
+        <p>
+            The first case is if \( R = \left\{ a \right\}  \) for \( a \in \Sigma \), if that's the case then a two state NFA N with a start state on the left, and an accept state on the right, with a single transition when the letter \( a \) is read will work, as \( \operatorname{ lang } \left( N \right) = \left\{ a \right\} \). Formally we have \( N = \left( \left\{ q _ 1, q _ 2 \right\}, \Sigma, \delta , q_1, \left\{ q _ 2 \right\}   \right)  \) where \( \delta \left( q _ 1, a \right) = \left\{ q _ 2 \right\}   \) and \( \delta \left( r, b \right) = \emptyset   \) for \( r \neq q _ 1 \) or \( b \neq a \) 
+        </p>
+        <p>
+            If \( R = \left\{ \epsilon  \right\}  \) then \( N = \left( \left\{ q _ 1 \right\}, \Sigma, \delta , q _ 1, \left\{ q _ 1 \right\} \right) \) with \( \delta \left( r, b \right) = \emptyset   \) for any \( r , b \), then \( \operatorname{ lang } \left( N \right) = \left\{ \epsilon \right\}    \) 
+        </p>
+        <p>
+            If \( R = \emptyset  \) then \( N = \left( \left\{ q \right\}, \Sigma, \delta , q, \emptyset  \right)  \) with \( \delta \left( r, b \right) = \emptyset   \) for any \( r, b \) 
+        </p>
+        <p>
+             Now by structural induction suppose that \( R _ 1, R _ 2 \in \operatorname{ RX } \left( \Sigma \right)   \) such that \( \operatorname{ reg } \left( R _ 1 \right)   \) and \( \operatorname{ reg } \left( R _ 2 \right)   \).
+        </p>
+        <p>
+            If \( R = R _ 1 \cup R _ 2 \) then since <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#proposition-regular-languages-are-closed-under-union">regular languages are closed under union</a>, we have that \( \operatorname{ reg } \left( R \right)   \).
+        </p>
+        <p>
+            If \( R = R _ 1 \circ R _ 2 \), since <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#proposition-regular-languages-are-closed-under-concatenation">regular languages are closed under concatenation</a> then \( \operatorname{ reg } \left( R \right)   \) 
+        </p>
+        <p>
+            If \( R = R _ 1 ^ * \), since <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#proposition-regular-languages-are-closed-under-the-star-operation">regular languages are closed under the star operation</a> then \( \operatorname{ reg } \left( R \right) \) 
+        </p>
+        <p>
+            Thus by structural induction we can conclude that the statement holds true.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-generlized-nondeterministic-finite-automaton" >
+    <div class="title">Generlized Nondeterministic Finite Automaton</div>
+    <div class="content">
+        A <b>generalized nondeterministic finite automaton</b> is a 6-tuple \( Q, \Sigma, \delta , q_0, F, I \) where
+        <ol>
+            <li>\( Q \) is a finite set called the <b>states</b></li>
+            <li>\( \Sigma \) is a finite set called the <b>alphabet</b></li>
+            <li>\( I = \left\{ \left( a _ 1, \ldots , a _ k \right) : k \in \mathbb{ N } _ 0, a _ i \in \Sigma   \right\} \)  is the set of <b>possible inputs</b></li>
+            <li>\( \delta : \left( E \setminus \left\{ q_ \operatorname{ accept }  \right\}  \right)  \times \left( Q \setminus \left\{ q _ \operatorname{ start }  \right\}  \right)   \to \operatorname{ RX } \left( \Sigma \right)    \) is the <b>transition function</b></li>
+            <li>\( q _ \operatorname{ start } \in Q \) is the <b>start state</b></li>
+            <li>\( q _ \operatorname{ accept } \in Q \) is the <b>accept state</b></li>
+        </ol>
+    </div>
+</div>
+<div class="lemma" id="lemma-for-every-dfa-there-is-an-equivalent-gnfa" >
+    <div class="title">For Every Dfa There Is an Equivalent Gnfa</div>
+    <div class="content">
+        TODO: Add the content for the lemma here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="lemma" id="lemma-the-language-of-any-gnfa-equals-some-regular-expression" >
+    <div class="title">The Language of Any GNFA Equals Some Regular Expression</div>
+    <div class="content">
+        For any GNFA G, there exists some \( L \in \operatorname{ RX } \left( \Sigma \right)   \) such that 
+        \[
+        \operatorname{ lang } \left( G \right) = L
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="corollary" id="corollary-if-a-language-is-regular-then-it-is-a-regular-expression" >
+    <div class="title">If a Language Is Regular Then It Is a Regular Expression</div>
+    <div class="content">
+        Suppose that \( L \) is a language over \( \Sigma \), then 
+        \[
+            \operatorname{ reg } \left( L \right)  \implies L \in \operatorname{ RX } \left( \Sigma \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="theorem" id="theorem-a-language-is-regular-iff-it-equals-a-regular-expression" >
+    <div class="title">A Language Is Regular Iff It Equals a Regular Expression</div>
+    <div class="content">
+        Let \( \Sigma  \) be an alphabet, and let \( L \) be a language over that alphabet, then 
+        \[
+          \operatorname{ reg } \left( L \right) \iff \exists R \in \operatorname{ RX } \left( \Sigma \right), L = R
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+<div class="lemma" id="lemma-pumping" >
+    <div class="title">Pumping</div>
+    <div class="content">
+        If \( \operatorname{ reg } \left( A \right)   \) then there exists \( p \in \mathbb{ N } _ 1 \) such that if \( s \in A\) such that \( \left\lvert s \right\rvert \ge p  \) there exists \( x, y, z \) such that \( s = x y z \) where
+        <ol>
+            <li>
+                for every \( i \in \mathbb{ N } _ 0 \) we have \( x y ^ i z \in A \) 
+            </li>
+            <li>
+                \( \left\lvert y \right\rvert \gt 0  \) 
+            </li>
+            <li>
+                \( \left\lvert xy \right\rvert \le p  \) 
+            </li>
+        </ol>
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \( M = \left( Q, \Sigma, \delta , q_ 1, F \right)  \) be a DFA recognizing \( A \) then we set \( p = \left\lvert Q \right\rvert  \). Now suppose that \( s \in A \) such that \( \left\lvert s \right\rvert \ge p \), since \( \left\lvert \operatorname{ compseq } \left( M, s \right)   \right\rvert = \left\lvert s \right\rvert + 1   \) then we know that \( \left\lvert \operatorname{ compseq } \left( M, s \right)   \right\rvert \gt p  \), so that by the pigeonhole principle there must exist a duplicated state \( q _ d \in \operatorname{ compseq } \left( M, s \right)  \).
+        </p>
+        <p>
+            Thus
+            \[
+              \operatorname{ compseq } \left( M, s \right) =   \left( q _ 0, \ldots, q _ b , q _ d ,\ldots q _ d , \ldots, q _ k \right) 
+            \] 
+            where we note that \( q _ k \in F \) as \( \operatorname{ rec } \left( M, L \right)   \), so now let \( s = x y z \) where \( q _ d \) is the first instance of the duplicate
+            \[ 
+            \operatorname{ compseq } \left( M, x \right) = \left( q _ 0, \ldots , q _ d  \right) 
+            \] 
+            for \( y \) the part between the duplicates:
+            \[
+              \operatorname{ compseq } \left( M, y, q _ d \right) = \left( q _ d ,\ldots, q _ d \right) 
+            \] 
+            for \( z \) the part after the duplicate:
+            \[
+            \operatorname{ compseq } \left( M, z, q _ d \right) = \left( q _ d, \ldots, q _ k \right) 
+            \] 
+        </p>
+        <p>
+            Now we claim that the three properties hold true, for the first property let \( i \in \mathbb{ N } _ 0 \) and so if \( i = 0 \), then we know that we're looking at the string \( xz \) which is accepted as 
+            \[ 
+            \operatorname{ compseq } \left( M, xz \right) = \operatorname{ concat } \left( \operatorname{ compseq } \left( M, x \right), \operatorname{ compseq } \left( M, z, q _ d \right)[ 1 : ] \right)
+            \]
+            because on the sequence on the right ends in a accept state. Whenever \( i \ge 1 \) then in a similar manner
+            \[
+              \operatorname{ compseq } \left( M, xy ^ i z \right) = \operatorname{ concat } \left( \operatorname{ compseq } \left( M, x \right), \left( \operatorname{ compseq } \left( M, y, q _ d \right) [1:] \right) ^ i , \operatorname{ compseq } \left( M, z, q_d \right)[1:] \right) 
+            \] 
+            for the same reason, the sequence on the right ends in an accept state, so the first property holds true.
+        </p>
+        <p>
+            The reason why \( \left\lvert y \right\rvert \gt 0  \) is because in order to move to another state you must process a character, since we encounter \( q _ d \) twice, it means that we must read at least one character to do this.
+        </p>
+        <p>
+            We know that it's guarenteed that within the first \( p + 1 \) states there must be a repeated state due to the pigeon hole principle, and add to our assumptions that \( q_d \) is the first repetition in the sequence, then we know that
+        </p>
+    </div>
+</div>
+
+<h2>Pumping for Non-Regularity</h2>
+<p>
+    While the pumping lemma gives us a characterization about strings of regular languages it also provides us a way of determining when something is not regular, for example if we wanted to show that a language was not regular, we would assume for the sake of contradiction that it was regular and thus there would exists some \( p \) such that any string of length greaer or equal to \( p \) would have the three properties.
+</p>
+<p>
+    Thus we can obtain our contradiction by constructing a string of length greater than \( p \) which does not satisfy all the conditions. Most of the time condition one provides the most flexibility, because if we choose our input string in a smart way, then ew cna raise \( y \) to a power which creates a string which is no longer part of the input language. This is a common technique to prove that a language is not regular.
+</p>
+
+<!--<p>-->
+<!--    Because in the proof of the pumping lemma, we assume the language is regular and thus we obtain a DFA that recognizes it and then we set \( p \) to be the number of states in the DFA and the proof will work. Then since this proof will work on every DFA that recognizes it, it changes the lowerbound on what \( p \) can be, specfically for the smallest DFA which recognizes the language \( p \) is at its smallest, therefore when we apply the pumping lemma we may instead say:-->
+<!--</p>-->
+<div class="corollary" id="corollary-pumping-lemma-choice-of-dfa" >
+    <div class="title">Pumping Lemma Choice of DFA</div>
+    <div class="content">
+        If \( \operatorname{ reg } \left( A \right)   \) and any DFA \( D \) recognizing \( A \) with \( p \) states, such that then for any \( s \in A\) with \( \left\lvert s \right\rvert \ge p  \) there exists \( x, y, z \) such that \( s = x y z \) where
+        <ul>
+            <li>
+                for every \( i \in \mathbb{ N } _ 0 \) we have \( x y ^ i z \in A \) 
+            </li>
+            <li>
+                \( \left\lvert y \right\rvert \gt 0  \) 
+            </li>
+            <li>
+                \( \left\lvert xy \right\rvert \le p  \) 
+            </li>
+        </ul>
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-for-any-k-there-is-a-binary-language-and-a-dfa-with-k-states-that-recognizes-it,-but-no-dfa-with-k---1-states-that-recognizes-it" >
+    <div class="title">For Any k There Is a Binary Language and a DFA With K States That Recognizes It, but No DFA With K - 1 States That Recognizes It</div>
+    <div class="content">
+        For every \( k \in \mathbb{ N } _ 2 \) there exists a language \( A _k \subseteq \left\{ 0, 1 \right\} ^ *  \) and a DFA with \( k \) states that recognizes it, but no DFA with \( k - 1 \) states that recognizes it.
+    </div>
+
+    <div class="proof">
+        <p>
+            Let \( k \in \mathbb{ N } _2 \) and consider the language given by 
+            \[
+            A _ k = \left\{ s \in \left\{ 0, 1 \right\} ^ * : \operatorname{ substr } \left( 0 ^ { k - 1 }, s \right)    \right\} 
+            \] 
+            that is the set of strings that have \( 0 ^ \left( k - 1 \right)  \) as a substring.
+        </p>
+        <p>
+            Clearly there is a DFA with \( k \) states which recognizes this language, the DFA constructed by having \( k \) states all in a line, with the last state being an accept state, and chained together with arrows which allow movement when reading a \( 0 \), and sent back to the initial state whenever a \( 1 \) is read, the only way to get to the end state is to read in \( k - 1 \) consecutive zeros, which is the exact condition on having \( 0 ^ { k - 1 } \) as a substring.
+        </p>
+        <p>
+            On the other hand if we assume for the sake of contradiction that there was a DFA C with \( k - 1 \) states which could recognize \( A _ k \) there will be a problem. Since \( A _k  \) is a subset of a regular language then it is regular, thus using the above corollary from the pumping lemma, since C is a DFA with \( k - 1 \) states that recognizes \( A _ k \) and \( 0 ^ { k - 1 } \) is a string with length greater or equal to \( k - 1 \) then by the pumping lemma there exists \( x, y, z \) such that \( 0 ^ { k - 1 } = x y z \), along with the three properties.
+        </p>
+        <p>
+            By the second property we know that \( \left\lvert y \right\rvert \ge 0  \) therefore \( y = 0 ^ j \) for some \( j \in \mathbb{ N } _1 \) and that which implies \( xz = 0 ^ { k - 1 -j  }  \) simply because when all three are concatentated together we must get \( 0 ^ { k - 1 } \), but then based on the first property we have that \( x y ^ i z \in A _k  \) for any \( i \in \mathbb{ N } _ 0 \) so specifically if we choose \( i = 0 \) then we know that \( xz \in A _ k \) but this is a problem because \( x z = 0 ^ { k - 1 - j } \) and \( j \ge 1 \) so that \( x z \) is a sequence of \( m \) zeros where \( m \lt k - 1 \) but clearly \( 0 ^ { k - 1 }  \) could not be a substring of this, therefore \( xz \notin A _ k \), this is a contradiction, therefore no such DFA must exist.
+        </p>
+    </div>
+</div>
+
+
+<p>
+    TODO come back to the above later on
+</p>
+<p>
+    In english the above lemma is saying that whenever you have a regular language, there is a threshold wherein given a string in length exceeding that threshold then it can be decomposed in into three pieces such that the middle piece can be duplicated over and over, and the string remains part of that regular language (under two other small conditions).
+</p>
+
+<div class="definition" id="definition-rotational-closure-of-a-language" >
+    <div class="title">Rotational Closure of a Language</div>
+    <div class="content">
+        \[
+          \operatorname{ RC } \left( A \right) = \left\{ yx : xy \in A \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    Intuitively this is allowing you to split an string in \( A \) and then glue it the other way around.
+</p>
+<div class="proposition" id="proposition-the-rotational-closure-only-applies-once" >
+    <div class="title">The Rotational Closure Only Applies Once</div>
+    <div class="content">
+        \[
+          \operatorname{ RC } \left( A \right) = \operatorname{ RC } \left( \operatorname{ RC } \left( A \right) \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Note that since for any \( x \in A \) we have \( \epsilon x \in A \) therefore \( x \epsilon = x \in \operatorname{ RC } \left( A \right)   \) showing that \( A \subseteq \operatorname{ RC } \left( A \right)   \), moreover that holds in general for any set \( A \), so therefore we have \( \operatorname{ RC } \left( A \right) \subseteq \operatorname{ RC } \left( \operatorname{ RC } \left( A \right)  \right) \) 
+        </p>
+        <p>
+            Now suppose that \( a \in \operatorname{ RC } \left( \operatorname{ RC } \left( A \right)   \right)   \) and we want to prove that \( a \in \operatorname{ RC } \left( A \right)    \). By assumption we know that if \( a = y x \) then \( xy \in \operatorname{ RC } \left( A \right)   \) if that's true then we can split that string and glue it in reverse order and it would have to be an element of \( A \), there are a few cases, that is \( x y \in \operatorname{ RC } \left( A \right)   \) iff 
+            <ol>
+                <li>\( x y = x _ a x _ b y \) and \( x _ b y x _ a \in A \)</li>
+                <li>\( x y = x y _ a y _ b \) and \( y _ b x y _ a \in A \)</li>
+            </ol>
+           If 1 holds true then we can "undo" it because \( x _ a x _ b y =  x y \in \operatorname{ RC } \left( A \right)   \) as needed, similarly if \( 2 \) holds true we can also say that \( x y _ a y _ b \in \operatorname{ RC } \left( A \right)   \) in either case we've shown that \( a = xy \in \operatorname{ RC } \left( A \right)   \) thus we have both inclusions so the sets are equal.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-regular-languages-are-closed-under-rotaitional-closure" >
+    <div class="title">Regular Languages Are Closed Under Rotaitional Closure</div>
+    <div class="content">
+        \[
+        \operatorname{ reg } \left( A \right) \implies \operatorname{ reg } \left( \operatorname{ RC } \left( A \right)   \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Since \( \operatorname{ reg } \left( A \right) \) then there is a DFA D that recognizes \( A \), we first come up with an idea for a single string and show how to extend it to all strings. 
+        </p>
+        <p>
+            Given the string \( a \in \operatorname{ RC } \left( A \right)   \) then we know that it means that \( a = xy \) for some \( x, y \in \Sigma ^ * \) where \( xy \in A \), since \( L \left( D \right) = A  \) then we know that \( xy \) is accepted by \( D \), therefore after reading \( x \) the DFA D will be at some state \( q _ 1 \) and then after reading \( y \) it should end up in an accept state. 
+        </p>
+        <p>
+            We construct an NFA by extending the DFA by running the DFA from \( q _ 1 \) (since a DFA is an NFA this is fine), once we get to the accepting state add an epsilon transition back to the start state of the DFA and continue running the logic of the DFA, if the NFA ends back at at state \( q _ 1 \) after reading \( y \) this would only be true if \( x y \in A = L \left( D \right)  \).
+        </p>
+        <p>
+            To generalize this to work for all possible strings we allow any state to take the place of \( q _ 1 \) , to allow the NFA to start and end at \( q _ 1 \) we duplicate our \( DFA \) once for each state and add epslion transitions for each accepting state back to the start state, then to finish the generalization we have our start state and provide an epslion transition to all of the other states.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-context-free-grammar" >
+    <div class="title">Context Free Grammar</div>
+    <div class="content">
+        A <b>context-free</b> grammar is a 4-tuple \( \left( V, \Sigma, R, S \right)  \) sucht that 
+        <ul>
+            <li>\( V \) is a finite set called the <b>variables</b></li>
+            <li>\( \Sigma \) is a finite set, disjoint from \( V \) called the <b>terminals</b></li>
+            <li>\( R \) is a tuple of the form \( \left( v, Y \right) \) where \( v \in V \) and \( Y = \left( y _1, \ldots ,y _ n \right)  \) is a sequence of elements from \( \left( V \cup \Sigma \right) ^ *  \) which is notated by 
+                \[
+                  v \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n
+                \] 
+            </li>
+            <li>
+                An \( S \in V \) which is the start variable
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-application-of-a-rule-to-a-variable">
+    <div class="title">Application of a Rule to a Variable</div>
+    <div class="content">
+        Suppose that \( Y \in V \cup \Sigma \) and a rule \( R = Y \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n \), then we define 
+        \[
+          \operatorname{ app } \left( R, x \right) = 
+            \begin{cases}
+                \left\{ y _ 1, \ldots , y _n , x  \right\} &\text{ if } x = Y \\
+                \left\{ x \right\}   &\text{ otherwise}
+            \end{cases}
+        \] 
+    </div>
+</div>
+<p>
+    Note that if a rule matches we also allow for app, to not do anything by adding in \( x \) to the set it evaluates to.
+</p>
+<ul>
+    <li>\( A \to 0A1 \) </li>
+    <li>\( A \to B \) </li>
+    <li>\( B \to \# \) </li>
+</ul>
+<div class="definition" id="definition-one-layer-productions-of-a-rule" >
+    <div class="title">One Layer Productions of a Rule</div>
+    <div class="content">
+        Suppose \( X \in \left( V \cup \Sigma \right) ^ * \) where \( X = \left( x _ 1, \ldots , x _ k \right)  \)  and we have a rule \( R \to y _ 1 \mid y _ 2 \mid  \ldots \mid y _ n \), we define 
+        \[
+          \operatorname{ olprod } \left( R, X \right) = \operatorname{ app } \left( R, x _ i \right) \times \ldots \times \operatorname{ app } \left( R, x _ k \right) 
+        \] 
+        and note that \( \operatorname{ olprod } \left( R, X \right) : \left( V \cup \Sigma \right) ^ * \to \left( V \cup \Sigma \right) ^ * \) 
+    </div>
+</div>
+<p>
+    Note that we have \( ABCD \in \operatorname{ olprod } \left( X \to A \mid B \mid C \mid D, XXXX \right)   \), but sometimes we want to only allow one rule to be applied at a time. 
+</p>
+<p>
+    The above definition captures all the possible strings that you can produce given a string in your CFG and then applying a specific rule. We now overload the noatation to show all possible productions using all rules for a specific string:
+</p>
+<div class="definition" id="definition-one-layer-productions-for-all-rules" >
+    <div class="title">One Layer Productions for All Rules</div>
+    <div class="content">
+        Suppose \( X \subseteq \left( V \cup \Sigma \right) ^ *  \) with rules \( R _ 1, \ldots , R _ n \), then we define 
+        \[
+        \operatorname{ olprod } \left( \left\{ R_1, \ldots , R _ n \right\}, X  \right) = \bigcup _ { i = 1 } ^ n \operatorname{ olprod } \left( R_i, X \right) 
+        \] 
+    </div>
+</div>
+<p>
+    Now we have to generalize this definition to be able to recursively apply onto a string, and not just one layer
+</p>
+<div class="definition" id="definition-productions-of-a-string" >
+    <div class="title">Productions of a String</div>
+    <div class="content">
+        Suppose \( X \subseteq \left( V \cup \Sigma \right) ^ *  \) for a CFG with rules \( R \) , then we define via <a class="knowledge-link" href="/fundamentals/functions.html#definition-function-composition">function composition</a>
+        \[
+          \operatorname{ prod } \left( X \right) = \bigcup _ { i = 1 } ^ \infty \operatorname{ olprod } ^ { \circ i } \left( X, R \right) 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-language-of-a-context-free-grammar" >
+    <div class="title">Language of a Context Free Grammar</div>
+    <div class="content">
+        \[
+        \operatorname{ lang }\left( C \right) = \operatorname{ prod } \left( S \right) \cap \Sigma ^ *
+        \] 
+    </div>
+</div>
+<p>
+    Note that this implies that for any \( x \in \operatorname{ lang } \left( C \right)   \) there is at least one sequence of rules \( R _ 1, \ldots , R _ k \) such that 
+    \[
+    x \in \operatorname{ olprod } \left( R _ k, \operatorname{ olprod } \left( R _ { k - 1 } \ldots \operatorname{ olprod }  \left( R _ 1, S \right)  \right), \ldots   \right)   
+    \] 
+</p>
+<p>
+    Note that sometimes productions can result in strings which are not all terminal symbols, therefore a language of a CFG are those productions which are entirely terminal symbols.
+</p>
+<p>
+    Note that sometimes we will want to be able to count the number of steps required to derive a string from a CFG, in that case it can be hard to deduce how many steps would be required to make the derivation because so many characters could change in of the one layer productions, so we instroduce the yields of a rule, which only allow one character to change
+</p>
+<div class="definition" id="definition-one-layer-yields-of-a-rule" >
+    <div class="title">One Layer Yields of a Rule</div>
+    <div class="content">
+        \[
+          \operatorname{ ylds } \left( R, x \right) = \left\{ y \in \operatorname{ olprod } \left( R, x \right) \land \operatorname{ hamdist } \left( x, y  \right) = 1  \right\} 
+        \] 
+    </div>
+</div>
+<p>
+    Note that we may use \( \operatorname{ ylds }  \) instead of \( \operatorname{ olprod }  \) and receive the same langauge.
+</p>
+<div class="definition" id="definition-derivation" >
+    <div class="title">Derivation</div>
+    <div class="content">
+        A derivation is a string that is produced by a sequence of yields.
+    </div>
+</div>
+<div class="definition" id="definition-a-language-is-context-free">
+    <div class="title">A Language Is Context Free</div>
+    <div class="content">
+        We say that a given language \( L \) is context free if there is some CFG C such that 
+        \[
+            \operatorname{ lang } \left( C \right) = L
+        \] 
+        and we write \( \operatorname{ cf } \left( L \right)   \) 
+    </div>
+</div>
+<div class="proposition" id="proposition-context-free-languages-are-closed-under-union" >
+    <div class="title">Context Free Languages Are Closed Under Union</div>
+    <div class="content">
+        \[
+          \operatorname{ cf } \left( A \right) \land \operatorname{ cf } \left( B \right) \implies \operatorname{ cf } \left( A \cup B \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Since \( \operatorname{ cf } \left( A \right)   \) and \( \operatorname{ cf } \left( B \right)   \), then we have CFGs \( C _ A \) and \( C _ B \) such that \( \operatorname{ lang } \left( C _ A \right) = A \) and \( \operatorname{ lang } \left( C _ B \right) = B \). We construct a new CFG \( C \) such that \( \operatorname{ lang } \left( C \right) = A \cup B \), we do so by first differentiating varibles in each grammar for \( A \) and \( B \), we do so by subscripting each variable with \( A, B \) respectively, and then setting our variables as the union of the the variables in both, and also unioning the rules in both, then we tack on one rule which is \( S \to S _ A \mid S _ B \).
+        </p>
+        <p>
+            proof that this actually generates what we expect.
+        </p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-star-is-context-free" >
+    <div class="title">Star Is Context Free</div>
+    <div class="content">
+        Suppose that \( A \) is finite, then \( A ^ * \) is context free.
+    </div>
+
+    <div class="proof">
+        We define the following CFG C 
+        <ul>
+            <li>\( V = \left\{ S \right\} \) </li>
+            <li>\( \Sigma = A \)</li>
+            <li>
+                Since \( A \) is finite, then \( A = \left\{ a _ 1, a _ 2, \ldots , a _ k \right\}  \) and then we define the single rule:
+                \[
+                  S \to a _ 1 S \mid a _ 2 S \mid \ldots \mid a _ k S \mid \epsilon 
+                \] 
+            </li>
+        </ul>
+        <p>
+            Now given any element \( x \in A ^ *  \) then \( x = \left( a _ f \left( 1 \right), \ldots a _ f \left( j \right)   \right)  \) for some function \( f \) and some \( j \) thus by sequentially picking the associated rule of the form \( S \to a _ f \left( i \right)  \), then then using the epsilon rule, we've shown that \( A ^ * \subseteq \operatorname{ lang } \left( C \right)   \) 
+        </p>
+        <p>
+            The other direction is obvious since \( \operatorname{ lang } \left( C \right) = \operatorname{ prod } \left( S \right) \cap A ^ * \subseteq A ^ *    \) 
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-context-free-grammar-for-the-language-of-binary-strings-whcich-start-and-end-with-the-same-character" >
+    <div class="title">Context Free Grammar for the Language of Binary Strings Whcich Start and End With the Same Character</div>
+    <div class="content">
+        Construct a CFG C such that 
+        \[
+        \operatorname{ lang } \left( C \right) = \left\{ w \in \left\{ 0, 1 \right\} ^ * : s \left[ 0 \right] = s \left[ -1 \right]    \right\} 
+        \] 
+        Note that \( 0, 1 \) are in the above language
+    </div>
+
+    <div class="proof">
+        We construct \( C \) 
+        <ul>
+            <li>\( \Sigma = \left\{ 0, 1 \right\}  \) </li>
+            <li>
+                We take inspiration from the CFG which generates the star, and introduce one extra rule
+            </li>
+            <ul>
+                <li>\( S \to 0 X 0 \mid 1 X 1 \mid 0 \mid 1  \) </li>
+                <li>\( X \to 0X \mid 1 X \mid \epsilon \) </li>
+            </ul>
+        </ul>
+        <p>
+            We claim that \( \operatorname{ lang } \left( C \right)   \) is the desired set, so suppose that \( s \) is a string in the desired set, and if it is any of \( \left\{ 0, 1 \right\}  \) it is immediately in the generated langugae by rule 1. Otherwise it is a string of the form \( 0z0 \) or \( 1z1 \), where \( z \in \left\{ 0, 1 \right\} ^ *  \) and we proved previously that that rule \( X \to \ldots \)  alone will generate \( \left\{ 0, 1 \right\} ^ *  \) then we know that the second rule will match \( z \) as needed. We've just shown that any string from the desired set is in the language.
+        </p>
+        <p>
+            Now if we instead suppose that we have any \( x \in \operatorname{ lang } \left( C \right)   \), then we have to show that its in the desired set, since \( \operatorname{ lang } \left( C \right) = \operatorname{ prod } \left( S \right) \cap \left\{ 0, 1 \right\} ^ *      \) then any element in there is produced by starting with the first rule and then any sequence of rules, but rule one, automatically guarentees that the first and last character are the same as any subsequent rules cannot modify the first and last character of the string so therefore \( \operatorname{ lang } \left( C \right)   \) is a subset of the desired set, showing that the two sets are equal as required.
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-for-every-dfa-there-is-an-equivalent-cfg" >
+    <div class="title">For Every Dfa There Is an Equivalent Cfg</div>
+    <div class="content">
+        Suppose that \( D \) is a DFA, then there exists a CFG \( C \) such that 
+        \[
+        \operatorname{ lang } \left( D \right) =  \operatorname{ lang } \left( C \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Make a variable \( R _ i \) for each state \( q _ i \) in the DFA. Add the rule \( R _ i \to  a R _ j \) to the CFG if \( \delta \left( q _ i, a \right) = q _ j  \) is a transition in the DFA. Add the rule \( R _ i \to  \epsilon  \) if \( q _ i \) is an accept state of the DFA. Make \( R _ 0 \) the start variable of the grammaer, where \( q  _ 0 \) is the start state of the machine.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-chomsky-normal-form" >
+    <div class="title">Chomsky Normal Form</div>
+    <div class="content">
+        A CFG is in <b>Chomsky normal form</b> if every rule is of the form
+        <ul>
+            <li>\( A \to BC\)</li>
+            <li>\( A \to a \) </li>
+            <li>\( S \to \epsilon \) </li>
+        </ul>
+        Where \( A, B, C \in V \setminus \left\{ S \right\}  \) and \( a \in \Sigma \), and we write \( \operatorname{ cnf } \left( C \right)   \)
+    </div>
+</div>
+<div class="proposition" id="proposition-every-context-free-language-is-equivalent-to-a-context-free-language-in-chomsky-normal-form">
+    <div class="title">Every Context Free Language is Equivalent to a Context Free Language in Chomsky Normal Form</div>
+    <div class="content">
+        For every CFG \( C \) there exists a CFG \( B \) such that \( \operatorname{ cnf } \left( B \right)   \) and
+        \[
+        \operatorname{ lang } \left( C \right) = \operatorname{ lang } \left( B \right) 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            We lay out an iterative process which constructs a new grammar in Chomsky Normal form as follows:
+        </p>
+        <p>
+            We first define our set of rules \( R _ 0 = R \times \left\{ T, F \right\}  \) to be the original set of rules, where \( T \) means we've processed the rule and \( F \) means we haven't. We first add a new start variable \( S _ 0 \) and the rule \( S _ 0 \to S \), ie \( R _ 1 = R _ 0 \cup \left\{ \left( \left( S _ 0, S \right), T \right)   \right\}   \)  where \( S \) was the original start variable.
+        </p>
+        <p>
+            Now for each element in \( R _ i \) of the form \( \left( \left( v \to \epsilon \right), F \right)  \), then we get all rules of the form \( \left( \left( v _ 2 \to A \right), F \right)   \) where \( v \in A \) then we add the rules \( \operatorname{ olprod } \left( \left( v \to \epsilon \right), A \right) \) and remove \( \left( \left( v, \epsilon  \right) , F \right)  \). On each iteration the number of epsilon rules goes down by one, thus after a finite number of iterations there will be no more epsilon rules of the form \( \left( v \to \epsilon , F \right)  \) although there may be epsilon rules of the form \( \left( \left( v \to \epsilon  \right), T \right)   \) which is ok.
+        </p>
+        <p>
+            Next we remove all rules of the form \( \left( v \to w, F \right)  \) which are rules which map a variable to a variable, we do so by finding all rules of the form \( \left( w \to W, \_ \right)   \) and add the rule \( \left( v \to W \right) \), unless this rule was previoulsy removed (TODO define the removed set)
+        </p>
+        <p>
+            Finally we convert all the remaining rules to the proper form, the remaining possibilities of rules that need conversion are rules 
+        </p>
+        <ul>
+            <li>\( v \to W \) where \(W \in \left( V \cup \Sigma \right) ^ *, \left\lvert W \right\rvert \ge 3  \) </li>
+            <li>\( v \to xy \) where \( x, y \in \Sigma  \) </li>
+        </ul>
+        <p>
+            For the first case since \( W = \left( w _ 1, \ldots , w _ k \right)  \) where \( k \in \mathbb{ N } _3 \) 
+        </p>
+        <p>
+            For the second case we just replce the terminals with rules pointint to them.
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-chomsky-conversion" >
+    <div class="title">Chomsky Conversion</div>
+    <div class="content">
+        Consider the following grammar:
+        <ul>
+            <li>\( A \to B A B \mid B \mid \epsilon  \) </li>
+            <li>\( B \to 00 \mid \epsilon \) </li>
+        </ul>
+        find an equivalent grammar in Chomsky Normal form.
+    </div>
+
+    <div class="proof">
+        Our initial rules are:
+        <ul>
+            <li>\( A \to ABA \) </li>
+            <li>\( A \to B \) </li>
+            <li>\( A \to \epsilon \) </li>
+            <li>\( B \to 00 \) </li>
+            <li>\( B \to \epsilon \) </li>
+        </ul>
+        we start by removing \( B \to \epsilon \) based on the conversion algorithm tue rules of interested are \( A \to B, A \to ABA \), now we have (note that \( \operatorname{ olprod } \)  are all the "one layer" productions of a rule against a string)
+        \[
+          \operatorname{ olprod } \left( B \to \epsilon , B \right) = \left\{ B, \epsilon \right\} 
+        \] 
+        and 
+        \[
+          \operatorname{ olprod } \left( B \to \epsilon , ABA \right) = \left\{ ABA, AA \right\} 
+        \] 
+        Thus the rule \( A \to B \) becomes \(  A \to B \mid \epsilon  \) and the rule \( A \to ABA \) becomes \( A \to ABA \mid AA \) thus the current set of rules are 
+        <ul>
+            <li>\( A \to ABA \) </li>
+            <li>\( A \to B \) </li>
+            <li>\( A \to \epsilon  \) </li>
+            <li>\(  A \to AA  \) </li>
+            <li>\(   B \to 00 \) </li>
+        </ul>
+
+        <p>
+            Now we remove the rule \( A \to \epsilon  \) the rules of interest are \( A \to ABA \) and \( A \to AA \) we have:
+            \[
+              \operatorname{ olprod } \left( A \to \epsilon , ABA \right) = \left\{ ABA, BA, AB, B \right\} 
+            \] 
+            and 
+            \[
+              \operatorname{ olprod } \left( A \to \epsilon , AA \right) = \left\{ AA, A, \epsilon \right\} 
+            \] 
+            so the current set of rules becomes 
+            <ul>
+                <li>\( A \to ABA \) </li>
+                <li>\(  A \to AB\) </li>
+                <li>\(  A \to  BA\) </li>
+                <li>\(  A \to B\) </li>
+                <li>\(  A \to AA \) </li>
+                <li>\( B \to 00 \) </li>
+            </ul>
+            note that the rule \( A \to A \) was not added as it does nothing, and the rule \( A \to \epsilon  \) was not added as it was removed previously
+        </p>
+        <p>
+            Since all epsilon rules have been eliminated we start remove variable to variable rules, we start with the rule \( A \to B \) the only rule of interest is \( B \to 00 \) then our rules become
+        </p>
+        <ul>
+            <li>\( S _ 0 \to A \mid \epsilon  \) </li>
+            <li>\( A \to BAB \mid BA \mid AB \mid 00 \mid BB \)</li>
+            <li>\( B \to 00 \) </li>
+        </ul>
+        <p>
+            Another unit rule is \( S _ 0 \to A \), the rules thus this generates
+        </p>
+        <ul>
+            <li>\( S _ 0 \to BAB \mid BA \mid AB \mid 00 \mid BB \mid \epsilon  \) </li>
+            <li>\( A \to BAB \mid BA \mid AB \mid 00 \mid BB \)</li>
+            <li>\( B \to 00 \) </li>
+        </ul>
+        <p>
+            Since \( B \to 00 \) is of the form \( v \to xy \) where \( x, y \in \Sigma \) then we replace it with the rules
+        </p>
+        <ul>
+            <li>\( S _ 0 \to BAB \mid BA \mid AB \mid 00 \mid BB \mid \epsilon  \) </li>
+            <li>\( A \to BAB \mid BA \mid AB \mid 00 \mid BB \)</li>
+            <li>\( B \to UU \) </li>
+            <li>\( U \to 0 \) </li>
+        </ul>
+        <p>
+            Now the last two rules that need simplification are \( S _ 0 \to BAB \) and \( A \to BAB \), as per the conversion procedure we replace the rule \( S _ 0 \to BAB \) with \( S _ 0 \to B W_1 \) \( W_1 \to AB \), and similarly we replace the rule \( A \to BAB \) with \( A \to B W _ 2  \) and \( W_2 \to AB \), but note that the rules for \( W_ 1 \) and \( W _ 2 \) are the same, and thus can be joined into the single rule \( W _ 1 \to AB \) yielding
+        </p>
+        <ul>
+            <li>\( S _ 0 \to BW_1 \mid BA \mid AB \mid UU \mid BB \mid \epsilon  \) </li>
+            <li>\( A \to BW_1 \mid BA \mid AB \mid UU \mid BB \)</li>
+            <li>\( W_1 \to AB \) </li>
+            <li>\( B \to UU \) </li>
+            <li>\( U \to 0 \) </li>
+        </ul>
+
+    </div>
+</div>
+<div class="proposition" id="proposition-for-any-context-free-grammar-in-normal-form-there-are-exactly-2n---1-steps-are-required-for-any-derivation" >
+    <div class="title">For Any Context Free Grammar in Normal Form There Are Exactly 2n - 1 Steps Are Required for Any Derivation</div>
+    <div class="content">
+        If \( G \) is a CFG in Chomsky normal form, then for any \( w \in \operatorname{ lang } \left( G \right)   \) of length \( n \in \mathbb{ N } _1 \), exactly \( 2 n - 1 \) steps are required for any derivation of \( w \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            Since \( G \) is in normal form, then there may be a rule of \( S _ 0 \to \epsilon  \), if that's the case then this rule could only ever derive a string of length zero, that is \( \epsilon  \), since we only care about strings of length greater or equal to one, then that implies that the rule \( S _ 0 \to \epsilon  \) can never be used to deduce a string of length greater or equal to one.
+        </p>
+        <p>
+            Thus only rules used must be of the form \( v \to v _ 1 v _ 2 \) or \( v \to t \) where \( t \in \Sigma \). Note that every rule of the form \( v \to t \) will never modify the length of a string of an intermediate string, and the rule \( v \to v _ 1 v _ 2 \) will always extend the length of the intermediate string by \( 1 \) each time it is applied.
+        </p>
+        <p>
+            Thus if we are able to derive a string of length \( n \) and a derivation always starts with a single variable \( S _ 0 \) then a rule of the form \( v \to v _ 1 v _ 2  \) must be used \( n - 1 \) times to have a string of length \( n \), additionally since the rule of the form \( v \to v _ 1 v _ 2 \) only introduces variables and never any terminal symbols, then we will require the rule \( v \to t \) to be used \( n \) times to convert each of the \( n \) variables produced by \( v \to v _ 1 v _ 2 \), thus there will be exactly \( 2n - 1 \) steps in any derivation for a string of length \( n \).
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-pushdown-automaton" >
+    <div class="title">Pushdown Automaton</div>
+    <div class="content">
+        A <b>pushdown automaton</b> is a 6-tuple \( Q, \Sigma, \Gamma, \delta , q _ 0, F \) where \( Q, \Sigma, \Gamma \) and \( F \) are all finite sets and 
+        <ol>
+            <li>\( Q \) is the set of states</li>
+            <li>\( \Sigma \) is input alphabet</li>
+            <li>\( \Gamma \) is the stack alphabet</li>
+            <li>\( \delta : Q \times \Sigma _ \epsilon  \times \Gamma _ \epsilon  \to \mathcal{ P } \left( Q \times \Gamma _ \epsilon  \right)  \) is the transition function</li>
+            <li>\( q _ 0 \in Q \) is the start state </li>
+            <li>\( F \subseteq Q \) is the set of accept states</li>
+        </ol>
+        <p>
+    </div>
+</div>
+<div class="definition" id="definition-a-pushdown-automata-accepts-an-input" >
+    <div class="title">A Pushdown Automata Accepts an Input</div>
+    <div class="content">
+        Given an input \( w = \left( w _ 1, \ldots , w _ m \right)  \) where \( w _ i \in \Sigma _ \epsilon  \) we say that the push down automata \( P \) <b>accepts</b> \( w \) if there exists a sequence of states \( r _ 0, \ldots r _ m \in Q \) and stack history strings \( h _ 0, h _ 1, \ldots h _ m \in \Gamma ^ * \)  such that:
+        <ul>
+            <li>\( r _ 0 =  q _ 0 \)  and \( s _ 0 = \epsilon  \)  </li>
+            <li>
+                \( i  \in \left\{ 0, \ldots , m - 1 \right\}    \) we have \(  \left( r _ { i + 1 }, b \right) \in \delta \left( r _ i, w _ { i + 1 }, a \right)   \) where \( s _ i = a t \) and \( s _ { i + 1 } =  bt \) for some \( a, b \in \Gamma _ \epsilon  \)  and \( t \in \Gamma ^ * \)
+            </li>
+            <li>\( r_ m \in F \) </li>
+        </ul>
+    </div>
+</div>
+<p>
+    We define the following notation for the transition function of a pushdown automata:
+</p>
+<ul>
+    <li>\( a , b \to c \): the machine may make this transition by reading \( a \), popping \( b \) from the stack and push \( c \) to the stack</li>
+    <li>\( a , \epsilon \to c \): the machine may make this transition by reading \( a \) and pushing \( c \) to the stack</li>
+    <li>\( a , b  \to \epsilon  \): the machine may make this transition by reading \( a \) popping \( b \) from the stack</li>
+    <li>\( a , \epsilon \to \epsilon  \): the machine may make this transition by reading \( a \) and not doing anything to the stack</li>
+    <li>
+        \( \epsilon , b \to c \) : the machine may make this transition by doing the above logic, without having to read \( a \) from the input.
+    </li>
+</ul>
+<p>
+    If you are at a state, and one of the outgoing rules is \( a, b \to c \), then if \( b \neq \epsilon  \) and the top of the stack is not \( b \) then this rule cannot be used. If \( b = \epsilon  \), then the rule can be used.
+</p>
+<p>
+    Similar to an NFA, when we write out a PDA, if there are no arrows for a particular, state, character, stack character pair, then this means that it maps to the empty set. If you get to a point where there are no possible outgoing rules to be used, then the PDA is said to be stuck, and that line of execution terminates.
+</p>
+<div class="exercise" id="exercise-push-down-automata-that-models-the-language-of-binary-strings-which-start-and-end-with-the-same-character" >
+    <div class="title">Push Down Automata That Models the Language of Binary Strings Which Start and End With the Same Character</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="141.5" cy="283.5" rx="30" ry="30"/>
+                <text x="131.5" y="289.5" font-family="Times New Roman" font-size="20">q&#8320;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="385.5" cy="283.5" rx="30" ry="30"/>
+                <text x="375.5" y="289.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="634.5" cy="283.5" rx="30" ry="30"/>
+                <text x="624.5" y="289.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="634.5" cy="283.5" rx="24" ry="24"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 612.89,304.295 A 340.253,340.253 0 0 1 163.11,304.295"/>
+                <polygon fill="black" stroke-width="1" points="612.89,304.295 603.582,305.83 610.191,313.334"/>
+                <text x="298.5" y="410.5" font-family="Times New Roman" font-size="20">0, &#949; -&gt; &#949;        1, &#949; -&gt; &#949;</text>
+                <polygon stroke="black" stroke-width="1" points="171.5,283.5 355.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="355.5,283.5 347.5,278.5 347.5,288.5"/>
+                <text x="228.5" y="274.5" font-family="Times New Roman" font-size="20">0, &#949; -&gt; 0</text>
+                <polygon stroke="black" stroke-width="1" points="415.5,283.5 604.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="604.5,283.5 596.5,278.5 596.5,288.5"/>
+                <text x="474.5" y="274.5" font-family="Times New Roman" font-size="20">0, 0 -&gt; &#949;</text>
+                <polygon stroke="black" stroke-width="1" points="415.5,283.5 604.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="604.5,283.5 596.5,278.5 596.5,288.5"/>
+                <text x="474.5" y="304.5" font-family="Times New Roman" font-size="20">1, 1 -&gt; &#949;</text>
+                <polygon stroke="black" stroke-width="1" points="171.5,283.5 355.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="355.5,283.5 347.5,278.5 347.5,288.5"/>
+                <text x="228.5" y="304.5" font-family="Times New Roman" font-size="20">1, &#949; -&gt; 1</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 372.275,256.703 A 22.5,22.5 0 1 1 398.725,256.703"/>
+                <text x="298.5" y="207.5" font-family="Times New Roman" font-size="20">0, &#949; -&gt; &#949;       1, &#949; -&gt; &#949;</text>
+                <polygon fill="black" stroke-width="1" points="398.725,256.703 407.473,253.17 399.382,247.292"/>
+                <polygon stroke="black" stroke-width="1" points="62.5,283.5 111.5,283.5"/>
+                <polygon fill="black" stroke-width="1" points="111.5,283.5 103.5,278.5 103.5,288.5"/>
+        </svg>
+        <p>
+            The above PDA works because the bottom path will accept the string \( 0, 1 \), and going through the top path reads the first character and pushes it into the stack, then non-determinism kicks in and it will read  some number of ccharacters from the input without pushing anything to the stack, in one of paths of non-determinism there will be one where all but one character is read from the input, then the last transition will read a character and attempt to pop off a that character from the stack, if that occurs it ends up in the terminal state, if there were any more characters to read, then since there are no subsequent states the path would terminate, thus this implies that the only way a string could get accepted by this PDA if it starts and ends with the same character.
+        </p>
+        <p>
+            Note that we could also model this "termination behavior" discussed above by pushing the dollar sign on, and then having a trasition that takes it off the stack.
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-pushdown-automata-that-models-the-language-of-binary-strings-of-odd-length-with-a-zero-in-the-middle" >
+    <div class="title">Pushdown Automata That Models the Language of Binary Strings of Odd Length With a Zero in the Middle</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        <?xml version="1.0" standalone="no"?>
+        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+        <svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="146.5" cy="260.5" rx="30" ry="30"/>
+                <text x="136.5" y="266.5" font-family="Times New Roman" font-size="20">q&#8320;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="294.5" cy="372.5" rx="30" ry="30"/>
+                <text x="284.5" y="378.5" font-family="Times New Roman" font-size="20">q&#8321;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="478.5" cy="372.5" rx="30" ry="30"/>
+                <text x="468.5" y="378.5" font-family="Times New Roman" font-size="20">q&#8322;</text>
+                <ellipse stroke="black" stroke-width="1" fill="none" cx="622.5" cy="260.5" rx="30" ry="30"/>
+                <text x="612.5" y="266.5" font-family="Times New Roman" font-size="20">q&#8323;</text>
+                <polygon stroke="black" stroke-width="1" points="170.422,278.603 270.578,354.397"/>
+                <polygon fill="black" stroke-width="1" points="270.578,354.397 267.216,345.582 261.181,353.556"/>
+                <text x="146.5" y="337.5" font-family="Times New Roman" font-size="20">&#949;, &#949; -&gt; $</text>
+                <polygon stroke="black" stroke-width="1" points="324.5,372.5 448.5,372.5"/>
+                <polygon fill="black" stroke-width="1" points="448.5,372.5 440.5,367.5 440.5,377.5"/>
+                <text x="352.5" y="363.5" font-family="Times New Roman" font-size="20">0, &#949; -&gt; &#949;</text>
+                <polygon stroke="black" stroke-width="1" points="502.181,354.082 598.819,278.918"/>
+                <polygon fill="black" stroke-width="1" points="598.819,278.918 589.435,279.883 595.574,287.777"/>
+                <text x="555.5" y="337.5" font-family="Times New Roman" font-size="20">&#949;, $ -&gt; &#949;</text>
+                <path stroke="black" stroke-width="1" fill="none" d="M 307.725,399.297 A 22.5,22.5 0 1 1 281.275,399.297"/>
+                <text x="219.5" y="461.5" font-family="Times New Roman" font-size="20">1, &#949; -&gt; 1  0, &#949; -&gt; 0</text>
+                <polygon fill="black" stroke-width="1" points="281.275,399.297 272.527,402.83 280.618,408.708"/>
+                <path stroke="black" stroke-width="1" fill="none" d="M 491.725,399.297 A 22.5,22.5 0 1 1 465.275,399.297"/>
+                <text x="404.5" y="461.5" font-family="Times New Roman" font-size="20">{0, 1}, {0, 1} -&gt; &#949;</text>
+                <polygon fill="black" stroke-width="1" points="465.275,399.297 456.527,402.83 464.618,408.708"/>
+        </svg>
+        <p>
+            The second half of this PDA reads an input, and removes whatever character is on the top of the stack over and over non-deterministically, since there are no outgoing transitions from the terminal state, then a string is only accepted if it is entirely read by the non-determinism, additionally the fact that there is a dollar sign transition to the last state means that the stack must also be emptied by the time we get to the state before the terminal state. 
+        </p>
+        <p>
+            If less than half the string \( \left\lfloor \frac{ \left\lvert s \right\rvert   }{ 2 }  \right\rfloor  \)  is read during the first part of the PDA, then the stack will become empty before all the characters are read, causing the string to not be accept, similarly if more than half the string is read during the first part of the PDA, then the stack will not have the dollar sign when we get to the terminal state.
+        </p>
+        <p>
+            Therefore if a string is accept it must be that exactly that half the string is read during the first part of the PDA. Now note that there is a transition which reads \( 0 \) but does nothing to the stack, this implies that exactly half the characters must be read during the first half of the PDA, and then in the second half of the PDA it will read a character and pop a character off the stack, which will make sure that the number of characters in the first half will equal the number of characters in the second half, showing that it accepts all strings of odd length with \( 0 \) in the middle.
+        </p>
+    </div>
+</div>
+
+<div class="lemma" id="lemma-the-half-zero-hash-sandwhiches-are-non-regular" >
+    <div class="title">The Half Zero Hash Sandwhiches Are Non-regular</div>
+    <div class="content">
+        The language
+        \[
+        L = \left\{ 0 ^ { k } # 0 ^ { 2k } : k \in \mathbb{ N } _0 \right\}      
+        \] 
+        is not regular
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that this language was regular, <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#lemma-pumping">therefore </a> there is some \( p \in \mathbb{ N } _ 1 \) sucht that the properties hold true, if we consider the string \( 0 ^ { p } # 0 ^ { 2p } \in L \) then by the lemma we have that \( 0 ^ { p } # 0 ^ { 2p } = xyz \).
+        </p>
+        <p>
+            By the third property we have that \( \left\lvert xy \right\rvert \lt p  \) since the first \( p \) characters of our string are \( p \) this implies that \( x = 0 ^ j \) and \( y = 0 ^ l \) by the second property of the lemma we also know that \( l \ge 1 \) now we also know that \( # \in z \) therefore by the first property we can set \( i = 0 \) to show that \( x y ^ 0 z = xz \in L \), but \( x y = 0 ^ { p - l } # 0 ^ { 2p } \notin L \) thus a contradiction so \( L \) is not regular
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-a-cfg-which-is-not-regular" >
+    <div class="title">A Cfg Which Is Not Regular</div>
+    <div class="content">
+        Let \( G = \left( V, \Sigma, R, S \right)  \) with \( V = \left\{ S, T, U \right\}  \) and \( \Sigma = \left\{ 0, # \right\}  \) be the following grammar defined by the following rules:
+        <ul>
+            <li>\( S \to TT \mid U \) </li>
+            <li>\( T \to 0T \mid T0 \mid # \) </li>
+            <li>\( U \to 0U00 \mid # \) </li>
+        </ul>
+        Show that \( \operatorname{ lang } \left( G \right)   \) is not regular
+    </div>
+
+    <div class="proof">
+        <p>
+            First we give an informal description of the language, since the language of a CFG equals to \( \operatorname{ prod } \left( S \right) \cap \Sigma ^ *  \), then by induction on the length of the string produced by the second rule, starting with length 1, we can prove that productions of this rule are given by all strings in \( \Sigma ^ * \) such that the string contains exactly one \( # \).
+        </p>
+        <p>
+            Using a similar analysis the productions of the third rule in isolation are given by all strings in \( \Sigma ^ * \) such that there is exactly one \( # \) and if there are \( n \) zeros to the left of \( # \) then there are \( 2n \) \( # \)'s on the right.
+        </p>
+        <p>
+            Finally the initial rule creates the union of these two langauges. We now move on to showing that the language is not regular.
+        </p>
+        <p>
+            Since we assumed \( \operatorname{ lang } \left( G \right)   \) was regular, then we'll try and obtain a contradiction through the pumping route, we do this by using the closure rules for regular langauges to focus on an even more specific subset of the language which should also be regular.
+        </p>
+        <p>
+            Since \( \operatorname{ lang } \left( G \right)   \) is regular, and the regular expression \( 0 ^ * # 0 ^ * \) <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#theorem-a-language-is-regular-iff-it-equals-a-regular-expression">is also regular</a>, then \( A = \operatorname{ lang } \left( G \right) \cap 0 ^ * # 0 ^ * = \left\{ 0 ^ { k } # 0 ^ { 2k } : k \in \mathbb{ N } _ 0 \right\}     \) is <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#corollary-regular-languages-are-recognized-under-intersection">regular</a>, but we <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#lemma-the-half-zero-hash-sandwhiches-are-non-regular">know that it is not</a>, thus a condtradiction, so then \( \operatorname{ lang } \left( G \right)   \) must not be regular.
+        </p>
+    </div>
+</div>
+<div class="lemma" id="lemma-if-a-language-is-context-free-then-there-is-some-pushdown-automaton-that-models-it" >
+    <div class="title">If a Language Is Context Free Then There Is Some Pushdown Automaton That Models It</div>
+    <div class="content">
+        
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-a-language-is-context-free-iff-there-is-some-pushdown-automaton-that-models-it" >
+    <div class="title">A Language Is Context Free Iff There Is Some Pushdown Automaton That Models It</div>
+    <div class="content">
+        Suppose that \( L \) is a language then 
+        \[
+          \operatorname{ cf } \left( L \right) \iff \exists P, \operatorname{ lang } \left( P \right) = L
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="lemma" id="lemma-pumping-for-context-free-languages" >
+    <div class="title">Pumping for Context-free Languages</div>
+    <div class="content">
+        If \( \operatorname{ cf } \left( A \right)   \) for some language \( A \), then there is a number \( p \) where if \( s \in A \) and \( \left\lvert s \right\rvert \ge p  \) then \( s = wvxyz\) such that 
+        <ol>
+            <li>for each \( i \ge 0, u v ^ i x y ^ iz \in A \)</li>
+            <li>\( \left\lvert vy \right\rvert \gt 0  \) </li>
+            <li>\( \left\lvert vxy \right\rvert \le p  \) </li>
+        </ol>
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="exercise" id="exercise-the-language-of-abcs-is-not-context-free" >
+    <div class="title">The Language of Abcs Is Not Context Free</div>
+    <div class="content">
+        The language
+        \[
+          L = \left\{ a ^ n b ^ n c ^ n : n \in \mathbb{ N } _ 0 \right\} 
+        \] 
+        is not context free
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that the language is context free, therefore the pumping lemma holds, and thus there is some \( p \) with some properties. Consider \( s = a ^ p b ^ p c ^ p \in L \) since \( \left\lvert s \right\rvert \ge p  \) then by the pumping lemma we can write \( x = u v x y z \), where at least one of \( v \) or \( y \) is non-empty.
+        </p>
+        <p>
+            If \( v, y \in a ^ *, b ^ *, c ^ * \) which is to say the consist only of the same character, then \( s ^ \prime = u v ^ 2 x y ^ 2 z \) makes the following false \( \operatorname{ count } \left( s ^ \prime , a \right) = \operatorname{ count } \left( s ^ \prime , b \right) = \operatorname{ count } \left( s ^ \prime, c \right)       \) thus \( s ^ \prime  \notin L \).
+        </p>
+        <p>
+            If either \( v \) or \( y \) contain more than one alphabet character then suppose wlog that \( v \in \ldots a \ldots b \ldots   \), therefore \( u v ^ 2 x y ^ 2 z \in \ldots a \ldots b \ldots a \ldots b \ldots  \) and we know that \( \ldots a \ldots b \ldots a \ldots b \ldots \cap L = \emptyset   \) thus \( s ^ \prime \notin L \) 
+        </p>
+        <p>
+            Thus no matter what we obtain a contradiction so it must be that \( L \) is not context free.
+        </p>
+    </div>
+</div>
+<div class="corollary" id="corollary-context-free-languages-are-not-closed-under-intersection" >
+    <div class="title">Context Free Languages Are Not Closed Under Intersection</div>
+    <div class="content">
+        If \( \operatorname{ cf } \left( A \right) \land \operatorname{ cf } \left( B \right)     \) does <b>NOT</b> imply that \( \operatorname{ cf } \left( A \cap B \right)   \) 
+    </div>
+
+    <div class="proof">
+        The languages \( L _ 1 = \left\{ a ^ n b ^ n c ^ m : n, m \in \mathbb{ N } _ 0 \right\}  \)  and \( L _ 2 = \left\{ a ^ m b ^ n c ^ n: n \in \mathbb{ N } _ 0 \right\}  \) are context free, but 
+        \[
+        L _ 1 \cap L _ 2 = \left\{ a ^ n b ^ n c ^ n : n \in \mathbb{ N }  _ 0 \right\}
+        \] 
+        shows that the intersection is not context free.
+    </div>
+</div>
+<div class="exercise" id="exercise-zero-one-zero-one-language-is-not-context-free" >
+    <div class="title">Zero One Zero One Language Is Not Context Free</div>
+    <div class="content">
+        Show that the language 
+        \[
+          L = \left\{ 0 ^ n 1 ^ n 0 ^ n 1 ^ n : n \in  \mathbb{ N } _ 0 \right\} 
+        \] 
+        is not context free
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that the language is context free for contradiction, therefore the pumping lemma for context free languages holds true and we obtain some \( p \in  \mathbb{ N } _ 1 \) such that if a string is longer than it some properties hold true.
+        </p>
+        <p>
+            Now the string \( s = 0 ^ p 1 ^ p 0 ^ p 1 ^ p \in L \) and clearly \( \left\lvert s \right\rvert \ge p  \) therefore \( s = uvxyz \), we know that \( \left\lvert vy \right\rvert \ge  1  \) so they are both non-empty. Its either the case \( v, y \in 0 ^ * \cup 1 ^ * \) or not.
+        </p>
+        <p>
+            If \( v, y \in 0 ^ * \cup 1 ^ * \), then there are couple of similar cases to consider, specficially if \( v \in 0 ^ * \) and \( y \in 1 ^ * \), and suppose that \( v \neq \epsilon  \) so that \( v = 0 ^ j \) where \( j \in \mathbb{ N } _ 1 \)  f we consider \( x = uv ^ 2 x y ^ 2 z = u 0 ^ { 2j }  xy ^ 2 z \). Observe that in the given language \( L \) for every \( l \in L \) we have that \( \operatorname{ count } \left( l , 0 \right) = \operatorname{ count } \left( l, 1 \right)  \), since \( \operatorname{ count } \left( x, 1 \right) \neq \operatorname{ count } \left( x, 0 \right)     \) then \( x \notin L \), therefore this is a contradiction.
+        </p>
+        <p>
+            Similarly if \( v = 1 ^ j \) we will obtain a symmetrical contradiction, for the case it is \( y \neq \epsilon  \) an identical anlysis on \( y \) holds.
+        </p>
+        <p>
+            If its not true that \( v, y \in 0 ^ * \cup 1 ^ * \) then since not both of \( v, y \) are empty then at least one of \( v, y \) is an element of \( \left\{ 0, 1 \right\} ^ * \setminus \left\{ \epsilon \right\}   \), suppose it is \( v \), then 
+            \[ 
+            v = \ldots 0 \ldots 1 \ldots  \qquad \lor \qquad v = \ldots 1 \ldots 0 \ldots 
+            \] 
+
+            since all strings in \( L \) are a sequence of \( 0 \) then a sequence of \( 1 \)s then a sequence of \( 0 \)s then a sequence of \( 1 \)s, clearly \( uv ^ 2 xy ^ 2z \notin L \) as it contains more than four sequences of \( 0 \) and \( 1 \)s as \( v ^ 2 = \ldots 0 \ldots 1 \ldots 0 \ldots 1 \) or \( v ^ 2 = \ldots 1 \ldots 0 \ldots 1 \ldots 0 \ldots  \), if it is \( y \) that is non-empty the same analysis applies, which is a contradiction. 
+        </p>
+        <p>
+            Thus not matter the case of \( v, y \) we always get a contradiction, therefore \( L \) is not context free.
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-the-language-of-palindromes-with-an-equal-number-of-0s-and-1s-is-not-context-free" >
+    <div class="title">The Language of Palindromes With an Equal Number of 0s and 1s Is Not Context Free</div>
+    <div class="content">
+        \[
+          L = \left\{ w \in \left\{ 0, 1 \right\} ^ * : \operatorname{ count } \left( w, 0 \right) = \operatorname{ count } \left( w, 1 \right) \land \operatorname{ rev } \left( w \right) = w  \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( L \) is context free for the sake of contradiction, then the pumping lemma holds on this language and thus there is some \( p \in \mathbb{ N } _ 1 \), then we consider the string \( s = 0 ^ p 1 ^ { 2p  } 0 ^ p \) which clearly has \( \left\lvert s \right\rvert \ge p \), thus \( s = uvxyz \).
+        </p>
+        <p>
+            We know that one of \( v, y \) is non-empty, and they cannot both be empty, suppose that \( v \) is empty and that \( y \) is non-empty, then \( y \in \left\{ 0, 1 \right\} ^ * \setminus \left\{ \epsilon  \right\}   \), if \( \operatorname{ count } \left( y, 1 \right) \neq \operatorname{ count } \left( y, 0 \right)     \) we will have a problem because the string \( s ^ \prime = uv^ 2 xy ^ 2 z \) has the property that \( \operatorname{ count } \left( s ^ \prime, 0 \right) \neq \operatorname{ count } \left( s ^ \prime , 1 \right)     \) thus \( s ^ \prime \notin L \) . Therefore we must have that \( \operatorname{ count } \left( y, 0 \right) = \operatorname{ count } \left( y, 1 \right)     \), since we assumed \( v = \epsilon  \) then \( s ^ \prime = u v ^ 2 xy ^ 2 \) no longer has the property that \( \operatorname{ rev } \left( s ^ \prime  \right) = s ^ \prime    \) because it will change the string where the \( 0 \)'s meet the \( 1 \)'s.
+        </p>
+        <p>
+            Now suppose that both \( v, y  \) are non-empty,if \( v \) resides on the left half of the string and \( y \) resides on the right half of the string, then because \( \left\lvert vxy \right\rvert \le p  \) then it must be that \( v, y \in 1 ^ * \setminus \left\{ \epsilon \right\}  \), thus this could yield a contradiction since \( s ^ \prime  =  u v ^ 2 x y ^ 2 z \) has more \( 1 \)'s than \( 0 \)'s. Therefore, they most both be substrings of either the right or left hand side of the string, so without loss of generality asssume that they reside within the left side of the string. If \( v, y \in 1 ^ *  \) then \( u v ^ 2 x y ^ 2 z \) contains more 1s than 0s, which is a contradiction, if \( v \in 0 ^ * \setminus \left\{ \epsilon  \right\}  \) similarly if \( v, y \in 0 ^ + \) we get the same problem. If \( 01 \subseteq v \) then \( u v ^ 2 x y ^ 2 z \) has two \( 01 \)'s as substrings in the left side of the string whereas the right side only has one which is a contradiction.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-turing-machine" >
+    <div class="title">Turing Machine</div>
+    <div class="content">
+        A turing machine is the following data:
+        <ul>
+            <li>\( Q \) is the set of states </li>
+            <li>\( \Sigma \) is the input alphabet not containing the blank symbol</li>
+            <li>\( \Gamma \) is the tape alphaphet which contains the blank symbol and \( \Sigma \subseteq \Gamma \)   </li>
+            <li>\( q : Q \times  \) </li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-configuration-of-a-turing-machine" >
+    <div class="title">Configuration of a Turing Machine</div>
+    <div class="content">
+        A setting of the current state, the current tape contents, and the current head location is called a <b>configuration</b> of the turing machine
+    </div>
+</div>
+<div class="definition" id="definition-start-configuration" >
+    <div class="title">Start Configuration</div>
+    <div class="content">
+        Given a Turing Machine \( M \) with an input \( w \), then the <b>start configuration</b> is the configuration \( q _ 0 w \) 
+    </div>
+</div>
+<div class="definition" id="definition-accepting-configuration" >
+    <div class="title">Accepting Configuration</div>
+    <div class="content">
+        Is one such that the state of the configuration is \( q _ a \)
+    </div>
+</div>
+<div class="definition" id="definition-rejecting-configuration" >
+    <div class="title">Rejecting Configuration</div>
+    <div class="content">
+        The state of the configuration is \( q _ r \).
+    </div>
+</div>
+<div class="definition" id="definition-halting-configuraiton" >
+    <div class="title">Halting Configuraiton</div>
+    <div class="content">
+        The state is an accepting configuration or a rejecting configuration
+    </div>
+</div>
+<p>
+    The machien is defined to halt when in the states \( q _ a \) or \( q _ r \) 
+</p>
+<div class="definition" id="definition-a-turing-machine-accepts-an-input" >
+    <div class="title">A Turing Machine Accepts an Input</div>
+    <div class="content">
+        Suppose that \( M \) is a turing machine and \( w \) is an input, then we say that \( M \) accepts \( w \) if a sequence of configurations \( C _ 1, C _ 2, \ldots, C _k  \) exist where 
+        <ul>
+            <li>\( C _ 1 \) is the start configuration of \( M \) on input \( w \)</li>
+            <li>each \( C _ i \) yields \( C _ { i + 1 } \)  </li>
+            <li>\( C _ k \) is an accepting configuration</li>
+        </ul>
+        When this is true we write that \( \operatorname{ acc } \left( M, w \right)   \) 
+    </div>
+</div>
+<div class="definition" id="definition-a-turing-machine-rejects-an-input" >
+    <div class="title">A Turing Machine Rejects an Input</div>
+    <div class="content">
+        The turing machine enters \( q _ r \)         
+    </div>
+</div>
+<div class="definition" id="definition-a-turing-machine-loops-on-an-input" >
+    <div class="title">A Turing Machine Loops on an Input</div>
+    <div class="content">
+        The turing machine never enters a halting configuration
+    </div>
+</div>
+
+<div class="definition" id="definition-language-of-a-turning-machine" >
+    <div class="title">Language of a Turning Machine</div>
+    <div class="content">
+        \[
+          \operatorname{ lang } \left( M \right) = \left\{ w : \operatorname{ acc } \left( M, w \right)   \right\} 
+        \] 
+    </div>
+</div>
+
+<div class="definition" id="definition-turing-recognizable" >
+    <div class="title">Turing Recognizable</div>
+    <div class="content">
+        Given a language \( L \) we say that it is <b>Turing Recognizable</b> if there is some Turing machine \( M \) such that 
+        \[
+          L = \operatorname{ lang } \left( M \right) 
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-decider-turing-machine" >
+    <div class="title">Decider Turing Machine</div>
+    <div class="content">
+        A <b>decider</b> is a turing machine that doesn't loop on any input
+    </div>
+</div>
+<div class="definition" id="definition-a-turing-machine-decides-a-language" >
+    <div class="title">A Turing Machine Decides a Language</div>
+    <div class="content">
+        We say that a turing machine \( M \) decides a language \( L \) if it is recognized by a decider turing machine
+    </div>
+</div>
+<div class="definition" id="definition-turing-decidable" >
+    <div class="title">Turing Decidable</div>
+    <div class="content">
+        We say that a language \( L \) is <b>turing decidable</b> if there is a turing machine that decides it.
+    </div>
+</div>
+<div class="definition" id="definition-non-deterministic-turing-machine" >
+    <div class="title">Non-deterministic Turing Machine</div>
+    <div class="content">
+        A non determinstic turing machineeeeeeee is a turing machine that may proceed according to several possiblitiles, with a transition function of the form
+        \[
+          \delta : Q \times \Gamma \to \mathcal{ P } \left( Q \times  \Gamma \times \left\{ L, R \right\} \right) 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-every-nondeterministic-turing-machine-has-an-equivalent-determinstic-turing-machine" >
+    <div class="title">Every Nondeterministic Turing Machine Has an Equivalent Determinstic Turing Machine</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-the-acceptance-set-for-dfas" >
+    <div class="title">The Acceptance Set for Dfas</div>
+    <div class="content">
+        \[
+          A _ { DFA } = \left\{ \left\langle B, w \right\rangle : B \text{ is a DFA that accepts input string } w  \right\} 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-the-acceptance-set-for-dfas-is-a-decidable-language" >
+    <div class="title">The Acceptance Set for Dfas Is a Decidable Language</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        To do so we just have to construct a turing machine \( M \) which decides \( A _ { DFA } \) 
+    </div>
+</div>
+<div class="exercise" id="exercise-a-language-is-turing-recognizable-iff-it-is-a-projection-of-a-decidable-language" >
+    <div class="title">A Language Is Turing Recognizable Iff It Is a Projection of a Decidable Language</div>
+    <div class="content">
+        Let \( C \) be a language. Prove that \( C \) is Turing-recognizable iff a dedcidable language \( D \) exists such that 
+        \[
+          C = \left\{ x : \exists y , \left\langle x, y \right\rangle \in D  \right\} 
+        \] 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( C \) is Turing-recognizable, therefore there is some turing machine \( M \) that recognizes \( C \) so that \( \operatorname{ lang } \left( M \right) = C   \) which means that for any \( x \in C \) that \( M \) accepts and halts on input \( x \), for each input, suppose the number of steps taken by the turing machine before halting is given by \( h _ x \in \mathbb{ N } _ 1 \), then we define the language \( D = \left\{ \left\langle x, y \right\rangle : \operatorname{ acc } \left( M, x \right) \text{ in } h _ x \text{ steps } \right\}  \), this language is decidable. An element \( x \in C \) iff \( \operatorname{ acc } \left( M, x \right)   \) in \( h _ x \) steps iff \( \left\langle x, h _ x \right\rangle \in D  \) as needed.
+        </p>
+        <p>
+            Suppose that such a language \( D \) exists, since it is decidable then it is clearly recognizable and thus some enumerator enumerates, if it enumerates \( D \), then if we drop the second component \( y \), we obtain an enumerator for \( C \), and therefore is Turing-recognizable.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-an-enumerator-enumerates-a-language" >
+    <div class="title">An Enumerator Enumerates a Language</div>
+    <div class="content">
+        We say that an enumerator enumerates a language \( L \) if it prints out at least \( L \) 
+    </div>
+</div>
+<div class="proposition" id="proposition-a-language-is-turing-recognizable-if-and-only-if-some-enumerator-enumerates-it" >
+    <div class="title">A Language Is Turing Recognizable If and Only If Some Enumerator Enumerates It</div>
+    <div class="content">
+        TODO: Add the content for the proposition here.
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-separating-language" >
+    <div class="title">Separating Language</div>
+    <div class="content">
+        Suppose that \( A, B \) are two disjoint languages, we say that a language \( C \) separates \( A \) and \( B \) if \( A \subseteq C \) and \( B \subseteq \bar C \) 
+    </div>
+</div>
+<div class="definition" id="definition-co-turing-recognizable" >
+    <div class="title">Co Turing Recognizable</div>
+    <div class="content">
+        We say that a language is <b>co-Turing-recognizable</b>if it is the complement of a Turing recognizable language
+    </div>
+</div>
+ <div class="exercise" id="exercise-any-two-disjoint-co-turing-recognizable-languages-are-separable-by-some-decidable-language" >
+    <div class="title">Any Two Disjoint Co Turing Recognizable Languages Are Separable by Some Decidable Language</div>
+    <div class="content">
+    Let \( A \)  and \( B \)  be two disjoint languages. Say that language \( C \)  separates \( A \)  and \( B \)  if \( A \subseteq C \)  and \( B \subseteq \overline{ C }  \) . Show that any two disjoint co-Turing-recognizable languages are separable by some decidable language.
+    </div>
+
+    <div class="proof">
+        <p>
+            Since we assumed that \( A \) and \( B \) are co-Turing Recognizable that means that \( \overline{ A }  \) and \( \overline{ B } \) are recognizable.
+        </p>
+        <p>
+            Since a language is turing recognizable iff it is enumerable by some enumerator then there exist enumerators \( E _ \overline{ A } , E _ \overline{ B }  \) that enumerate \( \overline{ A }, \overline{ B }   \) respectively.
+        </p>
+        <p>
+            We will now construct a turing machine \( M \) and if we can make it a decider then we'll use \( C = \operatorname{ lang } \left( M \right)   \).
+        </p>
+        <p>
+            Consider the turing machine such taht given an input \( w \) it will run \( E _ { \overline{ A }  } \) and \( E _ { \overline{ B }  } \) in parallell, if \( E _ \overline{ A }  \) prints \( w \) then we reject the input ; if \( E _ \overline{ B }  \) prints \( w \) accept.
+        </p>
+        <p>
+            Now we must show that \( A \subseteq C \) so suppose that \( w \in A \) then since \( A \cap B = \emptyset  \) then we know that \( w \notin B \), that is \( w \in \overline{ B }  \) and \( w \notin \overline{ A }  \), thus \( w \) will eventually get printed out only by \( E _ \overline{ B }  \) so the machine will accept, so \( w \in C \)
+        </p>
+        <p>
+            We also have to show that \( B \subseteq \overline{ C }  \) so let \( w \in B \) again, \( A, B \) are disjoint so this implies that \( w \notin A \) that is \( w \in \overline{ A }  \) and we also know \( w \notin \overline{ B }  \) thus \( w \) will eventually get printed by only \( E _ \overline{ A }  \) so the machine will reject, and so \( w \notin C \), so \( w \in \overline{ C }  \) as needed.
+        </p>
+        <p>
+            If \( w \notin \left( A \cup B \right)  \) then \( w \in \overline{ A } \cap \overline{ B }   \) therefore \( E _ \overline{ A }  \) and \( E _ \overline{ B }  \) will print it in finitely many steps, thus our turing machine will halt. If \( E _ \overline{ A }  \) prints it first, then reject, otherwise if its \( E _ \overline{ B }  \) then accept
+        </p>
+        <p>
+            Thus we've shown that \( M \) halts on all inputs and thus is a decider, since we showed that \( A \subseteq C \) and \( B \subseteq \overline{ C }  \) then it's separated by a decidable language.
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-turing-diagonalization" >
+    <div class="title">Turing Diagonalization</div>
+    <div class="content">
+     Let A be a Turing-recognizable language consisting of descriptions of Turing machines,\( \left\{ \left\langle M _ 1 \right\rangle, \left\langle M _ 2 \right\rangle, \ldots .   \right\}  \) , where every \( M _ i \)  is a decider. Prove that some decidable language \( D \)  is not decided by any decider \( M _ i \)  whose description appears in \( A \) . 
+    </div>
+
+    <div class="proof">
+        <p>
+            If \( A \) was finite, then since there are infinitely many decidable languages, then at least one of them must be decided by a machine that is not in \( A \), therefore assume that \( A \) is infinite, since \( A \) is turing recognizable, then we know that its enumerable by some enumerator \( E \), now we define the following turing maachine
+        </p>
+        <p>
+            Let \( M \) be the turing machine operating on positive integers such that given the input \( \left\langle n \right\rangle  \) we run the enumerator until we have printed out \( n \) unique turing machines, say \( M _ 1, \ldots , M _ n \), then run \( M _ n \) with the input \( \left\langle n \right\rangle  \) and do the opposite of whatever \( M _ n \) outputs.
+        </p>
+        <p>
+            \( M \) is a decider, this is because \( E \) must enumerate all of the elements in a finite number of steps and because every turing machine encoded in \( A \) was a decider, so nothing will loop forever in the above definition.
+        </p>
+        <p>
+            Since we have inverted the behavior for each \( \left\langle i \right\rangle  \) then we have induced a diagonalization argument, this is because we have inverted the behavior of the selected machine meaning that  \( \left\langle i \right\rangle \in \operatorname{ lang }  \left( M \right)     \) XOR \( \left\langle i \right\rangle \in \operatorname{ lang } \left( M _ i \right)    \) must hold true, this shows that \( M _ i  \) cannot decide \( \operatorname{ lang } \left( M \right) \) for each \( i \), and therefore no turing machine encoded in \( A \) can, on the other hand \( M \) decides that language, as needed.
+        </p>
+    </div>
+</div>
+
+<div class="definition" id="definition-computable-function" >
+    <div class="title">Computable Function</div>
+    <div class="content">
+        A function \( f : \Sigma ^  * \to \Sigma ^ * \) is a computable function if some Turing machine \( M \) such that for every input \( w \) the TM \( M \) halts with just \( f \left( w \right)  \) on its tape
+    </div>
+</div>
+<div class="definition" id="definition-mapping-reducible" >
+    <div class="title">Mapping Reducible</div>
+    <div class="content">
+        A language \( A \) is said to be mapping reducible to a language \( B \) written as \( A \le _ m B \) if there is a computable function \( f : \Sigma ^ * \to \Sigma ^ * \) where for every \( w \) 
+        \[
+          w \in A \iff f \left( w \right) \in B
+        \] 
+        the function \( f \) is called the reduction from \( A \)  to \( B \) 
+    </div>
+</div>
+<div class="exercise" id="definition-if-a-language-is-mapping-reducible-to-a-regular-language-then-it-might-not-be-reducible" >
+    <div class="title">If a Language Is Mapping Reducible to a Regular Language Then It Might Not Be Reducible</div>
+    <div class="content">
+        Suppose that \( A \le _ m B \) and \( B \) is regular, then it doesn't imply that \( A \) is a regular language.
+    </div>
+    <div class="proof">
+        <p>
+            If we consider the language \( A = \left\{ 0 ^ n 1 ^  n : n \in \mathbb{ N } _ 0 \right\}  \) which is not a regular language as seen earlier. We will show that \( A \) is mapping reducible to \( B = \left\{ 11 \right\}  \), also note that this finite language is clearly regular.
+        </p>
+        <p>
+            So we have to show that there is a computable function \( f \) such that \( w \in A \iff f \left( w \right) = 11  \). If we define the function 
+            \[
+                f \left( w \right) = 
+            \begin{cases}
+                11 &\text{ if } w \in A \\
+                00 &\text{ otherwise }
+            \end{cases} 
+            \] 
+            then it satsfies the requirement that \( w \in A \iff f \left( w \right) \in B  \)
+        </p>
+        <p>
+            This function is computable because we can create a turing machine \( M \) that uses a stack to recognize strings from \( A \) as they are of the form \( 0 ^ n 1 ^ n \), whenever it recognizes a string then it writes \( 11 \) to the tape, and outputs \( 00 \) if it rejects the input string \( w \), thus this function is computable. Additionally this function halts on all inputs, as for every finite string by the time we get to the end of the string in finitely many steps the stack is observed and a decision is made.
+        </p>
+        <p>
+            Thus we've shown that \( A \le _ m B \) where \( B \) is regular, but \( A \) is not.
+        </p>
+    </div>
+</div>
+
+
+
+<!--https://cobweb.cs.uga.edu/~cai/courses/2670/2012fall/HW8Solutions.pdf-->
+ 
+
+
+5.9
+
+<div class="exercise" id="exercise-the-encodings-of-reversal-accepting-turing-machines-is-undecidable" >
+    <div class="title">The Encodings of Reversal Accepting Turing Machines Is Undecidable</div>
+    <div class="content">
+        Show that the collection \( R \)  of encodings of turing machines that accept a string \( \operatorname{ rev } \left( w \right)   \) whenever it accepts \( w \) is undecidable.
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that \( R \) was decidable, we'll get a contradiction by showing that \( A _ { TM } \) is decidable.
+        </p>
+        <p>
+            Since \( R \) is decidable, then there exists some decider \( D \) for the language \( R \), we'll now construct a decider for \( A _ { TM }  \) to obtain our contradiction.
+        </p>
+        <p>
+            We will do this by constructing a decider for \( A _ { TM } \) by using the following idea, given \( \left\langle M, w \right\rangle  \) we only accept if \( D  \) accepts \( M ^ \prime \) where \( M^ \prime  \) is a turing machine that we will define during an intermediate phase, \( M ^ \prime  \) will have the property that \( M  \) accepts \( w \) if and only if \( \left\langle M ^ \prime  \right\rangle \in R  \). 
+        </p>
+        <p>
+            If all that is set in place, then we have \( \left\langle M, w \right\rangle  \) is accepted by \( A \) iff \( D  \) accepts \( M :^ \prime  \) iff \( M \) accepts \( w \), that is \( A \) accepts \( \left\langle M, W \right\rangle  \) iff \( M \) accepts \( w \).
+        </p>
+        <p>
+            Now that we have the idea, we can formally construct \( A \) based on the specification of \( R \). 
+        </p>
+        <ul>
+            <li>Given \( \left\langle M, w \right\rangle  \)</li>
+            <li>Construct \( M ^ \prime  \) as follows </li>
+            <ul>
+                <li>on input \( y \) </li>
+                <ul>
+                    <li>if \( y \in 0 ^ + 1 ^ + \) accept </li>
+                    <li>if \( y \notin  0 ^ + 1 ^ + \)</li>
+                    <ul>
+                        <li>run \( M \) on the input \( w \) if it accepts, then accept, otherwise reject</li>
+                    </ul>
+                </ul>
+            </ul>
+            <li>Run \( D \) on the input \( \left\langle M ^ \prime  \right\rangle  \) and output what it outputs</li>
+        </ul>
+        <p>
+            Note that \( M ^ \prime  \) is a decider, this is because the construction of \( M ^ \prime  \) takes finitely many steps as we are not actually running anything, just constructing, then when we run the encoding of this machine on \( D \) since it is a decider then it is guarenteed to halt in finitely many steps.
+        </p>
+        <p>
+            The language \( 0 ^ +  1 ^ + \) seems arbitrary, but it was simply chosen as it is one of the many languages that thas the property that that there exists some string \( x \) in the language such that \( \operatorname{ rev } \left( x \right)   \) is not in in the language, for this example we can see that the string \( 001 \) is in the language but \( 100 \) is not. Keep in mind we could have used any language that satifies this property.
+        </p>
+        <p>
+            Thus if we have any turing machine \( T \) such that \( \operatorname{ lang } \left( T \right) = 0 ^ + 1 ^ +   \) then we know that \( \left\langle T \right\rangle \notin R  \), while at the same time if \( \operatorname{ lang } \left( T \right) = \left\{ 0, 1 \right\} ^ *    \) then clearly \( T \in R \).
+        </p>
+        <p>
+            Therefore if we observe our definition of \( A \) we can see that if \( M \) accepts \( w \) then \( \operatorname{ lang } \left( M ^ \prime  \right) = \left\{ 0, 1 \right\} ^ *    \) so then \( \left\langle M ^ \prime \right\rangle \in R  \). and also if \( M \) does not accept \( w \) then \( \operatorname{ lang } \left( m ^ \prime  \right) = 0 ^ + 1 ^ +   \) so that implies that \( \left\langle M ^ \prime \right\rangle \notin R  \), thus \( M \) accepts \( w \) iff \( \left\langle M ^ \prime  \right\rangle \in R  \).
+        </p>
+        <p>
+            Since we have a decider \( D \) for \( R \) then we just have to run \( D \) with the input \( \left\langle M ^ \prime \right\rangle   \). Therefore we've constructed a decider for \( A _ { TM } \) which is a contradiction, therefore it must not be true that \( R \) is decidable, therefore it is undecidable.
+        </p>
+    </div>
+</div>
+
+
+<!--https://web.njit.edu/~marvin/cs341/hw/hw09-soln.pdf-->
+
+<div class="exercise" id="exercise-the-busy-beaver-function-is-not-computable" >
+    <div class="title">The Busy Beaver Function Is Not Computable</div>
+    <div class="content">
+Let \( \Gamma = \left\{ 0, 1, \_ \right\}  \)  be the tape alphabet, and  define the busy 
+beaver function \( BB: \mathbb{ N } \to \mathbb{ N }  \) as follows. For each value of k, consider all k-state TMs that halt when started with a blank tape. Let \( BB(k) \)  be the maximum number of 1s that remain on the tape among all of these machines. Show that \( BB \)  is not a computable function.
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that \( BB \) was a computable function, that is there is some Turing machine \( M \) such that on every input \( w \) it halts with just \( BB\left( w \right)  \) on its tape.Specifically we'll assume without loss of generality that it does so in unary, so we have some turing machien \( M \) such that whenever the input is \( 1 ^ n \) then \( M \) halts with \( 1 ^ { BB \left( n \right)  } \) on the tape.
+        </p>
+        <p>
+            We'll now observe a special TM \( M ^ \prime  \)  that will yield a contradiction, this turing machine will fit those turing machines that the busy beaver function talks about, and so it will be a turing machine that halts when started on a blank tape. It will write \( n \) ones to the tape, it then doubles the number of ones and then simulates the turing machine \( M \) on what is currently on the tape (\( 1 ^ { 2n } \)), and therefore will halt with \( BB\left( 2 n \right)  \) ones on the tape.
+        </p>
+        <p>
+            Next we can show that \( BB \) is a strictly increasing function, this is because for every \( k \)-state turing machine that halts when started on a blank tape, there is an analagous \( k + 1 \)-state turing machine that also halts when started on tha blank tape and simulates the other machine with one extra state which does nothing, this shows us that   \( BB \left( k \right) \le BB \left( k + 1 \right)   \), also if we use that extra state to write another one to the tape, then we have that \( BB\left( k \right) \lt BB\left( k + 1 \right)   \).
+        </p>
+        <p>
+            \( M ^ \prime  \) takes \( n \) states to write each \( 1 \) to the tape initially, but doubling the ones on the tape only requires a constant number of states to do, and simulating \( M \) only takes a finite number of states, therefore \( M ^ \prime _ n \) would have \( n + k \)-states. \( M ^ \prime  \) is a turing machine that halts when started with an empty tape, and when it terminates it has \( BB \left( 2 n \right)  \) ones on the tape, since \( BB \left( n + k \right)  \) is the maximum number of ones over all turing machines with \( n + k \) states that terminate when started on an empty tape, then we can conclude that \( BB \left( n + k \right) \ge BB \left( 2n \right)   \).
+        </p>
+        <p>
+            Since \( k \) is some constant, then once \( n \gt k \) then we have that \( n + k \lt 2n \) and since we concluded that \( BB \) was a strictly increasing function then this would imply that \( BB \left( n + k \right) \lt BB \left( 2n \right)   \) which is a contradiction, therefore our assumption that \( BB \) was computable is false.
+        </p>
+    </div>
+</div>
+
+5.16
+<!--https://www.cs.nthu.edu.tw/~wkhon/assignments/assign4ans.pdf-->
+
+<div class="exercise" id="exercise-a-language-is-turing-recognizable-iff-it-is-mapping-reducible-to-the-acceptance-set-for-turing-machines" >
+    <div class="title">A Language Is Turing Recognizable Iff It Is Mapping Reducible to the Acceptance Set for Turing Machines</div>
+    <div class="content">
+        \( A \) is Turing recognizable iff \( A \le _ m A _ { TM } \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose that \( A \) is turing-recognizable and and so there exists a turing machine \( M \) that recognizes A.If we consider the function \( f \left( w  \right) = \left\langle M, w \right\rangle   \), clearly there is a turing machine such that for every \( w \) it halts with just \( \left\langle M, w \right\rangle  \) on its tape because all it would have to do is paste the encoding of \( M \) and then \( w \).
+        </p>
+        <p>
+            Moreover we know \( w \in A \) iff \( w \in \operatorname{ lang } \left( M \right)   \) iff \( \left\langle M, w \right\rangle \in A _ { TM }  \) iff \( f \left( w \right) \in A _ { TM }  \), that is to say that \( w \in A \iff f \left( w \right) \in A _ { TM }  \) showing that \( A \) is mapping reducible to \( A _ { TM } \) 
+        </p>
+        <p>
+            Now we show the other direction, where we assume that \( A \le _m A _  { TM } \), since \( A _ { TM } \) is Turing recognizable by the Universal Turing machine (the turing machine that just simulates other turing machines), then that implies that \( A \) is turing recognizable, as needed.
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-a-language-is-decidable-if-and-only-if-it-is-mapping-reducible-to-zeros-then-ones" >
+    <div class="title">A Language Is Decidable If and Only If It Is Mapping Reducible to Zeros Then Ones</div>
+    <div class="content">
+        \( A \) is decidable if and only if \( A \le  _ m 0 ^ * 1 ^ * \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            \( \implies  \) Suppose that \( A \) is decidable, therefore there is some turing machine \( D \) such that given some \( w \) it accepts if \( w \in A \) and rejects if \( w \notin A \) , now if we make a simple wrapper turing machine \( R \) that simply takes in an input simulates \( w \) on \( D \), and if \( D \) accepts output \( 01 \) and if it rejects output \( 10 \), then this creates a computable function \( f \left( x \right)  \) such that \( f \left( x \right) = 01  \) if \( x \in A \) and \( f \left( x \right) = 10  \) if \( x \notin A \).
+        </p>
+        <p>
+            Since \( \operatorname{ ran } \left( f \right) = \left\{ 01, 10 \right\}    \) then we can say that \( x \in A \iff f \left( x \right) \in 0 ^ * 1 ^ *  \), therefore we have \( A \le _ m 0 ^ * 1 ^ * \) 
+        </p>
+        <p>
+            \( \impliedby  \) Now we assume that \( A \le  _m  0 ^ * 1 ^ * \), since we already discovered that regexs are decidable, then \( 0 ^ * 1 ^ * \) is decidable, and thus \( A \) is decidable.
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-prefixing-the-acceptance-set-for-turing-machines-makes-it-not-turing-recognizable" >
+    <div class="title">Prefixing the Acceptance Set for Turing Machines Makes It Not Turing Recognizable</div>
+    <div class="content">
+        Consider the set:
+        \[
+          J = \left\{ w : w = 0 x \text{ f.s. } x \in A _ { TM }  \right\}  \cup \left\{ w : w = 1 x \text{ f.s. } x \in \overline{ A _ { TM } }   \right\}
+        \] 
+        Show that \( J \) nor \( \overline{ J }  \) are Turing recognizable
+    </div>
+
+    <div class="proof">
+        <p>
+
+        </p>
+        <p>
+            We claim that \( \overline{ A _ { TM  } }  \) is mapping reducible to \( J \) by the function \( f \left( w \right) = 1w  \). The reason this is so is \( f \) is computable as there is a certainly a turing that can append \( 1 \) to the front of an input string onto the tape, additonally if \( w \in \overline{ A _ { TM } }   \) then \( f \left( w \right) =  1w \in J \), and if \( 1w \in J  \) it implies that \( 1w \in \left\{ y : y = 1 w \text{ f.s. } y \in \overline{ A _ { TM } }  \right\}  \) therefore \( w \in \overline{ A _ { TM } }  \), so we have \( \overline{ A _ { TM } }  \lt _ m J \), since \( \overline{ A _ { TM } }  \) is not turing recognizable, then neither is \( J \).
+        </p>
+        <p>
+
+            We also claim that \( \overline{ A _ { TM } }  \) is mapping reducible to \( \overline{ J }  \), if we use the function \( f \left( w \right) = 0w  \) the details are similar to the above in that \( f \) is computable, and also in that if \( w \in \overline{ A _ { TM } }  \), then \( f \left( w \right) = 0w \in \overline{ J }   \), and that if \( 0w \in \overline{ J }  \) then it must be that \( w \in \overline{ J }  \), thus we have \( \overline{ A _ { TM  } }  \le _m  \overline{ J }  \) and since \( \overline{ A _ { TM } }  \) is not turing recognizable, then neither is \( \overline{ J }  \) 
+        </p>
+    </div>
+</div>
+
+<div class="definition" id="definition-acceptance-set-for-context-free-grammars" >
+    <div class="title">Acceptance Set for Context Free Grammars</div>
+    <div class="content">
+\[ 
+A _ { CFG } = \left\{ \left\langle G, w \right\rangle : G \text{ is a CFG that generates the string } w \right\} 
+\] 
+    </div>
+</div>
+
+
+<div class="proposition" id="proposition-the-acceptance-set-for-context-free-grammars-is-decidable" >
+    <div class="title">The Acceptance Set for Context Free Grammars Is Decidable</div>
+    <div class="content">
+\( A _ { CFG }  \) is decidable
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+
+
+
+<div class="definition" id="definition-the-set-of-equivalent-context-free-grammars" >
+    <div class="title">The Set of Equivalent Context Free Grammars</div>
+    <div class="content">
+        \[ 
+        EQ _ {CFG} =  \left\{ \left\langle G, H \right\rangle : G , H \text{ are CFG's and }  \operatorname{ lang } \left( G \right) = \operatorname{ lang } \left( H \right)  \right\} 
+        \] 
+    </div>
+</div>
+
+
+<div class="proposition" id="proposition-the-set-of-equivalent-context-free-grammars-is-co-turing-recognizable" >
+    <div class="title">The Set of Equivalent Context Free Grammars Is Co Turing Recognizable</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+In order to show that this is true we have to show that the complement of \( EQ _ \left{ CFG \right}   \) is turing recognizable. So we need a turing machine that can recognize the language 
+\[ 
+\overline{ EQ _ { CFG }   } = \left\{ \left\langle G, H \right\rangle : G , H \text{ are CFG's and }  \operatorname{ lang } \left( G \right) \neq  \operatorname{ lang } \left( H \right)  \right\} 
+\] 
+
+In order to know if the two languages differ we just need to find an example of a string which is in one, but not the other, we also note that the set of strings over a language is countable, meaning that they can be enumerated by \( s _ 1, s _ 2, \ldots  \)  now we create a recognizer as follows
+    <ul>
+    <li>on input \( \left\langle G, H \right\rangle  \):</li>
+        <ul>
+            <li>for each string \( s _ 1, s _ 2, \ldots  \) </li>
+            <li>since \( A _ { CFG }   \) is decidable there is a decider \( D \) for it, so we can run \( \left\langle G, s_i \right\rangle  \) on \( D \) and \( \left\langle H, s _ i \right\rangle  \) on \( D \) and compare the results, if they are the same go to the next iteration, otherwise if they are different accept</li>
+        </ul>
+    </ul>
+    <p>
+        We claim that this is a recognizer, this is because \( \left\langle G, H \right\rangle \in EQ _ { CFG }   \) if and only if there exists some \( i \in \mathbb{ N } \)  \( s _ i \) such that \( \left\langle G, s _ i \right\rangle \in D  \) and \( \left\langle H, s _ i \right\rangle \notin D  \) (or vise versa), iff the above turing machine terminates in the accept state after \( i \) iterations.
+    </p>
+    <p>
+        Therefore the above turing machine terminates in the accept state if and only iff \( \left\langle G, H \right\rangle \in EQ _ { CFG }   \) therefore it is a recognizer.
+    </p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-there-is-an-undecidable-subset-of-the-kleene-star-of-one" >
+    <div class="title">There Is an Undecidable Subset of the Kleene Star of One</div>
+    <div class="content">
+        There exists a subset \( S \subseteq 1 ^ * \) that is undecidable
+    </div>
+
+    <div class="proof">
+    <p>
+        Instead of doing a turing machine argument we do it by counting, first of all we show that \( \mathcal{ P } \left( 1 ^ * \right)   \) is in bijection with \( \left\{ 0, 1 \right\} ^ \infty \) to do this, we consider any subset of \( 1 ^ * \) which is of the form \( S = \left\{ s _1, s _ 2, \ldots  \right\}  \) where each \( s _ i \in 1 ^ * \) each \( s _ i \) has a length, that is it is a sequenece of \( n _ i \) ones in a row, thus for each \( s _ i \) wherein we have \( \left\lvert s _ i \right\rvert = n _ i  \) we set the \( n _ i \)th element of the infinite binary string to \( 1 \) and the rest to zero, this sets up the mapping. 
+    </p>
+    <p>
+        Clearly this function can hit any output, so given any infinite binary string, we just select the elements in \( \mathcal{ P } \left( 1 ^ * \right)   \) of corresponding length. Additionally given any collection of subsets we know which string will hit it, all that remains is injectivity which is simple to prove, and we will not go into that detail.
+    </p>
+    <p>
+        Thus we have a bijection from \( \mathcal{ P } \left( 1 ^ * \right)   \) to \( \left\{ 0, 1 \right\} ^ \infty   \) therefore since we already know that the latter is uncountable, then so is the former.
+    </p>
+    <p>
+        Since the set of all turing machines is a subset of all possible strings which is countable, then the number of possible turing machines is countable, and thus the number of languages that are recgonized is also countable, therefore there is some element of \( \mathcal{ P } \left( 1 ^ * \right)   \) which is not recognized by some turing machine, select that one, this is our example of a subset of \( 1 ^ * \) which is undecidable, because we already know it is unrecognizable.
+    </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-fixed-point-of-the-accept-and-reject-switching-function-for-turing-machines" >
+    <div class="title">Fixed Point of the Accept and Reject Switching Function for Turing Machines</div>
+    <div class="content">
+        In the fixed point version of the recusion theorem, let the transformation \( t \) be a function that interchanges the states \( q _ { accept }  \) and \( q _ { reject }  \) in turing machine descriptions, find a fixed point for \( t \).
+    </div>
+
+    <div class="proof">
+        <p>
+            Recall that the fixed point is a turing machine which when fed through \( t \) yields a turing machine equivalent to the original. Suppose we had such a machine \( \left\langle M \right\rangle  \) and lets see the restrictions on this machine, if we gave this machine some input \( w \) and it halts, then this must be because it either entered the accept or reject state, since \( t \left( \left\langle M \right\rangle  \right)  \) inverts this behavior, then on this input the two machines would differ (one accept and one reject), thus if such a fixed point machine were to exist, it must be that it never halts.
+        </p>
+        <p>
+            If \( M \) is a turing machine that loops forever, then by definition this means that it never enters the accept or reject state, therefore if we consider \( t \left( \left\langle M \right\rangle  \right)  \) then this is still a machine that loops forever on all inputs, thus the language of the two machines is the same (empty) and they are equivalent, thus any machine that loops on all possible inputs is a fixed point.
+        </p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-for-any-two-languages-there-is-always-another-language-that-is-is-turing-reducible-to" >
+    <div class="title">For Any Two Languages There Is Always Another Language That Is Is Turing Reducible To</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        <p>
+            Something that works well here is embedding both languages into the following set \( J = 0A \sqcup 1B \). The reason we use such a set is that we know that \( w \in A \iff 0w \in J  \) and that \( w \in B \iff 1w \in J \)   Now we will start by proving that \( A \le _ T J \), to do this we assume that we have an oracle \( O \) for \( J \), and now we construct a decider for \( A \), to do this we construct a turing machine as follows:
+        </p>
+        <ul>
+            <li>on input \( w \) we query the orcale if \( 0w \) is an element of \( J \), if it is we accept, and otherwise reject</li>
+        </ul>
+        <p>
+            As mentioned above \( 0w \in J \iff w \in A \) thus the above turing machine accepts if \( w \in A \) and rejects if \( w \notin A \), that is it is a decider for \( A \) 
+        </p>
+        <p>
+            The exact same construction where we query the oracle with \( 1w \) decides \( B \) 
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-computing-the-descriptive-complexity-with-an-oricale-for-the-acceptance-set-for-turing-machines" >
+    <div class="title">Computing the Descriptive Complexity With an Oricale for the Acceptance Set for Turing Machines</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+    <p>
+        We need to come up with an algorithm which will compute the descritpive complexity of a binary string \( x \), we'll first introduce the idea, and then refine it so to actually work correctly. A naive approach would be to simply go through all binary strings in lexographic order, if we were on string \( s \) we would then try all possible ways of parsing it into the form \( \left\langle M, w \right\rangle  \) where \( M \) is a turing machine \( w \) an arbitrary input string, if no parsing works for string \( s \) then we would try the next string.
+    </p>
+    <p>
+        If it so happened that \( s \) was parsable into \( \left\langle M, w \right\rangle  \) then our goal would be to check if \( M \) on input \( w \) halts with \( x \) on its tape, and we would return \( \left\lvert s \right\rvert  \), this would work because lexiographic order forces shorter strings to come before longer strings, thus enforcing the two requirements that descriptive complexitiby be as small as possible and in the case of ties choosing the one that comes first in the lexicographic ordering.
+    </p>
+    <p>
+        The one problem with our plan is that running \( M \) on input \( w \) may never halt, as its just a regular turing machine, and so we need a way to get around this, this is why the assumption of having the oracle is there, as it gives us a method to determine if a turing machine will halt. Consdier the turing machine \( M \) if we construct a new turing machine \( N  \) that is \( M \) but whenever there is a transition that leads to a reject state, it instead takes us to the accept state, then when we query the oracle with \( \left\langle N, w \right\rangle  \) then it accepts iff \( M \) on input \( w \) halts (either enters a reject or accept state). This provides us with a way to check if \( M \) on input \( w \) will halt in a finite number of steps making our algorithm tractable. Thus our final algorithm as as follows:
+    </p>
+    <ul>
+        <li>For each binary string \( s \) iterated in lexicographic order</li>
+        <li>attempt to parse \( s \) into \( \left\langle M, w \right\rangle  \) where \( M \) is a turing machine \( w \) an input, if it cannot be parsed, then move to the next string otherwise continue to the next step</li>
+    <li>Make the modifiation of \( M \) to \( N \) as specified in the previous paragraph, and check if \( \left\langle N, w \right\rangle \in A _ { TM }   \) using the oracle, if it is not an element then go to the previous step, otherwise \( \left\langle N, w \right\rangle \in A  _ { TM }   \) therefore we know that \( M \) on input \( w \) halts</li>
+        <li>Run \( M \) on input \( w \) and if what remains on the tape is \( x \) then return \( \left\lvert s \right\rvert  \) and stop this algorithm</li>
+    </ul>
+    <p>
+        Also note that even though the above seems to be a potentially infinite loop, but we can make it finite as we already know that there is some \( c \in \mathbb{ N }  \) such that \( K \left( x \right) \le x + c \) and so we only have to test strings up until this cut off.
+    </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-the-acceptance-set-for-oracle-turing-machines-is-undecidable" >
+    <div class="title">The Acceptance Set for Oracle Turing Machines Is Undecidable</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        <p>
+            Suppose for the sake of contradiction that \( A _ { TM } ^ \prime   \) is decidable relative to \( A _ { TM }  \), which is to say that there is an oracle machine \( H ^ { A _ { TM }  }   \) that decides \( A _ { TM } ^ \prime   \), and now we construct the following which we will call \( N \) 
+        </p>
+        <ul>
+            <li>On input \( \left\langle M \right\rangle  \)  </li>
+            <li>Run \( H ^ { A _ { TM }  }  \) on \( \left\langle M, \left\langle M \right\rangle  \right\rangle  \)  </li>
+            <li>If \( H ^ { A _ { TM }  }  \) accepts, then reject and if it rejects then accept</li>
+        </ul>
+        <p>
+            Since this turing machine just inverts the output of a decider it is also a decider. If we run \( N \) on the input \( \left\langle N \right\rangle  \), then it will accept iff \( N \) rejects \( \left\langle N \right\rangle  \), which is a contradiction, and it will reject iff \( N \) accepts \( \left\langle N \right\rangle  \) which is also a contradiction, therefore our assumption is incorrect and so \( A _ { TM }^ \prime   \) is undecidable.
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-there-exists-languages-that-are-not-recognizable-by-a-turing-machine-with-an-oracle-for-the-acceptance-set-for-turing-machines" >
+    <div class="title">There Exists Languages That Are Not Recognizable by a Turing Machine With an Oracle for the Acceptance Set for Turing Machines</div>
+    <div class="content">
+        As per title.
+    </div>
+
+    <div class="proof">
+        We already know that there are uncountably many languages, and we also discovered that there are countably many turing machines, and thus there are countably many turing machines that have an oracle for \( A _ { TM }  \), therefore each such turing machine defines a language, but there will still only be countably many of those, and thus since there are uncountably many languages, there must be a langauage for which a turing machine with such an oracle can never generate; as needed.
+    </div>
+</div>
+
+<div class="exercise" id="exercise-the-language-of-turing-machines-that-halt-on-all-inputs-is-neither-recognizable-nor-co-recognizable" >
+    <div class="title">The Language of Turing Machines That Halt on All Inputs Is Neither Recognizable nor Co-recognizable</div>
+    <div class="content">
+       As per title. 
+    </div>
+
+    <div class="proof">
+        <p>
+            Recall that \( H = \left\{ \left\langle M, w  \right\rangle : M \left( w \right) \text{ halts }  \right\}  \) is not decidable, but it is recognizable. Because of that we know that \( \overline{ H }  \) must not be recognizable, if it were then we would be able to construct a decider for \( H \). 
+        </p>
+        <p>
+            If \( \overline{ H }  \) is not recognizable, then if we can make a mapping reduction to \( HA = \left\{ \left\langle N \right\rangle : N \text{ halts on all inputs } \right\}  \), then we could deduce that \( HA \) is unrecognizable as well. In order to do this we would have to come up with a function \( f \) such that \( x \in \overline{ H }  \iff f \left( x \right) \in HA   \), in otherwords we need a computable function \( f \) such that whenever we have a turing machine and input \( \left\langle M, x \right\rangle  \)  that does not halt, it gets mapped to a turing machine \( N \)  that always halts, and if \( f \left( x \right)  \) is a turing machine that always halts, then it must be that \( x \) is of the form \( \left\langle M, w \right\rangle  \) where \( M \) loops on input \( w \).
+        </p>
+        <p>
+            We construct the function \( f \) as follows, so that on input \( \left\langle M, w \right\rangle  \):
+        </p>
+        <ul>
+            <li>We construct a turing machine \( N \) such that on input \( x \)  </li>
+            <li>Simulate \( M \) on input \( w \) for \( \left\lvert x \right\rvert  \) iterations</li>
+            <li>If \( M \) halted, then go into an infinite loop </li>
+            <li>If \( M \) has not yet halted, then halt </li>
+        </ul>
+        <p>
+            Now supose that \( x \in \overline{ H }  \), therefore \( x = \left\langle M, w \right\rangle  \) where \( M \) loops on input \( w \), then \( f \left( x \right) = N  \) where \( N \) is specified above. Then for any input \( y \) if we run \( N \left( y \right)  \) then since \( M \) loops, we will hit the second if statement, and \( N \) will halt, which implies that \( N \in HA \), so \( x \in \overline{ H } \implies f \left( x \right) \in HA   \) 
+        </p>
+        <p>
+            Now suppose that \( x \notin \overline{ H }  \) so that \( x = \left\langle M, w \right\rangle  \) where \( M \) halts on input \( w \), then \( f \left( x \right) = N  \) now since \( M  \) halts on \( w \), suppose that it halts in \( k \) steps, if that's the case then we select an input \( y \) such that \( \left\lvert y \right\rvert \gt \left\lvert k \right\rvert   \), so that after \( \left\lvert y \right\rvert  \) iterations, we've guarenteed that \( H \) has halted on \( w \) so that we go into the first if statement and loop forever, this implies that \( N \notin HA \). This concludes showing that \( x \in \overline{ H } \iff f \left( x \right) \in HA   \), therefore since \( f \) is computable, then we've showing that \( \overline{ H }  \) is mapping reducible to \( HA \) and since \( \overline{ H }  \) is unrecognizable so is \( HA \).
+        </p>
+        <p>
+            We will show that the complement of \( HA \) which is the set \( \overline{ HA } = \left\{ \left\langle M \right\rangle: M \text{ loops on at least one input }   \right\}   \) is not recognizable.  We do a similar reduction from \( \overline{ H }  \), given any \( \left\langle M, w \right\rangle  \) we construct a machine \( N \) such that on input \( x \), it ignores input \( x \) and just simulates \( M \) on input \( w \).
+        </p>
+        <p>
+            Suppose \( x \in \overline{ H }  \), therefore \( x = \left\langle M, w \right\rangle  \), and \( M \) does not halt on \( w \), therefore the machine \( M \) doesn't halt on any input, and so \( \left\langle M \right\rangle \in L  \).
+        </p>
+        <p>
+            Now suppose that \( x \notin \overline{ H }  \) that is to say that \( x = \left\langle M, w \right\rangle  \) and we know that \( M \) halts on input \( w \), therefore \( M \) halts on every input, meaning that \( M \notin \overline{ HA }  \), this shows that \( x \in \overline{ H } \iff f \left( x \right) \in \overline{ HA }    \), thus since \( \overline{ H }  \) was unrecognizable, so is \( \overline{ HA }  \).
+        </p>
+    </div>
+</div>
+
+
+5.22, 5.23
+<!--https://homepage.divms.uiowa.edu/~hzhang/c135/CS4330_HW9_Solution.pdf-->
+<!--https://www.cs.umb.edu/~fejer/cs420/hw11s.pdf-->
+5.225.22
+
+
+<!--use this for exam review-->
+<!--https://web.njit.edu/~marvin/cs341/oldexams/practice-final-soln.pdf-->
+
+<!-- good explanation of recursion theorem, because I didn't understand the usage initially -->
+<!-- https://www2.lawrence.edu/fast/GREGGJ/CMSC515/chapt06/Recursion.html --> 
+
+<!-- good proof that enumerable iff turing recognizable --> 
+<!-- https://courses.grainger.illinois.edu/cs475/sp2022/ALL-lectures/Lectures/Day10Sol.pdf -->

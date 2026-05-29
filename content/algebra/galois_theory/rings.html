@@ -1,0 +1,432 @@
+<div class="definition" id="definition-magma">
+    <div class="title">
+        Magma
+    </div>
+    <div class="content">
+        A <b>magma</b> is a set \( M \) with a binary operation \( \star \) defined on \( M \)
+    </div>
+</div>
+<div class="definition" id="definition-monoid">
+    <div class="title">
+        Monoid
+    </div>
+    <div class="content">
+        A <b>monoid</b> is a set \( X \) with a binary operation \( \star \) on \( X \) such that \( \star \) is associative and it has an identity
+    </div>
+</div>
+<div class="definition" id="definition-ring">
+    <div class="title">
+        Ring
+    </div>
+    <div class="content">
+        A <b>ring</b> is a non-empty set \( R \) equipped with two binary operations \( \oplus, \otimes \) such that
+        <ul>
+            <li>\( \left( R, \oplus \right) \) form an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-abelian">abelian group</a> (We denote it's identity as \( 0 _ R \))
+            </li>
+            <li>\( \otimes \) is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative</a>
+            </li>
+            <li>\( \otimes \) <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-distributivity">distributes into</a> \( \oplus \)
+            </li>
+        </ul>
+    </div>
+</div>
+<p>Note that we used the symbols \( \oplus, \otimes \) because this definition generalizes some of the properties that we know true for \( +, \cdot \) when working with numbers. Note that on paper, you will usually see \( +, \cdot \) instead of the circled operations. They are used here to emphasize that these are generic operations.</p>
+<div class="definition" id="definition-commutative-ring">
+    <div class="title">
+        Commutative Ring
+    </div>
+    <div class="content">
+        A <b>commutative ring</b> is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring">ring</a> \( R \) such that \( \otimes \) is commutative.
+    </div>
+</div>
+<div class="definition" id="definition-ring-with-unity">
+    <div class="title">
+        Ring with Unity
+    </div>
+    <div class="content">
+        A <b>ring with unity</b> is a ring \( R \) that contains an identity element relative to \( \otimes \) , which we denote by \( 1 _ R \)
+    </div>
+</div>
+<div class="definition" id="definition-crone">
+    <div class="title">
+        Crone
+    </div>
+    <div class="content">
+        We employ the word <b>Crone</b> to specify a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-commutative-ring">commutative ring</a> with <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring-with-unity">unity</a>
+    </div>
+</div>
+<p>The above word is derived from <b>C</b>ommutative <b>R</b>ing with <b>ONE</b></p>
+<div class="exercise" id="exercise-two-by-two-matrices-with-0-in-bottom-left-form-a-crone">
+    <div class="title">
+        Two by Two Matrices with 0 In Bottom Left Form a Crone
+    </div>
+    <div class="content">
+        Let \( R := \left\{ \begin{pmatrix} a & b \\ 0 & a \end{pmatrix} : a, b \in \mathbb{ Z } \right\} \) along with the usual definition for matrix addition and matrix multiplication, show that this forms a crone.
+    </div>
+    <div class="proof"></div>
+</div>
+<p>In writing sometimes the original definition of <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring">ring</a> is written as rng (without the i) to denote that there is no assumption on it having a multiplicative identity, and the above definition is just identified by ring (with the character i, representing that we assume there is an multiplicative identity. In speaking we cannot distinguish "rng" and "ring", so we prefer the names listed here.</p>
+<div class="definition" id="definition-">
+    <div class="title">
+        Zero Divisor
+    </div>
+    <div class="content">
+        Let \( \left( R, \oplus, \otimes \right) \) be a ring, then we say that an element \( x \in R \setminus \left\{ 0 _ R \right\} \) is a <b>zero divisor</b> if there is some \( y \in R \setminus \left\{ 0 _ R \right\} \) such that the following equation holds \[ x \otimes y = y \otimes x = 0 _ R \]
+    </div>
+</div>
+<div class="exercise" id="exercise-the-integers-form-a-ring">
+    <div class="title">
+        The Integers form a Ring
+    </div>
+    <div class="content">
+        \( \mathbb{ Z } \) forms a ring
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-every-field-is-a-ring">
+    <div class="title">
+        Every Field is a Ring
+    </div>
+    <div class="content"></div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-the-integers-modulo-n-are-a-ring">
+    <div class="title">
+        The Integers Modulo N are a Ring
+    </div>
+    <div class="content"></div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-polynomials-form-a-ring-with-ring-coefficients">
+    <div class="title">
+        Polynomials Form a Ring with Ring Coefficients
+    </div>
+    <div class="content">
+        Suppose that \( R \) is a ring and that the set \[ R [ x ] = \left\{ r_n x ^ n + r_ { n - 1 } x ^ { n - 1 } + \ldots + r _ 1 x ^ 1 + r ^ 0 : n \in \mathbb{ N } _ 0, r _ i \in R \right\} \] Along with addition, defined such that for any \( m \le n \in \mathbb{ N } _ 0 \), we have: \[ \sum _ { i = 0 } ^ n r _ i x ^ i + \sum _ { i = 0 } ^ m s _ i x ^ i := \sum _ { i = 0 } ^ n r _ i x ^ i + \sum _ { i = 0 } ^ n s _ i x ^ i := \sum _ { i = 0 } ^ n \left( r _ i + s _ i \right) x ^ i \] Where for every \( m \le k \le n \) we've set \( s _ k = 0 \), thus artifically padding the polynomial without changing it. As for multiplication, we define \[ \left( \sum _ { i = 0 } ^ n r _ i x ^ i \right) \left( \sum _ { j = 0 } ^ m s _ i x ^ i \right) := \sum _ { k = 0 } ^ { n + m } t _ k x ^ k \] Wherein \( t _ k = \sum _ { i + j = k } r _ i s _ j \)
+    </div>
+    <div class="proof"></div>
+</div>
+<p>Note that the definition of \( t _ k \) describes how many ways to get the same degree after the generalized expansion rule has been applied to the two. Additionally these objects are not yet functions, they are simply symbolic formal expressions.</p>
+<div class="definition" id="definition-leading-coefficient">
+    <div class="title">
+        Leading Coefficient
+    </div>
+    <div class="content">
+        Let \( R \) be a ring and \( p = \sum _ { i = 0 } ^ n r_i x^i \) be a polynomial in \( R [ x ] \) such that \( r _ n \neq 0 \), then \( r _ i \) is called the leading coefficient of \( p \)
+    </div>
+</div>
+<div class="definition" id="definition-zero-polynomial">
+    <div class="title">
+        Zero Polynomial
+    </div>
+    <div class="content">
+        Let \( R \) be a ring and \( p = \sum _ { i = 0 } ^ n r_i x^i \) be a polynomial such that for every \( i \in { 0, ..., n } \) we have \( r _ i = 0 \), then we say that \( p \) is the zero polynomial.
+    </div>
+</div>
+<div class="definition" id="definition-monic">
+    <div class="title">
+        Monic
+    </div>
+    <div class="content">
+        Let \( R \) be a ring and \( p \in R [ x ] \) such that \( r _ n = 1 \), then \( p \) is said to be <b>monic</b>.
+    </div>
+</div>
+<div class="definition" id="definition-degree">
+    <div class="title">
+        Degree
+    </div>
+    <div class="content">
+        Let \( R \) be a ring and \( p = \sum _ { i = 0 } ^ n r_i x^i \) be a polynomial in \( R [ x ] \) such that \( r _ n \neq 0 \), then we say that the <b>degree</b> of \( p \) is \( n \), and it is denoted by \( \operatorname{ deg } \left( p \right) \)
+    </div>
+</div>
+<div class="exercise" id="exercise-square-matricies-form-a-non-commutative-ring">
+    <div class="title">
+        Square Matrices form a Non-Commutative Ring
+    </div>
+    <div class="content">
+        Let \( R \) be a ring and then \( M _ { n \times n } \left( R \right) \) form a non-commutative ring
+    </div>
+    <div class="proof"></div>
+</div>
+<p>Note that a vector space forms an abelian group under addition, but there is no clear multiplication, using the cross product doesn't work.</p>
+<div class="proposition" id="proposition-zero-multiplication-in-a-ring">
+    <div class="title">
+        Zero Multiplication in a Ring
+    </div>
+    <div class="content">
+        Let \( R \) be a ring, then for any \( r \in R \) \[ 0 r = 0 \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-additive-inverse-equals-multiplication-by-ones-additive-inverse">
+    <div class="title">
+        Additive Inverse equals Multiplication by One's Additive Inverse
+    </div>
+    <div class="content">
+        \( -r = \left( -1 \right) r \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-additive-inverse-times-additive-inverse-of-one-yields-original">
+    <div class="title">
+        Additive Inverse times Additive Inverse of One Yields Original
+    </div>
+    <div class="content">
+        \( \left( -1 \right) \left( -r \right) = r \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-the-set-of-one-element-forms-a-ring">
+    <div class="title">
+        The set of One Element Forms a Ring
+    </div>
+    <div class="content">
+        Suppose that \( R = \left\{ r \right\} \), with addition and multiplication defined in the only way it can be, then \( R \) forms a ring, which is called the zero ring
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-degree-of-product-equals-sum-of-degrees">
+    <div class="title">
+        Degree of Product equals Sum of Degrees
+    </div>
+    <div class="content">
+        Suppose that \( R \) is a domain and \( f, g \) are non-zero polynomials in \( R [ x ] \), then \[ \operatorname{ deg } \left( f g \right) = \operatorname{ deg } \left( f \right) + \operatorname{ deg } \left( g \right) \]
+    </div>
+    <div class="proof">
+        <p>We first start by setting \( n := \operatorname{ deg } \left( f \right) \) and \( m = \operatorname{ deg } \left( g \right) \). Note that the highest power that could be produced by this product would be \( x ^ { n + m } \).</p>
+        <p>Suppose that \( f = \sum _ { i = 0 } ^ {n} r _ i x ^ i \) and \( g = \sum _ { i = 0 } ^ {m} s _ i x ^ i \), by the definition of \( \operatorname{ deg } \left( \cdot \right) \) we know \( r _ n , s _ m \) are non-zero, therefore since \( R \) is a domain we know \( r _ n s _ n \neq 0 _ R \), which shows that the coefficient on \( x ^ { n + m } \) is non zero, thus we can conclude that \( \operatorname{ deg } \left( fg \right) = \operatorname{ deg } \left( f \right) + \operatorname{ g } \) as needed.</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-">
+    <div class="title">
+        Polynomials Formed from a Domain Form a Domain
+    </div>
+    <div class="content">
+        Suppose that \( R \) is a domain, then so is \( R [ x ] \)
+    </div>
+    <div class="proof"></div>
+</div>a direct sum of infinitely many nonzero rings has no unity I'm implicitly using the trivial fact that in any ring R with 1: R = {0} iff 1 = 0 (in fact, 0*x = x*0 = 0 in all rings, even those lacking 1) (since 1*x = x for all x, and 0*x = 0 for all x, in any ring with 1) Did you know that in any ring with 1, the axiom that addition is commutative is redundant with the rest of the axioms? That is, you can prove it, assuming only the other axioms.
+<div class="definition" id="definition-left-ideal">
+    <div class="title">
+        Left Ideal
+    </div>
+    <div class="content">
+        Suppose that \( \left( R, \oplus, \otimes \right) \) is a <a class="knowledge-link" href="/algebra/galois_theory/rings.html#definition-ring">ring</a>, and let \( \left( R, \oplus \right) \) be it's additive group, then we say that \( I \subseteq R \) is a <b>left ideal</b> of \( R \) if
+        <ul>
+            <li>\( \left( I, \oplus \right) \) is a subgroup of \( \left( R, \oplus \right) \)</li>
+            <li>For every \( r \in R \) and \( x \in I \) we have \( r \otimes x \in I \)</li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-right-ideal">
+    <div class="title">
+        Right Ideal
+    </div>
+    <div class="content">
+        Suppose that \( \left( R, \oplus, \otimes \right) \) is a ring, and let \( \left( R, \oplus \right) \) be it's additive group, then we say that \( I \subseteq R \) is a <b>left ideal</b> of \( R \) if
+        <ul>
+            <li>\( \left( I, \oplus \right) \) is a subgroup of \( \left( R, \oplus \right) \)</li>
+            <li>For every \( r \in R \) and \( x \in I \) we have \( x \otimes r \in I \)</li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-binary-operation-applied-to-sets">
+    <div class="title">
+        Binary Operation Applied to Sets
+    </div>
+    <div class="content">
+        Suppose that \( \star \) is a binary operation on a set \( X \), and that \( A, B \subseteq X \), then we define: \[ A \star B := \left\{ a \star b: a \in A, b \in B \right\} \]
+    </div>
+</div>
+<p>Notice that \( r, x \) have changed order</p>
+<div class="definition" id="definition-subring">
+    <div class="title">
+        Subring
+    </div>
+    <div class="content">
+        Suppose that \( \left( R, \oplus, \otimes \right) \) is a ring, and that \( S \subseteq R \), if \( \left( S, \oplus, \otimes \right) \) is a ring, then we say that \( S \) is a subring
+    </div>
+</div>
+<div class="definition" id="definition-subring-with-unity">
+    <div class="title">
+        Subring with Unity
+    </div>
+    <div class="content">
+        Suppose that \( R \) is a ring with unity then we say \( S \subseteq R\) is a subring with unity if \( S \) is a subring of \( R \) and \( 1 _ R \in S \)
+    </div>
+</div>
+<div class="proposition" id="proposition-Z-is-a-subring-with-unity-of-Q">
+    <div class="title">
+        \( \mathbb{ Z } \) is a Subring with Unity of \( \mathbb{ Q } \)
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        We know that \( \mathbb{ Z } \subseteq \mathbb{ Q } \), and let \( +, \cdot \) be multiplication as defined in \( \mathbb{ Q } \), then for any \( a, b \in \mathbb{ Z } \) we can see that \( a + b \in \mathbb{ Q } \) this is because really we have \( \frac{a}{1} + \frac{b}{1} = \frac{a + b}{1} \), similarly \( a \cdot b \in \mathbb{ Z } \) and we know that \( 1 _ \mathbb{ Q } \in \mathbb{ Z } \).
+    </div>
+</div>
+<div class="proposition" id="proposition-subring-criterion">
+    <div class="title">
+        Subring Criterion
+    </div>
+    <div class="content">
+        Suppose \( \left( R, \oplus, \otimes \right) \) is a ring and that \( S \subseteq R \), if
+        <ul>
+            <li>\( S \) is closed under \( \oplus \) and \( \otimes \)</li>
+            <li>\( S \) has inverses with respect to \( \oplus \)</li>
+            <li>\( 1 _ R \in S \)</li>
+        </ul>then \( S \) is a subring
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-subfield">
+    <div class="title">
+        Subfield
+    </div>
+    <div class="content">
+        Suppose that \( S \) is a subcrone of \( R \), then if \( S \) is a field, then we say that \( S \) is a subfield.
+    </div>
+</div>
+<div class="definition" id="definition-fraction-equilvalence-class">
+    <div class="title">
+        Fraction Equivalence Class
+    </div>
+    <div class="content">
+        Suppose that \( R \) is a domain, now consider the relation defined \( R \times R \) where we say that \( \left( r, s \right) \) is related to \( \left( u, v \right) \) iff \( r \otimes v = s \otimes u \). We will notate an element \( \left( x, y \right) \in R \times R \) as \( \frac{x}{y} \), thus we have equivalence classes which we will denote by \( [ \frac{x}{y} ] \), where we note that \( \frac{a}{b} \in [ \frac{x}{y} ] \) iff \( a \otimes y = x \otimes b \)
+    </div>
+</div>
+<div class="definition" id="definition-domain-fractions">
+    <div class="title">
+        Domain Fractions
+    </div>
+    <div class="content">
+        Suppose that \( R \) is a domain, then we define \[ \operatorname{ frac } \left( R \right) := \left\{ \left[ \frac{r}{s} \right] : r, s \in R, s \neq 0 _ R \right\} \]
+    </div>
+</div>
+<div class="proposition" id="proposition-domain-fractions-can-be-extended-to-a-crone">
+    <div class="title">
+        The Domain Fractions Can be Extended to a Crone
+    </div>
+    <div class="content">
+        We define \( \oplus \) as follows: \[ \left[ \frac{r}{s} \right] \oplus \left[ \frac{u}{v} \right] := \left[ \frac{rv + us}{sv} \right] \] And for \( \otimes \) we define \[ \left[ \frac{r}{s} \right] \otimes \left[ \frac{u}{v} \right] := \left[ \frac{ru}{sv} \right] \] Then we claim that \( \left( \operatorname{ frac } \left( R \right) , \oplus, \otimes \right) \) is a crone and we call it the <b>fraction crone</b>
+    </div>
+    <div class="proof">
+        In the definition of \( \otimes \) note that we require the product of \( s v \) to be non-zero for if it was zero then clearly \( \frac{ru}{sv} \notin \operatorname{ frac } \left( R \right) \) (meaning it's not closed under \( \otimes \), this is where the assumption that \( R \) was a domain is being used.
+    </div>
+</div>
+<div class="proposition" id="proposition-the-fraction-field-is-a-field">
+    <div class="title">
+        The Fraction Crone is a Field
+    </div>
+    <div class="content">
+        Suppose that \( \operatorname{ frac } \left( R \right) \) is the fraction crone, then it is also a field
+    </div>
+    <div class="proof">
+        Because we can explicitly construct multiplicative inverses.
+    </div>
+</div>
+<div class="definition" id="definition-field-extension">
+    <div class="title">
+        Field Extension
+    </div>
+    <div class="content">
+        Suppose that \( F \) is a subfield of some field \( E \), then we say that \( E \) is a field extension of \( F \)
+    </div>
+</div>
+<div class="exercise" id="exercise-the-complex-numbers-are-a-field-extension-of-the-reals">
+    <div class="title">
+        The complex numbers are a field extension of the reals
+    </div>
+    <div class="content">
+        \( \mathbb{ C } \) is a field extension of \( \mathbb{ R } \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-field-extension-yields-a-vector-space">
+    <div class="title">
+        Field Extension Yields a Vector Space
+    </div>
+    <div class="content">
+        Suppose that \( E \) is a field extension of \( F \) then \( E \) forms a vector space over \( F \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-degree-of-a-field-extension">
+    <div class="title">
+        Degree of a Field Extension
+    </div>
+    <div class="content">
+        Suppose that \( E \) is a field extension of \( F \), and let \( V _ E \) be the vector space over \( F \), then if this vector space is finite dimension, we say call it's dimension the <b>degree of \( E \) over \( F \)</b> and denote it as \( \left[ E : F \right] \)
+    </div>
+</div>
+<div class="exercise" id="exercise-">
+    <div class="title">
+        Degree of \( \mathbb{ C } \) over \( \mathbb{ R } \)
+    </div>
+    <div class="content">
+        Prove that \( \left[ \mathbb{ C } : \mathbb{ R } \right] = 2 \)
+    </div>
+    <div class="proof">
+        We can prove it by showing that the basis \( \mathcal{ B } := \left( 1, i \right) \) works
+    </div>
+</div>
+<div class="proposition" id="proposition-the-kernel-of-a-ring-homomorphism-is-a-proper-ideal">
+    <div class="title">
+        The Kernel of a Ring Homomorphism is a Proper Ideal
+    </div>
+    <div class="content">
+        Suppose that \( \phi : R \to S \) is a ring homomorphism, then \( \operatorname{ ker } \left( \phi \right) \) is a proper ideal of \( R \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-a-ring-homomorphism-is-an-injection-iff-its-kernel-is-zero">
+    <div class="title">
+        A Ring Homomorphism is an Injection iff It's Kernel is Zero
+    </div>
+    <div class="content">
+        Suppose that \( \phi : R \to S \) is a ring homomorphism, then \( \phi \) is injective iff \( \operatorname{ ker } \left( \phi \right) = \left\{ 0 _ R \right\} \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-field-to-ring-homomorphism-implies-injective">
+    <div class="title">
+        Field to Ring Homomorphism Implies Injective
+    </div>
+    <div class="content">
+        Suppose that \( F \) is a field and that \( S \) is a crone, then if \( \phi : F \to S \) is a crone homomorphism, then it is also injective
+    </div>
+    <div class="proof">
+        <p>If \( S \) is the zero crone, then this trivially holds. So now we assume not the trivial crone</p>
+        <p>Since \( \phi \) is a crone homomorphism, then we know that \( \phi \left( 1 _ F \right) = 1 _ S \), now suppose that \( x \in F \setminus \left\{ 0 _ F \right\} \), then we have some \( x ^ { -1 } \) such that \( x x ^ { -1 } = 1 _ F \), so that \( 1 _ S = \phi \left( 1 _ F \right) = \phi \left( x x ^ { -1 } \right) \) but \( \phi \) is a crone homomorphism, so that \( \phi \left( x x ^ { -1 } \right) = \phi \left( x \right) \phi \left( x ^ { -1 } \right) = \phi \left( x \right) \left[ \phi \left( x \right) \right] ^ { -1 } \).</p>
+        <p>If \( \phi \left( x \right) = 0 _ S \), then we obtain that \( 1 _ S = 0 _ S \), which is a contradiction becaues \( S \) was not trivial. Therefore for any \( x \neq 0 \) we know that \( \phi \left( x \right) \neq 0 \), which says that \( \operatorname{ ker } \left( \phi \right) = \left\{ 0 _ F \right\} \), therefore we obtain that \( \phi \) is an isomorphism.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-field-to-crone-homomorphism-implies-the-image-of-the-field-is-a-sublifield-isomorphic-to-the-original-field">
+    <div class="title">
+        Field to Crone Homomorphism Implies the Image of the Field Is a Subfield Isomorphic to the Original Field
+    </div>
+    <div class="content">
+        Suppose that \( F \) is a field and that \( S \) is a crone, then if \( \phi : F \to S \) is a crone homomorphism, then \( \operatorname{ im } \left( \phi \right) \) is a subfield of \( S \) and is isomorphic to \( F \)
+    </div>
+    <div class="proof">
+        <p>To show that \( \operatorname{ im } \left( \phi \right) \) is a subfield of the crone \( S \) we must show that it is also a crone under \( S \)'s operations \( \oplus, \otimes \). So suppose that \( x, y \in \operatorname{ im } \left( \phi \right) \), by definition this means that there is some \( a, b \in F \) such that \( \phi \left( a \right) = x \) and \( \phi \left( b \right) = y \), we want to now show that \( x \oplus y \in \operatorname{ im } \left( \phi \right) \), but note that \( \phi \left( a + b \right) = \phi \left( a \right) \oplus \phi \left( b \right) = x \oplus y \) therefore \( a + b \) maps to it under \( \phi \) so we know that \( x \oplus y \in \operatorname{ im } \left( \phi \right) \), similarly we can see that \( \phi \left( a \cdot b \right) = \phi \left( a \right) \otimes \phi \left( b \right) = x \otimes y \) so that also \( x \otimes y \in \operatorname{ im } \left( \phi \right) \), where we've used the fact that \( \phi \) is a homomorphism a few times.</p>
+        <p>We'll now show that \( \operatorname{ im } \left( \phi \right) \) has inverses with respect to \( \oplus \), so let \( x \in \operatorname{ im } \left( \phi \right) \) so we have some \( a \in F \) such that \( \phi \left( a \right) = x \), consider the element \( \phi \left( -a \right) \in \operatorname{ im } \left( \phi \right) \), we can see that \( \phi \left( a \right) \oplus \phi \left( -a \right) = \phi \left( a + -a \right) = \phi \left( 0 _ F \right) = 0 _ S \), thus \( \operatorname{ im } \left( \phi \right) \) has inverses with respect to \( \oplus \), finally note that since \( \phi \) was a crone homomorphism, we also know that \( \phi \left( 1 _ F \right) = 1 _ S \) which shows that \( 1 _ S \in \operatorname{ im } \left( \phi \right) \). So we concluded that \( \operatorname{ im } \left( \phi \right) \) is a subcrone.</p>
+        <p>To show it's a subfield, we must now show that \( \operatorname{ im } \left( \phi \right) \) is a field, so we must prove that it has multiplicative inverses, thus let \( x \in \operatorname{ im } \left( \phi \right) \) where \( x \neq O _ S \), we want to prove that it has a multiplicative inverse, but first we know that there is some \( a \in F \) such that \( \phi \left( a \right) = x \), also note that \( a \neq 0 \) or else we have a contradiction, therefore since \( F \) was a field, there is some \( a ^ { -1 } \in F \) such that \( a a ^ { -1 } = 1 _ F \), now we note that \( x \phi \left( a ^ { -1 } \right) = \phi \left( a \right) \phi \left( a \right) ^ { -1 } = \phi \left( a a ^ { -1 } \right) = \phi \left( 1 _ F \right) = 1 _ S \). In other words \( \phi \left( a ^ { -1 } \right) \in \operatorname{ im } \left( \phi \right) \) is an inverse for \( x \), now we conclude that \( \operatorname{ im } \left( \phi \right) \) is a subfield of \( S \).</p>
+        <p>We will now show that \( \operatorname{ im } \left( \phi \right) \) is isomorphic to \( F \) through \( \phi \), we have to show that it's a homomorphism, but we already know it is because of the fact that \( \phi \) is a ring homomorphism, so we just have to show it's a bijection, but every function is in bijection to it's own image, therefore it's an isomorphism.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-gcd-of-two-polynomials">
+    <div class="title">
+        GCD of two Polynomials
+    </div>
+    <div class="content">
+        Find the gcd of \( p \left( x \right) = x ^ 3 - 2 x ^ 2 + 1 \) and \( j \left( x \right) = x ^ 2 - x - 3 \) in \( \mathbb{ Q } \left[ x \right] \) and express it as a linear combination
+    </div>
+    <div class="proof">
+        We employ the euclidean algorithm:
+        <div class="centered-content"><img alt="" src="polynomial_euclidean_algorithm.png"></div>
+        <p>From our first pass of division we conclude that \( p \left( x \right) = \left( x - 1 \right) j \left( x \right) + \left( 2x - 2 \right) \). Denote \( q _ 1 \left( x \right) = x - 1 \) and \( r _ 1 \left( x \right) = 2x - 2 \). From the second iteration we conclude that \( j \left( x \right) = \frac{1}{2} x r _ 1 \left( x \right) - 3 \) and denote \( q _ 2 \left( x \right) = \frac{1}{2} x \) we can see that \( -3 \) is going to be our last non-zero remainder, therefore we know that their gcd will be one. We will find \( -3 \) as a linear combination of the others and then normalize it.</p>
+        <p>We do it all symbolically: \[ \begin{align} -3 &amp;= j \left( x \right) - q _ 2 \left( x \right) r _ 1 \left( x \right) \\ &amp;= j \left( x \right) - q _ 2 \left( x \right) \left[ p \left( x \right) - q _ 1 \left( x \right) j \left( x \right) \right] \\ &amp;= j \left( x \right) - q _ 2 \left( x \right) p \left( x \right) - q _ 2 \left( x \right) q _ 1 \left( x \right) j \left( x \right) \\ &amp;= j \left( x \right) \left[ 1 - q _ 2 \left( x \right) q _ 1 \left( x \right) \right] - q _ 2 \left( x \right) p \left( x \right) \end{align} \] Therefore \( 1 = j \left( x \right) \left[ \frac{-1}{3} \left( 1 - q _ 2 \left( x \right) q _ 1 \left( x \right) \right) \right] + p \left( x \right) \frac{q _ 2 \left( x \right)}{3} \), note that it can be expanded explicitly from this point.</p>
+    </div>
+</div>

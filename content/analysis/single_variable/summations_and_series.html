@@ -1,0 +1,344 @@
+<div class="definition" id="definition-harmonic-number">
+    <div class="title">
+        Harmonic Number
+    </div>
+    <div class="content">
+        We define the \( n \) -th <b>harmonic number</b> as \[ H _ n := 1 + \frac{1 }{2} + \frac{1}{3} + \ldots + \frac{1}{n} = \sum _ { k = 1 } ^ n \frac{1}{k} \]
+    </div>
+</div>
+<div class="proposition" id="proposition-closed-form-of-a-geometric-summation">
+    <div class="title">
+        Closed form of a Geometric Summation
+    </div>
+    <div class="content">
+        For any \( x \in \mathbb{ R } ^ { \neq 1 } \) and \( k \in \mathbb{ N } _ 0 \) \[ \sum_{n = 0}^{k} x^{n} = \frac{1 - x^{k + 1}}{1 - x} \]
+    </div>
+    <div class="proof">
+        Let \( S = \sum_{n = 0}^{k} x^{n} \), then \( x S - S = x^{k + 1} - x^{0} \) therefore \( S = \frac{x^{k + 1} - 1}{x - 1} \), so also \( S = \frac{1 - x^{k + 1}}{1 - x} \) by factoring -1 from the numerator and the denominator, as needed
+        <hr>
+        Or instead it can be proven inductively as follows, in the base case we get \[ \sum _ { n = 0 } ^ 0 x ^ n = x ^ 0 = 1 = \frac{1 - x ^ 1}{1 - x} \] assume it holds true for \( j \in \mathbb{ N } _ 0 \) and we want to prove that it holds true for \( j + 1 \) \[ \begin{align} \sum _ { n = 0 } ^ { j + 1 } x ^ n &amp;= \sum _ { n = 0 } ^ { j } x ^ n + x ^ { j + 1 } \\ &amp;= \frac{1 - x ^ { j + 1 } }{ 1 - x} + \frac{x ^ { j + 1 } \left( 1 - x \right) }{ 1 - x} \\ &amp;= \frac{1 - x ^ { j + 1 } + x ^ { j + 1 } \left( 1 - x \right)}{ 1 - x} \\ &amp;= \frac{1 - x ^ { j + 2 } }{1 - x} \end{align} \] as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-geometric-summation-with-offset">
+    <div class="title">
+        Geometric Summation with Offset
+    </div>
+    <div class="content">
+        For any \( x \in \mathbb{ R } ^ { \neq 1 } \) and \( k \in \mathbb{ N } _ 0 \) we have \[ \sum _ { n = m } ^ { k } x _ n = x ^ m \left( \frac{1 - x ^ { k - m + 1 } }{1 - x} \right) \]
+    </div>
+    <div class="proof">
+        Once we've proven the generalized factoring for arbitrary sums then we have \[ \sum _ { n = m } ^ { k } x _ n = x ^ m \left( \sum _ { n = 0 } ^ { k - m + 1 } x ^ n \right) = x ^ m \left( \frac{1 - x ^ { k - m + 1 } }{ 1 - x} \right) \]
+    </div>
+</div>
+<p>Note that when \( x = 1 \) the sum simply yields \( k + 1 \).</p>
+<div class="definition" id="definition-series">
+    <div class="title">
+        Series
+    </div>
+    <div class="content">
+        Given a sequence \( \left( a _ n \right) _ { n = 1 } ^ \infty \) and defining \( S _ k = \sum _ { i = 1 } ^ k a _ k \) then we define \[ \sum _ { i = 0 } ^ \infty a _ i := \lim _ { n \to \infty } S _ n \]
+    </div>
+</div>
+<p>Note that because it is defined as a limit we can ask if \( \sum _ { i = 0 } ^ \infty a _ n \) converges or not.</p>
+<div class="proposition" id="proposition-">
+    <div class="title">
+        Harmonic Series Diverges
+    </div>
+    <div class="content">
+        \[ \sum _ { n = 1 } ^ \infty \frac{1}{n} \] diverges to \( \infty \)
+    </div>
+    <div class="proof">
+        We claim that \( S _ { 2 ^ k } \ge \frac{k + 2 }{2} = \frac{k}{2} + 1 \) for all \( k \in \mathbb{ N } _ 0 \), for the base case we see that \( S _ { 2 ^ 0 } = S _ 1 = \frac{1}{1} \ge \frac{0}{2} + 1 \) so it holds true, now suppose its true for some \( j \in \mathbb{ N } _ 0 \) we want to prove that \( S _ { 2 ^ { j + 1 } } \ge \frac{j + 1 }{2} + 1 \) \[ \begin{align} S _ { 2 ^ { k + 1 } } &amp;= S _ { 2 ^ k } + \sum _ { m = 2 ^ k + 1 } ^ { 2 ^ { k + 1 } } \frac{1}{m} \\ &amp;\ge \left( \frac{k }{2} + 1 \right) + \sum _ { m = 2 ^ k + 1 } ^ { 2 ^ { k + 1 }} \frac{1}{m} \\ &amp;\ge \left( \frac{k }{2} + 1 \right) + \sum _ { m = 2 ^ k + 1 } ^ { 2 ^ { k + 1 } }\frac{1}{2 ^ { k + 1 } } \\ &amp;\ge \left( \frac{k }{2} + 1 \right) + \sum _ { m = 2 ^ k + 1 } ^ { 2 ^ { k + 1 } } \frac{1}{2 ^ { k + 1 } } \\ &amp;= \left( \frac{k }{2} + 1 \right) + 2 ^ k \left( \frac{1}{2 ^ { k + 1 } } \right) \\ &amp;= \left( \frac{k }{2} + 1 \right) + \frac{1}{2} \\ &amp;= \frac{k + 1 }{2} + 1 \end{align} \] Thus since \( S _ { 2 ^ k } \ge \frac{k}{2} + 1 \) and \( \lim _ { k \to \infty } \frac{k}{2} + 1 = \infty \) then we know that \( \sum _ { k \to \infty } S _ { 2 ^ k } = \infty \) and thus since a subsequence \( S _ n \) diverges then we know that \( S _ n \) diverges
+    </div>
+</div>
+<div class="proposition" id="proposition-geometric-power-series">
+    <div class="title">
+        Geometric Power Series
+    </div>
+    <div class="content">
+        for \( \left | x \right | \lt; 1 \) we have \[ \sum_{n = 0}^{\infty} x^{n} = \frac{1}{1 - x} \]
+    </div>
+    <div class="proof">
+        <p>By definition we know that \( \sum_{n = 0}^{\infty} x^{n} = \lim_{k \to \infty} \sum_{n = 0}^{k} x^{n} \)<span class="knowledge-link" data-href="/analysis/single_variable/series.html#proposition-closed-form-of-a-geometric-series">\( = \)</span> \( \lim_{k \to \infty} \frac{1 - x^{k + 1}}{1 - x} \)</p><a href="#lemma-exponent-limit">exponent limit lemma</a> if \( \left | x \right | \lt; 1 \) then \( \lim_{k \to \infty} x^{k + 1} \) becomes zero and we get \( \lim_{k \to \infty} \frac{1 - x^{k + 1}}{1 - x} = \frac{1}{1 - x} \)
+    </div>
+</div>
+<div class="corollary" id="corollary-geometric-power-series-with-offset">
+    <div class="title">
+        Geometric Power Series with Offset
+    </div>
+    <div class="content">
+        For \( \left\lvert x \right\rvert \lt 1 \) we have \[ \sum _ { n = m } ^ { \infty } x _ n = \frac{x ^ m}{1 - x} \]
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#corollary-geometric-summation-with-offset">geometric summation with offset</a> we know that \[ \sum _ { n = m } ^ { \infty } x _ n = \lim _ { k \to \infty } x _ m \left( \frac{1 - x ^ { k - m + 1 }}{1 - x} \right) = \frac{x ^ m}{1 - x} \]
+    </div>
+</div>
+<div class="corollary" id="corollary-series-of-halves-is-bounded">
+    <div class="title">
+        Series of Halves is Bounded
+    </div>
+    <div class="content">
+        \[ \sum _ { n = 0 } ^ \infty \frac{1}{2} ^ n = \frac{1}{1 - \frac{1}{2} } = 2 \]
+    </div>
+    <div class="proof">
+        In the above proposition take \( x = \frac{1}{2} \).
+    </div>
+</div>
+<div class="proposition" id="proposition-geometric-sum-with-incrementing-factor">
+    <div class="title">
+        geometric sum with incrementing factor
+    </div>
+    <div class="content">
+        Given \( t \in \mathbb{R}^{\ne 0} \), the following holds: \[ \sum_{i = 1}^{n} i t^{i} = t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1 - t} \]
+    </div>
+    <div class="proof">
+        We want to find the sum defined by
+        <div class="centered-content">
+            \( S \left ( t \right ) := t + 2 t^{2} + 3 t^{3} + \ldots + \left ( n - 1 \right ) t^{n - 1} + n t^{n} \),
+        </div>But then we know that
+        <div class="centered-content">
+            <div>
+                \( t \cdot S \left ( t \right ) = t^{2} + 2 t^{3} + 3 t^{4} + \ldots + \left ( n - 1 \right ) t^{n} + n t^{n + 1} \)
+            </div>
+            <div>
+                \( \iff \)
+            </div>
+            <div>
+                \( S \left ( t \right ) - t S \left ( t \right ) = t + t^{2} + t^{3} + \ldots + t^{n} - n t^{n + 1} \)
+            </div>
+            <div>
+                \( \iff \)
+            </div>
+            <div>
+                \( \left ( 1 - t \right ) S \left ( t \right ) = t + t^{2} + t^{3} + \ldots + t^{n} - n t^{n + 1} \)
+            </div>
+        </div>Now since we know that \( t + t^{2} + t^{3} + \ldots + t^{n} = t \frac{1 - t^{n}}{1 - t} \), then we have
+        <div class="centered-content">
+            <div>
+                \( \left ( 1 - t \right ) S \left ( t \right ) = t \frac{1 - t^{n}}{1 - t} - n t^{n + 1} \)
+            </div>
+            <div>
+                \( \iff \)
+            </div>
+            <div>
+                \( S \left ( t \right ) = \frac{t \frac{1 - t^{n}}{1 - t} - n t^{n + 1}}{1 - t} \)
+            </div>
+            <div>
+                \( \iff \)
+            </div>
+            <div class="boxed">
+                \( S \left ( t \right ) = t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1 - t} \)
+            </div>
+        </div>
+    </div>
+</div>
+<div class="proposition" id="proposition-geometric-series-with-incrementing-factor">
+    <div class="title">
+        geometric series with incrementing factor
+    </div>
+    <div class="content">
+        Suppose that \( \left | t \right | \lt 1 \), then \[ \sum_{i = 1}^{\infty} i t^{i} = \frac{t}{\left ( 1 - t \right )^{2}} \]
+    </div>
+    <div class="proof">
+        <p>We know that \( \sum_{i = 1}^{\infty} i t^{i} = \lim_{n \to \infty} \sum_{i = 1}^{n} i t^{i} \) <span class="knowledge-link" data-href="/analysis/single_variable/series.html#proposition-geometric-sum-with-incrementing-factor">\( = \)</span> \( \lim_{n \to \infty} t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1 - t} \)</p>
+        <p>Now since \( \left | t \right | \lt 1 \), then \( \lim_{n \to \infty} t^{n} = 0 \) and \( \lim_{n \to \infty} n t^{n + 1} = 0 \), therefore \( \lim_{n \to \infty} t \frac{1 - t^{n}}{\left ( 1 - t \right )^{2}} - n \frac{t^{n + 1}}{1 - t} = \frac{t}{\left ( 1 - t \right )^{2}} \) as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-convergent-series-implies-sequence-goes-to-zero">
+    <div class="title">
+        Convergent Series Implies Sequence goes to Zero
+    </div>
+    <div class="content">
+        If \( \sum _ { n = 1 } ^ \infty a _ n \) is convergent then \( \lim _ { n \to \infty } a _ n = 0 \)
+    </div>
+    <div class="proof">
+        Let \( \left( S _ n \right) _ { n = 1 } ^ \infty \) be so defined such that \( S _ n = \sum _ { i = 0 } ^ n a _ i \), observe that \( S _ n - S _ { n - 1 } = a _ n \) for all \( n \ge 2 \) so then \[ \lim _ { n \to \infty } a _ n = \lim _ { n \to \infty } \left( s _ n - s _ { n - 1 } \right) = \lim _ { n \to \infty } s _ n - \lim _ { n \to \infty } s _ { n - 1 } = 0 \]
+    </div>
+</div>
+<div class="theorem" id="theorem-cauchy-criterion-for-series">
+    <div class="title">
+        Cauchy Criterion for Series
+    </div>
+    <div class="content">
+        Suppose that \( \sum _ { n = 1 } ^ \infty a _ n \) is a series, then the following are equivalent:
+        <ol>
+            <li>The series converges</li>
+            <li>\( \forall \epsilon \in \mathbb{ R } ^ + , \exists N \in \mathbb{ N } _ 0 \text{ st } \forall n \in \mathbb{ N } _ 0 , n \ge N \implies \lvert \sum _ { k = n + 1 } ^ \infty a _ k \rvert \lt \epsilon \)</li>
+            <li>\( \forall \epsilon \in \mathbb{ R } ^ + , \exists N \in \mathbb{ N } _ 0 \text{ st } \forall n, m \in \mathbb{ N } _ 0 , n, m \ge N \implies \lvert \sum _ { k = n + 1 } ^ m a _ k \rvert \lt \epsilon \)</li>
+        </ol>
+    </div>
+    <div class="proof">
+        <p>We start by proving that \( 1 \implies 2 \) so assume that series converges. Let \( S _ n := \sum _ { k = 1 } ^ n a _ k \) be the sequence of partial sums, therefore we know that for any \( \epsilon \) there is an \( N \in \mathbb{ N } _ 0 \) such that for all \( n \ge N, \left\lvert S _ n - L \right\rvert \lt \epsilon \), note that \[ \begin{align} L - S _ n &amp;= \left( \lim _ { m \to \infty } S _ m \right) - S _ n \\ &amp;= \lim _ { m \to \infty } \left( S _ m - S _ n \right) \\ &amp;= \lim _ { m \to \infty } \sum _ { k = n + 1 } ^ m a _ k \\ &amp;= \sum _ { k = n + 1 } ^ \infty a _ k \end{align} \] then it follows that \[ \left\lvert \sum _ { k = n + 1 } ^ \infty a _ k \right\rvert = \left\lvert S _ n - L \right\rvert \lt \epsilon \] as needed.</p>
+        <hr>
+        <p>Now we'll prove that \( 2 \implies 3 \) so to show this is true, let \( \epsilon \in \mathbb{ R } ^ + \) therefore by considering \( \frac{\epsilon}{2} \) in our assumption we get an \( N \in \mathbb{ N } _ 1 \) such that for any \( n \ge N \) we have that \[ \left\lvert \sum _ { k = n + 1 } ^ \infty a _ k \right\rvert \le \frac{\epsilon}{2} \]</p>
+        <p>Now let \( a, b \ge N \) and we'll prove that \( \left\lvert \sum _ { k = a + 1 } ^ b a _ k \right\rvert \lt \epsilon \), to do this note the following \[ \begin{align} \left\lvert \sum _ { k = a + 1 } ^ b a _ k \right\rvert &amp;= \left\lvert \sum _ { k = a + 1 } ^ b a _ k + \sum _ { k = b + 1 } ^ \infty a _ k - \sum _ { k = b + 1 } ^ \infty a _ k \right\rvert \\ &amp;= \left\lvert \sum _ { k = a + 1 } ^ \infty a _ k - \sum _ { k = b + 1 } ^ \infty a _ k \right\rvert \\ &amp;\le \left\lvert \sum _ { k = a + 1 } ^ \infty a _ k \right\rvert + \left\lvert \sum _ { k = b + 1 } ^ \infty a _ k \right\rvert \\ &amp;\lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon \end{align} \] as needed.</p>
+        <hr>
+        <p>We'll prove that \( 3 \implies 1 \), since we assume \( 3 \) and use the notation for \( S _ n \) as the partial sums, then we can see that \[ \left\lvert \sum _ { k = n + 1 } ^ { m } \right\rvert = \left\lvert S _ m - S _ n \right\rvert \] and thus assuming \( 3 \) is the same as assuming that \( S _ n \) is cauchy, but we know that any cauchy sequence is convergent and thus \( S _ n \) converges, which shows that \( \sum _ { n = 1 } ^ {\infty } a _ n \) converges.</p>
+    </div>
+</div>
+<p>Note that 2 informally says that tails converge and are arbitrarily small, and 3 essentially says that \( S _ n \) is a cauchy sequence because \( \sum _ { k = n + 1 } ^ m a _ k = S _ m - S _ n \)</p>
+<div class="definition" id="definition-summable">
+    <div class="title">
+        Summable
+    </div>
+    <div class="content">
+        We say that the sequence \( \left( a _ n \right) \) is summable if the limit \( \sum _ { n = 1 } ^ \infty a _ n \) exists.
+    </div>
+</div>
+<div class="theorem" id="theorem-comparison-test">
+    <div class="title">
+        Comparison Test
+    </div>
+    <div class="content">
+        Consider two sequences of real numbers \( \left( a _ n \right) , \left( b _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R } \) with \( \lvert a _ n \rvert \le b _ n \) for all \( n \in \mathbb{ N } _ 1 \), then if \( \left( b _ n \right) \) is <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-summable">summable</a> then \( \left( a _ n \right) \) is summable and \[ \left\lvert \sum _ { n = 1 } ^ \infty a _ n \right\rvert \le \sum _ { n = 1 } ^ \infty b _ n \] while if \( \left( a _ n \right) \) is not summable, then \( \left( b _ n \right) \) is not summable.
+    </div>
+    <div class="proof">
+        Assume our hypothesis, and we'll show that \( \left( a _ n \right) \) is summable, to do this we'll use 2 of the cauchy criterion, so let \( \epsilon \in \mathbb{ R } ^ + \), also since \( \left( b _ n \right) \) is summable, by \( 3 \) of the cauchy criterion we obtain some \( N \in \mathbb{ N } _ 1 \) such that for any \( n, m \ge N \) we have \( \left\lvert \sum _ { k = n + 1 } ^ { m } b _ k \right\rvert \lt \epsilon \), but recall the inequalities we've assumed between \( \left( a _ n \right), \left( b _ n \right) \), which shows us that \[ \left\lvert \sum _ { k = n + 1 } ^ { m } a _ k \right\rvert \le \sum _ { n = k + 1 } ^ m \left\lvert a _ k \right\rvert \le \sum _ { k = n + 1 } ^ { m } b _ k \lt \epsilon \] The first \( \le \) follows from the <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#proposition-generalized-triangle-inequality">generalized triangle inequality</a>, the second follows from our assumed inequality. Thus \( \left( a _ n \right) \) is summable.
+        <hr>
+        Suppose that \( \left( a _ n \right) \) is not summable, we'll show that \( \left( b _ n \right) \) is not summble, for if it were then by part one of the proof then \( \left( a _ n \right) \) would be which is a contradiction.
+    </div>
+</div>
+<div class="corollary" id="corollary-if-the-absolute-valued-series-converges-then-so-does-the-original">
+    <div class="title">
+        If the Absolute Valued Series Converges then so does the Original
+    </div>
+    <div class="content">
+        If \( \sum _ { n = 1 } ^ \infty \left\lvert a _ n \right\rvert \) converges then so does \( \sum _ { n = 1 } ^ \infty a _ n \)
+    </div>
+    <div class="proof">
+        Clearly \( \left\lvert a _ n \right\rvert \le \left\lvert a _ n \right\rvert \) for all \( n \in \mathbb{ N } _ 1 \) thus by considering \( b _ n = \left\lvert a _ n \right\rvert \) in the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-comparison-test">comparison test</a> we have that \( \left( a _ n \right) \) is summable.
+    </div>
+</div>
+<div class="proposition" id="proposition-non-negative-series-converges-iff-partial-sums-are-bounded-above">
+    <div class="title">
+        Non-Negative Series Converges iff Partial Sums are Bounded Above
+    </div>
+    <div class="content">
+        Suppose that \( a _ n \ge 0 \) for every \( n \in \mathbb{ N } _ 1 \) , then \( \left( a _ n \right) \) is summable iff \( \left( S _ n \right) \) is bounded above, where \( S _ k := \sum _ { n = 1 } ^ k a _ n \)
+    </div>
+    <div class="proof"></div>
+</div>
+<p>We required that \( a _ n \ge 0 \) because if you consider the series \( \sum _ { n = 1 } ^ \infty \left( -1 \right) ^ \left( n + 1 \right) \) that has a sequence of partial sums of the form \( 1, 0, 1, 0, 1, 0, \ldots \) which is clearly bounded but the limit doesn't exist.</p>
+<div class="lemma" id="lemma-monotone-increasing-sequence-with-a-subsequence-which-is-bounded-above-implies-entire-sequence-is-bounded-above">
+    <div class="title">
+        Monotone Increasing Sequence with a Subsequence which is Bounded Above Implies Entire Sequence is Bounded Above
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ n \right) \) is monotone increasing, and there is some subsequence \( \left( a _ { \sigma \left( n \right) } \right) \) that is bounded above, then \( \left( a _ n \right) \) is bounded above.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-cauchy-condensation-test">
+    <div class="title">
+        Cauchy Condensation Test
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R } ^ + \) is monotone decreasing then \[ \sum _ { n = 1 } ^ \infty a _ n \lt \infty \iff \sum _ { n = 0 } ^ \infty 2 ^ n a _ { 2 ^ n } \lt \infty \]
+    </div>
+    <div class="proof">
+        Let's define \( S _ n = \sum _ { k = 1 } ^ n a _ k \) and \( T _ n = \sum _ { k = 0 } ^ n 2 ^ k a _ { 2 ^ k } \).
+        <p>Assume that \( \sum _ { n = 0 } ^ \infty 2 ^ n a _ { 2 ^ n } \) converges, which by definition means that \( \left( T _ n \right) \) converges and is therefore bounded above, which means there is some \( M \) such that for any \( i \in \mathbb{ N } _ 0, T _ i \le M \), we'll use this fact to show that \( \left( S _ n \right) \) is bounded above by showing that it has a subsequence which is bounded above. Namely we will prove that \[ S _ { 2 ^ n - 1 } \le t _ { n - 1 } \le M \]</p>
+        <p>Base case \( n = 1 \), \( S _ { 2 ^ 1 - 1 } = S _ 1 = a _ 1 = 2 ^ 0 a _ { 2 ^ 0 } = T _ 0 \le M \) as needed. Now asssume that it holds true for \( n \in \mathbb{ N } _ 1 \), which is to say that \( S _ { 2 ^ n - 1 } \le T _ { n - 1 } \le M \) and now let's prove that \( S _ { 2 ^ { n + 1 } - 1 } \le T _ { n } \le M \)</p>
+        <p>Note that in the induction step the following fact will be useful, which says for any \( n \in \mathbb{ N } _ 1 \) we have that \[ T _ { n } - T _ { n - 1 } = 2 ^ n a _ { 2 ^ n } \] Now continuing on, we note the following</p>
+        <p>\[ \begin{align} S _ { 2 ^ { n + 1 } - 1 } &amp;= S _ { 2 ^ n - 1 } + \sum _ { i = 2 ^ n } ^ { 2 ^ { n + 1 } - 1 } a _ i\\ &amp;\le T _ { n - 1 } + \sum _ { i = 2 ^ n } ^ { 2 ^ { n + 1 } - 1 } a _ i\\ &amp;\le T _ { n - 1 } + 2 ^ n a _ { 2 ^ n } \\ &amp;= T _ { n - 1 } + \left( T _ n - T _ { n - 1 } \right) \\ &amp;= T _ { n } \le M \end{align} \] Note that going from the second line to the third comes from the fact that \( \left( a _ n \right) \) is decreasing which means for any \( x \in \left\{ 2 _ n, \ldots, 2 ^ { n + 1 } - 1 \right\} \) that \( a _ { 2 ^ n } \ge a _ x \) additionally the <a class="knowledge-link" href="/combinatorics/basics.html#proposition-the-number-of-integers-between-two-integers-inclusive">the size of that set is</a> \( 2 ^ { n + 1 } - 1 - 2 ^ n + 1 = 2 ^ n \left( 2 - 1 \right) = 2 ^ n \), which allow us to upper bound that summation by \( 2 ^ n a _ { 2 ^ n } \), which shows the induction step true. Thus we've proven that \( S _ n \) is bounded above, and so by the MCT it converges which is to say that \( \sum _ { n = 1 } ^ \infty a _ n \lt \infty \)</p>
+        <p>Now let's assume that \( \sum _ { n = 0 } ^ \infty 2 ^ n a _ { 2 ^ n } \) converges, and show that the other one does as well, we'll follow a similar structure that in we show that \( T _ n \) is bounded above. Specifically we will show that \[ a _ 1 + 2 \sum _ { i = 2 } ^ { 2 ^ n } a _ n \ge T _ n \] Since \( \left( S _ n \right) \) is bounded above by some \( M \in \mathbb{ R } \) then by adding \( a _ 1 \) to both sides we obtain \( 2 S _ { 2 ^ n } \ge a _ 1 + T _ n \) which is to say that \( 2 M \ge a _ 1 + T _ n \) which shows that \( T _ n \) is bounded above, and since it is increasing we would know that it converges by the MCT.</p>
+        <p>For the base case of \( n = 0 \) we have \( a _ 1 + 2 a _ 2 \ge a _ 1 = T _ 0 \) so it holds true. Now let \( n \in \mathbb{ N } _ 0 \) and suppose that \( a _ 1 + 2 \sum _ { i = 2 } ^ { 2 ^ n } a _ n \ge T _ n \) we need to prove that \( a _ 1 + 2 \sum _ { i = 2 } ^ { 2 ^{ n + 1 } } a _ n \ge T _ { n + 1 } \), then notice that \[ \begin{align} a _ 1 + 2 \sum _ { i = 2 } ^ { 2 ^ { n + 1 } } a _ n &amp;= a _ 1 + 2 \sum _ { i = 2 } ^ { 2 ^ n } a _ n + 2 \sum _ { i = 2 ^ n + 1 } ^ { 2 ^ { n + 1 } } a _ n \\ &amp;\ge T _ n + 2 \sum _ { i = 2 ^ n + 1 } ^ { 2 ^ { n + 1 } } a _ n \\ &amp;\ge T _ n + 2 \left( 2 ^ n a _ { 2 ^ { n + 1 } } \right) \\ &amp;= T _ n + 2 ^ { n + 1 } a _ { 2 ^ { n + 1 } } \\ &amp;= T _ n + \left( T _ { n + 1 } - T _ n \right) \\ &amp;= T _ { n + 1 } \end{align} \] In this case the 3rd line follows by a similar argument to the previous induction step, but this team using the fact that for all \( x \in \left\{ 2 ^ n + 1 , \ldots , 2 ^ { n + 1 } \right\} \) we have \( a _ x \ge a _ { 2 ^ { n + 1 } } \) because \( \left( a _ n \right) \) is monotone decreasing.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-one-over-n-to-the-p-converges-iff-p-is-greater-than-one">
+    <div class="title">
+        One over N to the p Convergence iff p is greater than One
+    </div>
+    <div class="content">
+        \[ \sum _ { n = 1 } ^ \infty \frac{1}{n ^ p} \lt \infty \iff p \ge 1 \]
+    </div>
+    <div class="proof">
+        Recall that \( \sum _ { n = 1 } ^ \infty \frac{1}{n ^ p} \) <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-cauchy-condensation-test">converges iff</a> \( \sum _ { n = 0 } ^ \infty 2 ^ n \frac{1}{\left( \left( 2 ^ n \right) ^ p \right) } = \sum _ { n = 0 } ^ \infty 2 ^ { n - n p } = \sum _ { n = 0 } ^ \infty \left( 2 ^ { 1 - p } \right) ^ n \) which <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#proposition-geometric-power-series">converges iff</a> \( 2 ^ \left( 1 - p \right) \in \left( -1, 1 \right) \) since \( 2 ^ \left( 1 - p \right) \) is always positive then we just need \( 2 ^ \left( 1 - p \right) \lt 1 \) which is the same as \( 1 - p \lt \log _ 2 \left( 1 \right) = 0 \) which is equivalent to \( 1 \lt p \)
+    </div>
+</div>
+<div class="theorem" id="theorem-root-test">
+    <div class="title">
+        Root Test
+    </div>
+    <div class="content">
+        Suppose that \( a _ n \ge 0 \) for all \( n \in \mathbb{ N } _ 1 \) and let \( l = \limsup \left( \sqrt[n]{ a _ n } \right) \) if \( l \lt 1 \) then \( \sum _ { n = 1 } ^ \infty a _ n \) converges and if \( l \gt 1 \) then \( \sum _ { n = 1 } ^ \infty \) diverges
+    </div>
+    <div class="proof">
+        Suppose everything in the hypothesis is true, let's prove that \( \sum _ { n = 1 } ^ { \infty } a _ n \) converges. Clearly we can pick an \( r \in \left( l , 1 \right) \) since \( l \lt 1 \) and since \( \limsup \left( \sqrt[n]{ a _ n } \right) = l \) by using \( \epsilon = r - l \in \mathbb{ R } ^ + \), then we know that there is some \( N \in \mathbb{ N } _ 1 \) such that for all \( n \ge N \) we have \[ \left\lvert \sup \left( \left\{ \sqrt[k]{ a _ k }: k \ge n \right\} \right) - l \right\rvert \lt \epsilon \] since \( \sqrt[n]{ a _ n } \in \left\{ \sqrt[k]{ a _ k }: k \ge n \right\} \) then we must have \( \sqrt[n]{ a _ n } \le \sup \left( \left\{ \sqrt[k]{ a _ k }: k \ge n \right\} \right) \) as it's an upper bound, thus \[ \left\lvert \sqrt[n]{ a _ n } - l \right\rvert \lt \left\lvert \sup \left( \left\{ \sqrt[k]{ a _ k }: k \ge n \right\} \right) - l \right\rvert \lt \epsilon \] so that \( \sqrt[n]{ a _ n } \lt l + \epsilon = l + \left( r - l \right) = r \), in other words \( a _ n \lt r ^ n \) for all \( n \ge N \), then we construct the sequence by
+        <ul>
+            <li>\( b _ n := a _ n \) for \( n \in \left[ 1, \ldots N - 1 \right] \)</li>
+            <li>\( b _ n := r ^ n \) if \( n \ge N \)</li>
+        </ul>thus by construction we have \( \left\lvert a _ k \right\rvert = a _ k \le b _ k \) for all \( k \in \mathbb{ N } _ 1 \) moreover we can confirm that \( \left( b _ n \right) \) is summable directly as \[ \sum _ { n = 1 } ^ { \infty } b _ n = \sum _ { n = 1 } ^ { N - 1 } b _ n + \sum _ { n = N } ^ { \infty } r ^ n =\sum _ { n = 1 } ^ { N - 1 } b _ n + \frac{r ^ N}{1 - r} \] the final equality comes from a <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#corollary-geometric-power-series-with-offset">geometric series with an offset</a> since the right hand side is the sum of two finite things then \( \left( b _ n \right) \) is summable and thus by the <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#theorem-comparison-test">comparison test</a> we conclude that \( \sum _ { n = 1 } ^ \infty a _ n \) converges.
+        <hr>
+    </div>
+</div>
+<div class="proposition" id="proposition-ratio-test">
+    <div class="title">
+        Ratio Test
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ n \right) _ { n = 1 } ^ \infty \) is a sequence of positive terms. Show that if \( \limsup _ { n \to \infty } \frac{a _ { n + 1 } }{ a _ n} \lt 1 \) then \( \sum _ { n = 1 } ^ \infty a _ n \) converges
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-alternating-sequence">
+    <div class="title">
+        Alternating Sequence
+    </div>
+    <div class="content">
+        A sequence is alternating if it has the form \( \left( -1 \right) ^ n a _ n \) or \( \left( -1 \right) ^ \left( n + 1 \right) a _ n \) where \( a _ n \ge 0 \) for all \( n \in \mathbb{ N } _ 1 \).
+    </div>
+</div>
+<p>This characterization simply states that consecutive terms change sign.</p>
+<div class="definition" id="definition-alternating-series">
+    <div class="title">
+        Alternating Series
+    </div>
+    <div class="content">
+        A series \( \sum _ { n = 1 } ^ \infty a _ n \) is said to be <b>alternating</b> if \( \left( a _ n \right) \) is <a class="knowledge-link" href="/analysis/single_variable/summations_and_series.html#definition-alternating-sequence">alternating</a>.
+    </div>
+</div>
+<div class="proposition" id="proposition-leibniz-alternating-series-test">
+    <div class="title">
+        Leibniz Alternating Series Test
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ n \right) : \mathbb{ N } _ 1 \to \mathbb{ R } \) is a <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-monotone-decreasing-sequence">monotone decreasing</a> sequence and \( \lim _ { n \to \infty } a _ n = 0 \) then the alternating series \[ \sum _ { n = 1 } ^ \infty \left( -1 \right) ^ n a _ n \] converges
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-absolutely-convergent-series">
+    <div class="title">
+        Absolutely Convergent Series
+    </div>
+    <div class="content">
+        A series \( \sum _ { n = 1 } ^ \infty a _ n \) is said to be <b>absolutely convergent</b> if the series \( \sum _ { n = 1 } ^ \infty \left\lvert a _ n \right\rvert \) converges.
+    </div>
+</div>
+<div class="definition" id="definition-conditionally-convergent-series">
+    <div class="title">
+        Conditionally Convergent Series
+    </div>
+    <div class="content">
+        A series \( \sum _ { n = 1 } ^ \infty a _ n \) is said to be conditionally convergent if it converges but \( \sum _ { n = 1 } ^ \infty a _ n \) does not.
+    </div>
+</div>
+<p>Recall that \( \sum _ { n = 1 } ^ \infty \frac{\left( -1 \right) ^ { n + 1 } }{n} \) converges to \( \ln \left( 2 \right) \) and is conditionally convergent because the harmonic series diverges.</p>
+<div class="definition" id="definition-series-rearrangement">
+    <div class="title">
+        Series Rearrangement
+    </div>
+    <div class="content">
+        A <b>rearrangment</b> of a series \( \sum _ { n = 1 } ^ \infty \) is another series \[ \sum _ { n = 1 } ^ \infty a _ { \pi \left( n \right) } \] where \( \pi \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-permutation">permutation</a> of \( \mathbb{ N } _ 1 \)
+    </div>
+</div>
+<p>The above definition formalizes the idea of taking a series and then looking at it with the same terms in a different order. Also note that the definition of a series is the limit of the partial sums, which is an entirely different thing than the \( + \) operation, thus we have no idea whether or not the new series will have the same limit, or even exist.</p>
+<div class="theorem" id="theorem-every-rearrangement-of-an-absolutely-convergent-series-converges-to-the-same-limit">
+    <div class="title">
+        Every Rearrangment of an Absolutely Convergent Series converges to the same Limit
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof"></div>
+</div>

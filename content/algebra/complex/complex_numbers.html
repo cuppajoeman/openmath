@@ -1,0 +1,186 @@
+<div class="definition" id="definition-addition">
+    <div class="title">
+        Addition
+    </div>
+    <div class="content">
+        Given \( a + b i , c + d i \in \mathbb{C} \), we define \[ \left ( a + b i \right ) + \left ( c + d i \right ) = \left ( a + c \right ) + \left ( b + d \right ) i \ \]
+    </div>
+</div>
+<div class="definition" id="definition-multiplication">
+    <div class="title">
+        Multiplication
+    </div>
+    <div class="content">
+        given \( a + b i , c + d i \in \mathbb{C} \), then: \[ \left ( a + b i \right ) \cdot \left ( c + d i \right ) = a b + i \left ( a d + b c \right ) - d b = \left ( a d - b d \right ) + i \left ( a d + b c \right ) \]
+    </div>
+</div>
+<div class="definition" id="definition-equality">
+    <div class="title">
+        Equality
+    </div>
+    <div class="content">
+        Given \( a + b i , c + d i \in \mathbb{C} \), they are equal when \( a = c \) and \( b = d \)
+    </div>
+</div>
+<div class="definition" id="definition-complex-conjugate">
+    <div class="title">
+        Conjugate
+    </div>
+    <div class="content">
+        suppose \( z = x + i y \), then the conjugate is defined and denoted by \[ \overline{z} := x - i y \]
+    </div>
+</div>
+<div class="proposition" id="proposition-conjugate-cancels">
+    <div class="title">
+        conjugate Cancels
+    </div>
+    <div class="content">
+        \( \overline{\overline{z}} = z \)
+    </div>
+    <div class="proof">
+        Let \( z = x + i y \), then \( \overline{z} = x - i y = x + i \left ( - y \right ) \) then \( \overline{\overline{z}} = x - i \left ( - y \right ) = x + i y = z \) as needed.
+    </div>
+</div>
+<div class="definition" id="definition-modulus">
+    <div class="title">
+        Modulus
+    </div>
+    <div class="content">
+        for any \( z = x + i y \in \mathbb{C} \), we define \[ \left | z \right | := \sqrt{x^{2} + y^{2}} \]
+    </div>
+</div>
+<div class="corollary" id="corollary-modulus-ignores-conjugates">
+    <div class="title">
+        Modulus Ignores Conjugates
+    </div>
+    <div class="content">
+        \[ \left | \overline{z} \right | = \left | z \right | \]
+    </div>
+    <div class="proof">
+        Suppose that \( z = x + i y \), then \( \left | \overline{z} \right | = \left | x - i y \right | = \sqrt{x^{2} + \left ( - y \right )^{2}} = \sqrt{x^{2} + y^{2}} = \left | z \right | \)
+    </div>
+</div>
+<div class="proposition" id="proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">
+    <div class="title">
+        complex number times it's conjugate equals the modulus squared
+    </div>
+    <div class="content">
+        <div class="centered-content">
+            \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \)
+        </div>
+    </div>
+    <div class="proof">
+        suppose that \( z = x + i y \), then \( z \cdot \overline{z} = \left ( x + i y \right ) \cdot \left ( x - i y \right ) = x^{2} + y^{2} + x y i - x y i = x^{2} + y^{2} \), but then again \( \left | z \right | = \left | x + i y \right | = \sqrt{x^{2} + y^{2}} \) thus \( z \cdot \overline{z} = \left | z \right | ^{2} \)
+    </div>
+</div>
+<div class="definition" id="definition-inverse">
+    <div class="title">
+        inverse
+    </div>
+    <div class="content">
+        the inverse of a complex number \( z \in \mathbb{C} \) is another \( w \in \mathbb{C} \) such that \( z \cdot w = 1 \), we denote \( w \) by \( z^{- 1} \) or \( \frac{1}{z} \)
+    </div>
+</div>
+<div class="theorem" id="theorem-value-of-the-inverse">
+    <div class="title">
+        value of the inverse
+    </div>
+    <div class="content">
+        Given \( z \in \mathbb{C} \) we have \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \)
+    </div>
+    <div class="proof">
+        We <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-complex-number-times-its-conjugate-equals-the-modulus-squared">know</span> that \( z \cdot \overline{z} = \left \lvert z \right \rvert^{2} \), therefore \( z \cdot \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} = 1 \), so by the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#definition-inverse">definition of inverse</span> \( z^{- 1} = \frac{\overline{z}}{\left \lvert z \right \rvert^{2}} \) as needed.
+    </div>
+</div>
+<div class="exercise" id="exercise-normalize">
+    <div class="title">Normalize Exercise</div>
+    <div class="content">
+        For any \( z \in \mathbb{C} , \left \lvert \frac{z}{\overline{z}} \right \rvert = 1 \)
+    </div>
+    <div class="proof">
+        <p>By the <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#theorem-value-of-the-inverse">value of the inverse</span> we have: \( \frac{1}{\overline{z}} = \frac{\overline{\overline{z}}}{\left \lvert \overline{z} \right \rvert^{2}} \) since we know that <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#proposition-conjugate-cancels">two complex conjugates cancel</span> and <span class="knowledge-link" data-href="/complex/algebra_of_the_complex_plane.html#corollary-modulus-ignores-conjugates">modulus ignores conjugates</span>, then \( \frac{\overline{\overline{z}}}{\left \lvert \overline{z} \right \rvert^{2}} = \frac{z}{\left \lvert z \right \rvert^{2}} \)</p>
+        <p>Now \( \left | \frac{z}{\overline{z}} \right | = \left | z \left ( \frac{z}{\left | z \right | ^{2}} \right ) \right | = \left | \left ( \frac{z}{\left | z \right | } \right )^{2} \right | = \left | \frac{z}{\left | z \right | } \right | \cdot \left | \frac{z}{\left | z \right | } \right | = 1 \cdot 1 = 1 \) as needed</p>
+    </div>
+</div>
+<div class="definition" id="definitition-real-part-of-a-complex-number">
+    <div class="title">
+        real part of a complex number
+    </div>
+    <div class="content">
+        given \( z = x + i y \in \mathbb{C} \) we say that \( x \) is the real part of \( z \) and define the function
+        <div class="centered-content">
+            \( \mathcal{R} \left ( z \right ) = x \)
+        </div>
+    </div>
+</div>
+<div class="definition" id="definition-imaginary-part-of-a-complex-number">
+    <div class="title">
+        Imaginary part of a Complex Number
+    </div>
+    <div class="content">
+        given \( z = x + i y \in \mathbb{C} \) we say that \( y \) is the imaginary part of \( z \) and define the function
+        <div class="centered-content">
+            \( \mathcal{I} \left ( z \right ) = y \)
+        </div>
+    </div>
+</div>
+<div class="proposition" id="proposition-extracting-the-real-part-of-a-complex-number">
+    <div class="title">
+        extracting the real part of a complex number
+    </div>
+    <div class="content">
+        suppose \( z \in \mathbb{C} \), then \( \mathfrak{R} \left ( z \right ) = \frac{z + \overline{z}}{2} \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-modulus-is-greater-than-it's-components">
+    <div class="title">
+        modulus is greater than it's components
+    </div>
+    <div class="content">
+        for any \( z \in \mathbb{C} \) we have both
+        <ul>
+            <li>\( \left | \mathfrak{R} \left ( z \right ) \right | \le \left | z \right | \)</li>
+            <li>\( \left | \mathfrak{I} \left ( z \right ) \right | \le \left | z \right | \)</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-imaginary-part-distributes">
+    <div class="title">
+        imaginary part distributes
+    </div>
+    <div class="content">
+        \( \mathfrak{I} \left ( z + w \right ) = \mathfrak{I} \left ( z \right ) + \mathfrak{I} \left ( w \right ) \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-modulus-plus-one-of-it's-components-is-positive">
+    <div class="title">
+        modulus plus one of it's components is positive
+    </div>
+    <div class="content">
+        Suppose that \( f{\in} \left \lbrace \mathcal{R} , \mathcal{I} \right \rbrace \), then
+        <div class="centered-content">
+            \( \left | z \right | + f{\left ( z \right )} \ge 0 \)
+        </div>
+    </div>
+    <div class="proof">
+        Let \( z = x + i y \in \mathbb{C} \) then suppose without loss of generality that \( f{=} \mathcal{R} \), then
+        <div class="centered-content">
+            \( - x \le \left | x \right | = \sqrt{x^{2}} \le \sqrt{x^{2} + y^{2}} = \left | x + i y \right | \)
+        </div>therefore \( 0 \le x + \left | x + i y \right | \) which means \( 0 \le \mathcal{R} \left ( z \right ) + \left | z \right | \)
+    </div>
+</div>
+<div class="exercise" id="exercise-creating-squares">
+    <div class="title">
+        creating squares
+    </div>
+    <div class="content">
+        without use of the triangle inequality prove that \( \left | z - 1 \right | ^{2} = \left | z \right | ^{2} + 1 - 2 \mathcal{R} \left ( z \right ) \), then conclude that \( \left | z - 1 \right | \le \left | z \right | + 1 \)
+    </div>
+    <div class="proof">
+        <p>\( \left | z - 1 \right | ^{2} \) <a href="#a-complex-number-times-it's-conjugate-equals-the-modulus-squared">=</a> \( \left ( z - 1 \right ) \cdot \overline{z - 1} = \left ( z - 1 \right ) \cdot \left ( \overline{z} - 1 \right ) = z \cdot \overline{z} - z - \overline{z} + 1 \), now recall that \( \mathcal{R} \left ( z \right ) = \frac{z + \overline{z}}{2} \) so we can continue the equality with \( \left | z \right | ^{2} - 2 \mathcal{R} \left ( z \right ) + 1 \), showing the first part</p>
+        <p>for the second part, we can notice that \( \left ( \left | z \right | + 1 \right )^{2} = \left | z \right | ^{2} + 2 \left | z \right | + 1 \), so then \( \left | z - 1 \right | ^{2} = \left | z \right | ^{2} + 1 - 2 \mathcal{R} \left ( z \right ) = \left | z \right | ^{2} + 2 \left | z \right | - 2 \left | z \right | + 1 - 2 \mathcal{R} \left ( z \right ) = \left ( \left | z \right | + 1 \right )^{2} - 2 \left ( \left | z \right | + \mathcal{R} \left ( z \right ) \right ) \), then by <a href="#modulus-plus-one-of-it's-components-is-positive">this</a> proposition we can see that the last term in the previous equality chain is less than or equal to \( \left ( \left | z \right | + 1 \right )^{2} \) allowing us to conclude that \( \left | z - 1 \right | ^{2} \le \left ( \left | z \right | + 1 \right )^{2} \) which implies that \( \left | z - 1 \right | \le \left | z \right | + 1 \)</p>
+    </div>
+</div>

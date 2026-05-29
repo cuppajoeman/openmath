@@ -1,0 +1,140 @@
+<p>Consider the following problem: Given an array of integers <code>nums</code> containing \( n + 1 \) integers where each integer is in the range \( \left[ 1, \ldots , n \right] \) inclusive, where there is only one repeated number in <code>nums</code> return this repeated number.</p>
+<p>We propose that the following algorithm does this:</p>
+<pre># Note this is in Python
+def find_duplicate(nums: List[int]) -&gt; int:
+    # loop 1
+    slow1 = 0
+    fast = 0
+    while True:
+        slow1 = nums[slow1]
+        fast = nums[nums[fast]]
+        if slow1 == fast:
+            break
+
+    # loop 2
+    slow2 = 0
+    while slow1 != slow2:
+        slow1 = nums[slow1]
+        slow2 = nums[slow2]
+    return slow1
+        </pre>
+<hr>
+<div class="definition" id="definition-repeated-element-in-tuple">
+    <div class="title">
+        Repeated Element in Tuple
+    </div>
+    <div class="content">
+        Given a \(n\)-tuple \(A\), where \(n \geq 2\), a repeated element \(x\) in \(A\) is an element such that \(A_i = A_j = x\), where \(i \neq j\).
+    </div>
+</div>
+<div class="definition" id="definition-index-array">
+    <div class="title">
+        Index Array
+    </div>
+    <div class="content">
+        An index array is an array whose values are valid indices to itself
+    </div>
+</div>
+<div class="definition" id="definition-index-array-graph">
+    <div class="title">
+        Index Array Graph
+    </div>
+    <div class="content">
+        Given an index array \( A \) then it's induced graph \( G \) is a directed graph whose vertices are the elements of \( A \), it's edges are obtained as follows,
+        <ul>
+            <li>Set \( g _ 0 = 0 \) and for any \( i \in \mathbb{ N } _ 0 \) let \( g _ { i + 1 } = A \left[ g _ i \right] \)</li>
+            <li>The graph has edges: \( \left( g _ i, g _ { i + 1 } \right) \)</li>
+        </ul>We also define the sequnce \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots \right) \) as its <b>movement sequence.</b>
+    </div>
+</div>
+<p>The index array graph can be constructed by extending the behavior of \( \mathtt{slow1} \) in the first while loop.</p>
+<div class="definition" id="definition-meet-value">
+    <div class="title">
+        Meet Value
+    </div>
+    <div class="content">
+        Given the index array graph for an index array \( A \), we define the <b>meet value</b> as \( g _ j \) where \( j \in \mathbb{ N } _ 0 \) is the smallest index such that \( \left( g _ 0, g _ 1, g _ 2, \ldots g _ j \right) \) has a repeated element.
+    </div>
+</div>
+<div class="proposition" id="proposition-all-input-arrays-have-a-meet-value">
+    <div class="title">
+        All Input Arrays have a Meet Value
+    </div>
+    <div class="content">
+        Suppose that \( A \) is an array of \( n + 1 \) integers such that \( a _ i \in \left[ 1, \ldots , n \right] \), such that there is only one repeated number, then \( A \) has a meet value.
+    </div>
+    <div class="proof">
+        From the definition of the index array graph, consider it's movement sequence \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots \right) \) and it's set define as \( X := \left\{ g _ i : i \in \mathbb{ N } _ 0 \right\} \), by definition of \( A \) the movement sequence contains at most \( n \) unique numbers and so we see that \( \lvert X \rvert \le n \), and thus it is finite, this means that there is some duplicated element in the movement sequence, suppose there is not, then each element is unique, and so \( X \) would be infinite, which is a contradiction, thus there is some duplicated element in the movement sequence, and so a meet value exists.
+    </div>
+</div>
+<div class="corollary" id="corollary-all-index-array-graphs-have-a-cycle-continuing-forever">
+    <div class="title">
+        All Index Array Graphs have A Cycle Continuing Forever
+    </div>
+    <div class="content">
+        As per title.
+    </div>
+    <div class="proof">
+        Since we know that all inputs arrays have a meet value then it's movement sequence is of the form \( g _ 0, \ldots g _ i, g _ { i + 1 } \ldots g _ { i + k }, g _ i, g _ { i + 1 }, \ldots g _ { i + k }, \ldots \), where \( g _ i \) is the <a class="knowledge-link" href="/computer_science/algorithms/linked_lists.html#definition-meet-value">meet value</a>, and there are \( k \) other elements encountered before we get to the meet value. It must continue forever because after \( g _ i \) is encountered for the second element, then the next element is defined as \( A \left[ g _ i \right] \) which is the same as the definition of \( g _ { i + 1 } \) and so on until \( g _ i \) is reached again, therefore it continues cycling forever.
+    </div>
+</div>
+<div class="lemma" id="lemma-termination-of-the-first-while-loop">
+    <div class="title">
+        Termination of the First While Loop
+    </div>
+    <div class="content">
+        The first while loop terminates and \(\mathtt{slow1} = \mathtt{fast}\), moreover it takes \( x + y \) iterations to terminate where \( x \) is the index of the meet value, and \( y \in \left\{ 0, \ldots k \right\} \) where \( k + 1\) is the length <a class="knowledge-link" href="/computer_science/algorithms/linked_lists.html#corollary-all-index-array-graphs-have-a-cycle-continuing-forever">of the cycle that is guaranteed to exist</a>
+    </div>
+    <div class="proof">
+        <p>Let \( \mathtt{slow1}_k \) be the value of \( \mathtt{slow1} \) at the end of the \( k \)-th iteration of the while loop. Observe that \( g _ k = \mathtt{slow1}_t \), this holds true for \( k = 0 \) as well where we have \( g _ 0 = 0 = \mathtt{slow1}_0 \), note that the equality holds true as each iteration of the while loop directly pertains the recursive definition of \( g _ { i + 1 } \), moreover note that \( \mathtt{fast}_k = g _ { 2k } \) which can be verified in a similar manner. Note that this means that \( \mathtt{fast} \)'s movement sequence is a subsequence of \( \mathtt{slow1} \)'s denote this subsequence \( \textbf{ s } := \left( s _ 0, s _ 1, s _ 2, \ldots \right) \) where \( s _ i = g _ { 2i } \) then we know that \( \mathtt{fast} _ k = s _ k\).</p>
+        <p>Let \( G \) be the index array graph of \( A \), we know that it has a <a class="knowledge-link" href="/computer_science/algorithms/linked_lists.html#corollary-all-index-array-graphs-have-a-cycle-continuing-forever">cycle that it gets stuck in forever</a>, and suppose that the elements of the cycle are given by \(C = (c_0, c_1, \dots, c_k) \), where \( c _ 0 \) is the <a class="knowledge-link" href="/computer_science/algorithms/linked_lists.html#definition-meet-value">meet value</a>.</p>
+        <p>Consider the smallest index \( x \) where \( g _ x \) and \( s _ x \) are both in \(C\) for the first time. Since the start of the cycle is the meet value, then we know that \( g _ x = c _ 0 \) whereas \( s _ x = c _ i \) where \(i \in \mathbb{ N } _ 0 \)</p>
+        <p>Since \(C\) is a cycle of length \(k + 1\) and \(\mathtt{fast}\) traverses \(C\) at twice the speed of \(\mathtt{slow1}\), (which is to say that \( g _ { x + y } = c _ { \left( 0 + y \right) ~\%~ { k + 1 } } \) and \( s _ { x + y } = c _ { \left( y + 2y \right) ~\%~ { k + 1 } } \)) in tandem with the fact that all elements in the cycle are distinct and thus we know that \( c _ a = c _ b \) if and only if \( a ~\%~ \left( k + 1 \right) = b ~\%~ \left( k + 1 \right) \), we conclude that \( g _ { x + y } = s _ { x + y } \) when \( y \equiv i + 2y \pmod{k+1} \), where \(y\) is the \(y\)-th iteration after \(\mathtt{slow1}\) and \(\mathtt{fast}\) are both in \(C\) for the first time.</p>
+        <p>Rearranging shows \(y \equiv -i \pmod{k+1}\), if \( i = 0 \), then this is satisfied by \( y = 0 \) which means that when both \( \mathtt{slow1} = c _ 0 = \mathtt{fast} \) when they enter the cycle for the first time. On the other hand if \( i \gt 0 \) then \( y = k + 1 - i \) satisfies the equation. Note that there are infinitely other non-negative solutions, but these two solutions are the smallest ones, thus the while loop will encounter these first before any larger ones and terminate, thus \( y \in \left\{ 0, \ldots , k \right\} \).</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-termination-of-the-second-while-loop-and-value-of-slow1-is-the-meet-value">
+    <div class="title">
+        Termination of the Seond while loop and the Value of \(\mathtt{slow1}\) is the Meet Value
+    </div>
+    <div class="content">
+        The second while loop terminates, and after termination, \(\mathtt{slow1} = g_x\), where \(g_x\) is the meet value of the input array \(A\).
+    </div>
+    <div class="proof">
+        Assume the first while loop terminates after \(t\) iterations.<br>
+        <br>
+        Let \(G\) be the index array graph of \(A\). By <a class="knowledge-link" href="/computer_science/algorithms/linked_lists.html#corollary-all-index-array-graphs-have-a-cycle-continuing-forever">Corollary: All Index Array Graphs have A Cycle Continuing Forever</a>, \(G\) has a cycle \(C = (c_0, c_1, \dots, c_k)\). Without a loss of generality, assume \(c_0 = g_x\). Let \(\textbf{g} = (g_0, g_1, g_2, \ldots)\) be the movement sequence of \(G\). Now, let \(y \in \mathbb{N}_0\) be the smallest number such that \(g_{x+y} = \mathtt{slow1}_t\) at iteration \(t\) (i.e., termination) of the first while loop. Finally, let \(z \in \mathbb{N}_0\) be the smallest number such that \(g_{x+y+z} = c_0\). It is worth noting that \(y + z = k + 1\), thus \(y + z\) is the length of \(C\).<br>
+        <br>
+        We know that the first while loop <a class="knowledge-link" href="/computer_science/algorithms/linked_lists.html#lemma-termination-of-the-first-while-loop">terminates at iteration</a> \(t = x + y\) . Since \(\mathtt{fast}_t = \mathtt{slow1}_{2t}\) at iteration \(t\), we know \(\mathtt{fast}_{x+y} = \mathtt{slow1}_{2(x+y)} = g_{2(x+y)}\). Therefore, we can say that upon termination of the first while loop, \(\mathtt{fast}\) has travelled \(2(x + y)\) nodes into \(\textbf{g}\).<br>
+        <br>
+        For an alternative but equivalent statement of this fact, assume \(\mathtt{fast}\) completes \(n\) full cycles around \(C\) by iteration \(t\). Then, \(\mathtt{fast}_t = g_{x+n(k+1)+y} = g_{x+n(y+z)+y}\). Hence, we can also say that upon termination of the first while loop, \(\mathtt{fast}\) has travelled \(x+n(y+z)+y\) nodes into \(\textbf{g}\).<br>
+        <br>
+        These two equivalent statements brings us to the following result. \[\begin{align*} 2(x + y) &amp;= x + n(y + z) + y \\ 2x + 2y &amp;= x + (n + 1)y + nz \\ x &amp;= (n - 1)y + nz\\ x &amp;= (n - 1)(y + z) + z\\ x &amp;= (n - 1)(k + 1) + z \end{align*}\] Therefore, travelling \(x\) nodes into \(\textbf{g}\) is equivalent to completing \(n - 1\) complete cycles around \(C\) and travelling another \(z\) nodes.<br>
+        <br>
+        Now consider the second while loop. On iteration 0, \(\mathtt{slow1} = g_{x+y}\) and \(\mathtt{slow2} = g_0\). Now consider iteration \(x\). On iteration \(x\), \(\mathtt{slow1} = g_{x+y+x}\). \[\begin{align*} g_{x+y+x} &amp;= g_{x+y+(n-1)(k+1)+z}\\ &amp;= g_{x+(y+z)+(n-1)(k+1)}\\ &amp;= g_{x+(k+1)+(n-1)(k+1)}\\ &amp;= g_{x+n(k+1)} \end{align*}\] Given \(g_x\) is in \(C\), \(g_{x+y+x}\) is just \(n\) complete cycles around \(C\) from \(g_x\). Therefore, \(g_{x+y+x} = g_x\). On iteration \(x\), we also trivially know \(\mathtt{slow2} = g_{x}\). Hence, \(\mathtt{slow1} = \mathtt{slow2}\) so the second while loop terminates, and upon termination, \(\mathtt{slow1} = g_x\).
+    </div>
+</div>
+<div class="lemma" id="lemma-the-meet-point-holds-the-duplicated-value">
+    <div class="title">
+        The Meet Value is the Duplicated Value
+    </div>
+    <div class="content">
+        Let \( A \) an an array which satisfies the specification of the algorithm where \( d \) is its duplicated element and \( m \in A \) be the meet value, then \( m = d \)
+    </div>
+    <div class="proof">
+        <p>By definition of the meet value, it is encountered twice in the movement sequence \( \textbf{ g } := \left( g _ 0, g _ 1, g _ 2, \ldots \right) \) on it's first encounter, we have some index \( i \) such that \( g _ i = m \) by the definition of the movement sequence this means that \( A \left[ g _ { i - 1 } \right] = m \) so that \( g _ { i - 1 } \) is the index of \( m \) in \( A \)</p>
+        <p>On the second encounter of \( m \) in the movement sequence we have some \( j \) where \( \left( j \gt i \right) \) such that \( g _ j = m \) so also that \( A \left[ g _ { j - 1 } \right] = m \). Now note that with respect to the movement sequence, we have the following subsequence \( g _ { i - 1 }, m, \ldots , g _ { j - 1 }, m \), if \( g _ { i - 1 } = g _ { j - 1 } \) then we get contradiction because by the definition of the meet value \( g _ j = m \) it's assumed that \( j \) was the smallest value such that \( \left( g _ 0, \ldots ,g _ m \right) \) has a duplicated value, but under the assumption that \( g _ { i - 1 } = g _ { j - 1 } \) then \( j - 1 \) would be a smaller value such that \( \left( g _ 0, \ldots , g _ { j - 1 } \right) \) has a repeated value, therefore we must have that \( g _ { i - 1 } \neq g _ { j - 1 } \).</p>
+        <p>Recall that \( A \left[ g _ { i - 1 } \right] = A \left[ g _ { j - 1 } \right] = m \) therefore \( m \) is duplicated in \( A \) . Since \( A \) contains exactly one duplicated element, then we must conclude that \( d = m \).</p>
+    </div>
+</div>
+<div class="theorem" id="theorem-find-duplicate-is-correct">
+    <div class="title">
+        \( \mathtt{find\_duplicate} \) is Correct
+    </div>
+    <div class="content">
+        Given an \((n+1)\)-tuple consisting of elements in the range \([1, n]\) with exactly one repeated element, the algorithm above returns that element.
+    </div>
+    <div class="proof">
+        We know that the first <a class="knowledge-link" href="/computer_science/algorithms/linked_lists.html#lemma-termination-of-the-first-while-loop">while loop terminates</a>. We know that the <a class="knowledge-link" href="/computer_science/algorithms/linked_lists.html#lemma-termination-of-the-second-while-loop-and-value-of-slow1-is-the-meet-value">second while loop terminates</a> (therefore the entire program terminates) and the value of \( \mathtt{slow1} \) is the meet value. We also know that the <a class="knowledge-link" href="/computer_science/algorithms/linked_lists.html#lemma-the-meet-point-holds-the-duplicated-value">meet value is the duplicated value</a> therefore since the algorithm returns \( \mathtt{slow1} \) then it returns the duplicated value.
+    </div>
+</div>

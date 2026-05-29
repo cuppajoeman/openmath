@@ -1,0 +1,253 @@
+<div class="definition" id="definition-tuple">
+    <div class="title">
+        Tuple
+    </div>
+    <div class="content">
+        Let \( I \) be an index set, and \( S \) a set then we say that a function \( t : I \to S \) is a <b>tuple</b>,
+    </div>
+</div>
+<div class="definition" id="definition-empty-tuple">
+    <div class="title">
+        Empty Tuple
+    </div>
+    <div class="content">
+        Suppose \( t: I \to S \) is a tuple such that \( I = \emptyset \) then \( t \) is said to be the empty tuple and is notated by \( \left( \right) \).
+    </div>
+</div>
+<div class="definition" id="definition-tuple-at-an-index">
+    <div class="title">
+        Tuple at an Index
+    </div>
+    <div class="content">
+        Suppose that \( t \) is a tuple and \( i \in \operatorname{ dom } \left( t \right) \) , then we define that <b>the tuple's value at index \( i \)</b> as \( t \left( i \right) \)
+    </div>
+</div>
+<div class="definition" id="definition-tuple-subscript-notation">
+    <div class="title">
+        Tuple Subscript Notation
+    </div>
+    <div class="content">
+        Suppose that \( t \) is a tuple, then we define \( t _ i \) to be <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-tuple-at-an-index">\( t \) at index \( i \)</a>
+    </div>
+</div>
+<div class="definition" id="definition-ordered-tuple-notation">
+    <div class="title">
+        Ordered Tuple Notation
+    </div>
+    <div class="content">
+        Suppose that the index set has some natural ordering, then the notation \( \left( t _ { i _ 1 } , t _ { i _ 2 } , \ldots \right) \)
+    </div>
+</div>
+<div class="definition" id="definition-finite-tuple">
+    <div class="title">
+        Finite Tuple
+    </div>
+    <div class="content">
+        A finite tuple is a tuple with a finite index set
+    </div>
+</div>
+<div class="definition" id="definition-integer-indexed-tuple">
+    <div class="title">
+        Integer Indexed Tuple
+    </div>
+    <div class="content">
+        A integer indexed tuple is a tuple whose index set <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-finite-integer-set">equals</a> \( \left\{ a, \ldots , b \right\} \) for some \( a, b \in \mathbb{ Z } \) or is some \( I \subseteq \mathbb{ Z } \)
+    </div>
+</div>
+<p>Note that a integer indexed tuple is represented using ordered tuple notation using \( \left( a _ 1, a _ 2, \ldots \right) \). When it's finite we get \( \left( a _ { - 2 } , a _ { -1 }, a _ 0, a _ 1, a _ 2, a _ 3, a _ 4 \right) \)</p>
+<div class="proposition" id="proposition-when-an-integer-indexed-tuple-is-empty">
+    <div class="title">
+        When an Integer Indexed Tuple is Empty
+    </div>
+    <div class="content">
+        Suppose that \( i \gt j \in \mathbb{ Z } \) then \[ \left( a _ i, \ldots , a _ j \right) = \left( \right) \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-integer-indexed-tuple">definition</a> we can see that it's index set is \( \left\{ i, \ldots , j \right\} \) <a class="knowledge-link" href="/fundamentals/sets/basics.html#corollary-empty-integer-set">which is equal to</a> \( \emptyset \) and therefore it is the <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-empty-tuple">empty tuple</a>.
+    </div>
+</div>
+<div class="definition" id="definition-n-tuple-equality">
+    <div class="title">
+        Finite Tuple Equality
+    </div>
+    <div class="content">
+        We define two \( n \) tuples \( (x_1, x_2, ..., x_n) \) and \( (y_1, y_1, ..., y_n) \) to be equal when \[ \forall i \in [1 \ldots n], x_i = y_i \]
+    </div>
+</div>
+<p>Note that finite tuples tuples are indexed starting from 1</p>
+<div class="definition" id="definition-length">
+    <div class="title">
+        Length
+    </div>
+    <div class="content">
+        Suppose that \( a = \left( a _ 1, a _ 2, \ldots , a _ n \right) \) then \( \operatorname{ len } \left( a \right) = n \)
+    </div>
+</div>
+<div class="definition" id="definition-zero-indexed-tuple">
+    <div class="title">
+        Zero Indexed Tuple
+    </div>
+    <div class="content">
+        A zero indexed tuple is a tuple of the form \( a = \left( a _ 0, a _ 1, \ldots a _ m \right) \)
+    </div>
+</div>
+<div class="proposition" id="proposition-length-of-a-zero-indexed-tuple">
+    <div class="title">
+        Length of a Zero Indexed Tuple
+    </div>
+    <div class="content">
+        Suppose that \( a = \left( a _ 0, a _ 1, \ldots a _ m \right) \) is a zero indexed tuple, then \( \operatorname{ len } \left( a \right) = m + 1 \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-converting-from-regular-to-zero-indexing">
+    <div class="title">
+        Converting from Regular to Zero Indexing
+    </div>
+    <div class="content">
+        Let \( a \) be a finite tuple and suppose \( \operatorname{ len } \left( a \right) = n \) , let \( r \) be \( a \) but indexed regularly, and let \( z \) be \( a \) but using zero indexing, then for all \( i \in [ 1 ... n ], r _ i = z _ { i - 1 } \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-reverse-of-a-finite-tuple">
+    <div class="title">
+        Reverse of a Finite Tuple
+    </div>
+    <div class="content">
+        Suppose that \(a = \left( a _ 1, a _ 2, \ldots , a _ n \right) \), is an \( n \) tuple, then we define \[ \operatorname{rev} \left( a \right) := \left( a _ n, \ldots , a _ 1 \right) \]
+    </div>
+</div>
+<div class="proposition" id="proposition-reverse-cancels">
+    <div class="title">
+        Reverse Cancels
+    </div>
+    <div class="content">
+        For any \( n \) tuple \( a \) \[ \operatorname{ rev } \left( \operatorname{ rev } \left( a \right) \right) = a \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-concatenation">
+    <div class="title">
+        Concatenation
+    </div>
+    <div class="content">
+        Suppose that \( a = \left( a _ 1, \ldots , a _ n \right) \) and \( b = \left( b _ 1, \ldots , b _ m \right) \) are finite tuples, then \[ \operatorname{ concat } \left( a, b \right) = \left( a _ 1, \ldots a _ n, b _ 1, \ldots , b _ m \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-sorted-in-ascending-order">
+    <div class="title">
+        Sorted in Ascending Order
+    </div>
+    <div class="content">
+        Suppose that \(a = \left( a _ 1, a _ 2, \ldots , a _ n \right) \in \mathbb{ R } ^ n \), then we say that \( a \) is <b>sorted in ascending order</b> when for any \( i \in [ 1 \ldots n - 1 ] \) \( a _ i \le a _ { i + 1 } \)
+    </div>
+</div>
+<div class="definition" id="definition-sorted-in-strictly-ascending-order">
+    <div class="title">
+        Sorted in Strictly Ascending Order
+    </div>
+    <div class="content">
+        Suppose that \(a = \left( a _ 1, a _ 2, \ldots , a _ n \right) \in \mathbb{ R } ^ n \), then we say that \( a \) is <b>sorted in strictly ascending order</b> <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-a-binary-relation-holds-consecutively-on-a-tuple">when</a> \[ \operatorname{ bop\_holds } \left( \lt , a \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-a-binary-relation-holds-consecutively-on-a-tuple">
+    <div class="title">
+        A Binary Relation Holds Consecutively on a Tuple
+    </div>
+    <div class="content">
+        Suppose that \( \star \) is a <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operation</a>, then we say that it <b>holds consecutively on a tuple</b> \( a = \left( a _ 1, \ldots, a _ n \right) \) whenever we have \[ a _ i \star a _ { i + 1 } \] for each \( i \in \left[ 1, \ldots , n - 1 \right] \), we also define the <a class="knowledge-link" href="/fundamentals/logic.html#definition-predicate">predicate</a> \( \operatorname{ bop\_holds } \) as follows: \[ \operatorname{ bop\_holds } \left( \star, a \right) = T \] iff the above property holds true.
+    </div>
+</div>
+<div class="definition" id="definition-sorted-predicate">
+    <div class="title">
+        Sorted Tuple Predicate
+    </div>
+    <div class="content">
+        Suppose that \( a \in \mathbb{ R } ^ n \) then define the \( \operatorname{ sorted\_asc } : \mathbb{ R } ^ n \to \left\{ T, F \right\} \) such that \[ \operatorname{ sorted\_asc } \left( a \right) = \operatorname{ bop\_holds } \left( \le , a \right) \]
+    </div>
+</div>
+<div class="corollary" id="corollary-">
+    <div class="title">
+        sorted_asc Holds iff It is Sorted in Ascending Order
+    </div>
+    <div class="content">
+        \( \operatorname{ sorted\_asc } \left( a \right) = T \) iff \( a \) is <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-sorted-in-ascending-order">sorted in ascending order</a>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-sorted-in-strictly-ascending-order-predicate">
+    <div class="title">
+        Sorted in Strictly Ascending order Predicate
+    </div>
+    <div class="content">
+        Suppose that \( a \in \mathbb{ R } ^ n \) then <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-a-binary-relation-holds-consecutively-on-a-tuple">we define</a> \[ \operatorname{ strict\_asc\_sorted } \left( a \right) = \operatorname{ bop\_holds } \left( \lt , a \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-set-of-a-tuple">
+    <div class="title">
+        Set of a Tuple
+    </div>
+    <div class="content">
+        Suppose that \( a = \left( a _ 1, \ldots , a _ n \right) \) is a tuple, then we define the function \[ \operatorname{ set } \left( a \right) = \left\{ a _ i: i \in \left[ 1, \ldots , n \right] \right\} \]
+    </div>
+</div>
+<div class="definition" id="definition-strictly-ascending-sorting-function">
+    <div class="title">
+        Strictly Ascending Sorting Function
+    </div>
+    <div class="content">
+        Suppose that \( a \in \mathbb{ R } ^ n \) then we define the function \( \operatorname{ strict\_asc\_sort } : \mathbb{ R } ^ n \to \mathbb{ R } ^ n \) such that if \( s = \operatorname{ strict\_asc\_sort } \left( a \right) \) <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-sorted-in-strictly-ascending-order-predicate">then we have</a> \[ \operatorname{ strict\_asc\_sorted } \left( s \right) = T \] such that \( \left\lvert a \right\rvert = \left\lvert s \right\rvert \) <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-set-of-a-tuple">and</a> \( \operatorname{ set } \left( a \right) = \operatorname{ set } \left( s \right) \)
+    </div>
+</div>
+<div class="definition" id="definition-intersection-of-two-sorted-tuples">
+    <div class="title">
+        Intersection of Two Sorted Tuples
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ R } ^ n \) then \[ a \cap b \] is defined as the tuple \( s \) such that \[ s = \operatorname{ strict\_asc\_sort } \left( \operatorname{ concat } \left( a, b \right) \right) \] using <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-strictly-ascending-sorting-function">the sorting function</a> and <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-concatenation">concatenation</a>
+    </div>
+</div>
+<div class="exercise" id="exercise-ascending-n-tuple">
+    <div class="title">
+        Ascending Tuple
+    </div>
+    <div class="content">
+        Show that \( \left( 1, 2, 3, 4, 100 \right) \) is an ascending \( n \) tuple
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-sorted-in-descending-order">
+    <div class="title">
+        Sorted in Descending Order
+    </div>
+    <div class="content">
+        Suppose that \(a = \left( a _ 1, a _ 2, \ldots , a _ n \right) \in \mathbb{ R } ^ n \), then we say that \( a \) is <b>sorted in descending order</b> when for any \( i \in [ 1 \ldots n - 1 ] \) \( a _ i \ge a _ { i + 1 } \)
+    </div>
+</div>
+<div class="exercise" id="exercise-descending-tuple">
+    <div class="title">
+        Descending Tuple
+    </div>
+    <div class="content">
+        Show that \( \left( 8, 5, 3, 1, 0 \right) \) is a descending \( n \) tuple
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-reverse-of-ascending-is-descending">
+    <div class="title">
+        The reverse of Ascending is Descending
+    </div>
+    <div class="content">
+        Suppose that \( a \) is a finite tuple sorted in ascending order, then \( \operatorname{ rev } \left( a \right) \) is sorted in descending order.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-inversion">
+    <div class="title">
+        Inversion
+    </div>
+    <div class="content">
+        Suppose that \( \left( a _ 1, a _ 2, \ldots , a _ n \right) \in \mathbb{ R } ^ n \), then an inversion is a tuple \( i , j \in [ 1 \ldots n ] \times [ 1 \ldots n ] \) such that \( i \lt j \) but \( a _ i \gt a _ j \)
+    </div>
+</div>
+<p>Given the tuple \( a := \left( 8, 9, 10, 11, 3 \right) \) then we can see that \( \left( 1, 5 \right) \) is an inversion because \( 1 \lt 5 \) but \( 8 \gt 3 \)</p>

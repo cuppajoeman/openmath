@@ -1,0 +1,15 @@
+<div class="proposition" id="proposition-continuous-implies-bounded">
+    <div class="title">
+        Continuous Implies Bounded
+    </div>
+    <div class="content">
+        if \( f \) is <span class="knowledge-link" data-href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</span> on \( \left [ a , b \right ] \), then it is <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#definition-bounded-function">bounded</span> on \( \left [ a , b \right ] \)
+    </div>
+    <div class="proof">
+        Let \( B = \left \lbrace p \in \left [ a , b \right ] : f{\left ( x \right )} \text{ is bounded on } \left [ a , p \right ] \right \rbrace \), note that \( a \in B \) since \( f{\left ( \left [ \left . a , a \right . \right ] \right )} = \left \lbrace f{\left ( a \right )} \right \rbrace \) <span class="knowledge-link" data-href="/analysis/single_variable/extreme_value_theorem.html#proposition-finite-sets-are-bounded">therefore</span> \( f{\left ( \left [ \left . a , b \right . \right ] \right )} \) is bounded.
+        <p>Suppose that \( e \in B \) and \( e \gt a \), then \( f \) is bounded on \( \left [ a , e \right ] \) by the definition of \( B \), meaning that for any \( a \lt m \lt e \), \( f \) is bounded on \( \left [ a , m \right ] \) so \( m \in B \), this shows that \( B \) is an interval of the form \( \left [ a , x \right ] \) for \( x \in \left [ a , b \right ] \).</p>
+        <p>\( f \) is continuous at \( a \), then let \( t \in \mathbb{R} \) be a throwaway value insofar as to obtain some \( \delta \in \mathbb{R}^{\gt 0} \) so that for all \( x \in \text{dom} \left ( f \right ) = \left [ a , b \right ] \), we have \( \left | x - a \right | \lt \delta \) implying \( \left | f{\left ( x \right )} - f{\left ( a \right )} \right | \lt t \).</p>
+        <p>This shows us that \( f \) is bounded on \( \left [ a , a + \delta \right ] \) using our throwaway value of \( t \), therefore \( a + \delta \in B \) and as mentioned in the second paragraph, we know \( \left [ a , a + \delta \right ] \subseteq B \), this means that \( B \) has at least two values, so we can find another element \( y \in B \) such that \( a \lt y \).</p>
+        <p>Since \( \mathbb{R} \) has the least upper bound property then since \( B \) is bounded above by \( b \), then we know that \( s := \text{sup} \left ( B \right ) \in B \), from the existance of \( y \), then by chaining inequalities we get \( a \lt s \) (todo: define set builder notation) (anything amaller has a point greater def of sup)</p>
+    </div>
+</div>

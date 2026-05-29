@@ -1,0 +1,52 @@
+<div class="definition" id="definition-group-isomorphism">
+    <div class="title">
+        Group Isomorphism
+    </div>
+    <div class="content">
+        An <b>isomorphism</b> from a group \( \left( G, \star \right) \) to a group \( \left( H, \cdot \right) \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijective</a> function \( \phi : G \to H \) such that for any \( a, b \in G \) : \[ \phi \left( a \star b \right) = \phi \left( a \right) \cdot \phi \left( b \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-isomorphic-groups">
+    <div class="title">
+        Isomorphic Groups
+    </div>
+    <div class="content">
+        If there is an <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#definition-group-isomorphism">isomorphism</a> from \( G \) to \( H \) we say that \( G \) and \( H \) are <b>isomorphic</b> and write \( G \cong H \)
+    </div>
+</div>
+<div class="proposition" id="proposition-identities-are-carried">
+    <div class="title">
+        Identities are Carried
+    </div>
+    <div class="content">
+        Let \( e _ G \) be the identity of \( G \) and \( e _ H \) of \( H \), then for any <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#definition-group-isomorphism">isomorphism</a> from \( G \) to \( H \), we have \[ \phi \left( e _ G \right) = e _ H \]
+    </div>
+    <div class="proof">
+        <p>We know \( e _ G = e _ G e _ G \), therefore \( \phi \left( e _ H \right) = \phi \left( e _ H e _ H \right) = \phi \left( e _ H \right) \phi \left( e _ H \right) \), but also \( \phi \left( e _ H \right) = e _ G \phi \left( e _ H \right) \) since \( e _ G \) is the identity, by right cancellation this yields \( e _ G = \phi \left( e _ G \right) \) as needed.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-powers-pass-through-a-homomorphism">
+    <div class="title">
+        Powers Pass Through a Homomorphism
+    </div>
+    <div class="content">
+        Let \( \left( G, \star _ G \right) \) and \( \left( H, \star _ H \right) \) be two groups and \( \phi \) a homomorphism between them. Let \( n \in \mathbb{ Z } \) and let \( g \in G \) be any group element, then we have \[ \phi \left( g ^ n \right) = \phi \left( g \right) ^ n \]
+    </div>
+    <div class="proof">
+        <p>We first show it for all \( n \in \mathbb{ N } _ 1 \) via induction. For \( n = 1 \) we can see that \( \phi \left( g ^ 1 \right) = \phi \left( g \right) ^ 1 \) trivially holds.</p>
+        <p>Ho we let \( k \in \mathbb{ N } _ 1 \) and assume that the statement holds for \( k \) we'll now show it must hold for \( k + 1 \), to do this we note the following : \[ \begin{align} \phi \left( g ^ { k + 1 } \right) &amp;= \phi \left( g ^ k \star _ G g \right) \\ &amp;= \phi \left( g ^ k \right) \star _ H \phi \left( g \right) \\ &amp;= \phi \left( g \right) ^ k \star _ H \phi \left( g \right) \\ & = \phi \left( g \right) ^ { k + 1 } \end{align} \] Where we've used our induction hypothesis going from the 2nd to the 3rd line.</p>
+        <p>The above holds us over for \( \mathbb{ N } _ 1 \), but it turns out we can now extend this to \( \mathbb{ Z } ^ - \) quite easily, given some \( z \in \mathbb{ Z } ^ - \) we first note that \( e _ H = \phi \left( e _ G \right) = \phi \left( g ^ z \star _ G g ^ { -z } \right) = \phi \left( g ^ z \right) \star _ H \phi \left( g \right) ^ { -z } \), note that we justify the last equality because \( -z \in \mathbb{ N } _ 1 \) and then use our previous paragraph's proof. Finally by multiplying on the right by \( \phi \left( g \right) ^ z \) then we obtain \( \phi \left( g \right) ^ z = \phi \left( g ^ z \right) \) as needed.</p>
+        <p>We could stop there and we've left nothing out. Well indeed we have left nothing out, that is we've left \( 0 \) out, well if \( \phi \left( g ^ 0 \right) = \phi \left( e _ G \right) = e _ H = \phi \left( g \right) ^ 0 \) as needed.</p>
+    </div>
+</div>
+<div class="corollary" id="corollary-powers-pass-through-an-isomorphism">
+    <div class="title">
+        Powers pass through an Isomorphism
+    </div>
+    <div class="content">
+        Let \( \left( G, \star _ G \right) \) and \( \left( H, \star _ H \right) \) be two groups and \( \phi \) a isomorphism between them. Let \( n \in \mathbb{ Z } \) and let \( g \in G \) be any group element, then we have \[ \phi \left( g ^ n \right) = \phi \left( g \right) ^ n \]
+    </div>
+    <div class="proof">
+        We know that an isomorphism is a homomorphism, therefore <a class="knowledge-link" href="/algebra/groups/isomorphisms.html#proposition-powers-pass-through-a-homomorphism">powers pass through it</a>
+    </div>
+</div>

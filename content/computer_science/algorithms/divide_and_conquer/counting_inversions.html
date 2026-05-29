@@ -1,0 +1,33 @@
+<div class="code-file" data-file-name="../implementation/counting_inversions.cpp"></div>
+<div class="lemma" id="lemma-inversion-lookahead-sorted-concatenation">
+    <div class="title">
+        Inversion Lookahead in Sorted Concatenation
+    </div>
+    <div class="content">
+        Suppose that \( a = \left( a _ 1, \ldots , a _ n \right) \) and \( b = \left( b _ 1, \ldots , b _ m \right) \) are finite tuples sorted in ascending order and define \( c = \operatorname{ concat } \left( a, b \right) \). If \( a _ i \) and \( b _ j \) form an inversion then for every \( k \in [ i \ldots n ] \) \( a _ k \) and \( b _ j \) form an inversion in \( c \)
+    </div>
+    <div class="proof">
+        <p>Before the proof starts note that \( c \) has \( n + m \) elements, and then \( b _ j \) refers to the element at position \( n + j \) with respect to \( c \)</p>
+        <p>We know that \( b _ j \lt a _ i \) because they form an inversion, we also know that \( a \) is sorted in ascending order, therefore we know that \( b _ j \lt a _ i \lt a _ { i + 1 } \lt \ldots \lt a _ n \), therefore for each \( k \in [ i ... n ] \) we know \( \left( k, n + j \right) \) forms an inversion in \( c \) as needed.</p>
+    </div>
+</div>
+<div class="lemma" id="lemma-no-inversion-lookahead-in-sorted-concatenation">
+    <div class="title">
+        No Inversion Lookahead in Sorted Concatenation
+    </div>
+    <div class="content">
+        Suppose that \( a = \left( a _ 1, \ldots , a _ n \right) \) and \( b = \left( b _ 1, \ldots , b _ m \right) \) are finite tuples sorted in ascending order and define \( c = \operatorname{ concat } \left( a, b \right) \). If \( a _ i \) and \( b _ j \) do not form an inversion then for every \( k \in [ j \ldots m ] \) \( a _ i \) and \( b _ k \) do not form an inversion in \( c \)
+    </div>
+    <div class="proof">
+        Since \( a _ i \) and \( b _ j \) do not form an inversion then we know that \( a _ i \le b _ j \), since \( b \) is sorted in ascending order then we know that \( a _ i \le b _ j \le b _ { j + 1 } \le \ldots \le b _ m \), and thus for every \( k \in [ j \ldots m] \) we know \( a _ i \) and \( b _ k \) do not form an inversion.
+    </div>
+</div>
+<div class="proposition" id="proposition-counting-inversions-is-correct">
+    <div class="title">
+        \( \texttt{counting_inversions} \) is Correct
+    </div>
+    <div class="content">
+        Given any list \( A \) \( \texttt{counting_inversions} \) returns the number of <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-inversion">inversions</a> in \( A \)
+    </div>
+    <div class="proof"></div>
+</div>

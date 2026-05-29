@@ -1,0 +1,46 @@
+<div class="definition" id="definition-open-set">
+    <div class="title">
+        Open Set
+    </div>
+    <div class="content">
+        In breadth first the open set is a collection of nodes stored in some, nodes are removed and added to the open set over time, and it is used to move through the graph.
+    </div>
+</div>
+<div class="definition" id="definition-explored">
+    <div class="title">
+        Explored
+    </div>
+    <div class="content">
+        Suppose that \( n \) is a node in the graph, we say that \( n \) is explored, if it's been removed from the open set and it's successors have been added to the open set
+    </div>
+</div>
+<div class="definition" id="definition-complete">
+    <div class="title">
+        Complete
+    </div>
+    <div class="content">
+        We say that a search algorithm is complete if whenever a solution exists, it is able to find the solution
+    </div>
+</div>
+<p>Sudoku is a popular number puzzle that works as follows: we are given a 9 × 9 square grid; some squares have numbers, while some are blank. Our objective is to fill in the blanks with numbers from 1 − 9 such that each row, column, and the highlighted 3 × 3 squares contain no duplicate entries.</p>
+<p>Sudoku puzzles can be solved easily after being modelled as a CSP We will consider the problem of generating Sudoku puzzles. In particular, consider the following procedure:</p>
+<div class="exercise" id="exercise-sudoku-representation">
+    <div class="title">
+        Sudoku Representation
+    </div>
+    <div class="content">
+        Start with a completely full valid sudoku grid and iteratively make some squares blank. Continue blanking out squares as long as the resulting puzzle can be completed in at least one way. That is, stop before there are multiple ways to solve the board.
+        <ul>
+            <li>Give the representation of a state in this problem</li>
+            <li>Using the state representation defined above, specify the initial state and goal state(s)</li>
+            <li>Define its actions.</li>
+            <li>Using the state representation and actions defined above, specify the transition function T . (In other words, when each of the actions defined above is applied to a current state, what is the resulting state?)</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>A state in this problem is a partial valid solution of the Sudoku puzzle with some blank squares, we'll represent blank squares with a zero, so then our state is a matrix \( S \in M _ { 9 \times 9 } \left( \left[ 0, \ldots 9 \right] \right) \),</p>
+        <p>The initial state is a matrix \( X \in M _ { 9 \times 9 } \left( \left[ 1 \ldots 9 \right] \right) \)</p>
+        <p>An action removes a number from the grid, so we can take our intermediate matrix \( X \), and obtain a new matrix \( X ^ \prime \) which is obtained by setting one of the non-zero entries of \( X \) to be zero. This can be constructively done by subtrating a new matrix which has zeros every except for the place at which we want to make zero, where instead we have the number from the original matrix.</p>
+        <p>The transition function could be defined as follows \[ T \left( X, \left( i, j \right) \right) = X - \operatorname{ poke\_thru } \left( X, \left( i, j \right) \right) \]</p>
+    </div>
+</div>

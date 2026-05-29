@@ -1,0 +1,65 @@
+<div class="proposition" id="proposition-sequences-converge-iff-projections-converge" >
+    <div class="title">Sequences Converge Iff Projections Converge</div>
+    <div class="content">
+        Let \( x_1, x_2, \ldots , x_n \) be a sequence of points in the product space \( \prod X _ \alpha  \). This sequence converges to the point \( x \) if and only if \( \pi _ \alpha \left( x_k \right) \to \pi _ \alpha \left( x \right)   \) for every \( \alpha \) 
+    </div>
+
+    <div class="proof">
+        <p>
+            \( \implies  \) Suppose that \( x _ n \to x \), and fix \( \beta \in A \) and let \( U \) be a neighborhood of \( \pi _ \beta \left( x \right)  \) and consider \( \prod C _\alpha  \) where \( C _ \alpha = X _ \alpha  \) whenever \( \alpha \neq \beta \) and \( C _ \alpha = U \) when \( \alpha = \beta \), therefore we know that \( x \in B := \prod C _ \alpha  \) since this is a product of open sets where all but finitely many are the whole space then \( B \) is a basis element of the product topology and thus is an open set containing \( x \) therefore by assumption there exists an \( N \) such that for all \( k \ge N \) we have that \( x _ k \in B \) meaning that \( \pi _ \beta \left( x _ k \right) \in U  \), therefore \( \pi _ \alpha \left( x _ k \right) \to \pi _ \alpha \left( x \right)   \) as needed.
+        </p>
+        <p>
+            Suppose that \( \pi _ \alpha \left( x _ k \right) \to \pi _ \alpha \left( x \right)   \) for each \( \alpha \), and let's prove that \( x _ n \to x \) so let \( U \) be an open neighborhood of \( x \). Since \( x \in \prod X _ \alpha  \)  <a class="knowledge-link" href="/topology/basis.html#theorem-topology-generated-by-a-basis-consists-of-unions">then we know that</a> there exists a basis element \( B \)  from the product topology such that \( x \in B \subseteq U \) recall that \( B = \prod V _ \alpha  \) where there exists some finite set \( F \subseteq A \) such that \( V _ \alpha  \) is an open set in \( X _ \alpha  \) whenever \( \alpha \in F \) and \( V _ \alpha = X _ \alpha  \) otherwise.
+        </p>
+        <p>
+            Since \( x \in \prod V _ \alpha \) then we know that \( \pi _ \alpha \left( x \right) \in V _ \alpha   \), note that \( V _ \alpha  \) is an open neighborhood of \( \pi _ \alpha \left( x \right)  \), now we restrict our attention to \( \alpha \in F \) now by assumption we know that there exists some \( N _ \alpha  \) such that whenever we have \( j \gt N _ \alpha  \) then \( \pi _ \alpha \left( x _ j \right)  \), since \( F \) was finite, then \( N = \max \left( \left\{ N _ \alpha : \alpha \in F \right\}  \right)  \).  
+        </p>
+        <p>
+            Now suppose that \( s \gt N \) therefore we know that \( x _ s \in V _ \alpha  \) for every \( \alpha \in F \) as constructed in the previous paragraph, additionally whenver \( \alpha \in A \setminus F \) then \( V _ \alpha = X _ \alpha  \) therefore we definitely know that \( x _ s \in V _ \alpha  \) in that case. Therefore we've shown that \( x _ s \in B \) and since \( B \subseteq U \) then \( x _ s \in U \) as needed, so it converges.
+        </p>
+        <hr>
+        <p>
+            Also note that if we consider \( \prod X _ \alpha  \) with the box topology then the statement is no longer true, because if we consider \( x = \left( 0, 0, 0, \ldots  \right)  \in \mathbb{ R } ^ \infty  \) then \( \prod _ { n \in \mathbb{ N } _ 1 } \left( \frac{ -1 }{ n }, \frac{ 1 }{ n }   \right)  \) is a neighborhood of \( x \), and consider the sequence of elements from \( \prod X _ \alpha  \) where we define \( x _ i =  \left( \frac{ 1 }{ i }, \frac{ 1 }{ i }, \ldots \right)  \) for each \( i \in \mathbb{ N } _1 \) then \( \pi _ j \left( x _ n \right) = \left( 1, \frac{ 1 }{ 2 }, \frac{ 1 }{ 3 }, \ldots \right) \) converges to \( 0 = \pi _ j \left( x \right)  \) but then its clear that \( \left( x _ n \right)  \) does not converge to \( x \) because for any \( k \in \mathbb{ N } _ 1 \) there is a point at which \( U \) gets too small and excludes elements from \( x _ k \), in other words \( x _ k \notin U \).
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-all-but-finitely-many-satisfy-a-property" >
+    <div class="title">All but Finitely Many Satisfy a Property</div>
+    <div class="content">
+        Suppose that \( X \) is a set and \( P \) is a <a class="knowledge-link" href="/test.html#definition-predicate">prediate</a> on that set, the predicate:
+        \[
+            \operatorname{ abfm } \left( X, P \right) :  "\left\lvert \left\{ x \in X : \neg P \left( x \right)   \right\} \right\rvert \lt \infty''
+        \] 
+    </div>
+</div>
+<div class="definition" id="definition-r-infinity" >
+    <div class="title">R Infinity</div>
+    <div class="content">
+        We define 
+        \[
+            \mathbb{ R } ^ \infty = \left\{ \left( x _ n \right) : \text{ such that } \operatorname{ abfm } \left( \left\{ x _ n \right\}, = 0 \right) \right\} 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-closure-of-r-infinity-in-the-box-and-product-topologies" >
+    <div class="title">Closure of R Infinity in the Box and Product Topologies</div>
+    <div class="content">
+        Consider the space \( \mathbb{ R }  ^ \mathbb{ R }  \), then in the box topology we have 
+        \[
+            \overline{ \mathbb{ R } ^ \infty } = \mathbb{ R } ^ \infty
+        \]
+        and 
+        \[
+            \overline{ \mathbb{ R } ^ \infty  } = \mathbb{ R } ^ \mathbb{ R } 
+        \] 
+        in the product topology
+    </div>
+    <div class="proof">
+        <p>
+            We will show that \( \overline{ \mathbb{ R } ^ \infty } = \mathbb{ R } ^ \infty \) by showing that the set is closed by <a class="knowledge-link" href="/topology/limit_points.html#corollary-closed-iff-every-point-outside-the-set-is-not-a-limit-point">by following this corollary</a>. So let \( \left( x _ n \right)  \notin \mathbb{ R } ^ \infty  \) then that means that there are infinitely many \( i \in \mathbb{ N } _ 1 \) such that \( x _ i \neq 0 \), for each such \( x _ i \) since it is an element of \( R \) then we can construct an open set around \( x _ i \) that does not contain \( 0 \) by using setting \( \delta = \frac{ x_i }{ 2 } \) and considering the interval \( \left( x _ i - \delta , x _ i + \delta  \right)  \) let's denote that set by \( U _ i \), we can expand this definition for all \( i \in \mathbb{ N } _ 0 \) by considering the places at which \( x _ i = 0 \), for those places we will set \( U _ i = \mathbb{ R }  \), then note that for any \( y \in \prod U _ i \) then \( y \) also has infinitely many entries that are non-zero, thus \( y \notin \mathbb{ R } ^ \infty  \), this proves that \( \mathbb{ R } ^ \infty \cap \prod U _ i = \emptyset \) meaning that there exists a neighborhood which doesn't intersect \( \mathbb{ R } ^ \infty  \) at all and thus since \( \left( x _ n \right)  \) was an arbitrary element of \( \mathbb{ R } ^ \mathbb{ R } \setminus \mathbb{ R } ^ \infty  \) then no point there is a limit point, therefore the corollary tells us that \( \mathbb{ R } ^ \infty  \) is closed.
+        </p>
+        <p>
+            Now we do the same but for the product topology but <a class="knowledge-link" href="/topology/limit_points.html#corollary-the-closure-is-the-union-of-a-and-the-limits-points-of-a-that-are-not-in-a">we only focus on elements outside</a> and <a class="knowledge-link" href="/topology/limit_points.html#corollary-limit-point-iff-every-basis-element-containing-intersects-at-a-different-point">now let</a> \( x \in \mathbb{ R } ^ \mathbb{ R }  \setminus \mathbb{ R } ^ \infty  \) , and let \( B = \prod U _ n \) be a basis element containing \( x \) therefore \( U _ n = \mathbb{ R }  \) for all but finitely many indices, and therefore there exists some \( N \in \mathbb{ N } _1 \) such that for any \( n \ge N \) we have that \( U _ n = \mathbb{ R }  \) we now construct \( y  \) such that \( y _ n = x _ n \) for all \( n \lt N \) and \( y _ n = 0 \) whenever \( n \ge N \) we observe that \( x \neq y \) as \( x \) has infinitely many elements of its sequence that are non-zero, whereas \( y \) only has finitely many that are non-zero which also tells us that \( y \in \mathbb{ R } ^ \infty  \) which shows that \( y \in B \cap \mathbb{ R } ^ \infty \neq \emptyset \) therefore we know that \( x \in \left( R ^ \infty  \right) ^ \prime \) which shows that every point outside \( \mathbb{ R } ^ \infty   \) is a limit point, so we conclude that \( \overline{ \mathbb{ R } ^ \infty   } = \mathbb{ R } ^ \mathbb{ R }   \), as needed.
+        </p>
+    </div>
+</div>

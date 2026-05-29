@@ -1,0 +1,74 @@
+<div class="exercise" id="exercise-set-cover">
+    <div class="title">
+        Set Cover
+    </div>
+    <div class="content">
+        Here is the Set-Cover problem. You are given a set \(E=\left\{e_1, \ldots, e_n\right\}\), and \(m\) subsets \(S_1, \ldots, S_m \subseteq E\). For each \(j \in[m]\), we associate a weight \(w_j \geq 0\) to the set \(S_j\). The goal is to find a minimum-weight collection of subsets that covers all of \(E\).
+        <ul>
+            <li>Form the set-cover problem as an integer linear program, and then relax it to a linear program. Define your variables. [Hint: you might want to have a constraint like \(\sum_{j: e_i \in S_j} x_j \geq 1\) for each element \(e_i\).]</li>
+            <li>Let \(x^*\) denote the optimal solution to the relaxed LP you defined in part (a). Let \(f\) be the maximum number of subsets in which any element appears. Here's the rounding algorithm: given \(x^*\), we include \(S_j\) if and only if \(x_j^* \geq 1 / f\). Let \(I=\left\{j: S_j\right.\) is selected by the rounding algorithm \(\}\). Prove that the collection of subsets \(S_j\) where \(j \in I\) chosen by the rounding algorithm is a set cover.</li>
+            <li>Let OPT be value of the optimal solution of the set-cover. Prove that the rounding algorithm in (b) gives an \(f\)-approximation.</li>
+        </ul>
+    </div>
+    <div class="proof">
+        Let's first define the linear integer program as follows for each \( S _ j \) lets define \( x _ { S _ j } \) to be either the value \( 0 \) or \( 1 \) where this varaible represents whether or not we use \( S _ j \) in our collection of subsets that cover \( E \). With that in place our goal will be to minimize \[ \sum _ { S _ i \in S } w _ i x _ { S _ i } \] which represents the weighted sum of our selected subsets. We will also enforce that \( e _ k \) is in a least one of these subsets, so let \( I _ k \) be the collection of subsets that \( e _ k \) is in and thus for each \( k \in \left[ 1 \ldots n \right] \) we enforce the constraint: \[ \sum _ { S _ i \in I _ k } x _ { S _ i } \ge 1 \]
+        <p>We can now relax the problem by allowing \( x _ { S _ i } \in \mathbb{ R } ^ { \ge 0 } \)</p>
+        <hr>
+        <p>We now prove that the selection of subsets selected using the rounding algorithm is a set cover. Given an \( e _ k \), lets show that there is some \( S _ m \) such that \( e _ k \in S _ m \) where \( S _ m \) has been selected using the rounding algorithm.</p>
+        <p>When know that \( e _ k \) is included in at most (or equal to) \( f \) subsets, therefore we know that what this means is that \( \lvert I _ k \rvert \le f \) therefore since the solution still respects the constraint: \[ \sum _ { S _ i \in I _ k } x _ { S _ i } \ge 1 \] then if each \( x _ { S _ i } \lt \frac{1}{f} \) then the sum would be less than 1 which is a contradiction, therefore there is at least one \( i \) such that \( x _ { S _ i } \ge \frac{1}{f} \), by construction our round algorithm will select \( S _ i \), on the other hand \( S _ i \in I _ k \) and therefore \( e _ k \in S _ i \) so \( e _ k \) is covered, since this holds for any \( k \) the entire collection \( E \) is covered.</p>
+        <hr>
+        <p>Note that \( \mathrm{ OPT } = \sum w _ i x _ i \) and suppose that the optimal solution from the relaxation is given by \( \sum w _ i y _ i \) where the \( y _ i \) are used to differentiate from the OPT solution, let the solution given by taking the optimal relaxation solution and doing rounding be given by \( \sum w _ i r \left( y _ i \right) \) where \( r \) maps to 0 if the value is less than \( \frac{1}{f} \) and 1 otherwise.</p>
+        <p>Let's now observe a few relationships between these solutions. First note that by relaxing a binary varaible it allows for the binary values to be taken on, but also other values, within these new possible values we may be able to find a solution which yields a better objective value. Thus we have \( \sum w _ i x _ i \ge \sum w _ i y _ i \).Note that if \( y _ i \ge \frac{1}{f} \) then we know that \( r \left( y _ i \right) = 1 \) and so there is some \( \alpha _ i \le f \) such that \( \alpha y _ i = r \left( y _ i \right) \), at the same time if \( y _ i \lt \frac{1}{f} \) then \( r \left( y _ i \right) = 0 = f 0 \) thus we have \[ \sum w _ i r \left( y _ i \right) = \sum w _ i \left( \alpha x _ i \right) \le \sum w _ i \left( f x _ i \right) = f \sum w _ i x _ i = f \cdot \mathrm{ OPT } \] simply: \[ \sum w _ i r \left( y _ i \right) \le f \cdot \mathrm{ OPT } \] as needed.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-metric-tsp">
+    <div class="title">
+        Metric TSP
+    </div>
+    <div class="content">
+        <p>Here's the metric traveling salesman problem. You are given a complete graph \(G=(V, E)\), where \(V=\{1, \ldots, n\}\) represents the cities the salesman needs to visit. For each edge \((i, j) \in E\), we associate it with a cost \(c_{i j}\). We call it "metric" because for every triplet of vertices \(i, j, k \in V\), it respects the triangle inequality, i.e. \(c_{i k} \leq c_{i j}+c_{j k}\).</p>
+        <p>The goal is to have a tour of the cities (i.e. a Hamiltonian cycle of \(G\) ) such that each city is visited exactly once (except for the starting city where you have to come back to), and the total cost is minimized.</p>
+        <p>Here is our approximation algorithm, which is also a greedy algorithm: Among all pairs of cities, find the two closest cities, say \(i\) and \(j\), and start by building a tour on that pair of cities; the tour consists of going from \(i\) to \(j\) and then back to \(i\) again. This is the first iteration. In each subsequent iteration, we extend the tour on the current subset \(S \subseteq V\) by including one additional city, until we include the full set of cities. Specifically in each iteration, we find a pair of cities \(i \in S\) and \(j \notin S\) for which the cost \(c_{i j}\) is minimum; let \(k\) be the city that follows \(i\) in the current tour on \(S\). We add \(j\) to \(S\), and replace the path \(i \rightarrow k\) with \(i \rightarrow j\) and \(j \rightarrow k\). See the picture below for illustration:</p>
+        <p>Let OPT be the value of the optimal solution of the metric traveling salesman problem. Prove that the approximation algorithm above gives a 2-approximation.</p>
+    </div>
+    <div class="proof">
+        <p>Firstly observe that the specified algorithm is very similar to Prim's algorithm, which generates a minimal spanning tree. We make the followign claim at iteration \( k \) the cost subtour constructed by the approximation algorithm is less than or equal to 2 times the cost of the sub-spanning tree constructed by prim's algorithm. Let \( A _ i \) and \( P _ i \) denote the cost at iteration of \( i \) of the approximation and prim's algorithm respectively.</p>
+        <p>Base case: On the first iteration the approximation algorithm selects the two vertices that are closest together ( \( i, j \) ) and constructs the tour \( i - j - i \) this cost is equal to \( d \left( i, j \right) + d \left( j, i \right) \), on the other hand the subtree constructed by prim is simply \( i - j \) and therefore it's cost is only \( d \left( i, j \right) \) so we have that \( A _ i = 2 P _ i \le 2 P _ i \) as needed.</p>
+        <p>Induction Step: Assume that the statement holds true for \( k \in \mathbb{ N } _ 1 \) and lets show it holds true for \( k + 1 \). At iteration \( k + 1 \) since the pseudocode of the approximation algorithm selects the next vertex in the same way a prim, they both select some new vertex \( v _ m \) where this vertex forms the smallest distance with respect to all of the vertices which have been selected already (which is also the same for both algorithms at this iteration). Suppose this smallest distance was observed with the pair \( v _ a \in S \), which is to say that \( d \left( v _ a, v _ m \right) \) was minimized.</p>
+        <p>Recall that the approximation states that it will remove the vertex after \( v _ a \) in the tour (which we will denote as \( v _ b \)) and then inserts \( v _ a - v _ m - v _ b \) instead. The increase in cost by doing so is equal to \( d \left( v _ a, v _ m \right) + d \left( v _ m , v _ b \right) - d \left( v _ a, v _ b \right) \), now we remark the following \[ d \left( v _ m, v _ b \right) \le d \left( v _ m, v _ a \right) + d \left( v _ a, v _ b \right) = d \left( v _ a, v _ m \right) + d \left( v _ a, v _ b \right) \] therefore \[ d \left( v _ a, v _ m \right) + d \left( v _ m , v _ b \right) - d \left( v _ a, v _ b \right) \le 2 d \left( v _ a, v _ m \right) \] Keep remembering that this edge \( v _ a, v _ m \) is the exact same edge that prim will have chosen at iteration \( k + 1 \) because both of these algorithms select their next vertices in the same manner. Thus we have \[ \begin{align} A _ { k + 1 } &amp;= A _ k + \left( d \left( v _ a, v _ m \right) + d \left( v _ m , v _ b \right) - d \left( v _ a, v _ b \right) \right) \\ &amp;\le 2 \cdot P _ k + \left( d \left( v _ a, v _ m \right) + d \left( v _ m , v _ b \right) - d \left( v _ a, v _ b \right) \right) \\ &amp;\le 2 \cdot P _ k + 2 d \left( v _ a, v _ m \right) \\ &amp;= 2 \left( P _ k + d \left( v _ a, v _ m \right) \right) \\ &amp;= 2 P _ { k + 1 } \end{align} \] Thus the induction step is proven.</p>
+        <p>What we can infer is that after both algorithms terminate on the same iteration, the approximation algorithm has created a tour \( T \) and prim has created a minimal spanning tree \( M \) such that \( c \left( T \right) \le 2 c \left( M \right) \). Now note that given a minimal spanning tree we know that it's cost is always going to be less than or equal to OPT, this is because by removing a single edge from OPT which is a tour, we obtain a spanning tree whose cost is less than or equal to the cost of the tour, but also it's a spanning tree and so the minimal spanning tree will have cost less than or equal to it, so now we have that \( c \left( T \right) \le 2 c \left( M \right) \le 2 OPT \) hence the approximation algorithm yields a 2-approximation.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-radomized-max-cut">
+    <div class="title">
+        Randomized Max Cut
+    </div>
+    <div class="content">
+        Let \(G=(V, E)\) be an undirected graph. For any subset of vertices \(U \subseteq V\), define \[ \operatorname{cut}(U)=\{(u, v) \in E: u \in U \text { and } v \notin U\} . \]
+        <p>The set \(\operatorname{cut}(U)\) is called the cut determined by the vertex set \(U\). The size of the cut is denoted by \(|\operatorname{cut}(U)|\). The Max-Cut problem asks you to find the cut with maximum size, i.e., \(\max _{U \subseteq V}|\operatorname{cut}(U)|\).</p>
+        <p>Here is a randomized algorithm for Max-Cut: Take a uniform random subset \(U\) of \(V\), and choose \(\operatorname{cut}(U)\) to be the cut. Let OPT be the size of the maximum cut in \(G\).</p>Prove that the randomized algorithm gives a cut of expected size at least half of the optimal solution, i.e., \(\mathbb{E}[|\operatorname{cut}(U)|] \geq \frac{1}{2}\) OPT.
+    </div>
+    <div class="proof">
+        <p>In order to solve this we must know the meaning of a uniform random subset \( U \) of \( V \), to select a uniform random subset means that there is equal probability for a given vertex to either be in \( U \) or for it to not be in \( U \), what this means is that given any \( e \in E \) we have that \( P \left( e \in \operatorname{ cut } \left( U \right) \right) = \frac{1}{2} \), observe that we have the indicator function \( I _ C : E \left( U \right) \to \left\{ 0, 1 \right\} \) which equals \( 1 \) when an edge is in the cut and 0 when it is not, and that the indicator function can be thought of as a random variable.</p>
+        <p>Note that \( \lvert \operatorname{ cut } \left( U \right) \rvert = \sum _ { e \in E } I _ C \left( e \right) \), since expected value is linear then we know \[ E \left( \lvert \operatorname{ cut } \left( U \right) \rvert \right) = \sum _ { e \in E } E \left( I _ C \left( e \right) \right) \]</p>
+        <p>Now let's note that for a given fixed \( e ^ \star \) we know that \( E \left( I _ C \left( e ^ \star \right) \right) := P \left( I _ C \left( e ^ \star \right) = 1 \right) 1 + P \left( I _ C \left( e ^ \star \right) = 0 \right) 0 = \frac{1}{2} \) therefore we continue the chain of equalities from our previous paragraph obtaining: \[ \sum _ { e \in E } E \left( I _ C \left( e \right) \right) = \frac{\lvert E \rvert }{2} \]</p>
+        <p>Note that the size of the cut is clearly upperbounded by how many edges your graph actually has, so that \( \frac{\lvert E \rvert }{2} \ge \frac{\mathrm{ OPT } }{2} \) thus connecting everything we obtain that \[ E \left( \lvert \operatorname{ cut } \left( U \right) \rvert \right) \ge \frac{\mathrm{ OPT } }{2} \] as needed.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-randomized-max-k-sat">
+    <div class="title">
+        Randomized Max-k-Sat
+    </div>
+    <div class="content">
+        Max- \(k\)-SAT is a problem where we try to maximize the number of clauses that can be satisfied. Suppose there are \(n\) variables \(x_1, x_2, \ldots, x_n\), and each clause contains precisely \(k\) distinct literals (e.g. \(\left(\bar{x}_1 \vee x_2 \vee \bar{x}_3 \vee \ldots \vee x_k\right)\) ), and \(x_i\) and \(\bar{x}_i\) will not both appear in the same clause. Note that unlike Exact- \(k\)-SAT, we do not demand that every clause to be satisfied.
+        <ul>
+            <li>Prove that there exists a randomized algorithm that will approximately solve Max\(k\)-SAT within an approximation ratio of \(\left(2^k-1\right) / 2^k\).</li>
+            <li>Provide a de-randomization of the algorithm that uses the method of conditional expectations.</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>Our randomized algorithm simply assigns random truth values to all variables, since each clause is a sequence of logical or operations taken at once and it uses \( k \) distinct variables, then there is exactly one way for it to be false, and \( 2 ^ k \) possible truth assigments to these variables, therefore the probability that the whole statement is true is given by \[ \frac{2 ^ k - 1}{2 ^ k} \]</p>
+        <p>If there are \( m \) clauses total, then the expected number of satisfied clauses is simply given by \( m \cdot \frac{2 ^ k - 1}{2 ^ k} \), since the optimal number of satisfied clauses is \( m \) then this provides a \( \frac{2 ^ k - 1}{ 2 ^ k} \) approximation.</p>
+        <p>Note that if our random assigment doesn't yield a solution that satisfies at least \( \frac{2 ^ k - 1}{2 ^ k} m \) clauses, we simply try a new random assignment, it should only take a few iterations until we do at least as well as the expected value.</p>
+    </div>
+</div>

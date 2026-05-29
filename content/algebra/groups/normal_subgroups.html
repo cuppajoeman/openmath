@@ -1,0 +1,49 @@
+<div class="definition" id="definition-normal-subgroup">
+    <div class="title">
+        Normal Subgroup
+    </div>
+    <div class="content">
+        A subgroup \( H \) of \( G \) is called a <b>normal subgroup</b> of \( G \) if \( aH = Ha \) for every \( a \in G \), and we write \( H \trianglelefteq G \)
+    </div>
+</div>
+<div class="proposition" id="proposition-normal-subgroup-test">
+    <div class="title">
+        Normal Subgroup Test
+    </div>
+    <div class="content">
+        A subgroup \( H \) of \( G \) is normal iff \( x H x ^ { -1 } \subseteq H \) for every \( x \in G \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-quotient-group">
+    <div class="title">
+        Quotient Group
+    </div>
+    <div class="content">
+        Suppose that \( G \) is a group and that \( H \trianglelefteq G \). Then we define \[ G / H := \left\{ a H : a \in G \right\} \]
+    </div>
+</div>
+<p>Some may call a quotient group a factor group</p>
+<div class="exercise" id="exercise-solvable">
+    <div class="title">
+        Solvable
+    </div>
+    <div class="content">
+        Show that \( S _ 3 \) is solvable
+    </div>
+    <div class="proof">
+        <p>We'll consider \( G _ 0 = \left\{ e \right\}, G _ 1 = \left\{ e, \left( 1 2 3 \right), \left( 1 3 2 \right) \right\}, G _ 2 = S _ 3 \). Recall that from group theory that if \( H \) is a subgroup of \( G \) and that the index of \( H \) in \( G \) is 2, then \( H \) is a normal subgroup of \( G \), therefore in our context we can observe that \( G _ 1 \) is a normal subgroup of \( S _ 3 \) as it has index 2.</p>
+        <p>It's noted that trivially \( \left\{ e \right\} \) is a normal subgroup of \( G _ 1 \). We'll now move to showing that \( G _ 0 / G _ 1 \) and \( G _ 1 / G _ 2 \) are abelian, for the first we just have to realize that \( G _ 1 \) is abelian itself because \( \left( 1 2 3 \right) \left( 3 2 1 \right) = \left( 3 2 1 \right) \left( 1 2 3 \right) = e \) and the rest of the comparisons are trivial, so also \( G _ 1 / G _ 0 \) is abelian. For \( S _ 3 / G _ 1 \), we can actually find that this is isomorphic to \( D _ 6 \) which we already know is abelian, therefore by definition we've shown that \( S _ 3 \) is solvable</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-the-symmetric-group-for-n-greater-than-or-equal-to-5-is-not-solvable">
+    <div class="title">
+        The Symmetric Group for n Greater Than or Equal to 5 Is not Solvable
+    </div>
+    <div class="content">
+        \( S _ n \) for \( n \ge 5 \) is not solvable
+    </div>
+    <div class="proof">
+        Suppose for the sake of contradiction that \( S _ n \) is solvable, therefore there is a chain of subgroups of the form \[ \left\{ e \right\} \leqslant G _ 1 \ldots G _ { n - 1 } \leqslant G _ n = S _ n \] wherein consecutive quotients are abelian, if we consider \( G _ n / G _ { n - 1 } \), then if \( G _ n \) contains all the three cycles, then by what we proved proviously so does \( G _ { n - 1 } \). Then if \( G _ { n - 1 } \) contains all the three cycles so does \( G _ { n - 2 } \) continuing on, we'll eventually arrive at a contradiction, therefore \( S _ n \) is not solvable.
+    </div>
+</div>

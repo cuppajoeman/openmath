@@ -1,0 +1,315 @@
+<div class="definition" id="definition-automorphism">
+    <div class="title">
+        Automorphism
+    </div>
+    <div class="content">
+        If \( E \) is a field, then an automorphism of \( E \) is an isomorphism of \( E \) with itself.
+    </div>
+</div>
+<div class="definition" id="definition-automorphism-fixed-pointwise">
+    <div class="title">
+        Automorphism Fixed Pointwise
+    </div>
+    <div class="content">
+        If \( E / F \) is a field extension, then an automorphism \( \sigma \) of \( E \) fixes \( F \) pointwise if \( \sigma \left( c \right) = c \) for every \( c \in F \)
+    </div>
+</div>
+<div class="proposition" id="proposition-automorphism-fixed-pointwise-takes-roots-to-roots">
+    <div class="title">
+        Automorphism Fixed Pointwise Takes Roots to Roots
+    </div>
+    <div class="content">
+        Let \( f \left( x \right) \in F \left[ X \right] \) and let \( E / F \) be an extension field of \( F \). If \( \sigma : E \to E \) is an automorphism fixing \( F \) pointwise , and if \( \alpha \in E \) is a root of \( f \left( x \right) \) then \( \sigma \left( \alpha \right) \) is also a root of \( f \left( x \right) \)
+    </div>
+    <div class="proof">
+        Suppose that \( f \left( x \right) = a_0 + a_1 x^1 + \cdots a_n x^n \) with \( a _ i \in F \) and therefore \( a_0 + a_1 \alpha^1 + \cdots a_n \alpha^n = 0 \), now since \( \sigma \) is a homomorphism, we have that \[ 0 = \sigma \left( 0 \right) = \sigma \left( a_0 + a_1 \alpha^1 + \cdots a_n \right) = \sigma \left( a _ 0 \right) + \sigma \left( a _ 1 \right) \sigma \left( \alpha \right) + \cdots + \sigma \left( a _ n \right) \sigma \left( \alpha \right) ^ n \] And since \( \sigma \) fixes \( F \) pointwise we know that this is equal to \[ a _ 0 + a _ 1 \sigma \left( \alpha \right) + \cdots + a _ n \sigma \left( \alpha \right) _ n = 0 \] which means that \( \sigma \left( \alpha \right) \) is a root of \( f \left( x \right) \) as needed.
+    </div>
+</div>
+<div class="definition" id="definition-galois-group">
+    <div class="title">
+        Galois Group
+    </div>
+    <div class="content">
+        Let \( E / F \) be a field extension, then it's <b>Galois Group</b> is \[ \operatorname{ Gal } \left( E / F \right) := \left\{ \text{ automorphisms } \sigma \text{ of } E \text{ fixing } F \text{ pointwise } \right\} \] where the
+    </div>
+</div>
+<div class="proposition" id="proposition-degree-1-iff-same-as-fields">
+    <div class="title">
+        Degree 1 iff Same as Fields
+    </div>
+    <div class="content">
+        Suppose that \( E \) is a field extension of \( F \), then \[ \left[ E : F \right] = 1 \iff E = F \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-prime-degree-extension-restricts-subfields">
+    <div class="title">
+        Prime Degree Extension Restricts Subfields
+    </div>
+    <div class="content">
+        Suppose that the degree of the extension \( E / F \) is a prime \( p \). Show that any subfields \( K \) of \( E \) containing \( F \) is either \( E \) or \( F \).
+    </div>
+    <div class="proof">
+        Suppose that \( K \) is a subfield of \( E \) containing \( F \), we know that \( \left[ E : F \right] = p \), but also that \[ p = \left[ E: F \right] = \left[ E : K \right] \left[ K : F \right] \] Since \( p \) is prime then we have two cases, if \( \left[ E : K \right] = 1, \left[ K : F \right] = p \) <a class="knowledge-link" href="/algebra/galois_theory/the_galois_group.html#proposition-degree-1-iff-same-as-fields">then we know</a> \( K = E \), in the other case we will obtain that \( F = K \), which proves what we wanted to show.
+    </div>
+</div>
+<div class="proposition" id="proposition-irreducible-polynomial-restricts-size-of-galois-group">
+    <div class="title">
+        Irreducible Polynomial Restricts Size of Galois Group
+    </div>
+    <div class="content">
+        Suppose that \( p \left( x \right) \) is irreducible fo degree \( n \), and let \( E \) be \( p \left( x \right) \)'s splitting field then
+        <ul>
+            <li>\( n \le \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \rvert \le n! \)</li>
+            <li>\( \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \rvert \mid n! \)</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-polynomial-to-galois">
+    <div class="title">
+        Polynomial to Galois
+    </div>
+    <div class="content">
+        Consider the polynomial given by \( p \left( x \right) = x ^ 3 + 3 x - 1 \in \mathbb{ Q } \left[ x \right] \)
+        <ul>
+            <li>Show that \( p \left( x \right) \) has exactly one real root given by \( \alpha \in \mathbb{ R } \)</li>
+            <li>Show that \( \mathbb{ Q } \left( \alpha \right) \) is a field extension of \( \mathbb{ Q } \) of degree 3</li>
+            <li>Let \( E \) be the splitting field of \( p \left( x \right) \) over \( \mathbb{ Q } \) find the size of the Galois group \( G \left( E / \mathbb{ Q } \right) \) of \( E / \mathbb{ Q } \).</li>
+            <li>For each isomoprhism \( \phi \in \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \) determine \( \phi \left( \alpha \right) \)</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>It should be clear that \( p \left( x \right) \) has one real root, this can be noted that it has power \( 3 \) and that \( p ^ \prime \left( x \right) = 3 x ^ 2 + 3 \gt 0 \), thus it can only pass through the x-axis at most once, leading to exactly one real root.</p>
+        <hr>
+        <p>In order to prove that \( \mathbb{ Q } \left( \alpha \right) \) is a field extension of \( \mathbb{ Q } \) of degree 3, all we have to do is shot ath \( p \left( x \right) \) is irreducible over \( \mathbb{ Q } \). Recall that the following: given two polynomials \( m \left( x \right), k \left( x \right) \) such that \( m \left( x \right) = k \left( x + a \right) \), then \( m \left( x \right) \) is irreducible iff \( k \left( x \right) \) is irreducible.</p>
+        <p>With that said define \( m \left( x \right) = p \left( x + 1 \right) \) where we note that \[ p \left( x + 1 \right) = x ^ 3 + 3 x ^ 2 + 3 x + 1 + 3x + 3 - 1 = x ^ 3 + 3 x ^ 2 + 6 x + 3 \] which allows us to use Eisenstien's with \( p = 3 \) to deduce that \( p \left( x + 1 \right) \) is irreducible in \( \mathbb{ Q } \left[ x \right] \) , but then \( p \left( x \right) \) is also irreducible by our previous paragraph. Therefore since \( p \left( x \right) \) has degree 3, then we know that the extension \( \mathbb{ Q } \left( \alpha \right) \) has degree 3.</p>
+        <hr>
+        <p>Note that \( p \left( x \right) = x ^ 3 + 3x - 1 \) is sparable because \( \mathbb{ Q } \) has characteristic 0. Therefore since \( E \) is its splitting field, then we have that \( \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \rvert = \left[ E : \mathbb{ Q } \right] = \left[ E : \mathbb{ Q } \left( \alpha \right) \right] \left[ \mathbb{ Q } \left( \alpha \right) : \mathbb{ Q } \right] \).</p>
+        <p>Note that since there is exactly one root in \( \mathbb{ Q } \left( \alpha \right) \) then we know that \( \left[ E : \mathbb{ Q } \left( \alpha \right) \right] \gt 1 \) because if it was equal to one, then \( \mathbb{ Q } \left( \alpha \right) \) would be the splitting field, which it cannot be because it contains exactly one root, we require that \( \lvert \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \rvert \lt \lvert S _ 3 \rvert = 6 \right) \) because the splitting field contains \( 3 \) distinct roots, all of this forces that \( \left[ E : \mathbb{ Q } \left( \alpha \right) \right] = 2 \) so that \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \rvert = \left[ E : \mathbb{ Q } \right] = 6 \) which means that \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \cong S _ 3 \).</p>
+        <hr>
+        <p>Each of the permutations in the Galois group is equivalent to one of the permutations in the symmetry group. Let \( a _ 1, a _ 2, a _ 3 \) (where \( a _ 2 = \alpha \) be the roots, but instead let's denote them by \( 1, 2, 3 \) so that we can use cycle notation to easily describe what each does to \( \alpha \) \[ \begin{align} a _ 1 () &amp;= a _ 1 \\ a _ 1 (1, 2) &amp;= a _ 2 \\ a _ 1 (2, 3) &amp;= a _ 1 \\ a _ 1 (1, 3) &amp;= a _ 3 \\ a _ 1 (1, 2, 3) &amp;= a _ 2 \\ a _ 1 (1, 3, 2) &amp;= a _ 3 \end{align} \]</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-the-irreducible-polynomial-of-1-+-i">
+    <div class="title">
+        The Irreducible Polynomial of 1 + i
+    </div>
+    <div class="content">
+        Find the irreducbile polynomial of \( 1 + i \) over \( \mathbb{ Q } \)
+    </div>
+    <div class="proof">
+        Recall that the irreducible polynomial of \( 1 + i \) is a monic irreducible polynomial having \( 1 + i \) as a root. Note that we main employ the following idea, start with \( x = 1 + i \) and then attempt to re-arrange this into a polynomial which is easy to verify if it is irreducible and is monic. Observe that \[ \begin{gather} x = 1 + i \\ \Updownarrow \\ x - 1 = i \\ \Downarrow \\ x ^ 2 - 2x + 1 = -1 \\ \Updownarrow \\ x ^ 2 - 2x + 2 = 0 \end{gather} \] Observe that this is monic, which is good using the rational roots theorem, let's observe that the only possible solutions would be given by \( \pm 2 \) by verifying both we observe that this polynomial is irreducible over \( \mathbb{ Q } \left[ x \right] \) as it has degree 2 and no roots.
+        <p>Finally note that \( 1 + i \) is a root of this polynomial: \[ \left( 1 + i \right) ^ 2 - 2 \left( 1 + i \right) + 2 = 1 + 2 i -1 - 2 - 2i + 2 = 0 \]</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-degree-of-extension">
+    <div class="title">
+        Degree of Extension
+    </div>
+    <div class="content">
+        Find the degree of the extension \( \mathbb{ Q } \left( \sqrt{3 + 2 \sqrt{2}} \right) \)
+    </div>
+    <div class="proof">
+        <p>We'll do this by first noticing something which is not immediately obvious: \[ \sqrt{3 + 2 \sqrt{2}} = 1 + \sqrt{2} \] To see this let's show that \( 3 + 2 \sqrt{2} = \left( 1 + \sqrt{2} \right) ^ 2 \). Well \( \left( 1 + \sqrt{2} \right) ^ 2 = \left( 1 + 2 \sqrt{2} + 2 \right) =3 + 2 \sqrt{2} \) as needed, thus it's true, from this we can note that \[ \mathbb{ Q } \left( \sqrt{3 + 2 \sqrt{2}} \right) = \mathbb{ Q } \left( 1 + \sqrt{2} \right) \] Now observe that \( \mathbb{ Q } \left( \sqrt{2} \right) = \mathbb{ Q } \left( 1 + \sqrt{2} \right) \) so we conclude that \[ \mathbb{ Q } \left( \sqrt{3 + 2 \sqrt{2}} \right) = \mathbb{ Q } \left( \sqrt{2} \right) \] We've seen that \( \left[ \mathbb{ Q } \left( \sqrt{2} \right) : \mathbb{ Q } \right] = 2 \) so we conclude that the answer to the original question is \( 2 \).</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-quartic-roots">
+    <div class="title">
+        Quartic Roots
+    </div>
+    <div class="content">
+        Find the order of the Galois group \( \operatorname{ Gal } \left( \mathbb{ Q } \left( \sqrt[4]{2}, i \right) / \mathbb{ Q } \left( \sqrt{2} \right) \right) \) and say what each of its elements are doing to the generators \( \sqrt[4]{2} \) and \( i \).
+    </div>
+    <div class="proof">
+        <p>Let \( \alpha = \sqrt[4]{2} \), let \( \phi \in \operatorname{ Gal } \left( \mathbb{ Q } \left( \sqrt[4]{2}, i \right) / \mathbb{ Q } \left( \sqrt{2} \right) \right) \), note that \( \phi \left( \alpha ^ 2 \right) = \alpha ^ 2 \), so that \[ \phi \left( \alpha \right) ^ 2 = \phi \left( \alpha ^ 2 \right) = \alpha ^ 2 \] thus \( \phi \left( \alpha \right) \) is an element who's sequre is \( \alpha ^ 2 \) since we are in an intergral domain then an element can have at most two square roots and since those would be \( \alpha, -\alpha \) then we know that \( \phi \left( \alpha \right) = \pm \alpha \).</p>
+        <p>On a similar note, we see that \( \phi \left( i \right) ^ 2 = -1 \) so that the only possibilities are \( phi \left( i \right) = \pm i \). Summing up, we've deduced that given any element in the galois group it must map \( \alpha \) to \( \pm \alpha \) and \( i \) to \( \pm i \), since knowing what the map does to \( \alpha \) and \( i \) fully determines it, this means that there are at most 4 automorphisms in the galois group.</p>
+        <p>We note that \( \mathbb{ Q } \left( \alpha, i \right) \) is the splitting field for \( x ^ 4 - 2 \) as \( \alpha, \alpha i, -\alpha, - \alpha i \) are contained in it, and there is nothing smaller containg all of them so that \( \lvert \operatorname{ Gal } \left( \alpha, i \right) / \mathbb{ Q } \left( \alpha ^ 2 \right) \rvert = \left[ \mathbb{ Q } \left( \alpha, i \right) : \mathbb{ Q } \left( \alpha ^ 2 \right) \right] = \left[ \mathbb{ Q } \left( \alpha, i \right) : \mathbb{ Q } \left( \alpha \right) \right] \cdot \left[ \mathbb{ Q } \left( \alpha \right) : \mathbb{ Q } \left( \alpha ^ 2 \right) \right] = 2 \cdot 2 = 4 \). Note that \( \left[ \mathbb{ Q } \left( \alpha \right) : \mathbb{ Q } \left( \alpha ^ 2 \right) \right] = 2 \) because we may use the basis \( \left( 1, \alpha \right) \).</p>
+        <p>Going back to our original paragraphs, we deduce that the four automorphisms are indeed uniquely determined by \( \phi _ 1 \left( b \right) = b, \phi _ 1 \left( i \right) = i \) , \( \phi _ 2 \left( b \right) = -b, \phi _ 2 = i \) , \( \phi _ 3 \left( b \right) = b, \phi _ 3 \left( i \right) = -i \) and \( \phi _ 4 \left( b \right) = -b, \phi _ 4 \left( i \right) = -i \)</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-square-root-coefficients">
+    <div class="title">
+        Square Root Coefficients
+    </div>
+    <div class="content">
+        Let \( f \left( x \right) = x ^ 3 - \sqrt{2} \in \mathbb{ Q } \left( \sqrt{2} \right) \left[ x \right] \)
+        <ul>
+            <li>Show that \( f \left( x \right) \) is irreducible over \( \mathbb{ Q } \left( \sqrt{2} \right) \)</li>
+            <li>Let \( E \) be the splitting field of \( f \left( x \right) \). Find \( \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right) \right) \) and describe its elements.</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>Since it is of degree \( 3 \) we may verify that it is irreducible by checking all possible input values and confirming none are roots, so let \( a + b \sqrt{2} \in \mathbb{ Q } \left( \sqrt{2} \right) \) then \[ \begin{gather} \left( a + b\sqrt{2} \right) ^ 3 - \sqrt{2} = 0 \\ \Updownarrow \\ a ^ 3 + 3 a ^ 2 b \sqrt{2} + 3 a b ^ 2 \left( \sqrt{2} \right) ^ 2 + b ^ 3 \left( \sqrt{2} \right) ^ 3 - \sqrt{2} = 0 \\ \Updownarrow \\ \left( a ^ 3 + 6 a b ^ 2 \right) + \sqrt{2} \left( 3 a ^ 2 b + 2 b ^ 3 - 1 \right) = 0 \end{gather} \] so that we must have \[ a ^ 3 + 6 a b ^ 2 = 0 \qquad \text{ and } \qquad 3 a ^ 2 b + 2 b ^ 3 - 1 = 0 \] If so, then \( a ^ 3 + 6 a b ^ 2 = 0 \iff a \left( a ^ 2 + 6 b ^ 2 \right) = 0 \). If it's the case that \( a = 0 \), then we have \[ \begin{align} 3 a ^ 2 b + 2 b ^ 3 - 1 = 0 \\ \Updownarrow \\ b = \frac{1}{\sqrt[3]{2}} \end{align} \] but by plugging that into \( f \) we obtain a non-zero value, on the other hand if \( a ^ 2 + 6 b ^ 2 = 0 \) then this forces \( a , b = 0 \) which also leads to a non-zero value when plugged into \( f \) therefore we know that \( f \) is irreducible over \( \mathbb{ Q } \left( \sqrt{2} \right) \)</p>
+        <hr>
+        <p>Let's observe that \( f \left( x \right) \) is separable, this is simply because it is a non-zero polynomial within a field of characteristic zero, so we have that \[ \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right) \right) \rvert = \left[ E : \mathbb{ Q } \left( \sqrt{2} \right) \right] \] We also know that \(\lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right) \right) \rvert \mid \lvert S _ 3 \rvert = 6 \). We also know that \( f \) has one real root, given by \( r = \sqrt[6]{2} \) and the other two are distinct complex numbers.</p>
+        <p>Let \( F = \mathbb{ Q } \left( \sqrt{2} \right) \) We now deduce that \( \left[ E : F \left( r \right) \right] \ge 1 \) because \( F \left( r \right) \) is not the splitting field as just discussed, by iv in theorem 47, we have that \( \left[ F \left( r \right) : F \right] = \operatorname{ deg } \left( f \right) = 3 \) therefore with all this information we are forced to have that \( \left[ E : F \left( r \right) \right] = 2 \) so that \( \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right) \right) \rvert = 6 \) and thus \( \operatorname{ Gal } \left( E / \mathbb{ Q } \left( \sqrt{2} \right) \right) \cong S _ 3 \) so that each the galois's groups elements are one of the permutations.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-polynomials-as-matrices">
+    <div class="title">
+        Polynomials as Matrices
+    </div>
+    <div class="content">
+        Let \( p \left( x \right) = a_0 + a_1 x ^ 1 + \ldots + a_m x ^ m \in F \left[ x \right] \) be a polynomial with coefficients in a field \( F \). Let \( A \in M _ { n \times n } \left( F \right) \), and note that we can evaluate \( p \left( A \right) = a_0 I + a_1 A + \ldots + a_m A ^ m \)
+        <ul>
+            <li>Prove that there is a non-zero polynomial \( p \left( x \right) \in F \left[ x \right] \) such that \( p \left( A \right) = 0 \)</li>
+            <li>Let \( I \) be the set of all polynomaisl \( q \left( x \right) \in F \left[ x \right] \) such that \( q \left( A \right) = 0 \), prove that \( I \) is an ideal in \( F \left[ x \right] \)</li>
+            <li>Let \( m \left( x \right) \) be a monic polynomilal of least degree in \( I \). Prove that \( I = \left( m \left( x \right) \right) _ \diamond \).</li>
+            <li>Prove that \( m \left( x \right) \) is the unique monic polynomial of least degree in \( I \)</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>Consider \( M _ { n \times n } \left( F \right) \) as a vector space over \( F \), in this case it's easy to see that the "one-hot" matricies at each \( i, j \) form a basis for this vector space, and the dimension is precisely \( n ^ 2 \).</p>
+        <p>On the other hand, supposing we had the matrices \( A ^ 0, \ldots A ^ \left( n ^ 2 \right) \), then as there are \( n ^ 2 + 1 \) of these matrices then we know that they are linearly depedent, so we get coefficients \( a _ 0, \ldots a _ \left( n ^ 2 \right) \in F\) not all zero such that \( a _ 0 A ^ 0 + \ldots + a _ { n ^ 2 } A ^ \left( n ^ 2 \right) = 0 \), semantically replace every \( A \) with an \( x \) to obtain a polynomial such that \( A \) is a root.</p>
+        <hr>
+        <p>let \( j \left( x \right), k \left( x \right) \in I \), note that \( \left( j - k \right) \left( x \right) = j \left( x \right) - k \left( x \right) \) so that \( \left( j - k \right) \left( A \right) = 0 - 0 = 0 \) so that \( \left( j - k \right) \left( x \right) \in I \), also let \( r \left( x \right) \in F \left[ x \right] \) then \( r \left( x \right) j \left( x \right) \in I \) because \( r \left( A \right) j \left( A \right) = r \left( A \right) \cdot 0 = 0 \), so that \( I \) is an ideal.</p>
+        <hr>
+        <p>We want to show that \( I = \left( m \left( x \right) \right) _ \diamond \), one way of proving this is to show that \( m \left( x \right) \) divides every element in \( I \). So let \( f \left( x \right) \in I \) by the quotient remainder theorem we obtain \( q \left( x \right) , r \left( x \right) \) such that \( f \left( x \right) = q \left( x \right) m \left( x \right) + r \left( x \right) \) where either \( r \left( x \right) = 0 \) or \( \operatorname{ deg } \left( r \right) \lt \operatorname{ deg } \left( m \right) \), but note the latter is impossible because \( m \left( x \right) \) was the monic polynomial with the smallest degree in \( I \) (which is also the smallest degree of any polynomial in \( I \)) so that we must have \( r \left( x \right) = 0 \) which implies that \( m \left( x \right) \) divides \( f \left( x \right) \) as needed.</p>
+        <hr>
+        <p>Suppose that there was another monic polynomial \( c \left( x \right) \in I \) with the same degree as \( m \left( x \right) \), we know that \( m \left( x \right) \) divides \( c \left( x \right) \), but then we must have that the quotient is a non-zero constant polynomial, so that \( c \left( x \right) = \alpha m \left( x \right) \), but then \( \alpha m \left( x \right) \) is no longer monic unless \( \alpha = 1 \) therefore \( c \left( x \right) = m \left( x \right) \) as needed.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-big-adjoin">
+    <div class="title">
+        Big Adjoin
+    </div>
+    <div class="content">
+        Suppose \(E=\mathbb{Q}\left(\alpha_1, \alpha_2, \ldots, \alpha_n\right)\) where \(\alpha_i^2 \in \mathbb{Q}\) for \(i=1,2, \ldots, n\). Prove that \(\sqrt[3]{2} \notin E\).
+    </div>
+    <div class="proof">
+        Observe that each \( \alpha _ i \) is a root of \( x ^ 2 - \alpha ^ 2 \in \mathbb{ Q } \left[ x \right] \), in other words the minimal polynomial is at most 2, and so we know that \[ \left[ \mathbb{ Q } \left( \alpha _ 1, \alpha _ 2, \ldots \alpha _ i \right) : \mathbb{ Q } \left( \alpha _ 1, \ldots \alpha _ { i - 1 } \right) \right] \in \left\{ 1, 2 \right\} \] therefore by repeatedly breaking this into a product the entire sum will be \( 2 ^ k \) for some \( k \in \mathbb{ N } _ 0 \). Now if it so happens that \( \sqrt[3]{ 2 } \in E \) then we have \[ \left[ E : \mathbb{ Q } \right] = \left[ E : \mathbb{ Q } \left( \sqrt[3]{ 2 } \right) \right] \cdot \left[ \mathbb{ Q } \left( \sqrt[3]{ 2 } \right) : \mathbb{ Q } \right] \] Note that \( \left[ E : \mathbb{ Q } \left( \sqrt[3]{ 2 } \right) \right] = 3 \) which implies that \( 3 \mid 2 ^ k \) which is clearly impossible, so we deduce that \( \sqrt[3]{ 2 } \notin E \) as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-automorphism-takes-roots-of-a-factor-to-the-root-of-the-same-factor">
+    <div class="title">
+        Automorphism Takes Roots of a Factor to the Root of the Same Factor
+    </div>
+    <div class="content">
+        Let \( f \left( x \right) \in F \left[ x \right] \) such that \( f \left( x \right) = a \left( x \right) b \left( x \right) \) where \( a \left( x \right) , b \left( x \right) \) are irreducible and let \( E / F \) be a field extension of \( F \). If \( \sigma : E \to E \) is an automorphism fixing \( F \) pointwise, and if \( \alpha \in E \) is a root of \( f \left( x \right) \) such that \( a \left( \alpha \right) = 0 \) then \( \sigma \left( \alpha \right) \) is a root of \( f \left( x \right) \) which makes \( a \left( \sigma \left( \alpha \right) \right) = 0 \)
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="exercise" id="exercise-galois-group-of-a-factored-polynomial">
+    <div class="title">
+        Galois Group of Factored Polynomial
+    </div>
+    <div class="content">
+        Let \( f \left( x \right) = \left( x ^ 2 - 2 \right) \left( x ^ 2 - 3 \right) \left( x ^ 2 - 5 \right) \in \mathbb{ Q } \left[ x \right] \) and \( E = \mathbb{ Q } \left( \sqrt{2}, \sqrt{3}, \sqrt{5} \right) \) be the splitting field over \( f \left( x \right) \) over \( \mathbb{ Q } \). Find the galois group \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \) of \( f \left( x \right) \).
+    </div>
+    <div class="proof">
+        <p>Given any \( \sigma \in \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \) <a class="knowledge-link" href="/algebra/galois_theory/the_galois_group.html#corollary-automorphism-takes-roots-of-a-factor-to-the-root-of-the-same-factor">we can see that</a> \( \sigma \left( \sqrt{2} \right) = \pm \sqrt{2} \), \( \sigma \left( \sqrt{3} \right) = \pm \sqrt{3} \) and \( \sigma \left( \sqrt{5} \right) = \pm \sqrt{5} \), and we also know that it is uniquely determined by these equations. Therefore we deduce that the only possible automorphisms are \[ \sigma \left( a + b \sqrt{2} + c \sqrt{3} + d \sqrt{5} \right) = a \pm b\sqrt{2} \pm c\sqrt{3} \pm d \sqrt{5} \] that of which there are \( 2 ^ 3 = 8 \).</p><!--            <p>-->
+        <!--                Since \( f \left( x \right)  \) is given as a factorization of irreducibles such that each factor has no repeated roots, then by definition \( f \left( x \right)  \) is separable, which implies that that order of it's galois group is the same as the degree of \( E \) in \( \mathbb{ Q }  \) -->
+        <!--                \[-->
+        <!--                \left[ \mathbb{ Q } \left( \sqrt{ 2 }, \sqrt{ 3 } , \sqrt{ 5 }   \right) : \mathbb{ Q }   \right] = \left[ \mathbb{ Q } \left( \sqrt{ 2 }, \sqrt{ 3 } , \sqrt{ 5 }   \right) : \mathbb{ Q } \left( \sqrt{ 2 }, \sqrt{ 3 }  \right) \right] \cdot \left[ \mathbb{ Q } \left( \sqrt{ 2 }, \sqrt{ 3 }  \right) : \mathbb{ Q } \left( \sqrt{ 2 } \right) \right] \cdot \left[ \mathbb{ Q } \left( \sqrt{ 2 } \right) : \mathbb{ Q } \right]-->
+        <!--                \]-->
+        <!--                As seen in lecture each one of these degrees are 2 and therefore \( \lvert \operatorname{ Gal } \left( E / \mathbb{ Q }  \right)  \rvert = 8  \) and thus all of those automorphisms are in there.-->
+        <!--            </p>-->
+        <p>Alternately we may observe that given the maps \( \sigma _ 1 : \left( \sqrt{ 2 }, \sqrt{ 3 } , \sqrt{ 5 } \right) \mapsto \left( - \sqrt{ 2 }, \sqrt{ 3 } , \sqrt{ 5 } \right), \sigma _ 2 : \left( \sqrt{ 2 }, \sqrt{ 3 } , \sqrt{ 5 } \right) \mapsto \left( \sqrt{ 2 }, - \sqrt{ 3 } , \sqrt{ 5 } \right), \sigma _ 3 : \left( \sqrt{ 2 }, \sqrt{ 3 } , \sqrt{ 5 } \right) \mapsto \left( \sqrt{ 2 }, \sqrt{ 3 } , - \sqrt{ 5 } \right) \), it's easy to see that \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) = \langle \sigma _ 1, \sigma _ 2, \sigma _ 3 \rangle \cong C _ 2 \times C _ 2 \times C _ 2 \).</p>
+        <p>Also we may explictly construct a \( Q \) basis for \( \mathbb{ Q } \left( \sqrt{ 2 } , \sqrt{ 3 } , \sqrt{ 5 } \right) \) to do this we recall that if we have a field extension \( E / F \) and an \( E \)-vector space \( V \) . If \( \left\{ v _ 1, \ldots ,v _ m \right\} \) is a \( E \)-basis of \( V \) , and \( \left\{ e _ 1, \ldots , e _ n \right\} \) is an \( F \)-basis of \( E \) , then \( \left\{ e _ i \cdot v _ j : i \in \left[ 1 \ldots n \right], j \in \left[ 1 \ldots m \right] \right\} \) is an \( F \)-basis of \( V \). Using this we observe that since \( \left\{ 1, \sqrt{ 2 } \right\} \) is a basis for \( Q \left( \sqrt{ 2 } \right) / \mathbb{ Q } \) and \( 1, \sqrt{ 3 } \) is a basis for \( \mathbb{ Q } \left( \sqrt{ 2 } , \sqrt{ 3 } \right) / \mathbb{ Q } \left( \sqrt{ 2 } \right) \) then we conclude that \( 1, \sqrt{ 2 } , \sqrt{ 3 } , \sqrt{ 6 } \) is a basis for \( \mathbb{ Q } \left( \sqrt{ 2 } , \sqrt{ 3 } \right) \), repeating this process again for \( \mathbb{ Q } \left( \sqrt{ 2 } , \sqrt{ 3 } , \sqrt{ 5 } \right) \) yields the basis \( \left( 1, \sqrt{ 2 } , \sqrt{ 3 } , \sqrt{ 5 } , \sqrt{ 6 } , \sqrt{ 10 } , \sqrt{ 15 } , \sqrt{ 30 } \right) \), so that \( \lvert \operatorname{ Gal } \left( \mathbb{ Q } \left( \sqrt{ 2 } , \sqrt{ 3 } , \sqrt{ 5 } \right) / \mathbb{ Q } \right) \rvert = \left[ \mathbb{ Q } \left( \sqrt{ 2 } , \sqrt{ 3 } , \sqrt{ 5 } \right) : \mathbb{ Q } \right] = 8 \) which confirms our earlier remark on the number of automorphisms.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-a-familiar-group">
+    <div class="title">
+        A Familiar Group
+    </div>
+    <div class="content">
+        Consider the polynomial \( f \left( x \right) = x ^ 4 - 5 \in \mathbb{ Q } \left[ x \right] \) and let \( E = \mathbb{ Q } \left( i, \sqrt[4]{5} \right) \) be it's splitting field over \( \mathbb{ Q } \)
+        <ul>
+            <li>Show that \( \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \rvert = \left[ E : \mathbb{ Q } \right] = 8 \)</li>
+            <li>Describe all automorphisms \( \left\{ \sigma _ 1, \sigma _ 2, \ldots \sigma _ 8 \right\} \) in \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \)</li>
+            <li>Write the multiplication table for the group \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \)</li>
+            <li>Which finite group is \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \) isomorphic to?</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>Let's first notice that \( x ^ 4 - 5 = \left( x - \sqrt[4]{5} \right) \left( x + \sqrt[4]{5} \right) \left( x - i\sqrt[4]{5} \right) \left( x + i\sqrt[4]{5} \right)\) and thus it is separable so the first part of the equation is confirmed. We now verify that \( \left[ E : \mathbb{ Q } \right] = 8 \).</p>
+        <p>Since \( x ^ 4 - 5 \in \mathbb{ Q } \left[ x \right] \) and we observe that \( 5 \) divides all coefficients besides the leading terms coefficient but \( 5 ^ 2 \) doesn't divide the constant term, then by Eisensteins Criterion this polynomial is irreducible over \( \mathbb{ Q } \) note that since \( p \left( x \right) \) has degree four, then we can conclude that \( \left[ \mathbb{ Q } \left( \sqrt[4]{ 5 } \right) : \mathbb{ Q } \right] = 4 \). Therefore we have \[ \left[ E : \mathbb{ Q } \right] = \left[ \mathbb{ Q } \left( \sqrt[4]{ 5 } , i \right) : \mathbb{ Q } \left( \sqrt[4]{ 5 } \right) \right] \cdot \left[ \mathbb{ Q } \left( \sqrt[4]{ 5 } \right) : \mathbb{ Q } \right] = 2 \cdot 4 = 8 \]</p>
+        <hr>
+        <p>Note that given any \( \sigma \in \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \) we must have that \( \sigma \left( i \right) ^ 2 = \sigma \left( i ^ 2 \right) = \sigma \left( -1 \right) = -1 \) and that \( \sigma \left( \sqrt[4]{ 5 } \right) ^ 4 = 5 \) under such constraints we can see that \( \sigma \left( i \right) \in \left\{ -i, i \right\} \) and that \( \sigma \left( \sqrt[4]{ 5 } \right) \in \left\{ \sqrt[4]{ 5 } , - \sqrt[4]{ 5 } , i \sqrt[4]{ 5 } , -i \sqrt[4]{ 5 } \right\} \) therefore since we've observed taht there are 8 of them each such choice leads to a valid automorphism. If we denote \( \tau : \left( i, \sqrt[4]{ 5 } \right) \mapsto \left( -i , \sqrt[4]{ 5 } \right) \) and \( \sigma : \left( i, \sqrt[4]{ 5 } \right) \mapsto \left( i, i \sqrt[4]{ 5 } \right) \), we can see that using composition we can generate all of the possible automorphisms.</p>
+        <p>Therefore we know that \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) = \langle \tau, \sigma \rangle \) where we have that the order of \( \tau , \sigma \) is 2 and 4 respectively and that \( \sigma \tau = \tau \sigma ^ { -1 } \), with that said we can construct it's multiplication table</p>\[ \begin{array}{|l|l|l|l|l|l|l|l|l||} \hline & e & \sigma & \sigma^2 & \sigma^3 & \tau & \sigma \tau & \sigma^2 \tau & \sigma^3 \tau \\ \hline \hline e & e & \sigma & \sigma^2 & \sigma^3 & \tau & \sigma \tau & \sigma^2 \tau & \sigma^3 \tau \\ \hline \hline \sigma & \sigma & \sigma^2 & \sigma^3 & e & \sigma \tau & \sigma^2 \tau & \sigma^3 \tau & \tau \\ \hline \hline \sigma^2 & \sigma^2 & \sigma^3 & e & \sigma & \sigma^2 \tau & \sigma^3 \tau & \tau & \sigma \tau \\ \hline \hline \sigma^3 & \sigma^3 & e & \sigma & \sigma^2 & \sigma^3 \tau & \tau & \sigma \tau & \sigma^2 \tau \\ \hline \tau & \tau & \sigma^3 \tau & \sigma^2 \tau & \sigma \tau & e & \sigma^3 & \sigma^2 & \sigma \\ \hline \hline \sigma \tau & \sigma \tau & \tau & \sigma^3 \tau & \sigma^2 \tau & \sigma & e & \sigma^3 & \sigma^2 \\ \hline \hline \sigma^2 \tau & \sigma^2 \tau & \sigma \tau & \tau & \sigma^3 \tau & \sigma^2 & \sigma & e & \sigma^3 \\ \hline \hline \sigma^3 \tau & \sigma^3 \tau & \sigma^2 \tau & \sigma \tau & \tau & \sigma^3 & \sigma^2 & \sigma & e \\ \hline \end{array} \]
+        <hr>
+        <p>We can see that through this table that \( D _ 8 \) and \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \) are in clear bijection through the map \( f \left( \tau \right) = f \) and \( f \left( \sigma \right) = r \), using this map we see that the two multiplications map into eachother and therefore they are isomorphic. Note that you can also do this by showing that the only two non-abelian groups of order \( 8 \) are \( D _ { 2 \cdot 4 } \) and the quaternion group, but in the quaternion group each non-trivial element has order \( 4 \) but in this group we note that \( \tau _ 2 = e \) then it can only be \( D _ { 8 } \).</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-only-one">
+    <div class="title">
+        Only One
+    </div>
+    <div class="content">
+        Let \(B=\mathbb{Q}(i \sqrt[4]{5})\). Recall (see Q.3) that \(B\) is a subfield of the splitting field \(E\) of \(f(x)=x^4-5 \in \mathbb{Q}[x]\).
+        <ul>
+            <li>Show that \(|\mathrm{Gal}(E / B)|=2\).</li>
+            <li>Describe the nontrivial automorphism \(\sigma \in \operatorname{Gal}(E / B)\). That is say what \(\sigma\) is doing to the generators of \(E\).</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>Since \( \mathbb{ Q } \subseteq B \) then \( \operatorname{ Gal } \left( E / B \right) \subseteq \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \), so therefore we can look back at all of \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \)'s automorphisms and determines which ones actually fix \( B \). To do this we simply see which ones fix \( i \sqrt[4]{5} \), observe that by exhaustion we can observe that only the identity and the automorphism \( \sigma \left( i \right) = -i \) and \( \sigma \left( \sqrt[4]{ 5 } \right) = -\sqrt[4]{ 5 } \) will work. Therefore \( \lvert \operatorname{ Gal } \left( E / B \right) \rvert = 2 \), note that this solves both parts of the question at once.</p>
+        <hr>
+    </div>
+</div>
+<div class="exercise" id="exercise-big-polynomial">
+    <div class="title">
+        Big Polynomial
+    </div>
+    <div class="content">
+        Let \( f \left( x \right) = x ^ 6 - 6 x ^ 4 - 10 x ^ 3 + 12 x ^ 2 - 60 x + 17 \in \mathbb{ Q } \left[ x \right] \) and let \( E = \mathbb{ Q } \left( \alpha _ 1, \alpha _ 2, \alpha _ 3, \alpha _ 4, \alpha _ 5, \alpha _ 6 \right) \) where
+        <ul>
+            <li>\( \alpha _ 1 = \sqrt{2} + \sqrt[3]{5} \)</li>
+            <li>\( \alpha _ 2 = \sqrt{2} + \omega \sqrt[3]{5} \)</li>
+            <li>\( \alpha _ 3 = \sqrt{2} + \omega ^ 2 \sqrt[3]{5} \)</li>
+            <li>\( \alpha _ 4 = - \sqrt{2} + \sqrt[3]{5} \)</li>
+            <li>\( \alpha _ 5 = - \sqrt{2} + \omega \sqrt[3]{5} \)</li>
+            <li>\( \alpha _ 6 = - \sqrt{2} + \omega ^ 2 \sqrt[3]{5} \)</li>
+        </ul>
+        <hr>
+        Show that
+        <ul>
+            <li>\( E = \mathbb{ Q } \left( \sqrt{ 2 }, \sqrt[3]{ 5 } , \omega \right) \)</li>
+            <li>Show that \( \lvert \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \rvert = \left[ E : \mathbb{ Q } \right] = 12 \)</li>
+            <li>Describe all the automorphisms \( \left\{ \sigma _ 1, \sigma _ 2, ... \sigma _ { 12 } \right\} \) in \( \operatorname{ Gal } \left( E / \mathbb{ Q } \right) \)</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>We start by showing that \( E = \mathbb{ Q } \left( \sqrt{ 2 }, \sqrt[3]{ 5 } , \omega \right) \). The harder direction is that \( \mathbb{ Q } \left( \sqrt{ 2 }, \sqrt[3]{ 5 } , \omega \right) \subseteq E \), an arbitrary element of \( \mathbb{ Q } \left( \sqrt{ 2 }, \sqrt[3]{ 5 } , \omega \right) \) is \( a + b \sqrt{ 2 } + c \sqrt[3]{ 5 } + d \omega \), so if we can show that each of \( \sqrt{ 2 } , \sqrt[3]{ 5 } , \omega \in E \) then this sum will also be in \( E \) so we'll focus on this problem instead, but to that end note the following \[ \begin{gather} \frac{\alpha _ 1 + \alpha _ 4}{2} = \sqrt[3]{5} \\ \frac{\alpha _ 2 + \alpha _ 5}{2 \cdot \sqrt[3]{5}} = \omega \\ \frac{\alpha _ 2 + \alpha _ 3 + \sqrt[3]{5}}{2} = \sqrt{ 2 } \end{gather} \] therefore we have one direction of the inclusion. As for \( E \subseteq \mathbb{ Q } \left( \sqrt{ 2 }, \sqrt[3]{ 5 } , \omega \right) \) since each \( \alpha _ i \) is already a linear combination of those things this direction is immediate.</p>
+        <hr>
+        <p>We show it's equal to 12 by factoring it.</p>
+        <hr>
+        <p>We'll describe all the automorphisms by explicitly finding them, initially we would have to verify many things but we first notice that \( \mathbb{ Q } \left( b \right) / \mathbb{ Q } \) and \( \mathbb{ Q } \left( c, \omega \right) / \mathbb{ Q } \) are Galois as they are splitting fields of \( x ^ 2 - 2 \) and \( x ^ 3 - 5 \) respectively, therefore as \( \mathbb{ Q } \left( b, c, \omega \right) = \mathbb{ Q } \left( b \right) \mathbb{ Q } \left( c, \omega \right) \) as a composite then we know that \[ \operatorname{ Gal } \left( \mathbb{ Q } \left( b, c, \omega \right) \right) \cong \left\{ \left( \sigma, \tau \right) : \sigma \restriction _ { \mathbb{ Q } \left( b \right) \cap \mathbb{ Q } \left( c, \omega \right) } = \tau \restriction _ { \mathbb{ Q } \left( b \right) \cap \mathbb{ Q } \left( c, \omega \right) } \right\} \] where the RHS is a subgroup of \( \operatorname{ Gal } \left( \mathbb{ Q } \left( b \right) / \mathbb{ Q } \right) \times \operatorname{ Gal } \left( \mathbb{ Q } \left( c, \omega \right) / \mathbb{ Q } \right) \). Note that \( \mathbb{ Q } \left( b \right) \cap \mathbb{ Q } \left( c, \omega \right) = \emptyset \) therefore the RHS actually equals \( \operatorname{ Gal } \left( \mathbb{ Q } \left( b \right) / \mathbb{ Q } \right) \times \operatorname{ Gal } \left( \mathbb{ Q } \left( c, \omega \right) / \mathbb{ Q } \right) \cong C _ 2 \times C _ 3 \)</p>
+        <p>Note that given some \( \sigma \in \operatorname{ Gal } \left( \mathbb{ Q } \left( b \right) / \mathbb{ Q } \right) \) we have that \( \sigma \left( b \right) = \pm b \) this is because \( b = \sqrt{ 2 } \) so that \( \left( \sigma \left( b \right) \right) ^ 2 = \sigma \left( b ^ 2 \right) = \sigma \left( 2 \right) = 2 \) so that \( \sigma \left( b \right) = \pm b \).</p>
+        <p>On the other hand if we had some \( \tau \in \operatorname{ Gal } \left( \mathbb{ Q } \left( c, \omega \right) / \mathbb{ Q } \right) \) then since the roots of \( f \left( x \right) = x ^ 3 - 5 \) are \( \sqrt[3]{ 5 } , \omega \sqrt[3]{ 5 }, \omega ^ 2 \sqrt[3]{ 5 } \in \mathbb{ Q } \left( c, \omega \right) \) then \( \tau \) must permute these roots that of which there are \( 6 \) different permutations. Note that such a permutation may be specified by what it does to \( \omega \) and \( \sqrt[3]{ 5 } \) separately, also note that \( \tau \left( \omega \right) ^ 3 = 1 \) so we know that \( \tau \left( \omega \right) \) must be a 3rd root of unity, which allows for an even more compact representation of the permutations.</p>
+        <p>Note that at this point we may list out all 12 permutations each of which is generated by selecting \( \sigma \left( b \right) \in \left\{ b, -b \right\} \) and a permutation as specfied above, which may be given as \( \sigma \left( \sqrt[3]{ 5 } \right) = ... \) and \( \sigma \left( \omega \right) = ... \), which uniquely restricts each root to get sent to a root.</p>
+    </div>
+</div>
+<div class="exercise" id="exercise-cos-20-is-not-a-surd">
+    <div class="title">
+        Cos 20 Is not a Surd
+    </div>
+    <div class="content">
+        In this question we only consider subfields of \(\mathbb{R}\). Recall that a field extension \(B / F\) is a pure extension of type \(m=2\) if \(B=F(\alpha)\), where \(\alpha^2 \in F\) but \(\alpha \notin F\). A tower of number fields \(F=B_0 \subset B_1 \subset\) \(\cdots \subset B_t\) is a radical tower were each \(B_{i+1} / B_i\) is a pure extension of type 2 and \(F=\mathbb{Q}\). Let \(S\) denote the union of all towers of number fields. The numbers in \(S\) are called surds. So a surd is a real number that is in some tower of number fields.
+        <ul>
+            <li>Prove that \(S\) is a field. Note that \(\mathbb{Q} \subset S \subset \mathbb{R}\).</li>
+            <li>Let \(B / \mathbb{Q}\) be a field extension. Let \(p(x) \in B[x]\) be a polynomial with coefficients in \(B\). Suppose \(a+b \sqrt{r} \in B(\sqrt{r})\) is a root of \(p(x)\), where \(r \in B\) but \(\sqrt{r} \notin B\). Show that \(a-b \sqrt{r}\) is also a root of \(p(x)\). Hint: apply the 'conjugation' \(\sigma\) to the equation \(p(a+b \sqrt{r})=0\). Here \(\sigma\) denotes the automorphsm of \(B(\sqrt{r})\) fixing \(B\) pointwise, determined by \(\sigma(a+b \sqrt{r})=a-b \sqrt{r}\).</li>
+            <li>Let \(p(x)\) be a cubic polynomial with rational coefficients. Show that the sum of the roots of \(p(x)\) is a rational number.</li>
+            <li>Using the notation of part (b), assume \(p(x) \in B[x]\) is a cubic polynomial. Prove that if \(a+b \sqrt{r} \in B(\sqrt{r})\) is a root of \(p(x)\) then \(p(x)\) also has a root in \(B\). Hint: parts (b), (c).</li>
+            <li>Use induction to prove that if a cubic polynomial \(p(x) \in \mathbb{Q}[x]\) has a surd root, it must have a rational root.</li>
+            <li>Let \(\theta\) denote a \(20^{\circ}\) degree angle. Show that \((2 \cos \theta)^3-3(2 \cos \theta)-\) \(1=0\).</li>
+            <li>Show that \(x_0:=2 \cos \theta\) is not a surd. Hint: by part (f), we know \(x_0\) is a root of the cubic polynomial \(p(x)=x^3-3 x-1 \in \mathbb{Q}[x]\). So if \(x_0\) where a surd then \(p(x)\) would have a rational root. Show that \(p(x)\) has no rational roots (can use rational root theorem).</li>
+        </ul>
+    </div>
+    <div class="proof">
+        <p>We start by proving that \( S \) is a field let \( x \in F \left( \sqrt{ r _ m } \right) \) and \( y \in F \left( \sqrt{ s _ n } \right) \) then \( x \) and \( y \) are both in the tower of fields \( \mathcal{ F } \) which can be generated by adjoining \( r _ 1, \ldots r _ m \) and then \( s _ 1, \ldots s _ n \) to \( F _ 0 = \mathbb{ Q } \). Since \( \mathcal{ F } \) is a field than by combining \( x, y \) in any way with the operations at hand always still produces an element of \( \mathcal{ F } \), since \( S \) was defined as the union of all towers than we know that \( \mathcal{ F } \subseteq S \) and so that this combination of \( x, y \) is also in \( S \) showing that \( S \) is a field.</p>
+        <hr>
+        <p>For this question lets first observe that \( \overline{ r } = r \) for any \( r \in \mathbb{ Q } \), let \(p(x)=a_n x^n+a_{n-1} x^{n-1}+\cdots+a_1 x_1+a_0\), with \(a_i \in \mathbb{Q}\) and note that conjugation moves through summations and products, so that: \[ \begin{aligned} p(a+b \sqrt{r})=0 & \Rightarrow a_n(a+b \sqrt{r})^n+\cdots+a_1(a+b \sqrt{r})+a_0=0 \\ & \Rightarrow \overline{ a_n(a+b \sqrt{r})^n+\cdots+a_1(a+b \sqrt{r})+a_0 } =\overline{0} \\ & \Rightarrow a_n(\overline{a+b \sqrt{r}})^n+\cdots+a_1(\overline{a+b \sqrt{r}})+a_0=0 \\ & \Rightarrow p(\overline{a+b \sqrt{r}})=0 \\ & \Rightarrow p(a-b \sqrt{r})=0 \end{aligned} \]</p>
+        <hr>
+        <p>Given the polynomial \( x ^ 3 + b x ^ 2 + cx + d = 0 \) and the roots to this equation \( \alpha _ 1, \alpha _ 2, \alpha _ 3 \) then we know that \[ \begin{align} x ^ 3 + b x ^ 2 + cx + d &amp;= \left( x - \alpha _ 1 \right) \cdot \left( x - \alpha _ 2 \right) \cdot \left( x - \alpha _ 3 \right) \\ &amp;= \left( x ^ 2 - \left( \alpha _ 1 + \alpha _ 2 \right) x + \alpha _ 1 \alpha _ 2 \right) \cdot \left( x - \alpha _ 3 \right) \\ &amp;= x ^ 3 - \alpha _ 3 x ^ 2 - \left( \alpha _ 1 + \alpha _ 2 \right) x ^ 2 + \left( \alpha _ 1 + \alpha _ 2 \right) \alpha _ 3 x + \alpha _ 1 \alpha _ 2 x - \alpha _ 1 \alpha _ 2 \alpha _ 3 \\ &amp;= x ^ 3 - \left( \alpha _ 1 + \alpha _ 2 + \alpha _ 3 \right) x ^ 2 + \left( \alpha _ 1 \alpha _ 2 + \alpha _ 1 \alpha _ 3 + \alpha _ 2 \alpha _ 3 \right) x - \alpha _ 1 \alpha _ 2 \alpha _ 3 \end{align} \] therefore \( b = - \left( \alpha _ 1 + \alpha _ 2 + \alpha _ 3 \right) \) since \( b \in \mathbb{ Q } \) then the sum of the roots are rational.</p>
+        <hr>
+        <p>If \( a + b \sqrt{ r } \in B \left( \sqrt{ r } \right) \) is a root of \( p \left( x \right) \) then we know that \( a - b \sqrt{ r } \in B \left( \sqrt{ r } \right) \) is a root of \( p \left( x \right) \) but then as just shown the sum of all the roots is rational so if \( \alpha \) is the last root of \( p \left( x \right) \) we have that \[ a + b\sqrt{ r } + a - b \sqrt{ r } + \alpha = s \] Isolating \( \alpha \) we have that \( \alpha = s - 2a \) since \( a \in B \) and \( s \in \mathbb{ Q } \subseteq B \) then \( \alpha \in B \)</p>
+        <hr>
+        <p>Suppose that \( p \left( x \right) \) has a surd root in the field extension \( B \left( \sqrt{ r } \right) \) where we have the tower \[ \mathbb{ Q } = B _ 0 \subseteq B _ 1 \subseteq \cdots \subseteq B _ n \] Suppose that \( B _ i \) where \( i \gt 1 \) is the smallest field in the tower which contains a root of \( p \left( x \right) \) but then as just noted, there would then be a root in \( B _ { i - 1 } \) which is a contradiction to \( B _ i \) being the smallest field that contained a root of \( p \left( x \right) \) therefore \( i = 0 \) so that \( \mathbb{ Q } = B _ 0 \) contains a root of \( p \left( x \right) \), in other words we've just proven that \( p \left( x \right) \) has a rational root. Note that this proof is equivalent to induction.</p>
+        <hr>
+        <p>Let \( x = 2 \cos \left( 20 \right) \), let's prove that \( x ^ 3 - 3 x - 1 = 0 \). We recall that \( \cos \left( 3 \theta \right) = 4 \cos ^ 3 \left( \theta \right) - 3 \cos \left( \theta \right) \), therefore plugging in \( \theta = 20 \) we obtain that \[ \frac{1}{2} = 4 \cos ^ 3 \left( 20 \right) - 3 \cos \left( 20 \right) \iff 8 \cos ^ 3 \left( 20 \right) - 6 \cos \left( 20 \right) -1 = 0 \iff x ^ 3 - 3 x - 1 = 0 \]</p>
+        <hr>
+        <p>We've shown that if a polynomial \( p \left( x \right) \) has a surd root then it has a rational root, therefore by the converse we know that if it has no rational roots, then it has no surd roots. Therefore if we were able to show that \( x ^ 3 - 3 x - 1 \) has no rational roots then it would have no surd roots, and since \( 2 cos \left( 20 \right) \) is a root, then it could not be a surd. Note that by the rational roots theorem the only possible roots are \( \pm 1 \) note that by plugging either in it is the sum of three odd numbers and thus cannot be 0, thus it has no rational roots, and therefore \( 2 cos \left( 20 \right) \) is not a surd</p>
+    </div>
+</div>

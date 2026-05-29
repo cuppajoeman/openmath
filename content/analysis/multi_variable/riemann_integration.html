@@ -1,0 +1,253 @@
+<div class="definition" id="definition-partition">
+    <div class="title">
+        Partition
+    </div>
+    <div class="content">
+        A <b>partition</b> of \( \left[ a, b \right] \) is a finite tuple sorted in <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-sorted-in-strictly-ascending-order">ascending order</a> \[ P = \left( x _ 1, x _ 2, \ldots x _ { n + 1 } \right) \] such that \( a = x _ 1 \) and \( b = x _ { n + 1 } \)
+    </div>
+</div>
+<div class="definition" id="definition-refinement-of-a-partition">
+    <div class="title">
+        Refinement of a Partition
+    </div>
+    <div class="content">
+        A partition \( R \) is a refinement of a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition">partition</a> \( P \) if \( P \subseteq R \)
+    </div>
+</div>
+<div class="definition" id="definition-common-refinement-of-a-partition">
+    <div class="title">
+        Common Refinement
+    </div>
+    <div class="content">
+        Suppose that \( P, Q \) are partitions, then \( R \) is a common refinement of \( P \) and \( Q \) if \( R \) is a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-refinement-of-a-partition">refinement</a> of \( P \cup Q \)
+    </div>
+</div>
+<div class="definition" id="definition-i-th-section-of-a-partition">
+    <div class="title">
+        i-th Section of a Partition
+    </div>
+    <div class="content">
+        Suppose that \( P = \left( x _ 1, \ldots x _ { n + 1 } \right) \) is a partition, then for each \( i \in \left[ 1, \ldots , n \right] \) we define \[ s _ i := \left[ x _ i, x _ { i + 1 } \right] \]
+    </div>
+</div>
+<div class="definition" id="definition-supremum-of-a-bounded-function-on-section-of-a-partition">
+    <div class="title">
+        Supremum of a Bounded Function on a Section
+    </div>
+    <div class="content">
+        Suppose that \( f: \left[ a, b \right] \to \mathbb{ R } \) and that \( P = \left( x _ 1, \ldots , x _ { n + 1 } \right) \) is a partition of \( \left[ a, b \right] \) then for each \( i \in \left[ 1, \ldots , n \right] \) we have \[ M _ i \left( f, P \right) = \sup \left( \left\{ f \left( x \right): x \in \left[ x _ i, x _ { i + 1 } \right] \right\} \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-i-th-delta-of-a-partition">
+    <div class="title">
+        i-th Delta of a Partition
+    </div>
+    <div class="content">
+        Suppose that \( P = \left( x _ 1, \ldots , x _ { n + 1 } \right) \) is a partition, then for each \( i \in \left[ 1, \ldots n \right] \) we define: \[ \Delta _ i = x _ { i + 1 } - x _ { i } \]
+    </div>
+</div>
+<p>Note that if a partition has \( k \) elements then there will be \( k - 1 \) deltas.</p>
+<div class="corollary" id="corollary-a-delta-sum-telescopes">
+    <div class="title">
+        A Delta Sum Telescopes
+    </div>
+    <div class="content">
+        Suppose that \( P = \left( x _ 1, \ldots , x _ { n + 1 } \right) \) is a partition of \( \left[ a, b \right] \) then \[ \sum _ { i = 1 } ^ { n } \Delta _ i = b - a \]
+    </div>
+    <div class="proof">
+        Recall that \[ \sum _ { i = 1 } ^ { n } \Delta _ i = \sum _ { i = 1 } ^ { n } \left( x _ { i + 1 } - x _ i \right) \stackrel{1}{=} x _ { n + 1 } - x _ 1 = b - a \] where we've used <a class="knowledge-link" href="/number_theory/induction.html#proposition-telescoping-sum">fact 1</a>.
+    </div>
+</div>
+<div class="definition" id="definition-mesh-of-a-partition">
+    <div class="title">
+        Mesh of a Partition
+    </div>
+    <div class="content">
+        Suppose that \( P \) is a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition">partition</a> of \( \left[ a, b \right] \) such that \( \left\lvert P \right\rvert = n + 1 \) for some \( n \in \mathbb{ N } _ 0 \) then \[ \operatorname{ mesh } \left( P \right) = \max \left( \left\{ \Delta _ i: i \in \left[ 1, \ldots , n \right] \right\} \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-upper-sum-of-a-bounded-function-over-a-partition">
+    <div class="title">
+        Upper Sum of a Bounded Function over a Partition
+    </div>
+    <div class="content">
+        Suppose that \( f: \left[ a, b \right] \to \mathbb{ R } \) is bounded, and that \( P \) is a partition of \( \left[ a, b \right] \) then we define \[ U \left( f, P \right) := \sum _ { j = 1 } ^ { n } M _ j \left( f, P \right) \Delta _ j \]
+    </div>
+</div>
+<div class="definition" id="definition-lower-sum-of-a-bounded-function-over-a-partition">
+    <div class="title">
+        Lower Sum of a Bounded Function over a Partition
+    </div>
+    <div class="content">
+        Suppose that \( f: \left[ a, b \right] \to \mathbb{ R } \) is bounded, and that \( P \) is a partition of \( \left[ a, b \right] \) then we define \[ L \left( f, P \right) := \sum _ { j = 1 } ^ { n } m _ j \left( f, P \right) \Delta _ j \]
+    </div>
+</div>
+<div class="proposition" id="proposition-upper-sum-decreases-over-refinements">
+    <div class="title">
+        Upper Sum Decreases over Refinements
+    </div>
+    <div class="content">
+        Suppose that \( P \supseteq R \) then \[ U \left( f, P\right) \ge U \left( f, R \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-lower-sum-decreases-over-refinements">
+    <div class="title">
+        Lower Sum Decreases over Refinements
+    </div>
+    <div class="content">
+        Suppose that \( P \supseteq R \) then \[ L \left( f, P\right) \le L \left( f, R \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-riemann-integrable">
+    <div class="title">
+        Riemann Integrable
+    </div>
+    <div class="content">
+        Suppose that \( f: \left[ a, b \right] \to \mathbb{ R } \) is bounded, then we say that it is <b>Riemann integrable</b> if \[ \sup _ { P } \left( L \left( f, P \right) \right) = \inf _ { Q } \left( U \left( f, Q \right) \right) \] In that case we write \[ \int _ { a } ^ { b } f \left( x \right) dx \] as their common value
+    </div>
+</div>
+<div class="theorem" id="theorem-riemann-integrable-characterizations">
+    <div class="title">
+        Riemann Integrable Characterizations
+    </div>
+    <div class="content">
+        Let \( f \left( x \right) \) be bounded on \( \left[ a, b \right] \) then the following are equivalent
+        <ul>
+            <li>\( f \) is Riemann integrable</li>
+            <li>For each \( \epsilon \in \mathbb{ R } ^ + \) there is a partition \( P \) such that</li>\[ U \left( f, P \right) - L \left( f, P \right) \lt \epsilon \]
+            <li>For every \( \epsilon \in \mathbb{ R } ^ + \) there is some \( \delta \in \mathbb{ R } ^ + \) such that for every partition \( Q \) such that \( \operatorname{ mesh } \left( Q \right) \lt \delta \) wherein</li>\[ U \left( f, Q \right) - L \left( f, Q \right) \lt \epsilon \]
+            <li>There exists an \( I \in \mathbb{ R } \) such that for every \( \epsilon \in \mathbb{ R } ^ + \) there is a \( \delta \in \mathbb{ R } ^ + \) such that for every partition \( Q \) with \( \operatorname{ mesh } \left( Q \right) \lt \delta \) and every evaluation sequence \( X \) of \( Q \) we have</li>\[ \left\lvert I \left( f, Q, X \right) - I \right\rvert \lt \epsilon \] and in that case \( I = \int _ a ^ b f \left( x \right) dx \)
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+<p>Note that bullet point 2 is a the most tractable for explicit functions, as one can construct a partition that works for a given function.</p>
+<div class="definition" id="definition-jump-discontinuity">
+    <div class="title">
+        Jump Discontinuity
+    </div>
+    <div class="content">
+        Suppose \( f: \left[ a, b \right] \to \mathbb{ R } \), and \( c \in \left( a, b \right) \) then if \[ \lim _{ x \to c ^ + } f \left( x \right) \neq \lim _ { x \to c ^ - } f \left( x \right) \] then we say that \( f \) has a <b>jump discontinuity</b> at \( c \)
+    </div>
+</div>
+<div class="lemma" id="lemma-function-difference-set-is-the-same-as-its-negative">
+    <div class="title">
+        Function Difference Set is the Same as its Negative
+    </div>
+    <div class="content">
+        Suppose that \( f: A \to \mathbb{ R } \) and define \( F = \left\{ f \left( x \right) - f \left( y \right) : x, y \in A \right\} \), then \[ F = -F \]
+    </div>
+    <div class="proof">
+        Note that \[ F = \left\{ f \left( x \right) - f \left( y \right) : x, y \in A \right\} = \left\{ - \left( f \left( y \right) - f \left( x \right) \right) : y, x \in A \right\} = -F \] as needed.
+    </div>
+</div>
+<div class="corollary" id="corollary-supremum-of-the-function-difference-set-is-the-same-with-absolute-values">
+    <div class="title">
+        Supremum of the Function Difference Set is the Same with Absolute Values
+    </div>
+    <div class="content">
+        Let \( f: A \to \mathbb{ R } \) and define \( F = \left\{ f \left( x \right) - f \left( y \right) : x, y \in A \right\} \) then \[ \sup \left( F \right) = \sup \left( \left\lvert F \right\rvert \right) \]
+    </div>
+    <div class="proof">
+        Recall that if \( F = -F \) <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-if-a-set-equals-its-negative-then-its-absolute-value-is-its-non-negative-half">then we know</a> \[ \sup \left( F \right) = \sup \left( \left\lvert F \right\rvert \right) \]
+    </div>
+</div>
+<div class="proposition" id="proposition-supremum-of-the-sum-of-two-functions-is-less-than-or-equal-to-the-sum-of-the-supremums">
+    <div class="title">
+        Supremum of the Sum of Two Functions is Less than or Equal to the Sum of the Supremums
+    </div>
+    <div class="content">
+        Suppose that \( f, g: A \to \mathbb{ R } \) then \[ \sup \left( \left\{ f \left( x \right) + g \left( x \right): x \in A \right\} \right) \le \sup \left( \left\{ f \left( x \right) : x \in A \right\} \right) + \sup \left( \left\{ g \left( x \right) : x \in A \right\} \right) \]
+    </div>
+    <div class="proof">
+        <p>Let \( \alpha = \sup \left( \left\{ f \left( x \right) : x \in A \right\} \right), \beta = \sup \left( \left\{ g \left( x \right) : x \in A \right\} \right) \) and \( \gamma = \sup \left( \left\{ f \left( x \right) + g \left( x \right): x \in A \right\} \right) \).</p>
+        <p>We know that for any \( x \in A \) we have that \( f \left( x \right) \le \alpha \) and \( g \left( x \right) \le \beta \) therefore we have that \( f \left( x \right) + g \left( x \right) \le \alpha + \beta \), this proves that \( \alpha + \beta \) is an upper bound to the set \( \left\{ f \left( x \right) + g \left( x \right) : x \in A \right\} \) therefore we have \[ \sup \left( \left\{ f \left( x \right) + g \left( x \right) : x \in A \right\} \right) \le \sup \left( \left\{ f \left( x \right) : x \in A \right\} \right) + \sup \left( \left\{ f \left( x \right) : x \in A \right\} \right) \] As \( \gamma \) is the least upper bound.</p>
+    </div>
+</div><!--    <p>-->
+<!--            Notice how in the above proposition the set on the left evaluates \( f, g \) at the same point, this lack of freedom is what creates the inequality, for example suppose that we have \( f \left( x \right) =  1 - g \left( x \right)  \) and that \( 0 \in g \left( A \right)  \), \( f, g \) are bounded and   and is monotone increasing, but is bounded above, so that the supremum exists, then we have -->
+<!--            \[-->
+<!--                \sup \left( \left\{ f \left( x \right) + g \left( x \right) : x \in A \right\}  \right) = \sup \left( \left\{ 1 \right\}  \right) = 1-->
+<!--            \]-->
+<!--            whereas -->
+<!--            \[-->
+<!--                \sup \left( f \left( x \right)  \right) -->
+<!--            \]-->
+<!--    </p>-->
+<div class="proposition" id="proposition-supremum-of-the-sum-of-two-functions-is-the-same-as-the-sum-of-the-supremums-if-the-variables-are-independent">
+    <div class="title">
+        Supremum of the Sum of two Functions is the Same as the Sum of the Supremums if the Variables are Independent
+    </div>
+    <div class="content">
+        Suppose that \( f, g: A \to \mathbb{ R } \) then \[ \sup \left( \left\{ f \left( x \right) + g \left( y \right): x, y \in A \right\} \right) = \sup \left( \left\{ f \left( x \right) : x \in A \right\} \right) + \sup \left( \left\{ g \left( x\right) : x \in A \right\} \right) \]
+    </div>
+    <div class="proof">
+        <p>Let \( \alpha = \sup \left( \left\{ f \left( x \right) : x \in A \right\} \right), \beta = \sup \left( \left\{ g \left( x \right) : x \in A \right\} \right) \) and \( \gamma = \sup \left( \left\{ f \left( x \right) + g \left( y \right): x, y \in A \right\} \right) \).</p>
+        <p>For any \( x \in A \) we have that \( f \left( x \right) \le \alpha \) and for any \( y \in A \) we have \( g \left( x \right) \le \beta \) thus we have \[ f \left( x \right) + g \left( y \right) \le \alpha + \beta \] so that \( \alpha + \beta \) is an upper bound of the set \( \gamma \) is supping over there fore we have that \( \gamma \le \alpha + \beta \)</p>
+        <p>... [TODO] not sure how to prove the other direction ...</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-bound-on-the-upper-minus-lower-sum-for-the-same-partition">
+    <div class="title">
+        Bound on the Upper minus Lower Sum for The Same Partition
+    </div>
+    <div class="content">
+        Suppose that \( f: \left[ a, b \right] \to \mathbb{ R } \) is bounded, and let \( P = \left\{ x _ 1, \ldots , x _ { n + 1 } \right\} \) be a partition of \( \left[ a, b \right] \) then we have that \[ U \left( f, P \right) - L \left( f, P \right) \le 2 \lVert f \rVert _ \infty \left( b - a \right) \]
+    </div>
+    <div class="proof">
+        \[ \begin{align} U \left( f, P \right) - L \left( f, P \right) &amp;= \sum _ { i = 1 } ^ { n } \left( \sup _ { x \in \left[ x _ i , x _ { i + 1 } \right] } f \left( x \right) - \inf \left( x \in \left[ x _ i, x _ { i + 1 } \right] f \left( x \right) \right) \right) \Delta _ i \\ & \stackrel{1}{=} \sum _ { i = 1 } ^ { n } \left( \sup _ { x \in \left[ x _ i , x _ { i + 1 } \right] } f \left( x \right) + \sup \left( x \in \left[ x _ i, x _ { i + 1 } \right] -f \left( x \right) \right) \right) \Delta _ i \\ & \stackrel{2}{=} \sum _ { i = 1 } ^ { n } \left( \sup _ { x, y \in \left[ x _ i , x _ { i + 1 } \right] } \left( f \left( x \right) - f \left( y \right) \right) \right) \Delta _ i \\ & \stackrel{3}{=} \sum _ { i = 1 } ^ { n } \left( \sup _ { x, y \in \left[ x _ i , x _ { i + 1 } \right] } \left( \left\lvert f \left( x \right) - f \left( y \right) \right\rvert \right) \right) \Delta _ i \\ & \stackrel{4}{\le} \sum _ { i = 1 } ^ { n } \left( 2 \sup _ { x, y \in \left[ x _ i , x _ { i + 1 } \right] } \left( \left\lvert f \left( x \right) \right\rvert \right) \right) \Delta _ i \\ & \stackrel{5}{\le} \sum _ { i = 1 } ^ { n } \left( 2 \lVert f \rVert _ \infty \right) \Delta _ i \\ &amp;= 2 \lVert f \rVert _ \infty \sum _ { i = 1 } ^ { n } \Delta _ i \\ &amp;\stackrel{6}{=} 2 \lVert f \rVert _ \infty \left( b - a \right) \\ \end{align} \] Where we've used
+        <ul>
+            <li>
+                <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-negative-of-infimum-is-supremum-of-negatives">fact 1</a>
+            </li>
+            <li>
+                <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#proposition-supremum-of-the-sum-of-two-functions-is-the-same-as-the-sum-of-the-supremums-if-the-variables-are-independent">fact 2</a>
+            </li>
+            <li>
+                <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#corollary-supremum-of-the-function-difference-set-is-the-same-with-absolute-values">fact 3</a>
+            </li>
+            <li>
+                <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#theorem-triangle-inequality">fact 4</a>
+            </li>
+            <li>fact 5: The supremum gets bigger on a superset</li>
+            <li>
+                <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#corollary-a-delta-sum-telescopes">fact 6</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-piecewise-continuous">
+    <div class="title">
+        Piecewise Continuous
+    </div>
+    <div class="content">
+        A function \( f: \left[ a, b \right] \to \mathbb{ R } \) is called piecewise continuous if for every \( \left[ c, d \right] \subseteq \left[ a, b \right] \) if it only has a finite number of discontinuities all of which are <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-jump-discontinuity">jump discontinuities</a>
+    </div>
+</div>
+<div class="lemma" id="lemma-riemann-integrable-on-two-parts-of-the-interval-means-riemann-integrable-on-the-whole-interval">
+    <div class="title">
+        Riemann Integrable on Two Parts of the Interval Means Riemann Integrable on the Whole Interval
+    </div>
+    <div class="content">
+        Suppose that \( f: \left[ a, b \right] \to \mathbb{ R } \) and let \( x \in \left[ a, b \right] \) then if \( f \) restricted to \( \left[ a, x \right] \) and \( f \) restricted to \( \left[ x, b \right] \) (which we denote as \( g _ 1, g _ 2 \)) are both riemann integrable then so is \( f \) on \( \left[ a, b \right] \) and then \[ \int _ { a } ^ { b } f \left( x \right) dx = \int _ { a } ^ { x } f \left( x \right) dx + \int _ { x } ^ { b } f \left( x \right) dx \]
+    </div>
+    <div class="proof">
+        Let \( \epsilon \in \mathbb{ R } ^ + \) using bullet point 2 from the RMI characterization we know that there are partitions \( P _ 1, P _ 2 \) of \( \left[ a, x \right], \left[ x, b \right] \) such that \[ \left( U \left( g _ 1, P _ 1 \right) - L \left( g _ 1, P _ 1 \right) \right) + \left( U \left( g _ 2, P _ 2 \right) - L \left( g _ 2, P _ 2 \right) \right) \lt \epsilon \] Then note that \[ U \left( g _ 1, P _ 1 \right) + U \left( g _ 2, P _ 2 \right) = U \left( f, P _ 1 \cup P _ 2 \right) \] which also holds for the lower sums, and therefore from the previous inequality we have \[ U \left( f, P _ 1 \cup P _ 2 \right) - L \left( f, P _ 1 \cup P _ 2 \right) \lt \epsilon \] therefore by (2) of the RMI characterization \( f \) is Riemann integrable.
+    </div>
+</div>
+<div class="proposition" id="proposition-every-piecewise-continuous-function-is-riemann-integrable">
+    <div class="title">
+        Every Piecewise Continuous Function is Riemann Integrable
+    </div>
+    <div class="content">
+        Every <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-piecewise-continuous">piecewise continuous</a> function is <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-riemann-integrable">Riemann integrable</a>
+    </div>
+    <div class="proof">
+        <p>Since \( f \) is piecewise continuous, then suppose its jump discontinuity points are given by \( D = \left\{ d _ 1, d _ 2, \ldots d _ n \right\} \). We will show this by using strong induction on the number of discontinuities within \( \left[ a, b \right] \).</p>
+        <p>Note that one can manage to prove that if \( f \) is RMI over \( \left[ a, b \right] \) with \( 1 \le i \le k \) jump discontinuities, then it is RMI over \( \left[ a, b \right] \) if it has \( k + 1 \) discontinuities. This can be done because we can break \( \left[ a, b \right] \) into two intervals \( I _ 1, I _ 2 \) such that \( I _ 1 \sqcup I _ 2 = \left[ a, b \right] \), where \( I _ 1, I _ 2 \) each have a number of discontinuities within the range \( \left[ 1, \ldots , k \right] \) so that \( f \restriction I _ 1 \) and \( f \restriction I _ 2 \) are both integrable on their respective intervals, <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#lemma-riemann-integrable-on-two-parts-of-the-interval-means-riemann-integrable-on-the-whole-interval">so that</a> \( f \) is RMI on \( \left[ a, b \right] \).</p>
+        <p>Therefore all that remains is the base case, which is that \( f \) is RMI if there is exactly \( 1 \) jump discontinuity of \( f \) on the set \( \left[ a, b \right] \), let \( d \) be this discontinuity, since \( f \) is continuous on \( L := \left[ a, d - \delta \right] \) and \( R := \left[ d + \delta , b \right] \) for any small \( \delta \), then we know that \( f \) is RMI when restricted to these intervals.</p>
+        <p>Let \( \epsilon \in \mathbb{ R } ^ + \) by (2) of the RMI characterization we obtain \( P _ L, P _ R \) which are partitions of \( L, R \) respectively (note that \( P _ L \cap P _ R = \emptyset \) such that \[ U \left( f \restriction L, P _ L \right) - L \left( f \restriction L, P _ L \right) \lt \frac{\epsilon }{3} \] and \[ U \left( f \restriction R, P _ R \right) - L \left( f \restriction R, P _ R \right) \lt \frac{\epsilon}{3} \]</p>
+        <p>Finally Consider \( P _ L \cup P _ R \) which is a partition of \( \left[ a, b \right] \) which contains the section \( \left[ d - \delta, d + \delta \right] \) along with the left and right partitions. Focusing on this section we can see it will contribute \[ \left( \sup _ { x \in \left[ d - \delta, d + \delta \right] } f \left( x \right) - \sup _ { y \in \left[ d - \delta, d + \delta \right] } f \left( y \right) \right) 2 \delta \] to \( U \left( f, P _ L \cup P _ R \right) - L \left( f, P _ L \cup P _ R \right) \), now:</p>\[ \begin{align} U \left( f, P _ L \cup P _ R \right) - L \left( f, P _ L \cup P _ R \right) &amp;= \left( U \left( f \restriction L, P _ L \right) + \left( \sup _ { x \in \left[ d - \delta, d + \delta \right] }f \left( x \right) \right) 2 \delta + U \left( f \restriction R, P _ R \right) \right) - \left( L \left( f \restriction L, P _ L \right) + \left( \inf _ { x \in \left[ d - \delta, d + \delta \right] }f \left( x \right) \right) 2 \delta + L \left( f \restriction R, P _ R \right) \right) \\ &amp;= \left( U \left( f \restriction L , P _ L \right) - L \left( f \restriction L, P _ L \right) \right) + \left( \sup _ { x \in \left[ d - \delta, d + \delta \right] }f \left( x \right) - \inf _ { x \in \left[ d - \delta, d + \delta \right] } f \left( x \right) \right) 2 \delta + \left( U \left( f \restriction R, P _ R \right) - L \left( f \restriction L , P _ L \right) \right)\\ &amp;\lt \frac{2 \epsilon }{3} + \sup _ { x, y \in \left[ d - \delta, d + \delta \right] } \left( \left\lvert f \left( x \right) - f \left( y \right) \right\rvert \right) 2 \delta \\ &amp;\le \frac{2 \epsilon }{3} + 2 \sup _ { x \in \left[ d - \delta, d + \delta \right] } \left\lvert f \left( x \right) \right\rvert \\ &amp;\le \frac{2 \epsilon }{3} + 2 \lVert f \rVert _ \infty 2 \delta \\ &amp;= \frac{2 \epsilon }{3} + 4 \lVert f \rVert _ \infty \delta \end{align} \] Thus a selection of \( \delta = \frac{\epsilon }{4 \lVert f \rVert _ \infty 3 } \) shows that \( U \left( f, P _ L \cup P _ R \right) - L \left( f, P _ L \cup P _ R \right) \lt \epsilon \) as needed.
+    </div>
+</div>

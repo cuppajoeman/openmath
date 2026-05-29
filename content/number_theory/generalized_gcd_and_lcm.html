@@ -1,0 +1,40 @@
+<div class="definition" id="definition-generalized-gcd">
+    <div class="title">
+        Generalized GCD
+    </div>
+    <div class="content">
+        Suppose that \( S \subseteq \mathbb{ Z } \) is finite that is not all zero, then \[ \gcd \left( S \right) \] is the largest positive integer that divides everything in \( S \).
+    </div>
+</div>
+<div class="proposition" id="proposition-gcd-of-gcds-is-the-same-as-their-union">
+    <div class="title">
+        GCD of GCD's Is the Same as Their Union
+    </div>
+    <div class="content">
+        Suppose that \( T \subseteq \mathcal{ P } \left( \mathbb{ N } _ 1 \right) \) such that \( T \) is finite and for every \( S \in T, S \) is finite, then we have \[ \gcd \left( \left\{ \gcd \left( S \right): S \in T \right\} \right) = \gcd \left( \bigcup T \right) \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="proposition" id="proposition-generalized-bezout-identity">
+    <div class="title">
+        Generalized Bezout Identity
+    </div>
+    <div class="content">
+        There exists integers \( x _ 1, \ldots , x _ n \) such that \[ a _ 1 x _ 1 + a _ 2 x _ 2 + \cdots + a _ n x _ n = \gcd \left( a _ 1, a _ 2, \ldots , a _ n \right) \]
+    </div>
+    <div class="proof">
+        <p>We prove this by induction, so for the base case we use the basic bezout identity to see that \( gcd \left( a _ 1, a _ 2 \right) = a _ 1 x _ 1 + a _ 2 x _ 2 \) .</p>
+        <p>Now suppose it holds true for \( k \in \mathbb{ N } _ 2 \) and we'll show that it holds true for \( k + 1 \), we have \[ \begin{align} \gcd \left( a _ 1, \ldots a _ { k + 1 } \right) &amp;= \gcd \left( \gcd \left( a _ 1, \ldots , a _ k \right), a _ { k + 1 } \right) \\ &amp;= \gcd \left( \sum _ { i = 1 } ^ { k } a _ i x _ i, a _ { k + 1 } \right) \\ &amp;= b \left( \sum _ { i = 1 } ^ {k } a _ i x _ i \right) + c a _ { k + 1 } \\ &amp;= \sum _ { i = 1 } ^ { k + 1 } d _ i a _ i \end{align} \] The first line uses <a class="knowledge-link" href="/number_theory/generalized_gcd_and_lcm.html#proposition-gcd-of-gcds-is-the-same-as-their-union">this fact</a>, to get to the the second line we used the induction hypothesis and to get to the third line we used the basic bezout for 2 elements.</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-">
+    <div class="title">
+        Divisible by Relatively Prime Numbers Means Divisible by Their Product
+    </div>
+    <div class="content">
+        Suppose that \( \gcd \left( a _ 1, \ldots a _ n \right) = 1 \) and \( k \in \mathbb{ Z } \) then \[ \left( \forall i \in \left[ 1, \ldots n \right] , a _ i \mid k \right) \implies \prod _ { i = 1 } ^ { n } a _ i \mid k \]
+    </div>
+    <div class="proof">
+        Since \( \gcd \left( a _ 1, \ldots, a _ n \right) = 1 \) then there exists some \( x _ 1, \ldots , x _ n \) such that \( \sum _ { i = 1 } ^ { n } a _ i x _ i = 1 \), so that \( \sum _ { i = 1 } ^ { n } a _ i x _ i k = k \) we know that each \( a _ i \mid k \) so that there is some \( j _ i \in \mathbb{ Z } \) such that \( k = a _ i j _ i \) so we have \[ \sum _ { i = 1 } ^ { n } a _ i x _ i k = \sum _ { i = 1 } ^ { n } \]
+    </div>
+</div>

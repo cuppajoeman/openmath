@@ -1,0 +1,71 @@
+<div class="theorem" id="theorem-uniform-boundedness-theorem" >
+    <div class="title">Uniform Boundedness Theorem</div>
+    <div class="content">
+        Let \( T _ n  \) be a sequence of bounded linear operators \( T _ n : X \to Y \) from a <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-banach-space">banach space</a> into a <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-normed-vector-space">normed vector space</a> \( Y \) such that for each \( x \in X \) there exists some \( c _ x \in \mathbb{ R } ^ +  \) such that for every \( n \in \mathbb{ N } _ 1 \) we have
+        \[
+          \left\lVert T _ n x  \right\rVert _ Y \le c _ x
+        \] 
+        then there exists some \( c \in \mathbb{ R } ^ +  \) such that for every \( n \in \mathbb{ N } _ 1 \) we have that 
+        \[
+          \left\lVert T _ n  \right\rVert _ \operatorname{ op } \le c
+        \] 
+    </div>
+
+    <div class="proof">
+
+    </div>
+</div>
+<div class="definition" id="definition-hilbert-adjoint-operator" >
+    <div class="title">Hilbert Adjoint Operator</div>
+    <div class="content">
+        Let \( T : H _ 1 \to H _ 2 \) be a bounded linear operator between hilbert spaces \( H _ 1, H _ 2 \), then we say that a linear operator \( T ^ * : H _ 2 \to H _ 1 \) is a <b>Hilbert adjoint operator</b> if for all \( x_1, x_2 \in H_1, H_2 \) 
+        \[
+          \left\langle T x _ 1, x _ 2 \right\rangle = \left\langle x _ 1, T ^ * x _ 2 \right\rangle 
+        \] 
+    </div>
+</div>
+<div class="proposition" id="proposition-there-is-a-unique-hilbert-adjoint-operator" >
+    <div class="title">There Is a Unique Hilbert Adjoint Operator</div>
+    <div class="content">
+        Given a linear operator \( T : H _ 1 \to H _ 2 \) then there exists a unique hilbert adjoint operator \( T ^ * \). Moreover it is a bounded linear operator such that 
+        \[
+          \left\lVert T ^ * \right\rVert _ \operatorname{ op } = \left\lVert T  \right\rVert _ \operatorname{ op } 
+        \] 
+    </div>
+
+    <div class="proof">
+        TODO: Add the proof here.
+    </div>
+</div>
+<div class="definition" id="definition-direct-sum" >
+    <div class="title">Direct Sum</div>
+    <div class="content">
+        A vector space \( X \) is said to be the <b>direct sum</b> of two subspaces \( Y \) and \( Z \) of \( X \) when for every \( x \in X \) there exists a unique pair of elements \( y, z \in Y, Z \) such that \( x = y + z \) and in this case we write \( X = Y \oplus Z \) 
+    </div>
+</div>
+<div class="definition" id="definition-orthogonal-in-an-inner-product-space" >
+    <div class="title">Orthogonal in an Inner Product Space</div>
+    <div class="content">
+        Suppose that \( V \) is an <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-inner-product-space">inner product space</a>, then we say that two vectors \( x, y \in V \) are <b>orthogonal</b> if 
+        \[
+            \left\langle x, y \right\rangle = 0
+        \] 
+        and we write \( x \perp y \) 
+    </div>
+</div>
+<div class="definition" id="definition-orthogonal-projection">
+    <div class="title">Orthogonal Projection</div>
+    <div class="content">
+        For a vector \( v \) and a closed convex subset of a hilbert space, we denote \( v _U \) to denote this distance minimizing element of \( U \) called the <b>orthogonal projection</b> of \( v \) onto \( U \).
+    </div>
+</div>
+<div class="definition" id="definition-orthogonal-complement-of-an-inner-product-space">
+<div class="title">Orthogonal Complement of an Inner Product Space</div>
+    <div class="content">
+        For a subset \( U \) of an <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-inner-product-space">inner product space</a> \( V \) we define the orthogonal complement of \( U \) to be the set 
+        \[
+          U = \left\{  \right\} 
+        \] 
+        then we use \( U ^ \bot \) to denote the space of vectors orthogonal of vectors orthogonal to \( U \) called the <b>orthogonal complement</b> of \( u \) 
+    </div>
+</div>
