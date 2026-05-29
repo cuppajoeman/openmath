@@ -13,4 +13,4 @@ generated_html
 
 # Emacs
 **/*~
-dist/
+/dist/
