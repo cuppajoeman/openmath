@@ -1,4 +1,4 @@
-async function fetchHtmlDocument(url) {
+﻿async function fetchHtmlDocument(url) {
     const response = await fetch(url);
     if (!response.ok) {
         throw new Error(`Could not fetch ${url}: ${response.status}`);
@@ -40,11 +40,15 @@ async function openKnowledgeLink(link, target) {
         }
 
         destination.classList.add("expanded-knowledge");
+        destination.dataset.knowledgeUrl = `${parsed.url}${parsed.selector}`;
         link.after(destination);
 
         setUpKnowledgeLinks(destination);
         if (window.setUpProofToggles) {
             window.setUpProofToggles(destination);
+        }
+        if (window.setUpKnowledgeCopyLinks) {
+            window.setUpKnowledgeCopyLinks(destination);
         }
 
         link.dataset.openedAtLeastOnce = "true";

@@ -1,4 +1,4 @@
-:root,
+﻿:root,
 :root[data-force-color-mode="light"] {
   --main-bg-color: white;
   --main-text-color: black;
@@ -36,7 +36,7 @@
 
 @font-face {
   font-family: "Latin Modern Roman";
-  src: url("/static/js/Temml-0.13.02/Temml-0.13.02/dist/LMRoman10-Regular.woff2") format("woff2");
+  src: url("/static/js/Temml-0.13.02/dist/LMRoman10-Regular.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
 }
@@ -264,4 +264,33 @@ a {
 .opened-knowledge {
   animation: scale-in 0.2s linear;
   transform-origin: 0 50%;
+}
+
+#topbar a {
+  color: inherit;
+}
+
+#topbar math {
+  font-size: 1.3em;
+}
+.knowledge-copy-link {
+  float: right;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.75em;
+  line-height: 1;
+  margin-left: 0.75em;
+  opacity: 0.72;
+  padding: 0.18em 0.42em 0.22em;
+}
+
+.knowledge-copy-link:hover,
+.knowledge-copy-link:focus-visible,
+.knowledge-copy-link[data-copied="true"] {
+  opacity: 1;
+  background-color: color-mix(in srgb, currentColor 18%, transparent);
 }
