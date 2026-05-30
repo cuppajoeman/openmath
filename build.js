@@ -8,10 +8,44 @@ const staticDir = path.join(rootDir, "static");
 const coverageMapPath = path.join(rootDir, "data", "coverage_map.json");
 const templatePath = path.join(rootDir, "templates", "page.html");
 const distDir = path.join(rootDir, "dist");
+const searchIndexPath = path.join(distDir, "static", "search-index.json");
+const knowledgeGraphPath = path.join(distDir, "static", "knowledge-graph.json");
 const temmlPackageDir = path.dirname(require.resolve("temml/package.json"));
 const temmlDistDir = path.join(temmlPackageDir, "dist");
 const defaultProofCoverageThreshold = 0.5;
 const proofCoverageThreshold = readProofCoverageThreshold();
+const profileBuild = process.env.OPENMATH_PROFILE_BUILD === "1";
+const buildProfile = [];
+
+function nowMs() {
+    const [seconds, nanoseconds] = process.hrtime();
+    return seconds * 1000 + nanoseconds / 1000000;
+}
+
+function profileStep(name, callback) {
+    if (!profileBuild) {
+        return callback();
+    }
+
+    const start = nowMs();
+    try {
+        return callback();
+    } finally {
+        buildProfile.push({ name, ms: nowMs() - start });
+    }
+}
+
+function printBuildProfile() {
+    if (!profileBuild) {
+        return;
+    }
+
+    console.log("");
+    console.log("Build profile:");
+    for (const entry of buildProfile.sort((a, b) => b.ms - a.ms)) {
+        console.log(`${entry.name}: ${(entry.ms / 1000).toFixed(3)}s`);
+    }
+}
 
 function ensureDir(dir) {
     if (!fs.existsSync(dir)) {
@@ -62,6 +96,41 @@ function pageTitleFromPath(filePath) {
         .join(" ");
 }
 
+function titleFromId(id) {
+    return id
+        .replace(/^(definition|theorem|proposition|lemma|corollary|exercise)-/, "")
+        .split("-")
+        .filter(Boolean)
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+}
+
+function cleanStatementTitle(rawTitle, id, relativePath) {
+    const title = rawTitle.trim();
+    if (!title || /^[-<>\s!]+$/.test(title)) {
+        return titleFromId(id) || pageTitleFromPath(relativePath);
+    }
+
+    return title;
+}
+
+function plainTitleHtml(title) {
+    return escapeHtml(title)
+        .replace(/\\\(\s*\\texttt\{([^}]*)\}\s*\\\)/g, "<code>$1</code>")
+        .replace(/\\texttt\{([^}]*)\}/g, "<code>$1</code>");
+}
+
+function renderStatementTitle(rawTitle, textTitle, filePath) {
+    const sourceTitle = rawTitle.trim() || escapeHtml(textTitle);
+    const rendered = renderMath(sourceTitle, filePath);
+
+    if (rendered.errors > 0 || rendered.html.includes("temml-error")) {
+        return plainTitleHtml(textTitle);
+    }
+
+    return rendered.html;
+}
+
 function readProofCoverageThreshold() {
     const raw = process.env.OPENMATH_PROOF_COVERAGE_THRESHOLD;
     if (!raw) {
@@ -80,6 +149,19 @@ function readProofCoverageThreshold() {
 function renderMath(html, filePath) {
     let errors = 0;
     const protectedBlocks = [];
+    const temmlOptions = {
+        trust: function (context) {
+            if (context.command === "\\class") {
+                return context.class === "knowledge-link";
+            }
+
+            if (context.command === "\\data") {
+                return Object.keys(context.attributes).every((name) => name === "data-href");
+            }
+
+            return false;
+        },
+    };
 
     html = html.replace(/<(pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi, function (match) {
         const placeholder = `%%OPENMATH_PROTECTED_BLOCK_${protectedBlocks.length}%%`;
@@ -89,7 +171,7 @@ function renderMath(html, filePath) {
 
     html = html.replace(/\\\[([\s\S]*?)\\\]/g, function (match, tex) {
         try {
-            return temml.renderToString(tex.trim(), { displayMode: true });
+            return temml.renderToString(knowledgeLinksToTemml(tex.trim()), { ...temmlOptions, displayMode: true });
         } catch (e) {
             errors += 1;
             console.error(`Error rendering display math in ${filePath}: ${tex.trim()}`);
@@ -100,7 +182,7 @@ function renderMath(html, filePath) {
 
     html = html.replace(/\\\(([\s\S]*?)\\\)/g, function (match, tex) {
         try {
-            return temml.renderToString(tex.trim(), { displayMode: false });
+            return temml.renderToString(knowledgeLinksToTemml(tex.trim()), { ...temmlOptions, displayMode: false });
         } catch (e) {
             errors += 1;
             console.error(`Error rendering inline math in ${filePath}: ${tex.trim()}`);
@@ -114,6 +196,34 @@ function renderMath(html, filePath) {
     });
 
     return { html, errors };
+}
+
+function decodeHtmlAttribute(text) {
+    return String(text)
+        .replace(/&quot;/g, "\"")
+        .replace(/&#39;/g, "'")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&amp;/g, "&");
+}
+
+function escapeTemmlRawArgument(text) {
+    return String(text)
+        .replace(/\\/g, "\\textbackslash{}")
+        .replace(/[{}]/g, "");
+}
+
+function knowledgeLinksToTemml(tex) {
+    return tex.replace(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi, function (match, attributes, body) {
+        const className = attrValue(`<a ${attributes}>`, "class");
+        const href = decodeHtmlAttribute(attrValue(`<a ${attributes}>`, "href"));
+
+        if (!href || !/\b(?:knowledge-link|rlink)\b/.test(className)) {
+            return match;
+        }
+
+        return `\\class{knowledge-link}{\\data{href=${escapeTemmlRawArgument(href)}}{${body.trim()}}}`;
+    });
 }
 
 function stripFullDocument(html) {
@@ -172,6 +282,62 @@ function proofCoverageForSource(source) {
     return { total, filled, coverage: filled / total };
 }
 
+function normalizeStatementHref(href, currentPath) {
+    if (
+        !href ||
+        /^[a-z][a-z0-9+.-]*:/i.test(href) ||
+        href.startsWith("//")
+    ) {
+        return "";
+    }
+
+    const decoded = decodeHtmlAttribute(href);
+    const [targetPathRaw, hashRaw] = decoded.split("#");
+    const hash = hashRaw ? hashRaw.split("?")[0] : "";
+
+    if (!hash) {
+        return "";
+    }
+
+    if (!targetPathRaw) {
+        return `${currentPath}#${hash}`;
+    }
+
+    const cleanPath = targetPathRaw.startsWith("/")
+        ? targetPathRaw.slice(1)
+        : path.posix.normalize(path.posix.join(path.posix.dirname(currentPath), targetPathRaw));
+
+    if (cleanPath.startsWith("..")) {
+        return "";
+    }
+
+    return `${cleanPath.split("?")[0]}#${hash}`;
+}
+
+function collectKnowledgeLinkTargets(segment, relativePath) {
+    const targets = new Set();
+    const linkPattern = /<a\b([^>]*)>/gi;
+    let match;
+
+    while ((match = linkPattern.exec(segment)) !== null) {
+        const tag = match[0];
+        const className = attrValue(tag, "class");
+
+        if (!/\b(?:knowledge-link|rlink)\b/.test(className)) {
+            continue;
+        }
+
+        const href = attrValue(tag, "href") || attrValue(tag, "data-href");
+        const target = normalizeStatementHref(href, relativePath);
+
+        if (target) {
+            targets.add(target);
+        }
+    }
+
+    return Array.from(targets);
+}
+
 function attrValue(tag, name) {
     const pattern = new RegExp(`\\b${name}\\s*=\\s*["']([^"']+)["']`, "i");
     const match = tag.match(pattern);
@@ -188,6 +354,7 @@ function collectStatements(source, relativePath) {
         const className = attrValue(tag, "class");
         const id = attrValue(tag, "id");
         const type = className.split(/\s+/).find((name) => (
+            name === "definition" ||
             name === "theorem" ||
             name === "proposition" ||
             name === "lemma" ||
@@ -204,16 +371,25 @@ function collectStatements(source, relativePath) {
         const next = openings[index + 1];
         const segment = source.slice(opening.index, next ? next.index : source.length);
         const titleMatch = segment.match(/<div\s+class=["']title["'][^>]*>([\s\S]*?)<\/div>/i);
+        const rawTitle = titleMatch ? titleMatch[1] : "";
+        const title = rawTitle ? stripHtml(rawTitle) : "";
+        const cleanTitle = cleanStatementTitle(title, opening.id, relativePath);
         const proof = proofCoverageForSource(segment);
+        const bodySource = segment
+            .replace(/<div\s+class=["']title["'][^>]*>[\s\S]*?<\/div>/i, "")
+            .replace(/<div\s+class=["']proof["'][^>]*>[\s\S]*?<\/div>/gi, "");
 
         return {
             id: opening.id,
             type: opening.type,
-            title: titleMatch ? stripHtml(titleMatch[1]) : pageTitleFromPath(relativePath),
+            title: cleanTitle,
+            titleHtml: renderStatementTitle(rawTitle, cleanTitle, relativePath),
             path: relativePath,
             href: `/${relativePath}#${opening.id}`,
             proof,
-            hasProof: proof.filled > 0,
+            hasProof: proof.total === 0 || proof.filled > 0,
+            hasBody: stripHtml(bodySource).length > 0,
+            linksTo: collectKnowledgeLinkTargets(segment, relativePath),
         };
     });
 }
@@ -327,6 +503,333 @@ function qualityClass(coverage) {
     }
 
     return "quality-high";
+}
+
+function normalizeDuplicateText(text) {
+    return String(text)
+        .toLowerCase()
+        .replace(/\\[a-z]+/g, " ")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim()
+        .replace(/\s+/g, " ");
+}
+
+function duplicateTokens(text) {
+    const stopWords = new Set([
+        "a",
+        "an",
+        "and",
+        "are",
+        "by",
+        "for",
+        "in",
+        "is",
+        "of",
+        "on",
+        "or",
+        "the",
+        "to",
+        "with",
+    ]);
+
+    return new Set(
+        normalizeDuplicateText(text)
+            .split(" ")
+            .filter((word) => word.length > 2 && !stopWords.has(word))
+    );
+}
+
+function jaccardSimilarity(left, right) {
+    if (left.size === 0 && right.size === 0) {
+        return 1;
+    }
+
+    let intersection = 0;
+    for (const value of left) {
+        if (right.has(value)) {
+            intersection += 1;
+        }
+    }
+
+    return intersection / (left.size + right.size - intersection);
+}
+
+function levenshteinDistance(left, right) {
+    if (left === right) {
+        return 0;
+    }
+
+    if (left.length === 0) {
+        return right.length;
+    }
+
+    if (right.length === 0) {
+        return left.length;
+    }
+
+    const previous = Array.from({ length: right.length + 1 }, (_, index) => index);
+    const current = Array(right.length + 1).fill(0);
+
+    for (let i = 1; i <= left.length; i += 1) {
+        current[0] = i;
+
+        for (let j = 1; j <= right.length; j += 1) {
+            const substitutionCost = left[i - 1] === right[j - 1] ? 0 : 1;
+            current[j] = Math.min(
+                current[j - 1] + 1,
+                previous[j] + 1,
+                previous[j - 1] + substitutionCost
+            );
+        }
+
+        for (let j = 0; j <= right.length; j += 1) {
+            previous[j] = current[j];
+        }
+    }
+
+    return previous[right.length];
+}
+
+function duplicateStatementName(statement) {
+    const idTitle = titleFromId(statement.id);
+    return cleanStatementTitle(statement.title || idTitle, statement.id, statement.path);
+}
+
+function duplicateStatementSearchText(statement) {
+    return `${duplicateStatementName(statement)} ${titleFromId(statement.id)}`;
+}
+
+function duplicateReason(left, right) {
+    const leftName = normalizeDuplicateText(duplicateStatementName(left));
+    const rightName = normalizeDuplicateText(duplicateStatementName(right));
+
+    if (!leftName || !rightName) {
+        return null;
+    }
+
+    if (leftName === rightName) {
+        return { label: "direct title match", score: 1 };
+    }
+
+    const maxLength = Math.max(leftName.length, rightName.length);
+    const editSimilarity = 1 - (levenshteinDistance(leftName, rightName) / maxLength);
+
+    if (maxLength >= 8 && editSimilarity >= 0.82) {
+        return { label: "similar title", score: editSimilarity };
+    }
+
+    const leftTokens = duplicateTokens(duplicateStatementSearchText(left));
+    const rightTokens = duplicateTokens(duplicateStatementSearchText(right));
+    const tokenSimilarity = jaccardSimilarity(leftTokens, rightTokens);
+    const sharedTokens = Array.from(leftTokens).filter((word) => rightTokens.has(word));
+
+    if (sharedTokens.length >= 3 && tokenSimilarity >= 0.75) {
+        return { label: "shared words", score: tokenSimilarity };
+    }
+
+    return null;
+}
+
+function collectPotentialDuplicates(quality) {
+    const statements = Array.from(quality.statements.values())
+        .filter((statement) => statement.type !== "exercise")
+        .sort((a, b) => duplicateStatementName(a).localeCompare(duplicateStatementName(b)) || a.href.localeCompare(b.href));
+    const groups = new Map();
+    const prepared = statements.map((statement, index) => ({
+        index,
+        statement,
+        name: duplicateStatementName(statement),
+        normalizedName: normalizeDuplicateText(duplicateStatementName(statement)),
+        tokens: duplicateTokens(duplicateStatementSearchText(statement)),
+    }));
+    const candidatePairs = new Map();
+
+    function addCandidate(leftIndex, rightIndex) {
+        if (leftIndex === rightIndex) {
+            return;
+        }
+
+        const first = Math.min(leftIndex, rightIndex);
+        const second = Math.max(leftIndex, rightIndex);
+        candidatePairs.set(`${first}:${second}`, [prepared[first].statement, prepared[second].statement]);
+    }
+
+    const byNormalizedName = new Map();
+    for (const item of prepared) {
+        if (!item.normalizedName) {
+            continue;
+        }
+
+        const group = byNormalizedName.get(item.normalizedName) || [];
+        group.push(item.index);
+        byNormalizedName.set(item.normalizedName, group);
+    }
+
+    for (const indexes of byNormalizedName.values()) {
+        for (let i = 0; i < indexes.length; i += 1) {
+            for (let j = i + 1; j < indexes.length; j += 1) {
+                addCandidate(indexes[i], indexes[j]);
+            }
+        }
+    }
+
+    const byFirstLetter = new Map();
+    for (const item of prepared) {
+        const key = item.normalizedName.charAt(0);
+        if (!key) {
+            continue;
+        }
+
+        const group = byFirstLetter.get(key) || [];
+        group.push(item);
+        byFirstLetter.set(key, group);
+    }
+
+    for (const bucket of byFirstLetter.values()) {
+        bucket.sort((a, b) => a.normalizedName.localeCompare(b.normalizedName));
+
+        for (let i = 0; i < bucket.length; i += 1) {
+            const left = bucket[i];
+
+            for (let j = i + 1; j < bucket.length && j <= i + 12; j += 1) {
+                const right = bucket[j];
+                const maxLength = Math.max(left.normalizedName.length, right.normalizedName.length);
+                const lengthDifference = Math.abs(left.normalizedName.length - right.normalizedName.length);
+
+                if (maxLength >= 8 && lengthDifference / maxLength <= 0.18) {
+                    addCandidate(left.index, right.index);
+                }
+            }
+        }
+    }
+
+    const tokenIndex = new Map();
+    for (const item of prepared) {
+        for (const token of item.tokens) {
+            const indexes = tokenIndex.get(token) || [];
+            indexes.push(item.index);
+            tokenIndex.set(token, indexes);
+        }
+    }
+
+    const sharedTokenCounts = new Map();
+    for (const indexes of tokenIndex.values()) {
+        for (let i = 0; i < indexes.length; i += 1) {
+            for (let j = i + 1; j < indexes.length; j += 1) {
+                const first = Math.min(indexes[i], indexes[j]);
+                const second = Math.max(indexes[i], indexes[j]);
+                const key = `${first}:${second}`;
+                const count = (sharedTokenCounts.get(key) || 0) + 1;
+
+                sharedTokenCounts.set(key, count);
+                if (count >= 3) {
+                    addCandidate(first, second);
+                }
+            }
+        }
+    }
+
+    for (const [left, right] of candidatePairs.values()) {
+        const reason = duplicateReason(left, right);
+
+        if (!reason) {
+            continue;
+        }
+
+        const groupName = normalizeDuplicateText(duplicateStatementName(left)) === normalizeDuplicateText(duplicateStatementName(right))
+            ? normalizeDuplicateText(duplicateStatementName(left))
+            : `${normalizeDuplicateText(duplicateStatementName(left))}::${normalizeDuplicateText(duplicateStatementName(right))}`;
+        const group = groups.get(groupName) || {
+            title: duplicateStatementName(left),
+            reason: reason.label,
+            score: reason.score,
+            items: new Map(),
+        };
+
+        group.score = Math.max(group.score, reason.score);
+        if (group.reason !== "direct title match" && reason.label === "direct title match") {
+            group.reason = reason.label;
+            group.title = duplicateStatementName(left);
+        }
+        group.items.set(left.href, left);
+        group.items.set(right.href, right);
+        groups.set(groupName, group);
+    }
+
+    return Array.from(groups.values())
+        .map((group) => ({
+            ...group,
+            items: Array.from(group.items.values()).sort((a, b) => a.type.localeCompare(b.type) || a.path.localeCompare(b.path) || a.id.localeCompare(b.id)),
+        }))
+        .filter((group) => group.items.length > 1)
+        .sort((a, b) => {
+            const reasonRank = { "direct title match": 0, "similar title": 1, "shared words": 2 };
+            return reasonRank[a.reason] - reasonRank[b.reason] ||
+                b.score - a.score ||
+                a.title.localeCompare(b.title);
+        });
+}
+
+function collectEmptyStatements(quality) {
+    return Array.from(quality.statements.values())
+        .filter((statement) => !statement.hasBody)
+        .sort((a, b) => a.type.localeCompare(b.type) || a.path.localeCompare(b.path) || a.id.localeCompare(b.id));
+}
+
+function buildCleanupPage(template, stats, quality) {
+    const emptyStatements = profileStep("cleanup: empty statements", () => collectEmptyStatements(quality));
+    const duplicateGroups = profileStep("cleanup: duplicate candidates", () => collectPotentialDuplicates(quality));
+    const emptyRows = emptyStatements.map((statement) => `<li>
+  <a href="${escapeHtml(statement.href)}">${escapeHtml(statement.title)}</a>
+  <span class="quality-coverage quality-low">empty ${escapeHtml(statement.type)}</span>
+  <span class="duplicate-path">${escapeHtml(statement.path)}</span>
+</li>`).join("\n");
+    const duplicateRows = duplicateGroups.map((group) => {
+        const percent = Math.round(group.score * 100);
+        const items = group.items.map((item) => `<li>
+    <a href="${escapeHtml(item.href)}">${escapeHtml(item.title)}</a>
+    <span class="quality-coverage quality-medium">${escapeHtml(item.type)}</span>
+    <span class="duplicate-path">${escapeHtml(item.path)}</span>
+  </li>`).join("\n");
+
+        return `<details class="proof-coverage-detail duplicate-knowledge-detail">
+  <summary>
+    <span class="proof-coverage-title">${escapeHtml(group.title)}</span>
+    <span class="quality-coverage ${qualityClass(group.score)}">${escapeHtml(group.reason)}</span>
+    <span class="quality-coverage quality-high">${percent}%</span>
+  </summary>
+  <ul>
+${items}
+  </ul>
+</details>`;
+    }).join("\n");
+
+    const content = `<h1>Cleanup</h1>
+<p>
+  This page collects maintenance tasks that usually do not require new mathematical ideas. Empty statements need their definitions or results filled in, and possible duplicates should be compared to decide whether they should be merged, renamed, or linked more clearly.
+</p>
+<section class="knowledge-problem-section">
+  <h2>Empty Statements <span class="quality-coverage quality-low">${emptyStatements.length}</span></h2>
+  <p>These entries have a title block but no statement body outside their proof block.</p>
+  <ul class="quality-list">
+${emptyRows || "    <li>No empty statements were found.</li>"}
+  </ul>
+</section>
+<section class="knowledge-problem-section">
+  <h2>Duplicates <span class="quality-coverage quality-medium">${duplicateGroups.length}</span></h2>
+  <p>These entries have matching titles, close edit distances, or substantially overlapping title/id words.</p>
+  <div class="proof-coverage-list duplicate-knowledge-list">
+${duplicateRows || "<p>No likely duplicates were found.</p>"}
+  </div>
+</section>`;
+    const page = template
+        .replaceAll("{{title}}", "Cleanup")
+        .replace("{{content}}", content);
+    const outPath = path.join(distDir, "cleanup.html");
+
+    fs.writeFileSync(outPath, page, "utf-8");
+    stats.files += 1;
+    console.log(`Built: cleanup page -> ${outPath}`);
 }
 
 function normalizeCoverageHref(href) {
@@ -452,6 +955,166 @@ ${rows || "<li>Every page with proof blocks is fully covered.</li>"}
     console.log(`Built: proof coverage page -> ${outPath}`);
 }
 
+function buildSearchIndex(quality) {
+    const items = Array.from(quality.statements.values())
+        .map((statement) => ({
+            id: statement.id,
+            title: statement.title,
+            titleHtml: statement.titleHtml,
+            type: statement.type,
+            href: statement.href,
+            path: statement.path,
+        }))
+        .sort((a, b) => a.title.localeCompare(b.title) || a.id.localeCompare(b.id));
+
+    ensureDir(path.dirname(searchIndexPath));
+    fs.writeFileSync(searchIndexPath, JSON.stringify(items, null, 2), "utf-8");
+    console.log(`Built: search index -> ${searchIndexPath}`);
+}
+
+function cycleNodeIds(nodes, links) {
+    const existing = new Set(nodes.map((node) => node.id));
+    const adjacency = new Map(nodes.map((node) => [node.id, []]));
+
+    for (const link of links) {
+        if (existing.has(link.source) && existing.has(link.target)) {
+            adjacency.get(link.source).push(link.target);
+        }
+    }
+
+    const visited = new Set();
+    const active = new Set();
+    const cycleNodes = new Set();
+
+    function visit(nodeId, stack) {
+        visited.add(nodeId);
+        active.add(nodeId);
+        stack.push(nodeId);
+
+        for (const next of adjacency.get(nodeId) || []) {
+            if (!visited.has(next)) {
+                visit(next, stack);
+            } else if (active.has(next)) {
+                const cycleStart = stack.indexOf(next);
+                for (const cycleNode of stack.slice(cycleStart)) {
+                    cycleNodes.add(cycleNode);
+                }
+            }
+        }
+
+        stack.pop();
+        active.delete(nodeId);
+    }
+
+    for (const node of nodes) {
+        if (!visited.has(node.id)) {
+            visit(node.id, []);
+        }
+    }
+
+    return cycleNodes;
+}
+
+function buildKnowledgeGraphData(quality) {
+    const nodes = Array.from(quality.statements.values())
+        .filter((statement) => statement.type !== "exercise")
+        .map((statement) => ({
+            id: `${statement.path}#${statement.id}`,
+            title: statement.title,
+            titleHtml: statement.titleHtml,
+            type: statement.type,
+            href: statement.href,
+            path: statement.path,
+        }))
+        .sort((a, b) => a.path.localeCompare(b.path) || a.id.localeCompare(b.id));
+    const nodeIds = new Set(nodes.map((node) => node.id));
+    const links = [];
+    const seenLinks = new Set();
+
+    for (const statement of quality.statements.values()) {
+        const source = `${statement.path}#${statement.id}`;
+
+        if (!nodeIds.has(source)) {
+            continue;
+        }
+
+        for (const target of statement.linksTo) {
+            if (!nodeIds.has(target)) {
+                continue;
+            }
+
+            const key = `${source}->${target}`;
+            if (!seenLinks.has(key)) {
+                links.push({ source, target });
+                seenLinks.add(key);
+            }
+        }
+    }
+
+    const degree = new Map(nodes.map((node) => [node.id, 0]));
+    for (const link of links) {
+        degree.set(link.source, (degree.get(link.source) || 0) + 1);
+        degree.set(link.target, (degree.get(link.target) || 0) + 1);
+    }
+
+    const cycleNodes = cycleNodeIds(nodes, links);
+    for (const node of nodes) {
+        node.isolated = (degree.get(node.id) || 0) === 0;
+        node.inCycle = cycleNodes.has(node.id);
+    }
+
+    return {
+        generatedAt: new Date().toISOString(),
+        nodes,
+        links,
+        stats: {
+            nodes: nodes.length,
+            links: links.length,
+            isolatedNodes: nodes.filter((node) => node.isolated).length,
+            cycleNodes: nodes.filter((node) => node.inCycle).length,
+        },
+    };
+}
+
+function buildKnowledgeGraphPage(template, stats, quality) {
+    const graph = buildKnowledgeGraphData(quality);
+    ensureDir(path.dirname(knowledgeGraphPath));
+    fs.writeFileSync(knowledgeGraphPath, JSON.stringify(graph, null, 2), "utf-8");
+    console.log(`Built: knowledge graph data -> ${knowledgeGraphPath}`);
+
+    const content = `<h1>Knowledge Graph</h1>
+<p>
+  This graph shows statement-level knowledge links across Openmath. Drag to pan, scroll to zoom, click a node to inspect it, and open the selected node to jump to the source knowledge.
+</p>
+<div class="knowledge-graph-shell">
+  <div class="knowledge-graph-toolbar">
+    <button type="button" data-graph-action="reset">Reset View</button>
+    <button type="button" data-graph-action="open" disabled>Open Selected</button>
+    <button type="button" data-graph-action="trace-root" disabled>Trace Root</button>
+    <button type="button" data-graph-action="edge-labels" disabled>Show Labels</button>
+    <span class="quality-coverage quality-low" data-graph-stat="isolated">${graph.stats.isolatedNodes} isolated</span>
+    <span class="quality-coverage quality-medium" data-graph-stat="cycles">${graph.stats.cycleNodes} in cycles</span>
+  </div>
+  <canvas id="knowledge-graph" width="1200" height="760" aria-label="Interactive knowledge graph"></canvas>
+  <div class="knowledge-graph-label" id="knowledge-graph-label" hidden></div>
+  <div class="knowledge-graph-status" id="knowledge-graph-status">Loading graph...</div>
+  <p class="knowledge-graph-legend">
+    <span class="knowledge-graph-swatch knowledge-graph-swatch-normal"></span> linked
+    <span class="knowledge-graph-swatch knowledge-graph-swatch-isolated"></span> isolated
+    <span class="knowledge-graph-swatch knowledge-graph-swatch-cycle"></span> cycle
+  </p>
+</div>
+<script src="/static/js/knowledge-graph.js" defer></script>`;
+    const page = template
+        .replaceAll("{{title}}", "Knowledge Graph")
+        .replace("{{content}}", content);
+    const outPath = path.join(distDir, "knowledge_graph.html");
+
+    fs.writeFileSync(outPath, page, "utf-8");
+    stats.files += 1;
+    console.log(`Built: knowledge graph page -> ${outPath}`);
+}
+
 function processContentDir(dir, template, stats, quality) {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
         const fullPath = path.join(dir, entry.name);
@@ -480,17 +1143,21 @@ function build() {
         process.exit(1);
     }
 
-    fs.rmSync(distDir, { recursive: true, force: true });
-    ensureDir(distDir);
-    copyDir(staticDir, path.join(distDir, "static"));
-    copyTemmlAssets();
+    profileStep("dist: clean", () => fs.rmSync(distDir, { recursive: true, force: true }));
+    profileStep("dist: create", () => ensureDir(distDir));
+    profileStep("static: copy project assets", () => copyDir(staticDir, path.join(distDir, "static")));
+    profileStep("static: copy temml assets", copyTemmlAssets);
 
     const template = fs.readFileSync(templatePath, "utf-8");
-    const quality = collectProofCoverage();
+    const quality = profileStep("quality: collect proof coverage/statements", collectProofCoverage);
     const stats = { files: 0, errors: 0 };
-    processContentDir(contentDir, template, stats, quality);
-    buildProofCoveragePage(template, stats, quality);
-    buildCoverageMapPage(template, stats, quality);
+    profileStep("content: render pages", () => processContentDir(contentDir, template, stats, quality));
+    profileStep("page: proof coverage", () => buildProofCoveragePage(template, stats, quality));
+    profileStep("page: cleanup", () => buildCleanupPage(template, stats, quality));
+    profileStep("page: knowledge graph", () => buildKnowledgeGraphPage(template, stats, quality));
+    profileStep("page: coverage map", () => buildCoverageMapPage(template, stats, quality));
+    profileStep("data: search index", () => buildSearchIndex(quality));
+    printBuildProfile();
 
     console.log("");
     console.log(`Done. Built ${stats.files} HTML files to: ${distDir}`);

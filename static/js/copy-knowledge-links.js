@@ -62,9 +62,14 @@
         const button = document.createElement("button");
         button.type = "button";
         button.className = "knowledge-copy-link";
-        button.textContent = "#";
         button.title = "Copy link";
         button.setAttribute("aria-label", "Copy link to this knowledge item");
+
+        const mark = document.createElement("span");
+        mark.className = "knowledge-copy-link-mark";
+        mark.setAttribute("aria-hidden", "true");
+        mark.textContent = "#";
+        button.append(mark);
 
         button.addEventListener("click", function (event) {
             event.preventDefault();

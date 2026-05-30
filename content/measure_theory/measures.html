@@ -1,0 +1,97 @@
+<div class="definition" id="definition-measure">
+    <div class="title">
+        Measure
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> and \( \mathcal{ S } \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> on \( X \). A <b>measure</b> on \( \left( X, \mathcal{ S } \right) \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \mu: \mathcal{ S } \to [ 0, \infty ] \) such that \( \mu \left( \emptyset \right) = 0 \) and
+        \[
+            \mu \left( \bigcup _ { k = 1 } ^ \infty E _ k \right)
+            =
+            \sum _ { k = 1 } ^ \infty \mu \left( E _ k \right)
+        \]
+        for every <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-pairwise-disjoint-sets">pairwise disjoint</a> <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> \( E _ 1, E _ 2, \ldots \in \mathcal{ S } \).
+    </div>
+</div>
+
+<div class="definition" id="definition-measure-space">
+    <div class="title">
+        Measure Space
+    </div>
+    <div class="content">
+        A <b>measure space</b> is an ordered triple \( \left( X, \mathcal{ S }, \mu \right) \), where \( X \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a>, \( \mathcal{ S } \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> on \( X \), and \( \mu \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">measure</a> on \( \left( X, \mathcal{ S } \right) \).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-measure-preserves-order-and-set-difference">
+    <div class="title">
+        Measure Preserves Order and Set Difference
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( D, E \in \mathcal{ S } \) with \( D \subseteq E \). Then
+        <ul>
+            <li>\( \mu \left( D \right) \le \mu \left( E \right) \),</li>
+            <li>if \( \mu \left( D \right) \lt \infty \), then \( \mu \left( E \setminus D \right) = \mu \left( E \right) - \mu \left( D \right) \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-countable-subadditivity-of-measures">
+    <div class="title">
+        Countable Subadditivity of Measures
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( E _ 1, E _ 2, \ldots \in \mathcal{ S } \). Then
+        \[
+            \mu \left( \bigcup _ { k = 1 } ^ \infty E _ k \right)
+            \le
+            \sum _ { k = 1 } ^ \infty \mu \left( E _ k \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-measure-of-an-increasing-union">
+    <div class="title">
+        Measure of an Increasing Union
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( E _ 1 \subseteq E _ 2 \subseteq \cdots \) is an increasing sequence in \( \mathcal{ S } \). Then
+        \[
+            \mu \left( \bigcup _ { k = 1 } ^ \infty E _ k \right)
+            =
+            \lim _ { k \to \infty } \mu \left( E _ k \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-measure-of-a-decreasing-intersection">
+    <div class="title">
+        Measure of a Decreasing Intersection
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( E _ 1 \supseteq E _ 2 \supseteq \cdots \) is a decreasing sequence in \( \mathcal{ S } \). If \( \mu \left( E _ 1 \right) \lt \infty \), then
+        \[
+            \mu \left( \bigcap _ { k = 1 } ^ \infty E _ k \right)
+            =
+            \lim _ { k \to \infty } \mu \left( E _ k \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-measure-of-a-union">
+    <div class="title">
+        Measure of a Union
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( D, E \in \mathcal{ S } \). If \( \mu \left( D \cap E \right) \lt \infty \), then
+        \[
+            \mu \left( D \cup E \right)
+            =
+            \mu \left( D \right) + \mu \left( E \right) - \mu \left( D \cap E \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>

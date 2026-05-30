@@ -1,0 +1,249 @@
+<div class="definition" id="definition-partition-of-a-closed-interval">
+    <div class="title">
+        Partition of a Closed Interval
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ R } \) and \( a \lt b \). A <b>partition</b> of \( [ a, b ] \) is a finite tuple
+        \[
+            P = \left( x _ 0, x _ 1, \ldots, x _ n \right)
+        \]
+        such that
+        \[
+            a = x _ 0 \lt x _ 1 \lt \cdots \lt x _ n = b.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-infimum-of-a-function-on-a-set">
+    <div class="title">
+        Infimum of a Function on a Set
+    </div>
+    <div class="content">
+        Suppose that \( f: X \to \mathbb{ R } \) and \( A \subseteq X \). Define the <b>infimum of \( f \) on \( A \)</b> by
+        \[
+            \inf _ A f := \inf \left\{ f \left( x \right): x \in A \right\}
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-supremum-of-a-function-on-a-set">
+    <div class="title">
+        Supremum of a Function on a Set
+    </div>
+    <div class="content">
+        Suppose that \( f: X \to \mathbb{ R } \) and \( A \subseteq X \). Define the <b>supremum of \( f \) on \( A \)</b> by
+        \[
+            \sup _ A f := \sup \left\{ f \left( x \right): x \in A \right\}.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-lower-riemann-sum">
+    <div class="title">
+        Lower Riemann Sum
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is a <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded function</a>, and let
+        \[
+            P = \left( x _ 0, x _ 1, \ldots, x _ n \right)
+        \]
+        be a <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-partition-of-a-closed-interval">partition</a> of \( [ a, b ] \). The <b>lower Riemann sum</b> of \( f \) over \( P \) is
+        \[
+            L \left( f, P, [ a, b ] \right)
+            :=
+            \sum _ { j = 1 } ^ n
+            \left( x _ j - x _ { j - 1 } \right)
+            \inf _ { [ x _ { j - 1 }, x _ j ] } f,
+        \]
+        where \( \inf _ { [ x _ { j - 1 }, x _ j ] } f \) is the <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-infimum-of-a-function-on-a-set">infimum of \( f \) on</a> \( [ x _ { j - 1 }, x _ j ] \).
+    </div>
+</div>
+
+<div class="definition" id="definition-upper-riemann-sum">
+    <div class="title">
+        Upper Riemann Sum
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is a <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded function</a>, and let
+        \[
+            P = \left( x _ 0, x _ 1, \ldots, x _ n \right)
+        \]
+        be a <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-partition-of-a-closed-interval">partition</a> of \( [ a, b ] \). The <b>upper Riemann sum</b> of \( f \) over \( P \) is
+        \[
+            U \left( f, P, [ a, b ] \right)
+            :=
+            \sum _ { j = 1 } ^ n
+            \left( x _ j - x _ { j - 1 } \right)
+            \sup _ { [ x _ { j - 1 }, x _ j ] } f,
+        \]
+        where \( \sup _ { [ x _ { j - 1 }, x _ j ] } f \) is the <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-supremum-of-a-function-on-a-set">supremum of \( f \) on</a> \( [ x _ { j - 1 }, x _ j ] \).
+    </div>
+</div>
+
+<div class="definition" id="definition-refinement-of-a-riemann-partition">
+    <div class="title">
+        Refinement of a Riemann Partition
+    </div>
+    <div class="content">
+        Suppose that \( P \) and \( P' \) are <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-partition-of-a-closed-interval">partitions</a> of \( [ a, b ] \). We say that \( P' \) is a <b>refinement</b> of \( P \) if every point of \( P \) is also a point of \( P' \).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-riemann-sum-inequalities-under-refinement">
+    <div class="title">
+        Riemann Sum Inequalities under Refinement
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is bounded, and suppose that \( P' \) is a <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-refinement-of-a-riemann-partition">refinement</a> of \( P \). Then
+        \[
+            L \left( f, P, [ a, b ] \right)
+            \le
+            L \left( f, P', [ a, b ] \right)
+            \le
+            U \left( f, P', [ a, b ] \right)
+            \le
+            U \left( f, P, [ a, b ] \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-any-lower-riemann-sum-is-below-any-upper-riemann-sum">
+    <div class="title">
+        Any Lower Riemann Sum is Below Any Upper Riemann Sum
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is bounded, and let \( P \) and \( Q \) be partitions of \( [ a, b ] \). Then
+        \[
+            L \left( f, P, [ a, b ] \right)
+            \le
+            U \left( f, Q, [ a, b ] \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-lower-riemann-integral">
+    <div class="title">
+        Lower Riemann Integral
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded</a>. The <b>lower Riemann integral</b> of \( f \) over \( [ a, b ] \) is
+        \[
+            L \left( f, [ a, b ] \right)
+            :=
+            \sup _ P L \left( f, P, [ a, b ] \right)
+        \]
+        where \( P \) ranges over all <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-partition-of-a-closed-interval">partitions</a> of \( [ a, b ] \).
+    </div>
+</div>
+
+<div class="definition" id="definition-upper-riemann-integral">
+    <div class="title">
+        Upper Riemann Integral
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded</a>. The <b>upper Riemann integral</b> of \( f \) over \( [ a, b ] \) is
+        \[
+            U \left( f, [ a, b ] \right)
+            :=
+            \inf _ P U \left( f, P, [ a, b ] \right),
+        \]
+        where \( P \) ranges over all <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-partition-of-a-closed-interval">partitions</a> of \( [ a, b ] \).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-lower-riemann-integral-is-below-upper-riemann-integral">
+    <div class="title">
+        Lower Riemann Integral is Below Upper Riemann Integral
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded</a>. Then
+        \[
+            L \left( f, [ a, b ] \right)
+            \le
+            U \left( f, [ a, b ] \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-riemann-integrable-function">
+    <div class="title">
+        Riemann Integrable Function
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded</a>. We say that \( f \) is <b>Riemann integrable</b> on \( [ a, b ] \) if
+        \[
+            L \left( f, [ a, b ] \right)
+            =
+            U \left( f, [ a, b ] \right).
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-riemann-integral">
+    <div class="title">
+        Riemann Integral
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-riemann-integrable-function">Riemann integrable</a>. Its <b>Riemann integral</b> over \( [ a, b ] \) is the common value
+        \[
+            \int _ a ^ b f
+            :=
+            L \left( f, [ a, b ] \right)
+            =
+            U \left( f, [ a, b ] \right).
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-continuous-functions-on-closed-bounded-intervals-are-riemann-integrable">
+    <div class="title">
+        Continuous Functions on Closed Bounded Intervals are Riemann Integrable
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ R } \) and \( a \lt b \). If \( f: [ a, b ] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a>, then \( f \) is <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-riemann-integrable-function">Riemann integrable</a> on \( [ a, b ] \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-bounds-on-a-riemann-integral">
+    <div class="title">
+        Bounds on a Riemann Integral
+    </div>
+    <div class="content">
+        Suppose that \( f: [ a, b ] \to \mathbb{ R } \) is Riemann integrable. Then
+        \[
+            \left( b - a \right) \inf _ { [ a, b ] } f
+            \le
+            \int _ a ^ b f
+            \le
+            \left( b - a \right) \sup _ { [ a, b ] } f.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-interchanging-riemann-integral-and-pointwise-limit">
+    <div class="title">
+        Interchanging Riemann Integral and Pointwise Limit
+    </div>
+    <div class="content">
+        Suppose that \( a, b, M \in \mathbb{ R } \), \( a \lt b \), and \( f _ 1, f _ 2, \ldots \) is a sequence of Riemann integrable functions \( f _ k: [ a, b ] \to \mathbb{ R } \). Suppose that
+        \[
+            \left\lvert f _ k \left( x \right) \right\rvert \le M
+        \]
+        for every \( k \in \mathbb{ Z } ^ + \) and every \( x \in [ a, b ] \), and suppose that
+        \[
+            f \left( x \right) := \lim _ { k \to \infty } f _ k \left( x \right)
+        \]
+        exists for every \( x \in [ a, b ] \). If \( f \) is Riemann integrable on \( [ a, b ] \), then
+        \[
+            \int _ a ^ b f
+            =
+            \lim _ { k \to \infty } \int _ a ^ b f _ k.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>

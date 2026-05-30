@@ -11,10 +11,21 @@
         Random Variable Function Composition
     </div>
     <div class="content">
-        Suppose that \( X \) is a random varaible and that \( g : \mathbb{ R } \to \mathbb{ R } \) is a function, then we define \[ g \left( X \right) := g \circ X \] where \( g \circ X: \Omega \to \mathbb{ R } \)
+        Suppose that \( X: \Omega \to D \) is a random variable and that \( g: D \to Y \) is a function. Then \( g \left( X \right) \) denotes the composition
+        \[
+            g \left( X \right)
+            :=
+            g \circ X,
+        \]
+        so \( g \left( X \right): \Omega \to Y \) is the function defined by
+        \[
+            \left( g \left( X \right) \right) \left( \omega \right)
+            =
+            g \left( X \left( \omega \right) \right).
+        \]
     </div>
 </div>
-<p>Note that when we compose a real valued function with a random varaible, we obtain a new random varaible.</p>
+<p>Note that when we compose a measurable real-valued function with a random variable, we obtain a new random variable.</p>
 <div class="definition" id="definition-random-variable-and-binary-operation-syntax-sugar">
     <div class="title">
         Random Variable and Binary Operation Syntax Sugar

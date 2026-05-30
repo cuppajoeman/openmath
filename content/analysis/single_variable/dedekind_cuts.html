@@ -1,0 +1,556 @@
+<div class="definition" id="definition-peano-natural-numbers">
+    <div class="title">
+        Peano Natural Numbers
+    </div>
+    <div class="content">
+        A <b>Peano system</b> consists of a set \( \mathbb{ N } \), an element \( 0 \in \mathbb{ N } \), and a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( S: \mathbb{ N } \to \mathbb{ N } \), called the successor function, such that:
+        <ul>
+            <li>\( 0 \notin S \left( \mathbb{ N } \right) \).</li>
+            <li>\( S \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a>.</li>
+            <li>If \( A \subseteq \mathbb{ N } \), \( 0 \in A \), and \( S \left( A \right) \subseteq A \), then \( A = \mathbb{ N } \).</li>
+        </ul>
+        The elements of \( \mathbb{ N } \) are called <b>natural numbers</b>.
+    </div>
+</div>
+
+<div class="definition" id="definition-recursive-addition-and-multiplication-on-naturals">
+    <div class="title">
+        Recursive Addition and Multiplication on Naturals
+    </div>
+    <div class="content">
+        Addition on \( \mathbb{ N } \) is defined recursively by
+        \[
+            a + 0 = a,
+            \qquad
+            a + S \left( b \right) = S \left( a + b \right).
+        \]
+        Multiplication on \( \mathbb{ N } \) is defined recursively by
+        \[
+            a \cdot 0 = 0,
+            \qquad
+            a \cdot S \left( b \right) = a \cdot b + a.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-natural-numbers-satisfy-arithmetic-laws">
+    <div class="title">
+        Natural Numbers Satisfy Arithmetic Laws
+    </div>
+    <div class="content">
+        The recursively defined addition and multiplication on \( \mathbb{ N } \) are associative and commutative, multiplication distributes over addition, \( 0 \) is an additive identity, and \( S \left( 0 \right) \) is a multiplicative identity.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-order-on-natural-numbers">
+    <div class="title">
+        Order on Natural Numbers
+    </div>
+    <div class="content">
+        For \( a, b \in \mathbb{ N } \), define
+        \[
+            a \le b
+        \]
+        if and only if there exists \( c \in \mathbb{ N } \) such that \( a + c = b \). Define \( a \lt b \) if \( a \le b \) and \( a \neq b \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-natural-numbers-are-well-ordered">
+    <div class="title">
+        Natural Numbers are Well-Ordered
+    </div>
+    <div class="content">
+        Every non-empty subset of \( \mathbb{ N } \) has a least element with respect to the <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-order-on-natural-numbers">order on natural numbers</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-integer-pair-relation">
+    <div class="title">
+        Integer Pair Relation
+    </div>
+    <div class="content">
+        On \( \mathbb{ N } \times \mathbb{ N } \), define a relation by
+        \[
+            \left( a, b \right) \sim \left( c, d \right)
+            \iff
+            a + d = c + b.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-integer-pair-relation-is-an-equivalence-relation">
+    <div class="title">
+        Integer Pair Relation is an Equivalence Relation
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-integer-pair-relation">integer pair relation</a> is an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-integers-as-equivalence-classes">
+    <div class="title">
+        Integers as Equivalence Classes
+    </div>
+    <div class="content">
+        The <b>integers</b>, denoted \( \mathbb{ Z } \), are the <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-class">equivalence classes</a> of \( \mathbb{ N } \times \mathbb{ N } \) under the <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-integer-pair-relation">integer pair relation</a>. The class of \( \left( a, b \right) \) represents the formal difference \( a - b \).
+    </div>
+</div>
+
+<div class="definition" id="definition-addition-and-multiplication-of-integers">
+    <div class="title">
+        Addition and Multiplication of Integers
+    </div>
+    <div class="content">
+        Let \( \left[ \left( a, b \right) \right], \left[ \left( c, d \right) \right] \in \mathbb{ Z } \). Define
+        \[
+            \left[ \left( a, b \right) \right] + \left[ \left( c, d \right) \right]
+            =
+            \left[ \left( a + c, b + d \right) \right]
+        \]
+        and
+        \[
+            \left[ \left( a, b \right) \right] \cdot \left[ \left( c, d \right) \right]
+            =
+            \left[ \left( ac + bd, ad + bc \right) \right].
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-integer-addition-and-multiplication-are-well-defined">
+    <div class="title">
+        Integer Addition and Multiplication are Well-Defined
+    </div>
+    <div class="content">
+        The operations of <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-addition-and-multiplication-of-integers">addition and multiplication of integers</a> do not depend on the chosen representatives of the equivalence classes.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-negation-of-integers">
+    <div class="title">
+        Negation of Integers
+    </div>
+    <div class="content">
+        Let \( \left[ \left( a, b \right) \right] \in \mathbb{ Z } \). Define
+        \[
+            - \left[ \left( a, b \right) \right]
+            =
+            \left[ \left( b, a \right) \right].
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-order-on-integers">
+    <div class="title">
+        Order on Integers
+    </div>
+    <div class="content">
+        Let \( \left[ \left( a, b \right) \right], \left[ \left( c, d \right) \right] \in \mathbb{ Z } \). Define
+        \[
+            \left[ \left( a, b \right) \right] \le \left[ \left( c, d \right) \right]
+            \iff
+            a + d \le c + b.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-order-on-integers-is-well-defined">
+    <div class="title">
+        Order on Integers is Well-Defined
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-order-on-integers">order on integers</a> does not depend on the chosen representatives of the equivalence classes.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-integers-form-an-ordered-integral-domain">
+    <div class="title">
+        Integers Form an Ordered Integral Domain
+    </div>
+    <div class="content">
+        The integers \( \mathbb{ Z } \), with the operations and order defined above, form an ordered integral domain.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-rational-number-pair-relation">
+    <div class="title">
+        Rational Number Pair Relation
+    </div>
+    <div class="content">
+        On \( \mathbb{ Z } \times \left( \mathbb{ Z } \setminus \left\{ 0 \right\} \right) \), define a relation by
+        \[
+            \left( a, b \right) \sim \left( c, d \right)
+            \iff
+            ad = bc.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-rational-number-pair-relation-is-an-equivalence-relation">
+    <div class="title">
+        Rational Number Pair Relation is an Equivalence Relation
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-rational-number-pair-relation">rational number pair relation</a> is an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-rational-numbers-as-equivalence-classes">
+    <div class="title">
+        Rational Numbers as Equivalence Classes
+    </div>
+    <div class="content">
+        The <b>rational numbers</b>, denoted \( \mathbb{ Q } \), are the <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-class">equivalence classes</a> of \( \mathbb{ Z } \times \left( \mathbb{ Z } \setminus \left\{ 0 \right\} \right) \) under the <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-rational-number-pair-relation">rational number pair relation</a>.
+        The class of \( \left( a, b \right) \) is denoted by \( \frac{a}{b} \).
+    </div>
+</div>
+
+<div class="definition" id="definition-addition-and-multiplication-of-rationals">
+    <div class="title">
+        Addition and Multiplication of Rationals
+    </div>
+    <div class="content">
+        Let \( \frac{a}{b}, \frac{c}{d} \in \mathbb{ Q } \). Define
+        \[
+            \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}
+        \]
+        and
+        \[
+            \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-rational-addition-and-multiplication-are-well-defined">
+    <div class="title">
+        Rational Addition and Multiplication are Well-Defined
+    </div>
+    <div class="content">
+        The operations of <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-addition-and-multiplication-of-rationals">addition and multiplication of rationals</a> do not depend on the chosen representatives of the equivalence classes.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-additive-and-multiplicative-inverses-of-rationals">
+    <div class="title">
+        Additive and Multiplicative Inverses of Rationals
+    </div>
+    <div class="content">
+        Let \( \frac{a}{b} \in \mathbb{ Q } \). Define
+        \[
+            - \frac{a}{b} = \frac{-a}{b}.
+        \]
+        If \( a \neq 0 \), define
+        \[
+            \left( \frac{a}{b} \right) ^ { -1 } = \frac{b}{a}.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-order-on-rationals">
+    <div class="title">
+        Order on Rationals
+    </div>
+    <div class="content">
+        Let \( \frac{a}{b}, \frac{c}{d} \in \mathbb{ Q } \). Choose representatives with \( b \gt 0 \) and \( d \gt 0 \). Define
+        \[
+            \frac{a}{b} \lt \frac{c}{d}
+            \iff
+            ad \lt bc.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-order-on-rationals-is-well-defined">
+    <div class="title">
+        Order on Rationals is Well-Defined
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-order-on-rationals">order on rationals</a> does not depend on the chosen positive-denominator representatives.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-rationals-form-an-ordered-field">
+    <div class="title">
+        Rationals Form an Ordered Field
+    </div>
+    <div class="content">
+        The rational numbers \( \mathbb{ Q } \), with the operations and order defined above, form an <a class="knowledge-link" href="/algebra/fields.html#definition-field">ordered field</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-dedekind-cut">
+    <div class="title">
+        Dedekind Cut
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ Q } \). The set \( A \) is a <b>Dedekind cut</b> if:
+        <ul>
+            <li>\( A \neq \emptyset \) and \( A \neq \mathbb{ Q } \).</li>
+            <li>If \( x \in A \), \( y \in \mathbb{ Q } \), and \( y \ge x \), then \( y \in A \).</li>
+            <li>If \( x \in A \), then there exists \( y \in A \) such that \( y \lt x \).</li>
+        </ul>
+    </div>
+</div>
+
+<div class="lemma" id="lemma-rational-upper-rays-are-dedekind-cuts">
+    <div class="title">
+        Rational Upper Rays are Dedekind Cuts
+    </div>
+    <div class="content">
+        Let \( r \in \mathbb{ Q } \). Then
+        \[
+            \left\{ x \in \mathbb{ Q } : x \gt r \right\}
+        \]
+        is a <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-dedekind-cut">Dedekind cut</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-rational-cut">
+    <div class="title">
+        Rational Cut
+    </div>
+    <div class="content">
+        Let \( r \in \mathbb{ Q } \). The <b>rational cut at \( r \)</b>, denoted \( D _ r \), is the <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-dedekind-cut">Dedekind cut</a>
+        \[
+            D _ r = \left\{ x \in \mathbb{ Q } : x \gt r \right\}.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-irrational-cut">
+    <div class="title">
+        Irrational Cut
+    </div>
+    <div class="content">
+        An <b>irrational cut</b> is a <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-dedekind-cut">Dedekind cut</a> that is not equal to \( D _ r \) for any \( r \in \mathbb{ Q } \).
+    </div>
+</div>
+
+<div class="example" id="example-square-root-two-cut">
+    <div class="title">
+        Square Root Two Cut
+    </div>
+    <div class="content">
+        The set
+        \[
+            T = \left\{ x \in \mathbb{ Q } : x \gt 0 \land x ^ 2 \gt 2 \right\}
+        \]
+        is the Dedekind cut corresponding to the missing rational boundary \( \sqrt{2} \).
+    </div>
+</div>
+
+<div class="lemma" id="lemma-complement-of-a-dedekind-cut">
+    <div class="title">
+        Complement of a Dedekind Cut
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ Q } \) be a <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-dedekind-cut">Dedekind cut</a>. Then:
+        <ul>
+            <li>\( \mathbb{ Q } \setminus A = \left\{ x \in \mathbb{ Q } : x \lt a \text{ for all } a \in A \right\} \).</li>
+            <li>If \( x \in \mathbb{ Q } \setminus A \), \( y \in \mathbb{ Q } \), and \( y \le x \), then \( y \in \mathbb{ Q } \setminus A \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="lemma" id="lemma-dedekind-cuts-are-linearly-ordered-by-containment">
+    <div class="title">
+        Dedekind Cuts are Linearly Ordered by Containment
+    </div>
+    <div class="content">
+        Let \( A, B \subseteq \mathbb{ Q } \) be <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-dedekind-cut">Dedekind cuts</a>. Then exactly one of the following holds:
+        \[
+            A \subsetneq B, \qquad A = B, \qquad B \subsetneq A.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="lemma" id="lemma-union-of-dedekind-cuts-is-a-dedekind-cut">
+    <div class="title">
+        Union of Dedekind Cuts is a Dedekind Cut
+    </div>
+    <div class="content">
+        Let \( \mathcal{ A } \) be a non-empty family of subsets of \( \mathbb{ Q } \). Suppose that every \( X \in \mathcal{ A } \) is a <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-dedekind-cut">Dedekind cut</a>. If
+        \[
+            \bigcup _ { X \in \mathcal{ A } } X \neq \mathbb{ Q },
+        \]
+        then \( \bigcup _ { X \in \mathcal{ A } } X \) is a Dedekind cut.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="lemma" id="lemma-dedekind-cut-operation-closure">
+    <div class="title">
+        Dedekind Cut Operation Closure
+    </div>
+    <div class="content">
+        Let \( A, B \subseteq \mathbb{ Q } \) be <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-dedekind-cut">Dedekind cuts</a>. Then:
+        <ul>
+            <li>\( \left\{ r \in \mathbb{ Q } : r = a + b \text{ for some } a \in A \text{ and } b \in B \right\} \) is a Dedekind cut.</li>
+            <li>\( \left\{ r \in \mathbb{ Q } : -r \lt c \text{ for some } c \in \mathbb{ Q } \setminus A \right\} \) is a Dedekind cut.</li>
+            <li>If \( 0 \in \mathbb{ Q } \setminus A \) and \( 0 \in \mathbb{ Q } \setminus B \), then \( \left\{ r \in \mathbb{ Q } : r = ab \text{ for some } a \in A \text{ and } b \in B \right\} \) is a Dedekind cut.</li>
+            <li>If there exists \( q \in \mathbb{ Q } \setminus A \) such that \( q \gt 0 \), then \( \left\{ r \in \mathbb{ Q } : r \gt 0 \text{ and } \frac{1}{r} \lt c \text{ for some } c \in \mathbb{ Q } \setminus A \right\} \) is a Dedekind cut.</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="lemma" id="lemma-dedekind-cut-approximation">
+    <div class="title">
+        Dedekind Cut Approximation
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ Q } \) be a <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-dedekind-cut">Dedekind cut</a>.
+        <ul>
+            <li>If \( y \in \mathbb{ Q } \) and \( y \gt 0 \), then there exist \( u \in A \) and \( v \in \mathbb{ Q } \setminus A \) such that \( y = u - v \), and \( v \lt e \) for some \( e \in \mathbb{ Q } \setminus A \).</li>
+            <li>If \( y \in \mathbb{ Q } \), \( y \gt 1 \), and there exists \( q \in \mathbb{ Q } \setminus A \) such that \( q \gt 0 \), then there exist \( r \in A \) and \( s \in \mathbb{ Q } \setminus A \) such that \( s \gt 0 \), \( y \gt \frac{r}{s} \), and \( s \lt g \) for some \( g \in \mathbb{ Q } \setminus A \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-real-numbers-as-dedekind-cuts">
+    <div class="title">
+        Real Numbers as Dedekind Cuts
+    </div>
+    <div class="content">
+        The set of <b>real numbers</b>, denoted \( \mathbb{ R } \), is defined by
+        \[
+            \mathbb{ R } =
+            \left\{ A \subseteq \mathbb{ Q } : A \text{ is a } \text{Dedekind cut} \right\}.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-order-on-dedekind-real-numbers">
+    <div class="title">
+        Order on Dedekind Real Numbers
+    </div>
+    <div class="content">
+        Let \( A, B \in \mathbb{ R } \), where \( \mathbb{ R } \) is defined as <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-real-numbers-as-dedekind-cuts">Dedekind cuts</a>. Define
+        \[
+            A \lt B \iff A \supsetneq B,
+        \]
+        and
+        \[
+            A \le B \iff A \supseteq B.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-addition-and-negation-of-dedekind-reals">
+    <div class="title">
+        Addition and Negation of Dedekind Reals
+    </div>
+    <div class="content">
+        Let \( A, B \in \mathbb{ R } \), where \( \mathbb{ R } \) is defined as <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-real-numbers-as-dedekind-cuts">Dedekind cuts</a>. Define
+        \[
+            A + B =
+            \left\{ r \in \mathbb{ Q } : r = a + b \text{ for some } a \in A \text{ and } b \in B \right\}
+        \]
+        and
+        \[
+            -A =
+            \left\{ r \in \mathbb{ Q } : -r \lt c \text{ for some } c \in \mathbb{ Q } \setminus A \right\}.
+        \]
+    </div>
+</div>
+
+<div class="lemma" id="lemma-order-comparison-with-rational-cuts">
+    <div class="title">
+        Order Comparison with Rational Cuts
+    </div>
+    <div class="content">
+        Let \( A \in \mathbb{ R } \) and \( r \in \mathbb{ Q } \).
+        <ul>
+            <li>\( A \gt D _ r \) if and only if there exists \( q \in \mathbb{ Q } \setminus A \) such that \( q \gt r \).</li>
+            <li>\( A \ge D _ r \) if and only if \( r \in \mathbb{ Q } \setminus A \), if and only if \( a \gt r \) for all \( a \in A \).</li>
+            <li>If \( A \lt D _ 0 \), then \( -A \ge D _ 0 \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-multiplication-and-inverse-of-dedekind-reals">
+    <div class="title">
+        Multiplication and Inverse of Dedekind Reals
+    </div>
+    <div class="content">
+        Let \( A, B \in \mathbb{ R } \), where \( \mathbb{ R } \) is defined as <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-real-numbers-as-dedekind-cuts">Dedekind cuts</a>. Multiplication is defined by cases:
+        <ul>
+            <li>If \( A \ge D _ 0 \) and \( B \ge D _ 0 \), then \( A \cdot B = \left\{ r \in \mathbb{ Q } : r = ab \text{ for some } a \in A \text{ and } b \in B \right\} \).</li>
+            <li>If \( A \lt D _ 0 \) and \( B \ge D _ 0 \), then \( A \cdot B = - \left( \left( -A \right) \cdot B \right) \).</li>
+            <li>If \( A \ge D _ 0 \) and \( B \lt D _ 0 \), then \( A \cdot B = - \left( A \cdot \left( -B \right) \right) \).</li>
+            <li>If \( A \lt D _ 0 \) and \( B \lt D _ 0 \), then \( A \cdot B = \left( -A \right) \cdot \left( -B \right) \).</li>
+        </ul>
+        For \( A \neq D _ 0 \), multiplicative inverse is defined by cases:
+        <ul>
+            <li>If \( A \gt D _ 0 \), then \( A ^ { -1 } = \left\{ r \in \mathbb{ Q } : r \gt 0 \text{ and } \frac{1}{r} \lt c \text{ for some } c \in \mathbb{ Q } \setminus A \right\} \).</li>
+            <li>If \( A \lt D _ 0 \), then \( A ^ { -1 } = - \left( \left( -A \right) ^ { -1 } \right) \).</li>
+        </ul>
+    </div>
+</div>
+
+<div class="theorem" id="theorem-dedekind-reals-form-an-ordered-field">
+    <div class="title">
+        Dedekind Reals Form an Ordered Field
+    </div>
+    <div class="content">
+        Let \( A, B, C \in \mathbb{ R } \), where \( \mathbb{ R } \) is defined as <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-real-numbers-as-dedekind-cuts">Dedekind cuts</a>. Then \( \mathbb{ R } \), with the operations and order defined above, satisfies the ordered-field laws: associativity and commutativity of addition and multiplication, additive and multiplicative identities \( D _ 0 \) and \( D _ 1 \), additive inverses, multiplicative inverses for non-zero elements, distributivity, trichotomy, compatibility of addition with order, and compatibility of multiplication by positive elements with order.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-greatest-lower-bound-property-for-dedekind-reals">
+    <div class="title">
+        Greatest Lower Bound Property for Dedekind Reals
+    </div>
+    <div class="content">
+        Let \( \mathcal{ A } \subseteq \mathbb{ R } \). If \( \mathcal{ A } \) is non-empty and <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-lower-bound">bounded below</a>, then \( \mathcal{ A } \) has a <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-infimum">greatest lower bound</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-least-upper-bound-property-for-dedekind-reals">
+    <div class="title">
+        Least Upper Bound Property for Dedekind Reals
+    </div>
+    <div class="content">
+        Let \( \mathcal{ A } \subseteq \mathbb{ R } \). If \( \mathcal{ A } \) is non-empty and <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-upper-bound">bounded above</a>, then \( \mathcal{ A } \) has a <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-supremum">least upper bound</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-rationals-embed-into-dedekind-reals">
+    <div class="title">
+        Rationals Embed into Dedekind Reals
+    </div>
+    <div class="content">
+        Define \( i: \mathbb{ Q } \to \mathbb{ R } \) by
+        \[
+            i \left( r \right) = D _ r
+        \]
+        for all \( r \in \mathbb{ Q } \). Then:
+        <ul>
+            <li>The <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( i: \mathbb{ Q } \to \mathbb{ R } \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a>.</li>
+            <li>\( i \left( 0 \right) = D _ 0 \) and \( i \left( 1 \right) = D _ 1 \).</li>
+            <li>For \( r, s \in \mathbb{ Q } \), \( i \left( r + s \right) = i \left( r \right) + i \left( s \right) \).</li>
+            <li>For \( r \in \mathbb{ Q } \), \( i \left( -r \right) = - i \left( r \right) \).</li>
+            <li>For \( r, s \in \mathbb{ Q } \), \( i \left( rs \right) = i \left( r \right) i \left( s \right) \).</li>
+            <li>If \( r \neq 0 \), then \( i \left( r ^ { -1 } \right) = i \left( r \right) ^ { -1 } \).</li>
+            <li>\( r \lt s \) if and only if \( i \left( r \right) \lt i \left( s \right) \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>

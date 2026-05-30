@@ -1,0 +1,139 @@
+<div class="definition" id="definition-pointwise-convergence-of-functions">
+    <div class="title">
+        Pointwise Convergence of Functions
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a>, \( f _ 1, f _ 2, \ldots: X \to \mathbb{ R } \) is a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> of <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">functions</a>, and \( f: X \to \mathbb{ R } \). We say that \( f _ 1, f _ 2, \ldots \) <b>converges pointwise</b> on \( X \) to \( f \) if
+        \[
+            \lim _ { k \to \infty } f _ k \left( x \right) = f \left( x \right)
+        \]
+        for every \( x \in X \).
+    </div>
+</div>
+
+<div class="definition" id="definition-uniform-convergence-of-functions">
+    <div class="title">
+        Uniform Convergence of Functions
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a>, \( f _ 1, f _ 2, \ldots: X \to \mathbb{ R } \) is a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> of <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">functions</a>, and \( f: X \to \mathbb{ R } \). We say that \( f _ 1, f _ 2, \ldots \) <b>converges uniformly</b> on \( X \) to \( f \) if for every \( \epsilon \in \mathbb{ R } ^ + \), there exists \( n \in \mathbb{ Z } ^ + \) such that
+        \[
+            \left\lvert f _ k \left( x \right) - f \left( x \right) \right\rvert \lt \epsilon
+        \]
+        for every \( k \ge n \) and every \( x \in X \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-uniform-limit-of-continuous-functions-is-continuous">
+    <div class="title">
+        Uniform Limit of Continuous Functions is Continuous
+    </div>
+    <div class="content">
+        Suppose that \( B \subseteq \mathbb{ R } \), \( f _ 1, f _ 2, \ldots: B \to \mathbb{ R } \) <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-uniform-convergence-of-functions">converges uniformly</a> on \( B \) to \( f: B \to \mathbb{ R } \), and \( b \in B \). If each \( f _ k \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuity-of-a-function-at-a-point">continuous at</a> \( b \), then \( f \) is continuous at \( b \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-egorovs-theorem">
+    <div class="title">
+        Egorov's Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> with \( \mu \left( X \right) \lt \infty \). If \( f _ 1, f _ 2, \ldots: X \to \mathbb{ R } \) are \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a> and <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-pointwise-convergence-of-functions">converge pointwise</a> on \( X \) to \( f: X \to \mathbb{ R } \), then for every \( \epsilon \in \mathbb{ R } ^ + \), there exists \( E \in \mathcal{ S } \) such that
+        \[
+            \mu \left( X \setminus E \right) \lt \epsilon
+        \]
+        and \( f _ 1, f _ 2, \ldots \) <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-uniform-convergence-of-functions">converges uniformly</a> to \( f \) on \( E \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-simple-function">
+    <div class="title">
+        Simple Function
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> is <b>simple</b> if it takes only finitely many values.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-approximation-by-simple-functions">
+    <div class="title">
+        Approximation by Simple Functions
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-space">measurable space</a> and \( f: X \to [ -\infty, \infty ] \) is \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-extended-real-valued-measurable-function">measurable</a>. Then there exists a sequence \( f _ 1, f _ 2, \ldots: X \to \mathbb{ R } \) such that
+        <ul>
+            <li>each \( f _ k \) is <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-simple-function">simple</a> and \( \mathcal{ S } \)-measurable,</li>
+            <li>\( \left\lvert f _ k \left( x \right) \right\rvert \le \left\lvert f _ { k + 1 } \left( x \right) \right\rvert \le \left\lvert f \left( x \right) \right\rvert \) for every \( k \in \mathbb{ Z } ^ + \) and every \( x \in X \),</li>
+            <li>\( \lim _ { k \to \infty } f _ k \left( x \right) = f \left( x \right) \) for every \( x \in X \),</li>
+            <li>if \( f \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded</a>, then \( f _ 1, f _ 2, \ldots \) <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-uniform-convergence-of-functions">converges uniformly</a> to \( f \) on \( X \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-luzins-theorem">
+    <div class="title">
+        Luzin's Theorem
+    </div>
+    <div class="content">
+        Suppose that \( g: \mathbb{ R } \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a>. For every \( \epsilon \in \mathbb{ R } ^ + \), there exists a <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a> set \( F \subseteq \mathbb{ R } \) such that
+        \[
+            \left\lvert \mathbb{ R } \setminus F \right\rvert \lt \epsilon
+        \]
+        and \( g \vert _ F \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a> on \( F \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-continuous-extensions-from-closed-subsets-of-the-real-line">
+    <div class="title">
+        Continuous Extensions from Closed Subsets of the Real Line
+    </div>
+    <div class="content">
+        Suppose that \( F \subseteq \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a> and \( g: F \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a>. Then there exists a continuous function \( h: \mathbb{ R } \to \mathbb{ R } \) such that \( h \vert _ F = g \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-luzins-theorem-extension-version">
+    <div class="title">
+        Luzin's Theorem, Extension Version
+    </div>
+    <div class="content">
+        Suppose that \( E \subseteq \mathbb{ R } \) and \( g: E \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a>. For every \( \epsilon \in \mathbb{ R } ^ + \), there exists a <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a> set \( F \subseteq E \) and a <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous function</a> \( h: \mathbb{ R } \to \mathbb{ R } \) such that
+        \[
+            \left\lvert E \setminus F \right\rvert \lt \epsilon
+            \qquad \text{and} \qquad
+            h \vert _ F = g \vert _ F.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-lebesgue-measurable-function">
+    <div class="title">
+        Lebesgue Measurable Function
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } \). A function \( f: A \to \mathbb{ R } \) is <b>Lebesgue measurable</b> if \( f ^ { -1 } \left( B \right) \) is a <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#definition-lebesgue-measurable-set">Lebesgue measurable set</a> for every <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel set</a> \( B \subseteq \mathbb{ R } \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-every-lebesgue-measurable-function-is-almost-borel-measurable">
+    <div class="title">
+        Every Lebesgue Measurable Function is Almost Borel Measurable
+    </div>
+    <div class="content">
+        Suppose that \( f: \mathbb{ R } \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-lebesgue-measurable-function">Lebesgue measurable</a>. Then there exists a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a> function \( g: \mathbb{ R } \to \mathbb{ R } \) such that
+        \[
+            \left\lvert
+                \left\{ x \in \mathbb{ R } : g \left( x \right) \neq f \left( x \right) \right\}
+            \right\rvert
+            =
+            0.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>

@@ -1,0 +1,325 @@
+<div class="definition" id="definition-cumulative-distribution-function">
+    <div class="title">
+        Cumulative Distribution Function
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a>. The <b>cumulative distribution function</b> of \( X \) is the function \( F _ X: \mathbb{ R } \to [0,1] \) defined by
+        \[
+            F _ X \left( x \right)
+            :=
+            P \left( X \le x \right).
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-joint-density-function">
+    <div class="title">
+        Joint Density Function
+    </div>
+    <div class="content">
+        Suppose that \( X \) and \( Y \) are real-valued <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variables</a>. A function \( p: \mathbb{ R } ^ 2 \to [0,\infty) \) is a <b>joint density function</b> for \( \left( X, Y \right) \) if, for every suitable set \( A \subseteq \mathbb{ R } ^ 2 \),
+        \[
+            P \left( \left( X, Y \right) \in A \right)
+            =
+            \int _ A p \left( x, y \right) \, d x \, d y.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-marginal-density-function">
+    <div class="title">
+        Marginal Density Function
+    </div>
+    <div class="content">
+        Suppose that \( p \left( x, y \right) \) is a <a class="knowledge-link" href="/probability/monte_carlo.html#definition-joint-density-function">joint density function</a>. The <b>marginal density function</b> of \( X \) is
+        \[
+            p _ X \left( x \right)
+            :=
+            \int _ { -\infty } ^ \infty p \left( x, y \right) \, d y.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-conditional-density-function">
+    <div class="title">
+        Conditional Density Function
+    </div>
+    <div class="content">
+        Suppose that \( p \left( x, y \right) \) is a <a class="knowledge-link" href="/probability/monte_carlo.html#definition-joint-density-function">joint density function</a> and \( p _ X \left( x \right) \gt 0 \). The <b>conditional density function</b> of \( Y \) given \( X = x \) is
+        \[
+            p _ { Y \mid X } \left( y \mid x \right)
+            :=
+            \frac{ p \left( x, y \right) }{ p _ X \left( x \right) }.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-joint-density-factors-as-marginal-times-conditional-density">
+    <div class="title">
+        Joint Density Factors as Marginal Times Conditional Density
+    </div>
+    <div class="content">
+        Suppose that \( p \left( x, y \right) \) is a <a class="knowledge-link" href="/probability/monte_carlo.html#definition-joint-density-function">joint density</a>. Then
+        \[
+            p \left( x, y \right)
+            =
+            p _ X \left( x \right) p _ { Y \mid X } \left( y \mid x \right)
+        \]
+        whenever \( p _ X \left( x \right) \gt 0 \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-estimator">
+    <div class="title">
+        Estimator
+    </div>
+    <div class="content">
+        Suppose that \( Q \) is a quantity to be estimated. An <b>estimator</b> for \( Q \) is a random variable \( \widehat{ Q } \) whose values are used as approximations to \( Q \).
+    </div>
+</div>
+
+<div class="definition" id="definition-unbiased-estimator">
+    <div class="title">
+        Unbiased Estimator
+    </div>
+    <div class="content">
+        Suppose that \( \widehat{ Q } \) is an <a class="knowledge-link" href="/probability/monte_carlo.html#definition-estimator">estimator</a> for \( Q \). The estimator \( \widehat{ Q } \) is <b>unbiased</b> if
+        \[
+            E \left( \widehat{ Q } \right) = Q.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-biased-estimator">
+    <div class="title">
+        Biased Estimator
+    </div>
+    <div class="content">
+        Suppose that \( \widehat{ Q } \) is an <a class="knowledge-link" href="/probability/monte_carlo.html#definition-estimator">estimator</a> for \( Q \). The <b>bias</b> of \( \widehat{ Q } \) is
+        \[
+            E \left( \widehat{ Q } \right) - Q.
+        \]
+        The estimator is <b>biased</b> if its bias is not \( 0 \).
+    </div>
+</div>
+
+<div class="definition" id="definition-monte-carlo-estimator">
+    <div class="title">
+        Monte Carlo Estimator
+    </div>
+    <div class="content">
+        Suppose that \( D \subseteq \mathbb{ R } ^ n \), \( f: D \to \mathbb{ R } \), and \( p \) is a <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density function</a> on \( D \) such that \( p \left( x \right) \gt 0 \) whenever \( f \left( x \right) \neq 0 \). If \( X _ 1, \ldots, X _ N \) are independent samples with density \( p \), the <b>Monte Carlo estimator</b> for
+        \[
+            Q := \int _ D f \left( x \right) \, d x
+        \]
+        is
+        \[
+            F _ N
+            :=
+            \frac{1}{N}
+            \sum _ { i = 1 } ^ N
+            \frac{ <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable-function-composition">f \left( X _ i \right)</a> }{ p \left( X _ i \right) }.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-monte-carlo-estimator-is-unbiased">
+    <div class="title">
+        Monte Carlo Estimator is Unbiased
+    </div>
+    <div class="content">
+        Under the hypotheses of the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-monte-carlo-estimator">Monte Carlo estimator</a>,
+        \[
+            E \left( F _ N \right)
+            =
+            \int _ D f \left( x \right) \, d x.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-variance-of-an-average-of-independent-identically-distributed-random-variables">
+    <div class="title">
+        Variance of an Average of Independent Identically Distributed Random Variables
+    </div>
+    <div class="content">
+        Suppose that \( X _ 1, \ldots, X _ N \) are independent identically distributed random variables with finite variance. Then
+        \[
+            \operatorname{ Var } \left( \frac{1}{N} \sum _ { i = 1 } ^ N X _ i \right)
+            =
+            \frac{ \operatorname{ Var } \left( X _ 1 \right) }{ N }.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-sample-variance">
+    <div class="title">
+        Sample Variance
+    </div>
+    <div class="content">
+        Suppose that \( x _ 1, \ldots, x _ N \in \mathbb{ R } \), with \( N \ge 2 \), and let
+        \[
+            \overline{x}
+            :=
+            \frac{1}{N}
+            \sum _ { i = 1 } ^ N x _ i.
+        \]
+        The <b>sample variance</b> of \( x _ 1, \ldots, x _ N \) is
+        \[
+            s ^ 2
+            :=
+            \frac{1}{N - 1}
+            \sum _ { i = 1 } ^ N
+            \left( x _ i - \overline{x} \right) ^ 2.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-inversion-method">
+    <div class="title">
+        Inversion Method
+    </div>
+    <div class="content">
+        Suppose that \( F \) is a <a class="knowledge-link" href="/probability/monte_carlo.html#definition-cumulative-distribution-function">cumulative distribution function</a> that has an inverse \( F ^ { -1 } \), and suppose that \( U \sim \operatorname{ unif } [0,1] \). The <b>inversion method</b> samples from \( F \) by setting
+        \[
+            X := F ^ { -1 } \left( U \right).
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-inversion-method-samples-from-the-target-distribution">
+    <div class="title">
+        Inversion Method Samples from the Target Distribution
+    </div>
+    <div class="content">
+        Suppose that \( F \) is an invertible <a class="knowledge-link" href="/probability/monte_carlo.html#definition-cumulative-distribution-function">cumulative distribution function</a>, \( U \sim \operatorname{ unif } [0,1] \), and \( X = F ^ { -1 } \left( U \right) \). Then \( X \) has cumulative distribution function \( F \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-change-of-variables-for-density-functions">
+    <div class="title">
+        Change of Variables for Density Functions
+    </div>
+    <div class="content">
+        Suppose that \( X \) is an \( n \)-dimensional random variable with density \( p _ X \), and suppose that \( T: \mathbb{ R } ^ n \to \mathbb{ R } ^ n \) is a differentiable bijection whose Jacobian determinant is nonzero. If \( Y = T \left( X \right) \), then the density of \( Y \) is
+        \[
+            p _ Y \left( y \right)
+            =
+            \frac{ p _ X \left( T ^ { -1 } \left( y \right) \right) }
+                 { \left\lvert \det D T \left( T ^ { -1 } \left( y \right) \right) \right\rvert }.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-stratified-sampling">
+    <div class="title">
+        Stratified Sampling
+    </div>
+    <div class="content">
+        Suppose that a domain \( D \) is partitioned into disjoint measurable sets \( D _ 1, \ldots, D _ m \). <b>Stratified sampling</b> is the practice of estimating an integral over \( D \) by taking samples separately within each stratum \( D _ i \) and combining the resulting estimates.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-stratified-sampling-does-not-increase-variance">
+    <div class="title">
+        Stratified Sampling Does Not Increase Variance
+    </div>
+    <div class="content">
+        For an integral estimator with a fixed total number of samples, stratifying the domain and sampling each stratum proportionally to its measure does not increase variance compared with unstratified sampling from the whole domain.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-importance-sampling">
+    <div class="title">
+        Importance Sampling
+    </div>
+    <div class="content">
+        <b>Importance sampling</b> estimates an integral
+        \[
+            \int _ D f \left( x \right) \, d x
+        \]
+        by drawing samples from a density \( p \) and using the weighted terms
+        \[
+            \frac{ f \left( X \right) }{ p \left( X \right) }.
+        \]
+        The density \( p \) should be positive wherever \( f \) is nonzero.
+    </div>
+</div>
+
+<div class="definition" id="definition-multiple-importance-sampling">
+    <div class="title">
+        Multiple Importance Sampling
+    </div>
+    <div class="content">
+        <b>Multiple importance sampling</b> estimates an integral by combining samples drawn from several densities \( p _ 1, \ldots, p _ m \). If \( w _ i \) is a weight function for density \( p _ i \), then a typical weighted term has the form
+        \[
+            w _ i \left( X \right)
+            \frac{ f \left( X \right) }{ p _ i \left( X \right) }.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-balance-heuristic">
+    <div class="title">
+        Balance Heuristic
+    </div>
+    <div class="content">
+        Suppose that \( p _ 1, \ldots, p _ m \) are sampling densities and \( n _ i \) samples are drawn from \( p _ i \). The <b>balance heuristic</b> assigns the weight
+        \[
+            w _ i \left( x \right)
+            :=
+            \frac{ n _ i p _ i \left( x \right) }
+                 { \sum _ j n _ j p _ j \left( x \right) }.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-power-heuristic">
+    <div class="title">
+        Power Heuristic
+    </div>
+    <div class="content">
+        Suppose that \( p _ 1, \ldots, p _ m \) are sampling densities, \( n _ i \) samples are drawn from \( p _ i \), and \( \beta \in \mathbb{ R } ^ + \). The <b>power heuristic</b> assigns the weight
+        \[
+            w _ i \left( x \right)
+            :=
+            \frac{ \left( n _ i p _ i \left( x \right) \right) ^ \beta }
+                 { \sum _ j \left( n _ j p _ j \left( x \right) \right) ^ \beta }.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-russian-roulette-estimator">
+    <div class="title">
+        Russian Roulette Estimator
+    </div>
+    <div class="content">
+        Suppose that \( X \) is an <a class="knowledge-link" href="/probability/monte_carlo.html#definition-unbiased-estimator">unbiased estimator</a> for \( Q \), and let \( B \) be a Bernoulli random variable with \( P \left( B = 1 \right) = q \gt 0 \), independent of \( X \). The <b>Russian roulette estimator</b> is
+        \[
+            Y
+            :=
+            \begin{cases}
+                X / q &amp; B = 1, \\
+                0 &amp; B = 0.
+            \end{cases}
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-russian-roulette-estimator-is-unbiased">
+    <div class="title">
+        Russian Roulette Estimator is Unbiased
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/probability/monte_carlo.html#definition-russian-roulette-estimator">Russian roulette estimator</a> is unbiased:
+        \[
+            E \left( Y \right) = Q.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>

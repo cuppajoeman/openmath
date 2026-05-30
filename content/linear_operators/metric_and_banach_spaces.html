@@ -1,0 +1,144 @@
+<div class="definition" id="definition-metric-space">
+    <div class="title">
+        Metric Space
+    </div>
+    <div class="content">
+        A <b>metric space</b> is a pair \( \left( X,d \right) \), where \( X \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> and \( d: X \times X \to [0,\infty) \) satisfies positivity, symmetry, and the triangle inequality.
+    </div>
+</div>
+
+<div class="definition" id="definition-cauchy-sequence-in-a-metric-space">
+    <div class="title">
+        Cauchy Sequence in a Metric Space
+    </div>
+    <div class="content">
+        Suppose that \( \left( X,d \right) \) is a <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-metric-space">metric space</a>. A sequence \( x _ 1,x _ 2,\ldots \) in \( X \) is <b>Cauchy</b> if for every \( \epsilon \in \mathbb{ R } ^ + \), there exists \( N \in \mathbb{ Z } ^ + \) such that \( d \left( x _ j,x _ k \right) \lt \epsilon \) whenever \( j,k \ge N \).
+    </div>
+</div>
+
+<div class="definition" id="definition-complete-metric-space">
+    <div class="title">
+        Complete Metric Space
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-metric-space">metric space</a> is <b>complete</b> if every <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-cauchy-sequence-in-a-metric-space">Cauchy sequence</a> in it converges to a point of the space.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-banach-fixed-point-theorem">
+    <div class="title">
+        Banach Fixed Point Theorem
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a nonempty <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-complete-metric-space">complete metric space</a> and \( T: X \to X \) is a contraction. Then \( T \) has a unique fixed point.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-normed-vector-space-mira">
+    <div class="title">
+        Normed Vector Space
+    </div>
+    <div class="content">
+        A <b>normed vector space</b> is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) over \( \mathbb{ F } \) with a <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-norm-on-a-vector-space">norm</a> \( \lVert \cdot \rVert: V \to [0,\infty) \) satisfying positivity, homogeneity, and the triangle inequality.
+    </div>
+</div>
+
+<div class="definition" id="definition-banach-space-mira">
+    <div class="title">
+        Banach Space
+    </div>
+    <div class="content">
+        A <b>Banach space</b> is a <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-normed-vector-space-mira">normed vector space</a> whose induced metric is <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-complete-metric-space">complete</a>.
+    </div>
+</div>
+
+<div class="definition" id="definition-bounded-linear-map">
+    <div class="title">
+        Bounded Linear Map
+    </div>
+    <div class="content">
+        Suppose that \( V \) and \( W \) are <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-normed-vector-space-mira">normed vector spaces</a>. A linear map \( T: V \to W \) is <b>bounded</b> if there exists \( c \in [0,\infty) \) such that
+        \[
+            \lVert T v \rVert \le c \lVert v \rVert
+        \]
+        for every \( v \in V \).
+    </div>
+</div>
+
+<div class="definition" id="definition-operator-norm">
+    <div class="title">
+        Operator Norm
+    </div>
+    <div class="content">
+        Suppose that \( T: V \to W \) is a <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-bounded-linear-map">bounded linear map</a> between <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-normed-vector-space-mira">normed vector spaces</a>. The <b>operator norm</b> of \( T \) is
+        \[
+            \lVert T \rVert
+            :=
+            \sup
+            \left\{
+                \lVert T v \rVert : v \in V,\ \lVert v \rVert \le 1
+            \right\}.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-linear-map-continuous-iff-bounded">
+    <div class="title">
+        Linear Map Continuous iff Bounded
+    </div>
+    <div class="content">
+        Suppose that \( V \) and \( W \) are <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-normed-vector-space-mira">normed vector spaces</a> and \( T: V \to W \) is linear. Then \( T \) is continuous if and only if \( T \) is <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-bounded-linear-map">bounded</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-bounded-linear-maps-form-a-banach-space">
+    <div class="title">
+        Bounded Linear Maps Form a Banach Space
+    </div>
+    <div class="content">
+        Suppose that \( V \) is a <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-normed-vector-space-mira">normed vector space</a> and \( W \) is a <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-banach-space-mira">Banach space</a>. Then the space \( \mathcal{ B } \left( V,W \right) \) of bounded linear maps from \( V \) to \( W \), with the <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-operator-norm">operator norm</a>, is a Banach space.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-baire-category-theorem">
+    <div class="title">
+        Baire Category Theorem
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-complete-metric-space">complete metric space</a> cannot be written as a countable union of <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed sets</a> with empty interior.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-open-mapping-theorem">
+    <div class="title">
+        Open Mapping Theorem
+    </div>
+    <div class="content">
+        Suppose that \( V \) and \( W \) are <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-banach-space-mira">Banach spaces</a> and \( T: V \to W \) is a surjective bounded linear map. Then \( T \) maps <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-open">open</a> subsets of \( V \) to open subsets of \( W \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-closed-graph-theorem">
+    <div class="title">
+        Closed Graph Theorem
+    </div>
+    <div class="content">
+        Suppose that \( V \) and \( W \) are <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-banach-space-mira">Banach spaces</a> and \( T: V \to W \) is linear. If the graph of \( T \) is <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a> in \( V \times W \), then \( T \) is bounded.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-uniform-boundedness-principle">
+    <div class="title">
+        Uniform Boundedness Principle
+    </div>
+    <div class="content">
+        Suppose that \( V \) is a <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-banach-space-mira">Banach space</a>, \( W \) is a <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-normed-vector-space-mira">normed vector space</a>, and \( \mathcal{ A } \subseteq \mathcal{ B } \left( V,W \right) \). If \( \sup _ { T \in \mathcal{ A } } \lVert T v \rVert \lt \infty \) for every \( v \in V \), then \( \sup _ { T \in \mathcal{ A } } \lVert T \rVert \lt \infty \).
+    </div>
+    <div class="proof"></div>
+</div>

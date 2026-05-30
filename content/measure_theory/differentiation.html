@@ -1,0 +1,122 @@
+<div class="definition" id="definition-average-value-over-an-interval">
+    <div class="title">
+        Average Value over an Interval
+    </div>
+    <div class="content">
+        Suppose that \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 1</a> \left( \mathbb{ R } \right) \) and \( I \subseteq \mathbb{ R } \) is an interval with positive finite <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#definition-lebesgue-measure-on-lebesgue-measurable-sets">Lebesgue measure</a>. The <b>average value</b> of \( f \) over \( I \) is
+        \[
+            \frac{1}{\lambda \left( I \right)}
+            \int _ I f \, d\lambda .
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-lebesgue-point">
+    <div class="title">
+        Lebesgue Point
+    </div>
+    <div class="content">
+        Suppose that \( f \in L ^ 1 _ { \operatorname{ loc } } \left( \mathbb{ R } \right) \). A point \( a \in \mathbb{ R } \) is a <b>Lebesgue point</b> of \( f \) if
+        \[
+            \lim _ { r \downarrow 0 }
+            \frac{1}{2r}
+            \int _ { a-r } ^ { a+r }
+            \left\lvert f \left( x \right) - f \left( a \right) \right\rvert
+            \, d\lambda \left( x \right)
+            =
+            0.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-lebesgue-differentiation-theorem">
+    <div class="title">
+        Lebesgue Differentiation Theorem
+    </div>
+    <div class="content">
+        Suppose that \( f \in L ^ 1 _ { \operatorname{ loc } } \left( \mathbb{ R } \right) \). Then almost every \( a \in \mathbb{ R } \) is a <a class="knowledge-link" href="/measure_theory/differentiation.html#definition-lebesgue-point">Lebesgue point</a> of \( f \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-differentiation-of-indefinite-integrals">
+    <div class="title">
+        Differentiation of Indefinite Integrals
+    </div>
+    <div class="content">
+        Suppose that \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 1</a> \left( \mathbb{ R } \right) \) and
+        \[
+            F \left( x \right)
+            :=
+            \int _ { -\infty } ^ x f \, d\lambda .
+        \]
+        Then \( F ^ \prime \left( x \right) = f \left( x \right) \) for almost every \( x \in \mathbb{ R } \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-hardy-littlewood-maximal-function">
+    <div class="title">
+        Hardy-Littlewood Maximal Function
+    </div>
+    <div class="content">
+        Suppose that \( f \in L ^ 1 _ { \operatorname{ loc } } \left( \mathbb{ R } \right) \). The <b>Hardy-Littlewood maximal function</b> of \( f \) is
+        \[
+            M f \left( x \right)
+            :=
+            \sup _ { r \in \mathbb{ R } ^ + }
+            \frac{1}{2r}
+            \int _ { x-r } ^ { x+r }
+            \left\lvert f \right\rvert
+            \, d\lambda .
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-hardy-littlewood-maximal-inequality">
+    <div class="title">
+        Hardy-Littlewood Maximal Inequality
+    </div>
+    <div class="content">
+        Suppose that \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 1</a> \left( \mathbb{ R } \right) \) and \( \alpha \in \mathbb{ R } ^ + \). Then
+        \[
+            \lambda \left(
+                \left\{ x \in \mathbb{ R } : M f \left( x \right) \gt \alpha \right\}
+            \right)
+            \le
+            \frac{3}{\alpha}
+            \lVert f \rVert _ 1 .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-absolutely-continuous-function-on-an-interval">
+    <div class="title">
+        Absolutely Continuous Function on an Interval
+    </div>
+    <div class="content">
+        Suppose that \( a \lt b \). A <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( F: [a,b] \to \mathbb{ R } \) is <b>absolutely continuous</b> if for every \( \epsilon \in \mathbb{ R } ^ + \), there exists \( \delta \in \mathbb{ R } ^ + \) such that for every finite pairwise disjoint collection of intervals \( (a _ k, b _ k) \subseteq [a,b] \),
+        \[
+            \sum _ k \left( b _ k - a _ k \right) \lt \delta
+            \implies
+            \sum _ k \left\lvert F \left( b _ k \right) - F \left( a _ k \right) \right\rvert \lt \epsilon .
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-absolutely-continuous-functions-are-integrals-of-their-derivatives">
+    <div class="title">
+        Absolutely Continuous Functions are Integrals of Their Derivatives
+    </div>
+    <div class="content">
+        Suppose that \( F: [a,b] \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/differentiation.html#definition-absolutely-continuous-function-on-an-interval">absolutely continuous</a>. Then \( F ^ \prime \) exists almost everywhere, \( F ^ \prime \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 1</a> \left( [a,b] \right) \), and
+        \[
+            F \left( y \right) - F \left( x \right)
+            =
+            \int _ x ^ y F ^ \prime \, d\lambda
+        \]
+        whenever \( a \le x \le y \le b \).
+    </div>
+    <div class="proof"></div>
+</div>

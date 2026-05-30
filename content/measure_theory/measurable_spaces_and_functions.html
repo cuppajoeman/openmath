@@ -1,0 +1,287 @@
+<div class="definition" id="definition-sigma-algebra">
+    <div class="title">
+        Sigma Algebra
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a set. A collection \( \mathcal{ S } \subseteq \mathcal{ P } \left( X \right) \) is a <b>\( \sigma \)-algebra</b> on \( X \) if
+        <ul>
+            <li>\( \emptyset \in \mathcal{ S } \),</li>
+            <li>if \( E \in \mathcal{ S } \), then \( X \setminus E \in \mathcal{ S } \),</li>
+            <li>if \( E _ 1, E _ 2, \ldots \in \mathcal{ S } \), then \( \bigcup _ { k = 1 } ^ \infty E _ k \in \mathcal{ S } \).</li>
+        </ul>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-sigma-algebras-are-closed-under-standard-set-operations">
+    <div class="title">
+        Sigma Algebras are Closed under Standard Set Operations
+    </div>
+    <div class="content">
+        Suppose that \( \mathcal{ S } \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> on \( X \). Then
+        <ul>
+            <li>\( X \in \mathcal{ S } \),</li>
+            <li>if \( D, E \in \mathcal{ S } \), then \( D \cup E \in \mathcal{ S } \), \( D \cap E \in \mathcal{ S } \), and \( D \setminus E \in \mathcal{ S } \),</li>
+            <li>if \( E _ 1, E _ 2, \ldots \in \mathcal{ S } \), then \( \bigcap _ { k = 1 } ^ \infty E _ k \in \mathcal{ S } \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-measurable-space">
+    <div class="title">
+        Measurable Space
+    </div>
+    <div class="content">
+        A <b>measurable space</b> is an ordered pair \( \left( X, \mathcal{ S } \right) \), where \( X \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> and \( \mathcal{ S } \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> on \( X \).
+    </div>
+</div>
+
+<div class="definition" id="definition-measurable-set">
+    <div class="title">
+        Measurable Set
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-space">measurable space</a>. A set \( E \subseteq X \) is <b>\( \mathcal{ S } \)-measurable</b> if \( E \in \mathcal{ S } \).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-smallest-sigma-algebra-containing-a-collection">
+    <div class="title">
+        Smallest Sigma Algebra Containing a Collection
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> and \( \mathcal{ A } \subseteq \mathcal{ P } \left( X \right) \). The <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">intersection</a> of all <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebras</a> on \( X \) that contain \( \mathcal{ A } \) is a \( \sigma \)-algebra on \( X \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-borel-sigma-algebra">
+    <div class="title">
+        Borel \( \sigma \)-Algebra
+    </div>
+    <div class="content">
+        The <b>Borel \( \sigma \)-algebra</b> on \( \mathbb{ R } \) is the smallest <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> on \( \mathbb{ R } \) that contains every open subset of \( \mathbb{ R } \).
+    </div>
+</div>
+
+<div class="definition" id="definition-borel-set">
+    <div class="title">
+        Borel Set
+    </div>
+    <div class="content">
+        A <b>Borel set</b> is an element of the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-sigma-algebra">Borel \( \sigma \)-algebra</a>.
+    </div>
+</div>
+
+<div class="definition" id="definition-inverse-image">
+    <div class="title">
+        Inverse Image
+    </div>
+    <div class="content">
+        Suppose that \( f: X \to Y \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> and \( A \subseteq Y \). The <b>inverse image</b> of \( A \) under \( f \) is
+        \[
+            f ^ { -1 } \left( A \right)
+            :=
+            \left\{ x \in X : f \left( x \right) \in A \right\}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-algebra-of-inverse-images">
+    <div class="title">
+        Algebra of Inverse Images
+    </div>
+    <div class="content">
+        Suppose that \( f: X \to Y \). Then
+        <ul>
+            <li>\( f ^ { -1 } \left( Y \setminus A \right) = X \setminus f ^ { -1 } \left( A \right) \) for every \( A \subseteq Y \),</li>
+            <li>\( f ^ { -1 } \left( \bigcup _ { A \in \mathcal{ A } } A \right) = \bigcup _ { A \in \mathcal{ A } } f ^ { -1 } \left( A \right) \) for every collection \( \mathcal{ A } \subseteq \mathcal{ P } \left( Y \right) \),</li>
+            <li>\( f ^ { -1 } \left( \bigcap _ { A \in \mathcal{ A } } A \right) = \bigcap _ { A \in \mathcal{ A } } f ^ { -1 } \left( A \right) \) for every collection \( \mathcal{ A } \subseteq \mathcal{ P } \left( Y \right) \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-inverse-image-of-a-composition">
+    <div class="title">
+        Inverse Image of a Composition
+    </div>
+    <div class="content">
+        Suppose that \( f: X \to Y \), \( g: Y \to W \), and \( A \subseteq W \). Then
+        \[
+            \left( g \circ f \right) ^ { -1 } \left( A \right)
+            =
+            f ^ { -1 } \left( g ^ { -1 } \left( A \right) \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-measurable-function">
+    <div class="title">
+        Measurable Function
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-space">measurable space</a>. A function \( f: X \to \mathbb{ R } \) is <b>\( \mathcal{ S } \)-measurable</b> if
+        \[
+            f ^ { -1 } \left( B \right) \in \mathcal{ S }
+        \]
+        for every <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel set</a> \( B \subseteq \mathbb{ R } \).
+    </div>
+</div>
+
+<div class="definition" id="definition-characteristic-function">
+    <div class="title">
+        Characteristic Function
+    </div>
+    <div class="content">
+        Suppose that \( E \subseteq X \). The <b>characteristic function</b> of \( E \) is the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \chi _ E: X \to \mathbb{ R } \) defined by
+        \[
+            \chi _ E \left( x \right)
+            =
+            \begin{cases}
+                1 &amp; x \in E, \\
+                0 &amp; x \notin E.
+            \end{cases}
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-ray-test-for-measurability">
+    <div class="title">
+        Ray Test for Measurability
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a measurable space and \( f: X \to \mathbb{ R } \). If
+        \[
+            f ^ { -1 } \left( \left( a, \infty \right) \right) \in \mathcal{ S }
+        \]
+        for every \( a \in \mathbb{ R } \), then \( f \) is \( \mathcal{ S } \)-measurable.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-borel-measurable-function">
+    <div class="title">
+        Borel Measurable Function
+    </div>
+    <div class="content">
+        Suppose that \( X \subseteq \mathbb{ R } \). A function \( f: X \to \mathbb{ R } \) is <b>Borel measurable</b> if \( f ^ { -1 } \left( B \right) \) is a Borel set for every Borel set \( B \subseteq \mathbb{ R } \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-continuous-functions-are-borel-measurable">
+    <div class="title">
+        Continuous Functions are Borel Measurable
+    </div>
+    <div class="content">
+        Every continuous real-valued function whose domain is a Borel subset of \( \mathbb{ R } \) is Borel measurable.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-increasing-function">
+    <div class="title">
+        Increasing Function
+    </div>
+    <div class="content">
+        Suppose that \( X \subseteq \mathbb{ R } \) and \( f: X \to \mathbb{ R } \). The function \( f \) is <b>increasing</b> if \( f \left( x \right) \le f \left( y \right) \) whenever \( x, y \in X \) and \( x \lt y \).
+    </div>
+</div>
+
+<div class="definition" id="definition-strictly-increasing-function">
+    <div class="title">
+        Strictly Increasing Function
+    </div>
+    <div class="content">
+        Suppose that \( X \subseteq \mathbb{ R } \) and \( f: X \to \mathbb{ R } \). The function \( f \) is <b>strictly increasing</b> if \( f \left( x \right) \lt f \left( y \right) \) whenever \( x, y \in X \) and \( x \lt y \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-increasing-functions-are-borel-measurable">
+    <div class="title">
+        Increasing Functions are Borel Measurable
+    </div>
+    <div class="content">
+        Every <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-increasing-function">increasing</a> real-valued function whose domain is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel subset</a> of \( \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-composition-of-measurable-functions">
+    <div class="title">
+        Composition of Measurable Functions
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a measurable space and \( f: X \to \mathbb{ R } \) is \( \mathcal{ S } \)-measurable. If \( g \) is a Borel measurable real-valued function on a subset of \( \mathbb{ R } \) that contains the range of \( f \), then \( g \circ f \) is \( \mathcal{ S } \)-measurable.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-algebraic-operations-with-measurable-functions">
+    <div class="title">
+        Algebraic Operations with Measurable Functions
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a measurable space and \( f, g: X \to \mathbb{ R } \) are \( \mathcal{ S } \)-measurable. Then \( f + g \), \( f - g \), and \( fg \) are \( \mathcal{ S } \)-measurable. If \( g \left( x \right) \neq 0 \) for every \( x \in X \), then \( f / g \) is \( \mathcal{ S } \)-measurable.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-pointwise-limit-of-measurable-functions-is-measurable">
+    <div class="title">
+        Pointwise Limit of Measurable Functions is Measurable
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a measurable space and \( f _ 1, f _ 2, \ldots: X \to \mathbb{ R } \) are \( \mathcal{ S } \)-measurable. If \( f \left( x \right) := \lim _ { k \to \infty } f _ k \left( x \right) \) exists for every \( x \in X \), then \( f \) is \( \mathcal{ S } \)-measurable.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-borel-subsets-of-extended-real-line">
+    <div class="title">
+        Borel Subsets of the Extended Real Line
+    </div>
+    <div class="content">
+        A subset \( C \subseteq [ -\infty, \infty ] \) is <b>Borel</b> if \( C \cap \mathbb{ R } \) is a Borel subset of \( \mathbb{ R } \).
+    </div>
+</div>
+
+<div class="definition" id="definition-extended-real-valued-measurable-function">
+    <div class="title">
+        Extended Real-Valued Measurable Function
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a measurable space. A function \( f: X \to [ -\infty, \infty ] \) is \( \mathcal{ S } \)-measurable if \( f ^ { -1 } \left( B \right) \in \mathcal{ S } \) for every Borel set \( B \subseteq [ -\infty, \infty ] \).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-extended-ray-test-for-measurability">
+    <div class="title">
+        Extended Ray Test for Measurability
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a measurable space and \( f: X \to [ -\infty, \infty ] \). If
+        \[
+            f ^ { -1 } \left( \left( a, \infty \right] \right) \in \mathcal{ S }
+        \]
+        for every \( a \in \mathbb{ R } \), then \( f \) is \( \mathcal{ S } \)-measurable.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-infimum-and-supremum-of-measurable-functions">
+    <div class="title">
+        Infimum and Supremum of Measurable Functions
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a measurable space and \( f _ 1, f _ 2, \ldots: X \to [ -\infty, \infty ] \) are \( \mathcal{ S } \)-measurable. Define
+        \[
+            g \left( x \right) := \inf \left\{ f _ k \left( x \right): k \in \mathbb{ Z } ^ + \right\}
+            \qquad \text{and} \qquad
+            h \left( x \right) := \sup \left\{ f _ k \left( x \right): k \in \mathbb{ Z } ^ + \right\}.
+        \]
+        Then \( g \) and \( h \) are \( \mathcal{ S } \)-measurable.
+    </div>
+    <div class="proof"></div>
+</div>

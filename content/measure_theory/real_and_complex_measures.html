@@ -1,0 +1,119 @@
+<div class="definition" id="definition-signed-measure">
+    <div class="title">
+        Signed Measure
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-space">measurable space</a>. A <b>signed measure</b> on \( \mathcal{ S } \) is a countably additive function \( \nu: \mathcal{ S } \to [ -\infty,\infty ] \) that does not take both values \( \infty \) and \( -\infty \), and satisfies \( \nu \left( \emptyset \right) = 0 \).
+    </div>
+</div>
+
+<div class="definition" id="definition-complex-measure">
+    <div class="title">
+        Complex Measure
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-space">measurable space</a>. A <b>complex measure</b> on \( \mathcal{ S } \) is a countably additive function \( \nu: \mathcal{ S } \to \mathbb{ C } \) satisfying \( \nu \left( \emptyset \right) = 0 \).
+    </div>
+</div>
+
+<div class="definition" id="definition-positive-and-negative-set-for-a-signed-measure">
+    <div class="title">
+        Positive and Negative Set for a Signed Measure
+    </div>
+    <div class="content">
+        Suppose that \( \nu \) is a <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#definition-signed-measure">signed measure</a> on \( \left( X,\mathcal{ S } \right) \). A set \( P \in \mathcal{ S } \) is <b>positive</b> for \( \nu \) if \( \nu \left( E \right) \ge 0 \) for every \( E \in \mathcal{ S } \) with \( E \subseteq P \). A set \( N \in \mathcal{ S } \) is <b>negative</b> for \( \nu \) if \( \nu \left( E \right) \le 0 \) for every \( E \in \mathcal{ S } \) with \( E \subseteq N \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-hahn-decomposition-theorem">
+    <div class="title">
+        Hahn Decomposition Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \nu \) is a <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#definition-signed-measure">signed measure</a> on \( \left( X,\mathcal{ S } \right) \). Then there exist disjoint sets \( P,N \in \mathcal{ S } \) such that \( X = P \cup N \), \( P \) is positive for \( \nu \), and \( N \) is negative for \( \nu \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-mutually-singular-measures">
+    <div class="title">
+        Mutually Singular Measures
+    </div>
+    <div class="content">
+        Measures \( \mu \) and \( \nu \) on \( \left( X,\mathcal{ S } \right) \) are <b>mutually singular</b>, written \( \mu \perp \nu \), if there exists \( E \in \mathcal{ S } \) such that \( \mu \left( E \right) = 0 \) and \( \nu \left( X \setminus E \right) = 0 \).
+    </div>
+</div>
+
+<div class="definition" id="definition-absolute-continuity-of-measures">
+    <div class="title">
+        Absolute Continuity of Measures
+    </div>
+    <div class="content">
+        Suppose that \( \mu \) is a positive <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">measure</a> and \( \nu \) is a <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#definition-signed-measure">signed</a> or <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#definition-complex-measure">complex measure</a> on \( \left( X,\mathcal{ S } \right) \). We say that \( \nu \) is <b>absolutely continuous</b> with respect to \( \mu \), written \( \nu \ll \mu \), if \( \mu \left( E \right) = 0 \) implies \( \nu \left( E \right) = 0 \) for every \( E \in \mathcal{ S } \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-jordan-decomposition-theorem">
+    <div class="title">
+        Jordan Decomposition Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \nu \) is a <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#definition-signed-measure">signed measure</a>. Then there exist unique positive measures \( \nu ^ + \) and \( \nu ^ - \) such that
+        \[
+            \nu = \nu ^ + - \nu ^ -
+            \qquad\text{and}\qquad
+            \nu ^ + \perp \nu ^ - .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-total-variation-measure">
+    <div class="title">
+        Total Variation Measure
+    </div>
+    <div class="content">
+        Suppose that \( \nu \) is a <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#definition-signed-measure">signed</a> or <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#definition-complex-measure">complex measure</a>. The <b>total variation measure</b> \( \left\lvert \nu \right\rvert \) is the positive measure defined by
+        \[
+            \left\lvert \nu \right\rvert \left( E \right)
+            :=
+            \sup
+            \sum _ { k = 1 } ^ n
+            \left\lvert \nu \left( E _ k \right) \right\rvert ,
+        \]
+        where the supremum is over all finite measurable partitions \( E _ 1,\ldots,E _ n \) of \( E \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-radon-nikodym-theorem">
+    <div class="title">
+        Radon-Nikodym Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \mu \) is a \( \sigma \)-finite positive <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">measure</a> and \( \nu \) is a \( \sigma \)-finite positive measure such that \( \nu \ll \mu \). Then there exists a nonnegative <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable function</a> \( f \) such that
+        \[
+            \nu \left( E \right)
+            =
+            \int _ E f \, d\mu
+        \]
+        for every measurable set \( E \). The function \( f \) is unique up to equality almost everywhere.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-lebesgue-decomposition-theorem">
+    <div class="title">
+        Lebesgue Decomposition Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \mu \) and \( \nu \) are \( \sigma \)-finite positive <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">measures</a> on \( \left( X,\mathcal{ S } \right) \). Then there exist unique positive measures \( \nu _ a \) and \( \nu _ s \) such that
+        \[
+            \nu = \nu _ a + \nu _ s,
+            \qquad
+            \nu _ a \ll \mu,
+            \qquad
+            \nu _ s \perp \mu .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>

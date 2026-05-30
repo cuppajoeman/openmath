@@ -1,0 +1,154 @@
+<div class="definition" id="definition-probability-space-measure-theoretic">
+    <div class="title">
+        Probability Space
+    </div>
+    <div class="content">
+        A <b>probability space</b> is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> \( \left( \Omega,\mathcal{ F },P \right) \) such that \( P \left( \Omega \right) = 1 \).
+    </div>
+</div>
+
+<div class="definition" id="definition-event-measure-theoretic">
+    <div class="title">
+        Event
+    </div>
+    <div class="content">
+        Suppose that \( \left( \Omega,\mathcal{ F },P \right) \) is a <a class="knowledge-link" href="/probability/probability_measures.html#definition-probability-space-measure-theoretic">probability space</a>. An <b>event</b> is an element of \( \mathcal{ F } \).
+    </div>
+</div>
+
+<div class="definition" id="definition-random-variable-measure-theoretic">
+    <div class="title">
+        Random Variable
+    </div>
+    <div class="content">
+        Suppose that \( \left( \Omega,\mathcal{ F },P \right) \) is a <a class="knowledge-link" href="/probability/probability_measures.html#definition-probability-space-measure-theoretic">probability space</a>. A <b>random variable</b> is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable function</a> \( X: \Omega \to \mathbb{ R } \).
+    </div>
+</div>
+
+<div class="definition" id="definition-distribution-of-a-random-variable">
+    <div class="title">
+        Distribution of a Random Variable
+    </div>
+    <div class="content">
+        Suppose that \( X: \Omega \to \mathbb{ R } \) is a <a class="knowledge-link" href="/probability/probability_measures.html#definition-random-variable-measure-theoretic">random variable</a>. The <b>distribution</b> of \( X \) is the probability measure \( \mu _ X \) on \( \mathbb{ R } \) defined by
+        \[
+            \mu _ X \left( B \right)
+            :=
+            P \left( X ^ { -1 } \left( B \right) \right)
+        \]
+        for every <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel set</a> \( B \subseteq \mathbb{ R } \).
+    </div>
+</div>
+
+<div class="definition" id="definition-expectation-as-an-integral">
+    <div class="title">
+        Expectation as an Integral
+    </div>
+    <div class="content">
+        Suppose that \( X \) is a <a class="knowledge-link" href="/probability/probability_measures.html#definition-random-variable-measure-theoretic">random variable</a> on \( \left( \Omega,\mathcal{ F },P \right) \). If the integral is defined, the <b>expected value</b> of \( X \) is
+        \[
+            E \left( X \right)
+            :=
+            \int _ \Omega X \, dP .
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-independence-of-events-measure-theoretic">
+    <div class="title">
+        Independence of Events
+    </div>
+    <div class="content">
+        <a class="knowledge-link" href="/probability/probability_measures.html#definition-event-measure-theoretic">Events</a> \( A \) and \( B \) are <b>independent</b> if
+        \[
+            P \left( A \cap B \right)
+            =
+            P \left( A \right) P \left( B \right).
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-independence-of-random-variables-measure-theoretic">
+    <div class="title">
+        Independence of Random Variables
+    </div>
+    <div class="content">
+        <a class="knowledge-link" href="/probability/probability_measures.html#definition-random-variable-measure-theoretic">Random variables</a> \( X _ 1,\ldots,X _ n \) are <b>independent</b> if for all <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel sets</a> \( B _ 1,\ldots,B _ n \subseteq \mathbb{ R } \),
+        \[
+            P \left(
+                X _ 1 \in B _ 1,\ldots,X _ n \in B _ n
+            \right)
+            =
+            \prod _ { k=1 } ^ n
+            P \left( X _ k \in B _ k \right).
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-monotone-convergence-theorem-for-expectations">
+    <div class="title">
+        Monotone Convergence Theorem for Expectations
+    </div>
+    <div class="content">
+        Suppose that \( 0 \le X _ 1 \le X _ 2 \le \cdots \) are <a class="knowledge-link" href="/probability/probability_measures.html#definition-random-variable-measure-theoretic">random variables</a> and \( X \left( \omega \right) = \lim _ { n \to \infty } X _ n \left( \omega \right) \). Then
+        \[
+            E \left( X \right)
+            =
+            \lim _ { n \to \infty }
+            E \left( X _ n \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-dominated-convergence-theorem-for-expectations">
+    <div class="title">
+        Dominated Convergence Theorem for Expectations
+    </div>
+    <div class="content">
+        Suppose that \( X _ 1,X _ 2,\ldots \) are <a class="knowledge-link" href="/probability/probability_measures.html#definition-random-variable-measure-theoretic">random variables</a> that <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-pointwise-convergence-of-functions">converge pointwise</a> to \( X \), and suppose that \( \left\lvert X _ n \right\rvert \le Y \) for every \( n \), where \( E \left( Y \right) \lt \infty \). Then
+        \[
+            E \left( X \right)
+            =
+            \lim _ { n \to \infty }
+            E \left( X _ n \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-weak-law-of-large-numbers">
+    <div class="title">
+        Weak Law of Large Numbers
+    </div>
+    <div class="content">
+        Suppose that \( X _ 1,X _ 2,\ldots \) are independent identically distributed <a class="knowledge-link" href="/probability/probability_measures.html#definition-random-variable-measure-theoretic">random variables</a> with finite <a class="knowledge-link" href="/probability/probability_measures.html#definition-expectation-as-an-integral">expected value</a> \( \mu \). Then
+        \[
+            \frac{1}{n}
+            \sum _ { k=1 } ^ n
+            X _ k
+            \to
+            \mu
+        \]
+        in probability.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-strong-law-of-large-numbers">
+    <div class="title">
+        Strong Law of Large Numbers
+    </div>
+    <div class="content">
+        Suppose that \( X _ 1,X _ 2,\ldots \) are independent identically distributed <a class="knowledge-link" href="/probability/probability_measures.html#definition-random-variable-measure-theoretic">random variables</a> with finite <a class="knowledge-link" href="/probability/probability_measures.html#definition-expectation-as-an-integral">expected value</a> \( \mu \). Then
+        \[
+            \frac{1}{n}
+            \sum _ { k=1 } ^ n
+            X _ k
+            \to
+            \mu
+        \]
+        almost surely.
+    </div>
+    <div class="proof"></div>
+</div>

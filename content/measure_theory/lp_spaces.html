@@ -1,0 +1,123 @@
+<div class="definition" id="definition-lp-norm">
+    <div class="title">
+        \( L ^ p \)-Norm
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>, \( p \in [1,\infty) \), and \( f: X \to \mathbb{ F } \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a>. Define
+        \[
+            \lVert f \rVert _ p
+            :=
+            \left(
+                \int _ X \left\lvert f \right\rvert ^ p \, d\mu
+            \right) ^ { 1/p }.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-lp-space">
+    <div class="title">
+        \( L ^ p \)-Space
+    </div>
+    <div class="content">
+        Suppose that \( p \in [1,\infty) \). The <b>\( L ^ p \)-space</b> of \( \mu \) is the vector space of equivalence classes of <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable functions</a> \( f: X \to \mathbb{ F } \) such that \( \lVert f \rVert _ p \lt \infty \), where functions equal almost everywhere are identified.
+    </div>
+</div>
+
+<div class="definition" id="definition-essential-supremum-norm">
+    <div class="title">
+        Essential Supremum Norm
+    </div>
+    <div class="content">
+        Suppose that \( f: X \to \mathbb{ F } \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a>. Define
+        \[
+            \lVert f \rVert _ \infty
+            :=
+            \inf
+            \left\{
+                c \in [0,\infty] :
+                \left\lvert f \left( x \right) \right\rvert \le c
+                \text{ for almost every } x \in X
+            \right\}.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-l-infinity-space">
+    <div class="title">
+        \( L ^ \infty \)-Space
+    </div>
+    <div class="content">
+        The <b>\( L ^ \infty \)-space</b> of \( \mu \) is the vector space of equivalence classes of <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable functions</a> \( f: X \to \mathbb{ F } \) such that \( \lVert f \rVert _ \infty \lt \infty \), where functions equal almost everywhere are identified.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-holders-inequality">
+    <div class="title">
+        Holder's Inequality
+    </div>
+    <div class="content">
+        Suppose that \( p,q \in [1,\infty] \) and \( 1/p + 1/q = 1 \). If \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mu \right) \) and \( g \in L ^ q \left( \mu \right) \), then \( fg \in L ^ 1 \left( \mu \right) \) and
+        \[
+            \lVert fg \rVert _ 1
+            \le
+            \lVert f \rVert _ p
+            \lVert g \rVert _ q .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-minkowskis-inequality">
+    <div class="title">
+        Minkowski's Inequality
+    </div>
+    <div class="content">
+        Suppose that \( p \in [1,\infty] \). If \( f,g \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mu \right) \), then
+        \[
+            \lVert f + g \rVert _ p
+            \le
+            \lVert f \rVert _ p + \lVert g \rVert _ p .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-lp-is-complete">
+    <div class="title">
+        \( L ^ p \) is Complete
+    </div>
+    <div class="content">
+        Suppose that \( p \in [1,\infty] \). Then \( <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mu \right) \), with its \( L ^ p \)-norm, is a <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-banach-space-mira">Banach space</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-density-of-simple-functions-in-lp">
+    <div class="title">
+        Density of Simple Functions in \( L ^ p \)
+    </div>
+    <div class="content">
+        Suppose that \( p \in [1,\infty) \). The <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-simple-function">simple functions</a> in \( <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mu \right) \) are dense in \( L ^ p \left( \mu \right) \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-density-of-continuous-compactly-supported-functions-in-lp">
+    <div class="title">
+        Density of Continuous Compactly Supported Functions in \( L ^ p \)
+    </div>
+    <div class="content">
+        Suppose that \( p \in [1,\infty) \). <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">Continuous</a> compactly supported functions are dense in \( <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mathbb{ R } \right) \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-riesz-fischer-theorem">
+    <div class="title">
+        Riesz-Fischer Theorem
+    </div>
+    <div class="content">
+        Suppose that \( p \in [1,\infty] \). Every <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-cauchy-sequence-in-a-metric-space">Cauchy sequence</a> in \( <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mu \right) \) converges in \( L ^ p \left( \mu \right) \).
+    </div>
+    <div class="proof"></div>
+</div>

@@ -1,0 +1,123 @@
+<div class="definition" id="definition-adjoint-of-a-bounded-operator">
+    <div class="title">
+        Adjoint of a Bounded Operator
+    </div>
+    <div class="content">
+        Suppose that \( H \) and \( K \) are <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert spaces</a> and \( T \in \mathcal{ B } \left( H,K \right) \). The <b>adjoint</b> of \( T \) is the unique operator \( T ^ * \in \mathcal{ B } \left( K,H \right) \) satisfying
+        \[
+            \langle T h,k \rangle
+            =
+            \langle h,T ^ * k \rangle
+        \]
+        for every \( h \in H \) and \( k \in K \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-adjoint-exists-and-is-unique">
+    <div class="title">
+        Adjoint Exists and is Unique
+    </div>
+    <div class="content">
+        Every <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-bounded-linear-operator">bounded linear operator</a> between <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert spaces</a> has a unique <a class="knowledge-link" href="/linear_operators/operators_on_hilbert_spaces.html#definition-adjoint-of-a-bounded-operator">adjoint</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-self-adjoint-operator">
+    <div class="title">
+        Self-Adjoint Operator
+    </div>
+    <div class="content">
+        Suppose that \( H \) is a <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert space</a>. An operator \( T \in \mathcal{ B } \left( H \right) \) is <b>self-adjoint</b> if \( T = T ^ * \).
+    </div>
+</div>
+
+<div class="definition" id="definition-normal-operator">
+    <div class="title">
+        Normal Operator
+    </div>
+    <div class="content">
+        Suppose that \( H \) is a <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert space</a>. An operator \( T \in \mathcal{ B } \left( H \right) \) is <b>normal</b> if \( T T ^ * = T ^ * T \).
+    </div>
+</div>
+
+<div class="definition" id="definition-unitary-operator">
+    <div class="title">
+        Unitary Operator
+    </div>
+    <div class="content">
+        Suppose that \( H \) and \( K \) are <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert spaces</a>. A surjective linear map \( U: H \to K \) is <b>unitary</b> if
+        \[
+            \langle U h, U g \rangle
+            =
+            \langle h,g \rangle
+        \]
+        for every \( h,g \in H \).
+    </div>
+</div>
+
+<div class="definition" id="definition-projection-operator">
+    <div class="title">
+        Projection Operator
+    </div>
+    <div class="content">
+        Suppose that \( H \) is a <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert space</a>. An operator \( P \in \mathcal{ B } \left( H \right) \) is a <b>projection</b> if \( P ^ 2 = P \). It is an <b>orthogonal projection</b> if also \( P = P ^ * \).
+    </div>
+</div>
+
+<div class="definition" id="definition-spectrum-of-an-operator">
+    <div class="title">
+        Spectrum of an Operator
+    </div>
+    <div class="content">
+        Suppose that \( T \in \mathcal{ B } \left( H \right) \). The <b>spectrum</b> of \( T \) is
+        \[
+            \sigma \left( T \right)
+            :=
+            \left\{
+                \lambda \in \mathbb{ C } :
+                T - \lambda I \text{ is not invertible}
+            \right\}.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-spectrum-of-a-bounded-operator-is-compact">
+    <div class="title">
+        Spectrum of a Bounded Operator is Compact
+    </div>
+    <div class="content">
+        Suppose that \( T \in \mathcal{ B } \left( H \right) \). Then \( \sigma \left( T \right) \) is a nonempty <a class="knowledge-link" href="/analysis/multi_variable/compactness_and_extreme_values.html#definition-compact">compact</a> subset of \( \mathbb{ C } \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-spectral-radius-formula">
+    <div class="title">
+        Spectral Radius Formula
+    </div>
+    <div class="content">
+        Suppose that \( T \in \mathcal{ B } \left( H \right) \). Then
+        \[
+            \sup
+            \left\{
+                \left\lvert \lambda \right\rvert :
+                \lambda \in \sigma \left( T \right)
+            \right\}
+            =
+            \lim _ { n \to \infty }
+            \lVert T ^ n \rVert ^ { 1/n } .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-spectral-theorem-for-compact-self-adjoint-operators">
+    <div class="title">
+        Spectral Theorem for Compact Self-Adjoint Operators
+    </div>
+    <div class="content">
+        Suppose that \( H \) is a <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert space</a> and \( T \in \mathcal{ B } \left( H \right) \) is compact and <a class="knowledge-link" href="/linear_operators/operators_on_hilbert_spaces.html#definition-self-adjoint-operator">self-adjoint</a>. Then \( H \) has an <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-orthonormal-family">orthonormal</a> basis consisting of eigenvectors of \( T \).
+    </div>
+    <div class="proof"></div>
+</div>

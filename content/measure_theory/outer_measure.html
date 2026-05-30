@@ -1,0 +1,188 @@
+<div class="definition" id="definition-length-of-an-open-interval">
+    <div class="title">
+        Length of an Open Interval
+    </div>
+    <div class="content">
+        The <b>length</b> \( \ell \left( I \right) \) of an open interval \( I \subseteq \mathbb{ R } \) is defined by
+        \[
+            \ell \left( I \right)
+            =
+            \begin{cases}
+                b - a &amp; I = \left( a, b \right) \text{ with } a \lt b, \\
+                0 &amp; I = \emptyset, \\
+                \infty &amp; I = \left( -\infty, a \right) \text{ or } I = \left( a, \infty \right), \\
+                \infty &amp; I = \left( -\infty, \infty \right).
+            \end{cases}
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-outer-measure">
+    <div class="title">
+        Outer Measure
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } \). The <b>outer measure</b> of \( A \) is
+        \[
+            \left\lvert A \right\rvert
+            :=
+            \inf
+            \left\{
+                \sum _ { k = 1 } ^ \infty \ell \left( I _ k \right)
+                :
+                A \subseteq \bigcup _ { k = 1 } ^ \infty I _ k
+                \text{ and each } I _ k \text{ is an open interval}
+            \right\}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-countable-sets-have-outer-measure-zero">
+    <div class="title">
+        Countable Sets Have Outer Measure Zero
+    </div>
+    <div class="content">
+        Every countable subset of \( \mathbb{ R } \) has <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-outer-measure">outer measure</a> \( 0 \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-outer-measure-preserves-order">
+    <div class="title">
+        Outer Measure Preserves Order
+    </div>
+    <div class="content">
+        Suppose that \( A, B \subseteq \mathbb{ R } \) and \( A \subseteq B \). Then
+        \[
+            \left\lvert A \right\rvert \le \left\lvert B \right\rvert.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-translation-of-a-set">
+    <div class="title">
+        Translation of a Set
+    </div>
+    <div class="content">
+        Suppose that \( t \in \mathbb{ R } \) and \( A \subseteq \mathbb{ R } \). Define the <b>translation</b> of \( A \) by \( t \) as
+        \[
+            t + A := \left\{ t + a : a \in A \right\}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-outer-measure-is-translation-invariant">
+    <div class="title">
+        Outer Measure is Translation Invariant
+    </div>
+    <div class="content">
+        Suppose that \( t \in \mathbb{ R } \) and \( A \subseteq \mathbb{ R } \). Then
+        \[
+            \left\lvert t + A \right\rvert = \left\lvert A \right\rvert.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-countable-subadditivity-of-outer-measure">
+    <div class="title">
+        Countable Subadditivity of Outer Measure
+    </div>
+    <div class="content">
+        Suppose that \( A _ 1, A _ 2, \ldots \subseteq \mathbb{ R } \). Then
+        \[
+            \left\lvert \bigcup _ { k = 1 } ^ \infty A _ k \right\rvert
+            \le
+            \sum _ { k = 1 } ^ \infty \left\lvert A _ k \right\rvert.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-open-cover">
+    <div class="title">
+        Open Cover
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } \). A collection \( \mathcal{ C } \) of <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-open">open</a> subsets of \( \mathbb{ R } \) is an <b>open cover</b> of \( A \) if
+        \[
+            A \subseteq \bigcup _ { G \in \mathcal{ C } } G.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-finite-subcover">
+    <div class="title">
+        Finite Subcover
+    </div>
+    <div class="content">
+        Suppose that \( \mathcal{ C } \) is an <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-open-cover">open cover</a> of \( A \subseteq \mathbb{ R } \). We say that \( \mathcal{ C } \) has a <b>finite subcover</b> if there are \( G _ 1, \ldots, G _ n \in \mathcal{ C } \) such that
+        \[
+            A \subseteq G _ 1 \cup \cdots \cup G _ n.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-heine-borel">
+    <div class="title">
+        Heine-Borel Theorem
+    </div>
+    <div class="content">
+        Every <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-open-cover">open cover</a> of a <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a> <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-bounded">bounded</a> subset of \( \mathbb{ R } \) has a <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-finite-subcover">finite subcover</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-outer-measure-of-a-closed-interval">
+    <div class="title">
+        Outer Measure of a Closed Interval
+    </div>
+    <div class="content">
+        Suppose that \( a, b \in \mathbb{ R } \) and \( a \lt b \). Then
+        \[
+            \left\lvert [ a, b ] \right\rvert = b - a.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="corollary" id="corollary-nontrivial-intervals-are-uncountable">
+    <div class="title">
+        Nontrivial Intervals are Uncountable
+    </div>
+    <div class="content">
+        Every interval in \( \mathbb{ R } \) that contains at least two distinct elements is uncountable.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-outer-measure-is-not-additive">
+    <div class="title">
+        Outer Measure is Not Additive
+    </div>
+    <div class="content">
+        There exist disjoint subsets \( A, B \subseteq \mathbb{ R } \) such that
+        \[
+            \left\lvert A \cup B \right\rvert
+            \neq
+            \left\lvert A \right\rvert + \left\lvert B \right\rvert.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-no-countably-additive-translation-invariant-extension-of-length-to-all-subsets">
+    <div class="title">
+        No Countably Additive Translation Invariant Extension of Length to All Subsets
+    </div>
+    <div class="content">
+        There is no function \( \mu: \mathcal{ P } \left( \mathbb{ R } \right) \to [ 0, \infty ] \) such that
+        <ul>
+            <li>\( \mu \left( I \right) = \ell \left( I \right) \) for every open interval \( I \subseteq \mathbb{ R } \),</li>
+            <li>\( \mu \left( \bigcup _ { k = 1 } ^ \infty A _ k \right) = \sum _ { k = 1 } ^ \infty \mu \left( A _ k \right) \) for every pairwise disjoint sequence \( A _ 1, A _ 2, \ldots \subseteq \mathbb{ R } \),</li>
+            <li>\( \mu \left( t + A \right) = \mu \left( A \right) \) for every \( t \in \mathbb{ R } \) and every \( A \subseteq \mathbb{ R } \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>

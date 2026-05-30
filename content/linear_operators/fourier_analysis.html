@@ -1,0 +1,114 @@
+<div class="definition" id="definition-fourier-coefficient">
+    <div class="title">
+        Fourier Coefficient
+    </div>
+    <div class="content">
+        Suppose that \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 1</a> \left( [ -\pi,\pi ] \right) \) and \( n \in \mathbb{ Z } \). The <b>\( n \)-th Fourier coefficient</b> of \( f \) is
+        \[
+            \widehat{ f } \left( n \right)
+            :=
+            \frac{1}{2\pi}
+            \int _ { -\pi } ^ \pi
+            f \left( x \right) e ^ { - i n x }
+            \, d x .
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-fourier-series">
+    <div class="title">
+        Fourier Series
+    </div>
+    <div class="content">
+        Suppose that \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 1</a> \left( [ -\pi,\pi ] \right) \). The <b>Fourier series</b> of \( f \) is the formal series
+        \[
+            \sum _ { n \in \mathbb{ Z } }
+            \widehat{ f } \left( n \right)
+            e ^ { i n x } .
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-dirichlet-kernel">
+    <div class="title">
+        Dirichlet Kernel
+    </div>
+    <div class="content">
+        For \( n \in \mathbb{ Z } ^ + \), the <b>Dirichlet kernel</b> is
+        \[
+            D _ n \left( x \right)
+            :=
+            \sum _ { k=-n } ^ n e ^ { i k x } .
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-fejer-kernel">
+    <div class="title">
+        Fejer Kernel
+    </div>
+    <div class="content">
+        For \( n \in \mathbb{ Z } ^ + \), the <b>Fejer kernel</b> is
+        \[
+            F _ n \left( x \right)
+            :=
+            \frac{1}{n}
+            \sum _ { k=0 } ^ { n-1 } D _ k \left( x \right).
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-riemann-lebesgue-lemma">
+    <div class="title">
+        Riemann-Lebesgue Lemma
+    </div>
+    <div class="content">
+        Suppose that \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 1</a> \left( [ -\pi,\pi ] \right) \). Then
+        \[
+            \lim _ { \left\lvert n \right\rvert \to \infty }
+            \widehat{ f } \left( n \right)
+            =
+            0.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-fejers-theorem">
+    <div class="title">
+        Fejer's Theorem
+    </div>
+    <div class="content">
+        Suppose that \( f \) is continuous and \( 2\pi \)-periodic. Then the Cesaro means of the Fourier series of \( f \) converge uniformly to \( f \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-fourier-series-converges-in-l2">
+    <div class="title">
+        Fourier Series Converges in \( L ^ 2 \)
+    </div>
+    <div class="content">
+        Suppose that \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 2</a> \left( [ -\pi,\pi ] \right) \). Then the partial sums of the <a class="knowledge-link" href="/linear_operators/fourier_analysis.html#definition-fourier-series">Fourier series</a> of \( f \) converge to \( f \) in \( L ^ 2 \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-plancherel-identity-for-fourier-series">
+    <div class="title">
+        Plancherel Identity for Fourier Series
+    </div>
+    <div class="content">
+        Suppose that \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 2</a> \left( [ -\pi,\pi ] \right) \). Then
+        \[
+            \frac{1}{2\pi}
+            \int _ { -\pi } ^ \pi
+            \left\lvert f \left( x \right) \right\rvert ^ 2
+            \, d x
+            =
+            \sum _ { n \in \mathbb{ Z } }
+            \left\lvert \widehat{ f } \left( n \right) \right\rvert ^ 2 .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>

@@ -9,7 +9,7 @@
 }
 
 function linkTarget(link) {
-    return link.getAttribute("href") || "";
+    return link.getAttribute("href") || link.dataset.href || "";
 }
 
 function normalizeTarget(rawTarget) {
@@ -22,6 +22,36 @@ function normalizeTarget(rawTarget) {
 
     url.hash = "";
     return { url: url.toString(), selector };
+}
+
+function isMathKnowledgeLink(link) {
+    return Boolean(link.closest && link.closest("math"));
+}
+
+function expandedKnowledgeFor(link) {
+    const instanceId = link.dataset.expandedKnowledgeInstanceId;
+
+    if (instanceId) {
+        return document.querySelector(`[data-knowledge-instance-id="${CSS.escape(instanceId)}"]`);
+    }
+
+    const expanded = link.nextElementSibling;
+    return expanded && expanded.classList.contains("expanded-knowledge") ? expanded : null;
+}
+
+function insertExpandedKnowledge(link, destination) {
+    const instanceId = `knowledge-${Math.random().toString(36).slice(2)}`;
+    const math = isMathKnowledgeLink(link) ? link.closest("math") : null;
+
+    destination.dataset.knowledgeInstanceId = instanceId;
+    link.dataset.expandedKnowledgeInstanceId = instanceId;
+
+    if (math) {
+        math.after(destination);
+        return;
+    }
+
+    link.after(destination);
 }
 
 async function openKnowledgeLink(link, target) {
@@ -41,7 +71,7 @@ async function openKnowledgeLink(link, target) {
 
         destination.classList.add("expanded-knowledge");
         destination.dataset.knowledgeUrl = `${parsed.url}${parsed.selector}`;
-        link.after(destination);
+        insertExpandedKnowledge(link, destination);
 
         setUpKnowledgeLinks(destination);
         if (window.setUpProofToggles) {
@@ -56,8 +86,8 @@ async function openKnowledgeLink(link, target) {
         return;
     }
 
-    const expanded = link.nextElementSibling;
-    if (!expanded || !expanded.classList.contains("expanded-knowledge")) {
+    const expanded = expandedKnowledgeFor(link);
+    if (!expanded) {
         link.dataset.openedAtLeastOnce = "false";
         await openKnowledgeLink(link, target);
         return;
@@ -94,11 +124,11 @@ function setUpKnowledgeLinks(root) {
     const searchRoot = root || document;
     const links = [];
 
-    if (searchRoot.matches && searchRoot.matches("a.knowledge-link, a.rlink, math a")) {
+    if (searchRoot.matches && searchRoot.matches("a.knowledge-link, a.rlink, math a, math .knowledge-link")) {
         links.push(searchRoot);
     }
 
-    links.push(...searchRoot.querySelectorAll("a.knowledge-link, a.rlink, math a"));
+    links.push(...searchRoot.querySelectorAll("a.knowledge-link, a.rlink, math a, math .knowledge-link"));
     links.forEach(setUpKnowledgeLink);
 }
 

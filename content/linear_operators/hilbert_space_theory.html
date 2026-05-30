@@ -1,0 +1,144 @@
+<div class="definition" id="definition-inner-product-space-mira">
+    <div class="title">
+        Inner Product Space
+    </div>
+    <div class="content">
+        An <b>inner product space</b> is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) over \( \mathbb{ F } \) with a function \( \langle \cdot,\cdot \rangle: V \times V \to \mathbb{ F } \) that is positive definite, linear in one variable, and conjugate symmetric.
+    </div>
+</div>
+
+<div class="definition" id="definition-hilbert-space-mira">
+    <div class="title">
+        Hilbert Space
+    </div>
+    <div class="content">
+        A <b>Hilbert space</b> is an <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-inner-product-space-mira">inner product space</a> that is <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-complete-metric-space">complete</a> with respect to the <a class="knowledge-link" href="/linear_operators/banach_spaces.html#definition-norm-on-a-vector-space">norm</a> \( \lVert v \rVert = \sqrt{ \langle v,v \rangle } \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-cauchy-schwarz-inequality">
+    <div class="title">
+        Cauchy-Schwarz Inequality
+    </div>
+    <div class="content">
+        Suppose that \( V \) is an <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-inner-product-space-mira">inner product space</a> and \( u,v \in V \). Then
+        \[
+            \left\lvert \langle u,v \rangle \right\rvert
+            \le
+            \lVert u \rVert \lVert v \rVert .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-parallelogram-identity">
+    <div class="title">
+        Parallelogram Identity
+    </div>
+    <div class="content">
+        Suppose that \( V \) is an <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-inner-product-space-mira">inner product space</a> and \( u,v \in V \). Then
+        \[
+            \lVert u+v \rVert ^ 2 + \lVert u-v \rVert ^ 2
+            =
+            2 \lVert u \rVert ^ 2 + 2 \lVert v \rVert ^ 2 .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-orthogonal-complement">
+    <div class="title">
+        Orthogonal Complement
+    </div>
+    <div class="content">
+        Suppose that \( M \subseteq H \), where \( H \) is an <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-inner-product-space-mira">inner product space</a>. The <b>orthogonal complement</b> of \( M \) is
+        \[
+            M ^ \perp
+            :=
+            \left\{ h \in H : \langle h,m \rangle = 0 \text{ for every } m \in M \right\}.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-closest-point-projection-onto-closed-convex-set">
+    <div class="title">
+        Closest Point Projection onto Closed Convex Set
+    </div>
+    <div class="content">
+        Suppose that \( H \) is a <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert space</a>, \( C \subseteq H \) is nonempty, <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a>, and convex, and \( h \in H \). Then there exists a unique \( c \in C \) such that
+        \[
+            \lVert h-c \rVert
+            =
+            \inf _ { x \in C } \lVert h-x \rVert .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-orthogonal-decomposition">
+    <div class="title">
+        Orthogonal Decomposition
+    </div>
+    <div class="content">
+        Suppose that \( H \) is a <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert space</a> and \( M \) is a closed linear subspace of \( H \). Then
+        \[
+            H = M \oplus M ^ \perp .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-orthonormal-family">
+    <div class="title">
+        Orthonormal Family
+    </div>
+    <div class="content">
+        A family \( \left( e _ j \right) _ { j \in J } \) in an <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-inner-product-space-mira">inner product space</a> is <b>orthonormal</b> if \( \lVert e _ j \rVert = 1 \) for every \( j \in J \), and \( \langle e _ j,e _ k \rangle = 0 \) whenever \( j \neq k \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-bessels-inequality">
+    <div class="title">
+        Bessel's Inequality
+    </div>
+    <div class="content">
+        Suppose that \( \left( e _ j \right) _ { j \in J } \) is an <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-orthonormal-family">orthonormal family</a> in a <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert space</a> \( H \). Then for every \( h \in H \),
+        \[
+            \sum _ { j \in J }
+            \left\lvert \langle h,e _ j \rangle \right\rvert ^ 2
+            \le
+            \lVert h \rVert ^ 2 .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-parsevals-identity">
+    <div class="title">
+        Parseval's Identity
+    </div>
+    <div class="content">
+        Suppose that \( \left( e _ j \right) _ { j \in J } \) is an <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-orthonormal-family">orthonormal</a> basis of a <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert space</a> \( H \). Then for every \( h \in H \),
+        \[
+            \lVert h \rVert ^ 2
+            =
+            \sum _ { j \in J }
+            \left\lvert \langle h,e _ j \rangle \right\rvert ^ 2 .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-riesz-representation-theorem-for-hilbert-spaces">
+    <div class="title">
+        Riesz Representation Theorem for Hilbert Spaces
+    </div>
+    <div class="content">
+        Suppose that \( H \) is a <a class="knowledge-link" href="/linear_operators/hilbert_space_theory.html#definition-hilbert-space-mira">Hilbert space</a> and \( \varphi: H \to \mathbb{ F } \) is a <a class="knowledge-link" href="/linear_operators/linear_functionals.html#definition-bounded-linear-functional">bounded linear functional</a>. Then there exists a unique \( h \in H \) such that
+        \[
+            \varphi \left( x \right) = \langle x,h \rangle
+        \]
+        for every \( x \in H \).
+    </div>
+    <div class="proof"></div>
+</div>

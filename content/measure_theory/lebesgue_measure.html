@@ -1,0 +1,214 @@
+<div class="theorem" id="theorem-outer-measure-is-additive-when-one-set-is-open">
+    <div class="title">
+        Outer Measure is Additive when One Set is Open
+    </div>
+    <div class="content">
+        Suppose that \( A, G \subseteq \mathbb{ R } \), \( A \cap G = \emptyset \), and \( G \) is open. Then
+        \[
+            \left\lvert A \cup G \right\rvert
+            =
+            \left\lvert A \right\rvert + \left\lvert G \right\rvert.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-outer-measure-is-additive-when-one-set-is-closed">
+    <div class="title">
+        Outer Measure is Additive when One Set is Closed
+    </div>
+    <div class="content">
+        Suppose that \( A, F \subseteq \mathbb{ R } \), \( A \cap F = \emptyset \), and \( F \) is closed. Then
+        \[
+            \left\lvert A \cup F \right\rvert
+            =
+            \left\lvert A \right\rvert + \left\lvert F \right\rvert.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-borel-sets-can-be-approximated-from-below-by-closed-sets">
+    <div class="title">
+        Borel Sets Can be Approximated from Below by Closed Sets
+    </div>
+    <div class="content">
+        Suppose that \( B \subseteq \mathbb{ R } \) is a Borel set. For every \( \epsilon \in \mathbb{ R } ^ + \), there exists a closed set \( F \subseteq B \) such that
+        \[
+            \left\lvert B \setminus F \right\rvert \lt \epsilon.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-outer-measure-is-additive-when-one-set-is-borel">
+    <div class="title">
+        Outer Measure is Additive when One Set is Borel
+    </div>
+    <div class="content">
+        Suppose that \( A, B \subseteq \mathbb{ R } \), \( A \cap B = \emptyset \), and \( B \) is a Borel set. Then
+        \[
+            \left\lvert A \cup B \right\rvert
+            =
+            \left\lvert A \right\rvert + \left\lvert B \right\rvert.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-there-is-a-non-borel-set-of-finite-outer-measure">
+    <div class="title">
+        There is a Non-Borel Set of Finite Outer Measure
+    </div>
+    <div class="content">
+        There exists a set \( B \subseteq \mathbb{ R } \) such that \( \left\lvert B \right\rvert \lt \infty \) and \( B \) is not a Borel set.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-outer-measure-is-a-measure-on-borel-sets">
+    <div class="title">
+        Outer Measure is a Measure on Borel Sets
+    </div>
+    <div class="content">
+        Let \( \mathcal{ B } \) be the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-sigma-algebra">Borel \( \sigma \)-algebra</a> on \( \mathbb{ R } \). Outer measure restricted to \( \mathcal{ B } \) is a measure on \( \left( \mathbb{ R }, \mathcal{ B } \right) \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-lebesgue-measure-on-borel-sets">
+    <div class="title">
+        Lebesgue Measure on Borel Sets
+    </div>
+    <div class="content">
+        Let \( \mathcal{ B } \) be the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-sigma-algebra">Borel \( \sigma \)-algebra</a> on \( \mathbb{ R } \). <b>Lebesgue measure on Borel sets</b> is the measure on \( \left( \mathbb{ R }, \mathcal{ B } \right) \) that sends each <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel set</a> to its outer measure.
+    </div>
+</div>
+
+<div class="definition" id="definition-lebesgue-measurable-set">
+    <div class="title">
+        Lebesgue Measurable Set
+    </div>
+    <div class="content">
+        A set \( A \subseteq \mathbb{ R } \) is <b>Lebesgue measurable</b> if there exists a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel set</a> \( B \subseteq A \) such that
+        \[
+            \left\lvert A \setminus B \right\rvert = 0.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-equivalent-characterizations-of-lebesgue-measurable-sets">
+    <div class="title">
+        Equivalent Characterizations of Lebesgue Measurable Sets
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } \). The following are equivalent:
+        <ul>
+            <li>\( A \) is Lebesgue measurable.</li>
+            <li>For every \( \epsilon \in \mathbb{ R } ^ + \), there exists a closed set \( F \subseteq A \) such that \( \left\lvert A \setminus F \right\rvert \lt \epsilon \).</li>
+            <li>There are closed sets \( F _ 1, F _ 2, \ldots \subseteq A \) such that \( \left\lvert A \setminus \bigcup _ { k = 1 } ^ \infty F _ k \right\rvert = 0 \).</li>
+            <li>There exists a Borel set \( B \subseteq A \) such that \( \left\lvert A \setminus B \right\rvert = 0 \).</li>
+            <li>For every \( \epsilon \in \mathbb{ R } ^ + \), there exists an open set \( G \supseteq A \) such that \( \left\lvert G \setminus A \right\rvert \lt \epsilon \).</li>
+            <li>There are open sets \( G _ 1, G _ 2, \ldots \supseteq A \) such that \( \left\lvert \left( \bigcap _ { k = 1 } ^ \infty G _ k \right) \setminus A \right\rvert = 0 \).</li>
+            <li>There exists a Borel set \( B \supseteq A \) such that \( \left\lvert B \setminus A \right\rvert = 0 \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-outer-measure-is-a-measure-on-lebesgue-measurable-sets">
+    <div class="title">
+        Outer Measure is a Measure on Lebesgue Measurable Sets
+    </div>
+    <div class="content">
+        The Lebesgue measurable subsets of \( \mathbb{ R } \) form a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> \( \mathcal{ L } \), and outer measure restricted to \( \mathcal{ L } \) is a measure on \( \left( \mathbb{ R }, \mathcal{ L } \right) \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-lebesgue-measure-on-lebesgue-measurable-sets">
+    <div class="title">
+        Lebesgue Measure on Lebesgue Measurable Sets
+    </div>
+    <div class="content">
+        Let \( \mathcal{ L } \) be the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> of Lebesgue measurable subsets of \( \mathbb{ R } \). <b>Lebesgue measure on Lebesgue measurable sets</b> is the measure on \( \left( \mathbb{ R }, \mathcal{ L } \right) \) that sends each Lebesgue measurable set to its outer measure.
+    </div>
+</div>
+
+<div class="definition" id="definition-cantor-set">
+    <div class="title">
+        Cantor Set
+    </div>
+    <div class="content">
+        Define \( G _ 1 := \left( 1 / 3, 2 / 3 \right) \). For \( n \gt 1 \), let \( G _ n \) be the union of the open middle thirds of the intervals remaining in
+        \[
+            [ 0, 1 ] \setminus \bigcup _ { j = 1 } ^ { n - 1 } G _ j.
+        \]
+        The <b>Cantor set</b> is
+        \[
+            C := [ 0, 1 ] \setminus \bigcup _ { n = 1 } ^ \infty G _ n.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-base-three-description-of-the-cantor-set">
+    <div class="title">
+        Base Three Description of the Cantor Set
+    </div>
+    <div class="content">
+        The Cantor set is the set of all \( x \in [ 0, 1 ] \) that have a base \( 3 \) representation using only the digits \( 0 \) and \( 2 \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-basic-properties-of-the-cantor-set">
+    <div class="title">
+        Basic Properties of the Cantor Set
+    </div>
+    <div class="content">
+        The Cantor set \( C \) is closed, has Lebesgue measure \( 0 \), and contains no interval with more than one element.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-cantor-function">
+    <div class="title">
+        Cantor Function
+    </div>
+    <div class="content">
+        The <b>Cantor function</b> \( \Lambda: [ 0, 1 ] \to [ 0, 1 ] \) is defined by converting base \( 3 \) representations to base \( 2 \) representations: for \( x \in C \), replace each digit \( 2 \) in the \( 0 \)-and-\( 2 \) base \( 3 \) representation by \( 1 \); for \( x \notin C \), truncate its base \( 3 \) representation immediately after the first digit \( 1 \), replace any earlier \( 2 \)'s by \( 1 \)'s, and read the result as a base \( 2 \) number.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-cantor-function">
+    <div class="title">
+        Cantor Function
+    </div>
+    <div class="content">
+        The Cantor function \( \Lambda \) is a continuous increasing function from \( [ 0, 1 ] \) onto \( [ 0, 1 ] \). Moreover,
+        \[
+            \Lambda \left( C \right) = [ 0, 1 ].
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="corollary" id="corollary-cantor-set-is-uncountable">
+    <div class="title">
+        Cantor Set is Uncountable
+    </div>
+    <div class="content">
+        The Cantor set is uncountable.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-continuous-image-of-a-lebesgue-measurable-set-can-be-nonmeasurable">
+    <div class="title">
+        Continuous Image of a Lebesgue Measurable Set Can be Nonmeasurable
+    </div>
+    <div class="content">
+        There exists a Lebesgue measurable set \( A \subseteq [ 0, 1 ] \) such that \( \left\lvert A \right\rvert = 0 \) and \( \Lambda \left( A \right) \) is not Lebesgue measurable.
+    </div>
+    <div class="proof"></div>
+</div>

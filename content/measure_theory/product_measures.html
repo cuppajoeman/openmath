@@ -1,0 +1,113 @@
+<div class="definition" id="definition-product-sigma-algebra">
+    <div class="title">
+        Product \( \sigma \)-Algebra
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) and \( \left( Y, \mathcal{ T } \right) \) are <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-space">measurable spaces</a>. The <b>product \( \sigma \)-algebra</b> \( \mathcal{ S } \otimes \mathcal{ T } \) is the smallest <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> on \( X \times Y \) containing every rectangle \( A \times B \) with \( A \in \mathcal{ S } \) and \( B \in \mathcal{ T } \).
+    </div>
+</div>
+
+<div class="definition" id="definition-measurable-rectangle">
+    <div class="title">
+        Measurable Rectangle
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S } \right) \) and \( \left( Y, \mathcal{ T } \right) \) are <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-space">measurable spaces</a>. A <b>measurable rectangle</b> in \( X \times Y \) is a set of the form \( A \times B \), where \( A \in \mathcal{ S } \) and \( B \in \mathcal{ T } \).
+    </div>
+</div>
+
+<div class="definition" id="definition-section-of-a-set">
+    <div class="title">
+        Section of a Set
+    </div>
+    <div class="content">
+        Suppose that \( E \subseteq X \times Y \). For \( x \in X \), define
+        \[
+            E _ x := \left\{ y \in Y : \left( x, y \right) \in E \right\}.
+        \]
+        For \( y \in Y \), define
+        \[
+            E ^ y := \left\{ x \in X : \left( x, y \right) \in E \right\}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-sections-of-measurable-sets-are-measurable">
+    <div class="title">
+        Sections of Measurable Sets are Measurable
+    </div>
+    <div class="content">
+        Suppose that \( E \in <a class="knowledge-link" href="/measure_theory/product_measures.html#definition-product-sigma-algebra">\mathcal{ S } \otimes \mathcal{ T }</a> \). Then \( E _ x \in \mathcal{ T } \) for every \( x \in X \), and \( E ^ y \in \mathcal{ S } \) for every \( y \in Y \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-product-measure">
+    <div class="title">
+        Product Measure
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) and \( \left( Y, \mathcal{ T }, \nu \right) \) are \( \sigma \)-finite <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure spaces</a>. The <b>product measure</b> \( \mu \times \nu \) is the <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">measure</a> on \( <a class="knowledge-link" href="/measure_theory/product_measures.html#definition-product-sigma-algebra">\mathcal{ S } \otimes \mathcal{ T }</a> \) satisfying
+        \[
+            \left( \mu \times \nu \right) \left( A \times B \right)
+            =
+            \mu \left( A \right) \nu \left( B \right)
+        \]
+        for every \( A \in \mathcal{ S } \) and \( B \in \mathcal{ T } \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-tonellis-theorem">
+    <div class="title">
+        Tonelli's Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) and \( \left( Y, \mathcal{ T }, \nu \right) \) are \( \sigma \)-finite <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure spaces</a> and \( f: X \times Y \to [0,\infty] \) is \( <a class="knowledge-link" href="/measure_theory/product_measures.html#definition-product-sigma-algebra">\mathcal{ S } \otimes \mathcal{ T }</a> \)-measurable. Then the section functions are measurable and
+        \[
+            \int _ { X \times Y } f \, d\left( \mu \times \nu \right)
+            =
+            \int _ X \left( \int _ Y f \left( x,y \right) \, d\nu \left( y \right) \right) d\mu \left( x \right)
+            =
+            \int _ Y \left( \int _ X f \left( x,y \right) \, d\mu \left( x \right) \right) d\nu \left( y \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-fubinis-theorem">
+    <div class="title">
+        Fubini's Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) and \( \left( Y, \mathcal{ T }, \nu \right) \) are \( \sigma \)-finite <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure spaces</a> and \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 1</a> \left( \mu \times \nu \right) \). Then \( f \left( x,\cdot \right) \in L ^ 1 \left( \nu \right) \) for almost every \( x \), \( f \left( \cdot,y \right) \in L ^ 1 \left( \mu \right) \) for almost every \( y \), and the iterated integrals exist and are equal to \( \int f \, d\left( \mu \times \nu \right) \).
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-lebesgue-measure-on-products">
+    <div class="title">
+        Lebesgue Measure on Products
+    </div>
+    <div class="content">
+        <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#definition-lebesgue-measure-on-lebesgue-measurable-sets">Lebesgue measure</a> on \( \mathbb{ R } ^ { m+n } \) agrees with the <a class="knowledge-link" href="/measure_theory/product_measures.html#definition-product-measure">product</a> of Lebesgue measure on \( \mathbb{ R } ^ m \) and Lebesgue measure on \( \mathbb{ R } ^ n \) on product-measurable sets.
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-change-of-variables-for-lebesgue-integrals">
+    <div class="title">
+        Change of Variables for Lebesgue Integrals
+    </div>
+    <div class="content">
+        Suppose that \( U,V \subseteq \mathbb{ R } ^ n \) are <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-open">open</a> and \( \Phi: U \to V \) is a continuously differentiable bijection with continuously differentiable inverse. If \( f: V \to [0,\infty] \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a>, then
+        \[
+            \int _ V f \, d\lambda
+            =
+            \int _ U
+            f \left( \Phi \left( x \right) \right)
+            \left\lvert \det D\Phi \left( x \right) \right\rvert
+            \, d\lambda \left( x \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>

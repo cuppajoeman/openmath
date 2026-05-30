@@ -1,0 +1,353 @@
+<div class="definition" id="definition-measurable-partition">
+    <div class="title">
+        Measurable Partition
+    </div>
+    <div class="content">
+        Suppose that \( \mathcal{ S } \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> on a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a> \( X \). An <b>\( \mathcal{ S } \)-partition</b> of \( X \) is a finite collection \( A _ 1, \ldots, A _ m \) of pairwise disjoint sets in \( \mathcal{ S } \) such that
+        \[
+            A _ 1 \cup \cdots \cup A _ m = X.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-lower-lebesgue-sum">
+    <div class="title">
+        Lower Lebesgue Sum
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>, \( f: X \to [0,\infty] \) is \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-extended-real-valued-measurable-function">measurable</a>, and \( P = \left( A _ 1, \ldots, A _ m \right) \) is an \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/integration.html#definition-measurable-partition">partition</a> of \( X \). The <b>lower Lebesgue sum</b> of \( f \) over \( P \) is
+        \[
+            L \left( f, P \right)
+            :=
+            \sum _ { j = 1 } ^ m \mu \left( A _ j \right) \inf _ { A _ j } f.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-integral-of-a-nonnegative-measurable-function">
+    <div class="title">
+        Integral of a Nonnegative Measurable Function
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( f: X \to [0,\infty] \) is \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-extended-real-valued-measurable-function">measurable</a>. The <b>integral</b> of \( f \) with respect to \( \mu \) is
+        \[
+            \int f \, d\mu
+            :=
+            \sup \left\{ L \left( f, P \right): P \text{ is an } \mathcal{ S }\text{-partition of } X \right\}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-integral-of-a-characteristic-function">
+    <div class="title">
+        Integral of a Characteristic Function
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( E \in \mathcal{ S } \). Then
+        \[
+            \int \chi _ E \, d\mu = \mu \left( E \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-integral-of-a-simple-function">
+    <div class="title">
+        Integral of a Simple Function
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>, \( E _ 1, \ldots, E _ n \in \mathcal{ S } \) are pairwise disjoint, and \( c _ 1, \ldots, c _ n \in [0,\infty] \). Then
+        \[
+            \int \left( \sum _ { k = 1 } ^ n c _ k \chi _ { E _ k } \right) d\mu
+            =
+            \sum _ { k = 1 } ^ n c _ k \mu \left( E _ k \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="proposition" id="proposition-integration-of-nonnegative-functions-is-order-preserving">
+    <div class="title">
+        Integration of Nonnegative Functions is Order Preserving
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( f, g: X \to [0,\infty] \) are \( \mathcal{ S } \)-measurable. If \( f \left( x \right) \le g \left( x \right) \) for every \( x \in X \), then
+        \[
+            \int f \, d\mu \le \int g \, d\mu.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-monotone-convergence">
+    <div class="title">
+        Monotone Convergence Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( 0 \le f _ 1 \le f _ 2 \le \cdots \) is an increasing sequence of \( \mathcal{ S } \)-measurable functions. Define \( f: X \to [0,\infty] \) by
+        \[
+            f \left( x \right) := \lim _ { k \to \infty } f _ k \left( x \right).
+        \]
+        Then
+        \[
+            \lim _ { k \to \infty } \int f _ k \, d\mu
+            =
+            \int f \, d\mu.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-additivity-of-integration-for-nonnegative-functions">
+    <div class="title">
+        Additivity of Integration for Nonnegative Functions
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( f, g: X \to [0,\infty] \) are \( \mathcal{ S } \)-measurable. Then
+        \[
+            \int \left( f + g \right) d\mu
+            =
+            \int f \, d\mu + \int g \, d\mu.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-positive-part-of-a-function">
+    <div class="title">
+        Positive Part of a Function
+    </div>
+    <div class="content">
+        Suppose that \( f: X \to [ -\infty, \infty ] \). The <b>positive part</b> of \( f \) is the function \( f ^ +: X \to [0,\infty] \) defined by
+        \[
+            f ^ + \left( x \right)
+            :=
+            \begin{cases}
+                f \left( x \right) &amp; f \left( x \right) \ge 0, \\
+                0 &amp; f \left( x \right) \lt 0.
+            \end{cases}
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-negative-part-of-a-function">
+    <div class="title">
+        Negative Part of a Function
+    </div>
+    <div class="content">
+        Suppose that \( f: X \to [ -\infty, \infty ] \). The <b>negative part</b> of \( f \) is the function \( f ^ -: X \to [0,\infty] \) defined by
+        \[
+            f ^ - \left( x \right)
+            :=
+            \begin{cases}
+                0 &amp; f \left( x \right) \ge 0, \\
+                -f \left( x \right) &amp; f \left( x \right) \lt 0.
+            \end{cases}
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-integral-of-an-extended-real-valued-function">
+    <div class="title">
+        Integral of an Extended Real-Valued Function
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( f: X \to [ -\infty, \infty ] \) is \( \mathcal{ S } \)-measurable. If at least one of \( \int f ^ + \, d\mu \) and \( \int f ^ - \, d\mu \) is finite, define
+        \[
+            \int f \, d\mu
+            :=
+            \int f ^ + \, d\mu - \int f ^ - \, d\mu.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-additivity-of-integration">
+    <div class="title">
+        Additivity of Integration
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( f, g: X \to \mathbb{ R } \) are \( \mathcal{ S } \)-measurable. If
+        \[
+            \int \left\lvert f \right\rvert d\mu \lt \infty
+            \qquad \text{and} \qquad
+            \int \left\lvert g \right\rvert d\mu \lt \infty,
+        \]
+        then
+        \[
+            \int \left( f + g \right) d\mu
+            =
+            \int f \, d\mu + \int g \, d\mu.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-integration-on-a-subset">
+    <div class="title">
+        Integration on a Subset
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>, \( E \in \mathcal{ S } \), and \( f: X \to [ -\infty, \infty ] \) is \( \mathcal{ S } \)-measurable. Define
+        \[
+            \int _ E f \, d\mu
+            :=
+            \int \chi _ E f \, d\mu
+        \]
+        whenever the integral on the right is defined.
+    </div>
+</div>
+
+<div class="definition" id="definition-almost-every">
+    <div class="title">
+        Almost Every
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>. A set \( E \in \mathcal{ S } \) contains <b>\( \mu \)-almost every</b> element of \( X \) if
+        \[
+            \mu \left( X \setminus E \right) = 0.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-bounded-convergence">
+    <div class="title">
+        Bounded Convergence Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> with \( \mu \left( X \right) \lt \infty \). Suppose that \( f _ 1, f _ 2, \ldots: X \to \mathbb{ R } \) are \( \mathcal{ S } \)-measurable and <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-pointwise-convergence-of-functions">converge pointwise</a> to \( f: X \to \mathbb{ R } \). If there exists \( c \in \mathbb{ R } ^ + \) such that \( \left\lvert f _ k \left( x \right) \right\rvert \le c \) for every \( k \in \mathbb{ Z } ^ + \) and every \( x \in X \), then
+        \[
+            \lim _ { k \to \infty } \int f _ k \, d\mu
+            =
+            \int f \, d\mu.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-dominated-convergence">
+    <div class="title">
+        Dominated Convergence Theorem
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>, \( f: X \to [ -\infty, \infty ] \) is \( \mathcal{ S } \)-measurable, and \( f _ 1, f _ 2, \ldots: X \to [ -\infty, \infty ] \) are \( \mathcal{ S } \)-measurable. Suppose that \( f _ k \to f \) for <a class="knowledge-link" href="/measure_theory/integration.html#definition-almost-every">almost every</a> \( x \in X \). If there exists an \( \mathcal{ S } \)-measurable \( g: X \to [0,\infty] \) such that
+        \[
+            \int g \, d\mu \lt \infty
+            \qquad \text{and} \qquad
+            \left\lvert f _ k \left( x \right) \right\rvert \le g \left( x \right)
+        \]
+        for every \( k \in \mathbb{ Z } ^ + \) and almost every \( x \in X \), then
+        \[
+            \lim _ { k \to \infty } \int f _ k \, d\mu
+            =
+            \int f \, d\mu.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="theorem" id="theorem-riemann-integrable-iff-continuous-almost-everywhere">
+    <div class="title">
+        Riemann Integrable iff Continuous Almost Everywhere
+    </div>
+    <div class="content">
+        Suppose that \( a \lt b \) and \( f: [ a, b ] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded</a>. Then \( f \) is <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-riemann-integrable-function">Riemann integrable</a> if and only if
+        \[
+            \left\lvert
+                \left\{ x \in [ a, b ] : f \text{ is not continuous at } x \right\}
+            \right\rvert
+            =
+            0.
+        \]
+        Moreover, if \( f \) is Riemann integrable and \( \lambda \) is Lebesgue measure on \( \mathbb{ R } \), then \( f \) is Lebesgue measurable and
+        \[
+            \int _ a ^ b f
+            =
+            \int _ { [ a, b ] } f \, d\lambda.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-lebesgue-integral-on-an-interval">
+    <div class="title">
+        Lebesgue Integral on an Interval
+    </div>
+    <div class="content">
+        Suppose that \( -\infty \le a \lt b \le \infty \) and \( f: \left( a, b \right) \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-lebesgue-measurable-function">Lebesgue measurable</a>. Let \( \lambda \) be Lebesgue measure on \( \mathbb{ R } \). Define
+        \[
+            \int _ a ^ b f
+            :=
+            \int _ { \left( a, b \right) } f \, d\lambda
+        \]
+        and define \( \int _ b ^ a f := - \int _ a ^ b f \).
+    </div>
+</div>
+
+<div class="definition" id="definition-l1-norm">
+    <div class="title">
+        \( L ^ 1 \)-Norm
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( f: X \to [ -\infty, \infty ] \) is \( \mathcal{ S } \)-measurable. Define
+        \[
+            \lVert f \rVert _ 1
+            :=
+            \int \left\lvert f \right\rvert d\mu.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-l1-space">
+    <div class="title">
+        \( L ^ 1 \)-Space
+    </div>
+    <div class="content">
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>. The <b>Lebesgue space</b> \( L ^ 1 \left( \mu \right) \) is
+        \[
+            L ^ 1 \left( \mu \right)
+            :=
+            \left\{ f: X \to \mathbb{ R } : f \text{ is } \mathcal{ S }\text{-measurable and } \lVert f \rVert _ 1 \lt \infty \right\}.
+        \]
+    </div>
+</div>
+
+<div class="theorem" id="theorem-approximation-in-l1-by-simple-functions">
+    <div class="title">
+        Approximation in \( L ^ 1 \) by Simple Functions
+    </div>
+    <div class="content">
+        Suppose that \( \mu \) is a measure and \( f \in L ^ 1 \left( \mu \right) \). For every \( \epsilon \in \mathbb{ R } ^ + \), there exists a <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-simple-function">simple function</a> \( g \in L ^ 1 \left( \mu \right) \) such that
+        \[
+            \lVert f - g \rVert _ 1 \lt \epsilon.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+
+<div class="definition" id="definition-step-function">
+    <div class="title">
+        Step Function
+    </div>
+    <div class="content">
+        A <b>step function</b> is a function \( g: \mathbb{ R } \to \mathbb{ R } \) of the form
+        \[
+            g =
+            a _ 1 \chi _ { I _ 1 } + \cdots + a _ n \chi _ { I _ n },
+        \]
+        where \( I _ 1, \ldots, I _ n \) are intervals of \( \mathbb{ R } \) and \( a _ 1, \ldots, a _ n \in \mathbb{ R } \setminus \left\{ 0 \right\} \).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-approximation-in-l1-by-continuous-functions">
+    <div class="title">
+        Approximation in \( L ^ 1 \) by Continuous Functions
+    </div>
+    <div class="content">
+        Suppose that \( f \in L ^ 1 \left( \mathbb{ R } \right) \). For every \( \epsilon \in \mathbb{ R } ^ + \), there exists a <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous function</a> \( g: \mathbb{ R } \to \mathbb{ R } \) such that
+        \[
+            \lVert f - g \rVert _ 1 \lt \epsilon
+        \]
+        and \( \left\{ x \in \mathbb{ R } : g \left( x \right) \neq 0 \right\} \) is bounded.
+    </div>
+    <div class="proof"></div>
+</div>
