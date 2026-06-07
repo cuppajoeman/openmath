@@ -7,15 +7,33 @@
         <ul>
             <li>\( 0 \notin S \left( \mathbb{ N } \right) \).</li>
             <li>\( S \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a>.</li>
-            <li>If \( A \subseteq \mathbb{ N } \), \( 0 \in A \), and \( S \left( A \right) \subseteq A \), then \( A = \mathbb{ N } \).</li>
+            <li>If \( A \subseteq \mathbb{ N } \), \( 0 \in A \), and <a class="knowledge-link" href="/fundamentals/functions.html#definition-image-of-a-set">\( S \left( A \right) \)</a> \( \subseteq A \), then \( A = \mathbb{ N } \).</li>
         </ul>
         The elements of \( \mathbb{ N } \) are called <b>natural numbers</b>.
     </div>
 </div>
 
-<div class="definition" id="definition-recursive-addition-and-multiplication-on-naturals">
+<p>
+    The familiar natural numbers are recovered by repeatedly applying the successor function from the <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-peano-natural-numbers">Peano natural numbers</a>. We write
+    \[
+        1 := S \left( 0 \right),
+        \qquad
+        2 := S \left( 1 \right),
+        \qquad
+        3 := S \left( 2 \right),
+        \qquad
+        \ldots
+    \]
+    so \( S \) is the operation of moving to the next natural number. The final Peano axiom is the induction principle. To prove a statement \( P \left( n \right) \) for every \( n \in \mathbb{ N } \), it is enough to prove \( P \left( 0 \right) \), and then prove that \( P \left( n \right) \) implies \( P \left( S \left( n \right) \right) \). Indeed, let \( A \) be the set of natural numbers for which \( P \) is true. The base case says \( 0 \in A \), and the implication \( P \left( n \right) \Rightarrow P \left( S \left( n \right) \right) \) says that whenever \( n \in A \), its successor \( S \left( n \right) \) is also in \( A \). Thus \( A \) contains \( 0 \), then \( S \left( 0 \right) \), then \( S \left( S \left( 0 \right) \right) \), and so on. The Peano induction axiom says that any subset of \( \mathbb{ N } \) with this property must already be all of \( \mathbb{ N } \), so \( P \) holds for every natural number.
+</p>
+
+<p>
+    Another way to read the induction axiom is that a proper finite initial piece of the natural numbers cannot be closed under successors. If \( A \) contains only finitely many familiar natural numbers, then among them there is a last one, the number obtained by applying \( S \) the most times. Applying \( S \) to that element produces the next natural number, which was not already in \( A \). Thus for such a finite \( A \), the image \( S \left( A \right) \) would include an element outside \( A \), so \( S \left( A \right) \subseteq A \) would fail. The axiom says that the only subset of \( \mathbb{ N } \) that contains \( 0 \) and survives this successor test forever is \( \mathbb{ N } \) itself.
+</p>
+
+<div class="definition" id="definition-recursive-addition-on-natural-numbers">
     <div class="title">
-        Recursive Addition and Multiplication on Naturals
+        Recursive Addition on Natural Numbers
     </div>
     <div class="content">
         Addition on \( \mathbb{ N } \) is defined recursively by
@@ -24,6 +42,14 @@
             \qquad
             a + S \left( b \right) = S \left( a + b \right).
         \]
+    </div>
+</div>
+
+<div class="definition" id="definition-recursive-multiplication-on-natural-numbers">
+    <div class="title">
+        Recursive Multiplication on Natural Numbers
+    </div>
+    <div class="content">
         Multiplication on \( \mathbb{ N } \) is defined recursively by
         \[
             a \cdot 0 = 0,
@@ -33,14 +59,240 @@
     </div>
 </div>
 
-<div class="theorem" id="theorem-natural-numbers-satisfy-arithmetic-laws">
+<div class="proposition" id="proposition-zero-is-additive-identity-for-natural-numbers">
     <div class="title">
-        Natural Numbers Satisfy Arithmetic Laws
+        Zero is Additive Identity for Natural Numbers
     </div>
     <div class="content">
-        The recursively defined addition and multiplication on \( \mathbb{ N } \) are associative and commutative, multiplication distributes over addition, \( 0 \) is an additive identity, and \( S \left( 0 \right) \) is a multiplicative identity.
+        The element \( 0 \) is an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity element</a> for addition on \( \mathbb{ N } \). That is, for every \( a \in \mathbb{ N } \),
+        \[
+            0 + a = a = a + 0.
+        \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>We must show that \( 0 + a = a \) and that \( a + 0 = a \) for every \( a \in \mathbb{ N } \). The latter equality is part of the <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-recursive-addition-on-natural-numbers">recursive definition of addition</a>.</p>
+        <p>To handle \( 0 + a = a \), we prove the claim by induction on \( a \). For the base case, \( 0 + 0 = 0 \) by the recursive definition. Now assume \( 0 + k = k \) for some \( k \in \mathbb{ N } \). We want to show that \( 0 + S \left( k \right) = S \left( k \right) \). By the recursive definition,
+        \[
+            0 + S \left( k \right)
+            =
+            S \left( 0 + k \right).
+        \]
+        By the inductive hypothesis, \( 0 + k = k \), so \( S \left( 0 + k \right) = S \left( k \right) \). Therefore \( 0 + S \left( k \right) = S \left( k \right) \). By induction, \( 0 + a = a \) for every \( a \in \mathbb{ N } \), so \( 0 \) is an identity element for addition.</p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-addition-on-natural-numbers-is-associative">
+    <div class="title">
+        Addition on Natural Numbers is Associative
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-recursive-addition-on-natural-numbers">recursively defined addition</a> on \( \mathbb{ N } \) is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative</a>. That is, for all \( a, b, c \in \mathbb{ N } \),
+        \[
+            \left( a + b \right) + c = a + \left( b + c \right).
+        \]
+    </div>
+    <div class="proof">
+        <p>Let \( a, b \in \mathbb{ N } \). We prove the claim by induction on \( c \).</p>
+        <p>For the base case, suppose \( c = 0 \). We want to show
+        \[
+            \left( a + b \right) + 0
+            =
+            a + \left( b + 0 \right).
+        \]
+        Since <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#proposition-zero-is-additive-identity-for-natural-numbers">zero is an additive identity</a>, we have \( \left( a + b \right) + 0 = a + b \) and \( a + \left( b + 0 \right) = a + b \). Thus the base case holds.</p>
+        <p>Now assume
+        \[
+            \left( a + b \right) + c
+            =
+            a + \left( b + c \right).
+        \]
+        We want to prove
+        \[
+            \left( a + b \right) + S \left( c \right)
+            =
+            a + \left( b + S \left( c \right) \right).
+        \]
+        By the <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-recursive-addition-on-natural-numbers">recursive definition of addition</a>,
+        \[
+            \left( a + b \right) + S \left( c \right)
+            =
+            S \left( \left( a + b \right) + c \right).
+        \]
+        On the other hand, start with \( a + \left( b + S \left( c \right) \right) \). Applying the same recursive rule to \( b + S \left( c \right) \) gives \( b + S \left( c \right) = S \left( b + c \right) \). Then applying the recursive rule again to \( a + S \left( b + c \right) \) gives
+        \[
+            a + \left( b + S \left( c \right) \right)
+            =
+            a + S \left( b + c \right)
+            =
+            S \left( a + \left( b + c \right) \right).
+        \]
+        By the inductive hypothesis, \( a + \left( b + c \right) = \left( a + b \right) + c \), so both sides are equal to \( S \left( \left( a + b \right) + c \right) \). Therefore addition is associative.</p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-addition-on-natural-numbers-is-commutative">
+    <div class="title">
+        Addition on Natural Numbers is Commutative
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-recursive-addition-on-natural-numbers">recursively defined addition</a> on \( \mathbb{ N } \) is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-operation">commutative</a>. That is, for all \( a, b \in \mathbb{ N } \),
+        \[
+            a + b = b + a.
+        \]
+    </div>
+    <div class="proof">
+        <p>First prove by induction on \( b \) that
+        \[
+            S \left( a \right) + b = S \left( a + b \right).
+        \]
+        The base case follows from \( S \left( a \right) + 0 = S \left( a \right) = S \left( a + 0 \right) \), and the successor step follows by applying the recursive definition to both sides.</p>
+        <p>Now prove \( a + b = b + a \) by induction on \( b \). The base case is \( a + 0 = a = 0 + a \), using that <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#proposition-zero-is-additive-identity-for-natural-numbers">zero is an additive identity</a>. If \( a + b = b + a \), then
+        \[
+            a + S \left( b \right)
+            =
+            S \left( a + b \right)
+            =
+            S \left( b + a \right)
+            =
+            S \left( b \right) + a.
+        \]
+        Hence addition is commutative.</p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-successor-of-zero-is-multiplicative-identity-for-natural-numbers">
+    <div class="title">
+        Successor of Zero is Multiplicative Identity for Natural Numbers
+    </div>
+    <div class="content">
+        The element \( S \left( 0 \right) \) is an <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity element</a> for multiplication on \( \mathbb{ N } \). That is, for every \( a \in \mathbb{ N } \),
+        \[
+            S \left( 0 \right) \cdot a = a = a \cdot S \left( 0 \right).
+        \]
+    </div>
+    <div class="proof">
+        <p>First note that \( S \left( a \right) = a + S \left( 0 \right) \), since
+        \[
+            a + S \left( 0 \right) = S \left( a + 0 \right) = S \left( a \right).
+        \]
+        Also \( a \cdot 0 = 0 \) by definition.</p>
+        <p>The element \( S \left( 0 \right) \) is a right multiplicative identity because
+        \[
+            a \cdot S \left( 0 \right)
+            =
+            a \cdot 0 + a
+            =
+            0 + a
+            =
+            a,
+        \]
+        using that <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#proposition-zero-is-additive-identity-for-natural-numbers">zero is an additive identity</a>.</p>
+        <p>It is a left multiplicative identity by induction on \( a \). The base case is \( S \left( 0 \right) \cdot 0 = 0 \). If \( S \left( 0 \right) \cdot a = a \), then
+        \[
+            S \left( 0 \right) \cdot S \left( a \right)
+            =
+            S \left( 0 \right) \cdot a + S \left( 0 \right)
+            =
+            a + S \left( 0 \right)
+            =
+            S \left( a \right).
+        \]
+        Thus \( S \left( 0 \right) \) is a multiplicative identity.</p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-multiplication-distributes-over-addition-on-natural-numbers">
+    <div class="title">
+        Multiplication Distributes Over Addition on Natural Numbers
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-recursive-multiplication-on-natural-numbers">recursively defined multiplication</a> on \( \mathbb{ N } \) <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-distributivity">distributes over</a> addition. That is, for all \( a, b, c \in \mathbb{ N } \),
+        \[
+            a \cdot \left( b + c \right) = a \cdot b + a \cdot c.
+        \]
+    </div>
+    <div class="proof">
+        <p>Fix \( a, b \in \mathbb{ N } \) and induct on \( c \). The base case follows from
+        \[
+            a \cdot \left( b + 0 \right)
+            =
+            a \cdot b
+            =
+            a \cdot b + 0
+            =
+            a \cdot b + a \cdot 0.
+        \]
+        If \( a \cdot \left( b + c \right) = a \cdot b + a \cdot c \), then
+        \[
+            a \cdot \left( b + S \left( c \right) \right)
+            =
+            a \cdot S \left( b + c \right)
+            =
+            a \cdot \left( b + c \right) + a
+            =
+            \left( a \cdot b + a \cdot c \right) + a
+            =
+            a \cdot b + a \cdot S \left( c \right),
+        \]
+        using <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#proposition-addition-on-natural-numbers-is-associative">associativity</a> of addition in the last step. Hence multiplication distributes over addition.</p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-multiplication-on-natural-numbers-is-associative">
+    <div class="title">
+        Multiplication on Natural Numbers is Associative
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-recursive-multiplication-on-natural-numbers">recursively defined multiplication</a> on \( \mathbb{ N } \) is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative</a>. That is, for all \( a, b, c \in \mathbb{ N } \),
+        \[
+            \left( a \cdot b \right) \cdot c = a \cdot \left( b \cdot c \right).
+        \]
+    </div>
+    <div class="proof">
+        <p>Fix \( a, b \in \mathbb{ N } \) and induct on \( c \). The base case follows because both sides are \( 0 \). If \( \left( a \cdot b \right) \cdot c = a \cdot \left( b \cdot c \right) \), then
+        \[
+            \left( a \cdot b \right) \cdot S \left( c \right)
+            =
+            \left( a \cdot b \right) \cdot c + a \cdot b
+            =
+            a \cdot \left( b \cdot c \right) + a \cdot b
+            =
+            a \cdot \left( b \cdot c + b \right)
+            =
+            a \cdot \left( b \cdot S \left( c \right) \right),
+        \]
+        using <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#proposition-multiplication-distributes-over-addition-on-natural-numbers">distributivity</a> in the third equality. Hence multiplication is associative.</p>
+    </div>
+</div>
+
+<div class="proposition" id="proposition-multiplication-on-natural-numbers-is-commutative">
+    <div class="title">
+        Multiplication on Natural Numbers is Commutative
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-recursive-multiplication-on-natural-numbers">recursively defined multiplication</a> on \( \mathbb{ N } \) is <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-operation">commutative</a>. That is, for all \( a, b \in \mathbb{ N } \),
+        \[
+            a \cdot b = b \cdot a.
+        \]
+    </div>
+    <div class="proof">
+        <p>First prove by induction on \( b \) that
+        \[
+            S \left( a \right) \cdot b = a \cdot b + b.
+        \]
+        The base case is \( S \left( a \right) \cdot 0 = 0 = a \cdot 0 + 0 \). The successor step follows from the <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-recursive-multiplication-on-natural-numbers">recursive multiplication rule</a> together with <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#proposition-addition-on-natural-numbers-is-associative">associativity</a> and <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#proposition-addition-on-natural-numbers-is-commutative">commutativity</a> of addition.</p>
+        <p>Now prove \( a \cdot b = b \cdot a \) by induction on \( b \). The base case follows from \( a \cdot 0 = 0 = 0 \cdot a \), where \( 0 \cdot a = 0 \) is proved by induction on \( a \). If \( a \cdot b = b \cdot a \), then
+        \[
+            a \cdot S \left( b \right)
+            =
+            a \cdot b + a
+            =
+            b \cdot a + a
+            =
+            S \left( b \right) \cdot a.
+        \]
+        Hence multiplication is commutative.</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-order-on-natural-numbers">

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "node build.js",
+    "dev": "node scripts/watch.js --serve",
     "serve": "node scripts/serve.js",
+    "watch": "node scripts/watch.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

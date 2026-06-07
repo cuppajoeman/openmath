@@ -150,6 +150,27 @@
     </div>
 </div>
 
+<div class="corollary" id="corollary-pure-quaternion-iff-conjugate-is-negation">
+    <div class="title">
+        Pure Quaternion iff Conjugate is Negation
+    </div>
+    <div class="content">
+        A quaternion \( x \in \mathbb{H} \) is <a class="knowledge-link" href="#definition-pure-quaternion">pure</a> if and only if
+        \[
+            \overline{x} = -x.
+        \]
+    </div>
+    <div class="proof">
+        Let \( x = a + b\mathbf{i} + c\mathbf{j} + d\mathbf{k} \). By the <a class="knowledge-link" href="#definition-conjugate-quaternion">definition of conjugation</a>,
+        \[
+            \overline{x} = a - b\mathbf{i} - c\mathbf{j} - d\mathbf{k},
+            \qquad
+            -x = -a - b\mathbf{i} - c\mathbf{j} - d\mathbf{k}.
+        \]
+        Thus \( \overline{x} = -x \) if and only if \( a = -a \), which is equivalent to \( a = 0 \). Since \( a = r(x) \), this is exactly the statement that \( x \) is <a class="knowledge-link" href="#definition-pure-quaternion">pure</a>.
+    </div>
+</div>
+
 <div class="definition" id="definition-quaternion-norm">
     <div class="title">
         Quaternion Norm
@@ -192,6 +213,30 @@
     </div>
     <div class="content">
         Suppose that \( p, q \in \mathbb{ H } \), then we define \[ pq := r(p)r(q) - v(p) \cdot v(q) + r(p)v(q) + r(q)v(p) + v(p) \times v(q) \] More precisely: \[ pq = \operatorname{to\_quat}\!\Big(r(p)r(q) - v(p) \cdot v(q)\Big) + \operatorname{to\_quat}\!\Big(r(p)\,v(q) + r(q)\,v(p) + v(p) \times v(q)\Big) \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-quaternion-multiplication-distributes-over-addition">
+    <div class="title">
+        Quaternion Multiplication Distributes Over Addition
+    </div>
+    <div class="content">
+        For all \( p, q, s \in \mathbb{H} \),
+        \[
+            p(q+s) = pq + ps,
+            \qquad
+            (p+q)s = ps + qs.
+        \]
+    </div>
+    <div class="proof">
+        Write each quaternion using its <a class="knowledge-link" href="#definition-quaternion-scalar-part">real part</a> and <a class="knowledge-link" href="#definition-quaternion-vector-part">vector part</a>. The <a class="knowledge-link" href="#definition-product-of-two-quaternions">quaternion product</a> is defined by combining real multiplication, scalar multiplication of vectors, the dot product, and the cross product:
+        \[
+            pq =
+            \operatorname{to\_quat}\!\Big(r(p)r(q)-v(p)\cdot v(q)\Big)
+            +
+            \operatorname{to\_quat}\!\Big(r(p)v(q)+r(q)v(p)+v(p)\times v(q)\Big).
+        \]
+        Each operation appearing on the right is distributive in the relevant argument. Therefore replacing \( q \) by \( q+s \), and using \( r(q+s)=r(q)+r(s) \) and \( v(q+s)=v(q)+v(s) \), gives \( p(q+s)=pq+ps \). The proof of \( (p+q)s=ps+qs \) is the same computation in the first argument.
     </div>
 </div>
 
@@ -439,8 +484,25 @@
         For any \( p, q \in \mathbb{ H } \) we have \[ r \left( pq \right) = r\left( qp \right) \]
     </div>
     <div class="proof">
-        \[ r\left( pq \right) = r \left( p \right) r \left( q \right) - v\left( p \right) \cdot v\left( q \right) = r \left( q \right) r \left( p \right) - v\left( q \right) \cdot v\left( p \right) = r\left( qp \right) \]
-        where we used commutativity of real multiplication and commutativity of the dot product.
+        By the <a class="knowledge-link" href="#corollary-real-part-of-quaternion-product">real part of a quaternion product</a>,
+        \[
+            r\left( pq \right)
+            =
+            r \left( p \right) r \left( q \right)
+            -
+            v\left( p \right) \cdot v\left( q \right).
+        \]
+        Using commutativity of real multiplication and commutativity of the dot product,
+        \[
+            r \left( p \right) r \left( q \right)
+            -
+            v\left( p \right) \cdot v\left( q \right)
+            =
+            r \left( q \right) r \left( p \right)
+            -
+            v\left( q \right) \cdot v\left( p \right).
+        \]
+        By the <a class="knowledge-link" href="#corollary-real-part-of-quaternion-product">same real-part formula</a>, the final expression is \( r\left( qp \right) \).
     </div>
 </div>
 
@@ -583,7 +645,7 @@
         For any <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternion</a> \( p \in \mathbb{H} \) and <a class="knowledge-link" href="#definition-unit-quaternion">unit quaternion</a> \( q \in \mathbb{H} \), the quaternion \( qp\overline{q} \) is pure, i.e. \[ r(qp\overline{q}) = 0 \]
     </div>
     <div class="proof">
-        <p>We use the fact that a quaternion \( x \) is <a class="knowledge-link" href="#definition-pure-quaternion">pure</a> if and only if \( \overline{x} = -x \). We verify this for \( x = qp\overline{q} \):</p>
+        <p>We use the fact that a quaternion \( x \) is <a class="knowledge-link" href="#corollary-pure-quaternion-iff-conjugate-is-negation">pure if and only if \( \overline{x} = -x \)</a>. We verify this for \( x = qp\overline{q} \):</p>
         \[
         \begin{align}
         \overline{qp\overline{q}} &= \overline{\overline{q}} \; \overline{p} \; \overline{q} \\
@@ -619,9 +681,9 @@
     <div class="content">
         Given a vector \( \mathbf{w} \in \mathbb{R}^3 \) and a unit vector \( \hat{n} \in \mathbb{R}^3 \), we define the <b>parallel</b> and <b>perpendicular</b> components of \( \mathbf{w} \) with respect to \( \hat{n} \) as:
         \[
-        \mathbf{w}_\parallel := (\hat{n} \cdot \mathbf{w})\,\hat{n}, \qquad \mathbf{w}_\perp := \mathbf{w} - \mathbf{w}_\parallel
+        \mathbf{w}_{\parallel \hat{n}} := (\hat{n} \cdot \mathbf{w})\,\hat{n}, \qquad \mathbf{w}_{\perp \hat{n}} := \mathbf{w} - \mathbf{w}_{\parallel \hat{n}}
         \]
-        so that \( \mathbf{w} = \mathbf{w}_\parallel + \mathbf{w}_\perp \), where \( \hat{n} \cdot \mathbf{w}_\perp = 0 \).
+        so that \( \mathbf{w} = \mathbf{w}_{\parallel \hat{n}} + \mathbf{w}_{\perp \hat{n}} \), where \( \hat{n} \cdot \mathbf{w}_{\perp \hat{n}} = 0 \).
     </div>
 </div>
 
@@ -630,13 +692,13 @@
         Pure Unit Quaternion Times a Parallel Pure Quaternion
     </div>
     <div class="content">
-        Let \( \hat{n} \) be a <a class="knowledge-link" href="#definition-pure-unit-quaternion">pure unit quaternion</a> and let \( p_\parallel \) be a <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternion</a> such that \( v(p_\parallel) = \lambda\, v(\hat{n}) \) for some \( \lambda \in \mathbb{R} \). Then \[ \hat{n}\, p_\parallel = \operatorname{to\_quat}(-\lambda) \] In particular, \( \hat{n}\, p_\parallel \) is a <a class="knowledge-link" href="#definition-to-quat-from-r">real quaternion</a>.
+        Let \( \hat{n} \) be a <a class="knowledge-link" href="#definition-pure-unit-quaternion">pure unit quaternion</a> and let \( p_{\parallel \hat{n}} \) be a <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternion</a> such that \( v(p_{\parallel \hat{n}}) = \lambda\, v(\hat{n}) \) for some \( \lambda \in \mathbb{R} \). Then \[ \hat{n}\, p_{\parallel \hat{n}} = \operatorname{to\_quat}(-\lambda) \] In particular, \( \hat{n}\, p_{\parallel \hat{n}} \) is a <a class="knowledge-link" href="#definition-to-quat-from-r">real quaternion</a>.
     </div>
     <div class="proof">
         Since both are <a class="knowledge-link" href="#definition-pure-quaternion">pure</a>, by the <a class="knowledge-link" href="#proposition-product-of-two-pure-quaternions">product of two pure quaternions</a>:
         \[
         \begin{align}
-        \hat{n}\, p_\parallel &= \operatorname{to\_quat}(-v(\hat{n}) \cdot v(p_\parallel)) + \operatorname{to\_quat}(v(\hat{n}) \times v(p_\parallel)) \\
+        \hat{n}\, p_{\parallel \hat{n}} &= \operatorname{to\_quat}(-v(\hat{n}) \cdot v(p_{\parallel \hat{n}})) + \operatorname{to\_quat}(v(\hat{n}) \times v(p_{\parallel \hat{n}})) \\
         &= \operatorname{to\_quat}(-v(\hat{n}) \cdot \lambda\,v(\hat{n})) + \operatorname{to\_quat}(v(\hat{n}) \times \lambda\,v(\hat{n})) \\
         &= \operatorname{to\_quat}(-\lambda\,\| v(\hat{n}) \|^2) + \operatorname{to\_quat}(\lambda\,(v(\hat{n}) \times v(\hat{n}))) \\
         &= \operatorname{to\_quat}(-\lambda) + \operatorname{to\_quat}(\mathbf{0}) \\
@@ -652,15 +714,15 @@
         Pure Unit Quaternion Times a Perpendicular Pure Quaternion
     </div>
     <div class="content">
-        Let \( \hat{n} \) be a <a class="knowledge-link" href="#definition-pure-unit-quaternion">pure unit quaternion</a> and let \( p_\perp \) be a <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternion</a> such that \( v(\hat{n}) \cdot v(p_\perp) = 0 \). Then \[ \hat{n}\, p_\perp = \operatorname{to\_quat}(v(\hat{n}) \times v(p_\perp)) \] In particular, \( \hat{n}\, p_\perp \) is a pure quaternion.
+        Let \( \hat{n} \) be a <a class="knowledge-link" href="#definition-pure-unit-quaternion">pure unit quaternion</a> and let \( p_{\perp \hat{n}} \) be a <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternion</a> such that \( v(\hat{n}) \cdot v(p_{\perp \hat{n}}) = 0 \). Then \[ \hat{n}\, p_{\perp \hat{n}} = \operatorname{to\_quat}(v(\hat{n}) \times v(p_{\perp \hat{n}})) \] In particular, \( \hat{n}\, p_{\perp \hat{n}} \) is a pure quaternion.
     </div>
     <div class="proof">
         Since both are <a class="knowledge-link" href="#definition-pure-quaternion">pure</a>, by the <a class="knowledge-link" href="#proposition-product-of-two-pure-quaternions">product of two pure quaternions</a>:
         \[
         \begin{align}
-        \hat{n}\, p_\perp &= \operatorname{to\_quat}(-v(\hat{n}) \cdot v(p_\perp)) + \operatorname{to\_quat}(v(\hat{n}) \times v(p_\perp)) \\
-        &= \operatorname{to\_quat}(0) + \operatorname{to\_quat}(v(\hat{n}) \times v(p_\perp)) \\
-        &= \operatorname{to\_quat}(v(\hat{n}) \times v(p_\perp))
+        \hat{n}\, p_{\perp \hat{n}} &= \operatorname{to\_quat}(-v(\hat{n}) \cdot v(p_{\perp \hat{n}})) + \operatorname{to\_quat}(v(\hat{n}) \times v(p_{\perp \hat{n}})) \\
+        &= \operatorname{to\_quat}(0) + \operatorname{to\_quat}(v(\hat{n}) \times v(p_{\perp \hat{n}})) \\
+        &= \operatorname{to\_quat}(v(\hat{n}) \times v(p_{\perp \hat{n}}))
         \end{align}
         \]
     </div>
@@ -672,32 +734,69 @@
         Pure Unit Quaternion Sandwich is a Reflection
     </div>
     <div class="content">
-        Let \( \hat{n} \in \mathbb{H} \) be a <a class="knowledge-link" href="#definition-pure-unit-quaternion">pure unit quaternion</a>, and let \( p \in \mathbb{H} \) be a <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternion</a>. Then \[ \hat{n}\, p\, \hat{n} = \operatorname{to\_quat}\!\big(-v(p)_\parallel + v(p)_\perp\big) \] where \( v(p)_\parallel = (v(\hat{n}) \cdot v(p))\,v(\hat{n}) \) and \( v(p)_\perp = v(p) - v(p)_\parallel \) are the parallel and perpendicular components of \( v(p) \) with respect to \( v(\hat{n}) \). This is the reflection of \( v(p) \) through the plane perpendicular to \( v(\hat{n}) \).
+        Let \( \hat{n} \in \mathbb{H} \) be a <a class="knowledge-link" href="#definition-pure-unit-quaternion">pure unit quaternion</a>, and let \( p \in \mathbb{H} \) be a <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternion</a>. Then
+        \[
+            \hat{n}\, p\, \hat{n}
+            =
+            \operatorname{to\_quat}\!\big(-v(p)_{\parallel v(\hat{n})} + v(p)_{\perp v(\hat{n})}\big)
+        \]
+        where the subscripts refer to the <a class="knowledge-link" href="#definition-parallel-and-perpendicular-decomposition">parallel and perpendicular decomposition</a> with respect to \( v(\hat{n}) \). This is the reflection of \( v(p) \) through the plane perpendicular to \( v(\hat{n}) \).
     </div>
     <div class="proof">
-        <p>Decompose \( p = p_\parallel + p_\perp \) where \( p_\parallel = \operatorname{to\_quat}(v(p)_\parallel) \) and \( p_\perp = \operatorname{to\_quat}(v(p)_\perp) \). Both are <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternions</a>, and \( v(\hat{n}) \cdot v(p_\perp) = 0 \), while \( v(p_\parallel) = \lambda\, v(\hat{n}) \) where \( \lambda = v(\hat{n}) \cdot v(p) \).</p>
+        <p>Set \( p_{\parallel \hat{n}} = \operatorname{to\_quat}(v(p)_{\parallel v(\hat{n})}) \) and \( p_{\perp \hat{n}} = \operatorname{to\_quat}(v(p)_{\perp v(\hat{n})}) \). Then:</p>
+        <ul>
+            <li>\( p_{\parallel \hat{n}} \) and \( p_{\perp \hat{n}} \) are <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternions</a>.</li>
+            <li>\( v(\hat{n}) \cdot v(p_{\perp \hat{n}}) = 0 \).</li>
+            <li>\( v(p_{\parallel \hat{n}}) = \lambda\, v(\hat{n}) \), where \( \lambda = v(\hat{n}) \cdot v(p) \).</li>
+        </ul>
 
-        <p><b>Parallel part:</b> We compute \( \hat{n}\, p_\parallel\, \hat{n} \). By the <a class="knowledge-link" href="#lemma-pure-quat-product-with-parallel">parallel product lemma</a>, \( \hat{n}\, p_\parallel = \operatorname{to\_quat}(-\lambda) \). Since this is a <a class="knowledge-link" href="#definition-to-quat-from-r">real quaternion</a>, by <a class="knowledge-link" href="#proposition-quaternion-product-with-real-quaternion">the real product property</a>:
+        <p>Since \( p = p_{\parallel \hat{n}} + p_{\perp \hat{n}} \), by the <a class="knowledge-link" href="#proposition-quaternion-multiplication-is-associative">associativity</a> and <a class="knowledge-link" href="#proposition-quaternion-multiplication-distributes-over-addition">distributive law</a>:
         \[
-        \hat{n}\, p_\parallel\, \hat{n} = \operatorname{to\_quat}(-\lambda) \cdot \hat{n} = -\lambda\, \hat{n} = \operatorname{to\_quat}(-\lambda\, v(\hat{n})) = \operatorname{to\_quat}(-v(p)_\parallel)
+        \begin{align}
+            \hat{n}\,p\,\hat{n}
+            &=
+            \hat{n}\left(p_{\parallel \hat{n}} + p_{\perp \hat{n}}\right)\hat{n} \\
+            &=
+            \hat{n}\,p_{\parallel \hat{n}}\,\hat{n}
+            +
+            \hat{n}\,p_{\perp \hat{n}}\,\hat{n}.
+        \end{align}
         \]
-        The parallel component is <b>negated</b>.</p>
+        Thus it is enough to derive the values of \( \hat{n}\,p_{\parallel \hat{n}}\,\hat{n} \) and \( \hat{n}\,p_{\perp \hat{n}}\,\hat{n} \).</p>
 
-        <p><b>Perpendicular part:</b> We compute \( \hat{n}\, p_\perp\, \hat{n} \). Since \( v(\hat{n}) \cdot v(p_\perp) = 0 \), the quaternions \( \hat{n} \) and \( p_\perp \) <a class="knowledge-link" href="#proposition-perpendicular-pure-quaternions-anticommute">anticommute</a>: \( \hat{n}\, p_\perp = -p_\perp\, \hat{n} \). Therefore:
+        <p>By the <a class="knowledge-link" href="#lemma-pure-quat-product-with-parallel">parallel product lemma</a>, \( \hat{n}\, p_{\parallel \hat{n}} = \operatorname{to\_quat}(-\lambda) \). Since this is a <a class="knowledge-link" href="#definition-to-quat-from-r">real quaternion</a>, by <a class="knowledge-link" href="#proposition-quaternion-product-with-real-quaternion">the real product property</a>:
         \[
-        \hat{n}\, p_\perp\, \hat{n} = (-p_\perp\, \hat{n})\, \hat{n} = -p_\perp\, (\hat{n}\, \hat{n}) = -p_\perp\, \hat{n}^2
+        \hat{n}\, p_{\parallel \hat{n}}\, \hat{n} = \operatorname{to\_quat}(-\lambda) \cdot \hat{n} = -\lambda\, \hat{n} = \operatorname{to\_quat}(-\lambda\, v(\hat{n})) = \operatorname{to\_quat}(-v(p)_{\parallel v(\hat{n})})
+        \]
+        </p>
+
+        <p>Since \( v(\hat{n}) \cdot v(p_{\perp \hat{n}}) = 0 \), the quaternions \( \hat{n} \) and \( p_{\perp \hat{n}} \) <a class="knowledge-link" href="#proposition-perpendicular-pure-quaternions-anticommute">anticommute</a>: \( \hat{n}\, p_{\perp \hat{n}} = -p_{\perp \hat{n}}\, \hat{n} \). Therefore:
+        \[
+        \hat{n}\, p_{\perp \hat{n}}\, \hat{n} = (-p_{\perp \hat{n}}\, \hat{n})\, \hat{n} = -p_{\perp \hat{n}}\, (\hat{n}\, \hat{n}) = -p_{\perp \hat{n}}\, \hat{n}^2
         \]
         By the <a class="knowledge-link" href="#corollary-square-of-pure-unit-quaternion">square of a pure unit quaternion</a>, \( \hat{n}^2 = -e \), so:
         \[
-        -p_\perp(-e) = p_\perp \cdot e = p_\perp = \operatorname{to\_quat}(v(p)_\perp)
+        -p_{\perp \hat{n}}(-e) = p_{\perp \hat{n}} \cdot e = p_{\perp \hat{n}} = \operatorname{to\_quat}(v(p)_{\perp v(\hat{n})})
         \]
-        The perpendicular component is <b>preserved</b>.</p>
+        </p>
 
-        <p><b>Combining:</b> By <a class="knowledge-link" href="#proposition-quaternion-multiplication-is-associative">associativity</a> and the distributive law:
+        <p>Therefore:
         \[
-        \hat{n}\, p\, \hat{n} = \hat{n}(p_\parallel + p_\perp)\hat{n} = \hat{n}\, p_\parallel\, \hat{n} + \hat{n}\, p_\perp\, \hat{n} = \operatorname{to\_quat}(-v(p)_\parallel) + \operatorname{to\_quat}(v(p)_\perp) = \operatorname{to\_quat}(-v(p)_\parallel + v(p)_\perp)
+        \begin{align}
+        \hat{n}\, p\, \hat{n}
+        &=
+        \hat{n}\,p_{\parallel \hat{n}}\,\hat{n}
+        +
+        \hat{n}\,p_{\perp \hat{n}}\,\hat{n} \\
+        &=
+        \operatorname{to\_quat}(-v(p)_{\parallel v(\hat{n})})
+        +
+        \operatorname{to\_quat}(v(p)_{\perp v(\hat{n})}) \\
+        &=
+        \operatorname{to\_quat}(-v(p)_{\parallel v(\hat{n})} + v(p)_{\perp v(\hat{n})}).
+        \end{align}
         \]
-        This is exactly the reflection of \( v(p) \) through the plane perpendicular to \( v(\hat{n}) \).</p>
+        </p>
     </div>
 </div>
 
@@ -711,5 +810,103 @@
         \[
         q = \hat{b}\,\hat{a}
         \]
-        Moreover, the angle between \( v(\hat{a}) \) and \( v(\hat{b}) \) is \( \frac{\theta}{2} \), and the two reflection planes (perpendicular to \( v(\hat{a}) \) and \( v(\hat{b}) \) respectively) intersect along the axis \( v(\hat{n}) \).
+        Moreover, the acute angle between the two reflection planes perpendicular to \( v(\hat{a}) \) and \( v(\hat{b}) \) is \( \frac{\theta}{2} \), and the planes intersect along the axis \( v(\hat{n}) \).
     </div>
+    <div class="proof">
+        <p>Let \( \phi = \frac{\theta}{2} \). Choose a unit vector \( \mathbf{a} \in \mathbb{R}^3 \) with \( \mathbf{a} \cdot v(\hat{n}) = 0 \), and define
+        \[
+            \mathbf{b}
+            =
+            -\cos(\phi)\,\mathbf{a}
+            -
+            \sin(\phi)\,\big(v(\hat{n}) \times \mathbf{a}\big).
+        \]
+        Set \( \hat{a} = \operatorname{to\_quat}(\mathbf{a}) \) and \( \hat{b} = \operatorname{to\_quat}(\mathbf{b}) \).</p>
+        <p>Since \( \mathbf{a} \perp v(\hat{n}) \), the vector \( v(\hat{n}) \times \mathbf{a} \) is also perpendicular to \( v(\hat{n}) \), so \( \mathbf{b} \cdot v(\hat{n}) = 0 \). Also \( \mathbf{a} \) and \( v(\hat{n}) \times \mathbf{a} \) are perpendicular unit vectors, so
+        \[
+            \|\mathbf{b}\|^2
+            =
+            \cos^2(\phi) + \sin^2(\phi)
+            =
+            1.
+        \]
+        Therefore \( \hat{a} \) and \( \hat{b} \) are <a class="knowledge-link" href="#definition-pure-unit-quaternion">pure unit quaternions</a>.</p>
+        <p>We now compute \( \hat{b}\hat{a} \) using the <a class="knowledge-link" href="#proposition-product-of-two-pure-quaternions">product of two pure quaternions</a>. First,
+        \[
+            \mathbf{b}\cdot\mathbf{a}
+            =
+            -\cos(\phi).
+        \]
+        Next, using \( \left(v(\hat{n}) \times \mathbf{a}\right) \times \mathbf{a} = -v(\hat{n}) \),
+        \[
+            \mathbf{b}\times\mathbf{a}
+            =
+            \sin(\phi)\,v(\hat{n}).
+        \]
+        Thus
+        \[
+        \begin{align}
+            \hat{b}\hat{a}
+            &=
+            \operatorname{to\_quat}\!\big(-\mathbf{b}\cdot\mathbf{a}\big)
+            +
+            \operatorname{to\_quat}\!\big(\mathbf{b}\times\mathbf{a}\big) \\
+            &=
+            \operatorname{to\_quat}\!\big(\cos(\phi)\big)
+            +
+            \operatorname{to\_quat}\!\big(\sin(\phi)\,v(\hat{n})\big) \\
+            &=
+            \cos(\phi) + \hat{n}\sin(\phi)
+            =
+            q.
+        \end{align}
+        \]
+        The normal vectors \( \mathbf{a} \) and \( \mathbf{b} \) have angle \( \pi-\phi \), so the acute angle between the corresponding reflection planes is \( \phi = \frac{\theta}{2} \).</p>
+    </div>
+</div>
+
+<div class="theorem" id="theorem-unit-quaternion-rotation-formula">
+    <div class="title">
+        Unit Quaternion Rotation Formula
+    </div>
+    <div class="content">
+        Let \( q = \cos\!\left(\frac{\theta}{2}\right) + \hat{n}\sin\!\left(\frac{\theta}{2}\right) \) be a <a class="knowledge-link" href="#definition-unit-quaternion">unit quaternion</a>, where \( \hat{n} \) is a <a class="knowledge-link" href="#definition-pure-unit-quaternion">pure unit quaternion</a>, and let \( p \in \mathbb{H} \) be a <a class="knowledge-link" href="#definition-pure-quaternion">pure quaternion</a>. Then \( q p \overline{q} \) is the pure quaternion whose vector part is obtained by rotating \( v(p) \) around the axis \( v(\hat{n}) \) by angle \( \theta \).
+    </div>
+    <div class="proof">
+        <p>By the <a class="knowledge-link" href="#lemma-unit-quaternion-factors-into-two-pure-unit-quaternions">factorization of a unit quaternion into two pure unit quaternions</a>, after renaming the two factors, there are pure unit quaternions \( \hat{a} \) and \( \hat{b} \) such that
+        \[
+        q = \hat{a}\hat{b},
+        \]
+        and the angle between the reflection planes perpendicular to \( v(\hat{a}) \) and \( v(\hat{b}) \) is \( \frac{\theta}{2} \). Since \( \hat{a} \) and \( \hat{b} \) are <a class="knowledge-link" href="#definition-pure-unit-quaternion">pure unit quaternions</a>, we have \( \overline{\hat{a}} = -\hat{a} \) and \( \overline{\hat{b}} = -\hat{b} \). Therefore:
+        \[
+        \begin{align}
+        \overline{q}
+        &=
+        \overline{\hat{a}\hat{b}} \\
+        &=
+        \overline{\hat{b}}\,\overline{\hat{a}} \\
+        &=
+        (-\hat{b})(-\hat{a}) \\
+        &=
+        \hat{b}\hat{a}.
+        \end{align}
+        \]
+        </p>
+
+        <p>Using <a class="knowledge-link" href="#proposition-quaternion-multiplication-is-associative">associativity</a>:
+        \[
+        \begin{align}
+        q p \overline{q}
+        &=
+        (\hat{a}\hat{b})p(\hat{b}\hat{a}) \\
+        &=
+        \hat{a}\big(\hat{b}p\hat{b}\big)\hat{a}.
+        \end{align}
+        \]
+        </p>
+
+        <p>By the <a class="knowledge-link" href="#theorem-pure-unit-quaternion-sandwich-is-reflection">pure unit quaternion sandwich reflection theorem</a>, \( \hat{b}p\hat{b} \) is the reflection of \( v(p) \) through the plane perpendicular to \( v(\hat{b}) \). Applying the same theorem again, \( \hat{a}(\hat{b}p\hat{b})\hat{a} \) reflects the result through the plane perpendicular to \( v(\hat{a}) \).</p>
+
+        <p>Thus \( q p \overline{q} \) is obtained by composing two plane reflections whose planes intersect along the axis \( v(\hat{n}) \) and whose angle is \( \frac{\theta}{2} \). By the <a class="knowledge-link" href="/algebra/linear/matrices.html#proposition-composition-of-two-plane-reflections-is-a-rotation">composition of two plane reflections theorem</a>, this composition is rotation around \( v(\hat{n}) \) by angle \( \theta \).</p>
+    </div>
+</div>

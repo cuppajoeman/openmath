@@ -81,6 +81,302 @@
         <p>Where:</p>\[ c _ { i, j } := a _ { i, 1 } b _ { 1, j } + a _ { i, 2 } b _ { 2, j } + \cdots + a _ { i, c _ A } b _ { c _ A, j } = \sum _ { k = 1 } ^ { c _ A } a _ { i, k } b _ { k, j } \]
     </div>
 </div>
+<div class="definition" id="definition-matrix-addition-and-scalar-multiplication">
+    <div class="title">
+        Matrix Addition and Scalar Multiplication
+    </div>
+    <div class="content">
+        Let \( A, B \in M_{r \times c}(\mathbb{R}) \) and \( \lambda \in \mathbb{R} \). We define:
+        \[
+        (A+B)_{i,j} := A_{i,j} + B_{i,j},
+        \qquad
+        (\lambda A)_{i,j} := \lambda A_{i,j}.
+        \]
+        We also define \( A-B := A + (-1)B \).
+    </div>
+</div>
+<div class="definition" id="definition-identity-matrix">
+    <div class="title">
+        Identity Matrix
+    </div>
+    <div class="content">
+        For \( n \in \mathbb{N}_1 \), the \( n \times n \) identity matrix is:
+        \[
+        (I_n)_{i,j}
+        :=
+        \begin{cases}
+        1 & i = j \\
+        0 & i \neq j.
+        \end{cases}
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-matrix-transpose">
+    <div class="title">
+        Matrix Transpose
+    </div>
+    <div class="content">
+        Let \( A \in M_{r \times c}(\mathbb{R}) \). The transpose of \( A \) is the matrix \( A^T \in M_{c \times r}(\mathbb{R}) \) defined by:
+        \[
+        (A^T)_{i,j} := A_{j,i}.
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-reflection-matrix-about-line-through-origin">
+    <div class="title">
+        Reflection Matrix About a Line Through the Origin
+    </div>
+    <div class="content">
+        Let \( \theta \in \mathbb{R} \), and let \( L_\theta \subseteq \mathbb{R}^2 \) be the line through the origin in the direction \( (\cos(\theta), \sin(\theta)) \). The matrix which reflects vectors across \( L_\theta \) is:
+        \[
+        \begin{bmatrix}
+        \cos(2\theta) & \sin(2\theta) \\
+        \sin(2\theta) & -\cos(2\theta)
+        \end{bmatrix}.
+        \]
+    </div>
+    <div class="proof">
+        <p>Let \( v = (x, y) \in \mathbb{R}^2 \), and write \( v \) in polar form:
+        \[
+        v = (x, y) = (r\cos(\alpha), r\sin(\alpha)).
+        \]
+        Suppose \( v' \) is the reflection of \( v \) across the line \( L_\theta \), and write:
+        \[
+        v' = (r\cos(\gamma), r\sin(\gamma)).
+        \]
+        </p>
+
+        <p>Let \( \phi = \theta - \alpha \). Since reflection across \( L_\theta \) places \( v' \) on the other side of the line by the same angle, \( \gamma = \theta + \phi \), and hence:
+        \[
+        \gamma = \theta + (\theta - \alpha) = 2\theta - \alpha.
+        \]
+        Therefore:
+        \[
+        v' = (r\cos(2\theta - \alpha), r\sin(2\theta - \alpha)).
+        \]
+        </p>
+
+        <p>Using the <a class="knowledge-link" href="/analysis/single_variable/trigonometric_functions.html#proposition-trigonometric-angle-addition-formulas">trigonometric angle addition formulas</a>:
+        \[
+        \begin{align}
+        v'
+        &=
+        (r\cos(2\theta + (-\alpha)), r\sin(2\theta + (-\alpha))) \\
+        &=
+        \big(
+        r(\cos(2\theta)\cos(-\alpha) - \sin(2\theta)\sin(-\alpha)),
+        r(\sin(2\theta)\cos(-\alpha) + \cos(2\theta)\sin(-\alpha))
+        \big).
+        \end{align}
+        \]
+        By the fact that <a class="knowledge-link" href="/analysis/single_variable/trigonometric_functions.html#proposition-sine-is-odd-and-cosine-is-even">sine is odd and cosine is even</a>:
+        \[
+        \begin{align}
+        v'
+        &=
+        \big(
+        r(\cos(2\theta)\cos(\alpha) + \sin(2\theta)\sin(\alpha)),
+        r(\sin(2\theta)\cos(\alpha) - \cos(2\theta)\sin(\alpha))
+        \big) \\
+        &=
+        \big(
+        \cos(2\theta)r\cos(\alpha) + \sin(2\theta)r\sin(\alpha),
+        \sin(2\theta)r\cos(\alpha) - \cos(2\theta)r\sin(\alpha)
+        \big).
+        \end{align}
+        \]
+        </p>
+
+        <p>Since \( x = r\cos(\alpha) \) and \( y = r\sin(\alpha) \), we have:
+        \[
+        v'
+        =
+        \big(
+        \cos(2\theta)x + \sin(2\theta)y,
+        \sin(2\theta)x - \cos(2\theta)y
+        \big).
+        \]
+        Equivalently, using <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-multiplication">matrix multiplication</a>:
+        \[
+        \begin{bmatrix}
+        x' \\
+        y'
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        \cos(2\theta) & \sin(2\theta) \\
+        \sin(2\theta) & -\cos(2\theta)
+        \end{bmatrix}
+        \begin{bmatrix}
+        x \\
+        y
+        \end{bmatrix}.
+        \]
+        Therefore the reflection matrix about \( L_\theta \) is:
+        \[
+        \begin{bmatrix}
+        \cos(2\theta) & \sin(2\theta) \\
+        \sin(2\theta) & -\cos(2\theta)
+        \end{bmatrix}.
+        \]
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-two-dimensional-rotation-matrix">
+    <div class="title">
+        Two Dimensional Rotation Matrix
+    </div>
+    <div class="content">
+        For \( \theta \in \mathbb{R} \), the matrix which rotates vectors in \( \mathbb{R}^2 \) counterclockwise by angle \( \theta \) is:
+        \[
+        R_\theta
+        =
+        \begin{bmatrix}
+        \cos(\theta) & -\sin(\theta) \\
+        \sin(\theta) & \cos(\theta)
+        \end{bmatrix}.
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-composition-of-two-reflections-is-a-rotation">
+    <div class="title">
+        Composition of Two Reflections is a Rotation
+    </div>
+    <div class="content">
+        Let \( L_\alpha \) and \( L_\beta \) be lines through the origin in \( \mathbb{R}^2 \), where \( L_\alpha \) has direction \( (\cos(\alpha), \sin(\alpha)) \), \( L_\beta \) has direction \( (\cos(\beta), \sin(\beta)) \), and \( \theta = \beta - \alpha \). Reflecting first across \( L_\alpha \), and then across \( L_\beta \), is the same as rotating by \( 2\theta \):
+        \[
+        S_\beta S_\alpha = R_{2\theta}.
+        \]
+    </div>
+    <div class="proof">
+        <p>By the <a class="knowledge-link" href="/algebra/linear/matrices.html#proposition-reflection-matrix-about-line-through-origin">reflection matrix formula</a>, the reflection matrices across \( L_\alpha \) and \( L_\beta \) are:
+        \[
+        S_\alpha
+        =
+        \begin{bmatrix}
+        \cos(2\alpha) & \sin(2\alpha) \\
+        \sin(2\alpha) & -\cos(2\alpha)
+        \end{bmatrix},
+        \qquad
+        S_\beta
+        =
+        \begin{bmatrix}
+        \cos(2\beta) & \sin(2\beta) \\
+        \sin(2\beta) & -\cos(2\beta)
+        \end{bmatrix}.
+        \]
+        </p>
+
+        <p>Using <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-multiplication">matrix multiplication</a>:
+        \[
+        \begin{align}
+        S_\beta S_\alpha
+        &=
+        \begin{bmatrix}
+        \cos(2\beta) & \sin(2\beta) \\
+        \sin(2\beta) & -\cos(2\beta)
+        \end{bmatrix}
+        \begin{bmatrix}
+        \cos(2\alpha) & \sin(2\alpha) \\
+        \sin(2\alpha) & -\cos(2\alpha)
+        \end{bmatrix} \\
+        &=
+        \begin{bmatrix}
+        \cos(2\beta)\cos(2\alpha)+\sin(2\beta)\sin(2\alpha)
+        &
+        \cos(2\beta)\sin(2\alpha)-\sin(2\beta)\cos(2\alpha)
+        \\
+        \sin(2\beta)\cos(2\alpha)-\cos(2\beta)\sin(2\alpha)
+        &
+        \sin(2\beta)\sin(2\alpha)+\cos(2\beta)\cos(2\alpha)
+        \end{bmatrix}.
+        \end{align}
+        \]
+        </p>
+
+        <p>By the <a class="knowledge-link" href="/analysis/single_variable/trigonometric_functions.html#proposition-trigonometric-angle-addition-formulas">trigonometric angle addition formulas</a>, this simplifies to:
+        \[
+        \begin{align}
+        S_\beta S_\alpha
+        &=
+        \begin{bmatrix}
+        \cos(2\beta - 2\alpha) & -\sin(2\beta - 2\alpha) \\
+        \sin(2\beta - 2\alpha) & \cos(2\beta - 2\alpha)
+        \end{bmatrix} \\
+        &=
+        \begin{bmatrix}
+        \cos(2\theta) & -\sin(2\theta) \\
+        \sin(2\theta) & \cos(2\theta)
+        \end{bmatrix}.
+        \end{align}
+        \]
+        By the <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-two-dimensional-rotation-matrix">definition of the two dimensional rotation matrix</a>, this is \( R_{2\theta} \).</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-composition-of-two-plane-reflections-is-a-rotation">
+    <div class="title">
+        Composition of Two Plane Reflections is a Rotation
+    </div>
+    <div class="content">
+        Let \( P_1, P_2 \subseteq \mathbb{R}^3 \) be planes through the origin, and suppose that
+        \[
+        A := P_1 \cap P_2
+        \]
+        is a line. Let \( A^\perp \) be the plane perpendicular to \( A \). Then \( P_1 \cap A^\perp \) and \( P_2 \cap A^\perp \) are lines through the origin in \( A^\perp \).
+
+        If the oriented angle from \( P_1 \cap A^\perp \) to \( P_2 \cap A^\perp \) is \( \theta \), then reflecting first across \( P_1 \), and then across \( P_2 \), is the same as rotating around the axis \( A \) by \( 2\theta \).
+    </div>
+    <div class="proof">
+        <p>Every vector \( x \in \mathbb{R}^3 \) can be written uniquely as
+        \[
+        x = x_A + x_\perp,
+        \]
+        where \( x_A \in A \) and \( x_\perp \in A^\perp \).</p>
+
+        <p>Since \( A \subseteq P_1 \) and \( A \subseteq P_2 \), reflection across either plane fixes every vector in \( A \). Thus the \( x_A \) component is unchanged by both reflections.</p>
+
+        <p>It remains to understand what happens to \( x_\perp \). Inside the plane \( A^\perp \), the intersections
+        \[
+        L_1 := P_1 \cap A^\perp,
+        \qquad
+        L_2 := P_2 \cap A^\perp
+        \]
+        are lines through the origin. Reflection across \( P_1 \) restricts on \( A^\perp \) to reflection across \( L_1 \), and reflection across \( P_2 \) restricts on \( A^\perp \) to reflection across \( L_2 \).</p>
+
+        <p>By the <a class="knowledge-link" href="/algebra/linear/matrices.html#proposition-composition-of-two-reflections-is-a-rotation">two-dimensional composition of reflections theorem</a>, reflecting first across \( L_1 \), and then across \( L_2 \), rotates \( A^\perp \) by \( 2\theta \). Therefore the composition fixes the component along \( A \) and rotates the perpendicular component by \( 2\theta \), which is exactly rotation around the axis \( A \) by \( 2\theta \).</p>
+    </div>
+</div>
+<div class="definition" id="definition-to-col-vector-as-column-matrix">
+    <div class="title">
+        Vector as a Column Matrix
+    </div>
+    <div class="content">
+        For each \( n \in \mathbb{N}_1 \), define a function \( \operatorname{to\_col} : \mathbb{R}^n \to M_{n \times 1}(\mathbb{R}) \) by:
+        \[
+        \operatorname{to\_col}((a_1,\ldots,a_n))
+        :=
+        \begin{bmatrix}
+        a_1 \\ \vdots \\ a_n
+        \end{bmatrix}.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-to-row-vector-as-row-matrix">
+    <div class="title">
+        Vector as a Row Matrix
+    </div>
+    <div class="content">
+        For each \( n \in \mathbb{N}_1 \), define a function \( \operatorname{to\_row} : \mathbb{R}^n \to M_{1 \times n}(\mathbb{R}) \) by:
+        \[
+        \operatorname{to\_row}((a_1,\ldots,a_n))
+        :=
+        \begin{bmatrix}
+        a_1 & \cdots & a_n
+        \end{bmatrix}.
+        \]
+    </div>
+</div>
+<p>The notation \( \operatorname{to\_col} \) and \( \operatorname{to\_row} \) is overloaded across dimensions: if \( x \in \mathbb{R}^n \), then the dimension \( n \) determines which function is being used and what size matrix is produced.</p>
 <div class="definition" id="definition-matrix-functions">
     <div class="title">
         Matrix Functions
@@ -102,7 +398,10 @@
         Unpacking Function
     </div>
     <div class="content">
-        Suppose that \( \begin{bmatrix} x \\ \end{bmatrix} \in M _ { 1 \times 1 } \left( \mathbb{ R } \right) \), then we define the following function \( \operatorname{ unpack } : \mathbb{ R } \rightarrow M _ { 1 \times 1 } \left( \mathbb{ R } \right) \) as \[ \operatorname{ unpack } \left( \begin{bmatrix} x \\ \end{bmatrix} \right) := x \]
+        We define \( \operatorname{unpack} : M_{1 \times 1}(\mathbb{R}) \to \mathbb{R} \) by:
+        \[
+        \operatorname{unpack}\!\left(\begin{bmatrix} x \end{bmatrix}\right) := x.
+        \]
     </div>
 </div>
 <div class="proposition" id="proposition-the-packing-and-unpacking-functions-are-inverses">
