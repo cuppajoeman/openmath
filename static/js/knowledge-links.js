@@ -28,6 +28,24 @@ function isMathKnowledgeLink(link) {
     return Boolean(link.closest && link.closest("math"));
 }
 
+function splitTrailingTagParen(link) {
+    if (!link.closest || !link.closest(".tml-tag") || link.dataset.trailingTagParenSplit === "true") {
+        return;
+    }
+
+    const text = link.textContent || "";
+    if (!text.endsWith(")")) {
+        return;
+    }
+
+    link.textContent = text.slice(0, -1);
+
+    const paren = document.createElementNS("http://www.w3.org/1998/Math/MathML", "mtext");
+    paren.textContent = ")";
+    link.after(paren);
+    link.dataset.trailingTagParenSplit = "true";
+}
+
 function expandedKnowledgeFor(link) {
     const instanceId = link.dataset.expandedKnowledgeInstanceId;
 
@@ -108,6 +126,11 @@ function setUpKnowledgeLink(link) {
         return;
     }
 
+    if (isMathKnowledgeLink(link)) {
+        splitTrailingTagParen(link);
+        link.classList.add("knowledge-link");
+    }
+
     link.dataset.knowledgeLinkReady = "true";
     link.dataset.openedAtLeastOnce = "false";
     link.dataset.currentlyOpened = "false";
@@ -123,12 +146,13 @@ function setUpKnowledgeLink(link) {
 function setUpKnowledgeLinks(root) {
     const searchRoot = root || document;
     const links = [];
+    const selector = "a.knowledge-link, a.rlink, math a, math .knowledge-link, math [data-href]";
 
-    if (searchRoot.matches && searchRoot.matches("a.knowledge-link, a.rlink, math a, math .knowledge-link")) {
+    if (searchRoot.matches && searchRoot.matches(selector)) {
         links.push(searchRoot);
     }
 
-    links.push(...searchRoot.querySelectorAll("a.knowledge-link, a.rlink, math a, math .knowledge-link"));
+    links.push(...searchRoot.querySelectorAll(selector));
     links.forEach(setUpKnowledgeLink);
 }
 
