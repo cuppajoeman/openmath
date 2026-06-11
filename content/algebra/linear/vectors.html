@@ -6,30 +6,180 @@
         A vector is alternate notation for an <a class="knowledge-link" href="/fundamentals/sets/tuples.html#definition-finite-tuple">n tuple</a>, so that \[ \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix} \] is the n-tuple \( (a_1, a_2, \ldots, a_n ) \)
     </div>
 </div>
+<div class="definition" id="definition-collinear">
+    <div class="title">
+        Collinear
+    </div>
+    <div class="content">
+        Given a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( \left( V, F \right) \), we say that two vectors \( x, y \in V \) are collinear if there exists an \( \alpha \in F \) such that
+        \[
+            x = \alpha y
+        \]
+    </div>
+</div>
 <div class="definition" id="definition-length">
     <div class="title">
         The length of a Vector
     </div>
     <div class="content">
-        Given \( x \in \mathbb{R}^n \), then we define the it's length as \[ \lVert x \rVert := \sqrt{ \sum _ { i = 1 } ^ n x _ i ^ 2 } \]
+        Given a <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vector</a> \( x = \left( x_1, \ldots, x_n \right) \in \mathbb{R}^n \), we define its length by
+        \[
+            \lVert x \rVert := \sqrt{ \sum _ { i = 1 } ^ n x _ i ^ 2 }
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-angle-between-nonzero-vectors">
+    <div class="title">
+        Angle Between Nonzero Vectors
+    </div>
+    <div class="content">
+        Given nonzero <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vectors</a> \( u, v \in \mathbb{ R } ^ n \), the angle between \( u \) and \( v \) is the smaller Euclidean angle between the rays from the origin in the directions \( u \) and \( v \). It is the unique value \( \theta \in \left[ 0, \pi \right] \) representing that smaller angle.
+    </div>
+</div>
+<div class="proposition" id="proposition-linearly-independent-nonzero-vectors-have-non-extreme-angle">
+    <div class="title">
+        Linearly Independent Nonzero Vectors Have Non-Extreme Angle
+    </div>
+    <div class="content">
+        Suppose \( u, v \in \mathbb{ R } ^ n \setminus \left\{ 0 \right\} \) are <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>, and let \( \theta \) be the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-angle-between-nonzero-vectors">angle between them</a>. Then
+        \[
+            \theta \neq 0
+            \qquad \text{and} \qquad
+            \theta \neq \pi
+        \]
+    </div>
+    <div class="proof">
+        If \( \theta = 0 \), then \( u \) and \( v \) point along the same ray, so one is a positive scalar multiple of the other. If \( \theta = \pi \), then \( u \) and \( v \) point along opposite rays, so one is a negative scalar multiple of the other. In either case, \( u \) and \( v \) are <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-collinear">collinear</a>, so \( \left\{ u, v \right\} \) is <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-dependent">linearly dependent</a>. This contradicts the assumption that \( u, v \) are linearly independent.
     </div>
 </div>
 <div class="definition" id="definition-dot-product">
     <div class="title">
-        Dot Product
+        Dot Product Algebraic Definition
     </div>
     <div class="content">
-        Given two sequences of numbers of the same length: \( a = \left ( a_{1} , \ldots , a_{k} \right ) \) and \( b = \left ( b_{1} , \ldots , b_{k} \right ) \), their dot product denoted and defined by \[ a \cdot b = \sum_{i = 1}^{k} a_{i} \cdot b_{i} \] Note that \( \cdot : \mathbb{R}^{k} \times \mathbb{R}^{k} \to \mathbb{R} \)
+        Given two <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vectors</a> \( a = \left ( a_{1} , \ldots , a_{n} \right ) \) and \( b = \left ( b_{1} , \ldots , b_{n} \right ) \) in \( \mathbb{ R } ^ n \), their dot product is the real number
+        \[
+            a \cdot b = \sum_{i = 1}^{n} a_{i} b_{i}
+        \]
+        Thus \( \cdot : \mathbb{R}^{n} \times \mathbb{R}^{n} \to \mathbb{R} \).
     </div>
 </div>
-<div class="proposition" id="proposition-dot-product-geometric">
+<div class="proposition" id="proposition-dot-product-is-symmetric">
     <div class="title">
-        Dot Product Geometric
+        Dot Product is Symmetric
     </div>
     <div class="content">
-        \[ a \cdot b = \lVert a \rVert \lVert b \rVert \cos \left( \theta \right) \] where \( \theta \) is the angle between \( a, b \)
+        For any \( a, b \in \mathbb{ R } ^ n \),
+        \[
+            a \cdot b = b \cdot a
+        \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        Write \( a = \left( a_1, \ldots, a_n \right) \) and \( b = \left( b_1, \ldots, b_n \right) \). By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">algebraic definition of the dot product</a> and commutativity of multiplication in \( \mathbb{ R } \),
+        \[
+            a \cdot b
+            = \sum _ { i = 1 } ^ n a_i b_i
+            = \sum _ { i = 1 } ^ n b_i a_i
+            = b \cdot a
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-dot-product-distributes-into-vector-addition-from-the-right">
+    <div class="title">
+        Dot Product Distributes into Vector Addition from the Right
+    </div>
+    <div class="content">
+        For any \( a, b, c \in \mathbb{ R } ^ n \),
+        \[
+            \left( a + b \right) \cdot c = a \cdot c + b \cdot c
+        \]
+    </div>
+    <div class="proof">
+        Write \( a = \left( a_1, \ldots, a_n \right) \), \( b = \left( b_1, \ldots, b_n \right) \), and \( c = \left( c_1, \ldots, c_n \right) \). By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">definition of the dot product</a>,
+        \[
+        \begin{align}
+            \left( a + b \right) \cdot c
+            &amp;= \sum _ { i = 1 } ^ n \left( a_i + b_i \right)c_i \\
+            &amp;= \sum _ { i = 1 } ^ n \left( a_i c_i + b_i c_i \right) \\
+            &amp;= \sum _ { i = 1 } ^ n a_i c_i + \sum _ { i = 1 } ^ n b_i c_i \\
+            &amp;= a \cdot c + b \cdot c
+        \end{align}
+        \]
+    </div>
+</div>
+<div class="corollary" id="corollary-dot-product-distributes-into-vector-addition-from-the-left">
+    <div class="title">
+        Dot Product Distributes into Vector Addition from the Left
+    </div>
+    <div class="content">
+        For any \( a, b, c \in \mathbb{ R } ^ n \),
+        \[
+            a \cdot \left( b + c \right) = a \cdot b + a \cdot c
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-is-symmetric">symmetry of the dot product</a> and <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-distributes-into-vector-addition-from-the-right">dot product distributes into vector addition from the right</a>,
+        \[
+            a \cdot \left( b + c \right)
+            = \left( b + c \right) \cdot a
+            = b \cdot a + c \cdot a
+            = a \cdot b + a \cdot c
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-dot-product-is-compatible-with-scalar-multiplication">
+    <div class="title">
+        Dot Product is Compatible with Scalar Multiplication
+    </div>
+    <div class="content">
+        For any \( a, b \in \mathbb{ R } ^ n \) and \( \lambda \in \mathbb{ R } \),
+        \[
+            \left( \lambda a \right) \cdot b = \lambda \left( a \cdot b \right)
+            \qquad \text{and} \qquad
+            a \cdot \left( \lambda b \right) = \lambda \left( a \cdot b \right)
+        \]
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">definition of the dot product</a>,
+        \[
+            \left( \lambda a \right) \cdot b
+            =
+            \sum _ { i = 1 } ^ n \left( \lambda a_i \right)b_i
+            =
+            \lambda \sum _ { i = 1 } ^ n a_i b_i
+            =
+            \lambda \left( a \cdot b \right)
+        \]
+        The second equality follows from this equality and the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-is-symmetric">symmetry of the dot product</a>:
+        \[
+            a \cdot \left( \lambda b \right)
+            =
+            \left( \lambda b \right) \cdot a
+            =
+            \lambda \left( b \cdot a \right)
+            =
+            \lambda \left( a \cdot b \right)
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-dot-product-is-positive-definite">
+    <div class="title">
+        Dot Product is Positive Definite
+    </div>
+    <div class="content">
+        For any \( a \in \mathbb{ R } ^ n \),
+        \[
+            a \cdot a \ge 0
+        \]
+        Moreover \( a \cdot a = 0 \) if and only if \( a = 0 \).
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">definition of the dot product</a>,
+        \[
+            a \cdot a = \sum _ { i = 1 } ^ n a_i ^ 2
+        \]
+        Since every square \( a_i ^ 2 \) is non-negative, \( a \cdot a \ge 0 \). Also, \( \sum _ { i = 1 } ^ n a_i ^ 2 = 0 \) exactly when each \( a_i ^ 2 = 0 \), which happens exactly when each \( a_i = 0 \), i.e. exactly when \( a = 0 \).
+    </div>
 </div>
 <div class="corollary" id="corollary-norm-squared-is-the-dot-product">
     <div class="title">
@@ -38,7 +188,115 @@
     <div class="content">
         For any \( x \in \mathbb{ R } ^ n \) we have that \[ \lVert x \rVert ^ 2 = x \cdot x \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-length">definition of length</a> and the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">definition of the dot product</a>,
+        \[
+            \lVert x \rVert ^ 2
+            =
+            \left( \sqrt{ \sum _ { i = 1 } ^ n x_i ^ 2 } \right) ^ 2
+            =
+            \sum _ { i = 1 } ^ n x_i ^ 2
+            =
+            x \cdot x
+        \]
+    </div>
+</div>
+<div class="corollary" id="corollary-nonzero-vector-has-positive-length">
+    <div class="title">
+        Nonzero Vector has Positive Length
+    </div>
+    <div class="content">
+        If \( x \in \mathbb{ R } ^ n \) and \( x \neq 0 \), then
+        \[
+            \lVert x \rVert &gt; 0
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-norm-squared-is-the-dot-product">norm squared is the dot product</a> and the fact that the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-is-positive-definite">dot product is positive definite</a>, \( \lVert x \rVert ^ 2 = x \cdot x &gt; 0 \). Since \( \lVert x \rVert \) is non-negative by the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-length">definition of length</a>, it follows that \( \lVert x \rVert &gt; 0 \).
+    </div>
+</div>
+<div class="proposition" id="proposition-dot-product-expansion-of-norm-squared">
+    <div class="title">
+        Dot Product Expansion of Norm Squared
+    </div>
+    <div class="content">
+        For any \( x, y \in \mathbb{ R } ^ n \),
+        \[
+            \lVert x + y \rVert ^ 2
+            =
+            \lVert x \rVert ^ 2 + 2 x \cdot y + \lVert y \rVert ^ 2
+        \]
+        and
+        \[
+            \lVert x - y \rVert ^ 2
+            =
+            \lVert x \rVert ^ 2 - 2 x \cdot y + \lVert y \rVert ^ 2
+        \]
+    </div>
+    <div class="proof">
+        Using <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-norm-squared-is-the-dot-product">norm squared is the dot product</a>, <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-distributes-into-vector-addition-from-the-right">dot product distributes into vector addition from the right</a>, <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-dot-product-distributes-into-vector-addition-from-the-left">dot product distributes into vector addition from the left</a>, and <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-is-symmetric">symmetry of the dot product</a>, we get
+        \[
+        \begin{align}
+            \lVert x + y \rVert ^ 2
+            &amp;= \left( x + y \right) \cdot \left( x + y \right) \\
+            &amp;= x \cdot x + x \cdot y + y \cdot x + y \cdot y \\
+            &amp;= \lVert x \rVert ^ 2 + 2x \cdot y + \lVert y \rVert ^ 2
+        \end{align}
+        \]
+        Replacing \( y \) by \( -y \), and using <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-is-compatible-with-scalar-multiplication">compatibility with scalar multiplication</a>, gives
+        \[
+            \lVert x - y \rVert ^ 2
+            =
+            \lVert x \rVert ^ 2 - 2x \cdot y + \lVert y \rVert ^ 2
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-euclidean-law-of-cosines">
+    <div class="title">
+        Euclidean Law of Cosines
+    </div>
+    <div class="content">
+        Suppose a triangle has side lengths \( A \), \( B \), and \( C \), and suppose that \( \theta \) is the angle between the sides of length \( A \) and \( B \). Then
+        \[
+            C ^ 2 = A ^ 2 + B ^ 2 - 2AB \cos \left( \theta \right)
+        \]
+    </div>
+    <div class="proof">
+        TODO: Add a Euclidean geometry proof here.
+    </div>
+</div>
+<div class="proposition" id="proposition-dot-product-geometric">
+    <div class="title">
+        Dot Product Geometric Formula
+    </div>
+    <div class="content">
+        If \( a, b \in \mathbb{ R } ^ n \) are non-zero and \( \theta \) is the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-angle-between-nonzero-vectors">angle between</a> \( a \) and \( b \), then
+        \[
+            a \cdot b = \lVert a \rVert \lVert b \rVert \cos \left( \theta \right)
+        \]
+    </div>
+    <div class="proof">
+        The vectors \( a \), \( b \), and \( a - b \) determine a triangle with side lengths \( \lVert a \rVert \), \( \lVert b \rVert \), and \( \lVert a - b \rVert \). By the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-euclidean-law-of-cosines">Euclidean law of cosines</a> applied to this triangle,
+        \[
+            \lVert a - b \rVert ^ 2
+            =
+            \lVert a \rVert ^ 2 + \lVert b \rVert ^ 2 - 2 \lVert a \rVert \lVert b \rVert \cos \left( \theta \right)
+        \]
+        On the other hand, by the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-expansion-of-norm-squared">dot product expansion of norm squared</a>,
+        \[
+            \lVert a - b \rVert ^ 2
+            =
+            \lVert a \rVert ^ 2 - 2 a \cdot b + \lVert b \rVert ^ 2
+        \]
+        Equating the two expressions and subtracting \( \lVert a \rVert ^ 2 + \lVert b \rVert ^ 2 \) from both sides gives
+        \[
+            -2a \cdot b = -2 \lVert a \rVert \lVert b \rVert \cos \left( \theta \right)
+        \]
+        Dividing by \(-2\), we get
+        \[
+            a \cdot b = \lVert a \rVert \lVert b \rVert \cos \left( \theta \right)
+        \]
+    </div>
 </div>
 <div class="definition" id="definition-vector-form-of-a-line">
     <div class="title">
@@ -51,12 +309,35 @@
         </div>We also say that \( d \) is the direction vector for \( l \)
     </div>
 </div>
+<div class="definition" id="definition-unit-vector">
+    <div class="title">
+        Unit Vector
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vector</a> \( v \in \mathbb{ R } ^ n \) is called a unit vector if its <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-length">length</a> is \(1\), i.e.
+        \[
+            \lVert v \rVert = 1
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-positively-oriented-triple-in-r3">
+    <div class="title">
+        Positively Oriented Triple in R3
+    </div>
+    <div class="content">
+        An ordered triple \( \left( a, b, c \right) \) of nonzero vectors in \( \mathbb{ R } ^ 3 \) is positively oriented if it has the same orientation as the standard coordinate directions \( \left( e_1, e_2, e_3 \right) \). Equivalently, when the fingers of the right hand curl from the direction of \( a \) toward the direction of \( b \), the thumb points in the direction of \( c \).
+    </div>
+</div>
 <div class="definition" id="definition-cross-product">
     <div class="title">
         Cross Product
     </div>
     <div class="content">
-        Given two vectors \( a, b \in \mathbb{ R } ^ 3 \) we define their <b>cross-product</b> to be \[ a \times b := \lVert a \rVert \lVert b \rVert \sin \left( \theta \right) n \] where \( \theta \) is the angle between \( a \) and \( b \) and \( n \) is a unit vector such that \( a , n , b \) is positively oriented.
+        Given two nonzero <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vectors</a> \( a, b \in \mathbb{ R } ^ 3 \), we define their <b>cross-product</b> to be
+        \[
+            a \times b := \lVert a \rVert \lVert b \rVert \sin \left( \theta \right) n
+        \]
+        where \( \theta \) is the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-angle-between-nonzero-vectors">angle between</a> \( a \) and \( b \), and \( n \) is a <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-unit-vector">unit vector</a> such that \( \left( a , n , b \right) \) is <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-positively-oriented-triple-in-r3">positively oriented</a>.
     </div>
 </div>
 <div class="proposition" id="proposition-cross-product-vector-component-formula">
@@ -69,6 +350,215 @@
     <div class="proof"></div>
 </div>
 <p>An easy way to remember this is ab 231 where you then get a2b3 - ..., a3b1 - ..., a1b2</p>
+<div class="proposition" id="proposition-cross-product-is-orthogonal-to-factors">
+    <div class="title">
+        Cross Product is Orthogonal to its Factors
+    </div>
+    <div class="content">
+        If \( a, b \in \mathbb{ R } ^ 3 \), then
+        \[
+            a \cdot \left( a \times b \right) = 0
+            \qquad \text{and} \qquad
+            b \cdot \left( a \times b \right) = 0
+        \]
+    </div>
+    <div class="proof">
+        Write \( a = \left( a_1, a_2, a_3 \right) \) and \( b = \left( b_1, b_2, b_3 \right) \). By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">definition of the dot product</a> and the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-vector-component-formula">component formula for the cross product</a>,
+        \[
+        \begin{align}
+            a \cdot \left( a \times b \right)
+            &amp;= a_1 \left( a_2 b_3 - a_3 b_2 \right)
+              + a_2 \left( a_3 b_1 - a_1 b_3 \right)
+              + a_3 \left( a_1 b_2 - a_2 b_1 \right) \\
+            &amp;= a_1 a_2 b_3 - a_1 a_3 b_2
+              + a_2 a_3 b_1 - a_1 a_2 b_3
+              + a_1 a_3 b_2 - a_2 a_3 b_1 \\
+            &amp;= 0
+        \end{align}
+        \]
+        The same calculation gives
+        \[
+        \begin{align}
+            b \cdot \left( a \times b \right)
+            &amp;= b_1 \left( a_2 b_3 - a_3 b_2 \right)
+              + b_2 \left( a_3 b_1 - a_1 b_3 \right)
+              + b_3 \left( a_1 b_2 - a_2 b_1 \right) \\
+            &amp;= a_2 b_1 b_3 - a_3 b_1 b_2
+              + a_3 b_1 b_2 - a_1 b_2 b_3
+              + a_1 b_2 b_3 - a_2 b_1 b_3 \\
+            &amp;= 0
+        \end{align}
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-plane-through-origin-as-span">
+    <div class="title">
+        Plane Through the Origin as a Span
+    </div>
+    <div class="content">
+        Suppose \( u, v \in \mathbb{ R } ^ 3 \setminus \left\{ 0 \right\} \) are <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>. The plane through the origin generated by \( u \) and \( v \) is the <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-span">span</a>
+        \[
+            P = \operatorname{ span } \left( \left\{ u, v \right\} \right)
+              = \left\{ su + tv : s, t \in \mathbb{ R } \right\}
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-plane-through-origin-by-normal">
+    <div class="title">
+        Plane Through the Origin by a Normal
+    </div>
+    <div class="content">
+        Suppose \( n \in \mathbb{ R } ^ 3 \) and \( n \neq 0 \). The plane through the origin with normal vector \( n \) is defined using the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">dot product</a> by
+        \[
+            n^\perp = \left\{ x \in \mathbb{ R } ^ 3 : x \cdot n = 0 \right\}
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-span-plane-has-cross-product-normal">
+    <div class="title">
+        Span Plane has Cross Product Normal
+    </div>
+    <div class="content">
+        Suppose \( u, v \in \mathbb{ R } ^ 3 \setminus \left\{ 0 \right\} \) are linearly independent. Then
+        \[
+            \operatorname{ span } \left( \left\{ u, v \right\} \right)
+            =
+            \left\{ x \in \mathbb{ R } ^ 3 : x \cdot \left( u \times v \right) = 0 \right\}
+        \]
+    </div>
+    <div class="proof">
+        Let \( n = u \times v \).
+        Let \( \theta \) be the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-angle-between-nonzero-vectors">angle between</a> \( u \) and \( v \). Since \( u, v \in \mathbb{ R } ^ 3 \setminus \left\{ 0 \right\} \), we have \( \lVert u \rVert &gt; 0 \) and \( \lVert v \rVert &gt; 0 \) by <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-nonzero-vector-has-positive-length">nonzero vectors have positive length</a>. Since \( u \) and \( v \) are <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>, the angle satisfies \( \theta \neq 0 \) and \( \theta \neq \pi \) by <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-linearly-independent-nonzero-vectors-have-non-extreme-angle">linearly independent nonzero vectors have non-extreme angle</a>. Also \( \theta \in \left[0,\pi\right] \) by the definition of angle, so \( \sin \left( \theta \right) \neq 0 \) by <a class="knowledge-link" href="/analysis/single_variable/trigonometric_functions.html#proposition-sine-zero-on-zero-to-pi">sine is zero on \( \left[0,\pi\right] \) only at the endpoints</a>. Therefore, by the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-cross-product">definition of the cross product</a>,
+        \[
+            \lVert u \times v \rVert
+            =
+            \lVert u \rVert \lVert v \rVert \sin \left( \theta \right)
+            \neq 0
+        \]
+        and so \( n \neq 0 \).
+        <p>First suppose that \( x \in \operatorname{ span } \left( \left\{ u, v \right\} \right) \). By the <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-span">definition of span</a>, \( x = su + tv \) for some \( s, t \in \mathbb{ R } \). Since \( n = u \times v \) is orthogonal to both \( u \) and \( v \) by the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-is-orthogonal-to-factors">cross product is orthogonal to its factors proposition</a>,</p>
+        \[
+            x \cdot n = \left( su + tv \right) \cdot n
+            = s \left( u \cdot n \right) + t \left( v \cdot n \right)
+            = 0
+        \]
+        Thus
+        \[
+            \operatorname{ span } \left( \left\{ u, v \right\} \right)
+            \subseteq
+            \left\{ x \in \mathbb{ R } ^ 3 : x \cdot n = 0 \right\}
+        \]
+        For the reverse containment, note that \( u, v, n \) are <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>. To see this, suppose that
+        \[
+            au + bv + cn = 0
+        \]
+        Taking the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">dot product</a> of both sides with \( n \), we get
+        \[
+            a \left( u \cdot n \right) + b \left( v \cdot n \right) + c \left( n \cdot n \right) = 0
+        \]
+        Since \( u \cdot n = 0 \), \( v \cdot n = 0 \), and \( n \cdot n = \lVert n \rVert ^ 2 \neq 0 \) by <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-norm-squared-is-the-dot-product">norm squared is the dot product</a>, it follows that \( c = 0 \). Therefore \( au + bv = 0 \), and since \( u, v \) are linearly independent, we get \( a = b = 0 \). Thus \( u, v, n \) are linearly independent.
+        <p>Since \( \operatorname{ dim } \left( \mathbb{ R } ^ 3 \right) = 3 \) by <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#corollary-dimension-of-rn">the dimension of \( \mathbb{ R } ^ n \)</a>, the three linearly independent vectors \( u, v, n \) form a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#theorem-linearly-independent-set-with-dimension-size-is-a-basis">basis</a> of \( \mathbb{ R } ^ 3 \).</p>
+        <p>Now suppose that \( x \cdot n = 0 \). Since \( u, v, n \) form a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a>, we can write \( x = su + tv + rn \). Then</p>
+        \[
+            0 = x \cdot n
+              = s \left( u \cdot n \right) + t \left( v \cdot n \right) + r \left( n \cdot n \right)
+              = r \lVert n \rVert ^ 2
+        \]
+        Since \( \lVert n \rVert ^ 2 \neq 0 \), we have \( r = 0 \). Thus \( x = su + tv \), so \( x \in \operatorname{ span } \left( \left\{ u, v \right\} \right) \) by the <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-span">definition of span</a>.
+    </div>
+</div>
+<div class="definition" id="definition-translated-plane-as-span">
+    <div class="title">
+        Translated Plane as a Span
+    </div>
+    <div class="content">
+        Suppose \( p \in \mathbb{ R } ^ 3 \), suppose \( u, v \in \mathbb{ R } ^ 3 \setminus \left\{ 0 \right\} \), and suppose that \( u \) and \( v \) are <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>. The plane through \( p \) with direction vectors \( u \) and \( v \) is the translation of the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-plane-through-origin-as-span">plane through the origin as a span</a>:
+        \[
+            p + \operatorname{ span } \left( \left\{ u, v \right\} \right)
+            =
+            \left\{ p + su + tv : s, t \in \mathbb{ R } \right\}
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-translated-plane-by-normal">
+    <div class="title">
+        Translated Plane by a Normal
+    </div>
+    <div class="content">
+        Suppose \( p, n \in \mathbb{ R } ^ 3 \) and \( n \neq 0 \). The plane through \( p \) with normal vector \( n \) is defined by translating the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-plane-through-origin-by-normal">plane through the origin by a normal</a>:
+        \[
+            \left\{ x \in \mathbb{ R } ^ 3 : \left( x - p \right) \cdot n = 0 \right\}
+        \]
+        By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">dot product</a>, this can equivalently be written as \( x \cdot n = p \cdot n \).
+    </div>
+</div>
+<div class="definition" id="definition-coordinate-equation-of-a-plane">
+    <div class="title">
+        Coordinate Equation of a Plane
+    </div>
+    <div class="content">
+        Suppose \( a, b, c, d \in \mathbb{ R } \), and suppose that \( \left( a, b, c \right) \neq \left( 0, 0, 0 \right) \). The equation
+        \[
+            ax + by + cz = d
+        \]
+        defines the plane
+        \[
+            \left\{ \left( x, y, z \right) \in \mathbb{ R } ^ 3 : ax + by + cz = d \right\}
+        \]
+        whose normal vector is \( \left( a, b, c \right) \), as shown by its equivalence with the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-translated-plane-by-normal">translated plane by a normal</a>.
+    </div>
+</div>
+<div class="proposition" id="proposition-coordinate-equation-of-a-plane-is-normal-form">
+    <div class="title">
+        Coordinate Equation of a Plane is Normal Form
+    </div>
+    <div class="content">
+        Suppose \( n = \left( a, b, c \right) \neq 0 \), \( p = \left( p_1, p_2, p_3 \right) \), and \( d = p \cdot n \). Then
+        \[
+            \left\{ q \in \mathbb{ R } ^ 3 : \left( q - p \right) \cdot n = 0 \right\}
+            =
+            \left\{ \left( x, y, z \right) \in \mathbb{ R } ^ 3 : ax + by + cz = d \right\}
+        \]
+    </div>
+    <div class="proof">
+        Let \( q = \left( x, y, z \right) \). By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">definition of the dot product</a>, we have
+        \[
+        \begin{align}
+            \left( q - p \right) \cdot n = 0
+            &amp;\iff
+            \left( x - p_1, y - p_2, z - p_3 \right) \cdot \left( a, b, c \right) = 0 \\
+            &amp;\iff
+            a \left( x - p_1 \right) + b \left( y - p_2 \right) + c \left( z - p_3 \right) = 0 \\
+            &amp;\iff
+            ax + by + cz = ap_1 + bp_2 + cp_3 \\
+            &amp;\iff
+            ax + by + cz = p \cdot n \\
+            &amp;\iff
+            ax + by + cz = d
+        \end{align}
+        \]
+        Therefore the coordinate equation is exactly the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-translated-plane-by-normal">translated normal form</a> written out component by component.
+    </div>
+</div>
+<div class="proposition" id="proposition-translated-span-plane-equals-translated-normal-plane">
+    <div class="title">
+        Translated Span Plane Equals Translated Normal Plane
+    </div>
+    <div class="content">
+        Suppose \( p \in \mathbb{ R } ^ 3 \), suppose \( u, v \in \mathbb{ R } ^ 3 \setminus \left\{ 0 \right\} \), and suppose that \( u \) and \( v \) are linearly independent. Then
+        \[
+            \left\{ p + su + tv : s, t \in \mathbb{ R } \right\}
+            =
+            \left\{ x \in \mathbb{ R } ^ 3 : \left( x - p \right) \cdot \left( u \times v \right) = 0 \right\}
+        \]
+    </div>
+    <div class="proof">
+        Let \( Q = \left\{ p + su + tv : s, t \in \mathbb{ R } \right\} \). By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-translated-plane-as-span">translated plane as a span definition</a>, \( x \in Q \) exactly when \( x - p \in \operatorname{ span } \left( \left\{ u, v \right\} \right) \). By the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-span-plane-has-cross-product-normal">span plane has cross product normal proposition</a>, this happens exactly when \( \left( x - p \right) \cdot \left( u \times v \right) = 0 \), which is exactly the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-translated-plane-by-normal">normal equation</a>
+        \[
+            \left( x - p \right) \cdot \left( u \times v \right) = 0
+        \]
+    </div>
+</div>
 <div class="definition" id="definition-equation-for-a-line" >
     <div class="title">Equation for a Line</div>
     <div class="content">
@@ -99,14 +589,6 @@
         We know that \( ax + by + c = 0 \) defines a line, but we need to verify that \( p, q \) are both on that line, but since \( p \cdot L = 0  \) and \( q \cdot L = 0 \) <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-equation-of-a-line-as-a-3d-dot-product">we know that</a> they are on the line, as needed.
     </div>
 </div>
-<div class="definition" id="definition-collinear">
-    <div class="title">
-        Collinear
-    </div>
-    <div class="content">
-        Given a vector space \( \left( V, F \right) \) then we say that two vectors \( x, y \in V \) are collinear if there exists an \( \alpha \in F \) such that \[ x = \alpha y \]
-    </div>
-</div>
 <div class="proposition" id="proposition-parallelogram-law">
     <div class="title">
         Parallelogram Law
@@ -115,7 +597,17 @@
         Suppose \( x, y \in \mathbb{ R } ^ n \) then we have \[ \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2 = 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2 \]
     </div>
     <div class="proof">
-        \[ \begin{align} \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2 &amp;= \left( x + y \right) \cdot \left( x + y \right) + \left( x - y \right) \cdot \left( x - y \right) \\ &amp;= x \cdot x + 2 x \cdot y + y \cdot y + x \cdot x - 2 x \cdot y + y \cdot y \\ &amp;= 2 x \cdot x + 2 y \cdot y \\ &amp;= 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2 \end{align} \]
+        By the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-expansion-of-norm-squared">dot product expansion of norm squared</a>,
+        \[
+        \begin{align}
+            \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2
+            &amp;=
+            \left( \lVert x \rVert ^ 2 + 2 x \cdot y + \lVert y \rVert ^ 2 \right)
+            +
+            \left( \lVert x \rVert ^ 2 - 2 x \cdot y + \lVert y \rVert ^ 2 \right) \\
+            &amp;= 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2
+        \end{align}
+        \]
     </div>
 </div>
 <div class="exercise" id="exercise-the-norm-of-the-half-of-the-sum-of-two-unit-vectors-is-one-iff-they-are-equal">
@@ -130,15 +622,22 @@
         <p>\( \impliedby \) Suppose that \( x = y \), then \[ \left\lVert \frac{x + y}{2} \right\rVert = \left\lVert \frac{2x}{2} \right\rVert = \lVert x \rVert = 1 \] as needed.</p>
     </div>
 </div>
-<div class="proposition" id="proposition-cosine-law">
+<div class="proposition" id="proposition-vector-cosine-law">
     <div class="title">
-        Cosine Law
+        Vector Cosine Law
     </div>
     <div class="content">
         Suppose that \( x, y \in \mathbb{ R } ^ n \) and \( \theta \) is the angle between them, then \[ \lVert x + y \rVert ^ 2 = \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta \right) + \lVert y \rVert ^ 2 \]
     </div>
     <div class="proof">
-        This follows from distributivity of the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-geometric">geometric interpretation of the dot product</a> \[ \begin{align} \lVert x + y \rVert ^ 2 &amp;= \left( x + y \right) \cdot \left( x + y \right) \\ &amp;= x \cdot x + 2 x \cdot y + y ^ 2 \\ &amp;= \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta \right) + \lVert y \rVert ^ 2 \end{align} \]
+        By the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-expansion-of-norm-squared">dot product expansion of norm squared</a> and the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-geometric">geometric formula for the dot product</a>,
+        \[
+        \begin{align}
+            \lVert x + y \rVert ^ 2
+            &amp;= \lVert x \rVert ^ 2 + 2 x \cdot y + \lVert y \rVert ^ 2 \\
+            &amp;= \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta \right) + \lVert y \rVert ^ 2
+        \end{align}
+        \]
     </div>
 </div>
 <div class="corollary" id="corollary-dot-product-is-a-sum-of-norms">
@@ -149,7 +648,7 @@
         \[ x \cdot y = \frac{\lVert x + y \rVert ^ 2 - \lVert x \rVert ^ 2 - \lVert y \rVert ^ 2}{2} \]
     </div>
     <div class="proof">
-        Rearrange <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cosine-law">this</a>.
+        Rearrange the first equality in the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-expansion-of-norm-squared">dot product expansion of norm squared</a>.
     </div>
 </div><!--        <p>An example of the vector form of a line in \( \mathbb{R}^{3} \) could be \( x = t \left [ \begin{matrix} 1-->
 <!--        \\ 2 \\ 3 \end{matrix} \right ] + \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \), where \( \left [-->

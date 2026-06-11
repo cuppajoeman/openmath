@@ -48,6 +48,62 @@
         A vector space \( V \)  is said to be finite dimensional if <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-dimension-of-a-vector-space">\( \operatorname{ dim } \left( V \right)  \)</a> is finite
     </div>
 </div>
+<div class="definition" id="definition-standard-basis-of-rn">
+    <div class="title">
+        Standard Basis of Rn
+    </div>
+    <div class="content">
+        The standard basis of \( \mathbb{ R } ^ n \) is
+        \[
+            \left\{ e_1, \ldots, e_n \right\}
+        \]
+        where \( e_i \) is the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vector</a> whose \( i \)-th coordinate is \(1\) and whose other coordinates are \(0\).
+    </div>
+</div>
+<div class="proposition" id="proposition-standard-basis-of-rn-is-a-basis">
+    <div class="title">
+        Standard Basis of Rn is a Basis
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-standard-basis-of-rn">standard basis</a> \( \left\{ e_1, \ldots, e_n \right\} \) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> of \( \mathbb{ R } ^ n \).
+    </div>
+    <div class="proof">
+        First, the standard basis spans \( \mathbb{ R } ^ n \). If \( x = \left( x_1, \ldots, x_n \right) \in \mathbb{ R } ^ n \), then
+        \[
+            x = x_1 e_1 + \cdots + x_n e_n
+        \]
+        so \( x \in \operatorname{ span } \left( \left\{ e_1, \ldots, e_n \right\} \right) \) by the <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-span">definition of span</a>.
+        <p>Second, the standard basis is linearly independent. If</p>
+        \[
+            a_1 e_1 + \cdots + a_n e_n = 0
+        \]
+        then comparing the \( i \)-th coordinate gives \( a_i = 0 \). Since this holds for every \( i \), all coefficients are zero, so \( \left\{ e_1, \ldots, e_n \right\} \) is <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>. Therefore it is a basis by the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">definition of basis</a>.
+    </div>
+</div>
+<div class="corollary" id="corollary-dimension-of-rn">
+    <div class="title">
+        Dimension of Rn
+    </div>
+    <div class="content">
+        \[
+            \operatorname{ dim } \left( \mathbb{ R } ^ n \right) = n
+        \]
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#proposition-standard-basis-of-rn-is-a-basis">standard basis of \( \mathbb{ R } ^ n \) is a basis proposition</a>, \( \mathbb{ R } ^ n \) has a basis with \( n \) elements. Therefore, by the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-dimension-of-a-vector-space">definition of dimension</a>, \( \operatorname{ dim } \left( \mathbb{ R } ^ n \right) = n \).
+    </div>
+</div>
+<div class="theorem" id="theorem-linearly-independent-set-with-dimension-size-is-a-basis">
+    <div class="title">
+        Linearly Independent Set with Dimension Size is a Basis
+    </div>
+    <div class="content">
+        Suppose \( V \) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-finite-dimensional-vector-space">finite dimensional vector space</a> with \( \operatorname{ dim } \left( V \right) = n \). If \( S \subseteq V \) is <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a> and \( \left\lvert S \right\rvert = n \), then \( S \) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> of \( V \).
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#proposition-linear-idependent-set-expansion-to-basis">linear independent set expansion to basis proposition</a>, \( S \) can be extended to a basis \( \mathcal{ B } \) of \( V \). Since \( \operatorname{ dim } \left( V \right) = n \), every basis of \( V \) has \( n \) elements by the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-dimension-of-a-vector-space">definition of dimension</a>. But \( S \) already has \( n \) elements, so the extension cannot add any new vectors. Therefore \( S = \mathcal{ B } \), so \( S \) is a basis of \( V \).
+    </div>
+</div>
 <div class="definition">
     <div class="title">
         representation in a basis
