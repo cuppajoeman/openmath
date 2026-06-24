@@ -14,6 +14,7 @@ const temmlPackageDir = path.dirname(require.resolve("temml/package.json"));
 const temmlDistDir = path.join(temmlPackageDir, "dist");
 const defaultProofCoverageThreshold = 0.5;
 const proofCoverageThreshold = readProofCoverageThreshold();
+const developmentMode = process.env.OPENMATH_DEV === "1";
 const profileBuild = process.env.OPENMATH_PROFILE_BUILD === "1";
 const buildProfile = [];
 
@@ -150,6 +151,7 @@ function renderMath(html, filePath) {
     let errors = 0;
     const protectedBlocks = [];
     const temmlOptions = {
+        throwOnError: true,
         trust: function (context) {
             if (context.command === "\\class") {
                 return context.class === "knowledge-link";
@@ -222,7 +224,7 @@ function knowledgeLinksToTemml(tex) {
             return match;
         }
 
-        return `\\class{knowledge-link}{\\data{href=${escapeTemmlRawArgument(href)}}{${body.trim()}}}`;
+        return `{\\class{knowledge-link}{\\data{href=${escapeTemmlRawArgument(href)}}{${body.trim()}}}}`;
     });
 }
 
@@ -253,6 +255,34 @@ function escapeHtml(text) {
 
 function relativeUrl(filePath) {
     return path.relative(contentDir, filePath).split(path.sep).join("/");
+}
+
+function buildBreadcrumb(relativePath) {
+    const segments = relativePath.split("/");
+    const crumbs = [
+        '<a href="/" aria-label="OpenMath root">~</a>',
+    ];
+
+    let current = "";
+    for (let index = 0; index < segments.length; index += 1) {
+        const segment = segments[index];
+        const isFile = index === segments.length - 1;
+        current = current ? `${current}/${segment}` : segment;
+
+        if (isFile) {
+            crumbs.push(`<a href="/${current}">${escapeHtml(segment)}</a>`);
+            continue;
+        }
+
+        const directoryIndex = path.join(contentDir, current, "index.html");
+        if (fs.existsSync(directoryIndex)) {
+            crumbs.push(`<a href="/${current}/">${escapeHtml(segment)}</a>`);
+        } else {
+            crumbs.push(`<span>${escapeHtml(segment)}</span>`);
+        }
+    }
+
+    return `<nav class="breadcrumb" aria-label="Current file path">${crumbs.join('<span class="breadcrumb-separator">/</span>')}</nav>`;
 }
 
 function sourceFiles(dir) {
@@ -462,6 +492,24 @@ function linkShouldBeHidden(href, currentDir, quality) {
     return Boolean(data && data.total > 0 && data.coverage < proofCoverageThreshold);
 }
 
+function markDirectoryLinkLowCoverage(match, href, currentDir, quality) {
+    const target = targetForHref(href, currentDir);
+    const data = target ? quality.coverage.get(target) : null;
+
+    if (!data || data.total <= 0 || data.coverage >= proofCoverageThreshold) {
+        return match;
+    }
+
+    const percent = Math.round(data.coverage * 100);
+    const withClass = /\bclass\s*=/.test(match)
+        ? match.replace(/\bclass=(["'])([^"']*)\1/, function (_classMatch, quote, classes) {
+            return `class=${quote}${classes} directory-link-low-coverage${quote}`;
+        })
+        : match.replace("<li", '<li class="directory-link-low-coverage"');
+
+    return withClass.replace("</li>", ` <span class="quality-coverage quality-low">hidden in production: ${percent}%</span></li>`);
+}
+
 function filterDirectoryLinks(html, relativePath, quality) {
     if (path.basename(relativePath) !== "index.html") {
         return html;
@@ -471,18 +519,23 @@ function filterDirectoryLinks(html, relativePath, quality) {
     const linkPattern = /<li\b[^>]*>[\s\S]*?<a\b[^>]*href=["']([^"']+)["'][^>]*>[\s\S]*?<\/a>[\s\S]*?<\/li>/gi;
 
     return html.replace(linkPattern, function (match, href) {
+        if (developmentMode) {
+            return markDirectoryLinkLowCoverage(match, href, currentDir, quality);
+        }
+
         return linkShouldBeHidden(href, currentDir, quality) ? "" : match;
     });
 }
 
 function buildHtmlFile(filePath, template, stats, quality) {
-    const relativePath = path.relative(contentDir, filePath);
+    const relativePath = relativeUrl(filePath);
     const outPath = path.join(distDir, relativePath);
     const source = fs.readFileSync(filePath, "utf-8");
-    const content = filterDirectoryLinks(stripFullDocument(source), relativeUrl(filePath), quality);
+    const content = filterDirectoryLinks(stripFullDocument(source), relativePath, quality);
     const rendered = renderMath(content, filePath);
     const page = template
         .replaceAll("{{title}}", pageTitleFromPath(filePath))
+        .replace("{{breadcrumb}}", buildBreadcrumb(relativePath))
         .replace("{{content}}", rendered.html);
 
     ensureDir(path.dirname(outPath));
@@ -1015,9 +1068,70 @@ function cycleNodeIds(nodes, links) {
     return cycleNodes;
 }
 
-function buildKnowledgeGraphData(quality) {
+function stronglyConnectedComponents(nodes, links) {
+    const nodeIds = new Set(nodes.map((node) => node.id));
+    const adjacency = new Map(nodes.map((node) => [node.id, []]));
+
+    for (const link of links) {
+        if (nodeIds.has(link.source) && nodeIds.has(link.target)) {
+            adjacency.get(link.source).push(link.target);
+        }
+    }
+
+    const indexByNode = new Map();
+    const lowlinkByNode = new Map();
+    const stack = [];
+    const onStack = new Set();
+    const components = [];
+    let index = 0;
+
+    function visit(nodeId) {
+        indexByNode.set(nodeId, index);
+        lowlinkByNode.set(nodeId, index);
+        index += 1;
+        stack.push(nodeId);
+        onStack.add(nodeId);
+
+        for (const next of adjacency.get(nodeId) || []) {
+            if (!indexByNode.has(next)) {
+                visit(next);
+                lowlinkByNode.set(nodeId, Math.min(lowlinkByNode.get(nodeId), lowlinkByNode.get(next)));
+            } else if (onStack.has(next)) {
+                lowlinkByNode.set(nodeId, Math.min(lowlinkByNode.get(nodeId), indexByNode.get(next)));
+            }
+        }
+
+        if (lowlinkByNode.get(nodeId) === indexByNode.get(nodeId)) {
+            const component = [];
+            let current;
+
+            do {
+                current = stack.pop();
+                onStack.delete(current);
+                component.push(current);
+            } while (current !== nodeId);
+
+            const hasSelfLoop = component.length === 1 && (adjacency.get(component[0]) || []).includes(component[0]);
+            if (component.length > 1 || hasSelfLoop) {
+                components.push(component.sort());
+            }
+        }
+    }
+
+    for (const node of nodes) {
+        if (!indexByNode.has(node.id)) {
+            visit(node.id);
+        }
+    }
+
+    return components.sort((a, b) => b.length - a.length || a[0].localeCompare(b[0]));
+}
+
+function buildKnowledgeGraphData(quality, options = {}) {
+    const includePaths = options.paths ? new Set(options.paths) : null;
     const nodes = Array.from(quality.statements.values())
         .filter((statement) => statement.type !== "exercise")
+        .filter((statement) => !includePaths || includePaths.has(statement.path))
         .map((statement) => ({
             id: `${statement.path}#${statement.id}`,
             title: statement.title,
@@ -1058,6 +1172,7 @@ function buildKnowledgeGraphData(quality) {
     }
 
     const cycleNodes = cycleNodeIds(nodes, links);
+    const cycleComponents = stronglyConnectedComponents(nodes, links);
     for (const node of nodes) {
         node.isolated = (degree.get(node.id) || 0) === 0;
         node.inCycle = cycleNodes.has(node.id);
@@ -1072,7 +1187,12 @@ function buildKnowledgeGraphData(quality) {
             links: links.length,
             isolatedNodes: nodes.filter((node) => node.isolated).length,
             cycleNodes: nodes.filter((node) => node.inCycle).length,
+            cycles: cycleComponents.length,
         },
+        cycles: cycleComponents.map((component) => component.map((id) => {
+            const node = nodes.find((candidate) => candidate.id === id);
+            return node || { id };
+        })),
     };
 }
 
@@ -1164,10 +1284,20 @@ function build() {
     console.log(`Render errors: ${stats.errors}`);
     console.log(`Proof coverage threshold: ${Math.round(proofCoverageThreshold * 100)}%`);
     console.log(`Pages below proof coverage threshold: ${quality.underThreshold.length}`);
+    console.log(`Development mode: ${developmentMode ? "on; low-coverage directory links are marked" : "off; low-coverage directory links are hidden"}`);
 
     if (stats.errors > 0) {
         process.exitCode = 1;
     }
 }
 
-build();
+if (require.main === module) {
+    build();
+} else {
+    module.exports = {
+        buildKnowledgeGraphData,
+        collectProofCoverage,
+        contentDir,
+        rootDir,
+    };
+}

@@ -6,6 +6,8 @@
   "scripts": {
     "build": "node build.js",
     "dev": "node scripts/watch.js --serve",
+    "graph:analyze": "node scripts/analyze_knowledge_graph.js",
+    "ids:rename": "node scripts/rename_knowledge_id.js",
     "serve": "node scripts/serve.js",
     "watch": "node scripts/watch.js",
     "test": "echo \"Error: no test specified\" && exit 1"

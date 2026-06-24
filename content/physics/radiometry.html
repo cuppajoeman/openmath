@@ -1,0 +1,2127 @@
+<fieldset>
+    <h1><legend>Radiometry</legend></h1>
+</fieldset>
+
+<p>
+    Radiometry is the measurement of <a class="knowledge-link" href="/physics/index.html#definition-electromagnetic-radiation">electromagnetic radiation</a> in physical <a class="knowledge-link" href="/physics/index.html#definition-unit">units</a>. In rendering, radiometry gives the language used to describe how <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> <a class="knowledge-link" href="/physics/index.html#definition-energy">energy</a> moves through space, across surfaces, and along directions.
+</p>
+
+<h2>Geometric Quantities</h2>
+
+<div class="definition" id="definition-surface">
+    <div class="title">
+        Surface
+    </div>
+    <div class="content">
+        In radiometry, a <b>surface</b> is usually modeled as a two-dimensional <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">manifold in Euclidean space</a>, typically \(M \subseteq \mathbb{R}^3\). This means that near each ordinary point, the surface can be described by two coordinates. When edges are relevant, the surface is treated as a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-manifold-with-boundary">manifold with boundary</a>. Rendering systems may approximate surfaces by polygon meshes, but the radiometric definitions below apply pointwise on smooth pieces.
+    </div>
+</div>
+
+<div class="definition" id="definition-surface-patch">
+    <div class="title">
+        Surface Patch
+    </div>
+    <div class="content">
+        A <b>surface patch</b> around a point \(p\) is a small region of a <a class="knowledge-link" href="#definition-surface">surface</a> containing \(p\). Area densities in radiometry are defined by shrinking such patches around the point.
+    </div>
+</div>
+
+<div class="definition" id="definition-surface-normal">
+    <div class="title">
+        Surface Normal
+    </div>
+    <div class="content">
+        A <b>surface normal</b> at a point \(p\) on a <a class="knowledge-link" href="#definition-surface">surface</a> \(M \subseteq \mathbb{R}^3\) is a unit direction perpendicular to the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-tangent-space-of-a-manifold">tangent space</a> \(M_p\).
+    </div>
+</div>
+
+<div class="definition" id="definition-solid-angle">
+    <div class="title">
+        Solid Angle
+    </div>
+    <div class="content">
+        Let \(\mathcal S_{\mathbb S^2}\) be the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\(\sigma\)-algebra</a> of surface-measurable subsets of the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-unit-sphere">unit sphere</a> \(\mathbb S^2\). A <b>solid angle</b> is the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \(\sigma:\mathcal S_{\mathbb S^2}\to\mathbb R^{\ge0}\) that sends a measurable direction set \(A\in\mathcal S_{\mathbb S^2}\) to the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">surface area</a> of \(A\) as a subset of \(\mathbb S^2\):
+        \[
+            \sigma(A)=\operatorname{area}_{\mathbb S^2}(A).
+        \]
+        Thus \(\sigma(A)\in\mathbb R^{\ge0}\). This is the three-dimensional analogue of defining an angle in radians by arc length on the unit circle.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-solid-angle-is-a-measure">
+    <div class="title">
+        Solid Angle is a Measure
+    </div>
+    <div class="content">
+        With \(\mathcal S_{\mathbb S^2}\) as above, the solid angle function
+        \[
+            \sigma:\mathcal S_{\mathbb S^2}\to\mathbb R^{\ge0}
+        \]
+        is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">measure</a> on \(\left(\mathbb S^2,\mathcal S_{\mathbb S^2}\right)\).
+    </div>
+    <div class="proof">
+        The <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-empty-set">empty set</a> has surface area \(0\), so
+        \[
+            \sigma(\emptyset)=\operatorname{area}_{\mathbb S^2}(\emptyset)=0.
+        \]
+        Now let \(A_1,A_2,\ldots\in\mathcal S_{\mathbb S^2}\) be <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-pairwise-disjoint-sets">pairwise disjoint</a>. By the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">definition of induced surface area</a>, the surface area of a countable disjoint union is obtained by adding the surface areas of the pieces. Hence
+        \[
+            \sigma\left(\bigcup_{j=1}^{\infty}A_j\right)
+            =
+            \operatorname{area}_{\mathbb S^2}\left(\bigcup_{j=1}^{\infty}A_j\right)
+            =
+            \sum_{j=1}^{\infty}\operatorname{area}_{\mathbb S^2}(A_j)
+            =
+            \sum_{j=1}^{\infty}\sigma(A_j).
+        \]
+        Therefore \(\sigma\) satisfies countable additivity and is a measure.
+    </div>
+</div>
+
+<div class="exercise" id="exercise-solid-angle-of-a-single-direction">
+    <div class="title">
+        Solid Angle of a Single Direction
+    </div>
+    <div class="content">
+        Let \(\omega\in\mathbb S^2\). Compute the <a class="knowledge-link" href="#definition-solid-angle">solid angle</a> of the one-point set \(\left\{\omega\right\}\).
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="#definition-solid-angle">definition of solid angle</a>,
+        \[
+            \sigma\left(\left\{\omega\right\}\right)
+            =
+            \operatorname{area}_{\mathbb S^2}\left(\left\{\omega\right\}\right).
+        \]
+        A single point on a surface has <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">surface area</a> \(0\). Therefore
+        \[
+            \sigma\left(\left\{\omega\right\}\right)=0.
+        \]
+        Thus a single point of \(\mathbb S^2\) has solid angle \(0\), even though small neighborhoods around that point can have positive solid angle.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-countable-direction-sets-have-zero-solid-angle">
+    <div class="title">
+        Countable Direction Sets Have Zero Solid Angle
+    </div>
+    <div class="content">
+        If \(A\subseteq\mathbb S^2\) is <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a>, then
+        \[
+            \sigma(A)=0.
+        \]
+    </div>
+    <div class="proof">
+        Since \(A\) is countable, write
+        \[
+            A=\left\{\omega_1,\omega_2,\ldots\right\},
+        \]
+        allowing repetitions if needed. For each \(k\), the one-point set \(\left\{\omega_k\right\}\) has solid angle \(0\) by <a class="knowledge-link" href="#exercise-solid-angle-of-a-single-direction">solid angle of a single direction</a>. By <a class="knowledge-link" href="/measure_theory/measures.html#proposition-countable-subadditivity-of-measures">countable subadditivity</a> of surface area on \(\mathbb S^2\),
+        \[
+            \sigma(A)
+            =
+            \sigma\left(\bigcup_{k=1}^{\infty}\left\{\omega_k\right\}\right)
+            \le
+            \sum_{k=1}^{\infty}\sigma\left(\left\{\omega_k\right\}\right)
+            =
+            0.
+        \]
+        Since \(\sigma(A)\ge0\), this gives \(\sigma(A)=0\).
+    </div>
+</div>
+
+<div class="exercise" id="exercise-projected-unit-disk-has-solid-angle-two-pi">
+    <div class="title">
+        Projected Unit Disk Has Solid Angle \(2\pi\)
+    </div>
+    <div class="content">
+        Let
+        \[
+            W=\left\{\left(u,v\right)\in\mathbb R^2:u^2+v^2\lt1\right\}
+        \]
+        and define
+        \[
+            f\left(u,v\right)=\left(u,v,\sqrt{1-u^2-v^2}\right).
+        \]
+        Compute the <a class="knowledge-link" href="#definition-solid-angle">solid angle</a> of \(f(W)\subseteq\mathbb S^2\).
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="#definition-solid-angle">definition of solid angle</a>,
+        \[
+            \sigma\left(f(W)\right)
+            =
+            \operatorname{area}_{\mathbb S^2}\left(f(W)\right).
+        \]
+        The <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#exercise-induced-area-of-the-projected-unit-disk-on-the-sphere">projected unit disk area computation</a> gives
+        \[
+            \operatorname{area}_{\mathbb S^2}\left(f(W)\right)=2\pi.
+        \]
+        Therefore
+        \[
+            \sigma\left(f(W)\right)=2\pi.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-steradian">
+    <div class="title">
+        Steradian
+    </div>
+    <div class="content">
+        A <b>steradian</b>, denoted \(sr\), is the <a class="knowledge-link" href="/physics/index.html#definition-unit">unit</a> used to record values of <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>. If \(\sigma(A)=1\), then \(A\) has solid angle \(1sr\).
+    </div>
+</div>
+
+<div class="definition" id="definition-orthogonal-projection-onto-view-plane">
+    <div class="title">
+        Orthogonal Projection onto a View Plane
+    </div>
+    <div class="content">
+        Let \(\omega\in\mathbb S^2\). The <b>view plane perpendicular to \(\omega\)</b> is the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-plane-through-origin-by-normal">plane through the origin with normal</a> \(\omega\):
+        \[
+            \omega^\perp=\left\{x\in\mathbb R^3:x\cdot\omega=0\right\}.
+        \]
+        The <b>orthogonal projection onto the view plane</b> is the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \(\operatorname{proj}_{\omega^\perp}:\mathbb R^3\to\omega^\perp\) defined by
+        \[
+            \operatorname{proj}_{\omega^\perp}(x)=x-\left(x\cdot\omega\right)\omega.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-projected-area">
+    <div class="title">
+        Projected Area
+    </div>
+    <div class="content">
+        Let \(P\subseteq\mathbb R^3\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a>, and let \(\omega\in\mathbb S^2\). The <b>projected area</b> of \(P\) in direction \(\omega\) is the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">surface area</a> of its image under <a class="knowledge-link" href="#definition-orthogonal-projection-onto-view-plane">orthogonal projection onto the view plane</a>:
+        \[
+            \operatorname{area}^{\perp}_{\omega}(P)
+            =
+            \operatorname{area}_{\omega^\perp}\left(\operatorname{proj}_{\omega^\perp}(P)\right),
+        \]
+        when this projected image has a well-defined two-dimensional area.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-projected-area-of-a-flat-patch">
+    <div class="title">
+        Projected Area of a Flat Patch
+    </div>
+    <div class="content">
+        Let \(P\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a> contained in a plane with unit <a class="knowledge-link" href="#definition-surface-normal">surface normal</a> \(n\). For every \(\omega\in\mathbb S^2\),
+        \[
+            \operatorname{area}^{\perp}_{\omega}(P)
+            =
+            \left|n\cdot\omega\right|\operatorname{area}(P).
+        \]
+    </div>
+    <div class="proof">
+        First consider a parallelogram \(P\) spanned by tangent vectors \(u,v\) in the plane. Its area is \(\left\|u\times v\right\|\), and because \(u\) and \(v\) lie in the plane, \(u\times v\) is parallel to \(n\). The projected parallelogram is spanned by
+        \[
+            u'=\operatorname{proj}_{\omega^\perp}(u),
+            \qquad
+            v'=\operatorname{proj}_{\omega^\perp}(v).
+        \]
+        The area of the projected parallelogram is
+        \[
+            \left\|u'\times v'\right\|.
+        \]
+        The vectors \(u'\) and \(v'\) lie in \(\omega^\perp\), so \(u'\times v'\) is perpendicular to \(\omega^\perp\), and therefore is a scalar multiple of \(\omega\). Since \(\omega\) is a unit vector, <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-norm-equals-absolute-dot-product-with-parallel-unit-vector">norm equals absolute dot product with a parallel unit vector</a> gives
+        \[
+            \left\|u'\times v'\right\|
+            =
+            \left|\left(u'\times v'\right)\cdot\omega\right|.
+        \]
+        By the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-oriented-projected-area-identity">oriented projected area identity</a>,
+        \[
+            \left(u'\times v'\right)\cdot\omega
+            =
+            \left(u\times v\right)\cdot\omega.
+        \]
+        Hence
+        \[
+            \operatorname{area}^{\perp}_{\omega}(P)
+            =
+            \left|\left(u\times v\right)\cdot\omega\right|.
+        \]
+        Since \(u\times v\) is a scalar multiple of the unit normal \(n\), the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-of-vector-parallel-to-unit-vector">dot product of a vector parallel to a unit vector</a> gives
+        \[
+            \left|\left(u\times v\right)\cdot\omega\right|
+            =
+            \left|n\cdot\omega\right|\left\|u\times v\right\|
+            =
+            \left|n\cdot\omega\right|\operatorname{area}(P).
+        \]
+        Thus the formula holds for parallelograms. Since \(\operatorname{proj}_{\omega^\perp}\) is a linear map on the plane containing \(P\), the same constant area-scaling factor \(\left|n\cdot\omega\right|\) applies to every measurable patch in that plane. Therefore
+        \[
+            \operatorname{area}^{\perp}_{\omega}(P)=\left|n\cdot\omega\right|\operatorname{area}(P).
+        \]
+    </div>
+</div>
+
+<h2>Radiometric Quantities</h2>
+
+<div class="definition" id="definition-radiant-energy">
+    <div class="title">
+        Radiant Energy
+    </div>
+    <div class="content">
+        <b>Radiant energy</b> is <a class="knowledge-link" href="/physics/index.html#definition-energy">energy</a> carried by <a class="knowledge-link" href="/physics/index.html#definition-electromagnetic-radiation">electromagnetic radiation</a>.
+        Radiant energy is a scalar <a class="knowledge-link" href="/physics/index.html#definition-physical-quantity">physical quantity</a>: it records an amount of energy, not a direction.
+        Radiant energy is measured in <a class="knowledge-link" href="/physics/index.html#definition-joule-unit-of-energy">joules</a>.
+    </div>
+</div>
+
+<p>
+    For example, if a short pulse of <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> carries \(2J\) of <a class="knowledge-link" href="/physics/index.html#definition-energy">energy</a>, then its radiant energy is \(2J\), where \(J\) denotes the <a class="knowledge-link" href="/physics/index.html#definition-joule-unit-of-energy">joule unit of energy</a>.
+</p>
+
+<div class="definition" id="definition-watt">
+    <div class="title">
+        Watt
+    </div>
+    <div class="content">
+        A <b>watt</b>, denoted \(W\), is the <a class="knowledge-link" href="/physics/index.html#definition-unit">unit</a> of power. One watt is one <a class="knowledge-link" href="/physics/index.html#definition-joule-unit-of-energy">joule</a> per <a class="knowledge-link" href="/physics/index.html#definition-second-unit-of-time">second</a>:
+        \[
+            1W = 1J \cdot s^{-1}.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-radiant-flux">
+    <div class="title">
+        Radiant Flux
+    </div>
+    <div class="content">
+        Let \(P\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a>. After choosing a time coordinate, let \(\Delta Q_P:\mathbb R\times\mathbb R^{\gt0}\to\mathbb R^{\ge0}\) be the function whose value \(\Delta Q_P\left(t,\tau\right)\) is the <a class="knowledge-link" href="#definition-radiant-energy">radiant energy</a> crossing \(P\) during the <a class="knowledge-link" href="/physics/index.html#definition-time">time</a> interval from \(t\) to \(t+\tau\). The <b>radiant flux</b>, also called <b>radiant power</b>, through \(P\) at time \(t\) is the instantaneous rate
+        \[
+            \Phi_P(t)
+            =
+            \lim_{\tau \to 0^+}
+            \frac{\Delta Q_P\left(t,\tau\right)}{\tau},
+        \]
+        whenever this limit exists. Radiant flux has units of <a class="knowledge-link" href="/physics/index.html#definition-joule-unit-of-energy">joules</a> per <a class="knowledge-link" href="/physics/index.html#definition-second-unit-of-time">second</a>, more commonly called <a class="knowledge-link" href="#definition-watt">watts</a>.
+    </div>
+</div>
+
+<p>
+    For example, if no <a class="knowledge-link" href="/physics/index.html#definition-electromagnetic-radiation">electromagnetic radiation</a> crosses the chosen surface patch \(P\) during a small time interval, then \(\Delta Q_P\left(t,\tau\right)=0J\), so \(\Phi_P(t)=0W\). If <a class="knowledge-link" href="/physics/index.html#definition-radiation">radiation</a> crosses \(P\) at a constant rate of \(3\)<a class="knowledge-link" href="/physics/index.html#definition-joule-unit-of-energy">joules</a> every \(1\)<a class="knowledge-link" href="/physics/index.html#definition-second-unit-of-time">second</a>, then \(\Delta Q_P\left(t,\tau\right)=3\tau\) joules, so \(\Phi_P(t)=3W\).
+</p>
+
+<div class="proposition" id="proposition-radiant-energy-from-flux">
+    <div class="title">
+        Radiant Energy from Flux
+    </div>
+    <div class="content">
+        Let \(P\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a>, let \(t_0,t_1\in\mathbb R\) with \(t_0\lt t_1\), and suppose that there is a differentiable accumulated radiant energy function \(Q_P:\left[t_0,t_1\right]\to\mathbb R\) such that
+        \[
+            Q_P(t_1)-Q_P(t_0)=\Delta Q_P\left(t_0,t_1-t_0\right).
+        \]
+        If the <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> through \(P\) is \(\Phi_P(t)=Q_P'(t)\) for every \(t\in\left(t_0,t_1\right)\), and \(\Phi_P\) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a> on \(\left[t_0,t_1\right]\), then the radiant energy crossing \(P\) from \(t_0\) to \(t_1\) is
+        \[
+            \Delta Q_P\left(t_0,t_1-t_0\right)
+            =
+            \int_{t_0}^{t_1}\Phi_P(t)\,dt.
+        \]
+    </div>
+    <div class="proof">
+        Since \(\Phi_P(t)=Q_P'(t)\) on \(\left(t_0,t_1\right)\), the <a class="knowledge-link" href="/analysis/single_variable/the_fundamental_theorem_of_calculus.html#theorem-fundamental-theorem-of-calculus-ii">Fundamental Theorem of Calculus II</a> gives
+        \[
+            \int_{t_0}^{t_1}\Phi_P(t)\,dt
+            =
+            Q_P(t_1)-Q_P(t_0).
+        \]
+        By the defining property of the accumulated radiant energy function on this interval,
+        \[
+            Q_P(t_1)-Q_P(t_0)=\Delta Q_P\left(t_0,t_1-t_0\right).
+        \]
+        Therefore
+        \[
+            \Delta Q_P\left(t_0,t_1-t_0\right)
+            =
+            \int_{t_0}^{t_1}\Phi_P(t)\,dt.
+        \]
+    </div>
+</div>
+
+<p>
+    As a more physical example, aim a flashlight at a small circular patch \(P\) on a wall. If the flashlight output pulses in time, then the radiant flux \(\Phi_P(t)\) through that circular patch changes with time. For instance, a simple model might be
+    \[
+        \Phi_P(t)=2W+W\sin(t),
+    \]
+    meaning the patch receives \(2W\) on average, with the instantaneous radiant flux rising and falling between \(1W\) and \(3W\).
+</p>
+
+<div class="definition" id="definition-irradiance">
+    <div class="title">
+        Irradiance
+    </div>
+    <div class="content">
+        Let \(\left(P_k\right)\) be a sequence of <a class="knowledge-link" href="#definition-surface-patch">surface patches</a> that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\). Write \(\Phi_{P_k}^{\mathrm{in}}(t)\) for the incoming <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> through \(P_k\) at time \(t\). The <b>irradiance</b> at \(p\) and time \(t\) is the area density of incoming flux:
+        \[
+            \operatorname{irradiance}(p,t) = \lim_{k\to\infty} \frac{\Phi_{P_k}^{\mathrm{in}}(t)}{\operatorname{area}(P_k)},
+        \]
+        when this limit exists and has the same value for the shrinking patches under consideration. Irradiance is measured in \(W \cdot m^{-2}\), using the <a class="knowledge-link" href="#definition-watt">watt</a> and the <a class="knowledge-link" href="/physics/index.html#definition-metre-unit-of-length">metre</a>.
+    </div>
+</div>
+
+<p>
+    A helpful picture is rain passing through a small window. If the window is twice as large, it catches about twice as many drops, so dividing by the window area gives a rate per area. For light, the situation is smoother: a light source is modeled as producing a continuous flow of <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a>, not separate drops that must be counted one by one. That is why shrinking the patch area and taking a limit can approach a nonzero density, even though an actual rain window made small enough might have no drops pass through during a short measurement.
+</p>
+
+<p>
+    For example, if \(20W\) of radiant flux arrives uniformly across a flat surface patch of area \(4m^2\), then the irradiance on that patch is \(20W/4m^2=5W\cdot m^{-2}\), where \(m\) denotes the <a class="knowledge-link" href="/physics/index.html#definition-metre-unit-of-length">metre unit of length</a>.
+</p>
+
+<div class="proposition" id="proposition-radiant-flux-from-irradiance">
+    <div class="title">
+        Radiant Flux from Irradiance
+    </div>
+    <div class="content">
+        Let \(P\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a> on a <a class="knowledge-link" href="#definition-surface">surface</a>, and fix a time \(t\). Suppose the incoming <a class="knowledge-link" href="#definition-irradiance">irradiance</a> \(\operatorname{irradiance}(q,t)\) is defined at each point \(q\in P\), is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a> and integrable with respect to surface area on \(P\), and represents the area density of incoming <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> with respect to the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">surface area</a> on \(P\). Then the incoming radiant flux through \(P\) is
+        \[
+            \Phi_P^{\mathrm{in}}(t)
+            =
+            <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">\int_P</a> \operatorname{irradiance}(q,t)\,dA,
+        \]
+        where \(dA\) is the surface area element on \(P\).
+    </div>
+    <div class="proof">
+        Partition \(P\) into small surface patches \(P_1,\ldots,P_N\), and choose a representative point \(q_j\in P_j\). Since \(\operatorname{irradiance}(q,t)\) is the area density of incoming flux, the flux through \(P_j\) is approximated by
+        \[
+            \operatorname{irradiance}(q_j,t)\operatorname{area}(P_j).
+        \]
+        Adding the approximations gives
+        \[
+            \Phi_P^{\mathrm{in}}(t)
+            \approx
+            \sum_{j=1}^N \operatorname{irradiance}(q_j,t)\operatorname{area}(P_j).
+        \]
+        In the limit as the partition is refined, these sums converge to the <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">integral</a> of \(\operatorname{irradiance}\) <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">over the subset</a> \(P\) with respect to surface area. Therefore
+        \[
+            \Phi_P^{\mathrm{in}}(t)
+            =
+            <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">\int_P</a> \operatorname{irradiance}(q,t)\,dA.
+        \]
+    </div>
+</div>
+
+<p>
+    The measurability of \(q\mapsto \operatorname{irradiance}(q,t)\) is not automatic from the pointwise limit notation in the definition of irradiance. To use the integral over \(P\), one either assumes this surface-measurability as part of the radiometric model or proves it from more primitive data. A common sufficient route is to express \(\operatorname{irradiance}\) in each coordinate patch of the surface and prove that the coordinate expression is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a>; in particular, a continuous coordinate expression is Borel measurable by <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#theorem-continuous-functions-are-borel-measurable">continuous functions are Borel measurable</a>.
+</p>
+
+<div class="exercise" id="exercise-irradiance-from-shrinking-circular-patches">
+    <div class="title">
+        Irradiance from Shrinking Circular Patches
+    </div>
+    <div class="content">
+        Let \(M=\mathbb R^2\times\left\{0\right\}\subseteq\mathbb R^3\) be a flat <a class="knowledge-link" href="#definition-surface">surface</a>, and let \(p=\left(0,0,0\right)\). For each \(k\in\mathbb N_1\), let
+        \[
+            P_k
+            =
+            \left\{
+                \left(x,y,0\right)\in M:x^2+y^2\le\frac{1}{k^2}
+            \right\}.
+        \]
+        Suppose that, at a fixed time \(t\), the incoming <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> through every patch \(P_k\) is
+        \[
+            \Phi_{P_k}^{\mathrm{in}}(t)
+            =
+            5W\cdot m^{-2}\operatorname{area}(P_k).
+        \]
+        Prove that the <a class="knowledge-link" href="#definition-irradiance">irradiance</a> at \(p\) and time \(t\) is \(5W\cdot m^{-2}\).
+    </div>
+    <div class="proof">
+        The patches form a decreasing sequence, since \(P_{k+1}\subseteq P_k\) for every \(k\). Also,
+        \[
+            \bigcap_{k=1}^{\infty}P_k
+            =
+            \left\{p\right\},
+        \]
+        because the only point whose distance from \(p\) is at most \(1/k\) for every \(k\) is \(p\) itself. Therefore \(P_k\) <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\).
+        <p>
+            The area of \(P_k\) is \(\pi/k^2\). By the given flux formula,
+            \[
+                \frac{\Phi_{P_k}^{\mathrm{in}}(t)}{\operatorname{area}(P_k)}
+                =
+                \frac{5W\cdot m^{-2}\operatorname{area}(P_k)}{\operatorname{area}(P_k)}
+                =
+                5W\cdot m^{-2}.
+            \]
+            Hence
+            \[
+                \operatorname{irradiance}(p,t)
+                =
+                \lim_{k\to\infty}
+                \frac{\Phi_{P_k}^{\mathrm{in}}(t)}{\operatorname{area}(P_k)}
+                =
+                5W\cdot m^{-2}.
+            \]
+        </p>
+    </div>
+</div>
+
+<div class="definition" id="definition-radiant-exitance">
+    <div class="title">
+        Radiant Exitance
+    </div>
+    <div class="content">
+        Let \(\left(P_k\right)\) be a sequence of <a class="knowledge-link" href="#definition-surface-patch">surface patches</a> that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\). Write \(\Phi_{P_k}^{\mathrm{out}}(t)\) for the outgoing <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> through \(P_k\) at time \(t\). The <b>radiant exitance</b> at \(p\) and time \(t\) is the area density of outgoing flux:
+        \[
+            M(p,t) = \lim_{k\to\infty} \frac{\Phi_{P_k}^{\mathrm{out}}(t)}{\operatorname{area}(P_k)},
+        \]
+        when this limit exists and has the same value for the shrinking patches under consideration. Radiant exitance is measured in \(W \cdot m^{-2}\), using the <a class="knowledge-link" href="#definition-watt">watt</a> and the <a class="knowledge-link" href="/physics/index.html#definition-metre-unit-of-length">metre</a>.
+    </div>
+</div>
+
+<p>
+    For example, if a glowing panel emits \(12W\) uniformly from a surface area of \(3m^2\), then its radiant exitance is \(12W/3m^2=4W\cdot m^{-2}\).
+</p>
+
+<div class="definition" id="definition-radiant-intensity">
+    <div class="title">
+        Radiant Intensity
+    </div>
+    <div class="content">
+        Suppose \(\omega\in\mathbb S^2\), and let \(\left(A_k\right)\) be a sequence of subsets of \(\mathbb S^2\) that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(\omega\). Write \(\Phi_{A_k}(t)\) for the <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> emitted into \(A_k\) at time \(t\), and write \(\sigma(A_k)\) for the set's <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>. The <b>radiant intensity</b> at \(\omega\) and time \(t\) is the solid-angle density of emitted flux:
+        \[
+            I(\omega,t) = \lim_{k\to\infty} \frac{\Phi_{A_k}(t)}{\sigma(A_k)},
+        \]
+        when this limit exists and has the same value for the shrinking direction sets under consideration. Radiant intensity is measured in \(W \cdot sr^{-1}\), using the <a class="knowledge-link" href="#definition-watt">watt</a> and <a class="knowledge-link" href="#definition-steradian">steradian</a>.
+    </div>
+</div>
+
+<p>
+    Radiant intensity uses the same density idea, but with direction sets instead of surface patches. Imagine a very small light source at the center of the unit sphere. If we accept twice as large a cone of outgoing directions, we expect about twice as much emitted <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> to lie in that cone. Dividing by the cone's <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>, then shrinking the cone around one direction, gives a directional density of emitted power.
+</p>
+
+<p>
+    For example, if a small source emits \(10W\) uniformly into a cone whose <a class="knowledge-link" href="#definition-solid-angle">solid angle</a> is \(2sr\), then its average radiant intensity over that cone is \(10W/2sr=5W\cdot sr^{-1}\).
+</p>
+
+<div class="proposition" id="proposition-radiant-flux-from-radiant-intensity">
+    <div class="title">
+        Radiant Flux from Radiant Intensity
+    </div>
+    <div class="content">
+        Let \(A\subseteq\mathbb S^2\) be a measurable set of outgoing directions, and fix a time \(t\). Suppose the <a class="knowledge-link" href="#definition-radiant-intensity">radiant intensity</a> \(I(\omega,t)\) is defined for \(\omega\in A\), is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a> and integrable with respect to <a class="knowledge-link" href="#theorem-solid-angle-is-a-measure">solid angle measure</a> on \(A\), and represents the <a class="knowledge-link" href="#definition-solid-angle">solid-angle</a> density of emitted <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a>. Then the radiant flux emitted into \(A\) is
+        \[
+            \Phi_A(t)
+            =
+            <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">\int_A</a> I(\omega,t)\,d\sigma(\omega),
+        \]
+        where \(d\sigma\) means integration with respect to solid angle on \(\mathbb S^2\).
+    </div>
+    <div class="proof">
+        Partition \(A\) into small direction sets \(A_1,\ldots,A_N\), and choose a representative direction \(\omega_j\in A_j\). Since \(I(\omega,t)\) is the solid-angle density of emitted flux, the flux emitted into \(A_j\) is approximated by
+        \[
+            I(\omega_j,t)\sigma(A_j).
+        \]
+        Adding the approximations gives
+        \[
+            \Phi_A(t)
+            \approx
+            \sum_{j=1}^N I(\omega_j,t)\sigma(A_j).
+        \]
+        In the limit as the direction partition is refined, these sums converge to the <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">integral</a> of \(I\) <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">over the subset</a> \(A\) with respect to solid angle. Therefore
+        \[
+            \Phi_A(t)
+            =
+            <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">\int_A</a> I(\omega,t)\,d\sigma(\omega).
+        \]
+    </div>
+</div>
+
+<div class="exercise" id="exercise-radiant-intensity-from-shrinking-direction-sets">
+    <div class="title">
+        Radiant Intensity from Shrinking Direction Sets
+    </div>
+    <div class="content">
+        Fix a direction \(\omega\in\mathbb S^2\) and a time \(t_0\). Let \(\left(A_k\right)\) be direction sets that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrink to</a> \(\omega\), and suppose
+        \[
+            \sigma(A_k)=\frac{1}{k}.
+        \]
+        Suppose the emitted <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> into \(A_k\) at time \(t_0\) is
+        \[
+            \Phi_{A_k}(t_0)=\frac{6}{k}+\frac{2}{k^2}
+        \]
+        watts. Compute the <a class="knowledge-link" href="#definition-radiant-intensity">radiant intensity</a> at \(\omega\) and \(t_0\).
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="#definition-radiant-intensity">definition of radiant intensity</a>,
+        \[
+            I(\omega,t_0)
+            =
+            \lim_{k\to\infty}
+            \frac{\Phi_{A_k}(t_0)}{\sigma(A_k)}.
+        \]
+        Substituting the given values,
+        \[
+            \frac{\Phi_{A_k}(t_0)}{\sigma(A_k)}
+            =
+            \frac{\frac{6}{k}+\frac{2}{k^2}}{\frac{1}{k}}
+            =
+            6+\frac{2}{k}.
+        \]
+        Therefore
+        \[
+            I(\omega,t_0)
+            =
+            \lim_{k\to\infty}\left(6+\frac{2}{k}\right)
+            =
+            6.
+        \]
+        Thus the radiant intensity at \(\omega\) and \(t_0\) is \(6W\cdot sr^{-1}\).
+    </div>
+</div>
+
+<div class="definition" id="definition-radiance">
+    <div class="title">
+        Radiance
+    </div>
+    <div class="content">
+        <b>Radiance</b> measures <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> per unit <a class="knowledge-link" href="#definition-projected-area">projected area</a> and per unit <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>. Let \(\left(P_k\right)\) be a sequence of <a class="knowledge-link" href="#definition-surface-patch">surface patches</a> that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\), and let \(\left(A_k\right)\) be a sequence of direction sets that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(\omega\). Write \(\Phi_{P_k,A_k}(t)\) for the flux associated with \(P_k\) and \(A_k\) at time \(t\). The radiance at \(p\), in direction \(\omega\), at time \(t\), is
+        \[
+            \operatorname{radiance}(p,\omega,t)
+            =
+            \lim_{k\to\infty}
+                \frac{\Phi_{P_k,A_k}(t)}
+                {\operatorname{area}^{\perp}_{\omega}(P_k)\,\sigma(A_k)},
+        \]
+        when this limit exists and has the same value for the shrinking patches and direction sets under consideration. Here \(\operatorname{area}^{\perp}_{\omega}(P_k)\) is the <a class="knowledge-link" href="#definition-projected-area">projected area</a> of \(P_k\) in direction \(\omega\). Equivalently, when \(\operatorname{area}^{\perp}_{\omega}(P_k)=\lvert n \cdot \omega \rvert\operatorname{area}(P_k)\),
+        \[
+            \operatorname{radiance}(p,\omega,t)
+            =
+            \lim_{k\to\infty}
+                \frac{\Phi_{P_k,A_k}(t)}
+                {\lvert n \cdot \omega \rvert\operatorname{area}(P_k)\,\sigma(A_k)}.
+        \]
+        Radiance is measured in \(W \cdot m^{-2} \cdot sr^{-1}\), using the <a class="knowledge-link" href="#definition-watt">watt</a>, <a class="knowledge-link" href="/physics/index.html#definition-metre-unit-of-length">metre</a>, and <a class="knowledge-link" href="#definition-steradian">steradian</a>.
+    </div>
+</div>
+
+<p>
+    Radiance combines the two localizations above. It measures how much <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> passes through an imaginary tiny window around \(p\), restricted to a tiny cone of directions around \(\omega\), after dividing out both the window's <a class="knowledge-link" href="#definition-projected-area">projected area</a> and the cone's <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>. The window is just a measuring device around the point \(p\); it does not have to be a physical surface.
+</p>
+
+<p>
+    For example, if \(6W\) of flux is associated with \(2m^2\) of projected area and \(3sr\) of directions, then the average radiance over that area-direction set is \(6W/(2m^2\cdot 3sr)=1W\cdot m^{-2}\cdot sr^{-1}\).
+</p>
+
+<div class="proposition" id="proposition-radiance-contribution-to-differential-irradiance">
+    <div class="title">
+        Radiance Contribution to Irradiance Density
+    </div>
+    <div class="content">
+        Let \(p\) be a point on a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a> with unit <a class="knowledge-link" href="#definition-surface-normal">surface normal</a> \(n\). For a direction set \(A\subseteq\mathbb{S}^2\), let \(\operatorname{irradiance}_p(A)\) be the <a class="knowledge-link" href="#definition-irradiance">irradiance</a> contribution at \(p\) from incoming directions in \(A\). If \(\left(A_k\right)\) is a sequence of direction sets that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(\omega_i\), and \(\operatorname{radiance\_in}\) is locally stable near \(\omega_i\), then the solid-angle density of \(\operatorname{irradiance}_p\) at \(\omega_i\) is
+        \[
+            \lim_{k\to\infty}
+            \frac{\operatorname{irradiance}_p\left(A_k\right)}{\sigma\left(A_k\right)}
+            =
+            \operatorname{radiance\_in}(p,\omega_i)\left|n\cdot\omega_i\right|.
+        \]
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="#definition-radiance">definition of radiance</a>, flux from directions in a small direction set around \(\omega_i\) is approximated by
+        \[
+            \operatorname{radiance\_in}(p,\omega_i)\operatorname{area}^{\perp}_{\omega_i}(P)\sigma(A),
+        \]
+        where \(P\) is a small surface patch around \(p\), \(A\) is the small direction set, and \(\sigma(A)\) is its <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>. By the <a class="knowledge-link" href="#theorem-projected-area-of-a-flat-patch">projected area formula</a>,
+        \[
+            \operatorname{area}^{\perp}_{\omega_i}(P)
+            =
+            \left|n\cdot\omega_i\right|\operatorname{area}(P).
+        \]
+        Thus the incoming flux is approximated by
+        \[
+            \operatorname{radiance\_in}(p,\omega_i)\left|n\cdot\omega_i\right|\operatorname{area}(P)\sigma(A).
+        \]
+        Dividing by \(\operatorname{area}(P)\) gives the contribution per unit surface area,
+        \[
+            \operatorname{radiance\_in}(p,\omega_i)\left|n\cdot\omega_i\right|\sigma(A).
+        \]
+        Thus, for small direction sets \(A\) near \(\omega_i\),
+        \[
+            \operatorname{irradiance}_p(A)
+            \approx
+            \operatorname{radiance\_in}(p,\omega_i)\left|n\cdot\omega_i\right|\sigma(A).
+        \]
+        Therefore, along any shrinking sequence \(A_k\to\omega_i\) for which the density limit exists,
+        \[
+            \lim_{k\to\infty}
+            \frac{\operatorname{irradiance}_p\left(A_k\right)}{\sigma\left(A_k\right)}
+            =
+            \operatorname{radiance\_in}(p,\omega_i)\left|n\cdot\omega_i\right|.
+        \]
+        Equivalently, if \(B\) is a small direction set near \(\omega_i\), then
+        \[
+            \operatorname{irradiance}_p(B)
+            =
+            \operatorname{radiance\_in}(p,\omega_i)\left|n\cdot\omega_i\right|\sigma(B)
+            +
+            r(B),
+        \]
+        where the error \(r(B)\) is smaller than linear in solid angle:
+        \[
+            \frac{r(B)}{\sigma(B)}\to0
+        \]
+        as \(B\) shrinks to \(\omega_i\).
+    </div>
+</div>
+
+<p>
+    This is the same logic as a one-variable derivative. When a derivative exists, the function has a best linear approximation and the error divided by the input size tends to \(0\). Here the input size is the <a class="knowledge-link" href="#definition-solid-angle">solid angle</a> \(\sigma(B)\), and the linear term is \(\operatorname{radiance\_in}(p,\omega_i)\left|n\cdot\omega_i\right|\sigma(B)\). This is why, later, a small direction set \(B_j\) with representative direction \(\eta_j\) contributes approximately \(\operatorname{radiance\_in}(p,\eta_j)\left|n\cdot\eta_j\right|\sigma(B_j)\) to irradiance.
+</p>
+
+<h2>Radiance Functions</h2>
+
+<div class="definition" id="definition-incident-radiance">
+    <div class="title">
+        Incident Radiance
+    </div>
+    <div class="content">
+        The <b>incident radiance</b> \(\operatorname{radiance\_in}(p,\omega)\) is the <a class="knowledge-link" href="#definition-radiance">radiance</a> arriving at a surface point \(p\) from direction \(\omega\).
+    </div>
+</div>
+
+<p>
+    For example, sunlight arriving at a point on a wall from the direction of the sun contributes to \(\operatorname{radiance\_in}(p,\omega)\) for that incoming direction.
+</p>
+
+<div class="definition" id="definition-rendering-scene">
+    <div class="title">
+        Rendering Scene
+    </div>
+    <div class="content">
+        A <b>rendering scene</b> is the collection of <a class="knowledge-link" href="#definition-surface">surfaces</a>, light sources, and material scattering functions used to determine the <a class="knowledge-link" href="#definition-radiance">radiance</a> transported through the scene.
+    </div>
+</div>
+
+<div class="definition" id="definition-no-hit-sentinel">
+    <div class="title">
+        No-Hit Sentinel
+    </div>
+    <div class="content">
+        The <b>no-hit sentinel</b>, denoted \(\bot\), is a special value used to record that a ray did not intersect any surface in a scene. It is not a point of \(\mathbb R^3\).
+    </div>
+</div>
+
+<div class="definition" id="definition-raycast-function">
+    <div class="title">
+        Raycast Function
+    </div>
+    <div class="content">
+        Given a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a> \(S\), the <b>raycast function</b>
+        \[
+            \operatorname{raycast}_S:\mathbb R^3\times\mathbb S^2\to\mathbb R^3\cup\{\bot\}
+        \]
+        sends a point \(p\in\mathbb R^3\) and a direction \(\omega\in\mathbb S^2\) to the first surface point hit by the ray starting at \(p\) and traveling in direction \(\omega\). If the ray hits no surface in \(S\), then \(\operatorname{raycast}_S(p,\omega)=\bot\).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-incident-radiance-from-raycast">
+    <div class="title">
+        Incident Radiance from Raycast
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>, let \(p\in\mathbb R^3\), let \(\omega\in\mathbb S^2\), and suppose
+        \[
+            p'=\operatorname{raycast}_S(p,\omega)\neq\bot.
+        \]
+        If radiance is transported without absorption or emission along the open segment from \(p'\) to \(p\), then
+        \[
+            \operatorname{radiance\_in}(p,\omega)
+            =
+            \operatorname{radiance\_out}(p',-\omega).
+        \]
+    </div>
+    <div class="proof">
+        The value \(\operatorname{raycast}_S(p,\omega)=p'\) says that the ray starting at \(p\) in direction \(\omega\) first meets the scene at \(p'\). Thus light arriving at \(p\) from direction \(\omega\) is the same bundle of light that left \(p'\) in direction \(-\omega\). Since there is no absorption or emission along the segment between the two points, radiance is unchanged during this straight-line transport. Therefore
+        \[
+            \operatorname{radiance\_in}(p,\omega)
+            =
+            \operatorname{radiance\_out}(p',-\omega).
+        \]
+    </div>
+</div>
+
+<p>
+    Another way to read the same statement is with path notation. If \(p\) and \(p'\) are consecutive points on a light path, then the direction \(p\to p'\) is the same direction as \(\omega\), and the opposite direction \(p'\to p\) is \(-\omega\). So the same transport identity can be read as
+    \[
+        \operatorname{radiance\_in}(p,p\to p')
+        =
+        \operatorname{radiance\_out}(p',p'\to p).
+    \]
+</p>
+
+<div class="definition" id="definition-exitant-radiance">
+    <div class="title">
+        Exitant Radiance
+    </div>
+    <div class="content">
+        The <b>exitant radiance</b> \(\operatorname{radiance\_out}(p,\omega)\) is the <a class="knowledge-link" href="#definition-radiance">radiance</a> leaving a surface point \(p\) in direction \(\omega\).
+    </div>
+</div>
+
+<p>
+    For example, <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> reflected from a painted wall toward a camera contributes to \(\operatorname{radiance\_out}(p,\omega)\) for the direction from the wall to the camera.
+</p>
+
+<h2>Surface Interaction</h2>
+
+<div class="definition" id="definition-hemisphere-of-directions">
+    <div class="title">
+        Hemisphere of Directions
+    </div>
+    <div class="content">
+        Let \(p\) be a point on a <a class="knowledge-link" href="#definition-surface">surface</a> \(S\) with <a class="knowledge-link" href="#definition-surface-normal">surface normal</a> \(n(p)\). The <b>positive hemisphere of directions</b> at \(p\) is
+        \[
+            H_p^+
+            :=
+            \left\{\omega\in\mathbb{S}^2:n(p)\cdot\omega\gt 0\right\}.
+        \]
+        The opposite hemisphere is
+        \[
+            H_p^-
+            :=
+            \left\{\omega\in\mathbb{S}^2:n(p)\cdot\omega\lt 0\right\}.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-brdf">
+    <div class="title">
+        BRDF
+    </div>
+    <div class="content">
+        The <b>bidirectional reflectance distribution function</b>, abbreviated <b>BRDF</b>, describes how much incoming <a class="knowledge-link" href="#definition-radiance">radiance</a> from one direction is reflected into another direction at a surface point. For a <a class="knowledge-link" href="#definition-surface">surface</a> \(S\), write
+        \[
+            \operatorname{brdf}:
+            \left\{
+                \left(p,\omega_i,\omega_o\right):
+                p\in S,\ 
+                \omega_i,\omega_o\in H_p^+
+                \text{ or }
+                \omega_i,\omega_o\in H_p^-
+            \right\}
+            \to[0,\infty).
+        \]
+        The value \(\operatorname{brdf}\left(p,\omega_i,\omega_o\right)\) describes reflected scattering at \(p\) when the incoming unit vector \(\omega_i\in\mathbb S^2\) and outgoing unit vector \(\omega_o\in\mathbb S^2\) lie in the same <a class="knowledge-link" href="#definition-hemisphere-of-directions">hemisphere</a>. Informally, \(\operatorname{brdf}\) is outgoing radiance per incoming irradiance, so its unit is \(sr^{-1}\).
+    </div>
+</div>
+
+<p>
+    For example, an ideal matte white surface has nearly the same value of \(\operatorname{brdf}\left(p,\omega_i,\omega_o\right)\) for every outgoing direction \(\omega_o\), while a shiny surface has a value of \(\operatorname{brdf}\left(p,\omega_i,\omega_o\right)\) that is much larger near the mirror-reflection direction.
+</p>
+
+<div class="definition" id="definition-lambertian-brdf">
+    <div class="title">
+        Lambertian BRDF
+    </div>
+    <div class="content">
+        A <b>Lambertian BRDF</b> with reflectance \(\rho\in[0,1]\) is a <a class="knowledge-link" href="#definition-brdf">BRDF</a> whose value is constant over incoming and outgoing directions on the same side of the surface:
+        \[
+            \operatorname{brdf}\left(p,\omega_i,\omega_o\right)
+            =
+            \frac{\rho}{\pi}.
+        \]
+        The number \(\rho\) is the fraction of incident surface power density reflected by the surface.
+    </div>
+</div>
+
+<div class="definition" id="definition-btdf">
+    <div class="title">
+        BTDF
+    </div>
+    <div class="content">
+        The <b>bidirectional transmittance distribution function</b>, abbreviated <b>BTDF</b>, describes how much incoming <a class="knowledge-link" href="#definition-radiance">radiance</a> from one side of a <a class="knowledge-link" href="#definition-surface">surface</a> is transmitted into an outgoing direction on the other side. For a surface \(S\), write
+        \[
+            \operatorname{btdf}:
+            \left\{
+                \left(p,\omega_i,\omega_o\right):
+                p\in S,\ 
+                \omega_i\in H_p^+,\ \omega_o\in H_p^-
+                \text{ or }
+                \omega_i\in H_p^-,\ \omega_o\in H_p^+
+            \right\}
+            \to[0,\infty).
+        \]
+        The value \(\operatorname{btdf}\left(p,\omega_i,\omega_o\right)\) describes transmitted scattering at \(p\) when the incoming unit direction \(\omega_i\) and outgoing unit direction \(\omega_o\) lie in opposite <a class="knowledge-link" href="#definition-hemisphere-of-directions">hemispheres</a>.
+    </div>
+</div>
+
+<p>
+    The difference from a <a class="knowledge-link" href="#definition-brdf">BRDF</a> is which side of the surface contains the outgoing <a class="knowledge-link" href="/physics/index.html#definition-light">light</a>. A BRDF describes reflection: the incoming and outgoing directions lie on the same side of the surface. A BTDF describes transmission: the incoming light passes through the surface and leaves on the opposite side.
+</p>
+
+<p>
+    For example, a clear glass pane has a BTDF that is concentrated around directions determined by refraction.
+</p>
+
+<div class="definition" id="definition-bsdf">
+    <div class="title">
+        BSDF
+    </div>
+    <div class="content">
+        The <b>bidirectional scattering distribution function</b>, abbreviated <b>BSDF</b>, combines the <a class="knowledge-link" href="#definition-brdf">BRDF</a> and <a class="knowledge-link" href="#definition-btdf">BTDF</a>. For a surface \(S\), write
+        \[
+            \operatorname{bsdf}:S\times\mathbb{S}^2\times\mathbb{S}^2\to[0,\infty).
+        \]
+        Away from tangent directions, it is the piecewise function
+        \[
+            \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+            =
+            \begin{cases}
+                \operatorname{brdf}\left(p,\omega_i,\omega_o\right),
+                    & \omega_i,\omega_o\in H_p^+
+                      \text{ or }
+                      \omega_i,\omega_o\in H_p^-, \\
+                \operatorname{btdf}\left(p,\omega_i,\omega_o\right),
+                    & \omega_i\in H_p^+,\ \omega_o\in H_p^-
+                      \text{ or }
+                      \omega_i\in H_p^-,\ \omega_o\in H_p^+.
+            \end{cases}
+        \]
+        Thus \(\operatorname{bsdf}\left(p,\omega_i,\omega_o\right)\) describes surface scattering at \(p\in S\) from the incoming unit direction \(\omega_i\) to the outgoing unit direction \(\omega_o\), whether the <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> is reflected or transmitted.
+    </div>
+</div>
+
+<p>
+    The codomain \([0,\infty)\) does not mean that a BSDF value is a fraction of light, and it does not mean that \(\operatorname{bsdf}\leq 1\). A BSDF value is a conversion density from incoming <a class="knowledge-link" href="#definition-irradiance">irradiance</a>, measured in \(W\cdot m^{-2}\), to outgoing <a class="knowledge-link" href="#definition-radiance">radiance</a>, measured in \(W\cdot m^{-2}\cdot sr^{-1}\). Therefore the raw output of \(\operatorname{bsdf}\) is measured in
+    \[
+        \frac{\text{outgoing radiance}}{\text{incoming irradiance}}
+        =
+        \frac{W\cdot m^{-2}\cdot sr^{-1}}{W\cdot m^{-2}}
+        =
+        sr^{-1}.
+    \]
+    Thus, by the <a class="knowledge-link" href="#proposition-radiance-contribution-to-differential-irradiance">linear approximation coming from irradiance density</a>, if a small direction set \(B_j\) has representative incoming direction \(\eta_j\) and <a class="knowledge-link" href="#definition-solid-angle">solid angle</a> \(\sigma_j\), then
+    \[
+        \operatorname{radiance\_in}\left(p,\eta_j\right)\left|n\cdot\eta_j\right|\sigma_j
+    \]
+    is an approximate incoming irradiance contribution, not a radiant flux. Multiplying by \(\operatorname{bsdf}\left(p,\eta_j,\omega_o\right)\) gives the corresponding outgoing radiance contribution in direction \(\omega_o\). A BSDF can be larger than \(1\) at a particular pair of directions when scattering is concentrated into a small set of outgoing directions; the <a class="knowledge-link" href="#definition-energy-conserving-bsdf">energy-conserving condition</a> is an integral condition over outgoing directions, not a pointwise bound.
+</p>
+
+<p>
+    For example, a pane of slightly tinted glass can have a BSDF with a reflected part for mirror-like glare on the front surface and a transmitted part for <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> that passes through the glass with some absorption. Geometrically, after fixing the <a class="knowledge-link" href="#definition-surface-normal">surface normal</a>, the BRDF describes scattering into the same <a class="knowledge-link" href="#definition-hemisphere-of-directions">hemisphere of directions</a> as reflection, the BTDF describes scattering into the opposite hemisphere, and the BSDF describes both hemispheres together.
+</p>
+
+<div class="definition" id="definition-reflected-radiance">
+    <div class="title">
+        Reflected Radiance
+    </div>
+    <div class="content">
+        <b>Reflected radiance</b> is the part of the <a class="knowledge-link" href="#definition-exitant-radiance">exitant radiance</a> at a surface point that comes from incident <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> scattering at the surface rather than from the surface emitting light by itself.
+    </div>
+</div>
+
+<div class="definition" id="definition-emitted-radiance">
+    <div class="title">
+        Emitted Radiance
+    </div>
+    <div class="content">
+        The <b>emitted radiance</b> \(\operatorname{emitted\_radiance}(p,\omega)\) is the <a class="knowledge-link" href="#definition-radiance">radiance</a> produced by a surface point \(p\) itself and leaving in direction \(\omega\).
+    </div>
+</div>
+
+<p>
+    For example, a glowing screen has nonzero emitted radiance, while a wall lit only by another lamp has zero emitted radiance and only reflected radiance.
+</p>
+
+<div class="definition" id="definition-reflection-equation">
+    <div class="title">
+        Reflection Equation
+    </div>
+    <div class="content">
+        The <b>reflection equation</b> is the local bookkeeping rule for outgoing <a class="knowledge-link" href="#definition-radiance">radiance</a> caused by emission and reflection from incoming directions on the same side of the surface:
+        \[
+            \operatorname{radiance\_out}\left( p,\omega_o \right)
+            =
+            \operatorname{emitted\_radiance}\left( p,\omega_o \right)
+            +
+            \int_{\Omega^+}
+                \operatorname{brdf}\left( p,\omega_i,\omega_o \right)
+                \operatorname{radiance\_in}\left( p,\omega_i \right)
+                \left| n\cdot\omega_i \right|
+                d\omega_i.
+        \]
+        Here \(\operatorname{radiance\_out}\) is <a class="knowledge-link" href="#definition-exitant-radiance">exitant radiance</a>, \(\operatorname{radiance\_in}\) is <a class="knowledge-link" href="#definition-incident-radiance">incident radiance</a>, \(\operatorname{emitted\_radiance}\) is <a class="knowledge-link" href="#definition-emitted-radiance">emitted radiance</a>, \(\operatorname{brdf}\) is a <a class="knowledge-link" href="#definition-brdf">BRDF</a>, \(n\) is the <a class="knowledge-link" href="#definition-surface-normal">surface normal</a>, and \(\Omega^+\) is the <a class="knowledge-link" href="#definition-hemisphere-of-directions">hemisphere of directions above the surface</a>.
+        <p>
+            The factor \(\left|n\cdot\omega_i\right|\) converts incoming radiance from a direction into its contribution per unit surface area through <a class="knowledge-link" href="#definition-projected-area">projected area</a>.
+        </p>
+    </div>
+</div>
+
+<div class="definition" id="definition-energy-conserving-bsdf">
+    <div class="title">
+        Energy-Conserving BSDF
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="#definition-bsdf">BSDF</a> is <b>energy-conserving</b> if, for every surface point \(p\) and incoming direction \(\omega_i\),
+        \[
+            \int_{\mathbb{S}^2}
+                \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                \left|n\cdot\omega_o\right|
+                d\omega_o
+            \le 1,
+        \]
+        where \(n\) is the <a class="knowledge-link" href="#definition-surface-normal">surface normal</a> at \(p\). The integral is the total fraction of incoming <a class="knowledge-link" href="#definition-irradiance">irradiance</a> from \(\omega_i\) that is scattered into all outgoing directions. The inequality says that the surface may absorb <a class="knowledge-link" href="/physics/index.html#definition-energy">energy</a>, but it does not scatter out more energy than arrived from that incoming direction.
+    </div>
+</div>
+
+<div class="definition" id="definition-scattered-radiance">
+    <div class="title">
+        Scattered Radiance
+    </div>
+    <div class="content">
+        Suppose the local BSDF scattering approximation is being used. Let \(p\) be a surface point with <a class="knowledge-link" href="#definition-surface-normal">surface normal</a> \(n\), let \(\omega_o\in\mathbb S^2\) be an outgoing direction, and let \(A\subseteq\mathbb S^2\) be a measurable incoming direction set. Suppose the function
+        \[
+            \omega_i
+            \mapsto
+            \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+            \operatorname{radiance\_in}\left(p,\omega_i\right)
+            \left|n\cdot\omega_i\right|
+        \]
+        is measurable and integrable on \(A\) with respect to <a class="knowledge-link" href="#theorem-solid-angle-is-a-measure">solid angle measure</a>. The <b>scattered radiance</b> from \(A\) into \(\omega_o\) is
+        \[
+            \operatorname{scattered\_radiance}\left(p,\omega_o,A\right)
+            :=
+            \int_A
+                \operatorname{bsdf}\left( p,\omega_i,\omega_o \right)
+                \operatorname{radiance\_in}\left( p,\omega_i \right)
+                \left| n\cdot\omega_i \right|
+                d\sigma(\omega_i).
+        \]
+        This is the part of the <a class="knowledge-link" href="#definition-exitant-radiance">exitant radiance</a> leaving \(p\) in direction \(\omega_o\) that comes from incident <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> arriving from directions in \(A\) and scattering at \(p\).
+    </div>
+</div>
+
+<p>
+    The integral in the definition is a <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">Lebesgue integral</a> with respect to the <a class="knowledge-link" href="#theorem-solid-angle-is-a-measure">solid angle measure</a> \(\sigma\). If
+    \[
+        g(\omega_i)
+        =
+        \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+        \operatorname{radiance\_in}\left(p,\omega_i\right)
+        \left|n\cdot\omega_i\right|,
+    \]
+    then formally \(\int_A g\,d\sigma\) is obtained from the <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-supremum">supremum</a> of <a class="knowledge-link" href="/measure_theory/integration.html#definition-lower-lebesgue-sum">lower Lebesgue sums</a>. For a finite measurable <a class="knowledge-link" href="/measure_theory/integration.html#definition-measurable-partition">partition</a> \(\mathcal P=\left(B_1,\ldots,B_m\right)\) of \(A\), the lower sum with respect to the solid angle measure is
+    \[
+        L\left(g,\mathcal P,\sigma\right)
+        =
+        \sum_{j=1}^{m}\sigma(B_j)\inf_{B_j}g.
+    \]
+    When the pieces \(B_j\) are small and \(g\) changes little on each piece, this lower sum is close to the representative-direction sum
+    \[
+        \sum_{j=1}^{m}\sigma(B_j)g(\eta_j),
+    \]
+    where \(\eta_j\in B_j\). Expanding the definition of \(g\), this is
+    \[
+        \sum_{j=1}^{m}\sigma(B_j)
+        \operatorname{bsdf}\left(p,\eta_j,\omega_o\right)
+        \operatorname{radiance\_in}\left(p,\eta_j\right)
+        \left|n\cdot\eta_j\right|.
+    \]
+    The factor \(\operatorname{radiance\_in}\left(p,\eta_j\right)\left|n\cdot\eta_j\right|\sigma(B_j)\) is the approximate <a class="knowledge-link" href="#definition-irradiance">irradiance</a> contribution from \(B_j\), by the <a class="knowledge-link" href="#proposition-radiance-contribution-to-differential-irradiance">linear approximation coming from irradiance density</a>. Multiplying by \(\operatorname{bsdf}\left(p,\eta_j,\omega_o\right)\) converts that incoming irradiance contribution into an outgoing scattered radiance contribution in direction \(\omega_o\). The integral is the rigorous version of taking all of those direction pieces at once.
+</p>
+
+<div class="definition" id="definition-local-linear-bsdf-scattering-model">
+    <div class="title">
+        Local Linear BSDF Scattering Model
+    </div>
+    <div class="content">
+        The <b>local linear BSDF scattering model</b> is a rendering approximation that assumes the <a class="knowledge-link" href="#definition-exitant-radiance">exitant radiance</a> at each surface point \(p\) and outgoing direction \(\omega_o\) is modeled using two local contributions:
+        <ol>
+            <li><a class="knowledge-link" href="#definition-emitted-radiance">emitted radiance</a> \(\operatorname{emitted\_radiance}\left(p,\omega_o\right)\), produced at \(p\) itself, and</li>
+            <li><a class="knowledge-link" href="#definition-scattered-radiance">scattered radiance</a> from incident <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> arriving at \(p\).</li>
+        </ol>
+        It also assumes the scattered contribution is linear and additive over incoming direction sets. With these assumptions,
+        \[
+            \operatorname{radiance\_out}\left(p,\omega_o\right)
+            =
+            \operatorname{emitted\_radiance}\left(p,\omega_o\right)
+            +
+            \operatorname{scattered\_radiance}\left(p,\omega_o,\mathbb{S}^2\right).
+        \]
+    </div>
+</div>
+
+<div class="corollary" id="corollary-bsdf-scattering-equation">
+    <div class="title">
+        BSDF Scattering Equation
+    </div>
+    <div class="content">
+        Suppose the <a class="knowledge-link" href="#definition-local-linear-bsdf-scattering-model">local linear BSDF scattering model</a> is used for a surface, and suppose <a class="knowledge-link" href="#definition-scattered-radiance">scattered radiance</a> is defined for \(A=\mathbb S^2\). Then the <a class="knowledge-link" href="#definition-exitant-radiance">exitant radiance</a> in direction \(\omega_o\) is
+        \[
+            \operatorname{radiance\_out}\left( p,\omega_o \right)
+            =
+            \operatorname{emitted\_radiance}\left( p,\omega_o \right)
+            +
+            \int_{\mathbb{S}^2}
+                \operatorname{bsdf}\left( p,\omega_i,\omega_o \right)
+                \operatorname{radiance\_in}\left( p,\omega_i \right)
+                \left| n\cdot\omega_i \right|
+                d\sigma(\omega_i).
+        \]
+        If one is only describing the scattered outgoing radiance, or if \(\operatorname{emitted\_radiance}\left(p,\omega_o\right)=0\), this reduces to the fundamental scattering equation
+        \[
+            \operatorname{radiance\_out}\left( p,\omega_o \right)
+            =
+            \int_{\mathbb{S}^2}
+                \operatorname{bsdf}\left( p,\omega_i,\omega_o \right)
+                \operatorname{radiance\_in}\left( p,\omega_i \right)
+                \left| n\cdot\omega_i \right|
+                d\sigma(\omega_i).
+        \]
+    </div>
+    <div class="proof">
+        By the assumptions in the <a class="knowledge-link" href="#definition-local-linear-bsdf-scattering-model">local linear BSDF scattering model</a>, radiance leaving \(p\) in direction \(\omega_o\) is modeled as an emitted part plus a scattered part:
+        \[
+            \operatorname{radiance\_out}\left(p,\omega_o\right)
+            =
+            \operatorname{emitted\_radiance}\left(p,\omega_o\right)
+            +
+            \operatorname{scattered\_radiance}\left(p,\omega_o,\mathbb{S}^2\right).
+        \]
+        Applying the <a class="knowledge-link" href="#definition-scattered-radiance">definition of scattered radiance</a> with \(A=\mathbb{S}^2\) gives
+        \[
+            \operatorname{scattered\_radiance}\left(p,\omega_o,\mathbb{S}^2\right)
+            =
+            \int_{\mathbb{S}^2}
+                \operatorname{bsdf}\left( p,\omega_i,\omega_o \right)
+                \operatorname{radiance\_in}\left( p,\omega_i \right)
+                \left| n\cdot\omega_i \right|
+                d\sigma(\omega_i).
+        \]
+        Substituting this expression for the scattered part gives the BSDF scattering equation.
+    </div>
+</div>
+
+<div class="corollary" id="corollary-raycast-form-of-bsdf-scattering-equation">
+    <div class="title">
+        Raycast Form of the BSDF Scattering Equation
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>, let \(p\) be a surface point with <a class="knowledge-link" href="#definition-surface-normal">surface normal</a> \(n\), and let \(\omega_o\in\mathbb S^2\) be an outgoing direction. Suppose the <a class="knowledge-link" href="#definition-local-linear-bsdf-scattering-model">local linear BSDF scattering model</a> is used at \(p\), and suppose that for almost every incoming direction \(\omega_i\in\mathbb S^2\),
+        \[
+            p_i=\operatorname{raycast}_S\left(p,\omega_i\right)\neq\bot,
+        \]
+        with straight-line radiance transport from \(p_i\) to \(p\). Then
+        \[
+            \operatorname{radiance\_out}\left(p,\omega_o\right)
+            =
+            \operatorname{emitted\_radiance}\left(p,\omega_o\right)
+            +
+            \int_{\mathbb S^2}
+                \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                \operatorname{radiance\_out}
+                \left(
+                    \operatorname{raycast}_S\left(p,\omega_i\right),
+                    -\omega_i
+                \right)
+                \left|n\cdot\omega_i\right|
+                d\sigma(\omega_i).
+        \]
+    </div>
+    <div class="proof">
+        The <a class="knowledge-link" href="#corollary-bsdf-scattering-equation">BSDF scattering equation</a> gives
+        \[
+            \operatorname{radiance\_out}\left(p,\omega_o\right)
+            =
+            \operatorname{emitted\_radiance}\left(p,\omega_o\right)
+            +
+            \int_{\mathbb S^2}
+                \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                \operatorname{radiance\_in}\left(p,\omega_i\right)
+                \left|n\cdot\omega_i\right|
+                d\sigma(\omega_i).
+        \]
+        For almost every \(\omega_i\), write \(p_i=\operatorname{raycast}_S\left(p,\omega_i\right)\). By <a class="knowledge-link" href="#proposition-incident-radiance-from-raycast">incident radiance from raycast</a>,
+        \[
+            \operatorname{radiance\_in}\left(p,\omega_i\right)
+            =
+            \operatorname{radiance\_out}\left(p_i,-\omega_i\right).
+        \]
+        Substituting this expression into the integral gives the raycast form.
+    </div>
+</div>
+
+<p>
+    In path language, this says that the outgoing radiance at \(p\) in direction \(\omega_o\) is emitted radiance at \(p\), plus the scattered contribution from all possible previous path vertices. For each incoming direction \(\omega_i\), the raycast finds the previous surface point \(p_i\), and the incoming radiance at \(p\) is the outgoing radiance from \(p_i\) back toward \(p\).
+</p>
+
+<div class="definition" id="definition-point-to-point-direction">
+    <div class="title">
+        Point-to-Point Direction
+    </div>
+    <div class="content">
+        If \(p,q\in\mathbb R^3\) and \(p\neq q\), then
+        \[
+            \omega_{p\to q}
+            :=
+            \frac{q-p}{\left\|q-p\right\|}
+        \]
+        is the unit direction from \(p\) toward \(q\).
+    </div>
+</div>
+
+<div class="definition" id="definition-visibility-between-surface-points">
+    <div class="title">
+        Visibility Between Surface Points
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>, and let \(p,q\) be surface points in \(S\). The <b>visibility factor</b>
+        \[
+            V_S(p,q)
+        \]
+        is \(1\) when the open line segment from \(p\) to \(q\) intersects no blocking surface in \(S\), and is \(0\) otherwise.
+    </div>
+</div>
+
+<div class="definition" id="definition-point-to-point-exitant-radiance">
+    <div class="title">
+        Point-to-Point Exitant Radiance
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>, and let \(p,q\) be distinct surface points. The <b>exitant radiance from \(p\) to \(q\)</b> is
+        \[
+            \operatorname{radiance\_out}(p\to q)
+            :=
+            \begin{cases}
+                \operatorname{radiance\_out}\left(p,\omega_{p\to q}\right),
+                    & V_S(p,q)=1,\\
+                0,
+                    & V_S(p,q)=0.
+            \end{cases}
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-three-point-bsdf">
+    <div class="title">
+        Three-Point BSDF
+    </div>
+    <div class="content">
+        Let \(p_i,p,p_o\) be distinct surface points. The <b>three-point BSDF</b> at \(p\), from \(p_i\) through \(p\) toward \(p_o\), is
+        \[
+            \operatorname{bsdf}(p_i\to p\to p_o)
+            :=
+            \operatorname{bsdf}\left(
+                p,
+                \omega_{p\to p_i},
+                \omega_{p\to p_o}
+            \right).
+        \]
+        The incoming direction at \(p\) is the direction from \(p\) toward the previous point \(p_i\), and the outgoing direction at \(p\) is the direction from \(p\) toward the next point \(p_o\).
+    </div>
+</div>
+
+<div class="definition" id="definition-geometric-coupling">
+    <div class="title">
+        Geometric Coupling
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>, and let \(p,q\) be distinct surface points with <a class="knowledge-link" href="#definition-surface-normal">surface normals</a> \(n(p)\) and \(n(q)\). The <b>geometric coupling</b> between \(p\) and \(q\) is
+        \[
+            \operatorname{geometric\_coupling}_S(p,q)
+            :=
+            V_S(p,q)
+            \frac{
+                \left|n(p)\cdot\omega_{p\to q}\right|
+                \left|n(q)\cdot\omega_{q\to p}\right|
+            }{
+                \left\|p-q\right\|^2
+            }.
+        \]
+    </div>
+</div>
+
+<p>
+    The factor \(\operatorname{geometric\_coupling}_S(p,q)\) packages three things that otherwise appear separately: whether \(p\) and \(q\) can see each other, the projected-area cosine at \(p\), and the solid-angle-to-surface-area conversion at \(q\). This is useful when evaluating the transport equation by sampling surface points instead of sampling directions.
+</p>
+
+<div class="definition" id="definition-radial-surface-patch-from-a-point">
+    <div class="title">
+        Radial Surface Patch from a Point
+    </div>
+    <div class="content">
+        Let \(p\in\mathbb R^3\), and let \(Q\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a> not containing \(p\). We say that \(Q\) is <b>radial from \(p\)</b> if every half-line starting at \(p\) intersects \(Q\) in at most one point. Equivalently, for every \(\omega\in\mathbb S^2\), there is at most one \(r\in\mathbb R^{\gt0}\) such that
+        \[
+            p+r\omega\in Q.
+        \]
+    </div>
+</div>
+<p>
+    Intuitively, a radial surface patch from \(p\) is like a patch of the unit sphere around \(p\), except the radius is allowed to vary smoothly with direction. One way to picture it is
+    \[
+        Q=\left\{p+\rho(\omega)\omega:\omega\in A\right\},
+    \]
+    where \(A\subseteq\mathbb S^2\) is a direction set and \(\rho:A\to\mathbb R^{\gt0}\) gives one distance from \(p\) for each direction. A genuine subset of the sphere centered at \(p\) is the special case \(\rho(\omega)=1\). A filled disk containing whole radial line segments from \(p\) is not radial from \(p\), because one direction would correspond to many points of the patch.
+</p>
+
+<div class="proposition" id="proposition-direction-map-is-injective-on-a-radial-patch">
+    <div class="title">
+        Direction Map is Injective on a Radial Patch
+    </div>
+    <div class="content">
+        Let \(p\in\mathbb R^3\), and let \(Q\) be a <a class="knowledge-link" href="#definition-radial-surface-patch-from-a-point">radial surface patch from \(p\)</a>. The direction map
+        \[
+            g:Q\to\mathbb S^2,
+            \qquad
+            g(q)=\omega_{p\to q}
+        \]
+        is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">injective</a>.
+    </div>
+    <div class="proof">
+        Suppose \(q_1,q_2\in Q\) and \(g(q_1)=g(q_2)=\omega\). By the <a class="knowledge-link" href="#definition-point-to-point-direction">definition of point-to-point direction</a>,
+        \[
+            q_1=p+\left\|q_1-p\right\|\omega,
+            \qquad
+            q_2=p+\left\|q_2-p\right\|\omega.
+        \]
+        Since \(p\notin Q\), both \(\left\|q_1-p\right\|\) and \(\left\|q_2-p\right\|\) are positive. Thus both \(q_1\) and \(q_2\) lie on the same half-line
+        \[
+            \left\{p+r\omega:r\in\mathbb R^{\gt0}\right\}.
+        \]
+        Because \(Q\) is radial from \(p\), that half-line intersects \(Q\) in at most one point. Therefore \(q_1=q_2\), so \(g\) is injective.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-surface-patches-are-locally-coordinate-images">
+    <div class="title">
+        Surface Patches are Locally Coordinate Images
+    </div>
+    <div class="content">
+        Let \(Q\) be a smooth <a class="knowledge-link" href="#definition-surface-patch">surface patch</a> on a <a class="knowledge-link" href="#definition-surface">surface</a> \(M\subseteq\mathbb R^3\). For each ordinary point \(q_0\in Q\), there is a smaller patch \(Q_0\subseteq Q\) containing \(q_0\) and a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a>
+        \[
+            x:U\to\mathbb R^3,
+            \qquad
+            U\subseteq\mathbb R^2,
+        \]
+        such that \(x(U)=Q_0\).
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="#definition-surface">definition of surface</a>, the smooth pieces of \(M\) are two-dimensional <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">manifolds in Euclidean space</a>. By the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">definition of coordinate system on a manifold</a>, every point of such a smooth piece has a neighborhood of the form \(x(U)=M\cap O\), where \(O\subseteq\mathbb R^3\) is open and \(U\subseteq\mathbb R^2\) is open. Restricting \(O\) if necessary so that \(M\cap O\subseteq Q\), set \(Q_0=M\cap O\). Then \(x(U)=Q_0\).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-derivative-of-normalization-map">
+    <div class="title">
+        Derivative of the Normalization Map
+    </div>
+    <div class="content">
+        Let
+        \[
+            N:\mathbb R^3\setminus\left\{0\right\}\to\mathbb S^2,
+            \qquad
+            N(z)=\frac{z}{\left\|z\right\|}.
+        \]
+        If \(z\in\mathbb R^3\setminus\left\{0\right\}\), \(\omega=N(z)\), and \(v\in\mathbb R^3\), then
+        \[
+            DN(z)(v)
+            =
+            \frac{1}{\left\|z\right\|}
+            \left(v-\left(v\cdot\omega\right)\omega\right)
+            =
+            \frac{1}{\left\|z\right\|}
+            \operatorname{proj}_{\omega^\perp}(v).
+        \]
+    </div>
+    <div class="proof">
+        Here <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-derivative-at-a-point">\(DN(z)\)</a> is the derivative of \(N\) at \(z\). It is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> \(\mathbb R^3\to\mathbb R^3\), and \(DN(z)(v)\) means that this linear transformation is applied to the vector \(v\).
+        <p>Define the length function</p>
+        \[
+            L(z)=\left\|z\right\|.
+        \]
+        First compute \(DL(z)(v)\). Define the squared-length function
+        \[
+            S:\mathbb R^3\to\mathbb R,
+            \qquad
+            S(z)=L(z)^2=z\cdot z.
+        \]
+        By the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#exercise-derivative-of-squared-norm">derivative of squared norm exercise</a>, for \(v\in\mathbb R^3\),
+        \[
+            DS(z)(v)=2z\cdot v.
+        \]
+        Now define the one-variable square function
+        \[
+            m:\mathbb R\to\mathbb R,
+            \qquad
+            m(t)=t^2.
+        \]
+        Since \(S(z)=L(z)^2\), this means
+        \[
+            S=m\circ L.
+        \]
+        Therefore, by the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-chain-rule-for-total-derivatives">chain rule</a>,
+        \[
+            DS(z)(v)
+            =
+            Dm(L(z))\left(DL(z)(v)\right).
+        \]
+        The one-variable derivative of \(m(t)=t^2\) at \(L(z)\) is the linear map \(s\mapsto 2L(z)s\). Hence
+        \[
+            DS(z)(v)
+            =
+            2L(z)DL(z)(v).
+        \]
+        Combining this with the earlier value \(DS(z)(v)=2z\cdot v\) gives
+        \[
+            2z\cdot v
+            =
+            2L(z)DL(z)(v).
+        \]
+        Because \(z\neq0\), \(L(z)=\left\|z\right\|\gt0\), so \(2L(z)\neq0\). Dividing both sides by \(2L(z)\) gives
+        \[
+            DL(z)(v)
+            =
+            \frac{z\cdot v}{\left\|z\right\|}.
+        \]
+        Now define
+        \[
+            Q:\mathbb R ^ 3\times\left(\mathbb R\setminus\left\{0\right\}\right)\to\mathbb R ^ 3,
+            \qquad
+            Q(y,t)=\frac{y}{t},
+        \]
+        and
+        \[
+            P:\mathbb R ^ 3\setminus\left\{0\right\}\to\mathbb R ^ 3\times\left(\mathbb R\setminus\left\{0\right\}\right),
+            \qquad
+            P(z)=\left(z,L(z)\right).
+        \]
+        Then \(N=Q\circ P\). By the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#proposition-derivative-of-identity-function">derivative of the identity function</a>,
+        \[
+            DP(z)(v)=\left(v,DL(z)(v)\right).
+        \]
+        Therefore the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-chain-rule-for-total-derivatives">chain rule</a> and the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#proposition-derivative-of-vector-scalar-division-map">derivative of the vector scalar division map</a> give
+        \[
+            DN(z)(v)
+            =
+            DQ(P(z))\left(DP(z)(v)\right)
+            =
+            DQ(z,L(z))\left(v,DL(z)(v)\right)
+            =
+            \frac{1}{L(z)}v-\frac{DL(z)(v)}{L(z)^2}z.
+        \]
+        Substitute the formula for \(DL(z)(v)\):
+        \[
+            DN(z)(v)
+            =
+            \frac{1}{\left\|z\right\|}v
+            -
+            \frac{z\cdot v}{\left\|z\right\|^3}z.
+        \]
+        Since \(\omega=z/\left\|z\right\|\), we have \(z=\left\|z\right\|\omega\) and
+        \[
+            z\cdot v
+            =
+            \left\|z\right\|\left(\omega\cdot v\right).
+        \]
+        Thus
+        \[
+            \frac{z\cdot v}{\left\|z\right\|^3}z
+            =
+            \frac{\left\|z\right\|\left(\omega\cdot v\right)}{\left\|z\right\|^3}
+            \left\|z\right\|\omega
+            =
+            \frac{\left(\omega\cdot v\right)\omega}{\left\|z\right\|}.
+        \]
+        Therefore
+        \[
+            DN(z)(v)
+            =
+            \frac{1}{\left\|z\right\|}
+            \left(v-\left(\omega\cdot v\right)\omega\right).
+        \]
+        Since \(\omega\cdot v=v\cdot\omega\), and by the <a class="knowledge-link" href="#definition-orthogonal-projection-onto-view-plane">definition of orthogonal projection onto \(\omega^\perp\)</a>,
+        \[
+            \operatorname{proj}_{\omega^\perp}(v)
+            =
+            v-\left(v\cdot\omega\right)\omega,
+        \]
+        the desired formula follows.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-surface-area-to-solid-angle-change-of-variables">
+    <div class="title">
+        Surface Area to Solid Angle Change of Variables
+    </div>
+    <div class="content">
+        Let \(p\in\mathbb R^3\), let \(Q\) be a smooth <a class="knowledge-link" href="#definition-radial-surface-patch-from-a-point">radial surface patch from \(p\)</a>, let \(A_Q\) be the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-surface-area-measure">surface area measure</a> on \(Q\), let \(n:Q\to\mathbb S^2\) assign a unit <a class="knowledge-link" href="#definition-surface-normal">surface normal</a> \(n(q)\) to each point \(q\in Q\), and let
+        \[
+            g:Q\to\mathbb S^2,
+            \qquad
+            g(q)=\omega_{p\to q}
+        \]
+        be the direction map. If \(F:g(Q)\to\mathbb R\) is integrable, then
+        \[
+            \int_{g(Q)}F(\omega)\,d\sigma(\omega)
+            =
+            \int_Q
+                F\left(\omega_{p\to q}\right)
+                \frac{\left|n(q)\cdot\omega_{q\to p}\right|}
+                     {<a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-euclidean-distance">\left\|p-q\right\|</a>^2}
+                dA_Q(q).
+        \]
+        The notation \(dA_Q(q)\) means integration with respect to the surface area measure \(A_Q\); it is not evaluation of an \(A\)-function at \(q\).
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="#proposition-direction-map-is-injective-on-a-radial-patch">direction map is injective on a radial patch</a>, \(g\) is one-to-one on \(Q\). By <a class="knowledge-link" href="#proposition-surface-patches-are-locally-coordinate-images">surface patches are locally coordinate images</a>, it is enough to do the calculation on a smaller patch described by one coordinate system and then add the pieces.
+        <p>So let \(x:U\to Q\) be a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a>, with \(U\subseteq\mathbb R^2\). For each \(u\in U\), define</p>
+        \[
+            q(u)=x(u),
+            \qquad
+            r(u)=\left\|q(u)-p\right\|,
+            \qquad
+            \omega(u)=\omega_{p\to q(u)}.
+        \]
+        Thus the coordinate expression of the direction map is
+        \[
+            g(x(u))=\frac{x(u)-p}{\left\|x(u)-p\right\|}
+            =
+            \omega(u).
+        \]
+        Fix \(u\in U\). The direction map is the composition of the translation \(q\mapsto q-p\) with the normalization map \(N(z)=z/\left\|z\right\|\). For a tangent vector \(v\in T_{q(u)}Q\), apply the <a class="knowledge-link" href="#proposition-derivative-of-normalization-map">derivative of the normalization map</a> with
+        \[
+            z=q(u)-p,
+            \qquad
+            \left\|z\right\|=r(u),
+            \qquad
+            N(z)=\omega(u).
+        \]
+        Since the derivative of \(q\mapsto q-p\) sends \(v\) to \(v\), this gives
+        \[
+            Dg(q(u))(v)
+            =
+            \frac{1}{r(u)}
+            \left(v-\left(v\cdot\omega(u)\right)\omega(u)\right)
+            =
+            \frac{1}{r(u)}\operatorname{proj}_{\omega(u)^\perp}(v).
+        \]
+        Let
+        \[
+            x_1=\frac{\partial x}{\partial u_1}(u),
+            \qquad
+            x_2=\frac{\partial x}{\partial u_2}(u).
+        \]
+        Then the two coordinate tangent vectors on \(\mathbb S^2\) induced by \(g\circ x\) are
+        \[
+            Dg(q(u))(x_1)=\frac{1}{r(u)}\operatorname{proj}_{\omega(u)^\perp}(x_1),
+            \qquad
+            Dg(q(u))(x_2)=\frac{1}{r(u)}\operatorname{proj}_{\omega(u)^\perp}(x_2).
+        \]
+        By the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#proposition-surface-area-density-cross-product-formula">surface area density cross product formula</a>, the surface-area density of \(g(Q)\) in the coordinates \(g\circ x\) is
+        \[
+            \left\|Dg(q(u))(x_1)\times Dg(q(u))(x_2)\right\|
+            =
+            \frac{1}{r(u)^2}
+            \left\|
+                \operatorname{proj}_{\omega(u)^\perp}(x_1)
+                \times
+                \operatorname{proj}_{\omega(u)^\perp}(x_2)
+            \right\|.
+        \]
+        The projected vectors lie in \(\omega(u)^\perp\), so their cross product is parallel to \(\omega(u)\). Therefore, using <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-norm-equals-absolute-dot-product-with-parallel-unit-vector">norm equals absolute dot product with a parallel unit vector</a> and the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-oriented-projected-area-identity">oriented projected area identity</a>,
+        \[
+            \left\|
+                \operatorname{proj}_{\omega(u)^\perp}(x_1)
+                \times
+                \operatorname{proj}_{\omega(u)^\perp}(x_2)
+            \right\|
+            =
+            \left|
+                \left(x_1\times x_2\right)\cdot\omega(u)
+            \right|.
+        \]
+        Since \(n\) is the chosen unit normal field on \(Q\), the vector \(x_1\times x_2\) is parallel to \(n(q(u))\). Hence
+        \[
+            \left|
+                \left(x_1\times x_2\right)\cdot\omega(u)
+            \right|
+            =
+            \left|n(q(u))\cdot\omega(u)\right|
+            \left\|x_1\times x_2\right\|.
+        \]
+        Because \(\omega_{q(u)\to p}=-\omega_{p\to q(u)}=-\omega(u)\), this becomes
+        \[
+            \left\|Dg(q(u))(x_1)\times Dg(q(u))(x_2)\right\|
+            =
+            \frac{\left|n(q(u))\cdot\omega_{q(u)\to p}\right|}{\left\|p-q(u)\right\|^2}
+            \left\|x_1\times x_2\right\|.
+        \]
+        Now express the integral with coordinates on the sphere. Let \(y:V\to\mathbb S^2\) be a coordinate system on the sphere with \(y(V)=g(Q)\), and define
+        \[
+            h=y^{-1}\circ g\circ x:U\to V,
+        \]
+        so that \(y(h(u))=g(x(u))\). The map \(h\) is a coordinate expression of the direction map. The absolute Jacobian determinant \(\left|\det\left[Dh(u)\right]_E\right|\), together with the sphere area density from \(y\), is exactly
+        \[
+            \frac{\left|n(x(u))\cdot\omega_{x(u)\to p}\right|}{\left\|p-x(u)\right\|^2}
+            \left\|x_1\times x_2\right\|.
+        \]
+        Since \(\sigma\) is the <a class="knowledge-link" href="#theorem-solid-angle-is-a-measure">solid angle measure</a>, which is surface area measure on \(\mathbb S^2\), the sphere-coordinate expression of the left side is
+        \[
+            \int_{g(Q)}F(\omega)\,d\sigma(\omega)
+            =
+            \int_V
+                F\left(y(v)\right)\rho_y(v)
+                \,d\lambda(v),
+        \]
+        where \(\rho_y\) is the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-surface-area-density-in-coordinates">surface area density</a> of the sphere in the coordinates \(y\). Applying <a class="knowledge-link" href="/measure_theory/product_measures.html#theorem-change-of-variables-for-lebesgue-integrals">change of variables for Lebesgue integrals</a> to \(h:U\to V\) gives
+        \[
+            \int_{g(Q)}F(\omega)\,d\sigma(\omega)
+            =
+            \int_U
+                F\left(g(x(u))\right)
+                \frac{\left|n(x(u))\cdot\omega_{x(u)\to p}\right|}{\left\|p-x(u)\right\|^2}
+                \left\|x_1\times x_2\right\|
+                du.
+        \]
+        By the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-surface-area-measure">definition of surface area measure</a> and the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#proposition-surface-area-density-cross-product-formula">surface area density cross product formula</a>, the measure \(A_Q\) has local density
+        \[
+            dA_Q(q(u))=\left\|x_1\times x_2\right\|du.
+        \]
+        Therefore the local integral is
+        \[
+            \int_Q
+                F\left(\omega_{p\to q}\right)
+                \frac{\left|n(q)\cdot\omega_{q\to p}\right|}{\left\|p-q\right\|^2}
+                dA_Q(q).
+        \]
+        For a patch covered by several coordinate systems, apply the same argument on each piece and add the resulting integrals.
+    </div>
+</div>
+
+<div class="corollary" id="corollary-surface-form-of-the-bsdf-scattering-equation">
+    <div class="title">
+        Surface Form of the BSDF Scattering Equation
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>, let \(\Sigma_S\) be the union of the scene's surfaces, and let \(p,p_o\in\Sigma_S\) be distinct surface points. Suppose the <a class="knowledge-link" href="#corollary-raycast-form-of-bsdf-scattering-equation">raycast form of the BSDF scattering equation</a> applies at \(p\). Then the point-to-point exitant radiance satisfies
+        \[
+            \operatorname{radiance\_out}(p\to p_o)
+            =
+            \operatorname{emitted\_radiance}\left(p,\omega_{p\to p_o}\right)
+            +
+            \int_{\Sigma_S}
+                \operatorname{bsdf}(q\to p\to p_o)
+                \operatorname{radiance\_out}(q\to p)
+                \operatorname{geometric\_coupling}_S(p,q)
+                dA_{\Sigma_S}(q).
+        \]
+    </div>
+    <div class="proof">
+        Apply the <a class="knowledge-link" href="#corollary-bsdf-scattering-equation">BSDF scattering equation</a> with outgoing direction \(\omega_{p\to p_o}\):
+        \[
+            \operatorname{radiance\_out}\left(p,\omega_{p\to p_o}\right)
+            =
+            \operatorname{emitted\_radiance}\left(p,\omega_{p\to p_o}\right)
+            +
+            \int_{\mathbb S^2}
+                \operatorname{bsdf}\left(p,\omega_i,\omega_{p\to p_o}\right)
+                \operatorname{radiance\_in}\left(p,\omega_i\right)
+                \left|n(p)\cdot\omega_i\right|
+                d\sigma(\omega_i).
+        \]
+        For a visible surface point \(q\), the corresponding incoming direction at \(p\) is \(\omega_i=\omega_{p\to q}\). By <a class="knowledge-link" href="#proposition-incident-radiance-from-raycast">incident radiance from raycast</a>,
+        \[
+            \operatorname{radiance\_in}\left(p,\omega_{p\to q}\right)
+            =
+            \operatorname{radiance\_out}(q\to p).
+        \]
+        On each smooth visible patch \(Q\subseteq\Sigma_S\), apply <a class="knowledge-link" href="#proposition-surface-area-to-solid-angle-change-of-variables">surface area to solid angle change of variables</a> to the direction map \(g(q)=\omega_{p\to q}\). The determinant calculation in that proposition gives the Jacobian factor
+        \[
+            d\sigma(\omega_{p\to q})
+            =
+            \frac{
+                \left|n(q)\cdot\omega_{q\to p}\right|
+            }{
+                \left\|p-q\right\|^2
+            }
+            dA_Q(q).
+        \]
+        Directions that do not hit a surface contribute nothing to the surface integral, and blocked point pairs are recorded by the visibility factor \(V_S(p,q)\). Substituting the radiance identity and the change-of-variables factor into the direction integral gives
+        \[
+            \int_{\Sigma_S}
+                \operatorname{bsdf}(q\to p\to p_o)
+                \operatorname{radiance\_out}(q\to p)
+                V_S(p,q)
+                \frac{
+                    \left|n(p)\cdot\omega_{p\to q}\right|
+                    \left|n(q)\cdot\omega_{q\to p}\right|
+                }{
+                    \left\|p-q\right\|^2
+                }
+                dA_{\Sigma_S}(q).
+        \]
+        The factor multiplying the BSDF and radiance is exactly \(\operatorname{geometric\_coupling}_S(p,q)\), so the claimed surface form follows.
+    </div>
+</div>
+
+<p>
+    The direction form suggests sampling directions \(\omega_i\) and then raycasting to find \(q\). The surface form suggests sampling points \(q\) on scene surfaces and then using \(\operatorname{geometric\_coupling}_S(p,q)\) to account for visibility, orientation, and distance. Both equations describe the same local light transport; they organize the computation differently.
+</p>
+
+<div class="proposition" id="proposition-analytic-lte-solution-for-emitting-lambertian-sphere">
+    <div class="title">
+        Analytic LTE Solution for an Emitting Lambertian Sphere
+    </div>
+    <div class="content">
+        Consider the interior surface of a sphere. Suppose every point on the sphere has the same <a class="knowledge-link" href="#definition-lambertian-brdf">Lambertian BRDF</a> with reflectance \(\rho\), where \(0\le\rho\lt1\), and suppose every point emits the same constant <a class="knowledge-link" href="#definition-emitted-radiance">emitted radiance</a>
+        \[
+            \operatorname{emitted\_radiance}\left(p,\omega\right)=E_0
+        \]
+        in every direction. Then the solution of the <a class="knowledge-link" href="#corollary-bsdf-scattering-equation">BSDF scattering equation</a> is constant over all surface points and directions, and its value is
+        \[
+            \operatorname{radiance\_out}\left(p,\omega\right)
+            =
+            \frac{E_0}{1-\rho}.
+        \]
+    </div>
+    <div class="proof">
+        By the rotational symmetry of the sphere interior and the constant material and emission assumptions, the outgoing radiance has the same value at every surface point and direction. Write this constant value as \(L\). The corresponding incident radiance is also \(L\), because every incoming ray last left another point on the same sphere with the same outgoing radiance.
+
+        Using the <a class="knowledge-link" href="#corollary-bsdf-scattering-equation">BSDF scattering equation</a> on the inward hemisphere gives
+        \[
+            L
+            =
+            E_0
+            +
+            \int_{H_p^+}
+                \frac{\rho}{\pi}
+                L
+                \left|n\cdot\omega_i\right|
+                d\sigma(\omega_i).
+        \]
+        The hemisphere cosine integral is \(\pi\). Indeed, choosing coordinates so that \(n=(0,0,1)\), write \(\omega_i\) in spherical coordinates with polar angle \(\theta\in[0,\pi/2]\) and azimuthal angle \(\varphi\in[0,2\pi]\). Then \(\left|n\cdot\omega_i\right|=\cos\theta\) and \(d\sigma(\omega_i)=\sin\theta\,d\theta\,d\varphi\), so
+        \[
+            \int_{H_p^+}\left|n\cdot\omega_i\right|\,d\sigma(\omega_i)
+            =
+            \int_0^{2\pi}\int_0^{\pi/2}
+                \cos\theta\sin\theta\,d\theta\,d\varphi
+            =
+            \pi.
+        \]
+        Therefore the scattering equation reduces to
+        \[
+            L=E_0+\rho L.
+        \]
+        Solving gives
+        \[
+            L=\frac{E_0}{1-\rho}.
+        \]
+
+        The same result appears by successive substitution. From \(L=E_0+\rho L\),
+        \[
+            L
+            =
+            E_0+\rho\left(E_0+\rho L\right)
+            =
+            E_0+\rho E_0+\rho^2L.
+        \]
+        Repeating this \(N\) times gives
+        \[
+            L
+            =
+            \sum_{j=0}^{N}\rho^jE_0+\rho^{N+1}L.
+        \]
+        Since \(0\le\rho\lt1\), the remainder \(\rho^{N+1}L\) tends to \(0\), and the geometric series converges to
+        \[
+            L
+            =
+            \sum_{j=0}^{\infty}\rho^jE_0
+            =
+            \frac{E_0}{1-\rho}.
+        \]
+    </div>
+</div>
+
+<p>
+    The successive-substitution series above is a Neumann series. In rendering language, the first term is radiance emitted directly by the surface, the next term is light that has scattered once after emission, the next has scattered twice, and so on. Direct illumination methods keep only the first scattering event from light sources; path tracing estimates the longer sequence by randomly sampling paths.
+</p>
+
+<div class="proposition" id="proposition-energy-conserving-bsdf-does-not-amplify-incident-energy">
+    <div class="title">
+        Energy-Conserving BSDF Does Not Amplify Incident Energy
+    </div>
+    <div class="content">
+        Suppose that \(\operatorname{bsdf}\) is an <a class="knowledge-link" href="#definition-energy-conserving-bsdf">energy-conserving BSDF</a> and \(\operatorname{emitted\_radiance}\left(p,\omega_o\right)=0\). Then the scattered part of the <a class="knowledge-link" href="#corollary-bsdf-scattering-equation">BSDF scattering equation</a> does not send out more total surface power density than the incoming radiance delivers to the surface.
+    </div>
+    <div class="proof">
+        The outgoing surface power density due to scattering is obtained by integrating outgoing radiance against the projected-area factor:
+        \[
+            \int_{\mathbb{S}^2}
+                \operatorname{radiance\_out}\left(p,\omega_o\right)
+                \left|n\cdot\omega_o\right|
+                d\omega_o.
+        \]
+        Since \(\operatorname{emitted\_radiance}\left(p,\omega_o\right)=0\), substitute the scattered part of the <a class="knowledge-link" href="#corollary-bsdf-scattering-equation">BSDF scattering equation</a>:
+        \[
+            \int_{\mathbb{S}^2}
+                \int_{\mathbb{S}^2}
+                    \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                    \operatorname{radiance\_in}\left(p,\omega_i\right)
+                    \left|n\cdot\omega_i\right|
+                    \left|n\cdot\omega_o\right|
+                    d\omega_i
+                d\omega_o.
+        \]
+        Reordering the integrations gives
+        \[
+            \int_{\mathbb{S}^2}
+                \operatorname{radiance\_in}\left(p,\omega_i\right)
+                \left|n\cdot\omega_i\right|
+                \left(
+                    \int_{\mathbb{S}^2}
+                        \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                        \left|n\cdot\omega_o\right|
+                        d\omega_o
+                \right)
+                d\omega_i.
+        \]
+        By the <a class="knowledge-link" href="#definition-energy-conserving-bsdf">energy-conserving BSDF</a> condition, the parenthesized integral is at most \(1\). Therefore the outgoing scattered power density is at most
+        \[
+            \int_{\mathbb{S}^2}
+                \operatorname{radiance\_in}\left(p,\omega_i\right)
+                \left|n\cdot\omega_i\right|
+                d\omega_i,
+        \]
+        which is the incoming surface power density. Thus the scattering term redistributes or absorbs incident <a class="knowledge-link" href="/physics/index.html#definition-energy">energy</a>; it does not create extra energy.
+    </div>
+</div>
+
+<div class="definition" id="definition-bssrdf">
+    <div class="title">
+        BSSRDF
+    </div>
+    <div class="content">
+        The <b>bidirectional surface scattering reflectance distribution function</b>, abbreviated <b>BSSRDF</b>, generalizes the <a class="knowledge-link" href="#definition-brdf">BRDF</a> by allowing <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> to enter a <a class="knowledge-link" href="#definition-surface">surface</a> at one point and leave at another point. It depends on an incident surface point \(p_i\), an incoming direction \(\omega_i\), an exitant surface point \(p_o\), and an outgoing direction \(\omega_o\).
+    </div>
+</div>
+
+<p>
+    For example, wax and skin often need a BSSRDF because <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> can enter at one nearby point, scatter under the surface, and exit elsewhere.
+</p>
+
+<h2>Spectral Quantities</h2>
+
+<div class="definition" id="definition-wavelength">
+    <div class="title">
+        Wavelength
+    </div>
+    <div class="content">
+        A <b>wavelength</b> is the spatial <a class="knowledge-link" href="/physics/index.html#definition-period">period</a> of a wave. For <a class="knowledge-link" href="/physics/index.html#definition-light">light</a>, wavelength is commonly denoted by \(\lambda\).
+    </div>
+</div>
+
+<div class="definition" id="definition-visible-wavelength-range">
+    <div class="title">
+        Visible Wavelength Range
+    </div>
+    <div class="content">
+        The <b>visible wavelength range</b> is the range of <a class="knowledge-link" href="#definition-wavelength">wavelengths</a> that humans can usually see. A common approximate range is \(380nm\) to \(780nm\).
+    </div>
+</div>
+
+<div class="definition" id="definition-photon">
+    <div class="title">
+        Photon
+    </div>
+    <div class="content">
+        A <b>photon</b> is a <a class="knowledge-link" href="/physics/index.html#definition-photon">discrete packet of light or other electromagnetic radiation</a>. A photon with <a class="knowledge-link" href="#definition-wavelength">wavelength</a> \(\lambda\) has <a class="knowledge-link" href="/physics/index.html#definition-energy">energy</a>
+        \[
+            E = \frac{hc}{\lambda},
+        \]
+        where \(h\) is the <a class="knowledge-link" href="/physics/index.html#definition-planck-constant">Planck constant</a> and \(c\) is the <a class="knowledge-link" href="/physics/index.html#definition-speed-of-light">speed of light</a>.
+    </div>
+</div>
+
+<div class="definition" id="definition-spectral-distribution">
+    <div class="title">
+        Spectral Distribution
+    </div>
+    <div class="content">
+        A <b>spectral distribution</b> is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> whose input is a <a class="knowledge-link" href="#definition-wavelength">wavelength</a> and whose output is the amount of some <a class="knowledge-link" href="/physics/index.html#definition-physical-quantity">physical quantity</a> at that wavelength.
+    </div>
+</div>
+
+<div class="definition" id="definition-spectral-radiometric-quantity">
+    <div class="title">
+        Spectral Radiometric Quantity
+    </div>
+    <div class="content">
+        A <b>spectral radiometric quantity</b> describes how a radiometric quantity is distributed over <a class="knowledge-link" href="#definition-wavelength">wavelength</a>. Spectral radiance \(L_\lambda\) satisfies
+        \[
+            L = \lim_{\max_i \Delta\lambda_i \to 0}
+                \sum_i L_\lambda(\lambda_i)\Delta\lambda_i,
+        \]
+        whenever this limit exists over the wavelengths being considered.
+    </div>
+</div>
+
+<div class="definition" id="definition-spectral-power-distribution">
+    <div class="title">
+        Spectral Power Distribution
+    </div>
+    <div class="content">
+        A <b>spectral power distribution</b> is a <a class="knowledge-link" href="#definition-spectral-distribution">spectral distribution</a> for <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a>.
+    </div>
+</div>
+
+<p>
+    For example, two lamps may emit the same total radiant flux but have different spectral power distributions if one emits more short-wavelength <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> and the other emits more long-wavelength light.
+</p>
+
+<div class="definition" id="definition-sampled-spectrum">
+    <div class="title">
+        Sampled Spectrum
+    </div>
+    <div class="content">
+        A <b>sampled spectrum</b> represents a <a class="knowledge-link" href="#definition-spectral-distribution">spectral distribution</a> by storing values at finitely many wavelength samples or wavelength intervals.
+    </div>
+</div>
+
+<p>
+    For example, instead of storing a value for every wavelength from \(380nm\) to \(780nm\), a renderer might store values at a fixed set of sample wavelengths and interpolate or average between them.
+</p>
+
+<div class="definition" id="definition-spectral-rendering">
+    <div class="title">
+        Spectral Rendering
+    </div>
+    <div class="content">
+        <b>Spectral rendering</b> is rendering that transports and scatters <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> using <a class="knowledge-link" href="#definition-spectral-distribution">spectral distributions</a> rather than only three color coordinates.
+    </div>
+</div>
+
+<h2>Light Emission</h2>
+
+<div class="definition" id="definition-light-source">
+    <div class="title">
+        Light Source
+    </div>
+    <div class="content">
+        A <b>light source</b> is an object or region with nonzero <a class="knowledge-link" href="#definition-emitted-radiance">emitted radiance</a>.
+    </div>
+</div>
+
+<div class="definition" id="definition-area-light">
+    <div class="title">
+        Area Light
+    </div>
+    <div class="content">
+        An <b>area light</b> is a <a class="knowledge-link" href="#definition-light-source">light source</a> whose emission is distributed over a <a class="knowledge-link" href="#definition-surface">surface</a> region.
+    </div>
+</div>
+
+<p>
+    For example, a glowing rectangular panel is naturally modeled as an area light.
+</p>
+
+<div class="definition" id="definition-blackbody-emitter">
+    <div class="title">
+        Blackbody Emitter
+    </div>
+    <div class="content">
+        A <b>blackbody emitter</b> is an idealized <a class="knowledge-link" href="#definition-light-source">light source</a> whose <a class="knowledge-link" href="#definition-spectral-power-distribution">spectral power distribution</a> is determined only by its temperature.
+    </div>
+</div>
+
+<p>
+    For example, as the temperature increases, an ideal blackbody shifts from a reddish appearance toward white and then bluish-white.
+</p>
+
+<div class="definition" id="definition-standard-illuminant">
+    <div class="title">
+        Standard Illuminant
+    </div>
+    <div class="content">
+        A <b>standard illuminant</b> is a specified <a class="knowledge-link" href="#definition-spectral-power-distribution">spectral power distribution</a> used as a reference light source.
+    </div>
+</div>
+
+<p>
+    For example, a daylight standard illuminant gives a repeatable reference spectrum for describing colors under daylight-like illumination.
+</p>
+
+<h2>Color</h2>
+
+<div class="definition" id="definition-color">
+    <div class="title">
+        Color
+    </div>
+    <div class="content">
+        <b>Color</b> is the perceptual response associated with a light spectrum and an observer. It is not the same thing as a <a class="knowledge-link" href="#definition-spectral-distribution">spectral distribution</a>: different spectra can produce the same perceived color for a given observer.
+    </div>
+</div>
+
+<div class="definition" id="definition-color-matching-functions">
+    <div class="title">
+        Color Matching Functions
+    </div>
+    <div class="content">
+        <b>Color matching functions</b> are three weighting functions over <a class="knowledge-link" href="#definition-visible-wavelength-range">visible wavelengths</a> used to convert a <a class="knowledge-link" href="#definition-spectral-distribution">spectral distribution</a> into three color coordinates.
+    </div>
+</div>
+
+<div class="definition" id="definition-xyz-color">
+    <div class="title">
+        XYZ Color
+    </div>
+    <div class="content">
+        An <b>XYZ color</b> is a triple \(\left( X,Y,Z \right)\) obtained from a <a class="knowledge-link" href="#definition-spectral-distribution">spectral distribution</a> using <a class="knowledge-link" href="#definition-color-matching-functions">color matching functions</a>. The \(Y\) coordinate is chosen to correspond to perceived brightness under the standard observer model.
+    </div>
+</div>
+
+<div class="definition" id="definition-rgb-color">
+    <div class="title">
+        RGB Color
+    </div>
+    <div class="content">
+        An <b>RGB color</b> is a triple \(\left( R,G,B \right)\) of coordinates relative to chosen red, green, and blue primaries. RGB is a coordinate representation of <a class="knowledge-link" href="#definition-color">color</a>, not a complete description of the physical light spectrum.
+    </div>
+</div>
+
+<div class="definition" id="definition-rgb-color-space">
+    <div class="title">
+        RGB Color Space
+    </div>
+    <div class="content">
+        An <b>RGB color space</b> specifies how RGB triples correspond to colors. It includes the red, green, and blue primaries, a white point, and a transfer rule for encoding numerical channel values.
+    </div>
+</div>
+
+<p>
+    For example, the same triple \(\left( 1,0,0 \right)\) means the red primary of whichever RGB color space is being used, so changing the color space can change the actual displayed color.
+</p>
+
+<div class="definition" id="definition-metamer">
+    <div class="title">
+        Metamer
+    </div>
+    <div class="content">
+        Two <a class="knowledge-link" href="#definition-spectral-distribution">spectral distributions</a> are <b>metamers</b> for an observer if they produce the same perceived <a class="knowledge-link" href="#definition-color">color</a> for that observer.
+    </div>
+</div>
+
+<h2>Exercises</h2>
+
+<div class="exercise" id="exercise-photons-from-monochromatic-lightbulb">
+    <div class="title">
+        Photons from a Monochromatic Lightbulb
+    </div>
+    <div class="content">
+        How many <a class="knowledge-link" href="#definition-photon">photons</a> would a \(50W\) lightbulb emit in \(1s\), assuming all of its emitted <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> has the single <a class="knowledge-link" href="#definition-wavelength">wavelength</a> \(\lambda=600nm\)?
+    </div>
+    <div class="proof">
+        A \(50W\) bulb emits \(50J\) of <a class="knowledge-link" href="#definition-radiant-energy">radiant energy</a> in \(1s\), using the <a class="knowledge-link" href="/physics/index.html#definition-joule-unit-of-energy">joule</a> and <a class="knowledge-link" href="/physics/index.html#definition-second-unit-of-time">second</a>. A photon with wavelength \(\lambda\) has energy
+        \[
+            E_\gamma=\frac{hc}{\lambda}.
+        \]
+        Therefore the number of photons is
+        \[
+            N
+            =
+            \frac{50J}{E_\gamma}
+            =
+            \frac{50\lambda}{hc}.
+        \]
+        Using \(\lambda=600\times 10^{-9}m\), \(h=6.62607015\times 10^{-34}J\cdot s\), and \(c=299792458m\cdot s^{-1}\),
+        \[
+            N
+            \approx
+            1.51\times 10^{20}.
+        \]
+        Thus the bulb emits about \(1.51\times 10^{20}\) photons in \(1s\).
+    </div>
+</div>
+
+<div class="exercise" id="exercise-irradiance-from-unit-radius-disk">
+    <div class="title">
+        Irradiance from a Unit-Radius Disk
+    </div>
+    <div class="content">
+        Compute the <a class="knowledge-link" href="#definition-irradiance">irradiance</a> at a point due to a unit-radius disk \(h\) units above the point along the surface normal. Assume the disk has constant outgoing <a class="knowledge-link" href="#definition-radiance">radiance</a>
+        \[
+            L=10W\cdot m^{-2}\cdot sr^{-1}.
+        \]
+        Do the computation once as an integral over <a class="knowledge-link" href="#definition-solid-angle">solid angle</a> and once as an integral over area.
+    </div>
+    <div class="proof">
+        Let \(\theta\) be the angle from the receiver normal. The disk subtends a cone with maximum angle \(\theta_0\), where
+        \[
+            \tan\theta_0=\frac{1}{h},
+            \qquad
+            \sin^2\theta_0=\frac{1}{h^2+1}.
+        \]
+        Using solid angle,
+        \[
+            \operatorname{irradiance}
+            =
+            \int L\cos\theta\,d\omega
+            =
+            L\int_0^{2\pi}\int_0^{\theta_0}\cos\theta\sin\theta\,d\theta\,d\varphi
+            =
+            L\pi\sin^2\theta_0
+            =
+            \frac{10\pi}{h^2+1}.
+        \]
+        <p>
+            Now compute over disk area. Let \(\rho\) be the radial coordinate on the disk. The distance from the point to a disk point is \(r=\sqrt{h^2+\rho^2}\), and the cosine factor at both the receiver and the disk is \(h/r\). Since
+            \[
+                d\omega=\frac{h}{r^3}\,dA,
+            \]
+            the irradiance is
+            \[
+                \operatorname{irradiance}
+                =
+                L\int_0^{2\pi}\int_0^1
+                    \frac{h^2}{\left(h^2+\rho^2\right)^2}
+                    \rho\,d\rho\,d\varphi
+                =
+                \frac{10\pi}{h^2+1}.
+            \]
+            The two computations agree.
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-irradiance-from-unit-square">
+    <div class="title">
+        Irradiance from a Unit Square
+    </div>
+    <div class="content">
+        Compute the <a class="knowledge-link" href="#definition-irradiance">irradiance</a> at a point due to a square with side length \(1\), centered \(1\) unit above the point in the direction of its surface normal, with constant outgoing <a class="knowledge-link" href="#definition-radiance">radiance</a>
+        \[
+            L=10W\cdot m^{-2}\cdot sr^{-1}.
+        \]
+    </div>
+    <div class="proof">
+        Place the receiving point at the origin and the square in the plane \(z=1\), with
+        \[
+            -\frac{1}{2}\le x\le \frac{1}{2},
+            \qquad
+            -\frac{1}{2}\le y\le \frac{1}{2}.
+        \]
+        For a point \(\left(x,y,1\right)\) on the square, the squared distance to the receiver is
+        \[
+            r^2=1+x^2+y^2.
+        \]
+        The receiver cosine and emitter cosine are both \(1/r\). For a small area element represented by \(dx\,dy\), the corresponding irradiance contribution is approximated by
+        \[
+            L\frac{1}{r}\frac{1}{r^3}\,dA
+            =
+            L\frac{1}{\left(1+x^2+y^2\right)^2}\,dx\,dy.
+        \]
+        Therefore
+        \[
+            \operatorname{irradiance}
+            =
+            10
+            \int_{-1/2}^{1/2}\int_{-1/2}^{1/2}
+            \frac{1}{\left(1+x^2+y^2\right)^2}
+            \,dy\,dx
+            \approx
+            7.5227468845W\cdot m^{-2}.
+        \]
+    </div>
+</div>

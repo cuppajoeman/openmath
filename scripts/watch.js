@@ -146,7 +146,7 @@ function runBuild(reason) {
 
     const child = spawn(buildCommand, ["build.js"], {
         cwd: rootDir,
-        env: process.env,
+        env: { ...process.env, OPENMATH_DEV: "1" },
         shell: false,
         stdio: "inherit",
     });
@@ -157,6 +157,11 @@ function runBuild(reason) {
 
         if (code === 0) {
             console.log(`[watch] build finished in ${elapsed}s`);
+            if (args.serve) {
+                console.log(`[watch] site available at http://${args.host}:${args.port}/`);
+            } else {
+                console.log(`[watch] server not running; use --serve to serve http://${args.host}:${args.port}/`);
+            }
             if (args.serve && !serverStarted) {
                 startServer();
                 serverStarted = true;

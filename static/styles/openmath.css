@@ -153,6 +153,16 @@ pre code {
   margin-top: 0.45em;
 }
 
+.directory-link-low-coverage {
+  opacity: 0.82;
+}
+
+.directory-link-low-coverage > a {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 0.16em;
+}
+
 .knowledge-problem-section {
   border-top: 1px solid color-mix(in srgb, var(--main-text-color) 35%, transparent);
   margin-top: 2.2em;
@@ -307,12 +317,37 @@ pre code {
 
 .knowledge-link,
 .rlink {
+  border-radius: 3px;
   color: var(--knowledge-link-text-color);
   cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    box-shadow 120ms ease,
+    color 120ms ease;
+}
+
+.knowledge-link:hover,
+.knowledge-link:focus-visible,
+.rlink:hover,
+.rlink:focus-visible {
+  background-color: color-mix(in srgb, var(--knowledge-link-text-color) 18%, transparent);
+  box-shadow: 0 0 0 0.1em color-mix(in srgb, var(--knowledge-link-text-color) 18%, transparent);
+  outline: none;
+}
+
+math .knowledge-link {
+  border-radius: 0.12em;
+}
+
+math .knowledge-link:hover,
+math .knowledge-link:focus-visible {
+  background-color: color-mix(in srgb, var(--knowledge-link-text-color) 24%, transparent);
+  box-shadow: 0 0 0 0.13em color-mix(in srgb, var(--knowledge-link-text-color) 22%, transparent);
 }
 
 .expanded-knowledge {
   margin: 1.5em 0;
+  text-align: left;
 }
 
 .boxed {
@@ -326,7 +361,9 @@ pre code {
 }
 
 #topbar {
-  margin: 1.5em 0 2em;
+  border-bottom: 1px solid color-mix(in srgb, var(--main-text-color) 28%, transparent);
+  margin: 1.5em 0 0.75em;
+  padding-bottom: 0.85em;
   text-align: center;
 }
 
@@ -334,6 +371,40 @@ pre code {
   font-size: 1.5em;
   font-weight: normal;
   margin: 0;
+}
+
+.breadcrumb {
+  align-items: baseline;
+  color: color-mix(in srgb, var(--main-text-color) 68%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: ui-monospace, "Cascadia Mono", "Consolas", monospace;
+  font-size: 0.62em;
+  line-height: 1.35;
+  margin: 0 0 2.6em;
+  overflow-wrap: anywhere;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+  color: inherit;
+}
+
+.breadcrumb a {
+  border-radius: 3px;
+  padding: 0 0.08em;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus-visible {
+  color: var(--knowledge-link-text-color);
+}
+
+.breadcrumb-separator {
+  color: color-mix(in srgb, var(--main-text-color) 42%, transparent);
 }
 
 .align {

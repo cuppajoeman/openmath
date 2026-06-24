@@ -35,7 +35,30 @@ npm install</code></pre>
 <pre><code>npm run serve</code></pre>
 <p>
   The server serves files from
-  <code>dist</code>. Re-run the build after editing source files, then refresh the browser.
+  <code>dist</code>.
+</p>
+<p>
+  For active editing, use watch mode. It runs an initial build, watches source files, and rebuilds whenever content, scripts, styles, or data files change:
+</p>
+<pre><code>npm run watch</code></pre>
+<p>
+  To watch and serve the site in one command, run:
+</p>
+<pre><code>npm run dev</code></pre>
+<p>
+  The development server defaults to
+  <code>http://127.0.0.1:4173/</code>. You can change the host or port with environment variables:
+</p>
+<pre><code>HOST=0.0.0.0 PORT=3000 npm run dev</code></pre>
+<p>
+  You can also pass watch options directly to the script:
+</p>
+<pre><code>node scripts/watch.js --serve --host 127.0.0.1 --port 3000 --interval 500</code></pre>
+<p>
+  Watch mode ignores
+  <code>dist</code>,
+  <code>node_modules</code>, and
+  <code>.git</code>, so generated files and dependencies do not trigger rebuild loops.
 </p>
 
 <h2>Proof Coverage</h2>
@@ -156,14 +179,26 @@ npm install</code></pre>
 <pre><code>Let \( n \in \mathbb{N}_1 \).
 
 \[
-  n + 1 &gt; n
+  n + 1 > n
 \]</code></pre>
+<p>
+  Inside real math blocks, write LaTeX symbols as LaTeX. For example, use
+  <code>\lt</code>,
+  <code>\gt</code>,
+  <code>\leq</code>, and
+  <code>\geq</code>
+  rather than HTML entities.
+</p>
 
 <h3>Knowledge Links</h3>
 <p>
   A knowledge link opens a previous definition or result inline on the current page.
 </p>
 <pre><code>&lt;a class="knowledge-link" href="/number_theory/division.html#definition-divides"&gt;divides&lt;/a&gt;</code></pre>
+<p>
+  Knowledge links can also be used inside LaTeX math. Write the anchor directly inside the math source, and keep the linked text valid LaTeX:
+</p>
+<pre><code>\( &lt;a class="knowledge-link" href="/number_theory/division.html#definition-divides"&gt;a \mid b&lt;/a&gt; \)</code></pre>
 
 <h2>Adding Figures</h2>
 <p>

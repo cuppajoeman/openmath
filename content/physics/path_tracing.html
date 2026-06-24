@@ -1,0 +1,353 @@
+<fieldset>
+    <h1><legend>Path Tracing</legend></h1>
+</fieldset>
+
+<p>
+    Path tracing is a Monte Carlo method for estimating camera-ray <a class="knowledge-link" href="/physics/radiometry.html#definition-radiance">radiance</a> by sampling light transport paths through a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>. This page builds on the radiometric quantities and surface-scattering definitions from <a class="knowledge-link" href="/physics/radiometry.html#definition-radiance">radiometry</a>.
+</p>
+
+<div class="definition" id="definition-rendering-scene">
+    <div class="title">
+        Rendering Scene
+    </div>
+    <div class="content">
+        A <b>rendering scene</b> is the collection of <a class="knowledge-link" href="/physics/radiometry.html#definition-surface">surfaces</a>, <a class="knowledge-link" href="/physics/radiometry.html#definition-light-source">light sources</a>, and material scattering functions used to determine the radiance reaching a camera.
+    </div>
+</div>
+
+<h2>Path Notation</h2>
+
+<div class="definition" id="definition-directed-point-pair">
+    <div class="title">
+        Directed Point Pair
+    </div>
+    <div class="content">
+        If \(p,q\in\mathbb R^3\) and \(p\neq q\), then
+        \[
+            p\to q
+        \]
+        denotes the direction from \(p\) toward \(q\). As a unit vector, this direction is
+        \[
+            \omega_{p\to q}
+            =
+            \frac{q-p}{\left\|q-p\right\|}.
+        \]
+    </div>
+</div>
+
+<p>
+    The notation \(p\to q\) is not a new kind of point. It is shorthand for asking about light traveling from the location \(p\) toward the location \(q\).
+</p>
+
+<div class="definition" id="definition-radiance-along-a-directed-point-pair">
+    <div class="title">
+        Radiance Along a Directed Point Pair
+    </div>
+    <div class="content">
+        If \(p,q\in\mathbb R^3\) and \(p\neq q\), then
+        \[
+            \operatorname{radiance}(p\to q)
+        \]
+        means the radiance at \(p\) in the direction from \(p\) toward \(q\):
+        \[
+            \operatorname{radiance}(p\to q)
+            =
+            \operatorname{radiance}\left(p,\omega_{p\to q}\right).
+        \]
+        When \(p\) lies on a surface and the light is leaving \(p\) toward \(q\), this is an <a class="knowledge-link" href="/physics/radiometry.html#definition-exitant-radiance">exitant radiance</a> value.
+    </div>
+</div>
+
+<div class="definition" id="definition-camera-ray-radiance-estimate">
+    <div class="title">
+        Camera Ray Radiance Estimate
+    </div>
+    <div class="content">
+        Suppose a camera ray starts at \(p_0\) and first intersects the scene at \(p_1\). The quantity
+        \[
+            \operatorname{radiance}(p_1\to p_0)
+        \]
+        is the <a class="knowledge-link" href="#definition-radiance-along-a-directed-point-pair">radiance leaving</a> the first intersection point \(p_1\) back toward the camera point \(p_0\). Path tracing estimates this value by summing contributions from valid light transport paths that begin at \(p_0\) and then visit \(p_1\).
+    </div>
+</div>
+
+<div class="definition" id="definition-pixel-sample">
+    <div class="title">
+        Pixel Sample
+    </div>
+    <div class="content">
+        A <b>pixel sample</b> is one sampled point within a pixel's image-plane region. A renderer usually estimates a pixel value by tracing one <a class="knowledge-link" href="#definition-camera-ray">camera ray</a> for each pixel sample and averaging the returned <a class="knowledge-link" href="/physics/radiometry.html#definition-radiance">radiance</a> estimates.
+    </div>
+</div>
+
+<div class="definition" id="definition-camera-ray">
+    <div class="title">
+        Camera Ray
+    </div>
+    <div class="content">
+        A <b>camera ray</b> is a <a class="knowledge-link" href="/geometry/geometry.html#definition-ray">ray</a> that starts at the camera and travels through a point on the image plane or pixel sample. A path tracer estimates the <a class="knowledge-link" href="/physics/radiometry.html#definition-incident-radiance">incident radiance</a> carried back along this ray.
+    </div>
+</div>
+
+<div class="definition" id="definition-ray-scene-intersection">
+    <div class="title">
+        Ray-Scene Intersection
+    </div>
+    <div class="content">
+        A <b>ray-scene intersection</b> is the first point where a <a class="knowledge-link" href="/geometry/geometry.html#definition-ray">ray</a> meets a <a class="knowledge-link" href="/physics/radiometry.html#definition-surface">surface</a> in a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>. If no such point exists, the ray escapes the scene.
+    </div>
+</div>
+
+<div class="definition" id="definition-visibility-between-points">
+    <div class="title">
+        Visibility Between Points
+    </div>
+    <div class="content">
+        Two points in or around a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a> are <b>visible</b> to each other if the open line segment between them does not intersect any blocking surface in the scene. The visibility factor \(V(p,q)\) is \(1\) when \(p\) and \(q\) are visible to each other and \(0\) otherwise.
+    </div>
+</div>
+
+<div class="definition" id="definition-light-sample">
+    <div class="title">
+        Light Sample
+    </div>
+    <div class="content">
+        A <b>light sample</b> at a surface point \(p\) is a randomly chosen point or direction on a <a class="knowledge-link" href="/physics/radiometry.html#definition-light-source">light source</a>, together with the sampled <a class="knowledge-link" href="/physics/radiometry.html#definition-incident-radiance">incident radiance</a> and the <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density</a> used to choose that sample.
+    </div>
+</div>
+
+<div class="definition" id="definition-direct-lighting-estimator">
+    <div class="title">
+        Direct Lighting Estimator
+    </div>
+    <div class="content">
+        A <b>direct lighting estimator</b> estimates the one-bounce light arriving at a surface point by sampling a <a class="knowledge-link" href="/physics/radiometry.html#definition-light-source">light source</a>. For a light sample from direction \(\omega_i\) with density \(p_l(\omega_i)\), one sample contributes
+        \[
+            \frac{
+                \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                \operatorname{radiance\_in}\left(p,\omega_i\right)
+                \left|n\cdot\omega_i\right|
+                V
+            }{
+                p_l\left(\omega_i\right)
+            },
+        \]
+        where \(\operatorname{bsdf}\) is the <a class="knowledge-link" href="/physics/radiometry.html#definition-bsdf">BSDF</a>, \(\operatorname{radiance\_in}\) is <a class="knowledge-link" href="/physics/radiometry.html#definition-incident-radiance">incident radiance</a>, \(n\) is the <a class="knowledge-link" href="/physics/radiometry.html#definition-surface-normal">surface normal</a>, and \(V\) is the <a class="knowledge-link" href="#definition-visibility-between-points">visibility</a> factor.
+    </div>
+</div>
+
+<div class="definition" id="definition-bsdf-sample">
+    <div class="title">
+        BSDF Sample
+    </div>
+    <div class="content">
+        A <b>BSDF sample</b> at a surface point chooses a new direction \(\omega_i\) according to a <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density</a> \(p_{\mathrm{dir}}\) on the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-unit-sphere">unit sphere</a> \(\mathbb{S}^2\), measured with respect to <a class="knowledge-link" href="/physics/radiometry.html#definition-solid-angle">solid angle</a>. Thus \(p_{\mathrm{dir}}\left(\omega_i\right)\) is the density assigned to sampling the particular direction \(\omega_i\). The sample also returns \(\operatorname{bsdf}\left(p,\omega_i,\omega_o\right)\), the value of the <a class="knowledge-link" href="/physics/radiometry.html#definition-bsdf">BSDF</a> for the sampled incoming direction and the outgoing direction. This is an <a class="knowledge-link" href="/probability/monte_carlo.html#definition-importance-sampling">importance sampling</a> step for the <a class="knowledge-link" href="/physics/radiometry.html#corollary-bsdf-scattering-equation">BSDF scattering equation</a>.
+    </div>
+</div>
+
+<p>Choosing a direction according to \(p_{\mathrm{dir}}\) means that the renderer uses random numbers to produce a direction-valued random variable whose density is \(p_{\mathrm{dir}}\). In one dimension, a standard way to do this is the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-inversion-method">inversion method</a>: start with a uniform random number and transform it so the output has the desired distribution. Direction sampling uses the same idea, but the output is a point \(\omega\) on \(\mathbb{S}^2\) instead of a real number. By the <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">definition of density</a>, having density \(p_{\mathrm{dir}}\) means that for any set of directions \(A\subseteq\mathbb{S}^2\), the probability that the sampled direction lands in \(A\) is \(\int_A p_{\mathrm{dir}}\left(\omega\right)\,d\omega\).</p>
+
+<p>Operationally, a renderer implements this with a sampling procedure: a function that takes one or more uniform random numbers and returns a direction. The function is designed so that the preimage of a direction patch \(A\) occupies exactly \(\int_A p_{\mathrm{dir}}\left(\omega\right)\,d\omega\) worth of area in the uniform random-number domain. Larger-density direction patches are assigned larger regions of the input random-number square, so they occur more often. The path tracer later divides by \(p_{\mathrm{dir}}\left(\omega_i\right)\), so sampling some directions more frequently changes how noisy the estimate is, not which radiance integral is being estimated.</p>
+
+<div class="definition" id="definition-path-throughput">
+    <div class="title">
+        Path Throughput
+    </div>
+    <div class="content">
+        The <b>path throughput</b> is the accumulated multiplicative estimator weight of a sampled <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> path. If a path has already scattered through directions \(\omega_1,\ldots,\omega_k\), then its throughput has the form
+        \[
+            \beta
+            =
+            \prod_{j=1}^{k}
+            \frac{
+                \operatorname{bsdf}\left(p_j,\omega_j,\omega_{j-1}\right)
+                \left|n_j\cdot\omega_j\right|
+            }{
+                p_{\mathrm{dir}}\left(\omega_j\right)
+            },
+        \]
+        where each denominator is the density used when sampling the corresponding direction. The throughput is the reason a later <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> contribution is multiplied by all earlier scattering weights.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-path-throughput-from-importance-sampling">
+    <div class="title">
+        Path Throughput from Importance Sampling
+    </div>
+    <div class="content">
+        The path throughput factor comes from applying the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-monte-carlo-estimator">Monte Carlo estimator</a> to the <a class="knowledge-link" href="/physics/radiometry.html#corollary-bsdf-scattering-equation">BSDF scattering equation</a>. At a surface point \(p\), with outgoing direction \(\omega_o\), surface normal \(n\), and sampled incoming direction \(\omega_i\) drawn from density \(p_{\mathrm{dir}}\), the one-sample estimator for the scattered incident radiance term is
+        \[
+            \frac{
+                \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                \operatorname{radiance\_in}\left(p,\omega_i\right)
+                \left|n\cdot\omega_i\right|
+            }{
+                p_{\mathrm{dir}}\left(\omega_i\right)
+            }.
+        \]
+        Therefore the estimate of whatever radiance is found by continuing the path in direction \(\omega_i\) must be multiplied by
+        \[
+            \frac{
+                \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                \left|n\cdot\omega_i\right|
+            }{
+                p_{\mathrm{dir}}\left(\omega_i\right)
+            }.
+        \]
+        Repeating this at each bounce multiplies these factors together, which gives the path throughput \(\beta\).
+    </div>
+    <div class="proof">
+        In the <a class="knowledge-link" href="/physics/radiometry.html#corollary-bsdf-scattering-equation">BSDF scattering equation</a>, the scattered part of \(\operatorname{radiance\_out}\left(p,\omega_o\right)\) is an integral over incoming directions:
+        \[
+            \int_{\mathbb{S}^2}
+                \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                \operatorname{radiance\_in}\left(p,\omega_i\right)
+                \left|n\cdot\omega_i\right|
+                d\omega_i.
+        \]
+        If the renderer samples \(\omega_i\) from density \(p_{\mathrm{dir}}\), the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-monte-carlo-estimator">Monte Carlo estimator</a> replaces the integrand by the sampled integrand divided by the sampling density:
+        \[
+            \frac{
+                \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                \operatorname{radiance\_in}\left(p,\omega_i\right)
+                \left|n\cdot\omega_i\right|
+            }{
+                p_{\mathrm{dir}}\left(\omega_i\right)
+            }.
+        \]
+        The remaining term \(\operatorname{radiance\_in}\left(p,\omega_i\right)\) is the radiance arriving from the next ray direction, so a recursive path tracer estimates it by continuing the path. Thus the continuation estimate is multiplied by the non-\(\operatorname{radiance\_in}\) part of the sampled term. After \(k\) sampled scattering events, these multiplicative factors form the product in the definition of <a class="knowledge-link" href="#definition-path-throughput">path throughput</a>.
+    </div>
+</div>
+
+<div class="definition" id="definition-light-transport-path">
+    <div class="title">
+        Light Transport Path
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>, and let \(p_0\in\mathbb R^3\) be an initial point. The set of <b>valid light transport paths from \(p_0\) through \(S\)</b> is denoted
+        \[
+            \operatorname{LTP}\left(p_0,S\right).
+        \]
+        An element of \(\operatorname{LTP}\left(p_0,S\right)\) is a tuple
+        \[
+            \left(p_1,\ldots,p_k\right)
+        \]
+        such that each \(p_i\) lies on a <a class="knowledge-link" href="/physics/radiometry.html#definition-surface">surface</a> in \(S\), and each adjacent pair
+        \[
+            p_i,\ p_{i+1}
+        \]
+        is <a class="knowledge-link" href="#definition-visibility-between-points">visible</a> in \(S\), where the index \(i\) ranges from \(0\) to \(k-1\). Thus the open line segment from \(p_i\) to \(p_{i+1}\) hits no other surface in the scene before reaching \(p_{i+1}\). The initial point \(p_0\) is not part of the tuple; it is supplied as an argument of \(\operatorname{LTP}\left(p_0,S\right)\).
+    </div>
+</div>
+
+<div class="definition" id="definition-fixed-length-light-transport-paths">
+    <div class="title">
+        Fixed-Length Light Transport Paths
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>, let \(p_0\in\mathbb R^3\), and let \(k\in\mathbb N_1\). The set
+        \[
+            \operatorname{LTP}_k\left(p_0,S\right)
+        \]
+        is the subset of <a class="knowledge-link" href="#definition-light-transport-path">valid light transport paths</a> from \(p_0\) through \(S\) whose elements are \(k\)-tuples:
+        \[
+            \operatorname{LTP}_k\left(p_0,S\right)
+            =
+            \left\{
+                \left(p_1,\ldots,p_k\right)\in\operatorname{LTP}\left(p_0,S\right)
+            \right\}.
+        \]
+        Thus \(\operatorname{LTP}_1\left(p_0,S\right)\) contains one-vertex paths, \(\operatorname{LTP}_2\left(p_0,S\right)\) contains two-vertex paths, and so on.
+    </div>
+</div>
+
+<div class="definition" id="definition-path-contribution-term">
+    <div class="title">
+        Path Radiance Contribution
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>, and let
+        \[
+            \left(p_1,\ldots,p_k\right)\in\operatorname{LTP}\left(p_0,S\right).
+        \]
+        The notation
+        \[
+            \operatorname{path\_rad}\left(p_0;\,p_1,\ldots,p_k\right)
+        \]
+        denotes the radiance contribution assigned to that path. The exact formula depends on the path's emitted radiance, BSDF factors, geometric factors, and visibility. The sampling density appears later when a Monte Carlo estimator chooses which paths to sample. At this stage, \(\operatorname{path\_rad}\left(p_0;\,p_1,\ldots,p_k\right)\) should be read as one path's contribution to the camera-ray <a class="knowledge-link" href="/physics/radiometry.html#definition-radiance">radiance</a> value.
+    </div>
+</div>
+
+<div class="definition" id="definition-path-tracing-overview-equation">
+    <div class="title">
+        Path Tracing Overview Equation
+    </div>
+    <div class="content">
+        Let \(S\) be a <a class="knowledge-link" href="#definition-rendering-scene">rendering scene</a>. If a camera ray starts at \(p_0\) and first hits the scene at \(p_1\), then the path tracing goal can be written schematically as
+        \[
+            \operatorname{radiance}\left(p_1\to p_0\right)
+            =
+            \sum_{k=1}^{\infty}
+            \sum_{\left(p_1,\ldots,p_k\right)\in\operatorname{LTP}_k\left(p_0,S\right)}
+                \operatorname{path\_rad}\left(p_0;\,p_1,\ldots,p_k\right).
+        \]
+        The left side is the <a class="knowledge-link" href="#definition-camera-ray-radiance-estimate">radiance leaving the first intersection point back toward the camera</a>. The right side says that this radiance is assembled from <a class="knowledge-link" href="#definition-path-contribution-term">path radiance contributions</a> of valid light transport paths. This equation is schematic: later, sums over continuously many surface points must be interpreted as integrals.
+    </div>
+</div>
+
+<div class="definition" id="definition-recursive-path-depth">
+    <div class="title">
+        Recursive Path Depth
+    </div>
+    <div class="content">
+        The <b>recursive path depth</b> of a sampled path is the number of surface scattering events that have already been used to extend the path away from the camera.
+    </div>
+</div>
+
+<div class="definition" id="definition-maximum-path-depth">
+    <div class="title">
+        Maximum Path Depth
+    </div>
+    <div class="content">
+        The <b>maximum path depth</b> is the largest <a class="knowledge-link" href="#definition-recursive-path-depth">recursive path depth</a> that a path tracer allows before it stops extending the current <a class="knowledge-link" href="#definition-light-transport-path">light transport path</a>.
+    </div>
+</div>
+
+<div class="definition" id="definition-simple-path-tracer">
+    <div class="title">
+        Simple Path Tracer
+    </div>
+    <div class="content">
+        A <b>simple path tracer</b> is a <a class="knowledge-link" href="/probability/monte_carlo.html#definition-monte-carlo-estimator">Monte Carlo estimator</a> for camera-ray radiance. It repeatedly intersects a ray with the scene, adds emitted and directly sampled <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> scaled by the current <a class="knowledge-link" href="#definition-path-throughput">path throughput</a>, samples a new direction using \(\operatorname{bsdf}\) from the surface <a class="knowledge-link" href="/physics/radiometry.html#definition-bsdf">BSDF</a>, updates the throughput, and continues until the path ends or reaches its <a class="knowledge-link" href="#definition-maximum-path-depth">maximum path depth</a>.
+    </div>
+</div>
+
+<div class="definition" id="definition-simple-path-tracing-loop">
+    <div class="title">
+        Simple Path Tracing Loop
+    </div>
+    <div class="content">
+        Given a <a class="knowledge-link" href="#definition-camera-ray">camera ray</a> for one <a class="knowledge-link" href="#definition-pixel-sample">pixel sample</a>, initialize accumulated <a class="knowledge-link" href="/physics/radiometry.html#definition-radiance">radiance</a> \(L=0\), <a class="knowledge-link" href="#definition-path-throughput">path throughput</a> \(\beta=1\), and <a class="knowledge-link" href="#definition-recursive-path-depth">recursive path depth</a> \(d=0\). The current ray always points away from the previous path vertex. At each intersection point \(p\), let \(n\) be the <a class="knowledge-link" href="/physics/radiometry.html#definition-surface-normal">surface normal</a> at \(p\), and let \(\omega_o\in\mathbb S^2\) point from \(p\) back along the current ray toward the previous path vertex. Then repeat:
+        <ol>
+            <li>Find the next <a class="knowledge-link" href="#definition-ray-scene-intersection">ray-scene intersection</a>. If the ray escapes, add any visible environment <a class="knowledge-link" href="/physics/radiometry.html#definition-emitted-radiance">emitted radiance</a> scaled by \(\beta\), and stop.</li>
+            <li>If the intersected surface emits <a class="knowledge-link" href="/physics/index.html#definition-light">light</a>, add \(\beta \operatorname{emitted\_radiance}\left(p,\omega_o\right)\) to \(L\), where \(\operatorname{emitted\_radiance}\left(p,\omega_o\right)\) is the <a class="knowledge-link" href="/physics/radiometry.html#definition-emitted-radiance">emitted radiance</a> at the intersection point \(p\) in the outgoing direction \(\omega_o\) back toward the previous path vertex.</li>
+            <li>If direct light sampling is enabled, take a <a class="knowledge-link" href="#definition-light-sample">light sample</a> and add its <a class="knowledge-link" href="#definition-direct-lighting-estimator">direct lighting estimator</a> contribution scaled by \(\beta\) to \(L\).</li>
+            <li>If \(d\) has reached the <a class="knowledge-link" href="#definition-maximum-path-depth">maximum path depth</a>, stop.</li>
+            <li>Take a <a class="knowledge-link" href="#definition-bsdf-sample">BSDF sample</a> to choose the next direction \(\omega_i\).</li>
+            <li>Update
+                \[
+                    \beta
+                    \leftarrow
+                    \beta
+                    \frac{
+                        \operatorname{bsdf}\left(p,\omega_i,\omega_o\right)
+                        \left|n\cdot\omega_i\right|
+                    }{
+                        p_{\mathrm{dir}}\left(\omega_i\right)
+                    }.
+                \]
+            </li>
+            <li>Spawn the next ray in direction \(\omega_i\), set \(d\leftarrow d+1\), and continue. At the next intersection, the new \(\omega_o\) is the direction back toward the current point \(p\).</li>
+        </ol>
+    </div>
+</div>

@@ -1,7 +1,980 @@
 <fieldset>
-    <legend>Physics</legend>
+    <h1><legend>Physics</legend></h1>
+</fieldset>
+
+<fieldset>
+    <legend>Topics</legend>
     <ul>
-        <li>Classical</li>
-        <li>Quantum</li>
+        <li>
+            <a href="radiometry.html">Radiometry</a>
+        </li>
+        <li>
+            <a href="path_tracing.html">Path Tracing</a>
+        </li>
     </ul>
 </fieldset>
+
+<h2>Measurement</h2>
+
+<div class="definition" id="definition-physical-quantity">
+    <div class="title">
+        Physical Quantity
+    </div>
+    <div class="content">
+        A <b>physical quantity</b> is a property of a physical system that can be measured or compared, such as length, time, mass, speed, force, or energy.
+    </div>
+</div>
+
+<p>
+    The height of a table, the duration of a song, and the mass of a book are physical quantities because each can be measured and compared.
+</p>
+
+<div class="definition" id="definition-unit">
+    <div class="title">
+        Unit
+    </div>
+    <div class="content">
+        A <b>unit</b> is a chosen standard amount of a <a class="knowledge-link" href="#definition-physical-quantity">physical quantity</a>. A measurement compares a physical quantity with a unit.
+    </div>
+</div>
+
+<p>
+    Saying a table is \(2\) metres long compares its length with the metre as the chosen unit of length.
+</p>
+
+<p>
+    A unit is not the same kind of object as the numerical value used to represent a measured quantity. For a scalar quantity, the numerical value is a real number after a unit is chosen. For a vector quantity, the numerical value is a vector after coordinates and a unit are chosen, and the unit tells how to interpret each component.
+</p>
+
+<div class="definition" id="definition-product-unit">
+    <div class="title">
+        Product Unit
+    </div>
+    <div class="content">
+        Suppose quantities of one kind have numerical values in a set \(A\) when measured in a unit \(u_1\), quantities of another kind have numerical values in a set \(B\) when measured in a unit \(u_2\), and there is a multiplication operation
+        \[
+            \_\cdot\_ : A \times B \to C.
+        \]
+        If \(a \in A\) and \(b \in B\), then the product quantity has numerical value \(a \cdot b \in C\) and is measured in the <b>product unit</b> \(u_1u_2\).
+    </div>
+</div>
+
+<p>
+    If length is measured in metres and time is measured in seconds, then a length divided by a time is measured in the product unit \(m \cdot s^{-1}\), because division by seconds is multiplication by \(s^{-1}\).
+</p>
+
+<h2>Basic Quantities</h2>
+
+<div class="definition" id="definition-time">
+    <div class="title">
+        Time
+    </div>
+    <div class="content">
+        <b>Time</b> is the <a class="knowledge-link" href="#definition-physical-quantity">physical quantity</a> used to order events and measure durations between them.
+    </div>
+</div>
+
+<p>
+    The time between two clock ticks is a duration, and the order of the ticks tells which event happened first.
+</p>
+
+<div class="definition" id="definition-frequency">
+    <div class="title">
+        Frequency
+    </div>
+    <div class="content">
+        <b>Frequency</b> is the number of repeating cycles or events per unit of <a class="knowledge-link" href="#definition-time">time</a>.
+    </div>
+</div>
+
+<p>
+    A light wave with \(5\times 10^{14}\) cycles each second has frequency \(5\times 10^{14}Hz\).
+</p>
+
+<div class="definition" id="definition-period">
+    <div class="title">
+        Period
+    </div>
+    <div class="content">
+        A <b>period</b> of a repeating process is the duration of one complete cycle of that process.
+    </div>
+</div>
+
+<p>
+    If a pendulum completes one swing cycle every \(2s\), then its period is \(2s\).
+</p>
+
+<div class="definition" id="definition-length">
+    <div class="title">
+        Length
+    </div>
+    <div class="content">
+        <b>Length</b> is the <a class="knowledge-link" href="#definition-physical-quantity">physical quantity</a> used to measure distance or spatial extent.
+    </div>
+</div>
+
+<p>
+    The width of a doorway and the distance between two points on a table are lengths.
+</p>
+
+<div class="definition" id="definition-position">
+    <div class="title">
+        Position
+    </div>
+    <div class="content">
+        <b>Position</b> describes where an object is located relative to a chosen reference frame.
+    </div>
+</div>
+
+<p>
+    The position of a book on a table can be described by its distance from the table's edges.
+</p>
+
+<div class="definition" id="definition-motion">
+    <div class="title">
+        Motion
+    </div>
+    <div class="content">
+        <b>Motion</b> is change of <a class="knowledge-link" href="#definition-position">position</a> over <a class="knowledge-link" href="#definition-time">time</a>.
+    </div>
+</div>
+
+<p>
+    A train moving along a track is in motion because its position changes as time passes.
+</p>
+
+<div class="definition" id="definition-speed">
+    <div class="title">
+        Speed
+    </div>
+    <div class="content">
+        <b>Speed</b> is the <a class="knowledge-link" href="#definition-length">distance</a> travelled per unit of <a class="knowledge-link" href="#definition-time">time</a>. If an object travels a distance \(d\) in a time \(t\), its average speed is
+        \[
+            v = \frac{d}{t}.
+        \]
+    </div>
+</div>
+
+<p>
+    If a car travels \(100km\) in \(2h\), its average speed is \(50km/h\).
+</p>
+
+<div class="definition" id="definition-mass">
+    <div class="title">
+        Mass
+    </div>
+    <div class="content">
+        <b>Mass</b> is the <a class="knowledge-link" href="#definition-physical-quantity">physical quantity</a> that measures the amount of matter in a body and its resistance to acceleration.
+    </div>
+</div>
+
+<p>
+    This phenomenon can be seen experimentally by giving a bowling ball and a tennis ball similar pushes: the bowling ball's <a class="knowledge-link" href="#definition-motion">motion</a> changes less.
+</p>
+
+<div class="definition" id="definition-energy">
+    <div class="title">
+        Energy
+    </div>
+    <div class="content">
+        <b>Energy</b> is a scalar <a class="knowledge-link" href="#definition-physical-quantity">physical quantity</a> that can be transferred between physical systems and converted between different forms.
+    </div>
+</div>
+
+<p>
+    A raised book has gravitational energy because it can fall and transfer energy to another object on impact.
+</p>
+
+<div class="definition" id="definition-heat">
+    <div class="title">
+        Heat
+    </div>
+    <div class="content">
+        <b>Heat</b> is <a class="knowledge-link" href="#definition-energy">energy</a> transferred from one physical system to another because of a temperature difference.
+    </div>
+</div>
+
+<p>
+    A hot pan transfers heat to cooler water placed in it.
+</p>
+
+<h2>Defining Constants</h2>
+
+<div class="definition" id="definition-electric-charge">
+    <div class="title">
+        Electric Charge
+    </div>
+    <div class="content">
+        <b>Electric charge</b> is the <a class="knowledge-link" href="#definition-physical-quantity">physical quantity</a> that determines how a physical system participates in electromagnetic attraction and repulsion.
+    </div>
+</div>
+
+<p>
+    Two protons repel each other because they have electric charges of the same kind.
+</p>
+
+<div class="definition" id="definition-charge-sign">
+    <div class="title">
+        Charge Sign
+    </div>
+    <div class="content">
+        The <b>charge sign</b> of an <a class="knowledge-link" href="#definition-electric-charge">electric charge</a> records whether the charge is positive, negative, or zero.
+    </div>
+</div>
+
+<p>
+    A proton and an electron have opposite charge signs.
+</p>
+
+<div class="definition" id="definition-positive-electric-charge">
+    <div class="title">
+        Positive Electric Charge
+    </div>
+    <div class="content">
+        A <b>positive electric charge</b> is an <a class="knowledge-link" href="#definition-electric-charge">electric charge</a> whose <a class="knowledge-link" href="#definition-charge-sign">charge sign</a> is positive.
+    </div>
+</div>
+
+<p>
+    The electric charge carried by a proton is positive.
+</p>
+
+<div class="definition" id="definition-negative-electric-charge">
+    <div class="title">
+        Negative Electric Charge
+    </div>
+    <div class="content">
+        A <b>negative electric charge</b> is an <a class="knowledge-link" href="#definition-electric-charge">electric charge</a> whose <a class="knowledge-link" href="#definition-charge-sign">charge sign</a> is negative.
+    </div>
+</div>
+
+<p>
+    The electric charge carried by an electron is negative.
+</p>
+
+<div class="definition" id="definition-electrically-neutral">
+    <div class="title">
+        Electrically Neutral
+    </div>
+    <div class="content">
+        A physical system is <b>electrically neutral</b> if its total <a class="knowledge-link" href="#definition-electric-charge">electric charge</a> is zero.
+    </div>
+</div>
+
+<p>
+    A neutron is electrically neutral.
+</p>
+
+<div class="definition" id="definition-particle">
+    <div class="title">
+        Particle
+    </div>
+    <div class="content">
+        A <b>particle</b> is a physical system treated as a single localized object.
+    </div>
+</div>
+
+<p>
+    In a simple model of a gas, each atom can be treated as one particle moving through space.
+</p>
+
+<div class="definition" id="definition-subatomic-particle">
+    <div class="title">
+        Subatomic Particle
+    </div>
+    <div class="content">
+        A <b>subatomic particle</b> is a <a class="knowledge-link" href="#definition-particle">particle</a> smaller than an atom or used as one of the parts from which atoms are built.
+    </div>
+</div>
+
+<p>
+    Protons, neutrons, and electrons are subatomic particles.
+</p>
+
+<div class="definition" id="definition-proton">
+    <div class="title">
+        Proton
+    </div>
+    <div class="content">
+        A <b>proton</b> is a <a class="knowledge-link" href="#definition-subatomic-particle">subatomic particle</a> with <a class="knowledge-link" href="#definition-positive-electric-charge">positive electric charge</a>.
+    </div>
+</div>
+
+<p>
+    Each hydrogen nucleus contains one proton.
+</p>
+
+<div class="definition" id="definition-neutron">
+    <div class="title">
+        Neutron
+    </div>
+    <div class="content">
+        A <b>neutron</b> is an <a class="knowledge-link" href="#definition-electrically-neutral">electrically neutral</a> <a class="knowledge-link" href="#definition-subatomic-particle">subatomic particle</a>.
+    </div>
+</div>
+
+<p>
+    A carbon-12 nucleus contains \(6\) neutrons.
+</p>
+
+<div class="definition" id="definition-electron">
+    <div class="title">
+        Electron
+    </div>
+    <div class="content">
+        An <b>electron</b> is a <a class="knowledge-link" href="#definition-subatomic-particle">subatomic particle</a> with <a class="knowledge-link" href="#definition-negative-electric-charge">negative electric charge</a>.
+    </div>
+</div>
+
+<p>
+    A neutral hydrogen atom has one electron bound to its nucleus.
+</p>
+
+<div class="definition" id="definition-atomic-nucleus">
+    <div class="title">
+        Atomic Nucleus
+    </div>
+    <div class="content">
+        An <b>atomic nucleus</b> is a small bound system of <a class="knowledge-link" href="#definition-proton">protons</a> and, except in the one-proton nucleus with no neutrons, <a class="knowledge-link" href="#definition-neutron">neutrons</a>.
+    </div>
+</div>
+
+<p>
+    In a carbon-12 atom, the nucleus contains \(6\) protons and \(6\) neutrons.
+</p>
+
+<div class="definition" id="definition-atom">
+    <div class="title">
+        Atom
+    </div>
+    <div class="content">
+        An <b>atom</b> is a physical system made of an <a class="knowledge-link" href="#definition-atomic-nucleus">atomic nucleus</a> and bound <a class="knowledge-link" href="#definition-electron">electrons</a>.
+    </div>
+</div>
+
+<p>
+    A neutral helium atom has a nucleus with \(2\) protons and bound electrons around it.
+</p>
+
+<div class="definition" id="definition-chemical-element">
+    <div class="title">
+        Chemical Element
+    </div>
+    <div class="content">
+        A <b>chemical element</b> is a type of <a class="knowledge-link" href="#definition-atom">atom</a> determined by the number of <a class="knowledge-link" href="#definition-proton">protons</a> in its <a class="knowledge-link" href="#definition-atomic-nucleus">atomic nucleus</a>.
+    </div>
+</div>
+
+<p>
+    Every atom with \(6\) protons is carbon, even if it has a different number of neutrons.
+</p>
+
+<div class="definition" id="definition-caesium">
+    <div class="title">
+        Caesium
+    </div>
+    <div class="content">
+        <b>Caesium</b> is the <a class="knowledge-link" href="#definition-chemical-element">chemical element</a> whose atoms have \(55\) <a class="knowledge-link" href="#definition-proton">protons</a> in their <a class="knowledge-link" href="#definition-atomic-nucleus">atomic nucleus</a>.
+    </div>
+</div>
+
+<p>
+    Any atom whose nucleus has \(55\) protons is a caesium atom.
+</p>
+
+<div class="definition" id="definition-isotope">
+    <div class="title">
+        Isotope
+    </div>
+    <div class="content">
+        An <b>isotope</b> of a <a class="knowledge-link" href="#definition-chemical-element">chemical element</a> is a kind of atom with the element's fixed number of <a class="knowledge-link" href="#definition-proton">protons</a> and a specified number of <a class="knowledge-link" href="#definition-neutron">neutrons</a>.
+    </div>
+</div>
+
+<p>
+    Carbon-12 and carbon-14 are isotopes of carbon because both have \(6\) protons, but they have different numbers of neutrons.
+</p>
+
+<div class="definition" id="definition-spontaneous-process">
+    <div class="title">
+        Spontaneous Process
+    </div>
+    <div class="content">
+        A <b>spontaneous process</b> is a process that occurs without being caused by a specific external trigger in the model being used.
+    </div>
+</div>
+
+<p>
+    Radioactive decay is modeled as spontaneous when it occurs without a collision or applied field triggering the particular decay event.
+</p>
+
+<div class="definition" id="definition-nuclear-decay">
+    <div class="title">
+        Nuclear Decay
+    </div>
+    <div class="content">
+        <b>Nuclear decay</b> is a process in which an <a class="knowledge-link" href="#definition-atomic-nucleus">atomic nucleus</a> changes into a different nucleus or energy state by emitting radiation or particles.
+    </div>
+</div>
+
+<p>
+    A nucleus that emits an alpha particle undergoes nuclear decay and becomes a different nucleus.
+</p>
+
+<div class="definition" id="definition-ordinary-conditions">
+    <div class="title">
+        Ordinary Conditions
+    </div>
+    <div class="content">
+        <b>Ordinary conditions</b> are the normal environmental conditions assumed in a discussion, with no special external fields, collisions, or experimental interventions being applied.
+    </div>
+</div>
+
+<p>
+    An atom sitting in a room-temperature laboratory with no deliberately applied strong fields is being considered under ordinary conditions for this discussion.
+</p>
+
+<div class="definition" id="definition-stable">
+    <div class="title">
+        Stable
+    </div>
+    <div class="content">
+        A physical system is <b>stable</b> relative to a process if it does not undergo that process as a <a class="knowledge-link" href="#definition-spontaneous-process">spontaneous process</a> under the conditions being considered. For an <a class="knowledge-link" href="#definition-isotope">isotope</a>, stable usually means that its <a class="knowledge-link" href="#definition-atomic-nucleus">atomic nuclei</a> do not undergo <a class="knowledge-link" href="#definition-nuclear-decay">nuclear decay</a> under <a class="knowledge-link" href="#definition-ordinary-conditions">ordinary conditions</a>.
+    </div>
+</div>
+
+<p>
+    Caesium-133 is stable in the nuclear sense because its nuclei do not spontaneously decay under ordinary conditions.
+</p>
+
+<div class="definition" id="definition-caesium-133">
+    <div class="title">
+        Caesium-133
+    </div>
+    <div class="content">
+        <b>Caesium-133</b> is the <a class="knowledge-link" href="#definition-stable">stable</a> <a class="knowledge-link" href="#definition-isotope">isotope</a> of <a class="knowledge-link" href="#definition-caesium">caesium</a> whose <a class="knowledge-link" href="#definition-atomic-nucleus">atomic nucleus</a> contains \(55\) <a class="knowledge-link" href="#definition-proton">protons</a> and \(78\) <a class="knowledge-link" href="#definition-neutron">neutrons</a>.
+    </div>
+</div>
+
+<p>
+    The atoms used in caesium atomic clocks are caesium-133 atoms.
+</p>
+
+<div class="definition" id="definition-radiation">
+    <div class="title">
+        Radiation
+    </div>
+    <div class="content">
+        <b>Radiation</b> is energy that travels outward from a source through space or through a material medium.
+    </div>
+</div>
+
+<p>
+    Sunlight is radiation carrying energy from the Sun to Earth.
+</p>
+
+<div class="definition" id="definition-magnetism">
+    <div class="title">
+        Magnetism
+    </div>
+    <div class="content">
+        <b>Magnetism</b> is the physical phenomenon in which magnets, electric currents, or moving charged objects can attract, repel, or reorient one another.
+    </div>
+</div>
+
+<p>
+    A compass needle turns because it is affected by Earth's magnetism.
+</p>
+
+<div class="definition" id="definition-electromagnetic">
+    <div class="title">
+        Electromagnetic
+    </div>
+    <div class="content">
+        <b>Electromagnetic</b> means involving both <a class="knowledge-link" href="#definition-electric-charge">electric charge</a> and <a class="knowledge-link" href="#definition-magnetism">magnetism</a>.
+    </div>
+</div>
+
+<p>
+    Light is called electromagnetic because it is described using linked electric and magnetic effects.
+</p>
+
+<div class="definition" id="definition-electromagnetic-field">
+    <div class="title">
+        Electromagnetic Field
+    </div>
+    <div class="content">
+        An <b>electromagnetic field</b> is a <a class="knowledge-link" href="#definition-physical-quantity">physical quantity</a> assigned to <a class="knowledge-link" href="#definition-position">positions</a> and <a class="knowledge-link" href="#definition-time">times</a> that describes <a class="knowledge-link" href="#definition-electromagnetic">electromagnetic</a> influence on objects with <a class="knowledge-link" href="#definition-electric-charge">electric charge</a>.
+    </div>
+</div>
+
+<p>
+    A radio antenna creates a changing electromagnetic field around it.
+</p>
+
+<div class="definition" id="definition-electromagnetic-radiation">
+    <div class="title">
+        Electromagnetic Radiation
+    </div>
+    <div class="content">
+        <b>Electromagnetic radiation</b> is <a class="knowledge-link" href="#definition-radiation">radiation</a> carried by <a class="knowledge-link" href="#definition-electromagnetic-field">electromagnetic fields</a>.
+    </div>
+</div>
+
+<p>
+    Radio waves, microwaves, visible light, and X-rays are forms of electromagnetic radiation.
+</p>
+
+<div class="definition" id="definition-periodic-radiation">
+    <div class="title">
+        Periodic Radiation
+    </div>
+    <div class="content">
+        <b>Periodic radiation</b> is <a class="knowledge-link" href="#definition-radiation">radiation</a> whose state at a fixed location repeats after a fixed <a class="knowledge-link" href="#definition-period">period</a>. Because it repeats in cycles, periodic radiation has a <a class="knowledge-link" href="#definition-frequency">frequency</a>.
+    </div>
+</div>
+
+<p>
+    An ideal single-frequency laser beam is modeled as periodic radiation.
+</p>
+
+<div class="definition" id="definition-energy-level">
+    <div class="title">
+        Energy Level
+    </div>
+    <div class="content">
+        An <b>energy level</b> of a physical system is one of the possible <a class="knowledge-link" href="#definition-energy">energy</a> values the system can have.
+    </div>
+</div>
+
+<p>
+    In a simple quantum model, an electron bound in an atom can occupy only certain atomic energy levels.
+</p>
+
+<div class="definition" id="definition-energy-level-transition">
+    <div class="title">
+        Energy Level Transition
+    </div>
+    <div class="content">
+        An <b>energy level transition</b> is a change of a physical system from one <a class="knowledge-link" href="#definition-energy-level">energy level</a> to another. The difference in <a class="knowledge-link" href="#definition-energy">energy</a> is supplied by incoming <a class="knowledge-link" href="#definition-radiation">radiation</a> or carried away by outgoing radiation.
+    </div>
+</div>
+
+<p>
+    When an atom moves from a higher energy level to a lower one, the lost energy can leave as electromagnetic radiation.
+</p>
+
+<div class="definition" id="definition-closely-spaced-energy-levels">
+    <div class="title">
+        Closely Spaced Energy Levels
+    </div>
+    <div class="content">
+        <b>Closely spaced energy levels</b> are <a class="knowledge-link" href="#definition-energy-level">energy levels</a> whose energy values differ by a small amount in the scale being considered.
+    </div>
+</div>
+
+<p>
+    The two ground-state levels used in a caesium-133 atomic clock are closely spaced: electromagnetic radiation with frequency \(9192631770Hz\) has the energy needed for an <a class="knowledge-link" href="#definition-energy-level-transition">energy level transition</a> between them, while visible-light atomic transitions have frequencies hundreds of thousands of times larger.
+</p>
+
+<div class="definition" id="definition-physical-interaction">
+    <div class="title">
+        Physical Interaction
+    </div>
+    <div class="content">
+        A <b>physical interaction</b> is a way that physical systems affect one another, often by changing their motion, energy, or state.
+    </div>
+</div>
+
+<p>
+    The electric attraction between an atomic nucleus and an electron is a physical interaction.
+</p>
+
+<div class="definition" id="definition-hyperfine-level">
+    <div class="title">
+        Hyperfine Level
+    </div>
+    <div class="content">
+        A <b>hyperfine level</b> is one of the <a class="knowledge-link" href="#definition-closely-spaced-energy-levels">closely spaced energy levels</a> of an <a class="knowledge-link" href="#definition-atom">atom</a> caused by a <a class="knowledge-link" href="#definition-physical-interaction">physical interaction</a> between the <a class="knowledge-link" href="#definition-atomic-nucleus">atomic nucleus</a> and the atom's <a class="knowledge-link" href="#definition-electron">electrons</a>.
+    </div>
+</div>
+
+<p>
+    The caesium-133 clock transition uses two hyperfine levels of the ground state of a caesium-133 atom.
+</p>
+
+<div class="definition" id="definition-unperturbed-ground-state">
+    <div class="title">
+        Unperturbed Ground State
+    </div>
+    <div class="content">
+        The <b>unperturbed ground state</b> of an <a class="knowledge-link" href="#definition-atom">atom</a> is its lowest-energy state when external disturbances, such as applied fields or collisions, are idealized away.
+    </div>
+</div>
+
+<p>
+    An isolated caesium-133 atom with no applied external fields is idealized using its unperturbed ground state.
+</p>
+
+<div class="definition" id="definition-caesium-133-transition-frequency">
+    <div class="title">
+        Caesium-133 Transition Frequency
+    </div>
+    <div class="content">
+        The <b>caesium-133 transition frequency</b>, denoted \(\Delta \nu _ { Cs }\), is the <a class="knowledge-link" href="#definition-frequency">frequency</a> of the <a class="knowledge-link" href="#definition-periodic-radiation">periodic</a> <a class="knowledge-link" href="#definition-electromagnetic-radiation">electromagnetic radiation</a> corresponding to the <a class="knowledge-link" href="#definition-energy-level-transition">energy level transition</a> between the two <a class="knowledge-link" href="#definition-hyperfine-level">hyperfine levels</a> of the <a class="knowledge-link" href="#definition-unperturbed-ground-state">unperturbed ground state</a> of the <a class="knowledge-link" href="#definition-caesium-133">caesium-133</a> <a class="knowledge-link" href="#definition-atom">atom</a>.
+    </div>
+</div>
+
+<p>
+    The second is defined by counting periods of the electromagnetic radiation associated with the caesium-133 transition frequency.
+</p>
+
+<div class="definition" id="definition-light">
+    <div class="title">
+        Light
+    </div>
+    <div class="content">
+        <b>Light</b> is <a class="knowledge-link" href="#definition-electromagnetic-radiation">electromagnetic radiation</a>, especially the part that can be detected by the human eye.
+    </div>
+</div>
+
+<p>
+    Sunlight, laser light, and the light from a lamp are all forms of <a class="knowledge-link" href="#definition-electromagnetic-radiation">electromagnetic radiation</a>.
+</p>
+
+<div class="definition" id="definition-vacuum">
+    <div class="title">
+        Vacuum
+    </div>
+    <div class="content">
+        A <b>vacuum</b> is an idealized region of space with no material medium present.
+    </div>
+</div>
+
+<p>
+    Interplanetary space is often modeled as a vacuum when the small amount of matter there is irrelevant to the calculation.
+</p>
+
+<div class="definition" id="definition-speed-of-light">
+    <div class="title">
+        Speed of Light
+    </div>
+    <div class="content">
+        The <b>speed of light in vacuum</b>, denoted \(c\), is the <a class="knowledge-link" href="#definition-speed">speed</a> at which <a class="knowledge-link" href="#definition-light">light</a> travels in a <a class="knowledge-link" href="#definition-vacuum">vacuum</a>.
+    </div>
+</div>
+
+<p>
+    In a vacuum, light travels at exactly \(299792458m/s\) by the definitions of the metre and second.
+</p>
+
+<div class="definition" id="definition-photon">
+    <div class="title">
+        Photon
+    </div>
+    <div class="content">
+        A <b>photon</b> is a discrete packet of <a class="knowledge-link" href="#definition-light">light</a> or other <a class="knowledge-link" href="#definition-electromagnetic-radiation">electromagnetic radiation</a>. A photon is associated with electromagnetic radiation of some <a class="knowledge-link" href="#definition-frequency">frequency</a>.
+    </div>
+</div>
+
+<p>
+    In a green laser beam, the frequency is the frequency of the associated light radiation: the electromagnetic state repeats at that rate. The beam can be modeled as many photons associated with that same frequency and traveling in nearly the same direction.
+</p>
+
+<div class="definition" id="definition-nonzero-physical-quantity">
+    <div class="title">
+        Nonzero Physical Quantity
+    </div>
+    <div class="content">
+        A <b>nonzero physical quantity</b> is a <a class="knowledge-link" href="#definition-physical-quantity">physical quantity</a> whose measured value is not \(0\) in the units being used.
+    </div>
+</div>
+
+<p>
+    A frequency of \(5Hz\) is nonzero, while a frequency of \(0Hz\) is zero.
+</p>
+
+<div class="definition" id="definition-dimensionless-constant">
+    <div class="title">
+        Dimensionless Constant
+    </div>
+    <div class="content">
+        A <b>dimensionless constant</b> is a constant whose value is a pure number. Its numerical value does not depend on the <a class="knowledge-link" href="#definition-unit">units</a> used to measure the quantities from which it is formed.
+    </div>
+</div>
+
+<p>
+    The ratio of a circle's circumference to its diameter is dimensionless: measuring both lengths in metres or both lengths in inches gives the same number \(\pi\).
+</p>
+
+<div class="definition" id="definition-dimensional-constant">
+    <div class="title">
+        Dimensional Constant
+    </div>
+    <div class="content">
+        A <b>dimensional constant</b> is a constant whose value carries <a class="knowledge-link" href="#definition-unit">units</a>. The physical constant is fixed, but its numerical value changes when the unit choices change.
+    </div>
+</div>
+
+<p>
+    The speed of light is a dimensional constant: the same physical speed is written as \(299792458m/s\) or about \(186000\) miles per second because the length unit changed.
+</p>
+
+<div class="definition" id="definition-planck-constant">
+    <div class="title">
+        Planck Constant
+    </div>
+    <div class="content">
+        The <b>Planck constant</b>, denoted \(h\), is the <a class="knowledge-link" href="#definition-dimensional-constant">dimensional constant</a> ratio of a <a class="knowledge-link" href="#definition-photon">photon's</a> <a class="knowledge-link" href="#definition-energy">energy</a> \(E\) to the <a class="knowledge-link" href="#definition-frequency">frequency</a> \(f\) of its associated radiation, when \(f\) is <a class="knowledge-link" href="#definition-nonzero-physical-quantity">nonzero</a>:
+        \[
+            h = \frac{E}{f}.
+        \]
+    </div>
+</div>
+
+<p>
+    If a photon has energy \(E\) and its associated electromagnetic radiation has nonzero frequency \(f\), then dividing \(E\) by \(f\) gives the same physical constant \(h\) for every photon. The frequency is not a frequency of the photon moving around a path; it is the frequency of the electromagnetic radiation associated with the photon. To assign a numerical value to \(h\), the energy and frequency must be measured using chosen units. Since energy is measured in joules and \(1J = 1kg \cdot m^2 \cdot s^{-2}\), the numerical value of \(h\) depends on the kilogram, metre, and second.
+</p>
+
+<p>
+    Different photons can have different energies and frequencies while keeping the same ratio. A photon associated with frequency \(1Hz\) has energy
+    \[
+        E = hf = \left(6.62607015 \times 10^{-34}J \cdot s\right)\left(1s^{-1}\right) = 6.62607015 \times 10^{-34}J,
+    \]
+    so \(E/f = 6.62607015 \times 10^{-34}J \cdot s\). A photon associated with frequency \(10^{14}Hz\) has energy
+    \[
+        E = \left(6.62607015 \times 10^{-34}J \cdot s\right)\left(10^{14}s^{-1}\right) = 6.62607015 \times 10^{-20}J,
+    \]
+    and again \(E/f = 6.62607015 \times 10^{-34}J \cdot s\). A photon associated with frequency \(5 \times 10^{14}Hz\) has energy
+    \[
+        E = 3.313035075 \times 10^{-19}J,
+    \]
+    and dividing by \(5 \times 10^{14}s^{-1}\) gives the same ratio \(h\).
+</p>
+
+<p>
+    The same Planck constant can therefore be written with different numerical values. Using joules and seconds,
+    \[
+        h = 6.62607015 \times 10^{-34}J \cdot s.
+    \]
+    Since \(1J = 10^7erg\), the same constant is
+    \[
+        h = 6.62607015 \times 10^{-27}erg \cdot s.
+    \]
+    Since \(1kJ = 1000J\), it is also
+    \[
+        h = 6.62607015 \times 10^{-37}kJ \cdot s.
+    \]
+    Using electronvolts for energy gives approximately
+    \[
+        h \approx 4.135667696 \times 10^{-15}eV \cdot s.
+    \]
+    These are not different physical constants; they are the same constant expressed with different energy units.
+</p>
+
+<h2>Base Units</h2>
+
+<div class="definition" id="definition-second-unit-of-time">
+    <div class="title">
+        Second Unit of Time
+    </div>
+    <div class="content">
+        The <b>second unit of time</b>, denoted \(s\), is the <a class="knowledge-link" href="#definition-unit">unit</a> of <a class="knowledge-link" href="#definition-time">time</a> defined as the duration of \(9192631770\) <a class="knowledge-link" href="#definition-period">periods</a> of the <a class="knowledge-link" href="#definition-periodic-radiation">periodic radiation</a> corresponding to the <a class="knowledge-link" href="#definition-caesium-133-transition-frequency">caesium-133 transition frequency</a>.
+    </div>
+</div>
+
+<p>
+    A stopwatch reading of \(3s\) measures a duration of three seconds.
+</p>
+
+<div class="definition" id="definition-metre-unit-of-length">
+    <div class="title">
+        Metre Unit of Length
+    </div>
+    <div class="content">
+        The <b>metre unit of length</b>, denoted \(m\), is the <a class="knowledge-link" href="#definition-unit">unit</a> of <a class="knowledge-link" href="#definition-length">length</a> defined as the distance travelled by light in vacuum during \(\frac{1}{299792458}\) of a <a class="knowledge-link" href="#definition-second-unit-of-time">second</a>.
+    </div>
+</div>
+
+<p>
+    A metre stick is a physical object made to approximate one metre of length.
+</p>
+
+<div class="definition" id="definition-kilogram-unit-of-mass">
+    <div class="title">
+        Kilogram Unit of Mass
+    </div>
+    <div class="content">
+        The <b>kilogram unit of mass</b>, denoted \(kg\), is the <a class="knowledge-link" href="#definition-unit">unit</a> of <a class="knowledge-link" href="#definition-mass">mass</a> fixed by the <a class="knowledge-link" href="#definition-planck-constant">Planck constant</a>. Once the <a class="knowledge-link" href="#definition-metre-unit-of-length">metre</a> and <a class="knowledge-link" href="#definition-second-unit-of-time">second</a> have been defined, the mass scale is chosen so that the numerical value of the Planck constant is exactly \(6.62607015 \times 10^{-34}\). That chosen mass unit is called one kilogram.
+    </div>
+</div>
+
+<p>
+    The physical value of the <a class="knowledge-link" href="#definition-planck-constant">Planck constant</a> is not being changed. Instead, the size of the <a class="knowledge-link" href="#definition-unit">unit</a> \(kg\) is chosen so that, when \(h\) is measured using kilograms, metres, and seconds, its numerical value is exactly \(6.62607015 \times 10^{-34}\). This is like choosing a length unit around a particular table so that the table measures exactly \(1\) table-unit: the table does not change, but the unit has been defined by using it as the reference.
+</p>
+
+<p>
+    The particular number \(6.62607015 \times 10^{-34}\) was chosen so that the newly defined kilogram would have the same practical size as the kilogram already used in measurements. Before the kilogram was fixed this way, experiments measured the numerical value of \(h\) using the existing mass scale. The chosen number is that measured value, rounded and then made exact, so ordinary masses did not suddenly change size when the definition changed.
+</p>
+
+<p>
+    A \(1kg\) calibration mass is an object whose <a class="knowledge-link" href="#definition-mass">mass</a> approximates one kilogram.
+</p>
+
+<h2>Derived Quantities</h2>
+
+<div class="definition" id="definition-velocity">
+    <div class="title">
+        Velocity
+    </div>
+    <div class="content">
+        <b>Velocity</b> is the rate of change of <a class="knowledge-link" href="#definition-position">position</a> with respect to <a class="knowledge-link" href="#definition-time">time</a>, including both <a class="knowledge-link" href="#definition-speed">speed</a> and direction. After choosing spatial coordinates in ordinary three-dimensional space, velocity is represented by a <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vector</a> in \(\mathbb{R}^3\).
+    </div>
+</div>
+
+<p>
+    A car moving north at \(50km/h\) and a car moving east at \(50km/h\) have the same speed but different velocities.
+</p>
+
+<div class="definition" id="definition-acceleration">
+    <div class="title">
+        Acceleration
+    </div>
+    <div class="content">
+        <b>Acceleration</b> is the rate at which <a class="knowledge-link" href="#definition-velocity">velocity</a> changes with respect to <a class="knowledge-link" href="#definition-time">time</a>. After choosing spatial coordinates in ordinary three-dimensional space, acceleration is represented by a <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vector</a> in \(\mathbb{R}^3\).
+    </div>
+</div>
+
+<p>
+    An object whose speed increases by \(2m/s\) every second has acceleration \(2m/s^2\).
+</p>
+
+<div class="definition" id="definition-force">
+    <div class="title">
+        Force
+    </div>
+    <div class="content">
+        <b>Force</b> is an interaction that can change the <a class="knowledge-link" href="#definition-motion">motion</a> of an object. After choosing spatial coordinates in ordinary three-dimensional space, force is represented by a <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vector</a> in \(\mathbb{R}^3\).
+    </div>
+</div>
+
+<p>
+    Pushing a cart applies a force that can change the cart's <a class="knowledge-link" href="#definition-motion">motion</a>.
+</p>
+
+<div class="definition" id="definition-work">
+    <div class="title">
+        Work
+    </div>
+    <div class="content">
+        <b>Work</b> is <a class="knowledge-link" href="#definition-energy">energy</a> transferred when a <a class="knowledge-link" href="#definition-force">force</a> moves an object through a distance in the direction of the force.
+    </div>
+</div>
+
+<p>
+    Pushing a box forward across the floor does work on the box when the force and motion point in the same direction.
+</p>
+
+<h2>Derived Units</h2>
+
+<div class="definition" id="definition-hertz-unit-of-frequency">
+    <div class="title">
+        Hertz Unit of Frequency
+    </div>
+    <div class="content">
+        A <b>hertz unit of frequency</b>, denoted \(Hz\), is the <a class="knowledge-link" href="#definition-unit">unit</a> used to measure <a class="knowledge-link" href="#definition-frequency">frequency</a>. One hertz is one cycle per <a class="knowledge-link" href="#definition-second-unit-of-time">second</a>:
+        \[
+            1Hz = 1s^{-1}.
+        \]
+    </div>
+</div>
+
+<p>
+    A \(60Hz\) signal repeats \(60\) times each second.
+</p>
+
+<div class="definition" id="definition-unit-of-force">
+    <div class="title">
+        Unit of Force
+    </div>
+    <div class="content">
+        Suppose <a class="knowledge-link" href="#definition-mass">mass</a> is measured using a unit \(u_m\), and <a class="knowledge-link" href="#definition-acceleration">acceleration</a> is measured using a unit \(u_a\). In Newtonian mechanics, after choosing spatial coordinates, force is measured from mass and acceleration using the vector equation
+        \[
+            \vec{F} = m\vec{a},
+        \]
+        where \(m \in \mathbb{R}^{\ge 0}\) is the numerical mass value, \(\vec{a} \in \mathbb{R}^3\) is the numerical acceleration vector, and \(\vec{F} \in \mathbb{R}^3\) is the numerical force vector. Here scalar-vector multiplication is the operation
+        \[
+            \_\cdot\_ : \mathbb{R}^{\ge 0} \times \mathbb{R}^3 \to \mathbb{R}^3.
+        \]
+        By the definition of a <a class="knowledge-link" href="#definition-product-unit">product unit</a>, the corresponding <b>unit of force</b> is \(u_m u_a\). The unit \(u_m u_a\) is not itself an element of \(\mathbb{R}^3\); rather, each component of the vector \(\vec{F}\) is measured in units of \(u_m u_a\).
+    </div>
+</div>
+
+<p>
+    When mass is measured in <a class="knowledge-link" href="#definition-kilogram-unit-of-mass">kilograms</a> and acceleration is measured in <a class="knowledge-link" href="#definition-metre-unit-of-length">metres</a> per <a class="knowledge-link" href="#definition-second-unit-of-time">second</a> squared, the corresponding force unit is \(kg \cdot m \cdot s^{-2}\). In a one-dimensional example, a \(2kg\) object accelerating at \(3m/s^2\) corresponds to a force measurement of \(2 \cdot 3 = 6\) in that product unit, so the force is \(6kg \cdot m \cdot s^{-2}\) in the direction of the acceleration.
+</p>
+
+<div class="definition" id="definition-newton-unit-of-force">
+    <div class="title">
+        Newton Unit of Force
+    </div>
+    <div class="content">
+        A <b>newton unit of force</b>, denoted \(N\), is the <a class="knowledge-link" href="#definition-unit-of-force">unit of force</a> obtained when <a class="knowledge-link" href="#definition-mass">mass</a> is measured in <a class="knowledge-link" href="#definition-kilogram-unit-of-mass">kilograms</a> and <a class="knowledge-link" href="#definition-acceleration">acceleration</a> is measured in <a class="knowledge-link" href="#definition-metre-unit-of-length">metres</a> per <a class="knowledge-link" href="#definition-second-unit-of-time">second</a> squared. Thus \(N\) is the name of the component unit \(kg \cdot (m \cdot s^{-2})\), not the numerical force vector itself:
+        \[
+            1N = 1kg \cdot m \cdot s^{-2}.
+        \]
+    </div>
+</div>
+
+<p>
+    A force measured as \(\vec{F} = (1,1,1)\) in newtons has three component values, each measured in \(N\). Its magnitude is \(\sqrt{3}N\), since
+    \[
+        \left\lVert \vec{F} \right\rVert
+        =
+        \sqrt{1^2+1^2+1^2}N
+        =
+        \sqrt{3}N.
+    \]
+    If this force acts on a \(1kg\) mass, then \(\vec{F}=m\vec{a}\), so
+    \[
+        \left\lVert \vec{F} \right\rVert
+        =
+        \left\lVert m\vec{a} \right\rVert
+        =
+        m\left\lVert \vec{a} \right\rVert
+        =
+        1kg \cdot \left\lVert \vec{a} \right\rVert.
+    \]
+    Since \(\left\lVert \vec{F} \right\rVert = \sqrt{3}N = \sqrt{3}kg \cdot m \cdot s^{-2}\), we get \(\left\lVert \vec{a} \right\rVert = \sqrt{3}m \cdot s^{-2}\). Because \(m\) is positive, \(\vec{a}\) points in the same direction as \(\vec{F}\).
+</p>
+
+<div class="definition" id="definition-joule-unit-of-energy">
+    <div class="title">
+        Joule Unit of Energy
+    </div>
+    <div class="content">
+        A <b>joule unit of energy</b>, denoted \(J\), is the <a class="knowledge-link" href="#definition-unit">unit</a> used to measure <a class="knowledge-link" href="#definition-energy">energy</a>. One joule is the energy transferred when a <a class="knowledge-link" href="#definition-force">force</a> of one <a class="knowledge-link" href="#definition-newton-unit-of-force">newton</a> moves an object one <a class="knowledge-link" href="#definition-metre-unit-of-length">metre</a> in the direction of the force:
+        \[
+            1J = 1N \cdot 1m = 1kg \cdot m^2 \cdot s^{-2}.
+        \]
+    </div>
+</div>
+
+<p>
+    Lifting a small object can transfer about one joule of energy if the force and distance multiply to \(1N\cdot m\).
+</p>
+
+<ul>
+    <li>
+        Pushing an object with a force of \(1N\) through \(1m\) in the direction of the push transfers \(1N \cdot 1m = 1J\) of energy.
+    </li>
+    <li>
+        Pushing a box with a force of \(10N\) through \(3m\) transfers \(10N \cdot 3m = 30J\) of energy.
+    </li>
+    <li>
+        Lifting a \(2kg\) object upward by \(0.5m\) near Earth's surface requires a force of about \(19.6N\), so the energy transferred is about \(19.6N \cdot 0.5m = 9.8J\).
+    </li>
+    <li>
+        Pulling a sled with a force of \(40N\) through \(25m\) in the direction of the pull transfers \(40N \cdot 25m = 1000J\) of energy.
+    </li>
+</ul>
