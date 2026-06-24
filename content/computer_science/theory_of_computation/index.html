@@ -1023,7 +1023,7 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
             \[
             A _ k = \left\{ s \in \left\{ 0, 1 \right\} ^ * : \operatorname{ substr } \left( 0 ^ { k - 1 }, s \right)    \right\} 
             \] 
-            that is the set of strings that have \( 0 ^ \left( k - 1 \right)  \) as a substring.
+            that is the set of strings that have \( 0 ^ { k - 1 }  \) as a substring.
         </p>
         <p>
             Clearly there is a DFA with \( k \) states which recognizes this language, the DFA constructed by having \( k \) states all in a line, with the last state being an accept state, and chained together with arrows which allow movement when reading a \( 0 \), and sent back to the initial state whenever a \( 1 \) is read, the only way to get to the end state is to read in \( k - 1 \) consecutive zeros, which is the exact condition on having \( 0 ^ { k - 1 } \) as a substring.
@@ -1621,38 +1621,38 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
     <div class="content">
         The language
         \[
-        L = \left\{ 0 ^ { k } # 0 ^ { 2k } : k \in \mathbb{ N } _0 \right\}      
+        L = \left\{ 0 ^ { k } \# 0 ^ { 2k } : k \in \mathbb{ N } _0 \right\}      
         \] 
         is not regular
     </div>
 
     <div class="proof">
         <p>
-            Suppose for the sake of contradiction that this language was regular, <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#lemma-pumping">therefore </a> there is some \( p \in \mathbb{ N } _ 1 \) sucht that the properties hold true, if we consider the string \( 0 ^ { p } # 0 ^ { 2p } \in L \) then by the lemma we have that \( 0 ^ { p } # 0 ^ { 2p } = xyz \).
+            Suppose for the sake of contradiction that this language was regular, <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#lemma-pumping">therefore </a> there is some \( p \in \mathbb{ N } _ 1 \) sucht that the properties hold true, if we consider the string \( 0 ^ { p } \# 0 ^ { 2p } \in L \) then by the lemma we have that \( 0 ^ { p } \# 0 ^ { 2p } = xyz \).
         </p>
         <p>
-            By the third property we have that \( \left\lvert xy \right\rvert \lt p  \) since the first \( p \) characters of our string are \( p \) this implies that \( x = 0 ^ j \) and \( y = 0 ^ l \) by the second property of the lemma we also know that \( l \ge 1 \) now we also know that \( # \in z \) therefore by the first property we can set \( i = 0 \) to show that \( x y ^ 0 z = xz \in L \), but \( x y = 0 ^ { p - l } # 0 ^ { 2p } \notin L \) thus a contradiction so \( L \) is not regular
+            By the third property we have that \( \left\lvert xy \right\rvert \lt p  \) since the first \( p \) characters of our string are \( p \) this implies that \( x = 0 ^ j \) and \( y = 0 ^ l \) by the second property of the lemma we also know that \( l \ge 1 \) now we also know that \( \# \in z \) therefore by the first property we can set \( i = 0 \) to show that \( x y ^ 0 z = xz \in L \), but \( x y = 0 ^ { p - l } \# 0 ^ { 2p } \notin L \) thus a contradiction so \( L \) is not regular
         </p>
     </div>
 </div>
 <div class="exercise" id="exercise-a-cfg-which-is-not-regular" >
     <div class="title">A Cfg Which Is Not Regular</div>
     <div class="content">
-        Let \( G = \left( V, \Sigma, R, S \right)  \) with \( V = \left\{ S, T, U \right\}  \) and \( \Sigma = \left\{ 0, # \right\}  \) be the following grammar defined by the following rules:
+        Let \( G = \left( V, \Sigma, R, S \right)  \) with \( V = \left\{ S, T, U \right\}  \) and \( \Sigma = \left\{ 0, \# \right\}  \) be the following grammar defined by the following rules:
         <ul>
             <li>\( S \to TT \mid U \) </li>
-            <li>\( T \to 0T \mid T0 \mid # \) </li>
-            <li>\( U \to 0U00 \mid # \) </li>
+            <li>\( T \to 0T \mid T0 \mid \# \) </li>
+            <li>\( U \to 0U00 \mid \# \) </li>
         </ul>
         Show that \( \operatorname{ lang } \left( G \right)   \) is not regular
     </div>
 
     <div class="proof">
         <p>
-            First we give an informal description of the language, since the language of a CFG equals to \( \operatorname{ prod } \left( S \right) \cap \Sigma ^ *  \), then by induction on the length of the string produced by the second rule, starting with length 1, we can prove that productions of this rule are given by all strings in \( \Sigma ^ * \) such that the string contains exactly one \( # \).
+            First we give an informal description of the language, since the language of a CFG equals to \( \operatorname{ prod } \left( S \right) \cap \Sigma ^ *  \), then by induction on the length of the string produced by the second rule, starting with length 1, we can prove that productions of this rule are given by all strings in \( \Sigma ^ * \) such that the string contains exactly one \( \# \).
         </p>
         <p>
-            Using a similar analysis the productions of the third rule in isolation are given by all strings in \( \Sigma ^ * \) such that there is exactly one \( # \) and if there are \( n \) zeros to the left of \( # \) then there are \( 2n \) \( # \)'s on the right.
+            Using a similar analysis the productions of the third rule in isolation are given by all strings in \( \Sigma ^ * \) such that there is exactly one \( \# \) and if there are \( n \) zeros to the left of \( \# \) then there are \( 2n \) \( \# \)'s on the right.
         </p>
         <p>
             Finally the initial rule creates the union of these two langauges. We now move on to showing that the language is not regular.
@@ -1661,7 +1661,7 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
             Since we assumed \( \operatorname{ lang } \left( G \right)   \) was regular, then we'll try and obtain a contradiction through the pumping route, we do this by using the closure rules for regular langauges to focus on an even more specific subset of the language which should also be regular.
         </p>
         <p>
-            Since \( \operatorname{ lang } \left( G \right)   \) is regular, and the regular expression \( 0 ^ * # 0 ^ * \) <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#theorem-a-language-is-regular-iff-it-equals-a-regular-expression">is also regular</a>, then \( A = \operatorname{ lang } \left( G \right) \cap 0 ^ * # 0 ^ * = \left\{ 0 ^ { k } # 0 ^ { 2k } : k \in \mathbb{ N } _ 0 \right\}     \) is <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#corollary-regular-languages-are-recognized-under-intersection">regular</a>, but we <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#lemma-the-half-zero-hash-sandwhiches-are-non-regular">know that it is not</a>, thus a condtradiction, so then \( \operatorname{ lang } \left( G \right)   \) must not be regular.
+            Since \( \operatorname{ lang } \left( G \right)   \) is regular, and the regular expression \( 0 ^ * \# 0 ^ * \) <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#theorem-a-language-is-regular-iff-it-equals-a-regular-expression">is also regular</a>, then \( A = \operatorname{ lang } \left( G \right) \cap 0 ^ * \# 0 ^ * = \left\{ 0 ^ { k } \# 0 ^ { 2k } : k \in \mathbb{ N } _ 0 \right\}     \) is <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#corollary-regular-languages-are-recognized-under-intersection">regular</a>, but we <a class="knowledge-link" href="/computer_science/theory_of_computation/index.html#lemma-the-half-zero-hash-sandwhiches-are-non-regular">know that it is not</a>, thus a condtradiction, so then \( \operatorname{ lang } \left( G \right)   \) must not be regular.
         </p>
     </div>
 </div>
@@ -1998,22 +1998,22 @@ https://courses.grainger.illinois.edu/cs373/fa2013/Lectures/lec08.pdf
             Since we assumed that \( A \) and \( B \) are co-Turing Recognizable that means that \( \overline{ A }  \) and \( \overline{ B } \) are recognizable.
         </p>
         <p>
-            Since a language is turing recognizable iff it is enumerable by some enumerator then there exist enumerators \( E _ \overline{ A } , E _ \overline{ B }  \) that enumerate \( \overline{ A }, \overline{ B }   \) respectively.
+            Since a language is turing recognizable iff it is enumerable by some enumerator then there exist enumerators \( E _ { \overline{ A } } , E _ { \overline{ B } }  \) that enumerate \( \overline{ A }, \overline{ B }   \) respectively.
         </p>
         <p>
             We will now construct a turing machine \( M \) and if we can make it a decider then we'll use \( C = \operatorname{ lang } \left( M \right)   \).
         </p>
         <p>
-            Consider the turing machine such taht given an input \( w \) it will run \( E _ { \overline{ A }  } \) and \( E _ { \overline{ B }  } \) in parallell, if \( E _ \overline{ A }  \) prints \( w \) then we reject the input ; if \( E _ \overline{ B }  \) prints \( w \) accept.
+            Consider the turing machine such taht given an input \( w \) it will run \( E _ { \overline{ A }  } \) and \( E _ { \overline{ B }  } \) in parallell, if \( E _ { \overline{ A } }  \) prints \( w \) then we reject the input ; if \( E _ { \overline{ B } }  \) prints \( w \) accept.
         </p>
         <p>
-            Now we must show that \( A \subseteq C \) so suppose that \( w \in A \) then since \( A \cap B = \emptyset  \) then we know that \( w \notin B \), that is \( w \in \overline{ B }  \) and \( w \notin \overline{ A }  \), thus \( w \) will eventually get printed out only by \( E _ \overline{ B }  \) so the machine will accept, so \( w \in C \)
+            Now we must show that \( A \subseteq C \) so suppose that \( w \in A \) then since \( A \cap B = \emptyset  \) then we know that \( w \notin B \), that is \( w \in \overline{ B }  \) and \( w \notin \overline{ A }  \), thus \( w \) will eventually get printed out only by \( E _ { \overline{ B } }  \) so the machine will accept, so \( w \in C \)
         </p>
         <p>
-            We also have to show that \( B \subseteq \overline{ C }  \) so let \( w \in B \) again, \( A, B \) are disjoint so this implies that \( w \notin A \) that is \( w \in \overline{ A }  \) and we also know \( w \notin \overline{ B }  \) thus \( w \) will eventually get printed by only \( E _ \overline{ A }  \) so the machine will reject, and so \( w \notin C \), so \( w \in \overline{ C }  \) as needed.
+            We also have to show that \( B \subseteq \overline{ C }  \) so let \( w \in B \) again, \( A, B \) are disjoint so this implies that \( w \notin A \) that is \( w \in \overline{ A }  \) and we also know \( w \notin \overline{ B }  \) thus \( w \) will eventually get printed by only \( E _ { \overline{ A } }  \) so the machine will reject, and so \( w \notin C \), so \( w \in \overline{ C }  \) as needed.
         </p>
         <p>
-            If \( w \notin \left( A \cup B \right)  \) then \( w \in \overline{ A } \cap \overline{ B }   \) therefore \( E _ \overline{ A }  \) and \( E _ \overline{ B }  \) will print it in finitely many steps, thus our turing machine will halt. If \( E _ \overline{ A }  \) prints it first, then reject, otherwise if its \( E _ \overline{ B }  \) then accept
+            If \( w \notin \left( A \cup B \right)  \) then \( w \in \overline{ A } \cap \overline{ B }   \) therefore \( E _ { \overline{ A } }  \) and \( E _ { \overline{ B } }  \) will print it in finitely many steps, thus our turing machine will halt. If \( E _ { \overline{ A } }  \) prints it first, then reject, otherwise if its \( E _ { \overline{ B } }  \) then accept
         </p>
         <p>
             Thus we've shown that \( M \) halts on all inputs and thus is a decider, since we showed that \( A \subseteq C \) and \( B \subseteq \overline{ C }  \) then it's separated by a decidable language.
@@ -2285,7 +2285,7 @@ A _ { CFG } = \left\{ \left\langle G, w \right\rangle : G \text{ is a CFG that g
     </div>
 
     <div class="proof">
-In order to show that this is true we have to show that the complement of \( EQ _ \left{ CFG \right}   \) is turing recognizable. So we need a turing machine that can recognize the language 
+In order to show that this is true we have to show that the complement of \( EQ _ { CFG }   \) is turing recognizable. So we need a turing machine that can recognize the language 
 \[ 
 \overline{ EQ _ { CFG }   } = \left\{ \left\langle G, H \right\rangle : G , H \text{ are CFG's and }  \operatorname{ lang } \left( G \right) \neq  \operatorname{ lang } \left( H \right)  \right\} 
 \] 

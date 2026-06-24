@@ -161,7 +161,7 @@
     </div>
     <div class="proof">
         <p>Let \( C ^ * \) be the cost of an optimal solution, and \( \left( s _ 0, s _ 1, \ldots s _ k \right) \) be the path taken. We can show by indiction that for each node in the search space that is reachable from our initial node, at every iteration an ancestor of that node is on the frontier.</p>
-        <p>Therefore let \( n \) be a node which is reachalbe from the initial state and then let \( n _ 0, n _ 1, \ldots , n _ i, \ldots , n \) be the ancestors of \( n \). So by our previous paragraph at least one of them is always on the frontier. Now observe that</p>\[ \begin{align} C ^ * &amp;= \operatorname{ cost } \left( \left( s _ 0, s _ 1, \ldots s _ k \right) \right) \\ &amp;= \operatorname{ cost } \left( \left( s _ 0, s _ 1, \ldots , s _ i \right) \right) + \operatorname{ cost } \left( \left( s _ i, \ldots , s _ k \right) \right) \\ &amp;= \operatorname{ cost } \left( \left( s _ 0, s _ 1, \ldots , s _ i \right) \right) + C \left( \right) \end{align} \]
+        <p>Therefore let \( n \) be a node which is reachalbe from the initial state and then let \( n _ 0, n _ 1, \ldots , n _ i, \ldots , n \) be the ancestors of \( n \). So by our previous paragraph at least one of them is always on the frontier. Now observe that</p>\[ \begin{align} C ^ * &= \operatorname{ cost } \left( \left( s _ 0, s _ 1, \ldots s _ k \right) \right) \\ &= \operatorname{ cost } \left( \left( s _ 0, s _ 1, \ldots , s _ i \right) \right) + \operatorname{ cost } \left( \left( s _ i, \ldots , s _ k \right) \right) \\ &= \operatorname{ cost } \left( \left( s _ 0, s _ 1, \ldots , s _ i \right) \right) + C \left( \right) \end{align} \]
     </div>
 </div>
 <div class="theorem" id="theorem-a*-is-optimal">
