@@ -3,7 +3,163 @@
         Random Variable
     </div>
     <div class="content">
-        A <b>random variable</b> is a function from the sample space \( \Omega \) to \( \mathbb{ R } \).
+        A <b>random variable</b> is a function from the <a class="knowledge-link" href="/probability/probability_models.html#definition-sample-space">sample space</a> \( \Omega \) to \( \mathbb{ R } \).
+    </div>
+</div>
+<div class="proposition" id="proposition-random-variable-is-real-valued-with-probability-one">
+    <div class="title">
+        Random Variable is Real-Valued with Probability One
+    </div>
+    <div class="content">
+        If \(X:\Omega\to\mathbb{R}\) is a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a>, then
+        \[
+            P\left(X\in\mathbb{R}\right)=1.
+        \]
+    </div>
+    <div class="proof">
+        Since \(X\) is a function from \(\Omega\) to \(\mathbb{R}\), every \(\omega\in\Omega\) satisfies \(X\left(\omega\right)\in\mathbb{R}\). Therefore
+        \[
+            \left\{\omega\in\Omega:X\left(\omega\right)\in\mathbb{R}\right\}
+            =
+            \Omega.
+        \]
+        Hence \(P\left(X\in\mathbb{R}\right)=P\left(\Omega\right)=1\) by the definition of a <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-measure">probability measure</a>.
+    </div>
+</div>
+<div class="definition" id="definition-random-variable-measurable-event-form">
+    <div class="title">
+        Random Variable as a Measurable Function
+    </div>
+    <div class="content">
+        On a <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-space">probability space</a> \( \left( \Omega,\mathcal{ F },P \right) \), a real-valued random variable is a function \( X: \Omega \to \mathbb{ R } \) such that \( \left\{ \omega \in \Omega : X \left( \omega \right) \le x \right\} \in \mathcal{ F } \) for every \( x \in \mathbb{ R } \).
+    </div>
+</div>
+<div class="definition" id="definition-random-variable-and-binary-relation-syntax-sugar">
+    <div class="title">
+        Random Variable and Binary Relation Syntax Sugar
+    </div>
+    <div class="content">
+        Suppose that \( X : \Omega \to \mathbb{ R } \) is a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> and that \( \star \) is a <a class="knowledge-link" href="/fundamentals/relations.html#definition-binary-relation">binary relation</a> on \( \mathbb{ R } \). Then for any \( a \in \mathbb{ R } \) we define
+        \[
+            \left\{ X \star a \right\}
+            :=
+            \left\{ \omega \in \Omega : X \left( \omega \right) \star a \right\}.
+        \]
+    </div>
+</div>
+<p>Since \( \left\{ X \star a \right\} \) is an <a class="knowledge-link" href="/probability/probability_models.html#definition-event">event</a>, we can take its probability. When the meaning is clear, we use the syntactic reduction</p>
+\[
+    P \left( X \star a \right)
+    :=
+    P \left( \left\{ X \star a \right\} \right).
+\]
+<div class="definition" id="definition-distribution-function">
+    <div class="title">
+        Distribution Function
+    </div>
+    <div class="content">
+        The <b>distribution function</b> of a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> \( X \) is the function \( F _ X : \mathbb{ R } \to \left[ 0,1 \right] \) defined by
+        \[
+            F _ X \left( x \right)
+            :=
+            P \left( X \le x \right).
+        \]
+    </div>
+</div>
+<div class="lemma" id="lemma-distribution-function-properties">
+    <div class="title">
+        Distribution Function Properties
+    </div>
+    <div class="content">
+        If \( F \) is the <a class="knowledge-link" href="/probability/random_variables.html#definition-distribution-function">distribution function</a> of a random variable, then \( F \) is non-decreasing, <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-right-continuous-function">right-continuous</a>, \( \lim _ { x \to -\infty } F \left( x \right) = 0 \), and \( \lim _ { x \to \infty } F \left( x \right) = 1 \).
+    </div>
+    <div class="proof">
+        Let \( F = F _ X \). If \( x \le y \), then every \( \omega \in \left\{ X \le x \right\} \) satisfies \( X \left( \omega \right) \le x \le y \), so \( \omega \in \left\{ X \le y \right\} \). Thus \( \left\{ X \le x \right\} \subseteq \left\{ X \le y \right\} \), and <a class="knowledge-link" href="/probability/probability_models.html#proposition-monotonicity-of-probability">monotonicity of probability</a> gives
+        \[
+            F \left( x \right)
+            =
+            P \left( X \le x \right)
+            \le
+            P \left( X \le y \right)
+            =
+            F \left( y \right).
+        \]
+        Therefore \( F \) is non-decreasing.
+        <p>For the limit at infinity, define \( A _ n := \left\{ X \le n \right\} \). Then \( <a class="knowledge-link" href="/probability/probability_models.html#definition-event-sequence-limits">A _ n \nearrow \Omega</a> \), because every real value \( X \left( \omega \right) \) is at most some integer \( n \). By <a class="knowledge-link" href="/probability/probability_models.html#theorem-continuity-of-probability">continuity of probability</a>,</p>
+        \[
+            \lim _ { n \to \infty } F \left( n \right)
+            =
+            \lim _ { n \to \infty } P \left( A _ n \right)
+            =
+            P \left( \Omega \right)
+            =
+            1.
+        \]
+        Since \( F \) is non-decreasing and \( F \left( x \right) \le 1 \), <a class="knowledge-link" href="/analysis/single_variable/limits.html#lemma-integer-values-determine-monotone-function-limit-at-infinity">integer values determine the monotone function limit at infinity</a> gives \( \lim _ { x \to \infty } F \left( x \right) = 1 \).
+        <p>For the limit at negative infinity, define \( B _ n := \left\{ X \le -n \right\} \). Then \( B _ n \searrow \emptyset \): the events are decreasing, and no real number is less than or equal to \( -n \) for every \( n \). By <a class="knowledge-link" href="/probability/probability_models.html#theorem-continuity-of-probability">continuity of probability</a> and <a class="knowledge-link" href="/probability/probability_models.html#proposition-probability-of-impossible-event">probability of the impossible event</a>,</p>
+        \[
+            \lim _ { n \to \infty } F \left( -n \right)
+            =
+            \lim _ { n \to \infty } P \left( B _ n \right)
+            =
+            P \left( \emptyset \right)
+            =
+            0.
+        \]
+        Since \( F \) is non-decreasing and \( F \left( x \right) \ge 0 \), this implies \( \lim _ { x \to -\infty } F \left( x \right) = 0 \).
+        <p>Finally, fix \( x \in \mathbb{ R } \) and define \( C _ n := \left\{ X \le x + \frac{1}{n} \right\} \). Then \( C _ n \searrow \left\{ X \le x \right\} \): the events are decreasing, and \( \omega \) lies in every \( C _ n \) exactly when \( X \left( \omega \right) \le x \). By <a class="knowledge-link" href="/probability/probability_models.html#theorem-continuity-of-probability">continuity of probability</a>,</p>
+        \[
+            \lim _ { n \to \infty } F \left( x + \frac{1}{n} \right)
+            =
+            \lim _ { n \to \infty }
+            P \left( C _ n \right)
+            =
+            P \left( X \le x \right)
+            =
+            F \left( x \right).
+        \]
+        Since \( F \) is non-decreasing, the values \( F \left( x + h \right) \) with \( h \to 0 ^ + \) are squeezed between \( F \left( x \right) \) and values of the form \( F \left( x + \frac{1}{n} \right) \) with \( n \to \infty \). Hence \( \lim _ { h \to 0 ^ + } F \left( x + h \right) = F \left( x \right) \), so \( F \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-right-continuous-function">right-continuous</a>.
+    </div>
+</div>
+<div class="lemma" id="lemma-probability-from-distribution-function">
+    <div class="title">
+        Probability from Distribution Function
+    </div>
+    <div class="content">
+        If \( F _ X \) is the <a class="knowledge-link" href="/probability/random_variables.html#definition-distribution-function">distribution function</a> of \( X \), then for \( a \lt b \),
+        \[
+            P \left( a \lt X \le b \right)
+            =
+            F _ X \left( b \right) - F _ X \left( a \right).
+        \]
+    </div>
+    <div class="proof">
+        Let
+        \[
+            E _ a := \left\{ X \le a \right\}
+            \quad \text{and} \quad
+            E _ b := \left\{ X \le b \right\}.
+        \]
+        Since \( a \lt b \), if \( \omega \in E _ a \), then \( X \left( \omega \right) \le a \lt b \), so \( \omega \in E _ b \). Thus \( E _ a \subseteq E _ b \).
+        <p>By <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-set-difference-decomposition">set difference decomposition</a>, \( E _ b \) is the disjoint union of \( E _ b \setminus E _ a \) and \( E _ b \cap E _ a \). Also,</p>
+        \[
+            E _ b \setminus E _ a
+            =
+            \left\{ a \lt X \le b \right\},
+        \]
+        because \( \omega \in E _ b \setminus E _ a \) exactly when \( X \left( \omega \right) \le b \) and it is not true that \( X \left( \omega \right) \le a \), which is the same as \( a \lt X \left( \omega \right) \le b \). Since \( E _ a \subseteq E _ b \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">intersection with a superset is itself</a> gives \( E _ a \cap E _ b = E _ a \).
+        <p>Therefore, by <a class="knowledge-link" href="/probability/probability_models.html#proposition-probability-of-set-difference">probability of set difference</a>,</p>
+        \[
+            P \left( a \lt X \le b \right)
+            =
+            P \left( E _ b \setminus E _ a \right)
+            =
+            P \left( E _ b \right) - P \left( E _ b \cap E _ a \right)
+            =
+            P \left( E _ b \right) - P \left( E _ a \right)
+            =
+            F _ X \left( b \right) - F _ X \left( a \right).
+        \]
     </div>
 </div>
 <div class="definition" id="definition-random-variable-function-composition">
@@ -11,7 +167,7 @@
         Random Variable Function Composition
     </div>
     <div class="content">
-        Suppose that \( X: \Omega \to D \) is a random variable and that \( g: D \to Y \) is a function. Then \( g \left( X \right) \) denotes the composition
+        Suppose that \( X: \Omega \to D \) is a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> and that \( g: D \to Y \) is a function. Then \( g \left( X \right) \) denotes the composition
         \[
             g \left( X \right)
             :=
@@ -26,37 +182,95 @@
     </div>
 </div>
 <p>Note that when we compose a measurable real-valued function with a random variable, we obtain a new random variable.</p>
-<div class="definition" id="definition-random-variable-and-binary-operation-syntax-sugar">
-    <div class="title">
-        Random Variable and Binary Operation Syntax Sugar
-    </div>
-    <div class="content">
-        Random Variable and Binary Operation Syntax Sugar: Suppose that \( X : \Omega \to \mathbb{ R } \) is a random variable and that \( \star \) is a binary operation, then for any \( a \in \mathbb{ R } \) we define \[ X \star a := \left\{ o \in \Omega : X \left( o \right) \star a \right\} \]
-    </div>
-</div>
-<p>The main thing to note with the above definition is that when we write something of the form \( R = 3 \), then this is a subset of our sample space and therefore we can take the probability of it.</p>
 <div class="definition" id="definition-discrete-random-variable">
     <div class="title">
         Discrete Random Variable
     </div>
     <div class="content">
-        A random variable \( X \) is discrete if \[ \sum _ { x \in \mathbb{ R } } P \left( X = x \right) = 1 \]
+        A <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> \( X \) is discrete if the set of values \( X \left( \Omega \right) \) is <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a>.
     </div>
 </div>
-<div class="definition" id="definition-probability-function">
+<div class="definition" id="definition-identically-distributed-random-variables">
     <div class="title">
-        Probability Function
+        Identically Distributed Random Variables
     </div>
     <div class="content">
-        For a discrete random variable \( X \), it's probability function is the function \( p _ X : \mathbb{ R } \to \left[ 0, 1 \right] \) \[ p _ X \left( x \right) := P \left( X = x \right) \]
+        <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">Random variables</a> \( X \) and \( Y \) are <b>identically distributed</b> if their <a class="knowledge-link" href="/probability/random_variables.html#definition-distribution-function">distribution functions</a> agree: \( P \left( X \le x \right) = P \left( Y \le x \right) \) for every \( x \in \mathbb{ R } \).
     </div>
 </div>
-<div class="definition" id="definition-independent-random-varaibles">
+<div class="definition" id="definition-independent-random-variables-conditional-form">
     <div class="title">
         Independent Random Variables
     </div>
     <div class="content">
-        Given two random varaibles \( X, Y\) on the same sample space we say that \( X \) is independent of \( Y \) and write \( X \perp Y \) iff for any \( A, B \subseteq \mathbb{ R } \) we have \[ P \left( X \in A \mid Y \in B \right) = P \left( X \in A \right) \]
+        Given two random variables \( X,Y \) on the same sample space, we say that \( X \) is independent of \( Y \) and write \( X \perp Y \) iff for any \( A,B \subseteq \mathbb{ R } \) with \( P \left( Y \in B \right) \gt 0 \), the <a class="knowledge-link" href="/probability/probability_models.html#definition-conditional-probability">conditional probability</a> satisfies \[ P \left( X \in A \mid Y \in B \right) = P \left( X \in A \right). \]
+    </div>
+</div>
+<div class="definition" id="definition-multivariate-random-variable">
+    <div class="title">
+        Multivariate Random Variable
+    </div>
+    <div class="content">
+        Suppose that we have a finite collection of <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variables</a> \( X _ i \) each with their own sample space \( \Omega _ i \). Then the tuple \[ \textbf{ X } = \left( X _ 1, \ldots X _ n \right) \] is said to be a <b>multivariate random variable</b> and is a function from \( \Omega _ 1 \times \cdots \times \Omega _ n \to \mathbb{ R } ^ n\).
+    </div>
+</div>
+<div class="definition" id="definition-joint-distribution-function">
+    <div class="title">
+        Joint Distribution Function
+    </div>
+    <div class="content">
+        The <b>joint distribution function</b> of a <a class="knowledge-link" href="/probability/random_variables.html#definition-multivariate-random-variable">random vector</a> \( \left( X _ 1,\ldots,X _ n \right) \) is
+        \[
+            F \left( x _ 1,\ldots,x _ n \right)
+            =
+            P \left( X _ 1 \le x _ 1,\ldots,X _ n \le x _ n \right).
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-independent-random-variables-by-events">
+    <div class="title">
+        Independent Random Variables by Events
+    </div>
+    <div class="content">
+        <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">Random variables</a> \( X _ 1,\ldots,X _ n \) are independent if the <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a> \( \left\{ X _ 1 \in B _ 1 \right\},\ldots,\left\{ X _ n \in B _ n \right\} \) are <a class="knowledge-link" href="/probability/probability_models.html#definition-independent-family-of-events">independent</a> for every choice of <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel sets</a> \( B _ 1,\ldots,B _ n \subseteq \mathbb{ R } \).
+    </div>
+</div>
+<div class="proposition" id="proposition-functions-of-independent-random-variables-are-independent">
+    <div class="title">
+        Functions of Independent Random Variables are Independent
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent random variables</a> and \( g,h: \mathbb{ R } \to \mathbb{ R } \) are <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a> functions, then \( g \left( X \right) \) and \( h \left( Y \right) \) are independent.
+    </div>
+    <div class="proof">
+        Let \( A,B \subseteq \mathbb{ R } \) be <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel sets</a>. Since \( g \) and \( h \) are <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a>, the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-inverse-image">inverse images</a> \( g ^ { -1 } \left( A \right) \) and \( h ^ { -1 } \left( B \right) \) are Borel sets.
+        <p>By the definition of <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable-function-composition">random variable function composition</a> and <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#proposition-inverse-image-of-a-composition">inverse image of a composition</a>,</p>
+        \[
+            \left\{ g \left( X \right) \in A \right\}
+            =
+            \left\{ X \in g ^ { -1 } \left( A \right) \right\}
+        \]
+        and
+        \[
+            \left\{ h \left( Y \right) \in B \right\}
+            =
+            \left\{ Y \in h ^ { -1 } \left( B \right) \right\}.
+        \]
+        Because \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent random variables</a> and \( g ^ { -1 } \left( A \right) \), \( h ^ { -1 } \left( B \right) \) are Borel sets, we have
+        \[
+            \begin{aligned}
+            P \left( \left\{ g \left( X \right) \in A \right\} \cap \left\{ h \left( Y \right) \in B \right\} \right)
+            &=
+            P \left( \left\{ X \in g ^ { -1 } \left( A \right) \right\} \cap \left\{ Y \in h ^ { -1 } \left( B \right) \right\} \right) \\
+            &=
+            P \left( X \in g ^ { -1 } \left( A \right) \right)
+            P \left( Y \in h ^ { -1 } \left( B \right) \right) \\
+            &=
+            P \left( g \left( X \right) \in A \right)
+            P \left( h \left( Y \right) \in B \right).
+            \end{aligned}
+        \]
+        Therefore \( g \left( X \right) \) and \( h \left( Y \right) \) are independent by the <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">definition of independent random variables</a>.
     </div>
 </div>
 <p>Note that above simply says that given any \( A, B \subseteq R \) the events \( E _ A := X \in A \) and \( E _ B := Y \in B \)</p>
@@ -65,7 +279,7 @@
         Independence as a Product
     </div>
     <div class="content">
-        \[ A \perp B \iff P \left( X \in A \cap X \in B \right) = P \left( X \in A \right) P \left( X \in B \right) \]
+        By <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independence of random variables</a>, \[ A \perp B \iff P \left( X \in A \cap X \in B \right) = P \left( X \in A \right) P \left( X \in B \right) \]
     </div>
     <div class="proof"></div>
 </div>
@@ -93,15 +307,7 @@
         </ul>
     </div>
     <div class="proof">
-        <p>We start by determining \( P \left( A \right) \), firstly <a class="knowledge-link" href="/probability/scratch/proper.html#proposition-probability-of-set-difference">we know that</a> \[ \begin{align} \frac{2}{5} &amp;= P \left( B \right) = P \left( A \setminus B \right) \\ &amp;= P \left( A \right) - P \left( A \cap B \right) \\ &amp;= P \left( A \right) - P \left( A \right) P \left( B \right) \\ &amp;= P \left( A \right) \left( 1 - P \left( B \right) \right) \\ &amp;= P \left( A \right) \left( 1 - \frac{2}{5} \right) \\ &amp;= P \left( A \right) \left( \frac{3}{5} \right) \end{align} \] therefore we deduce that \( P \left( A \right) = \frac{2}{3} \)</p>
-    </div>
-</div>
-<div class="definition" id="definition-multivariate-random-variable">
-    <div class="title">
-        Multivariate Random Variable
-    </div>
-    <div class="content">
-        Suppose that we have a finite collection of random varaibles \( X _ i \) each with their own sample space \( \Omega _ i \) then the tuple \[ \textbf{ X } = \left( X _ 1, \ldots X _ n \right) \] is said to be a <b>multivariate random variable</b> and is a function from \( \Omega _ 1 \times \cdots \times \Omega _ n \to \mathbb{ R } ^ n\)
+        <p>We start by determining \( P \left( A \right) \), firstly <a class="knowledge-link" href="/probability/scratch/proper.html#proposition-probability-of-set-difference">we know that</a> \[ \begin{align} \frac{2}{5} &= P \left( B \right) = P \left( A \setminus B \right) \\ &= P \left( A \right) - P \left( A \cap B \right) \\ &= P \left( A \right) - P \left( A \right) P \left( B \right) \\ &= P \left( A \right) \left( 1 - P \left( B \right) \right) \\ &= P \left( A \right) \left( 1 - \frac{2}{5} \right) \\ &= P \left( A \right) \left( \frac{3}{5} \right) \end{align} \] therefore we deduce that \( P \left( A \right) = \frac{2}{3} \)</p>
     </div>
 </div>
 <div class="definition" id="definition-collection-of-independent-events">
@@ -109,6 +315,6 @@
         Collection of Independent Events
     </div>
     <div class="content">
-        Suppose we have some collection \( A _ i, i \in I \) of events for some index set \( I \), then we say that this collection of events are independent if
+        Suppose we have some collection \( A _ i, i \in I \) of <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a> for some index set \( I \), then we say that this collection of events are independent if
     </div>
 </div>

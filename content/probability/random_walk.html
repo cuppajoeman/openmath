@@ -1,0 +1,152 @@
+<h1>Simple Random Walk</h1>
+
+<div class="definition" id="definition-simple-random-walk">
+    <div class="title">
+        Simple Random Walk
+    </div>
+    <div class="content">
+        Let \( X _ 1,X _ 2,\ldots \) be <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent random variables</a> with
+        \[
+            P \left( X _ i = 1 \right)=p,
+            \qquad
+            P \left( X _ i = -1 \right)=1-p.
+        \]
+        The process \( S _ 0 = a \) and
+        \[
+            S _ n
+            =
+            a + \sum _ { k=1 } ^ n X _ k
+        \]
+        is a <b>simple random walk</b> starting at \( a \).
+    </div>
+</div>
+
+<div class="definition" id="definition-symmetric-simple-random-walk">
+    <div class="title">
+        Symmetric Simple Random Walk
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/probability/random_walk.html#definition-simple-random-walk">simple random walk</a> is <b>symmetric</b> if \( p=\frac{1}{2} \).
+    </div>
+</div>
+
+<div class="lemma" id="lemma-simple-random-walk-spatial-homogeneity">
+    <div class="title">
+        Spatial Homogeneity
+    </div>
+    <div class="content">
+        For a <a class="knowledge-link" href="/probability/random_walk.html#definition-simple-random-walk">simple random walk</a>,
+        \[
+            P \left( S _ { n+1 } = y+1 \mid S _ n = y \right)=p,
+            \qquad
+            P \left( S _ { n+1 } = y-1 \mid S _ n = y \right)=1-p,
+        \]
+        and these probabilities do not depend on \( y \).
+    </div>
+    <div class="proof">
+        The next position is \( S _ { n+1 }=S _ n+X _ { n+1 } \), and \( X _ { n+1 } \) has the same distribution at every site.
+    </div>
+</div>
+
+<div class="lemma" id="lemma-simple-random-walk-temporal-homogeneity">
+    <div class="title">
+        Temporal Homogeneity
+    </div>
+    <div class="content">
+        For a <a class="knowledge-link" href="/probability/random_walk.html#definition-simple-random-walk">simple random walk</a>, the one-step transition probabilities do not depend on the time \( n \).
+    </div>
+    <div class="proof">
+        The increments \( X _ 1,X _ 2,\ldots \) are identically distributed.
+    </div>
+</div>
+
+<div class="lemma" id="lemma-simple-random-walk-markov-property">
+    <div class="title">
+        Markov Property
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/probability/random_walk.html#definition-simple-random-walk">simple random walk</a> satisfies
+        \[
+            P \left( S _ { n+1 }=z \mid S _ 0,\ldots,S _ n \right)
+            =
+            P \left( S _ { n+1 }=z \mid S _ n \right).
+        \]
+    </div>
+    <div class="proof">
+        Once \( S _ n \) is known, the next state is determined by the fresh increment \( X _ { n+1 } \), which is independent of the previous increments.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-simple-random-walk-position-distribution">
+    <div class="title">
+        Position Distribution
+    </div>
+    <div class="content">
+        If \( S _ 0=0 \) for a <a class="knowledge-link" href="/probability/random_walk.html#definition-simple-random-walk">simple random walk</a>, then
+        \[
+            P \left( S _ n = k \right)
+            =
+            \binom{n}{\frac{n+k}{2}}
+            p ^ { \frac{n+k}{2} }
+            \left( 1-p \right) ^ { \frac{n-k}{2} }
+        \]
+        whenever \( n+k \) is even and \( \left\lvert k \right\rvert \le n \). Otherwise \( P \left( S _ n=k \right)=0 \).
+    </div>
+    <div class="proof">
+        To end at \( k \), the walk must make \( u \) upward steps and \( d \) downward steps with \( u+d=n \) and \( u-d=k \). Thus \( u=\frac{n+k}{2} \) and \( d=\frac{n-k}{2} \). Choose which \( u \) of the \( n \) increments are upward.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-reflection-principle-simple-random-walk">
+    <div class="title">
+        Reflection Principle
+    </div>
+    <div class="content">
+        For a <a class="knowledge-link" href="/probability/random_walk.html#definition-symmetric-simple-random-walk">symmetric simple random walk</a> starting at \( 0 \), paths from \( 0 \) to \( b \gt 0 \) that hit level \( a \gt 0 \) before time \( n \) are in bijection with paths from \( 0 \) to \( 2a-b \) in \( n \) steps.
+    </div>
+    <div class="proof">
+        Reflect the portion of the path after its first visit to \( a \). This changes the endpoint from \( b \) to \( 2a-b \), and applying the same reflection again recovers the original path.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-gamblers-ruin-probability">
+    <div class="title">
+        Gamblers Ruin Probability
+    </div>
+    <div class="content">
+        Let \( S _ n \) be a <a class="knowledge-link" href="/probability/random_walk.html#definition-simple-random-walk">simple random walk</a> on \( \left\{ 0,1,\ldots,N \right\} \) stopped when it hits \( 0 \) or \( N \), and suppose \( S _ 0=i \). If \( p \neq \frac{1}{2} \), then
+        \[
+            P _ i \left( \text{hit } N \text{ before } 0 \right)
+            =
+            \frac{1-\left( \frac{1-p}{p} \right) ^ i}
+            {1-\left( \frac{1-p}{p} \right) ^ N}.
+        \]
+        If \( p=\frac{1}{2} \), then this probability is \( \frac{i}{N} \).
+    </div>
+    <div class="proof">
+        Let \( h \left( i \right) \) be the probability of hitting \( N \) before \( 0 \) from \( i \). Then \( h \left( 0 \right)=0 \), \( h \left( N \right)=1 \), and
+        \[
+            h \left( i \right)
+            =
+            p h \left( i+1 \right)
+            +
+            \left( 1-p \right)h \left( i-1 \right).
+        \]
+        Solving this second-order difference equation gives the displayed formula; in the symmetric case the solution is linear.
+    </div>
+</div>
+
+<div class="corollary" id="corollary-symmetric-gamblers-ruin-bankruptcy-probability">
+    <div class="title">
+        Symmetric Gamblers Ruin Bankruptcy Probability
+    </div>
+    <div class="content">
+        In the <a class="knowledge-link" href="/probability/random_walk.html#definition-symmetric-simple-random-walk">symmetric</a> case, a walk starting at \( i \in \left\{ 0,\ldots,N \right\} \) hits \( 0 \) before \( N \) with probability
+        \[
+            1 - \frac{i}{N}.
+        \]
+    </div>
+    <div class="proof">
+        This is the complement of the probability of hitting \( N \) before \( 0 \).
+    </div>
+</div>

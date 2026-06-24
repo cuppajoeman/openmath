@@ -1,9 +1,77 @@
-<div class="definition" id="definition-probability-model">
+<div class="definition" id="definition-sample-space">
     <div class="title">
-        Probability Model
+        Sample Space
     </div>
     <div class="content">
-        A probability model consists of a non-empty set called the sample space \( \Omega \), a collection of events that are subsets of \( S \) and a probability measure \( P \) assigning a probability between 0 and 1 to each event with \( P \left( \emptyset \right) = 0 \) and \( P \left( S \right) = 1 \) and with \( P \) additive.
+        The <b>sample space</b> of an experiment is the set \( \Omega \) whose elements are the possible outcomes of the experiment.
+    </div>
+</div>
+<div class="definition" id="definition-event">
+    <div class="title">
+        Event
+    </div>
+    <div class="content">
+        An <b>event</b> is a subset of the <a class="knowledge-link" href="/probability/probability_models.html#definition-sample-space">sample space</a>. If the realized outcome \( \omega \in \Omega \) lies in \( A \subseteq \Omega \), then the event \( A \) occurs.
+    </div>
+</div>
+<div class="definition" id="definition-impossible-and-certain-events">
+    <div class="title">
+        Impossible and Certain Events
+    </div>
+    <div class="content">
+        The empty set \( \emptyset \) is the <b>impossible event</b>, and the whole <a class="knowledge-link" href="/probability/probability_models.html#definition-sample-space">sample space</a> \( \Omega \) is the <b>certain event</b>.
+    </div>
+</div>
+<div class="definition" id="definition-increasing-sequence-of-events">
+    <div class="title">
+        Increasing Sequence of Events
+    </div>
+    <div class="content">
+        A sequence of <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a> \( A _ 1,A _ 2,\ldots \) is <b>increasing</b> if
+        \[
+            A _ 1 \subseteq A _ 2 \subseteq A _ 3 \subseteq \cdots .
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-decreasing-sequence-of-events">
+    <div class="title">
+        Decreasing Sequence of Events
+    </div>
+    <div class="content">
+        A sequence of <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a> \( A _ 1,A _ 2,\ldots \) is <b>decreasing</b> if
+        \[
+            A _ 1 \supseteq A _ 2 \supseteq A _ 3 \supseteq \cdots .
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-event-sequence-limits">
+    <div class="title">
+        Event Sequence Limits
+    </div>
+    <div class="content">
+        If \( A _ 1,A _ 2,\ldots \) is an <a class="knowledge-link" href="/probability/probability_models.html#definition-increasing-sequence-of-events">increasing sequence of events</a> and \( A = \bigcup _ { n=1 } ^ \infty A _ n \), then we say that \( A _ n \) <b>increases to</b> \( A \) and write \( A _ n \nearrow A \).
+        <p>If \( A _ 1,A _ 2,\ldots \) is a <a class="knowledge-link" href="/probability/probability_models.html#definition-decreasing-sequence-of-events">decreasing sequence of events</a> and \( A = \bigcap _ { n=1 } ^ \infty A _ n \), then we say that \( A _ n \) <b>decreases to</b> \( A \) and write \( A _ n \searrow A \).</p>
+    </div>
+</div>
+<div class="definition" id="definition-probability-measure">
+    <div class="title">
+        Probability Measure
+    </div>
+    <div class="content">
+        Let \( \mathcal{ F } \) be a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> on \( \Omega \). A function \( P: \mathcal{ F } \to \left[ 0,1 \right] \) is a <b>probability measure</b> if \( P \left( \Omega \right) = 1 \) and, for every pairwise <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-disjoint-sets">disjoint</a> sequence \( A _ 1,A _ 2,\ldots \in \mathcal{ F } \),
+        \[
+            P \left( \bigcup _ { n=1 } ^ \infty A _ n \right)
+            =
+            \sum _ { n=1 } ^ \infty P \left( A _ n \right).
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-probability-space">
+    <div class="title">
+        Probability Space
+    </div>
+    <div class="content">
+        A <b>probability space</b> is a triple \( \left( \Omega,\mathcal{ F },P \right) \), where \( \Omega \) is a <a class="knowledge-link" href="/probability/probability_models.html#definition-sample-space">sample space</a>, \( \mathcal{ F } \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a> of <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a>, and \( P \) is a <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-measure">probability measure</a> on \( \mathcal{ F } \).
     </div>
 </div>
 <div class="definition" id="definition-discrete-uniform-distribution">
@@ -19,7 +87,12 @@
         Conditional Probability
     </div>
     <div class="content">
-        Let \( A, B \subseteq \Omega \), such that \( P \left( B \right) \neq 0 \) then the conditional probability of \( A \) given \( B \) is defined as \[ P \left( A \mid B \right) = \frac{P \left( A \cap B \right) }{ P \left( B \right) } \] if \( P \left( B \right) = 0 \) then we define \( P \left( A \mid B \right) = 0 \)
+        Let \( A, B \subseteq \Omega \) be <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a>, with \( P \left( B \right) \neq 0 \). The conditional probability of \( A \) given \( B \) is defined as
+        \[
+            P \left( A \mid B \right)
+            =
+            \frac{P \left( A \cap B \right)}{P \left( B \right)}.
+        \]
     </div>
 </div>
 <div class="corollary" id="corollary-intersection-as-conditional-probability">
@@ -27,7 +100,7 @@
         Intersection as Conditional Probability
     </div>
     <div class="content">
-        Suppose that \( P \left( A \right) , P \left( B \right) \neq 0 \) then we have \[ P \left( A \cap B \right) = P \left( A \mid B \right) P \left( B \right) \]
+        Suppose that \( P \left( A \right) , P \left( B \right) \neq 0 \). By the definition of <a class="knowledge-link" href="/probability/probability_models.html#definition-conditional-probability">conditional probability</a>, \[ P \left( A \cap B \right) = P \left( A \mid B \right) P \left( B \right) \]
     </div>
     <div class="proof"></div>
 </div>
@@ -36,10 +109,10 @@
         Finite Intersection as Conditional Probability
     </div>
     <div class="content">
-        Suppose we have events \( E _ 1, \ldots , E _ n \) then \[ P \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ n \right) = P \left( E _ n | \left( E _ 1 \cap \cdots \cap E _ { n - 1 } \right) \right) P \left( E _ 1 \cap \cdots \cap E _ { n - 1 } \right) \] whenever \( P \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ n \right) \neq 0 \)
+        Suppose we have <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a> \( E _ 1, \ldots , E _ n \). Then \[ P \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ n \right) = P \left( E _ n | \left( E _ 1 \cap \cdots \cap E _ { n - 1 } \right) \right) P \left( E _ 1 \cap \cdots \cap E _ { n - 1 } \right) \] whenever the conditional probability is defined.
     </div>
     <div class="proof">
-        Let \( A := E _ 1 \cap \cdots \cap E _ { n - 1 } \) and \( B := E _ n \) then from <a class="knowledge-link" href="/probability/probability_models.html#corollary-intersection-as-conditional-probability">this</a> we recall that: \[ P \left( B \cap A \right) = P \left( B \mid A \right) P \left( B \right) \] Since \( P \left( B \cap A \right) = P \left( A \cap B \right) \) we have that \[ P \left( \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ { n - 1 } \right) \cap E _ n \right) = P \left( E _ n \mid \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ { n - 1 } \right) \right) \cdot P \left( E _ 1 \cap \cdots \cap E _ { n - 1 } \right) \]
+        Let \( A := E _ 1 \cap \cdots \cap E _ { n - 1 } \) and \( B := E _ n \). From <a class="knowledge-link" href="/probability/probability_models.html#corollary-intersection-as-conditional-probability">intersection as conditional probability</a>, \[ P \left( A \cap B \right) = P \left( B \mid A \right) P \left( A \right). \] Substituting the definitions of \( A \) and \( B \) gives \[ P \left( \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ { n - 1 } \right) \cap E _ n \right) = P \left( E _ n \mid \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ { n - 1 } \right) \right) \cdot P \left( E _ 1 \cap \cdots \cap E _ { n - 1 } \right). \]
     </div>
 </div>
 <div class="theorem" id="theorem-product-rule">
@@ -47,49 +120,267 @@
         Product Rule
     </div>
     <div class="content">
-        Let \( E _ 1, \ldots , E _ n \) be events, then \[ P \left( \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ { n - 1 } \right) \cap E _ n \right) = P \left( E _ n \mid \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ { n - 1 } \right) \right) \cdot P \left( E _ { n - 1 } \mid \left( E _ 1 \cap \cdots \cap E _ { n - 2 } \right) \right) \cdots P \left( E _ 3 \mid \left( E _ 1 \cap E _ 2 \right) \right) \cdot P \left( E _ 2 \mid E _ 1 \right) P \left( E _ 1 \right) \]
+        Let \( E _ 1, \ldots , E _ n \) be events. Repeatedly applying <a class="knowledge-link" href="/probability/probability_models.html#lemma-finite-intersection-as-conditional-probability">finite intersection as conditional probability</a> gives
+        \[
+            \begin{aligned}
+            P \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ n \right)
+            &=
+            P \left( E _ n \mid E _ 1 \cap E _ 2 \cap \cdots \cap E _ { n - 1 } \right) \\
+            &\quad \cdot P \left( E _ { n - 1 } \mid E _ 1 \cap \cdots \cap E _ { n - 2 } \right) \\
+            &\quad \cdots P \left( E _ 3 \mid E _ 1 \cap E _ 2 \right)
+            \cdot P \left( E _ 2 \mid E _ 1 \right) P \left( E _ 1 \right).
+            \end{aligned}
+        \]
     </div>
     <div class="proof">
         Proof by induction and using the previous lemma during the induction step and the "intersection as conditional probability" for the base case.
     </div>
 </div>
-<p>As stated it is notationally unwieldly we can clean it up using the following: \[ P \left( \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ { n - 1 } \right) \cap E _ n \right) = P \left( E _ 1 \right) \left( \prod _ {j = 2} ^ n P \left( E _ j \mid \left( E _ 1 \cap \cdots \cap E _ { j - 1 } \right) \right)\right) \] If you're confused by the usage of \( \prod \) note that each factor uses exactly one more \( E _ i \) than the previous and moves in the reverse order of the of the original inequality</p>
+<p>As stated it is notationally unwieldy. We can clean it up using the following: \[ P \left( E _ 1 \cap E _ 2 \cap \cdots \cap E _ n \right) = P \left( E _ 1 \right) \left( \prod _ {j = 2} ^ n P \left( E _ j \mid E _ 1 \cap \cdots \cap E _ { j - 1 } \right)\right) \]</p>
 <div class="corollary" id="corollary-symmetric-conditional-equation">
     <div class="title">
         Symmetric Conditional Equation
     </div>
     <div class="content">
+        If \( P \left( A \right) \) and \( P \left( B \right) \) are nonzero, then
         \[ P \left( A \mid B \right) P \left( B \right) = P \left( B \mid A \right) P \left( A \right) \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/probability/probability_models.html#definition-conditional-probability">conditional probability</a>,
+        \[
+            P \left( A \mid B \right) P \left( B \right)
+            =
+            P \left( A \cap B \right).
+        \]
+        Since \( A \cap B = B \cap A \), we have
+        \[
+            P \left( A \cap B \right)
+            =
+            P \left( B \cap A \right)
+            =
+            P \left( B \mid A \right) P \left( A \right).
+        \]
+        Therefore \( P \left( A \mid B \right) P \left( B \right) = P \left( B \mid A \right) P \left( A \right) \).
+    </div>
+</div>
+<div class="theorem" id="theorem-bayes-formula">
+    <div class="title">
+        Bayes Formula
+    </div>
+    <div class="content">
+        If the relevant <a class="knowledge-link" href="/probability/probability_models.html#definition-conditional-probability">conditional probabilities</a> are defined, then
+        \[
+            P \left( A \mid B \right)
+            =
+            \frac{P \left( B \mid A \right) P \left( A \right)}{P \left( B \right)} .
+        \]
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/probability/probability_models.html#corollary-symmetric-conditional-equation">symmetric conditional equation</a>,
+        \[
+            P \left( A \mid B \right) P \left( B \right)
+            =
+            P \left( B \mid A \right) P \left( A \right).
+        \]
+        Since \( P \left( B \right) \neq 0 \), divide both sides by \( P \left( B \right) \) to get
+        \[
+            P \left( A \mid B \right)
+            =
+            \frac{P \left( B \mid A \right) P \left( A \right)}{P \left( B \right)}.
+        \]
+    </div>
 </div>
 <div class="proposition" id="proposition-probability-of-set-difference">
     <div class="title">
         Probability of Set Difference
     </div>
     <div class="content">
-        Suppose that \( A, B \subseteq \Omega \) then \[ P \left( A \setminus B \right) = P \left( A \right) - P \left( A \cap B \right) \]
+        Suppose that \( A, B \subseteq \Omega \) are <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a>. Then \[ P \left( A \setminus B \right) = P \left( A \right) - P \left( A \cap B \right) \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-set-difference-decomposition">set difference decomposition</a>, the event \( A \) decomposes as the disjoint union
+        \[
+            A
+            =
+            \left( A \setminus B \right) \cup \left( A \cap B \right).
+        \]
+        Since \( A \setminus B \) and \( A \cap B \) are disjoint, the <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-measure">probability measure</a> gives
+        \[
+            P \left( A \right)
+            =
+            P \left( A \setminus B \right)
+            +
+            P \left( A \cap B \right).
+        \]
+        Subtracting \( P \left( A \cap B \right) \) from both sides gives
+        \[
+            P \left( A \setminus B \right)
+            =
+            P \left( A \right) - P \left( A \cap B \right).
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-probability-outside-an-event">
+    <div class="title">
+        Probability Outside an Event
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \Omega \) is an <a class="knowledge-link" href="/probability/probability_models.html#definition-event">event</a>. Then
+        \[
+            P \left( \Omega \setminus A \right)
+            =
+            1 - P \left( A \right).
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/probability/probability_models.html#proposition-probability-of-set-difference">probability of set difference</a>,
+        \[
+            P \left( \Omega \setminus A \right)
+            =
+            P \left( \Omega \right) - P \left( \Omega \cap A \right).
+        \]
+        Since \( A \subseteq \Omega \), we have \( \Omega \cap A = A \). Also, \( P \left( \Omega \right) = 1 \) by the definition of a <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-measure">probability measure</a>. Therefore
+        \[
+            P \left( \Omega \setminus A \right)
+            =
+            1 - P \left( A \right).
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-probability-of-impossible-event">
+    <div class="title">
+        Probability of the Impossible Event
+    </div>
+    <div class="content">
+        The impossible event has probability zero:
+        \[
+            P \left( \emptyset \right)
+            =
+            0.
+        \]
+    </div>
+    <div class="proof">
+        Since \( \Omega \setminus \Omega = \emptyset \), <a class="knowledge-link" href="/probability/probability_models.html#proposition-probability-outside-an-event">probability outside an event</a> gives
+        \[
+            P \left( \emptyset \right)
+            =
+            P \left( \Omega \setminus \Omega \right)
+            =
+            1 - P \left( \Omega \right)
+            =
+            0.
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-probability-is-nonnegative">
+    <div class="title">
+        Probability is Nonnegative
+    </div>
+    <div class="content">
+        If \( A \) is an <a class="knowledge-link" href="/probability/probability_models.html#definition-event">event</a>, then
+        \[
+            P \left( A \right)
+            \ge
+            0.
+        \]
+    </div>
+    <div class="proof">
+        By the definition of a <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-measure">probability measure</a>, \( P \) has codomain \( \left[ 0,1 \right] \), so \( P \left( A \right) \in \left[ 0,1 \right] \).
+    </div>
+</div>
+<div class="proposition" id="proposition-monotonicity-of-probability">
+    <div class="title">
+        Monotonicity of Probability
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq B \subseteq \Omega \) are <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a>. Then
+        \[
+            P \left( A \right)
+            \le
+            P \left( B \right).
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-set-difference-decomposition">set difference decomposition</a>, \( B = \left( B \setminus A \right) \cup \left( B \cap A \right) \), and since \( A \subseteq B \), we have \( B \cap A = A \). Thus \( B \) is the disjoint union of \( B \setminus A \) and \( A \). Therefore
+        \[
+            P \left( B \right)
+            =
+            P \left( B \setminus A \right) + P \left( A \right)
+            \ge
+            P \left( A \right)
+        \]
+        because \( P \left( B \setminus A \right) \ge 0 \) by <a class="knowledge-link" href="/probability/probability_models.html#proposition-probability-is-nonnegative">probability is nonnegative</a>.
+        Thus
+        \[
+            P \left( B \right)
+            \ge
+            P \left( A \right).
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-continuity-of-probability">
+    <div class="title">
+        Continuity of Probability
+    </div>
+    <div class="content">
+        Let \( P \) be a <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-measure">probability measure</a>. If \( <a class="knowledge-link" href="/probability/probability_models.html#definition-event-sequence-limits">A _ n \nearrow A</a> \), then
+        \[
+            \lim _ { n \to \infty } P \left( A _ n \right)
+            =
+            P \left( A \right).
+        \]
+        If \( <a class="knowledge-link" href="/probability/probability_models.html#definition-event-sequence-limits">A _ n \searrow A</a> \), then
+        \[
+            \lim _ { n \to \infty } P \left( A _ n \right)
+            =
+            P \left( A \right).
+        \]
+    </div>
+    <div class="proof">
+        Suppose first that \( <a class="knowledge-link" href="/probability/probability_models.html#definition-event-sequence-limits">A _ n \nearrow A</a> \). Define \( B _ 1 := A _ 1 \) and \( B _ n := A _ n \setminus A _ { n - 1 } \) for \( n \ge 2 \). The events \( B _ 1,B _ 2,\ldots \) are pairwise disjoint, \( A = \bigcup _ { n=1 } ^ \infty B _ n \), and \( A _ N = \bigcup _ { n=1 } ^ N B _ n \). By countable additivity,
+        \[
+            P \left( A \right)
+            =
+            \sum _ { n=1 } ^ \infty P \left( B _ n \right),
+        \]
+        while \( P \left( A _ N \right) = \sum _ { n=1 } ^ N P \left( B _ n \right) \). Hence
+        \[
+            \lim _ { N \to \infty } P \left( A _ N \right)
+            =
+            P \left( A \right).
+        \]
+        <p>Now suppose that \( <a class="knowledge-link" href="/probability/probability_models.html#definition-event-sequence-limits">A _ n \searrow A</a> \). Then \( <a class="knowledge-link" href="/probability/probability_models.html#definition-event-sequence-limits">A _ 1 \setminus A _ n \nearrow A _ 1 \setminus A</a> \). By the increasing case and <a class="knowledge-link" href="/probability/probability_models.html#proposition-probability-of-set-difference">probability of set difference</a>,</p>
+        \[
+            \begin{aligned}
+            \lim _ { n \to \infty } P \left( A _ n \right)
+            &=
+            \lim _ { n \to \infty } \left( P \left( A _ 1 \right) - P \left( A _ 1 \setminus A _ n \right) \right) \\
+            &=
+            P \left( A _ 1 \right) - P \left( A _ 1 \setminus A \right) \\
+            &=
+            P \left( A \right).
+            \end{aligned}
+        \]
+    </div>
 </div>
 <div class="lemma" id="lemma-probability-of-event-via-partition">
     <div class="title">
         Probability of an Event through a Partition
     </div>
     <div class="content">
-        Suppose that \( \mathcal{ X } = \left\{ X _ 1, X _ 2, \ldots \right\} \) is a partition of \( \Omega \) then for any event \( E \) we have \[ P \left( E \right) = \sum _ { i \in \mathbb{ N } _ 1 } P \left( E \cap X _ i \right) \]
+        Suppose that \( \mathcal{ X } = \left\{ X _ 1, X _ 2, \ldots \right\} \) is a partition of the <a class="knowledge-link" href="/probability/probability_models.html#definition-sample-space">sample space</a> \( \Omega \). Then for any event \( E \) we have \[ P \left( E \right) = \sum _ { i \in \mathbb{ N } _ 1 } P \left( E \cap X _ i \right) \]
     </div>
     <div class="proof">
         <p>Observe that \( E = E \cap \Omega = E \cap \left( \sqcup _ { i \in \mathbb{ N } _ 1 } X _ i \right) = \sqcup _ { i \in \mathbb{ N } _ 1 } \left( E \cap X _ i \right) \), therefore \[ P \left( E \right) = \sum _ { i \in \mathbb{ N } _ 1 } P \left( E \cap X _ i \right) \]</p>
     </div>
 </div>
-<p>It follows as an easy corollary that it holds for finite partitions by seting the rest of the partition to be the empty set.</p>
+<p>It follows as an easy corollary that it holds for finite partitions by setting the rest of the partition to be the empty set.</p>
 <div class="theorem" id="theorem-law-of-total-probability">
     <div class="title">
         Law of Total Probability
     </div>
     <div class="content">
-        Suppose that \( \mathcal{ X } = \left\{ X _ 1, X _ 2, \ldots \right\} \) is a partition of \( \Omega \) then for any event \( E \) we have \[ P \left( E \right) = \sum _ { i \in \mathbb{ N } _ 1 } P \left( E \mid X _ i \right) P \left( X _ i \right) \]
+        Suppose that \( \mathcal{ X } = \left\{ X _ 1, X _ 2, \ldots \right\} \) is a partition of \( \Omega \). Combining <a class="knowledge-link" href="/probability/probability_models.html#lemma-probability-of-event-via-partition">probability through a partition</a> with conditional probability gives \[ P \left( E \right) = \sum _ { i \in \mathbb{ N } _ 1 } P \left( E \mid X _ i \right) P \left( X _ i \right) \]
     </div>
     <div class="proof"></div>
 </div>
@@ -98,7 +389,12 @@
         Independence of Events
     </div>
     <div class="content">
-        Given two events \( A, B \subseteq \Omega \) we say that \( A \) and \( B \)re independent iff \[ P \left( A | B \right) = P \left( A \right) \]
+        Given two <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a> \( A, B \subseteq \Omega \), we say that \( A \) and \( B \) are independent iff
+        \[
+            P \left( A \cap B \right)
+            =
+            P \left( A \right)P \left( B \right).
+        \]
     </div>
 </div>
 <div class="corollary" id="corollary-independence-is-symmetric">
@@ -106,10 +402,114 @@
         Independence is Symmetric
     </div>
     <div class="content">
-        Suppose that \( A \) and \( B \) are independent, then \( B \) and \( A \) are independent
+        Suppose that \( A \) and \( B \) are <a class="knowledge-link" href="/probability/probability_models.html#definition-independence-of-events">independent</a>. Then \( B \) and \( A \) are independent.
     </div>
     <div class="proof">
-        <p>We know that \( P \left( A \mid B \right) = P \left( A \right) \), we'd like to prove that \( P \left( B \mid A \right) = P \left( B \right) \), \[ \begin{align} P \left( B \mid A \right) &amp;= \frac{P \left( A \cap B \right) }{ P \left( A \right) } \\ &amp;= \frac{P \left( A \mid B \right) P \left( B \right) }{ P \left( A \mid B \right) } \\ &amp;= P \left( B \right) \end{align} \] on the second line we used the <a class="knowledge-link" href="/probability/scratch/proper.html#corollary-intersection-as-conditional-probability">intersection as conditional formula</a></p>
+        Since \( A \cap B = B \cap A \), \[ P \left( B \cap A \right) = P \left( A \cap B \right) = P \left( A \right)P \left( B \right) = P \left( B \right)P \left( A \right). \]
+    </div>
+</div>
+<div class="definition" id="definition-independent-family-of-events">
+    <div class="title">
+        Independent Family of Events
+    </div>
+    <div class="content">
+        A family of <a class="knowledge-link" href="/probability/probability_models.html#definition-event">events</a> \( \left\{ A _ i : i \in I \right\} \) is <b>independent</b> if, for every finite \( J \subseteq I \),
+        \[
+            P \left( \bigcap _ { j \in J } A _ j \right)
+            =
+            \prod _ { j \in J } P \left( A _ j \right).
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-pairwise-independent-events">
+    <div class="title">
+        Pairwise Independent Events
+    </div>
+    <div class="content">
+        A family of events \( \left\{ A _ i : i \in I \right\} \) is <b>pairwise independent</b> if each pair is <a class="knowledge-link" href="/probability/probability_models.html#definition-independence-of-events">independent</a>, so \( P \left( A _ i \cap A _ j \right) = P \left( A _ i \right)P \left( A _ j \right) \) whenever \( i \neq j \). Pairwise independence does not, by itself, imply independence of the whole family.
+    </div>
+</div>
+<div class="proposition" id="proposition-independence-is-preserved-by-complements">
+    <div class="title">
+        Independence is Preserved by Sample-Space Difference
+    </div>
+    <div class="content">
+        If \( A \) and \( B \) are <a class="knowledge-link" href="/probability/probability_models.html#definition-independence-of-events">independent events</a>, then \( \Omega \setminus A \) and \( B \), \( A \) and \( \Omega \setminus B \), and \( \Omega \setminus A \) and \( \Omega \setminus B \) are independent.
+    </div>
+    <div class="proof">
+        First note that we will use <a class="knowledge-link" href="/probability/probability_models.html#proposition-probability-outside-an-event">probability outside an event</a>. Now,
+        \[
+            \begin{align}
+            P \left( \left( \Omega \setminus A \right) \cap B \right)
+            &=
+            P \left( B \setminus A \right)
+            \tag{\text{<a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-intersection-with-ambient-difference">ambient difference</a>}} \\
+            &=
+            P \left( B \right) - P \left( A \cap B \right)
+            \tag{\text{<a class="knowledge-link" href="/probability/probability_models.html#proposition-probability-of-set-difference">probability of set difference</a>}} \\
+            &=
+            P \left( B \right) - P \left( A \right)P \left( B \right)
+            \tag{\text{<a class="knowledge-link" href="/probability/probability_models.html#definition-independence-of-events">independence</a>}} \\
+            &=
+            \left( 1 - P \left( A \right) \right)P \left( B \right)
+            \tag{\text{algebra}} \\
+            &=
+            P \left( \Omega \setminus A \right)P \left( B \right).
+            \tag{\text{<a class="knowledge-link" href="/probability/probability_models.html#proposition-probability-outside-an-event">probability outside event</a>}}
+            \end{align}
+        \]
+        Therefore \( \Omega \setminus A \) and \( B \) are independent. Similarly,
+        \[
+            \begin{align}
+            P \left( A \cap \left( \Omega \setminus B \right) \right)
+            &=
+            P \left( A \setminus B \right)
+            \tag{\text{<a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-intersection-with-ambient-difference">ambient difference</a>}} \\
+            &=
+            P \left( A \right) - P \left( A \cap B \right) \\
+            &=
+            P \left( A \right) - P \left( A \right)P \left( B \right) \\
+            &=
+            P \left( A \right)\left( 1 - P \left( B \right) \right) \\
+            &=
+            P \left( A \right)P \left( \Omega \setminus B \right).
+            \end{align}
+        \]
+        Therefore \( A \) and \( \Omega \setminus B \) are independent. Finally,
+        \[
+            \begin{align}
+            P \left( \left( \Omega \setminus A \right) \cap \left( \Omega \setminus B \right) \right)
+            &=
+            P \left( \left( \Omega \setminus A \right) \setminus B \right)
+            \tag{\text{<a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-intersection-of-ambient-differences">intersection of differences</a>}} \\
+            &=
+            P \left( \Omega \setminus A \right)
+            -
+            P \left( \left( \Omega \setminus A \right) \cap B \right) \\
+            &=
+            P \left( \Omega \setminus A \right)
+            -
+            P \left( \Omega \setminus A \right)P \left( B \right) \\
+            &=
+            P \left( \Omega \setminus A \right)\left( 1 - P \left( B \right) \right) \\
+            &=
+            P \left( \Omega \setminus A \right)P \left( \Omega \setminus B \right).
+            \end{align}
+        \]
+        Therefore \( \Omega \setminus A \) and \( \Omega \setminus B \) are independent.
+    </div>
+</div>
+<div class="definition" id="definition-product-probability-space">
+    <div class="title">
+        Product Probability Space
+    </div>
+    <div class="content">
+        If \( \left( \Omega _ 1,\mathcal{ F } _ 1,P _ 1 \right) \) and \( \left( \Omega _ 2,\mathcal{ F } _ 2,P _ 2 \right) \) are <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-space">probability spaces</a>, their independent product has sample space \( \Omega _ 1 \times \Omega _ 2 \), events generated by rectangles \( A _ 1 \times A _ 2 \), and probability determined on rectangles by
+        \[
+            P \left( A _ 1 \times A _ 2 \right)
+            =
+            P _ 1 \left( A _ 1 \right)P _ 2 \left( A _ 2 \right).
+        \]
     </div>
 </div>
 <hr>

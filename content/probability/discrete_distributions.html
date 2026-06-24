@@ -3,7 +3,192 @@
         Probability Mass Function
     </div>
     <div class="content">
-        Suppose that \( X \) is a discrete random varaible, then the <b>probability mass function</b> of \( X \) is defined by the function \( p : \mathbb{ R } \to \left[ 0, 1 \right] \) \[ p _ X \left( x \right) = P \left( X = x \right) \]
+        Suppose that \( X \) is a <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete random variable</a>. The <b>probability mass function</b> of \( X \) is defined by the function \( p _ X : \mathbb{ R } \to \left[ 0, 1 \right] \) given by \[ p _ X \left( x \right) = P \left( X = x \right) \]
+    </div>
+</div>
+<div class="lemma" id="lemma-probability-mass-function-properties">
+    <div class="title">
+        Probability Mass Function Properties
+    </div>
+    <div class="content">
+        A function \( p: \mathbb{ R } \to \left[ 0,1 \right] \) is the <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-probability-mass-function">probability mass function</a> of a discrete random variable exactly when its support is countable and
+        \[
+            \sum _ x p \left( x \right) = 1.
+        \]
+    </div>
+    <div class="proof">
+        If \( p \) is a mass function, countable additivity over the events \( \left\{ X=x \right\} \) gives the sum \( 1 \). Conversely, a non-negative countably supported function with total mass \( 1 \) defines a probability distribution by summing over subsets of its support.
+    </div>
+</div>
+<div class="definition" id="definition-joint-probability-mass-function">
+    <div class="title">
+        Joint Probability Mass Function
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete random variables</a>, their <b>joint probability mass function</b> is
+        \[
+            p _ { X,Y } \left( x,y \right)
+            :=
+            P \left( \left\{ X=x \right\} \cap \left\{ Y=y \right\} \right).
+        \]
+    </div>
+</div>
+<div class="lemma" id="lemma-discrete-marginal-mass-functions">
+    <div class="title">
+        Discrete Marginal Mass Functions
+    </div>
+    <div class="content">
+        If \( p _ { X,Y } \) is the <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-joint-probability-mass-function">joint mass function</a> of \( X \) and \( Y \), then
+        \[
+            p _ X \left( x \right)
+            =
+            \sum _ y p _ { X,Y } \left( x,y \right),
+            \qquad
+            p _ Y \left( y \right)
+            =
+            \sum _ x p _ { X,Y } \left( x,y \right).
+        \]
+    </div>
+    <div class="proof">
+        Sum the disjoint events \( \left\{ X=x \right\} \cap \left\{ Y=y \right\} \) over all possible values of the other variable.
+    </div>
+</div>
+<div class="lemma" id="lemma-discrete-independence-by-joint-mass-function">
+    <div class="title">
+        Discrete Independence by Joint Mass Function
+    </div>
+    <div class="content">
+        Discrete random variables \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent</a> if and only if
+        \[
+            p _ { X,Y } \left( x,y \right)
+            =
+            p _ X \left( x \right)p _ Y \left( y \right)
+        \]
+        for all \( x,y \in \mathbb{ R } \).
+    </div>
+    <div class="proof">
+        Suppose first that \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent random variables</a>. For fixed \( x,y \in \mathbb{ R } \), the singleton sets \( \left\{ x \right\} \) and \( \left\{ y \right\} \) are <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#proposition-singletons-are-borel-sets">Borel sets</a>, so the events \( \left\{ X=x \right\} \) and \( \left\{ Y=y \right\} \) are independent. Therefore, by the definition of <a class="knowledge-link" href="/probability/probability_models.html#definition-independence-of-events">independence of events</a> and the definition of the <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-joint-probability-mass-function">joint probability mass function</a>,
+        \[
+            p _ { X,Y } \left( x,y \right)
+            =
+            P \left( \left\{ X=x \right\} \cap \left\{ Y=y \right\} \right)
+            =
+            P \left( X=x \right)P \left( Y=y \right)
+            =
+            p _ X \left( x \right)p _ Y \left( y \right).
+        \]
+        <p>Conversely, suppose that \( p _ { X,Y } \left( x,y \right) = p _ X \left( x \right)p _ Y \left( y \right) \) for all \( x,y \in \mathbb{ R } \). Let \( A,B \subseteq \mathbb{ R } \) be <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-set">Borel sets</a>. Since \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete random variables</a>, the sets of possible values \( S _ X := X \left( \Omega \right) \) and \( S _ Y := Y \left( \Omega \right) \) are countable. We have the <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union-infinite-counting-notation">countable union</a></p>
+        \[
+            \left\{ X \in A \right\} \cap \left\{ Y \in B \right\}
+            =
+            \bigcup _ { x \in A \cap S _ X }
+            \bigcup _ { y \in B \cap S _ Y }
+            \left( \left\{ X=x \right\} \cap \left\{ Y=y \right\} \right).
+        \]
+        <p>To see the equality, suppose \( \omega \in \left\{ X \in A \right\} \cap \left\{ Y \in B \right\} \). Then \( X \left( \omega \right) \in A \cap S _ X \) and \( Y \left( \omega \right) \in B \cap S _ Y \), so \( \omega \) belongs to the union term indexed by \( x=X \left( \omega \right) \) and \( y=Y \left( \omega \right) \). Conversely, every union term is contained in \( \left\{ X \in A \right\} \cap \left\{ Y \in B \right\} \).</p>
+        <p>The union is <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-pairwise-disjoint-sets">pairwise disjoint</a>: if \( \omega \) belongs to both \( \left\{ X=x \right\} \cap \left\{ Y=y \right\} \) and \( \left\{ X=x ^ \prime \right\} \cap \left\{ Y=y ^ \prime \right\} \), then \( X \left( \omega \right)=x=x ^ \prime \) and \( Y \left( \omega \right)=y=y ^ \prime \). Thus two different pairs \( \left( x,y \right) \ne \left( x ^ \prime,y ^ \prime \right) \) cannot have overlapping events. Hence, by the countable additivity in the definition of a <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-measure">probability measure</a>,</p>
+        \[
+            \begin{aligned}
+            P \left( \left\{ X \in A \right\} \cap \left\{ Y \in B \right\} \right)
+            &=
+            \sum _ { x \in A \cap S _ X } \sum _ { y \in B \cap S _ Y } P \left( \left\{ X=x \right\} \cap \left\{ Y=y \right\} \right) \\
+            &=
+            \sum _ { x \in A \cap S _ X } \sum _ { y \in B \cap S _ Y } p _ { X,Y } \left( x,y \right) \\
+            &=
+            \sum _ { x \in A \cap S _ X } \sum _ { y \in B \cap S _ Y } p _ X \left( x \right)p _ Y \left( y \right) \\
+            &=
+            \left( \sum _ { x \in A \cap S _ X } p _ X \left( x \right) \right)
+            \left( \sum _ { y \in B \cap S _ Y } p _ Y \left( y \right) \right) \\
+            &=
+            P \left( X \in A \right)P \left( Y \in B \right).
+            \end{aligned}
+        \]
+        Since this holds for every pair of Borel sets \( A \) and \( B \), \( X \) and \( Y \) are independent by the <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">definition of independent random variables</a>.
+    </div>
+</div>
+<div class="definition" id="definition-conditional-mass-function">
+    <div class="title">
+        Conditional Mass Function
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) are discrete and \( P \left( X=x \right) \gt 0 \), the <b>conditional mass function</b> of \( Y \) given \( X=x \) is the discrete version of <a class="knowledge-link" href="/probability/probability_models.html#definition-conditional-probability">conditional probability</a>:
+        \[
+            p _ { Y \mid X } \left( y \mid x \right)
+            :=
+            P \left( Y=y \mid X=x \right)
+            =
+            \frac{p _ { X,Y } \left( x,y \right)}{p _ X \left( x \right)}.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-conditional-expectation-discrete-given-value">
+    <div class="title">
+        Conditional Expectation Given a Value
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) are discrete and \( P \left( X=x \right) \gt 0 \), then using the <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-conditional-mass-function">conditional mass function</a>,
+        \[
+            E \left( Y \mid X=x \right)
+            :=
+            \sum _ y y p _ { Y \mid X } \left( y \mid x \right),
+        \]
+        whenever the sum is defined.
+    </div>
+</div>
+<div class="theorem" id="theorem-law-of-total-expectation-discrete">
+    <div class="title">
+        Law of Total Expectation
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) are discrete and the <a class="knowledge-link" href="/probability/expected_value.html#definition-expected-value">expectations</a> exist, then
+        \[
+            E \left( Y \right)
+            =
+            \sum _ x E \left( Y \mid X=x \right)P \left( X=x \right).
+        \]
+    </div>
+    <div class="proof">
+        Substitute the definition of conditional expectation and use \( p _ { Y \mid X } \left( y \mid x \right)P \left( X=x \right)=p _ { X,Y } \left( x,y \right) \), then sum over \( x \) and \( y \).
+    </div>
+</div>
+<div class="theorem" id="theorem-discrete-convolution-formula">
+    <div class="title">
+        Discrete Convolution Formula
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent</a> integer-valued random variables, then
+        \[
+            P \left( X+Y=z \right)
+            =
+            \sum _ x P \left( X=x \right)P \left( Y=z-x \right).
+        \]
+    </div>
+    <div class="proof">
+        The event \( \left\{ X+Y=z \right\} \) is the disjoint union of the events \( \left\{ X=x \right\} \cap \left\{ Y=z-x \right\} \). Sum their probabilities and use independence.
+    </div>
+</div>
+<div class="definition" id="definition-indicator-random-variable">
+    <div class="title">
+        Indicator Random Variable
+    </div>
+    <div class="content">
+        For an <a class="knowledge-link" href="/probability/probability_models.html#definition-event">event</a> \( A \), the <b>indicator random variable</b> \( \mathbf{ 1 } _ A \) is defined by \( \mathbf{ 1 } _ A \left( \omega \right)=1 \) if \( \omega \in A \), and \( \mathbf{ 1 } _ A \left( \omega \right)=0 \) otherwise.
+    </div>
+</div>
+<div class="proposition" id="proposition-expectation-of-indicator">
+    <div class="title">
+        Expectation of Indicator
+    </div>
+    <div class="content">
+        For any event \( A \), the <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-indicator-random-variable">indicator random variable</a> satisfies
+        \[
+            E \left( \mathbf{ 1 } _ A \right)
+            =
+            P \left( A \right).
+        \]
+    </div>
+    <div class="proof">
+        The indicator is \( 1 \) with probability \( P \left( A \right) \) and \( 0 \) with probability \( 1-P \left( A \right) \).
     </div>
 </div>
 <div class="definition" id="definition-bernoulli-random-variable">
@@ -11,7 +196,7 @@
         Bernoulli Random Variable
     </div>
     <div class="content">
-        We say that a random variable \( X \) is a <b>Bernoulli random varaible</b> iff there is some \( p \in \left[ 0, 1 \right] \) \[ P \left( X = 1 \right) = p \qquad \text{ and } \qquad P \left( X = 0 \right) = 1 - p \] we denote this symbolically as \( X \sim \operatorname{ bern } \left( p \right) \)
+        We say that a <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete random variable</a> \( X \) is a <b>Bernoulli random variable</b> iff there is some \( p \in \left[ 0, 1 \right] \) such that \[ P \left( X = 1 \right) = p \qquad \text{ and } \qquad P \left( X = 0 \right) = 1 - p. \] We denote this symbolically as \( X \sim \operatorname{ bern } \left( p \right) \).
     </div>
 </div>
 <div class="corollary" id="corollary-expected-value-of-a-bernoulli-random-variable">
@@ -19,7 +204,7 @@
         Expected Value of a Bernoulli Random Variable
     </div>
     <div class="content">
-        Suppose \( X \sim \operatorname{ bern } \left( p \right) \) then \[ E \left( X \right) = p \]
+        Suppose \( X \sim \operatorname{ bern } \left( p \right) \). By <a class="knowledge-link" href="/probability/expected_value.html#definition-expected-value">expected value</a>, \[ E \left( X \right) = p \]
     </div>
     <div class="proof">
         \[ E \left( X \right) = P \left( X = 1 \right) \cdot 1 + P \left( X = 0 \right) \cdot 0 = p \cdot 1 \]
@@ -30,7 +215,7 @@
         Binomial Distribution
     </div>
     <div class="content">
-        The random varialbe \( X \) is said to have a binomial distribution on \( n \) trials, with probability of success per trial \( p \) iff \[ X \stackrel{d}{=} Z _ 1 + Z _ 2 + \cdots + Z _ n \] where \( Z _ 1, \ldots , Z _ n \text{ IID } Z _ i \sim \operatorname{ bern } \left( p \right) \)
+        The random variable \( X \) is said to have a binomial distribution on \( n \) trials, with probability of success per trial \( p \) iff \[ X \stackrel{d}{=} Z _ 1 + Z _ 2 + \cdots + Z _ n \] where \( Z _ 1, \ldots , Z _ n \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent</a> identically distributed <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-bernoulli-random-variable">Bernoulli random variables</a> with \( Z _ i \sim \operatorname{ bern } \left( p \right) \).
     </div>
 </div>
 <div class="corollary" id="corollary-expected-value-of-the-binomial-distribution">
@@ -38,7 +223,7 @@
         Expected Value of the Binomial Distribution
     </div>
     <div class="content">
-        Suppose that \( X \sim \operatorname{ binom } \left( n, p \right) \) then \[ E \left( X \right) = np \]
+        Suppose that \( X \sim \operatorname{ binom } \left( n, p \right) \). Since a binomial variable is a sum of <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-bernoulli-random-variable">Bernoulli random variables</a>, \[ E \left( X \right) = np \]
     </div>
     <div class="proof"></div>
 </div>
@@ -47,11 +232,11 @@
         Probability Mass Function of the Binomial Distribution
     </div>
     <div class="content">
-        Suppose \( X \sim \operatorname{ binom } \left( n, p \right) \) then \[ p _ X \left( k \right) = \binom{n}{k} p ^ k \left( 1 - p \right) ^ { n - k } \]
+        Suppose \( X \sim \operatorname{ binom } \left( n, p \right) \). Its <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-probability-mass-function">probability mass function</a> is \[ p _ X \left( k \right) = \binom{n}{k} p ^ k \left( 1 - p \right) ^ { n - k } \]
     </div>
     <div class="proof"></div>
 </div>
-<p>Note that \( p _ X \left( k \right) \) represents the probability of getting exactly \( k \) successes in \( n \) independent Bernouilli trials each with the same probability.</p>
+<p>Note that \( p _ X \left( k \right) \) represents the probability of getting exactly \( k \) successes in \( n \) independent Bernoulli trials each with the same probability.</p>
 <div class="exercise" id="exercise-coin-counting">
     <div class="title">
         Coin Counting
@@ -100,7 +285,7 @@
         For any \( i \in \mathbb{ N } \) suppose we have some \( p _ i \in \left[ 0, 1 \right] \), then define \( \lambda _ i = i \cdot p _ i \). Moreover suppose we have some \( X _ i \sim \operatorname{ binom } \left( i, p _ i \right) \). If \( \lim _ { k \to \infty } \lambda _ k \) exists denote it by \( \lambda \) and we have: \[ P \left( N = k \right) = \lim _ { n \to \infty } P \left( X _ i = k \right) \] where \( N \sim \operatorname{ pois } \left( \lambda \right) \)
     </div>
     <div class="proof">
-        \[ \begin{align} P \left( X _ n = k \right) &amp;= \binom{n}{k} p _ n ^ k \left( 1 - p _ n \right) ^ { n - k } \\ &amp;= \binom{n}{k} \left( \frac{\lambda _ n }{n} \right) ^ k \left( 1 - \frac{\lambda _ n }{n} \right) ^ { n - k } \\ &amp;= \frac{n \left( n - 1 \right) \cdots \left( n - k + 1 \right) }{k \left( k - 1 \right) \cdots 1} \left( \frac{\lambda _ n}{n} \right) ^ k \left( 1 - \frac{\lambda _ n}{n} \right) ^ { n - k } \\ &amp;= \left( 1 - \frac{\lambda _ n}{n} \right) ^ n \frac{\lambda _ n ^ k}{k!} \cdot \left( \frac{\frac{n \left( n - 1 \right) \cdots \left( n - k - 1 \right) }{ n ^ k} }{ \left( 1 - \frac{\lambda _ n}{n} \right) ^ k } \right) \\ &amp;= \left( 1 - \frac{\lambda _ n}{n} \right) ^ n \frac{\lambda _ n ^ k}{k!} \cdot \left( \frac{\left( 1 - \frac{1}{n} \right) \cdots \left( 1 - \frac{k - 1}{n} \right) }{ \left( 1 - \frac{\lambda _ n}{n} \right) \cdots \left( 1 - \frac{\lambda _ n}{n} \right) } \right) \end{align} \] Note that as \( n \to \infty \) we see that \( 1 - \frac{\lambda _ n}{ n} \to 1 \) and \( 1 - \frac{x}{n} \to 1 \) where \( x \in \mathbb{ R } \) so that \[ \left( \frac{\left( 1 - \frac{1}{n} \right) \cdots \left( 1 - \frac{k - 1}{n} \right) }{ \left( 1 - \frac{\lambda _ n}{n} \right) \cdots \left( 1 - \frac{\lambda _ n}{n} \right) } \right) \to 1 \] therefore as \( n \to \infty \) we have that \[ P \left( X _ n = k \right) \to e ^ { - \lambda } \frac{\lambda ^ k}{k !} \]
+        \[ \begin{align} P \left( X _ n = k \right) &= \binom{n}{k} p _ n ^ k \left( 1 - p _ n \right) ^ { n - k } \\ &= \binom{n}{k} \left( \frac{\lambda _ n }{n} \right) ^ k \left( 1 - \frac{\lambda _ n }{n} \right) ^ { n - k } \\ &= \frac{n \left( n - 1 \right) \cdots \left( n - k + 1 \right) }{k \left( k - 1 \right) \cdots 1} \left( \frac{\lambda _ n}{n} \right) ^ k \left( 1 - \frac{\lambda _ n}{n} \right) ^ { n - k } \\ &= \left( 1 - \frac{\lambda _ n}{n} \right) ^ n \frac{\lambda _ n ^ k}{k!} \cdot \left( \frac{\frac{n \left( n - 1 \right) \cdots \left( n - k - 1 \right) }{ n ^ k} }{ \left( 1 - \frac{\lambda _ n}{n} \right) ^ k } \right) \\ &= \left( 1 - \frac{\lambda _ n}{n} \right) ^ n \frac{\lambda _ n ^ k}{k!} \cdot \left( \frac{\left( 1 - \frac{1}{n} \right) \cdots \left( 1 - \frac{k - 1}{n} \right) }{ \left( 1 - \frac{\lambda _ n}{n} \right) \cdots \left( 1 - \frac{\lambda _ n}{n} \right) } \right) \end{align} \] Note that as \( n \to \infty \) we see that \( 1 - \frac{\lambda _ n}{ n} \to 1 \) and \( 1 - \frac{x}{n} \to 1 \) where \( x \in \mathbb{ R } \) so that \[ \left( \frac{\left( 1 - \frac{1}{n} \right) \cdots \left( 1 - \frac{k - 1}{n} \right) }{ \left( 1 - \frac{\lambda _ n}{n} \right) \cdots \left( 1 - \frac{\lambda _ n}{n} \right) } \right) \to 1 \] therefore as \( n \to \infty \) we have that \[ P \left( X _ n = k \right) \to e ^ { - \lambda } \frac{\lambda ^ k}{k !} \]
     </div>
 </div>
 <p>This also allows us to compute a binomial with a large \( n \) by approximating it with a poisson.</p>
@@ -218,7 +403,7 @@
         </ul>
     </div>
     <div class="proof">
-        Before doing anything else we consider the following \[ \begin{align} \operatorname{ Cov } \left( Y, W \right) &amp;= \operatorname{ Cov } \left( Y, Y - \left( s + t X \right) \right) \\ &amp;= \operatorname{ Cov } \left( Y, Y \right) - \operatorname{ Cov } \left( Y, s + tX \right) \\ &amp;= \operatorname{ Var } \left( Y \right) - t \operatorname{ Cov } \left( Y, X \right) \\ &amp;= 1 - t \frac{1}{2} \\ \end{align} \] We did this because we knew that the properties of co-variance would result in some expression where some of the sub-expressions are the same as the ones we know information about. One thing that we require is that \( E \left( W \right) = 0 \), we see that \[ E \left( W \right) = E \left( Y - \left( s + t X \right) \right) = E \left( Y \right) - s - t E \left( X \right) = 0 \] So we conclude that \( s = E \left( Y \right) - t E \left( X \right) \). We also need that \( \operatorname{ Cov } \left( X, W \right) = 0 \) that is to say \[ \begin{align} \operatorname{ Cov } \left( X, W \right) &amp;= \operatorname{ Cov } \left( X, Y - \left( s + t X \right) \right) \\ &amp;= \operatorname{ Cov } \left( X, Y \right) - \operatorname{ Cov } \left( X, s + tX \right) \\ &amp;= \operatorname{ Cov } \left( X, Y \right) - \left( 0 + t \operatorname{ Cov } \left( X, X \right) \right) \\ &amp;= \operatorname{ Cov } \left( X, Y \right) - t \operatorname{ Var } \left( X \right) \\ &amp;= 0 \end{align} \] in that we have \( t = \frac{\operatorname{ Cov } \left( X, Y \right) }{\operatorname{ Var } \left( X \right) } = \frac{1}{2} \) by our assumptions. This also allows us to deduce that \( s = E \left( Y \right) - \frac{1}{2} E \left( X \right) \) therefore we can now observe that \[ \begin{align} Y &amp;= W + \left( s + t X \right) \\ &amp;= W + \left(E \left( Y \right) - \frac{1}{2} E \left( X \right) + \left( \frac{1}{2} \right) X \right) \\ &amp;= \left( E \left( Y \right) - \frac{1}{2} E \left( X \right) \right) + \frac{1}{2} X + W \\ \end{align} \] so that \( \alpha = \left( E \left( Y \right) - \frac{1}{2} E \left( X \right) \right) \) and \( \beta = \frac{1}{2} \).
+        Before doing anything else we consider the following \[ \begin{align} \operatorname{ Cov } \left( Y, W \right) &= \operatorname{ Cov } \left( Y, Y - \left( s + t X \right) \right) \\ &= \operatorname{ Cov } \left( Y, Y \right) - \operatorname{ Cov } \left( Y, s + tX \right) \\ &= \operatorname{ Var } \left( Y \right) - t \operatorname{ Cov } \left( Y, X \right) \\ &= 1 - t \frac{1}{2} \\ \end{align} \] We did this because we knew that the properties of co-variance would result in some expression where some of the sub-expressions are the same as the ones we know information about. One thing that we require is that \( E \left( W \right) = 0 \), we see that \[ E \left( W \right) = E \left( Y - \left( s + t X \right) \right) = E \left( Y \right) - s - t E \left( X \right) = 0 \] So we conclude that \( s = E \left( Y \right) - t E \left( X \right) \). We also need that \( \operatorname{ Cov } \left( X, W \right) = 0 \) that is to say \[ \begin{align} \operatorname{ Cov } \left( X, W \right) &= \operatorname{ Cov } \left( X, Y - \left( s + t X \right) \right) \\ &= \operatorname{ Cov } \left( X, Y \right) - \operatorname{ Cov } \left( X, s + tX \right) \\ &= \operatorname{ Cov } \left( X, Y \right) - \left( 0 + t \operatorname{ Cov } \left( X, X \right) \right) \\ &= \operatorname{ Cov } \left( X, Y \right) - t \operatorname{ Var } \left( X \right) \\ &= 0 \end{align} \] in that we have \( t = \frac{\operatorname{ Cov } \left( X, Y \right) }{\operatorname{ Var } \left( X \right) } = \frac{1}{2} \) by our assumptions. This also allows us to deduce that \( s = E \left( Y \right) - \frac{1}{2} E \left( X \right) \) therefore we can now observe that \[ \begin{align} Y &= W + \left( s + t X \right) \\ &= W + \left(E \left( Y \right) - \frac{1}{2} E \left( X \right) + \left( \frac{1}{2} \right) X \right) \\ &= \left( E \left( Y \right) - \frac{1}{2} E \left( X \right) \right) + \frac{1}{2} X + W \\ \end{align} \] so that \( \alpha = \left( E \left( Y \right) - \frac{1}{2} E \left( X \right) \right) \) and \( \beta = \frac{1}{2} \).
     </div>
 </div>
 <div class="exercise" id="exercise-sum-of-bernoulli">
@@ -233,7 +418,7 @@
         </ul>
     </div>
     <div class="proof">
-        <p>Recall that if \( X, Y \sim \operatorname{ bern } \left( p \right) \) then we know that \( X + Y \sim \operatorname{ bin } \left( 2, \frac{1}{4} \right) \). Therefore we can use the binomial formula when trying to compute \( P \left( X + Y = k \right) \) for some integer \( k \). In our specific question we note that the given events are independent (todo explain why), and thus we have \[ \begin{align} P \left( Z _ 1 + Z _ 2 = 0 \cap Z _ 3 + Z _ 4 = 1 \cap Z _ 5 + Z _ 6 = 2 \right) &amp;= P \left( Z _ 1 + Z _ 2 = 0 \right) \cdot P \left( Z _ 3 + Z _ 4 = 1 \right) \cdot P \left( Z _ 5 + Z _ 6 = 2 \right) \\ &amp;= \binom{2}{0} \left( \frac{3}{4} \right) ^ 2 \cdot \binom{2}{1} \left( \frac{1}{4} \right) \left( \frac{3}{4} \right) \cdot \binom{2}{2} \left( \frac{1}{4} \right) ^ 2 \\ &amp;= \frac{9}{16} \cdot \frac{6}{16} \cdot \frac{1}{16} \\ &amp;= \frac{3 ^ 3}{2 ^ { 11 } } \end{align} \]</p>
+        <p>Recall that if \( X, Y \sim \operatorname{ bern } \left( p \right) \) then we know that \( X + Y \sim \operatorname{ bin } \left( 2, \frac{1}{4} \right) \). Therefore we can use the binomial formula when trying to compute \( P \left( X + Y = k \right) \) for some integer \( k \). In our specific question we note that the given events are independent (todo explain why), and thus we have \[ \begin{align} P \left( Z _ 1 + Z _ 2 = 0 \cap Z _ 3 + Z _ 4 = 1 \cap Z _ 5 + Z _ 6 = 2 \right) &= P \left( Z _ 1 + Z _ 2 = 0 \right) \cdot P \left( Z _ 3 + Z _ 4 = 1 \right) \cdot P \left( Z _ 5 + Z _ 6 = 2 \right) \\ &= \binom{2}{0} \left( \frac{3}{4} \right) ^ 2 \cdot \binom{2}{1} \left( \frac{1}{4} \right) \left( \frac{3}{4} \right) \cdot \binom{2}{2} \left( \frac{1}{4} \right) ^ 2 \\ &= \frac{9}{16} \cdot \frac{6}{16} \cdot \frac{1}{16} \\ &= \frac{3 ^ 3}{2 ^ { 11 } } \end{align} \]</p>
         <hr>
         <p>To determine this quantity we first use the definition of conditional probability and then employ the same strategy as above.</p>
     </div>
@@ -249,8 +434,8 @@
         </ul>
     </div>
     <div class="proof">
-        <p>Recall that for \( N \sim \operatorname{ geo } \left( \frac{2}{3} \right) \) we know that \( P \left( N = n \right) = p q ^ { n - 1 } \) and an easy way to remember that is that geo is the distribution of how many trials are required before the first success. Note that in this case \( p = \frac{2}{3} \) and \( q = 1 - p = \frac{1}{3} \). Now let's try to compute the expected value: \[ \begin{align} E \left( N \right) &amp;= \sum _ { n = 1 } ^ \infty n \cdot P \left( N = n \right) \\ &amp;= \sum _ { n = 1 } ^ \infty n \cdot p q ^ { n - 1 } \\ &amp;= p \sum _ { n = 1 } ^ \infty n q ^ { n - 1 } \\ &amp;= p \left( \frac{d}{dq} \left( \frac{1}{1 - q} \right) \right) \\ &amp;= p \cdot \frac{1}{\left( 1 - q \right) ^ 2} \\ &amp;= p \cdot \frac{1}{p ^ 2} \\ &amp;= \frac{1}{p} \\ &amp;= \frac{3}{2} \end{align} \]</p>
-        <p>Taking a look at \( E \left( N \cdot \left( N - 1 \right) \right) \) then we have \[ \begin{align} E \left( N \cdot \left( N - 1 \right) \right) &amp;= \sum _ { n = 2 } ^ \infty n \cdot \left( n - 1 \right) \cdot p q ^ { n - 1 } \\ &amp;= pq \sum _ { n = 2 } ^ \infty n \left( n - 1 \right) q ^ { n - 2 } \\ &amp;= pq \left( \frac{d ^ 2}{dq ^ 2} \left( \frac{1}{1 - q} \right) \right) \\ &amp;= pq \frac{2}{\left( 1 - q \right) ^ 3}\\ &amp;= \frac{2q}{p ^ 2} \\ &amp;= \frac{2 / 3}{ \left( 2 / 3 \right) ^ 2 } = \frac{3}{2} \end{align} \]</p>
+        <p>Recall that for \( N \sim \operatorname{ geo } \left( \frac{2}{3} \right) \) we know that \( P \left( N = n \right) = p q ^ { n - 1 } \) and an easy way to remember that is that geo is the distribution of how many trials are required before the first success. Note that in this case \( p = \frac{2}{3} \) and \( q = 1 - p = \frac{1}{3} \). Now let's try to compute the expected value: \[ \begin{align} E \left( N \right) &= \sum _ { n = 1 } ^ \infty n \cdot P \left( N = n \right) \\ &= \sum _ { n = 1 } ^ \infty n \cdot p q ^ { n - 1 } \\ &= p \sum _ { n = 1 } ^ \infty n q ^ { n - 1 } \\ &= p \left( \frac{d}{dq} \left( \frac{1}{1 - q} \right) \right) \\ &= p \cdot \frac{1}{\left( 1 - q \right) ^ 2} \\ &= p \cdot \frac{1}{p ^ 2} \\ &= \frac{1}{p} \\ &= \frac{3}{2} \end{align} \]</p>
+        <p>Taking a look at \( E \left( N \cdot \left( N - 1 \right) \right) \) then we have \[ \begin{align} E \left( N \cdot \left( N - 1 \right) \right) &= \sum _ { n = 2 } ^ \infty n \cdot \left( n - 1 \right) \cdot p q ^ { n - 1 } \\ &= pq \sum _ { n = 2 } ^ \infty n \left( n - 1 \right) q ^ { n - 2 } \\ &= pq \left( \frac{d ^ 2}{dq ^ 2} \left( \frac{1}{1 - q} \right) \right) \\ &= pq \frac{2}{\left( 1 - q \right) ^ 3}\\ &= \frac{2q}{p ^ 2} \\ &= \frac{2 / 3}{ \left( 2 / 3 \right) ^ 2 } = \frac{3}{2} \end{align} \]</p>
     </div>
 </div>
 <div class="exercise" id="exercise-poisson-quotient">

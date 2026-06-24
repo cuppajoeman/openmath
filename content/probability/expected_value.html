@@ -3,12 +3,34 @@
         Expected Value
     </div>
     <div class="content">
-        Suppose that \( X \) is a discrete random variable then we define \[ E \left( X \right) := \sum x P \left( X = x \right) \]
+        Suppose that \( X \) is a <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete random variable</a>. Then we define \[ E \left( X \right) := \sum x P \left( X = x \right) \]
+    </div>
+</div>
+<div class="definition" id="definition-expectation-of-function-of-discrete-random-variable">
+    <div class="title">
+        Expectation of a Function of a Discrete Random Variable
+    </div>
+    <div class="content">
+        If \( X \) is a <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete random variable</a> with probability mass function \( p _ X \) and \( g: \mathbb{ R } \to \mathbb{ R } \), then
+        \[
+            E \left( g \left( X \right) \right)
+            =
+            \sum _ x g \left( x \right) p _ X \left( x \right),
+        \]
+        whenever the sum is defined.
+    </div>
+</div>
+<div class="definition" id="definition-moment">
+    <div class="title">
+        Moment
+    </div>
+    <div class="content">
+        The \( k \)-th <b>moment</b> of a random variable \( X \) is defined using <a class="knowledge-link" href="/probability/expected_value.html#definition-expected-value">expected value</a> as \( E \left( X ^ k \right) \), whenever this expectation exists.
     </div>
 </div>
 <div class="exercise" id="exercise-squared-expection">
     <div class="title">
-        Squared Expection
+        Squared Expectation
     </div>
     <div class="content">
         Suppose \( X \) is a random variable such that \( P \left( X = -2 \right) = 0.2, P \left( X = 1 \right) = 0.5, P \left( X = 2 \right) = 0.3 \) and \( P \left( X = a \right) = 0 \) for all other values. Compute \( E \left( X ^ 2 \right) \) and show it's not equal to \( E \left( X \right) ^ 2 \)
@@ -22,24 +44,88 @@
         Expectation is Linear
     </div>
     <div class="content">
-        Suppose that \( X \) is a random variable and that \( a, b \in \mathbb{ R } \) then \( a X + b \) is also a random varaible and we have that \[ E \left( a X + b \right) = a E \left( X \right) + b \]
+        Suppose that \( X \) is a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> and that \( a, b \in \mathbb{ R } \). Then \( a X + b \) is also a random variable and \[ E \left( a X + b \right) = a E \left( X \right) + b \]
     </div>
     <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-expectation-is-linear-finite-sums">
+    <div class="title">
+        Expectation is Linear for Finite Sums
+    </div>
+    <div class="content">
+        If \( X _ 1,\ldots,X _ n \) have finite <a class="knowledge-link" href="/probability/expected_value.html#definition-expected-value">expectations</a> and \( a _ 1,\ldots,a _ n \in \mathbb{ R } \), then
+        \[
+            E \left( \sum _ { k=1 } ^ n a _ k X _ k \right)
+            =
+            \sum _ { k=1 } ^ n a _ k E \left( X _ k \right).
+        \]
+    </div>
+    <div class="proof">
+        Let
+        \[
+            Y
+            :=
+            \sum _ { k=1 } ^ n a _ k X _ k.
+        \]
+        By <a class="knowledge-link" href="/probability/probability_measures.html#definition-expectation-as-an-integral">expectation as an integral</a>,
+        \[
+            E\left( Y\right)
+            =
+            \int _ \Omega
+            \left( \sum _ { k=1 } ^ n a _ k X _ k \right)
+            dP.
+        \]
+        We first handle two summands. If \( U \) and \( V \) have finite expectations, then by <a class="knowledge-link" href="/measure_theory/integration.html#theorem-additivity-of-integration">additivity of integration</a>,
+        \[
+            E\left( U+V\right)
+            =
+            \int _ \Omega \left( U+V\right)dP
+            =
+            \int _ \Omega U\,dP+\int _ \Omega V\,dP
+            =
+            E\left( U\right)+E\left( V\right).
+        \]
+        Also, for \( a\in\mathbb{ R } \),
+        \[
+            E\left( aU\right)
+            =
+            \int _ \Omega aU\,dP
+            =
+            a\int _ \Omega U\,dP
+            =
+            aE\left( U\right),
+        \]
+        because multiplying a function by a constant multiplies its integral by that constant.
+        Applying these two facts repeatedly to the finite sum gives
+        \[
+            E \left( \sum _ { k=1 } ^ n a _ k X _ k \right)
+            =
+            \sum _ { k=1 } ^ n E\left( a_kX_k\right)
+            =
+            \sum _ { k=1 } ^ n a_kE\left( X_k\right).
+        \]
+    </div>
 </div>
 <div class="definition" id="definition-variance">
     <div class="title">
         Variance
     </div>
     <div class="content">
-        Let \( X \) be a random varaible and define \( \mu := E \left( X \right) \) then we define \[ \operatorname{ Var } \left( X \right) := E \left( \left( X - \mu \right) ^ 2 \right) \]
+        Let \( X \) be a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a>. The <b>variance</b> of \( X \) is
+        \[
+            \operatorname{ Var } \left( X \right)
+            :=
+            E \left( \left( X - E \left( X \right) \right) ^ 2 \right),
+        \]
+        whenever this <a class="knowledge-link" href="/probability/expected_value.html#definition-expected-value">expected value</a> is defined.
     </div>
 </div>
 <div class="corollary" id="corollary-variance-as-squares-of-expectation">
     <div class="title">
-        Variance as Squares of Expection
+        Variance as Squares of Expectation
     </div>
     <div class="content">
-        \[ \operatorname{ Var } \left( X \right) = E \left( X ^ 2 \right) - E \left( X \right) ^ 2 \]
+        From the <a class="knowledge-link" href="/probability/expected_value.html#definition-variance">definition of variance</a>, \[ \operatorname{ Var } \left( X \right) = E \left( X ^ 2 \right) - E \left( X \right) ^ 2 \]
     </div>
     <div class="proof"></div>
 </div>
@@ -48,15 +134,126 @@
         Variance is Not Linear
     </div>
     <div class="content">
-        \[ \operatorname{ Var } \left( a X + b \right) = a ^ 2 X \]
+        By the <a class="knowledge-link" href="/probability/expected_value.html#definition-variance">definition of variance</a>, \[ \operatorname{ Var } \left( a X + b \right) = a ^ 2 \operatorname{ Var } \left( X \right) \]
     </div>
     <div class="proof"></div>
+</div>
+<div class="definition" id="definition-covariance">
+    <div class="title">
+        Covariance
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) have finite second <a class="knowledge-link" href="/probability/expected_value.html#definition-moment">moments</a>, their <b>covariance</b> is
+        \[
+            \operatorname{ Cov } \left( X,Y \right)
+            :=
+            E \left( \left( X - E \left( X \right) \right)\left( Y - E \left( Y \right) \right) \right).
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-covariance-as-expectation-product">
+    <div class="title">
+        Covariance as Expectation Product
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) have finite second moments, then by <a class="knowledge-link" href="/probability/expected_value.html#definition-covariance">covariance</a>,
+        \[
+            \operatorname{ Cov } \left( X,Y \right)
+            =
+            E \left( XY \right) - E \left( X \right)E \left( Y \right).
+        \]
+    </div>
+    <div class="proof">
+        Expand the product \( \left( X - E \left( X \right) \right)\left( Y - E \left( Y \right) \right) \) and use linearity of expectation.
+    </div>
+</div>
+<div class="definition" id="definition-uncorrelated-random-variables">
+    <div class="title">
+        Uncorrelated Random Variables
+    </div>
+    <div class="content">
+        Random variables \( X \) and \( Y \) with finite second moments are <b>uncorrelated</b> if their <a class="knowledge-link" href="/probability/expected_value.html#definition-covariance">covariance</a> is zero, equivalently if
+        \[
+            E \left( XY \right)
+            =
+            E \left( X \right)E \left( Y \right),
+        \]
+        equivalently \( \operatorname{ Cov } \left( X,Y \right) = 0 \).
+    </div>
+</div>
+<div class="lemma" id="lemma-independent-random-variables-factor-expectation">
+    <div class="title">
+        Independent Random Variables Factor Expectation
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent</a> and the expectations exist, then
+        \[
+            E \left( XY \right)
+            =
+            E \left( X \right)E \left( Y \right).
+        \]
+    </div>
+    <div class="proof">
+        In the discrete case,
+        \[
+            E \left( XY \right)
+            =
+            \sum _ { x,y } xy P \left( \left\{ X=x \right\} \cap \left\{ Y=y \right\} \right)
+            =
+            \sum _ { x,y } xy P \left( X=x \right)P \left( Y=y \right),
+        \]
+        which factors into the product of the two expectations. The continuous proof is the analogous factorization of the product density or product measure.
+    </div>
+</div>
+<div class="definition" id="definition-correlation-coefficient">
+    <div class="title">
+        Correlation Coefficient
+    </div>
+    <div class="content">
+        If \( \operatorname{ Var } \left( X \right) \gt 0 \) and \( \operatorname{ Var } \left( Y \right) \gt 0 \), the <b>correlation coefficient</b> of \( X \) and \( Y \) is the normalized <a class="knowledge-link" href="/probability/expected_value.html#definition-covariance">covariance</a>
+        \[
+            \rho \left( X,Y \right)
+            :=
+            \frac{\operatorname{ Cov } \left( X,Y \right)}
+            {\sqrt{\operatorname{ Var } \left( X \right)\operatorname{ Var } \left( Y \right)}} .
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-cauchy-schwarz-inequality-for-random-variables">
+    <div class="title">
+        Cauchy Schwarz Inequality for Random Variables
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) have finite second <a class="knowledge-link" href="/probability/expected_value.html#definition-moment">moments</a>, then
+        \[
+            \left\lvert E \left( XY \right) \right\rvert ^ 2
+            \le
+            E \left( X ^ 2 \right)E \left( Y ^ 2 \right).
+        \]
+    </div>
+    <div class="proof">
+        If \( E \left( Y ^ 2 \right)=0 \), then \( Y=0 \) almost surely and the result is immediate. Otherwise the quadratic \( E \left( \left( X - tY \right) ^ 2 \right) \ge 0 \) has non-positive discriminant as a function of \( t \).
+    </div>
+</div>
+<div class="corollary" id="corollary-correlation-coefficient-is-bounded">
+    <div class="title">
+        Correlation Coefficient is Bounded
+    </div>
+    <div class="content">
+        If the <a class="knowledge-link" href="/probability/expected_value.html#definition-correlation-coefficient">correlation coefficient</a> \( \rho \left( X,Y \right) \) is defined, then
+        \[
+            \left\lvert \rho \left( X,Y \right) \right\rvert \le 1.
+        \]
+    </div>
+    <div class="proof">
+        Apply Cauchy Schwarz to the centered variables \( X - E \left( X \right) \) and \( Y - E \left( Y \right) \).
+    </div>
 </div>
 <div class="definition" id="definition-standard-deviation">
     <div class="title">
         Standard Deviation
     </div>
     <div class="content">
-        Given a random varaible \( X \) we define the standard deviation of that random variable to be \[ \sigma \left( X \right) := \sqrt{ \operatorname{ Var } \left( X \right) } \]
+        Given a random variable \( X \), we define the standard deviation of that random variable using <a class="knowledge-link" href="/probability/expected_value.html#definition-variance">variance</a>: \[ \sigma \left( X \right) := \sqrt{ \operatorname{ Var } \left( X \right) } \]
     </div>
 </div>

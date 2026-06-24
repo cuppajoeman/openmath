@@ -3,15 +3,111 @@
         Continuous Random Variable
     </div>
     <div class="content">
-        We say that a random variable \( X \) is continuous if \[ P \left( X = x \right) = 0 \] for every \( x \in \mathbb{ R } \)
+        We say that a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> \( X \) is continuous if
+        \[
+            P \left( X = x \right) = 0
+        \]
+        for every \( x \in \mathbb{ R } \).
     </div>
 </div>
+<p>This is not the same as saying that \(X\) is not a <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete random variable</a>. A discrete random variable has a <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a> set of possible values. A continuous random variable has no single value with positive probability. These are different conditions.</p>
+
+<div class="proposition" id="proposition-continuous-random-variable-has-uncountable-range">
+    <div class="title">
+        Continuous Random Variable Has Uncountable Range
+    </div>
+    <div class="content">
+        If \(X\) is a <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-continuous-random-variable">continuous random variable</a>, then \(X\left(\Omega\right)\) is not <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a>.
+    </div>
+    <div class="proof">
+        Suppose, toward a contradiction, that \(X\left(\Omega\right)\) is countable. Since every outcome \(\omega\in\Omega\) has \(X\left(\omega\right)\in X\left(\Omega\right)\),
+        \[
+            \Omega
+            =
+            \bigcup_{x\in X\left(\Omega\right)}
+            \left\{\omega\in\Omega:X\left(\omega\right)=x\right\}.
+        \]
+        Because \(X\) is continuous, each event \(\{X=x\}\) has probability \(0\). By countable additivity in the definition of a <a class="knowledge-link" href="/probability/probability_models.html#definition-probability-measure">probability measure</a>,
+        \[
+            P\left(\Omega\right)
+            =
+            \sum_{x\in X\left(\Omega\right)}
+            P\left(X=x\right)
+            =
+            0.
+        \]
+        This contradicts \(P\left(\Omega\right)=1\), so \(X\left(\Omega\right)\) is not countable.
+    </div>
+</div>
+
+<div class="proposition" id="proposition-uncountable-range-does-not-imply-continuous-random-variable">
+    <div class="title">
+        Uncountable Range Does Not Imply Continuous
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> can have an uncountable set of possible values without being <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-continuous-random-variable">continuous</a>.
+    </div>
+    <div class="proof">
+        Let \(X\) be a random variable with \(X\left(\Omega\right)=[0,1]\) whose <a class="knowledge-link" href="/probability/random_variables.html#definition-distribution-function">distribution function</a> is
+        \[
+            F_X(x)
+            =
+            \begin{cases}
+                0, & x \lt 0, \\
+                \frac{1}{2}+\frac{x}{2}, & 0\le x \le 1, \\
+                1, & x \gt 1.
+            \end{cases}
+        \]
+        The set of possible values of \(X\) contains \([0,1]\), so it is not <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a> because nontrivial intervals are <a class="knowledge-link" href="/measure_theory/outer_measure.html#corollary-nontrivial-intervals-are-uncountable">uncountable</a>. Thus \(X\) is not a <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete random variable</a>. However,
+        \[
+            P\left(X=0\right)
+            =
+            F_X(0)-\lim_{x\to 0^-}F_X(x)
+            =
+            \frac{1}{2},
+        \]
+        so \(X\) is not continuous.
+    </div>
+</div>
+<div class="exercise" id="exercise-random-variable-neither-discrete-nor-continuous">
+    <div class="title">
+        Random Variable Neither Discrete Nor Continuous
+    </div>
+    <div class="content">
+        Give an example of a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> that is neither <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete</a> nor <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-continuous-random-variable">continuous</a>.
+    </div>
+    <div class="proof">
+        Let \(X\) be a random variable with \(X\left(\Omega\right)=[0,1]\) whose <a class="knowledge-link" href="/probability/random_variables.html#definition-distribution-function">distribution function</a> is
+        \[
+            F_X(x)
+            =
+            \begin{cases}
+                0, & x \lt 0, \\
+                \frac{1}{2}+\frac{x}{2}, & 0\le x \le 1, \\
+                1, & x \gt 1.
+            \end{cases}
+        \]
+        The set of possible values of \(X\) contains \([0,1]\), which is <a class="knowledge-link" href="/measure_theory/outer_measure.html#corollary-nontrivial-intervals-are-uncountable">uncountable</a>. Therefore \(X\left(\Omega\right)\) is not <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a>, so \(X\) is not discrete.
+        <p>On the other hand,</p>
+        \[
+            P\left(X=0\right)
+            =
+            F_X(0)-\lim_{x\to 0^-}F_X(x)
+            =
+            \frac{1}{2},
+        \]
+        so it is not true that \(P\left(X=x\right)=0\) for every \(x\in\mathbb{R}\). Therefore \(X\) is not continuous.
+    </div>
+</div>
+<p>This is different from a die roll. If \(X\) is the result of a fair six-sided die, then \(P\left(X=3\right)=1/6\), so a single exact outcome can have positive probability. Here \(P\left(X=3\right)\) is shorthand for the probability of the <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable-and-binary-relation-syntax-sugar">event determined by the binary relation</a> \(X=3\). For a continuous random variable, every exact value has probability \(0\); probabilities live on intervals or regions rather than individual values.</p>
+
+<p>One way to picture the transition is to imagine a fair die with \(N\) equally likely faces. Each single face has probability \(1/N\). As \(N\) gets larger, \(1/N\) gets smaller. If the faces become tiny patches approximating a smooth sphere and the limiting roll is modeled as landing on a point of the sphere, then any single exact point has limiting probability \(0\), even though a region of the sphere can still have positive probability.</p>
 <div class="definition" id="definition-continuous-uniform-distribution">
     <div class="title">
         Continuous Uniform Distribution
     </div>
     <div class="content">
-        The random variable \(U\) is said to have a (continuous) uniform distribution on the unit interval \([0,1]\) denoted by \( U \sim \text { unif }[0,1]\) iff \[ P(U \leq u)=u \quad \forall 0 \leq u \leq 1 . \]
+        The <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> \(U\) is said to have a (continuous) uniform distribution on the unit interval \([0,1]\) denoted by \( U \sim \text { unif }[0,1]\) iff \[ P(U \leq u)=u \quad \forall 0 \leq u \leq 1 . \]
     </div>
 </div>
 <div class="corollary" id="corollary-probability-of-an-interval-in-the-uniform-distribution">
@@ -19,7 +115,7 @@
         Probability of an Interval in the Uniform Distribution
     </div>
     <div class="content">
-        \[ P \left( a \le X \le b \right) = b - a \]
+        For a <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-continuous-uniform-distribution">continuous uniform random variable</a>, \[ P \left( a \le X \le b \right) = b - a \]
     </div>
     <div class="proof"></div>
 </div>
@@ -28,40 +124,383 @@
         Density Function
     </div>
     <div class="content">
-        Let \( f: \mathbb{ R } \to \mathbb{ R } \) be a function, then we say that \( f \) is a <b>density function</b> if \( f \left( x \right) \ge 0 \) for any \( x \in \mathbb{ R } \) and \[ \int _ {-\infty} ^ \infty f \left( x \right) dx = 1 \]
+        Let \( X \) be a <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a>. A function \( f: \mathbb{ R } \to [0,\infty) \) is a <b>density function</b> for \( X \) if, for every interval \( I \subseteq \mathbb{ R } \),
+        \[
+            P\left(X\in I\right)
+            =
+            \int_I f\left(t\right)\,dt.
+        \]
     </div>
 </div>
-<div class="definition" id="definition-absolutely-continuous-random-variable">
+<p>For example, the function \(f:\mathbb{R}\to[0,\infty)\) defined by \(f(t)=1\) for \(t\in[0,1]\) and \(f(t)=0\) otherwise is a density function for a random variable uniformly distributed on \([0,1]\). For any interval \(I\), the integral \(\int_I f(t)\,dt\) is the length of the part of \(I\) that lies inside \([0,1]\).</p>
+
+<p>The reason an integral appears is not that we add the probabilities of the individual points. For a <a class="knowledge-link" href="/probability/random_variables.html#definition-discrete-random-variable">discrete random variable</a>, that pointwise method works because the possible values form a <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a> set. The analogous object is usually called a <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-probability-mass-function">probability mass function</a>, not a density function. If \(X\) is a fair six-sided die roll, then its mass function satisfies \(p_X(k)=1/6\) for \(k\in\{1,2,3,4,5,6\}\). For the interval \([2,4]\), the probability is the sum of the masses at the possible values in that interval:
+\[
+    P\left(X\in[2,4]\right)
+    =
+    p_X(2)+p_X(3)+p_X(4)
+    =
+    \frac{3}{6}.
+\]
+For a continuous random variable, trying to keep this rule fails: if every point has probability \(0\), then summing point probabilities cannot recover a positive probability for an interval. The repair is to assign probability to the event that the random value lands in a small interval, not to the individual points. A density says that if \(I\) is a small interval of length \(\Delta t\) near \(t\), for example \(I=\left(t-\epsilon,t+\epsilon\right)\), then
+\[
+    P\left(X\in I\right)
+    \approx
+    f(t)\Delta t.
+\]
+These small interval probabilities are compatible with the basic additivity rule for disjoint events, because adjacent small intervals contribute by addition. When the interval is divided into finer and finer pieces, the limiting sum of these interval contributions is the integral. Thus the integral is the continuous replacement for summing masses at possible values, while the value \(f(t)\) itself is not the probability of the point \(t\).</p>
+<div class="corollary" id="corollary-density-has-total-mass-one">
     <div class="title">
-        Absolutely Continuous Random Variable
+        Density has Total Mass One
     </div>
     <div class="content">
-        A random varaible \( X \) is said to be <b>absolutely continuous</b>if there is a <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density function</a> \( f \) such that \[ P \left( a \le X \le b \right) = \int _ a ^ b f \left( x \right) dx \] whenever \( a \le b \in \mathbb{ R } \)
+        If \( f \) is a <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density function</a>, then
+        \[
+            \int_{-\infty}^{\infty} f\left(t\right)\,dt=1.
+        \]
+    </div>
+    <div class="proof">
+        Apply the definition of density to the interval \(I=\mathbb{R}\). Since a <a class="knowledge-link" href="/probability/random_variables.html#proposition-random-variable-is-real-valued-with-probability-one">random variable is real-valued with probability one</a>, \(P\left(X\in\mathbb{R}\right)=1\). Therefore the integral over \(\mathbb{R}\) is \(1\).
     </div>
 </div>
-<div class="definition" id="definition-a-random-varaible-has-a-density-function">
+<div class="proposition" id="proposition-density-determines-distribution-function">
     <div class="title">
-        A Random Variable has a Density Function
+        Density Determines Distribution Function
     </div>
     <div class="content">
-        We say that a random variable \( X \) has a density function \( f \) if it is absolutely continuous using this density function.
+        If \( X \) has <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density</a> \( f \), then its <a class="knowledge-link" href="/probability/random_variables.html#definition-distribution-function">distribution function</a> satisfies
+        \[
+            F _ X \left( x \right)
+            =
+            \int _ {-\infty} ^ x f \left( t \right) dt
+        \]
+        for every \( x \in \mathbb{ R } \).
+    </div>
+    <div class="proof">
+        Apply the definition of density to the interval \(I=\left(-\infty,x\right]\).
     </div>
 </div>
-<div class="proposition" id="proposition-probability-of-a-point-is-zero-for-an-absolutely-continuous-random-variable">
+<div class="lemma" id="lemma-density-determines-interval-probabilities">
     <div class="title">
-        Probability of a Point is Zero for an Absolutely Continuous Random Variable
+        Density Determines Interval Probabilities
     </div>
     <div class="content">
-        Suppose that \( X \) is an <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-absolutely-continuous-random-variable">absolutely continuous random variable</a> then \[ P \left( X = a \right) = 0 \] for any \( a \in \mathbb{ R } \)
+        If \( X \) has <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density</a> \( f \), then for \( a \lt b \),
+        \[
+            P \left( a \lt X \le b \right)
+            =
+            \int _ a ^ b f \left( x \right) \, dx .
+        \]
+    </div>
+    <div class="proof">
+        Apply the definition of density to the interval \(I=\left(a,b\right]\).
+    </div>
+</div>
+<div class="theorem" id="theorem-cdf-derivative-is-density">
+    <div class="title">
+        CDF Derivative is the Density
+    </div>
+    <div class="content">
+        Suppose that \( X \) has <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density function</a> \( f \), and let \( F _ X \) be the <a class="knowledge-link" href="/probability/random_variables.html#definition-distribution-function">distribution function</a> of \( X \). If \( f \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a> at \( x _ 0 \in \mathbb{ R } \), then \( F _ X \) is <a class="knowledge-link" href="/analysis/single_variable/differentiation.html#definition-derivative">differentiable</a> at \( x _ 0 \) and
+        \[
+            F _ X ^ \prime \left( x _ 0 \right)
+            =
+            f \left( x _ 0 \right).
+        \]
+    </div>
+    <div class="proof">
+        Choose \( a,b \in \mathbb{ R } \) with \( a \lt x _ 0 \lt b \). For \( x \in (a,b) \), <a class="knowledge-link" href="/probability/continuous_distributions.html#lemma-density-determines-interval-probabilities">density determines interval probabilities</a> gives
+        \[
+            F _ X \left( x \right)
+            -
+            F _ X \left( a \right)
+            =
+            P \left( a \lt X \le x \right)
+            =
+            \int _ a ^ x f \left( t \right) \, dt.
+        \]
+        Hence, on \( (a,b) \),
+        \[
+            F _ X \left( x \right)
+            =
+            F _ X \left( a \right)
+            +
+            \int _ a ^ x f \left( t \right) \, dt.
+        \]
+        The constant term \( F _ X \left( a \right) \) has derivative \( 0 \), and by the <a class="knowledge-link" href="/analysis/single_variable/the_fundamental_theorem_of_calculus.html#theorem-fundamental-theorem-of-calculus-i">Fundamental Theorem of Calculus I</a>, the derivative of \( \int _ a ^ x f \left( t \right) \, dt \) at \( x _ 0 \) is \( f \left( x _ 0 \right) \), because \( f \) is continuous at \( x _ 0 \). Therefore \( F _ X ^ \prime \left( x _ 0 \right)=f \left( x _ 0 \right) \).
+    </div>
+</div>
+<div class="definition" id="definition-expectation-of-continuous-random-variable">
+    <div class="title">
+        Expectation of a Continuous Random Variable
+    </div>
+    <div class="content">
+        If \( X \) has <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density</a> \( f \), then
+        \[
+            E \left( X \right)
+            =
+            \int _ { -\infty } ^ \infty x f \left( x \right) \, dx,
+        \]
+        whenever the integral is defined.
+    </div>
+</div>
+<div class="lemma" id="lemma-expectation-of-an-interval-indicator">
+    <div class="title">
+        Expectation of an Interval Indicator
+    </div>
+    <div class="content">
+        Suppose that \( X \) has <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density</a> \( f \) and \( a,b \in \mathbb{ R } \) with \( a \lt b \). Then
+        \[
+            E \left( \chi _ { (a,b] } \left( X \right) \right)
+            =
+            \int _ { -\infty } ^ \infty \chi _ { (a,b] } \left( x \right) f \left( x \right) \, dx.
+        \]
+    </div>
+    <div class="proof">
+        Let
+        \[
+            A
+            :=
+            \left\{ \omega \in \Omega : a \lt X \left( \omega \right) \le b \right\}.
+        \]
+        For every \( \omega \in \Omega \),
+        \[
+            \chi _ { (a,b] } \left( X \left( \omega \right) \right)
+            =
+            \begin{cases}
+                1, & \omega \in A, \\
+                0, & \omega \notin A,
+            \end{cases}
+        \]
+        so \( \chi _ { (a,b] } \left( X \right)=\mathbf{ 1 } _ A \) by the definition of an <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-indicator-random-variable">indicator random variable</a>. Therefore, by <a class="knowledge-link" href="/probability/discrete_distributions.html#proposition-expectation-of-indicator">expectation of an indicator</a>,
+        \[
+            E \left( \chi _ { (a,b] } \left( X \right) \right)
+            =
+            E \left( \mathbf{ 1 } _ A \right)
+            =
+            P \left( A \right)
+            =
+            P \left( a \lt X \le b \right).
+        \]
+        By <a class="knowledge-link" href="/probability/continuous_distributions.html#lemma-density-determines-interval-probabilities">density determines interval probabilities</a>,
+        \[
+            P \left( a \lt X \le b \right)
+            =
+            \int _ a ^ b f \left( x \right) \, dx.
+        \]
+        Since \( \chi _ { (a,b] } \left( x \right) \) is \( 1 \) on \( (a,b] \) and \( 0 \) off \( (a,b] \),
+        \[
+            \int _ a ^ b f \left( x \right) \, dx
+            =
+            \int _ { -\infty } ^ \infty \chi _ { (a,b] } \left( x \right) f \left( x \right) \, dx.
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-expectation-of-function-of-continuous-random-variable">
+    <div class="title">
+        Expectation of a Function of a Continuous Random Variable
+    </div>
+    <div class="content">
+        If \( X \) has <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density</a> \( f \) and \( g: \mathbb{ R } \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a>, then
+        \[
+            E \left( g \left( X \right) \right)
+            =
+            \int _ { -\infty } ^ \infty g \left( x \right)f \left( x \right) \, dx,
+        \]
+        whenever the integral is defined.
+    </div>
+    <div class="proof">
+        The formula holds for interval indicators by <a class="knowledge-link" href="/probability/continuous_distributions.html#lemma-expectation-of-an-interval-indicator">expectation of an interval indicator</a>. By finite additivity and <a class="knowledge-link" href="/probability/expected_value.html#theorem-expectation-is-linear-finite-sums">linearity of expectation for finite sums</a>, the same formula holds for every non-negative simple function \( s \) built from finitely many intervals:
+        \[
+            E \left( s \left( X \right) \right)
+            =
+            \int _ { -\infty } ^ \infty s \left( x \right) f \left( x \right) \, dx.
+        \]
+        For a non-negative measurable function \( g \), choose an increasing sequence of non-negative simple functions \( s _ n \) with \( s _ n \left( x \right) \to g \left( x \right) \). Applying the simple-function case to each \( s _ n \), then using the <a class="knowledge-link" href="/measure_theory/integration.html#theorem-monotone-convergence">monotone convergence theorem</a> on both sides, gives
+        \[
+            E \left( g \left( X \right) \right)
+            =
+            \int _ { -\infty } ^ \infty g \left( x \right) f \left( x \right) \, dx.
+        \]
+        For a general measurable \( g \), apply the non-negative case to the <a class="knowledge-link" href="/measure_theory/integration.html#definition-positive-part-of-a-function">positive part</a> \( g ^ + \) and the <a class="knowledge-link" href="/measure_theory/integration.html#definition-negative-part-of-a-function">negative part</a> \( g ^ - \), then subtract, whenever the resulting integral is defined.
+    </div>
+</div>
+<div class="proposition" id="proposition-continuous-expectation-respects-scalar-multiplication">
+    <div class="title">
+        Continuous Expectation Respects Scalar Multiplication
+    </div>
+    <div class="content">
+        Suppose that \( X \) has <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density</a> \( f _ X \), \( g: \mathbb{ R } \to \mathbb{ R } \) is measurable, and \( a \in \mathbb{ R } \). If the expectations are defined, then
+        \[
+            E \left( a g \left( X \right) \right)
+            =
+            a E \left( g \left( X \right) \right).
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/probability/continuous_distributions.html#theorem-expectation-of-function-of-continuous-random-variable">expectation of a function of a continuous random variable</a>,
+        \[
+            E \left( a g \left( X \right) \right)
+            =
+            \int _ { -\infty } ^ \infty a g \left( x \right) f _ X \left( x \right) \, dx.
+        \]
+        Pulling the constant \( a \) out of the integral gives
+        \[
+            \int _ { -\infty } ^ \infty a g \left( x \right) f _ X \left( x \right) \, dx
+            =
+            a \int _ { -\infty } ^ \infty g \left( x \right) f _ X \left( x \right) \, dx.
+        \]
+        Applying <a class="knowledge-link" href="/probability/continuous_distributions.html#theorem-expectation-of-function-of-continuous-random-variable">expectation of a function of a continuous random variable</a> again gives
+        \[
+            a \int _ { -\infty } ^ \infty g \left( x \right) f _ X \left( x \right) \, dx
+            =
+            a E \left( g \left( X \right) \right).
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-continuous-expectation-is-linear-for-finite-sums">
+    <div class="title">
+        Continuous Expectation is Linear for Finite Sums
+    </div>
+    <div class="content">
+        Suppose that \( X _ 1,\ldots,X _ n \) are continuous random variables and \( g _ 1,\ldots,g _ n: \mathbb{ R } \to \mathbb{ R } \) are measurable functions. If the expectations are defined, then
+        \[
+            E \left( \sum _ { i=1 } ^ n g _ i \left( X _ i \right) \right)
+            =
+            \sum _ { i=1 } ^ n E \left( g _ i \left( X _ i \right) \right).
+        \]
+    </div>
+    <div class="proof">
+        This is the finite-sum case of <a class="knowledge-link" href="/probability/expected_value.html#theorem-expectation-is-linear-finite-sums">linearity of expectation</a>, applied to the random variables \( g _ 1 \left( X _ 1 \right),\ldots,g _ n \left( X _ n \right) \).
+    </div>
+</div>
+<div class="definition" id="definition-joint-density-function">
+    <div class="title">
+        Joint Density Function
+    </div>
+    <div class="content">
+        Random variables \( X \) and \( Y \) have joint density \( f _ { X,Y } \) if it is a two-variable analogue of a <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density function</a>: \( f _ { X,Y } \ge 0 \), \( \int _ { -\infty } ^ \infty \int _ { -\infty } ^ \infty f _ { X,Y } \left( x,y \right) \, dx \, dy = 1 \), and
+        \[
+            P \left( \left( X,Y \right) \in A \right)
+            =
+            \iint _ A f _ { X,Y } \left( x,y \right) \, dx \, dy
+        \]
+        for suitable sets \( A \subseteq \mathbb{ R } ^ 2 \).
+    </div>
+</div>
+<div class="lemma" id="lemma-continuous-marginal-density-functions">
+    <div class="title">
+        Continuous Marginal Density Functions
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) have <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-joint-density-function">joint density</a> \( f _ { X,Y } \), then their marginal densities are
+        \[
+            f _ X \left( x \right)
+            =
+            \int _ { -\infty } ^ \infty f _ { X,Y } \left( x,y \right) \, dy,
+            \qquad
+            f _ Y \left( y \right)
+            =
+            \int _ { -\infty } ^ \infty f _ { X,Y } \left( x,y \right) \, dx.
+        \]
     </div>
     <div class="proof"></div>
+</div>
+<div class="definition" id="definition-independent-continuous-random-variables">
+    <div class="title">
+        Independent Continuous Random Variables
+    </div>
+    <div class="content">
+        Continuous random variables \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent</a> if their joint density factors as
+        \[
+            f _ { X,Y } \left( x,y \right)
+            =
+            f _ X \left( x \right)f _ Y \left( y \right)
+        \]
+        for all \( x,y \) except possibly on a set of area zero.
+    </div>
+</div>
+<div class="definition" id="definition-conditional-density-function">
+    <div class="title">
+        Conditional Density Function
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) have <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-joint-density-function">joint density</a> and \( f _ X \left( x \right) \gt 0 \), the conditional density of \( Y \) given \( X=x \) is
+        \[
+            f _ { Y \mid X } \left( y \mid x \right)
+            =
+            \frac{f _ { X,Y } \left( x,y \right)}{f _ X \left( x \right)}.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-conditional-expectation-continuous-given-value">
+    <div class="title">
+        Continuous Conditional Expectation Given a Value
+    </div>
+    <div class="content">
+        If the <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-conditional-density-function">conditional density</a> \( f _ { Y \mid X } \left( y \mid x \right) \) is defined, then
+        \[
+            E \left( Y \mid X=x \right)
+            =
+            \int _ { -\infty } ^ \infty y f _ { Y \mid X } \left( y \mid x \right) \, dy,
+        \]
+        whenever the integral is defined.
+    </div>
+</div>
+<div class="theorem" id="theorem-continuous-convolution-formula">
+    <div class="title">
+        Continuous Convolution Formula
+    </div>
+    <div class="content">
+        If \( X \) and \( Y \) are <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-independent-continuous-random-variables">independent continuous random variables</a> with densities \( f _ X \) and \( f _ Y \), then \( X+Y \) has density
+        \[
+            f _ { X+Y } \left( z \right)
+            =
+            \int _ { -\infty } ^ \infty f _ X \left( x \right)f _ Y \left( z-x \right) \, dx.
+        \]
+    </div>
+    <div class="proof">
+        Integrate the joint density \( f _ X \left( x \right)f _ Y \left( y \right) \) over the region \( x+y \le z \), then differentiate with respect to \( z \).
+    </div>
+</div>
+<div class="theorem" id="theorem-change-of-variables-for-joint-densities">
+    <div class="title">
+        Change of Variables for Joint Densities
+    </div>
+    <div class="content">
+        Let \( \left( Y _ 1,Y _ 2 \right)=T\left( X _ 1,X _ 2 \right) \), where \( T \) is one-to-one and differentiable with differentiable inverse. If \( \left( X _ 1,X _ 2 \right) \) has <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-joint-density-function">joint density</a> \( f _ X \), then
+        \[
+            f _ Y \left( y _ 1,y _ 2 \right)
+            =
+            f _ X \left( T ^ { -1 } \left( y _ 1,y _ 2 \right) \right)
+            \left\lvert
+                \det \left[ D\left( T ^ { -1 } \right) \left( y _ 1,y _ 2 \right) \right] _ E
+            \right\rvert .
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-density-gives-zero-probability-to-points">
+    <div class="title">
+        Density Gives Zero Probability to Points
+    </div>
+    <div class="content">
+        If \( X \) has a <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-density-function">density function</a>, then
+        \[
+            P \left( X = a \right) = 0
+        \]
+        for every \( a \in \mathbb{ R } \).
+    </div>
+    <div class="proof">
+        Apply the definition of density to the interval \(I=\left[a,a\right]\). The integral of a density over a single point is \(0\), so \(P\left(X=a\right)=0\).
+    </div>
 </div>
 <div class="definition" id="definition-exponential-1-distribution">
     <div class="title">
         Exponential 1 Distribution
     </div>
     <div class="content">
-        Suppose that \( Z \) is a random varaible, then we write \( Z \sim \operatorname{ exp } \left( 1 \right) \) iff \[ Z = - \ln \left( U \right) \] where \( U \sim \operatorname{ unif } \left[ 0, 1 \right] \)
+        Suppose that \( Z \) is a random variable. We write \( Z \sim \operatorname{ exp } \left( 1 \right) \) iff \[ Z = - \ln \left( U \right) \] where \( U \) is a <a class="knowledge-link" href="/probability/continuous_distributions.html#definition-continuous-uniform-distribution">continuous uniform random variable</a> on \( \left[ 0,1 \right] \).
     </div>
 </div>
 <div class="corollary" id="corollary-probability-of-an-interval-in-the-exponential-distribution">
@@ -69,9 +508,9 @@
         Probability of an Interval in the Exponential Distribution
     </div>
     <div class="content">
-        Suppose that \( Z \sim \operatorname{ exp } \left( 1 \right) \), then \[ P \left( s \le Z \le t \right) = e ^ { -s } - e ^ { -t } \]
+        Suppose that \( Z \sim \operatorname{ exp } \left( 1 \right) \). Using <a class="knowledge-link" href="/probability/continuous_distributions.html#corollary-probability-of-an-interval-in-the-uniform-distribution">uniform interval probabilities</a>, \[ P \left( s \le Z \le t \right) = e ^ { -s } - e ^ { -t } \]
     </div>
     <div class="proof">
-        Observe that the following sets are equal: \[ \begin{align} s \le Z \le t &amp;\boldsymbol{=} s \le -\ln \left( U \right) \le t \\ &amp;\boldsymbol{=} -t \le \ln \left( U \right) \le -s \\ &amp;\boldsymbol{=} e ^ { -t } \le U \le e ^ { -s } \\ \end{align} \] therefore we know that \[ P \left( s \le Z \le t \right) = P \left( e ^ { -t } \le U \le e ^ { -s } \right) = e ^ { -s } - e ^ { -t } \]
+        Observe that the following sets are equal: \[ \begin{align} s \le Z \le t &\boldsymbol{=} s \le -\ln \left( U \right) \le t \\ &\boldsymbol{=} -t \le \ln \left( U \right) \le -s \\ &\boldsymbol{=} e ^ { -t } \le U \le e ^ { -s } \\ \end{align} \] therefore we know that \[ P \left( s \le Z \le t \right) = P \left( e ^ { -t } \le U \le e ^ { -s } \right) = e ^ { -s } - e ^ { -t } \]
     </div>
 </div>

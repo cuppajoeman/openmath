@@ -75,9 +75,10 @@
         Estimator
     </div>
     <div class="content">
-        Suppose that \( Q \) is a quantity to be estimated. An <b>estimator</b> for \( Q \) is a random variable \( \widehat{ Q } \) whose values are used as approximations to \( Q \).
+        Suppose that \( Q \in \mathbb{ R } \) is a fixed quantity to be estimated. An <b>estimator</b> for \( Q \) is a real-valued <a class="knowledge-link" href="/probability/random_variables.html#definition-random-variable">random variable</a> \( \widehat{ Q } \) whose values are used as approximations to \( Q \). In practice, \( \widehat{ Q } \) is often a function of random samples, so its value changes with the sampled outcomes while \( Q \) stays fixed.
     </div>
 </div>
+<p>For example, \( Q \) might be the true average height of every adult in a country. Measuring every adult is unrealistic, so we randomly sample some people and compute a sample average \( \widehat{Q} \). The true average \( Q \) is fixed, but the sample average \( \widehat{Q} \) is random because a different sample can give a different value.</p>
 
 <div class="definition" id="definition-unbiased-estimator">
     <div class="title">
@@ -96,7 +97,7 @@
         Biased Estimator
     </div>
     <div class="content">
-        Suppose that \( \widehat{ Q } \) is an <a class="knowledge-link" href="/probability/monte_carlo.html#definition-estimator">estimator</a> for \( Q \). The <b>bias</b> of \( \widehat{ Q } \) is
+        Suppose that \( \widehat{ Q } \) is an <a class="knowledge-link" href="/probability/monte_carlo.html#definition-estimator">estimator</a> for a fixed \( Q \in \mathbb{ R } \). The <b>bias</b> of \( \widehat{ Q } \) is the difference between the average value of the estimator and the target value:
         \[
             E \left( \widehat{ Q } \right) - Q.
         \]
@@ -136,7 +137,114 @@
             \int _ D f \left( x \right) \, d x.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/probability/expected_value.html#theorem-expectation-is-linear-finite-sums">linearity of expectation for finite sums</a>,
+        \[
+            E \left( F _ N \right)
+            =
+            E \left(
+                \frac{1}{N}
+                \sum _ { i=1 } ^ N
+                \frac{f \left( X _ i \right)}{p \left( X _ i \right)}
+            \right)
+            =
+            \frac{1}{N}
+            \sum _ { i=1 } ^ N
+            E \left(
+                \frac{f \left( X _ i \right)}{p \left( X _ i \right)}
+            \right).
+        \]
+        Since each \( X _ i \) has density \( p \), the expectation of the weighted sample is
+        \[
+            E \left(
+                \frac{f \left( X _ i \right)}{p \left( X _ i \right)}
+            \right)
+            =
+            \int _ D
+            \frac{f \left( x \right)}{p \left( x \right)}
+            p \left( x \right)
+            \, dx
+            =
+            \int _ D f \left( x \right) \, dx.
+        \]
+        Therefore
+        \[
+            E \left( F _ N \right)
+            =
+            \frac{1}{N}
+            \sum _ { i=1 } ^ N
+            \int _ D f \left( x \right) \, dx
+            =
+            \int _ D f \left( x \right) \, dx.
+        \]
+        By the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-unbiased-estimator">definition of unbiased estimator</a>, \( F _ N \) is unbiased for \( Q \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-uniform-monte-carlo-estimator-is-unbiased">
+    <div class="title">
+        Uniform Monte Carlo Estimator is Unbiased
+    </div>
+    <div class="content">
+        Suppose that \( a,b \in \mathbb{ R } \), \( a \lt b \), and \( f: [a,b] \to \mathbb{ R } \). If \( X _ 1,\ldots,X _ N \) are independent samples from the uniform density on \( [a,b] \), then
+        \[
+            F _ N
+            :=
+            \frac{b-a}{N}
+            \sum _ { i=1 } ^ N
+            f \left( X _ i \right)
+        \]
+        satisfies
+        \[
+            E \left( F _ N \right)
+            =
+            \int _ a ^ b f \left( x \right) \, dx.
+        \]
+    </div>
+    <div class="proof">
+        The uniform density on \( [a,b] \) is
+        \[
+            p \left( x \right)
+            =
+            \frac{1}{b-a}
+        \]
+        for \( x \in [a,b] \). By <a class="knowledge-link" href="/probability/expected_value.html#theorem-expectation-is-linear-finite-sums">linearity of expectation for finite sums</a>,
+        \[
+            E \left( F _ N \right)
+            =
+            E \left(
+                \frac{b-a}{N}
+                \sum _ { i=1 } ^ N
+                f \left( X _ i \right)
+            \right)
+            =
+            \frac{b-a}{N}
+            \sum _ { i=1 } ^ N
+            E \left( f \left( X _ i \right) \right).
+        \]
+        Since each \( X _ i \) has density \( p \), <a class="knowledge-link" href="/probability/continuous_distributions.html#theorem-expectation-of-function-of-continuous-random-variable">expectation of a function of a continuous random variable</a> gives
+        \[
+            E \left( f \left( X _ i \right) \right)
+            =
+            \int _ a ^ b f \left( x \right)p \left( x \right) \, dx
+            =
+            \int _ a ^ b f \left( x \right)\frac{1}{b-a} \, dx.
+        \]
+        Thus
+        \[
+            E \left( F _ N \right)
+            =
+            \frac{b-a}{N}
+            \sum _ { i=1 } ^ N
+            \int _ a ^ b f \left( x \right)\frac{1}{b-a} \, dx
+            =
+            \frac{1}{N}
+            \sum _ { i=1 } ^ N
+            \int _ a ^ b f \left( x \right) \, dx
+            =
+            \int _ a ^ b f \left( x \right) \, dx.
+        \]
+    </div>
 </div>
 
 <div class="proposition" id="proposition-variance-of-an-average-of-independent-identically-distributed-random-variables">
@@ -144,14 +252,199 @@
         Variance of an Average of Independent Identically Distributed Random Variables
     </div>
     <div class="content">
-        Suppose that \( X _ 1, \ldots, X _ N \) are independent identically distributed random variables with finite variance. Then
+        Suppose that \( X _ 1, \ldots, X _ N \) are <a class="knowledge-link" href="/probability/random_variables.html#definition-independent-random-variables-by-events">independent</a> identically distributed random variables with finite <a class="knowledge-link" href="/probability/expected_value.html#definition-variance">variance</a>. Then
         \[
             \operatorname{ Var } \left( \frac{1}{N} \sum _ { i = 1 } ^ N X _ i \right)
             =
             \frac{ \operatorname{ Var } \left( X _ 1 \right) }{ N }.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        Let
+        \[
+            S:=\sum _ { i=1 } ^ N X _ i.
+        \]
+        By <a class="knowledge-link" href="/probability/expected_value.html#theorem-expectation-is-linear-finite-sums">linearity of expectation</a>,
+        \[
+            E\left( S\right)
+            =
+            \sum _ { i=1 } ^ N E\left( X_i\right).
+        \]
+        Therefore
+        \[
+            S-E\left( S\right)
+            =
+            \sum _ { i=1 } ^ N
+            \left( X_i-E\left( X_i\right)\right).
+        \]
+        Now apply the <a class="knowledge-link" href="/probability/expected_value.html#definition-variance">definition of variance</a>:
+        \[
+            \operatorname{ Var }\left( S\right)
+            =
+            E\left(
+                \left(
+                    \sum _ { i=1 } ^ N
+                    \left( X_i-E\left( X_i\right)\right)
+                \right)^2
+            \right).
+        \]
+        To see the square expansion, first use distributivity on an arbitrary finite sum:
+        \[
+            \left( \sum _ { i=1 } ^ N Y_i \right)^2
+            =
+            \left( \sum _ { i=1 } ^ N Y_i \right)
+            \left( \sum _ { j=1 } ^ N Y_j \right)
+            =
+            \sum _ { i=1 } ^ N
+            \sum _ { j=1 } ^ N
+            Y_iY_j.
+        \]
+        The terms with \( i=j \) are the diagonal terms \( Y_i^2 \). The terms with \( i\ne j \) occur in pairs: for each \( i\lt j \), the double sum contains both \( Y_iY_j \) and \( Y_jY_i \), and these are equal. Hence
+        \[
+            \left( \sum _ { i=1 } ^ N Y_i \right)^2
+            =
+            \sum _ { i=1 } ^ N Y_i^2
+            +
+            2
+            \sum _ { 1\le i\lt j\le N }
+            Y_iY_j.
+        \]
+        Applying this with \( Y_i=X_i-E\left( X_i\right) \) gives
+        \[
+            \left(
+                \sum _ { i=1 } ^ N
+                \left( X_i-E\left( X_i\right)\right)
+            \right)^2
+            =
+            \sum _ { i=1 } ^ N
+            \left( X_i-E\left( X_i\right)\right)^2
+            +
+            2
+            \sum _ { 1\le i\lt j\le N }
+            \left( X_i-E\left( X_i\right)\right)
+            \left( X_j-E\left( X_j\right)\right).
+        \]
+        Taking expectations and using <a class="knowledge-link" href="/probability/expected_value.html#theorem-expectation-is-linear-finite-sums">linearity of expectation</a>,
+        \[
+            \operatorname{ Var } \left( \sum _ { i=1 } ^ N X _ i \right)
+            =
+            \sum _ { i=1 } ^ N
+            E\left( \left( X_i-E\left( X_i\right)\right)^2\right)
+            +
+            2
+            \sum _ { 1\le i\lt j\le N }
+            E\left(
+                \left( X_i-E\left( X_i\right)\right)
+                \left( X_j-E\left( X_j\right)\right)
+            \right).
+        \]
+        The first expectation is \( \operatorname{ Var}\left( X_i\right) \) by the <a class="knowledge-link" href="/probability/expected_value.html#definition-variance">definition of variance</a>. The second expectation is \( \operatorname{ Cov}\left( X_i,X_j\right) \) by the <a class="knowledge-link" href="/probability/expected_value.html#definition-covariance">definition of covariance</a>. Hence
+        \[
+            \operatorname{ Var } \left( \sum _ { i=1 } ^ N X _ i \right)
+            =
+            \sum _ { i=1 } ^ N \operatorname{ Var } \left( X _ i \right)
+            +
+            2 \sum _ { 1 \le i \lt j \le N }
+            \operatorname{ Cov } \left( X _ i,X _ j \right).
+        \]
+        Since the random variables are independent, they are <a class="knowledge-link" href="/probability/expected_value.html#definition-uncorrelated-random-variables">uncorrelated</a>, so each covariance term is \( 0 \). Since they are identically distributed, each variance is \( \operatorname{ Var } \left( X _ 1 \right) \). Therefore
+        \[
+            \operatorname{ Var } \left( \sum _ { i=1 } ^ N X _ i \right)
+            =
+            N \operatorname{ Var } \left( X _ 1 \right).
+        \]
+        Finally, scaling by \( 1/N \) scales variance by \( 1/N^2 \), so
+        \[
+            \operatorname{ Var } \left( \frac{1}{N}\sum _ { i=1 } ^ N X _ i \right)
+            =
+            \frac{1}{N^2}
+            N\operatorname{ Var } \left( X _ 1 \right)
+            =
+            \frac{\operatorname{ Var } \left( X _ 1 \right)}{N}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-monte-carlo-estimator-variance">
+    <div class="title">
+        Monte Carlo Estimator Variance
+    </div>
+    <div class="content">
+        Under the hypotheses of the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-monte-carlo-estimator">Monte Carlo estimator</a>, define
+        \[
+            Y
+            :=
+            \frac{f \left( X _ 1 \right)}{p \left( X _ 1 \right)}.
+        \]
+        If \( Y \) has finite <a class="knowledge-link" href="/probability/expected_value.html#definition-variance">variance</a>, then
+        \[
+            \operatorname{ Var } \left( F _ N \right)
+            =
+            \frac{\operatorname{ Var} \left( Y \right)}{N}.
+        \]
+    </div>
+    <div class="proof">
+        The random variables \( f \left( X _ i \right)/p \left( X _ i \right) \) are independent and identically distributed because the samples \( X _ 1,\ldots,X _ N \) are independent and identically distributed. Apply <a class="knowledge-link" href="/probability/monte_carlo.html#proposition-variance-of-an-average-of-independent-identically-distributed-random-variables">variance of an average of independent identically distributed random variables</a> to
+        \[
+            F _ N
+            =
+            \frac{1}{N}
+            \sum _ { i=1 } ^ N
+            \frac{f \left( X _ i \right)}{p \left( X _ i \right)}.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-mean-squared-error">
+    <div class="title">
+        Mean Squared Error
+    </div>
+    <div class="content">
+        Suppose that \( \widehat{Q} \) is an <a class="knowledge-link" href="/probability/monte_carlo.html#definition-estimator">estimator</a> for \( Q \). The <b>mean squared error</b> of \( \widehat{Q} \) is
+        \[
+            \operatorname{ MSE } \left( \widehat{Q} \right)
+            :=
+            E \left( \left( \widehat{Q}-Q \right)^2 \right).
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-unbiased-estimator-mse-is-variance">
+    <div class="title">
+        Unbiased Estimator MSE is Variance
+    </div>
+    <div class="content">
+        If \( \widehat{Q} \) is an <a class="knowledge-link" href="/probability/monte_carlo.html#definition-unbiased-estimator">unbiased estimator</a> for \( Q \), then
+        \[
+            \operatorname{ MSE } \left( \widehat{Q} \right)
+            =
+            \operatorname{ Var } \left( \widehat{Q} \right).
+        \]
+    </div>
+    <div class="proof">
+        Since \( \widehat{Q} \) is unbiased, \( E \left( \widehat{Q} \right)=Q \). Substituting this into the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-mean-squared-error">mean squared error</a> gives
+        \[
+            \operatorname{ MSE } \left( \widehat{Q} \right)
+            =
+            E \left( \left( \widehat{Q}-E \left( \widehat{Q} \right) \right)^2 \right),
+        \]
+        which is exactly the <a class="knowledge-link" href="/probability/expected_value.html#definition-variance">variance</a> of \( \widehat{Q} \).
+    </div>
+</div>
+
+<div class="definition" id="definition-monte-carlo-efficiency">
+    <div class="title">
+        Monte Carlo Efficiency
+    </div>
+    <div class="content">
+        If \( F \) is an <a class="knowledge-link" href="/probability/monte_carlo.html#definition-estimator">estimator</a> with finite positive <a class="knowledge-link" href="/probability/expected_value.html#definition-variance">variance</a> and expected runtime \( T \left( F \right) \), its <b>Monte Carlo efficiency</b> is
+        \[
+            \epsilon \left[ F \right]
+            :=
+            \frac{1}
+            {\operatorname{ Var } \left( F \right) T \left( F \right)}.
+        \]
+    </div>
 </div>
 
 <div class="definition" id="definition-sample-variance">
@@ -189,6 +482,59 @@
     </div>
 </div>
 
+<p>The inversion method is one way to turn a uniform random number into a random variable with a desired distribution. Start with \(U\), which is uniformly distributed on \([0,1]\). If the desired cumulative distribution function is \(F\), then the interval \([0,F(x)]\) has length \(F(x)\), so \(P\left(U\le F(x)\right)=F(x)\). Choosing \(X=F^{-1}(U)\) makes the event \(X\le x\) match the event \(U\le F(x)\). Thus the transformation \(F^{-1}\) reshapes uniform randomness so that the output \(X\) has distribution \(F\).</p>
+
+<div class="definition" id="definition-discrete-inversion-method">
+    <div class="title">
+        Discrete Inversion Method
+    </div>
+    <div class="content">
+        Suppose that \( x _ 1,x _ 2,\ldots \) are possible values with probabilities \( p _ i \ge 0 \) and
+        \[
+            \sum _ i p _ i = 1.
+        \]
+        Let
+        \[
+            P _ i
+            :=
+            \sum _ { j=1 } ^ i p _ j.
+        \]
+        If \( U \sim \operatorname{ unif }[0,1] \), the <b>discrete inversion method</b> returns \( x _ i \) when
+        \[
+            P _ { i-1 } \le U \lt P _ i,
+        \]
+        where \( P _ 0 := 0 \).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-discrete-inversion-method-has-the-target-probabilities">
+    <div class="title">
+        Discrete Inversion Method Has the Target Probabilities
+    </div>
+    <div class="content">
+        Under the hypotheses of the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-discrete-inversion-method">discrete inversion method</a>,
+        \[
+            P \left( X=x _ i \right)
+            =
+            p _ i.
+        \]
+    </div>
+    <div class="proof">
+        The event \( \left\{ X=x _ i \right\} \) is the event \( \left\{ P _ { i-1 } \le U \lt P _ i \right\} \). Since \( U \) is uniform on \( [0,1] \), the probability of this interval is its length:
+        \[
+            P \left( X=x _ i \right)
+            =
+            P _ i-P _ { i-1 }
+            =
+            \sum _ { j=1 } ^ i p _ j
+            -
+            \sum _ { j=1 } ^ { i-1 } p _ j
+            =
+            p _ i.
+        \]
+    </div>
+</div>
+
 <div class="theorem" id="theorem-inversion-method-samples-from-the-target-distribution">
     <div class="title">
         Inversion Method Samples from the Target Distribution
@@ -196,7 +542,99 @@
     <div class="content">
         Suppose that \( F \) is an invertible <a class="knowledge-link" href="/probability/monte_carlo.html#definition-cumulative-distribution-function">cumulative distribution function</a>, \( U \sim \operatorname{ unif } [0,1] \), and \( X = F ^ { -1 } \left( U \right) \). Then \( X \) has cumulative distribution function \( F \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        For any \( x \in \mathbb{ R } \),
+        \[
+            P \left( X \le x \right)
+            =
+            P \left( F ^ { -1 } \left( U \right) \le x \right).
+        \]
+        Since a cumulative distribution function is non-decreasing, applying \( F \) to both sides gives the equivalent event \( \left\{ U \le F \left( x \right) \right\} \). Because \( U \sim \operatorname{ unif }[0,1] \),
+        \[
+            P \left( F ^ { -1 } \left( U \right) \le x \right)
+            =
+            P \left( U \le F \left( x \right) \right)
+            =
+            F \left( x \right).
+        \]
+        Therefore the cumulative distribution function of \( X \) is \( F \).
+    </div>
+</div>
+
+<p>For example, suppose we want density \(p(x)=2x\) on \([0,1]\). Its cumulative distribution function is \(F(x)=x^2\). If \(U\) is uniform on \([0,1]\), set \(X=\sqrt{U}\). Then
+\[
+    P\left(X\le x\right)
+    =
+    P\left(\sqrt{U}\le x\right)
+    =
+    P\left(U\le x^2\right)
+    =
+    x^2,
+\]
+so \(X\) has density \(2x\). The random number generator only produced a uniform value; the transformation \(u\mapsto\sqrt{u}\) changed how often different output values occur.</p>
+
+<div class="definition" id="definition-linear-function-density">
+    <div class="title">
+        Linear Function Density
+    </div>
+    <div class="content">
+        Suppose that \( a,b \in [0,\infty) \), not both \( 0 \), and define \( f: [0,1] \to \mathbb{ R } \) by
+        \[
+            f \left( x \right)
+            =
+            \left( 1-x \right)a+xb.
+        \]
+        The normalized density proportional to \( f \) is
+        \[
+            p \left( x \right)
+            =
+            \frac{2f \left( x \right)}{a+b}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-inversion-sampling-for-a-linear-function-density">
+    <div class="title">
+        Inversion Sampling for a Linear Function Density
+    </div>
+    <div class="content">
+        Under the hypotheses of <a class="knowledge-link" href="/probability/monte_carlo.html#definition-linear-function-density">linear function density</a>, if \( U \sim \operatorname{ unif }[0,1] \), then a sample from density \( p \) is
+        \[
+            X
+            =
+            \frac
+            {a-\sqrt{\left( 1-U \right)a^2+Ub^2}}
+            {a-b},
+        \]
+        when \( a \ne b \). Equivalently, to avoid cancellation,
+        \[
+            X
+            =
+            \frac{U\left( a+b \right)}
+            {a+\sqrt{\left( 1-U \right)a^2+Ub^2}}.
+        \]
+    </div>
+    <div class="proof">
+        The cumulative distribution function of \( p \) is
+        \[
+            F \left( x \right)
+            =
+            \int _ 0 ^ x
+            \frac{2\left( \left( 1-t \right)a+tb \right)}{a+b}
+            \, dt
+            =
+            \frac{x\left( a\left( 2-x \right)+bx \right)}{a+b}.
+        \]
+        Setting \( U=F \left( X \right) \) gives a quadratic equation in \( X \). Solving the quadratic and choosing the root in \( [0,1] \) gives
+        \[
+            X
+            =
+            \frac
+            {a-\sqrt{\left( 1-U \right)a^2+Ub^2}}
+            {a-b}.
+        \]
+        Multiplying numerator and denominator by \( a+\sqrt{\left( 1-U \right)a^2+Ub^2} \) gives the equivalent form.
+    </div>
 </div>
 
 <div class="theorem" id="theorem-change-of-variables-for-density-functions">
@@ -209,10 +647,82 @@
             p _ Y \left( y \right)
             =
             \frac{ p _ X \left( T ^ { -1 } \left( y \right) \right) }
-                 { \left\lvert \det D T \left( T ^ { -1 } \left( y \right) \right) \right\rvert }.
+                 { \left\lvert \det \left[ DT \left( T ^ { -1 } \left( y \right) \right) \right] _ E \right\rvert }.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        For every suitable set \( A \subseteq \mathbb{ R } ^ n \),
+        \[
+            P \left( Y \in A \right)
+            =
+            P \left( X \in T ^ { -1 } \left( A \right) \right)
+            =
+            \int _ { T ^ { -1 } \left( A \right) } p _ X \left( x \right) \, dx.
+        \]
+        By the multivariable change of variables formula, with \( y=T\left( x \right) \),
+        \[
+            \int _ { T ^ { -1 } \left( A \right) } p _ X \left( x \right) \, dx
+            =
+            \int _ A
+            \frac{ p _ X \left( T ^ { -1 } \left( y \right) \right) }
+                 { \left\lvert \det \left[ DT \left( T ^ { -1 } \left( y \right) \right) \right] _ E \right\rvert }
+            \, dy.
+        \]
+        Since this holds for every suitable \( A \), the displayed integrand is the density of \( Y \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-one-dimensional-density-transformation">
+    <div class="title">
+        One Dimensional Density Transformation
+    </div>
+    <div class="content">
+        Suppose that \( X \) has density \( p _ X \), and \( T: \mathbb{ R } \to \mathbb{ R } \) is differentiable and one-to-one with \( T ^ \prime \left( x \right) \ne 0 \). If \( Y=T\left( X \right) \), then
+        \[
+            p _ Y \left( y \right)
+            =
+            \frac{p _ X \left( T ^ { -1 } \left( y \right) \right)}
+            {\left\lvert T ^ \prime \left( T ^ { -1 } \left( y \right) \right) \right\rvert}.
+        \]
+    </div>
+    <div class="proof">
+        This is the one-dimensional case of <a class="knowledge-link" href="/probability/monte_carlo.html#theorem-change-of-variables-for-density-functions">change of variables for density functions</a>, where the Jacobian determinant is \( T ^ \prime \).
+    </div>
+</div>
+
+<div class="corollary" id="corollary-polar-coordinate-density-transformation">
+    <div class="title">
+        Polar Coordinate Density Transformation
+    </div>
+    <div class="content">
+        Under the polar coordinate map \( T \left( r,\theta \right)=\left( r\cos\theta,r\sin\theta \right) \),
+        \[
+            p _ { R,\Theta } \left( r,\theta \right)
+            =
+            r\,p _ { X,Y } \left( r\cos\theta,r\sin\theta \right).
+        \]
+    </div>
+    <div class="proof">
+        The absolute value of the Jacobian determinant of the polar coordinate map is \( r \). Apply <a class="knowledge-link" href="/probability/monte_carlo.html#theorem-change-of-variables-for-density-functions">change of variables for density functions</a>.
+    </div>
+</div>
+
+<div class="corollary" id="corollary-spherical-coordinate-density-transformation">
+    <div class="title">
+        Spherical Coordinate Density Transformation
+    </div>
+    <div class="content">
+        Under the spherical coordinate map \( T \left( r,\theta,\phi \right)=\left( r\sin\theta\cos\phi,r\sin\theta\sin\phi,r\cos\theta \right) \),
+        \[
+            p _ { R,\Theta,\Phi } \left( r,\theta,\phi \right)
+            =
+            r^2\sin\theta\,
+            p _ { X,Y,Z } \left( T \left( r,\theta,\phi \right) \right).
+        \]
+    </div>
+    <div class="proof">
+        The absolute value of the Jacobian determinant of the spherical coordinate map is \( r^2\sin\theta \). Apply <a class="knowledge-link" href="/probability/monte_carlo.html#theorem-change-of-variables-for-density-functions">change of variables for density functions</a>.
+    </div>
 </div>
 
 <div class="definition" id="definition-stratified-sampling">
@@ -220,7 +730,25 @@
         Stratified Sampling
     </div>
     <div class="content">
-        Suppose that a domain \( D \) is partitioned into disjoint measurable sets \( D _ 1, \ldots, D _ m \). <b>Stratified sampling</b> is the practice of estimating an integral over \( D \) by taking samples separately within each stratum \( D _ i \) and combining the resulting estimates.
+        Suppose that a domain \( D \) is <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-partition">partitioned</a> into <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-disjoint-sets">disjoint</a> measurable sets \( D _ 1, \ldots, D _ m \). <b>Stratified sampling</b> is the practice of estimating an integral over \( D \) by taking samples separately within each stratum \( D _ i \) and combining the resulting estimates.
+    </div>
+</div>
+
+<div class="definition" id="definition-stratified-monte-carlo-estimator">
+    <div class="title">
+        Stratified Monte Carlo Estimator
+    </div>
+    <div class="content">
+        Suppose that \( D \) is partitioned into measurable strata \( D _ 1,\ldots,D _ m \), with \( v _ i \) denoting the measure of \( D _ i \). If \( F _ i \) is a Monte Carlo estimator for
+        \[
+            \frac{1}{v _ i}\int _ { D _ i } f \left( x \right)\,dx,
+        \]
+        then the <b>stratified Monte Carlo estimator</b> is
+        \[
+            F
+            :=
+            \sum _ { i=1 } ^ m v _ i F _ i.
+        \]
     </div>
 </div>
 
@@ -229,9 +757,48 @@
         Stratified Sampling Does Not Increase Variance
     </div>
     <div class="content">
-        For an integral estimator with a fixed total number of samples, stratifying the domain and sampling each stratum proportionally to its measure does not increase variance compared with unstratified sampling from the whole domain.
+        Suppose that \( D \) is partitioned into measurable strata \( D _ 1,\ldots,D _ m \), and samples are allocated proportionally to stratum measure: \( n _ i = v _ iN \). If \( \mu _ i \) and \( \sigma _ i ^ 2 \) are the mean and variance of \( f \) under the uniform distribution on \( D _ i \), and \( Q \) is the mean of \( f \) under the uniform distribution on \( D \), then the stratified estimator has variance
+        \[
+            \operatorname{ Var } \left( F \right)
+            =
+            \frac{1}{N}
+            \sum _ { i=1 } ^ m v _ i\sigma _ i ^ 2,
+        \]
+        while the unstratified estimator has variance
+        \[
+            \frac{1}{N}
+            \left(
+                \sum _ { i=1 } ^ m v _ i\sigma _ i ^ 2
+                +
+                \sum _ { i=1 } ^ m v _ i\left( \mu _ i-Q \right)^2
+            \right).
+        \]
+        Hence stratification does not increase variance.
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        For stratum \( D _ i \), averaging \( n _ i \) independent samples gives variance \( \sigma _ i ^ 2/n _ i \) by <a class="knowledge-link" href="/probability/monte_carlo.html#proposition-variance-of-an-average-of-independent-identically-distributed-random-variables">variance of an average of independent identically distributed random variables</a>. The stratified estimator is \( F=\sum_i v_iF_i \), so independence of samples across strata gives
+        \[
+            \operatorname{ Var } \left( F \right)
+            =
+            \sum _ { i=1 } ^ m
+            v _ i ^ 2
+            \operatorname{ Var } \left( F _ i \right)
+            =
+            \sum _ { i=1 } ^ m
+            v _ i ^ 2
+            \frac{\sigma _ i ^ 2}{n _ i}.
+        \]
+        Substituting \( n _ i=v _ iN \) gives the displayed stratified variance.
+        <p>For unstratified sampling, the total variance decomposes into the average within-stratum variance plus the variance of the stratum means:</p>
+        \[
+            \operatorname{ Var } \left( f\left( X \right) \right)
+            =
+            \sum _ { i=1 } ^ m v _ i\sigma _ i ^ 2
+            +
+            \sum _ { i=1 } ^ m v _ i\left( \mu _ i-Q \right)^2.
+        \]
+        Averaging \( N \) independent samples divides this by \( N \). Since each term \( v _ i\left( \mu _ i-Q \right)^2 \ge 0 \), the stratified variance is no larger.
+    </div>
 </div>
 
 <div class="definition" id="definition-importance-sampling">
@@ -251,6 +818,42 @@
     </div>
 </div>
 
+<p>For example, to estimate \( \int_0^1 x^2\,dx \), ordinary uniform sampling uses \( X\in[0,1] \) with density \( p\left(x\right)=1 \), so each weighted term is \( X^2 \). Importance sampling could instead use the density \( p\left(x\right)=2x \), which samples more often near \(1\), where \(x^2\) is larger. Then each weighted term is \( X^2 / \left(2X\right)=X/2 \), for samples \(X\gt0\).</p>
+
+<div class="proposition" id="proposition-ideal-importance-sampling-has-zero-variance-for-nonnegative-integrands">
+    <div class="title">
+        Ideal Importance Sampling Has Zero Variance for Nonnegative Integrands
+    </div>
+    <div class="content">
+        Suppose that \( f:D\to[0,\infty) \) and \( 0 \lt \int _ D f\left( x\right)\,dx \lt \infty \). If
+        \[
+            p \left( x \right)
+            =
+            \frac{f \left( x \right)}
+            {\int _ D f \left( t \right)\,dt},
+        \]
+        then each importance sampling term satisfies
+        \[
+            \frac{f\left( X \right)}{p\left( X \right)}
+            =
+            \int _ D f \left( t \right)\,dt.
+        \]
+        Hence the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-monte-carlo-estimator">Monte Carlo estimator</a> has zero variance.
+    </div>
+    <div class="proof">
+        By the definition of \( p \),
+        \[
+            \frac{f\left( X \right)}{p\left( X \right)}
+            =
+            \frac{f\left( X \right)}
+            {f\left( X \right)/\int_D f\left( t\right)\,dt}
+            =
+            \int _ D f\left( t\right)\,dt,
+        \]
+        whenever \( f\left( X\right)\ne 0 \). When \( f\left( X\right)=0 \), this value occurs only where the density also vanishes and does not affect the estimator. Thus the estimator is constant almost surely, and a constant random variable has variance \( 0 \).
+    </div>
+</div>
+
 <div class="definition" id="definition-multiple-importance-sampling">
     <div class="title">
         Multiple Importance Sampling
@@ -260,6 +863,62 @@
         \[
             w _ i \left( X \right)
             \frac{ f \left( X \right) }{ p _ i \left( X \right) }.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-multiple-importance-sampling-estimator">
+    <div class="title">
+        Multiple Importance Sampling Estimator
+    </div>
+    <div class="content">
+        Suppose that \( p _ 1,\ldots,p _ m \) are sampling densities and that \( X _ { i,j } \) is sampled from \( p _ i \), for \( 1\le j\le n _ i \). The <b>multiple importance sampling estimator</b> is
+        \[
+            F
+            :=
+            \sum _ { i=1 } ^ m
+            \frac{1}{n _ i}
+            \sum _ { j=1 } ^ { n _ i }
+            w _ i \left( X _ { i,j } \right)
+            \frac{f \left( X _ { i,j } \right)}
+            {p _ i \left( X _ { i,j } \right)}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-multiple-importance-sampling-unbiasedness-conditions">
+    <div class="title">
+        Multiple Importance Sampling Unbiasedness Conditions
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/probability/monte_carlo.html#definition-multiple-importance-sampling-estimator">multiple importance sampling estimator</a> is unbiased for \( \int_D f\left( x\right)\,dx \) if, whenever \( f\left( x\right)\ne 0 \),
+        \[
+            \sum _ { i=1 } ^ m w _ i \left( x \right)=1,
+        \]
+        and \( w _ i\left( x\right)=0 \) whenever \( p _ i\left( x\right)=0 \).
+    </div>
+    <div class="proof">
+        Using <a class="knowledge-link" href="/probability/expected_value.html#theorem-expectation-is-linear-finite-sums">linearity of expectation</a> and the definition of density,
+        \[
+            E \left( F \right)
+            =
+            \sum _ { i=1 } ^ m
+            \int _ D
+            w _ i \left( x \right)
+            \frac{f \left( x \right)}{p _ i \left( x \right)}
+            p _ i \left( x \right)
+            \, dx.
+        \]
+        The condition \( w_i\left( x\right)=0 \) where \( p_i\left( x\right)=0 \) makes the terms well-defined, and the remaining factors cancel:
+        \[
+            E \left( F \right)
+            =
+            \int _ D
+            f \left( x \right)
+            \sum _ { i=1 } ^ m w _ i \left( x \right)
+            \, dx
+            =
+            \int _ D f \left( x \right)\,dx.
         \]
     </div>
 </div>
@@ -279,6 +938,34 @@
     </div>
 </div>
 
+<div class="proposition" id="proposition-balance-heuristic-weights-sum-to-one">
+    <div class="title">
+        Balance Heuristic Weights Sum to One
+    </div>
+    <div class="content">
+        If \( \sum_j n_jp_j\left( x\right)\ne 0 \), the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-balance-heuristic">balance heuristic</a> weights satisfy
+        \[
+            \sum _ { i=1 } ^ m w _ i \left( x \right)=1.
+        \]
+    </div>
+    <div class="proof">
+        Substitute the definition:
+        \[
+            \sum _ { i=1 } ^ m
+            w _ i \left( x \right)
+            =
+            \sum _ { i=1 } ^ m
+            \frac{n_i p_i\left( x\right)}
+            {\sum_j n_jp_j\left( x\right)}
+            =
+            \frac{\sum_i n_i p_i\left( x\right)}
+            {\sum_j n_jp_j\left( x\right)}
+            =
+            1.
+        \]
+    </div>
+</div>
+
 <div class="definition" id="definition-power-heuristic">
     <div class="title">
         Power Heuristic
@@ -294,6 +981,22 @@
     </div>
 </div>
 
+<div class="definition" id="definition-mis-compensation">
+    <div class="title">
+        MIS Compensation
+    </div>
+    <div class="content">
+        Given a density \( p \) and \( \delta \ge 0 \), the <b>MIS compensated density</b> is
+        \[
+            p ^ \prime \left( x \right)
+            :=
+            \frac{\max \left( 0,p\left( x\right)-\delta \right)}
+            {\int_D \max \left( 0,p\left( t\right)-\delta \right)\,dt},
+        \]
+        whenever the denominator is positive.
+    </div>
+</div>
+
 <div class="definition" id="definition-russian-roulette-estimator">
     <div class="title">
         Russian Roulette Estimator
@@ -304,8 +1007,8 @@
             Y
             :=
             \begin{cases}
-                X / q &amp; B = 1, \\
-                0 &amp; B = 0.
+                X / q & B = 1, \\
+                0 & B = 0.
             \end{cases}
         \]
     </div>
@@ -321,5 +1024,139 @@
             E \left( Y \right) = Q.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        By conditioning on the two values of the <a class="knowledge-link" href="/probability/discrete_distributions.html#definition-bernoulli-random-variable">Bernoulli random variable</a> \( B \),
+        \[
+            E \left( Y \right)
+            =
+            P \left( B=1 \right)E \left( X/q \right)
+            +
+            P \left( B=0 \right)E \left( 0 \right).
+        \]
+        Since \( P\left( B=1\right)=q \) and constants pull out of expectation,
+        \[
+            E \left( Y \right)
+            =
+            q\frac{1}{q}E\left( X\right)
+            =
+            E\left( X\right).
+        \]
+        Since \( X \) is unbiased for \( Q \), \( E\left( X\right)=Q \).
+    </div>
+</div>
+
+<div class="definition" id="definition-russian-roulette-estimator-with-a-fallback-value">
+    <div class="title">
+        Russian Roulette Estimator with a Fallback Value
+    </div>
+    <div class="content">
+        Suppose that \( F \) is an estimator, \( q \in [0,1) \), \( c \in \mathbb{ R } \), and \( U\sim\operatorname{ unif }[0,1] \). The <b>Russian roulette estimator with fallback value</b> is
+        \[
+            F ^ \prime
+            :=
+            \begin{cases}
+                \dfrac{F-qc}{1-q}, & U \gt q,\\
+                c, & U \le q.
+            \end{cases}
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-russian-roulette-with-a-fallback-value-preserves-expectation">
+    <div class="title">
+        Russian Roulette with a Fallback Value Preserves Expectation
+    </div>
+    <div class="content">
+        Under the hypotheses of <a class="knowledge-link" href="/probability/monte_carlo.html#definition-russian-roulette-estimator-with-a-fallback-value">Russian roulette estimator with a fallback value</a>,
+        \[
+            E \left( F ^ \prime \right)
+            =
+            E \left( F \right).
+        \]
+    </div>
+    <div class="proof">
+        Since \( P\left( U\le q\right)=q \) and \( P\left( U\gt q\right)=1-q \),
+        \[
+            E \left( F ^ \prime \right)
+            =
+            \left( 1-q \right)
+            E \left( \frac{F-qc}{1-q} \right)
+            +
+            q c.
+        \]
+        Pulling constants out of expectation gives
+        \[
+            E \left( F ^ \prime \right)
+            =
+            E \left( F \right)-qc+qc
+            =
+            E \left( F \right).
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-splitting-estimator">
+    <div class="title">
+        Splitting Estimator
+    </div>
+    <div class="content">
+        Suppose that \( X _ 1,\ldots,X _ n \) are samples from a density \( p_X \), and for each \( X_i \), the conditional samples \( Y _ { i,1},\ldots,Y _ { i,m } \) are drawn from a conditional density \( p _ { Y \mid X } \left( y \mid X_i \right) \). The <b>splitting estimator</b> for
+        \[
+            \int_A \int_B f\left( x,y\right)\,dy\,dx
+        \]
+        is
+        \[
+            F
+            :=
+            \frac{1}{n}
+            \sum _ { i=1 } ^ n
+            \frac{1}{m}
+            \sum _ { j=1 } ^ m
+            \frac{f\left( X_i,Y_{i,j}\right)}
+            {p_X\left( X_i\right)p_{Y\mid X}\left( Y_{i,j}\mid X_i\right)}.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-splitting-estimator-is-unbiased">
+    <div class="title">
+        Splitting Estimator is Unbiased
+    </div>
+    <div class="content">
+        Under the hypotheses of the <a class="knowledge-link" href="/probability/monte_carlo.html#definition-splitting-estimator">splitting estimator</a>,
+        \[
+            E \left( F \right)
+            =
+            \int_A \int_B f\left( x,y\right)\,dy\,dx.
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/probability/expected_value.html#theorem-expectation-is-linear-finite-sums">linearity of expectation</a>,
+        \[
+            E\left( F\right)
+            =
+            \frac{1}{n}
+            \sum _ { i=1 } ^ n
+            \frac{1}{m}
+            \sum _ { j=1 } ^ m
+            E\left(
+                \frac{f\left( X_i,Y_{i,j}\right)}
+                {p_X\left( X_i\right)p_{Y\mid X}\left( Y_{i,j}\mid X_i\right)}
+            \right).
+        \]
+        For each \( i,j \), use the joint density factorization \( p\left( x,y\right)=p_X\left( x\right)p_{Y\mid X}\left( y\mid x\right) \):
+        \[
+            E\left(
+                \frac{f\left( X_i,Y_{i,j}\right)}
+                {p_X\left( X_i\right)p_{Y\mid X}\left( Y_{i,j}\mid X_i\right)}
+            \right)
+            =
+            \int_A\int_B
+            \frac{f\left( x,y\right)}
+            {p_X\left( x\right)p_{Y\mid X}\left( y\mid x\right)}
+            p_X\left( x\right)p_{Y\mid X}\left( y\mid x\right)
+            \,dy\,dx.
+        \]
+        The density factors cancel, so each summand has expectation \( \int_A\int_B f\left( x,y\right)\,dy\,dx \). Averaging \( nm \) identical expectations leaves that same integral.
+    </div>
 </div>
