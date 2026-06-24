@@ -32,7 +32,9 @@
     <div class="content">
         Suppose that \( \nu \) is a <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#definition-signed-measure">signed measure</a> on \( \left( X,\mathcal{ S } \right) \). Then there exist disjoint sets \( P,N \in \mathcal{ S } \) such that \( X = P \cup N \), \( P \) is positive for \( \nu \), and \( N \) is negative for \( \nu \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let \( \alpha=\sup \nu\left( E\right) \), where \( E\in\mathcal{ S} \) and \( \nu\left( E\right)\lt\infty \). Choose sets \( E_n \) with \( \nu\left( E_n\right)\to\alpha \), and put \( P=\bigcup_n E_n \). Countable additivity of the <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#definition-signed-measure">signed measure</a> shows that every measurable subset of \( P \) has nonnegative measure; otherwise replacing \( P \) by its complement relative to that subset would increase the supremum. Then \( N=X\setminus P \) is negative by the same maximality argument. Thus \( X=P\cup N \) is the desired Hahn decomposition.</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-mutually-singular-measures">
@@ -65,7 +67,15 @@
             \nu ^ + \perp \nu ^ - .
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let \( X=P\cup N \) be a <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#theorem-hahn-decomposition-theorem">Hahn decomposition</a>. Define
+        \[
+            \nu ^ +\left( E\right)=\nu\left( E\cap P\right),
+            \qquad
+            \nu ^ -\left( E\right)=-\nu\left( E\cap N\right).
+        \]
+        Positivity and countable additivity follow from the definitions of positive and negative sets. Also \( \nu=\nu^+-\nu^- \), and \( \nu^+\perp\nu^- \) because \( \nu^- \left( P\right)=0 \) and \( \nu^+\left( N\right)=0 \). If another mutually singular decomposition existed, comparing on the positive and negative supports forces the same values on every measurable set, giving uniqueness.</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-total-variation-measure">
@@ -98,7 +108,9 @@
         \]
         for every measurable set \( E \). The function \( f \) is unique up to equality almost everywhere.
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>For finite \( \mu \), consider the measure \( \rho=\mu+\nu \) and the closed convex set of functions \( h\in L ^ 2\left( \rho\right) \) satisfying \( \int_E h\,d\rho\le\nu\left( E\right) \) for all measurable \( E \). The Hilbert-space projection argument produces \( h \) with \( 0\le h\le1 \) and \( \nu\left( E\right)=\int_E h\,d\rho \). Since \( \nu\ll\mu \), the set where \( h=1 \) has \( \nu \)- and \( \mu \)-measure \( 0 \), so \( f=h/\left( 1-h\right) \) satisfies \( \nu\left( E\right)=\int_E f\,d\mu \). The \( \sigma \)-finite case follows by applying the finite case on a countable finite-measure exhaustion and patching the densities. If two densities give the same integrals over all \( E \), their positive difference sets have integral \( 0 \), so they are equal almost everywhere.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-lebesgue-decomposition-theorem">
@@ -115,5 +127,7 @@
             \nu _ s \perp \mu .
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let \( \rho=\mu+\nu \). By the <a class="knowledge-link" href="/measure_theory/real_and_complex_measures.html#theorem-radon-nikodym-theorem">Radon-Nikodym theorem</a>, write \( \nu\left( E\right)=\int_E f\,d\rho \) and \( \mu\left( E\right)=\int_E g\,d\rho \). Put \( A=\left\{ g\gt0\right\} \) and \( S=\left\{ g=0\right\} \). Define \( \nu_a\left( E\right)=\nu\left( E\cap A\right) \) and \( \nu_s\left( E\right)=\nu\left( E\cap S\right) \). Then \( \nu_a\ll\mu \), while \( \nu_s\perp\mu \). If \( \nu=\eta_a+\eta_s \) is another such decomposition, absolute continuity and singularity force \( \eta_a=\nu_a \) and \( \eta_s=\nu_s \) on \( A \) and \( S \), proving uniqueness.</p>
+    </div>
 </div>

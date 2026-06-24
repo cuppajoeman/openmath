@@ -39,7 +39,9 @@
     <div class="content">
         Suppose that \( E \in <a class="knowledge-link" href="/measure_theory/product_measures.html#definition-product-sigma-algebra">\mathcal{ S } \otimes \mathcal{ T }</a> \). Then \( E _ x \in \mathcal{ T } \) for every \( x \in X \), and \( E ^ y \in \mathcal{ S } \) for every \( y \in Y \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let \( \mathcal{ A} \) be the class of sets \( E\subseteq X\times Y \) whose \( x \)-sections are in \( \mathcal{ T} \) and whose \( y \)-sections are in \( \mathcal{ S} \). Rectangles \( A\times B \) with \( A\in\mathcal{ S} \) and \( B\in\mathcal{ T} \) belong to \( \mathcal{ A} \). The class \( \mathcal{ A} \) is a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\( \sigma \)-algebra</a>, because sections commute with complements and <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union-infinite-counting-notation">countable unions</a>. Therefore \( \mathcal{ S}\otimes\mathcal{ T}\subseteq\mathcal{ A} \), proving the claim.</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-product-measure">
@@ -71,7 +73,9 @@
             \int _ Y \left( \int _ X f \left( x,y \right) \, d\mu \left( x \right) \right) d\nu \left( y \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>First prove the formula for characteristic functions of measurable rectangles, where both sides equal \( \mu\left( A\right)\nu\left( B\right) \). By finite linearity, it holds for nonnegative simple functions. For a nonnegative measurable \( f \), choose increasing simple functions converging to \( f \) by <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-approximation-by-simple-functions">approximation by simple functions</a>. The section functions are measurable by the same simple-function approximation and <a class="knowledge-link" href="/measure_theory/product_measures.html#proposition-sections-of-measurable-sets-are-measurable">measurable sections</a>. Passing to the limit with the <a class="knowledge-link" href="/measure_theory/integration.html#theorem-monotone-convergence">monotone convergence theorem</a> gives both iterated-integral identities.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-fubinis-theorem">
@@ -81,7 +85,9 @@
     <div class="content">
         Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) and \( \left( Y, \mathcal{ T }, \nu \right) \) are \( \sigma \)-finite <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure spaces</a> and \( f \in <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ 1</a> \left( \mu \times \nu \right) \). Then \( f \left( x,\cdot \right) \in L ^ 1 \left( \nu \right) \) for almost every \( x \), \( f \left( \cdot,y \right) \in L ^ 1 \left( \mu \right) \) for almost every \( y \), and the iterated integrals exist and are equal to \( \int f \, d\left( \mu \times \nu \right) \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Apply <a class="knowledge-link" href="/measure_theory/product_measures.html#theorem-tonellis-theorem">Tonelli's theorem</a> to \( \left\lvert f\right\rvert \). Since \( f\in L ^ 1\left( \mu\times\nu\right) \), the iterated integrals of \( \left\lvert f\right\rvert \) are finite, so the sections are integrable for almost every parameter. Decompose \( f=f ^ +-f^- \), apply Tonelli to \( f ^ + \) and \( f^- \), and subtract the two finite identities to obtain the Fubini formula.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-lebesgue-measure-on-products">
@@ -91,7 +97,81 @@
     <div class="content">
         <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#definition-lebesgue-measure-on-lebesgue-measurable-sets">Lebesgue measure</a> on \( \mathbb{ R } ^ { m+n } \) agrees with the <a class="knowledge-link" href="/measure_theory/product_measures.html#definition-product-measure">product</a> of Lebesgue measure on \( \mathbb{ R } ^ m \) and Lebesgue measure on \( \mathbb{ R } ^ n \) on product-measurable sets.
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Both sides are <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">measures</a> on the product \( \sigma \)-algebra and agree on rectangles, since the Lebesgue measure of a rectangle is the product of the side measures. Rectangles form a generating \( \pi \)-system for the product \( \sigma \)-algebra, and the measures are \( \sigma \)-finite on countable unions of bounded rectangles. The uniqueness part of the product-measure construction therefore implies that the two measures agree on all product-measurable sets.</p>
+    </div>
+</div>
+
+<div class="theorem" id="theorem-measure-transformation-under-a-diffeomorphism">
+    <div class="title">
+        Measure Transformation under a Diffeomorphism
+    </div>
+    <div class="content">
+        Suppose that \( U,V \subseteq \mathbb{ R } ^ n \) are <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-open">open</a>, \( \Phi: U \to V \) is a continuously differentiable bijection with continuously differentiable inverse, and \(\lambda\) is <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#definition-lebesgue-measure-on-lebesgue-measurable-sets">Lebesgue measure</a> on \(\mathbb R^n\). If \(E\subseteq U\) is measurable, then
+        \[
+            \lambda\left(\Phi(E)\right)
+            =
+            \int_E
+            \left\lvert \det \left[ D\Phi \left( x \right) \right] _ E \right\rvert
+            \,d\lambda(x).
+        \]
+    </div>
+    <div class="proof">
+        <p>
+            Start with an invertible linear map \(T:\mathbb R^n\to\mathbb R^n\). For elementary linear maps the claim is direct: coordinate permutations and orthogonal maps preserve Euclidean volume, a shear preserves the volume of boxes, and scaling one coordinate by \(c\neq0\) multiplies volume by \(\left|c\right|\). Every invertible matrix is a product of these elementary maps, so for every measurable \(E\subseteq\mathbb R^n\),
+        </p>
+        \[
+            \lambda\left(T(E)\right)
+            =
+            \left|\det [T]_E\right|\lambda(E).
+        \]
+        <p>
+            Now let \(\Phi:U\to V\) be a \(C^1\)-diffeomorphism. First work on a compact rectangle \(K\subseteq U\). Since \(x\mapsto [D\Phi(x)]_E\) is continuous, it is uniformly continuous on \(K\). Therefore, after subdividing \(K\) into sufficiently small cubes, \([D\Phi(x)]_E\) changes very little on each cube.
+        </p>
+        <p>
+            Fix one such cube \(C\) and choose \(a\in C\). By differentiability,
+        </p>
+        \[
+            \Phi(x)
+            =
+            \Phi(a)+D\Phi(a)(x-a)+R_a(x),
+            \qquad
+            \frac{\left\lvert R_a(x)\right\rvert}{\left\lvert x-a\right\rvert}\to0.
+        \]
+        <p>
+            On a small cube this says that \(\Phi(C)\) is squeezed between small enlargements of the affine image
+        </p>
+        \[
+            \Phi(a)+D\Phi(a)(C-a).
+        \]
+        <p>
+            By the linear case, that affine image has Lebesgue measure
+        </p>
+        \[
+            \left|\det\left[D\Phi(a)\right]_E\right|\lambda(C).
+        \]
+        <p>
+            Because the determinant is continuous and \([D\Phi(x)]_E\) varies little on \(C\), this differs only slightly from
+        </p>
+        \[
+            \int_C
+            \left|\det\left[D\Phi(x)\right]_E\right|
+            \,d\lambda(x).
+        \]
+        <p>
+            Summing over the cubes in the subdivision and refining the subdivision gives
+        </p>
+        \[
+            \lambda\left(\Phi(K)\right)
+            =
+            \int_K
+            \left|\det\left[D\Phi(x)\right]_E\right|
+            \,d\lambda(x).
+        \]
+        <p>
+            For a general measurable \(E\subseteq U\), write \(E\) as an increasing union of bounded measurable pieces whose closures lie in \(U\), up to a null remainder. Applying the compact-rectangle result to these pieces and passing to the limit with the <a class="knowledge-link" href="/measure_theory/integration.html#theorem-monotone-convergence">monotone convergence theorem</a> gives the displayed measure transformation formula for \(E\).
+        </p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-change-of-variables-for-lebesgue-integrals">
@@ -99,15 +179,35 @@
         Change of Variables for Lebesgue Integrals
     </div>
     <div class="content">
-        Suppose that \( U,V \subseteq \mathbb{ R } ^ n \) are <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-open">open</a> and \( \Phi: U \to V \) is a continuously differentiable bijection with continuously differentiable inverse. If \( f: V \to [0,\infty] \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a>, then
+        Suppose that \( U,V \subseteq \mathbb{ R } ^ n \) are <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-open">open</a>, \( \Phi: U \to V \) is a continuously differentiable bijection with continuously differentiable inverse, and \(\lambda\) is <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#definition-lebesgue-measure-on-lebesgue-measurable-sets">Lebesgue measure</a> on \(\mathbb R^n\). If \( f: V \to [0,\infty] \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a>, then
         \[
             \int _ V f \, d\lambda
             =
             \int _ U
             f \left( \Phi \left( x \right) \right)
-            \left\lvert \det D\Phi \left( x \right) \right\rvert
+            \left\lvert \det \left[ D\Phi \left( x \right) \right] _ E \right\rvert
             \, d\lambda \left( x \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        The integral formula follows from <a class="knowledge-link" href="/measure_theory/product_measures.html#theorem-measure-transformation-under-a-diffeomorphism">measure transformation under a diffeomorphism</a> and the construction of the <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">Lebesgue integral</a>.
+        <p>
+            First suppose that \(f=\chi_B\) is the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-characteristic-function">characteristic function</a> of a measurable set \(B\subseteq V\). Apply measure transformation under a diffeomorphism to \(E=\Phi^{-1}(B)\). Then
+        </p>
+        \[
+            \int_V \chi_B\,d\lambda
+            =
+            \lambda(B)
+            =
+            \lambda\left(\Phi\left(\Phi^{-1}(B)\right)\right)
+            =
+            \int_U
+            \chi_B\left(\Phi(x)\right)
+            \left|\det\left[D\Phi(x)\right]_E\right|
+            \,d\lambda(x).
+        \]
+        <p>
+            By finite additivity and linearity, the same formula holds for every nonnegative <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-simple-function">simple function</a> on \(V\). Finally, if \(f:V\to[0,\infty]\) is measurable, choose an increasing sequence of nonnegative simple functions \(s_k\) with \(s_k\to f\) pointwise by <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-approximation-by-simple-functions">approximation by simple functions</a>. Applying the simple-function case to each \(s_k\) and passing to the limit on both sides by the monotone convergence theorem proves the change of variables formula for \(f\).
+        </p>
+    </div>
 </div>

@@ -31,7 +31,9 @@
     <div class="content">
         Suppose that \( B \subseteq \mathbb{ R } \), \( f _ 1, f _ 2, \ldots: B \to \mathbb{ R } \) <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-uniform-convergence-of-functions">converges uniformly</a> on \( B \) to \( f: B \to \mathbb{ R } \), and \( b \in B \). If each \( f _ k \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuity-of-a-function-at-a-point">continuous at</a> \( b \), then \( f \) is continuous at \( b \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let \( \epsilon \in \mathbb{ R } ^ + \). By <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-uniform-convergence-of-functions">uniform convergence</a>, choose \( N \) such that \( \left\lvert f _ k \left( x \right)-f\left( x \right)\right\rvert \lt \epsilon/3 \) for every \( k \ge N \) and every \( x \in B \). Since \( f _ N \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuity-of-a-function-at-a-point">continuous at</a> \( b \), choose \( \delta \gt 0 \) such that \( \left\lvert f _ N \left( x \right)-f _ N \left( b \right)\right\rvert \lt \epsilon/3 \) whenever \( x \in B \) and \( \left\lvert x-b\right\rvert \lt \delta \). The triangle inequality gives \( \left\lvert f\left( x\right)-f\left( b\right)\right\rvert \lt \epsilon \), so \( f \) is continuous at \( b \).</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-egorovs-theorem">
@@ -45,7 +47,15 @@
         \]
         and \( f _ 1, f _ 2, \ldots \) <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-uniform-convergence-of-functions">converges uniformly</a> to \( f \) on \( E \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>For \( m,n \in \mathbb{ N } _ 1 \), set
+        \[
+            E _ { m,n }
+            :=
+            \left\{ x \in X : \left\lvert f _ j \left( x \right)-f\left( x \right)\right\rvert \lt \frac{1}{m} \text{ for every } j \ge n \right\}.
+        \]
+        These sets are <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-set">measurable</a>, increase in \( n \), and their union is \( X \) by <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-pointwise-convergence-of-functions">pointwise convergence</a>. Since \( \mu \left( X \right)\lt \infty \), the <a class="knowledge-link" href="/measure_theory/measures.html#theorem-measure-of-an-increasing-union">measure of an increasing union</a> lets us choose \( n_m \) such that \( \mu \left( X \setminus E _ { m,n_m } \right)\lt \epsilon/2 ^ m \). Let \( E=\bigcap _ { m=1 } ^ \infty E _ { m,n_m } \). Then \( \mu \left( X\setminus E\right)\lt \epsilon \) by <a class="knowledge-link" href="/measure_theory/measures.html#proposition-countable-subadditivity-of-measures">countable subadditivity</a>, and the definition of the sets gives uniform convergence on \( E \).</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-simple-function">
@@ -70,7 +80,9 @@
             <li>if \( f \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded</a>, then \( f _ 1, f _ 2, \ldots \) <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-uniform-convergence-of-functions">converges uniformly</a> to \( f \) on \( X \).</li>
         </ul>
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>For \( f \ge 0 \), divide the range into dyadic intervals of length \( 2^{-k} \) up to height \( k \), and let \( f _ k \left( x \right) \) be the left endpoint of the interval containing \( f \left( x \right) \), truncated at height \( k \). For general \( f \), apply this construction to the positive and negative parts and subtract. Measurability of the level sets follows from the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-extended-real-valued-measurable-function">measurability</a> of \( f \), each \( f _ k \) has finite range, and the dyadic mesh tends to \( 0 \), giving pointwise convergence. If \( f \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded</a>, the truncation height eventually exceeds the bound, so the dyadic mesh gives uniform convergence.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-luzins-theorem">
@@ -80,11 +92,13 @@
     <div class="content">
         Suppose that \( g: \mathbb{ R } \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a>. For every \( \epsilon \in \mathbb{ R } ^ + \), there exists a <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a> set \( F \subseteq \mathbb{ R } \) such that
         \[
-            \left\lvert \mathbb{ R } \setminus F \right\rvert \lt \epsilon
+            \operatorname{omes} \left( \mathbb{ R } \setminus F \right) \lt \epsilon
         \]
         and \( g \vert _ F \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a> on \( F \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>First prove the claim for simple Borel functions by choosing a closed subset of each level set whose complement has arbitrarily small <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-outer-measure">outer measure</a>, using the <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#theorem-equivalent-characterizations-of-lebesgue-measurable-sets">regularity characterization</a> of Lebesgue measurable sets. On the union of those closed pieces, the simple function is continuous. For a general Borel measurable \( g \), use <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-approximation-by-simple-functions">approximation by simple functions</a> and <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-egorovs-theorem">Egorov's theorem</a> to find a closed set outside a set of outer measure less than \( \epsilon \) on which the simple approximants converge uniformly. The <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-uniform-limit-of-continuous-functions-is-continuous">uniform limit of continuous functions is continuous</a>, so \( g \vert _ F \) is continuous.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-continuous-extensions-from-closed-subsets-of-the-real-line">
@@ -94,7 +108,9 @@
     <div class="content">
         Suppose that \( F \subseteq \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a> and \( g: F \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a>. Then there exists a continuous function \( h: \mathbb{ R } \to \mathbb{ R } \) such that \( h \vert _ F = g \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>The complement of a closed subset of \( \mathbb{ R } \) is a countable union of disjoint open intervals. On each bounded complementary interval \( \left( a,b\right) \), define \( h \) by linear interpolation between the endpoint values \( g\left( a\right) \) and \( g\left( b\right) \); on unbounded complementary intervals, extend constantly from the finite endpoint. Set \( h=g \) on \( F \). The endpoint definitions and the <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuity</a> of \( g \) on \( F \) make \( h \) continuous on all of \( \mathbb{ R } \).</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-luzins-theorem-extension-version">
@@ -104,12 +120,14 @@
     <div class="content">
         Suppose that \( E \subseteq \mathbb{ R } \) and \( g: E \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a>. For every \( \epsilon \in \mathbb{ R } ^ + \), there exists a <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a> set \( F \subseteq E \) and a <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous function</a> \( h: \mathbb{ R } \to \mathbb{ R } \) such that
         \[
-            \left\lvert E \setminus F \right\rvert \lt \epsilon
+            \operatorname{omes} \left( E \setminus F \right) \lt \epsilon
             \qquad \text{and} \qquad
             h \vert _ F = g \vert _ F.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Extend \( g \) from \( E \) to a Borel measurable function on \( \mathbb{ R } \), for example by assigning value \( 0 \) off \( E \). By <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-luzins-theorem">Luzin's theorem</a>, choose a closed set \( K \subseteq \mathbb{ R } \) such that the exceptional set has outer measure less than \( \epsilon \) and the extension is continuous on \( K \). Put \( F=E\cap K \), using the regularity characterization to replace it by a closed subset of \( E \) without increasing the exceptional outer measure. Then apply <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-continuous-extensions-from-closed-subsets-of-the-real-line">continuous extension from closed subsets</a> to obtain \( h \) with \( h\vert _ F=g\vert _ F \).</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-lebesgue-measurable-function">
@@ -128,12 +146,14 @@
     <div class="content">
         Suppose that \( f: \mathbb{ R } \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-lebesgue-measurable-function">Lebesgue measurable</a>. Then there exists a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-borel-measurable-function">Borel measurable</a> function \( g: \mathbb{ R } \to \mathbb{ R } \) such that
         \[
-            \left\lvert
+            \operatorname{omes} \left(
                 \left\{ x \in \mathbb{ R } : g \left( x \right) \neq f \left( x \right) \right\}
-            \right\rvert
+            \right)
             =
             0.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>By the <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#definition-lebesgue-measurable-set">definition of Lebesgue measurable set</a>, each inverse image \( f ^ {-1} \left( B \right) \) differs by a null set from a Borel set. Applying this to the inverse images of intervals with rational endpoints and using <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union-infinite-counting-notation">countable unions</a>, construct a Borel measurable \( g \) that agrees with \( f \) outside the union of countably many null exceptional sets. By <a class="knowledge-link" href="/measure_theory/outer_measure.html#proposition-countable-subadditivity-of-outer-measure">countable subadditivity</a>, that union has outer measure \( 0 \), which is exactly the displayed conclusion.</p>
+    </div>
 </div>

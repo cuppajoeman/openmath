@@ -64,7 +64,17 @@
             \lVert g \rVert _ q .
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>If \( \lVert f\rVert _ p=0 \) or \( \lVert g\rVert _ q=0 \), the result is immediate after modifying on a null set. Otherwise normalize so \( \lVert f\rVert _ p=\lVert g\rVert _ q=1 \). Young's inequality gives \( ab\le a ^ p/p+b ^ q/q \) for \( a,b\ge0 \), so
+        \[
+            \left\lvert f g\right\rvert
+            \le
+            \frac{\left\lvert f\right\rvert ^ p}{p}
+            +
+            \frac{\left\lvert g\right\rvert ^ q}{q}.
+        \]
+        Integrating and using the <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-an-extended-real-valued-function">definition of the integral</a> gives \( \lVert fg\rVert _ 1\le 1 \). Rescaling proves the stated inequality.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-minkowskis-inequality">
@@ -79,7 +89,17 @@
             \lVert f \rVert _ p + \lVert g \rVert _ p .
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>For \( 1\lt p\lt\infty \), apply <a class="knowledge-link" href="/measure_theory/lp_spaces.html#theorem-holders-inequality">Holder's inequality</a> with conjugate exponent \( q \) to
+        \[
+            \left\lvert f+g\right\rvert ^ p
+            \le
+            \left\lvert f\right\rvert \left\lvert f+g\right\rvert ^ {p-1}
+            +
+            \left\lvert g\right\rvert \left\lvert f+g\right\rvert ^ {p-1}.
+        \]
+        This gives \( \lVert f+g\rVert _ p ^ p\le \left( \lVert f\rVert _ p+\lVert g\rVert _ p\right)\lVert f+g\rVert _ p ^ {p-1} \), and division yields the result. The cases \( p=1 \) and \( p=\infty \) follow directly from the triangle inequality for absolute value and the <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-essential-supremum-norm">essential supremum norm</a>.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-lp-is-complete">
@@ -89,7 +109,9 @@
     <div class="content">
         Suppose that \( p \in [1,\infty] \). Then \( <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mu \right) \), with its \( L ^ p \)-norm, is a <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-banach-space-mira">Banach space</a>.
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let \( \left( f _ n\right) \) be Cauchy in \( L ^ p \). Choose a subsequence with \( \lVert f _ { n_{k+1}}-f _ { n_k}\rVert _ p\lt 2^{-k} \). The series \( \sum _ k \left\lvert f _ { n_{k+1}}-f _ { n_k}\right\rvert \) has finite \( L ^ p \)-norm by <a class="knowledge-link" href="/measure_theory/lp_spaces.html#theorem-minkowskis-inequality">Minkowski's inequality</a> and the <a class="knowledge-link" href="/measure_theory/integration.html#theorem-monotone-convergence">monotone convergence theorem</a>, so it is finite almost everywhere. Thus the subsequence converges pointwise almost everywhere to a measurable \( f \). Another application of Fatou's lemma gives \( \lVert f _ { n_k}-f\rVert _ p\to0 \), and the original Cauchy sequence then converges to \( f \). Hence \( L ^ p \) is complete.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-density-of-simple-functions-in-lp">
@@ -99,7 +121,9 @@
     <div class="content">
         Suppose that \( p \in [1,\infty) \). The <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-simple-function">simple functions</a> in \( <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mu \right) \) are dense in \( L ^ p \left( \mu \right) \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>For \( f\in L ^ p\left( \mu\right) \), the function \( \left\lvert f\right\rvert ^ p \) is in \( L ^ 1\left( \mu\right) \). By <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-approximation-by-simple-functions">approximation by simple functions</a>, choose simple \( s_n \to f \) pointwise with \( \left\lvert s_n\right\rvert \le \left\lvert f\right\rvert \). Then \( \left\lvert f-s_n\right\rvert ^ p\le 2^p\left\lvert f\right\rvert ^p \), and the <a class="knowledge-link" href="/measure_theory/integration.html#theorem-dominated-convergence">dominated convergence theorem</a> gives \( \lVert f-s_n\rVert _ p\to0 \).</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-density-of-continuous-compactly-supported-functions-in-lp">
@@ -109,7 +133,9 @@
     <div class="content">
         Suppose that \( p \in [1,\infty) \). <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">Continuous</a> compactly supported functions are dense in \( <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mathbb{ R } \right) \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>By <a class="knowledge-link" href="/measure_theory/lp_spaces.html#theorem-density-of-simple-functions-in-lp">density of simple functions</a>, approximate \( f \) in \( L ^ p \) by a finite linear combination of characteristic functions of finite-measure Lebesgue measurable sets. The <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#theorem-equivalent-characterizations-of-lebesgue-measurable-sets">regularity characterization</a> lets us approximate those sets by finite unions of intervals. Replacing interval characteristic functions by continuous tent functions with compact support changes the \( L ^ p \)-norm by an arbitrarily small amount. Combining the finitely many errors proves density.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-riesz-fischer-theorem">
@@ -119,5 +145,7 @@
     <div class="content">
         Suppose that \( p \in [1,\infty] \). Every <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-cauchy-sequence-in-a-metric-space">Cauchy sequence</a> in \( <a class="knowledge-link" href="/measure_theory/lp_spaces.html#definition-lp-space">L ^ p</a> \left( \mu \right) \) converges in \( L ^ p \left( \mu \right) \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>This is the sequential form of <a class="knowledge-link" href="/measure_theory/lp_spaces.html#theorem-lp-is-complete">\( L ^ p \) completeness</a>. In a normed space, completeness means precisely that every <a class="knowledge-link" href="/linear_operators/metric_and_banach_spaces.html#definition-cauchy-sequence-in-a-metric-space">Cauchy sequence</a> converges in the norm, so the theorem follows immediately.</p>
+    </div>
 </div>

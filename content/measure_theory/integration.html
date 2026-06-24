@@ -15,11 +15,11 @@
         Lower Lebesgue Sum
     </div>
     <div class="content">
-        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>, \( f: X \to [0,\infty] \) is \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-extended-real-valued-measurable-function">measurable</a>, and \( P = \left( A _ 1, \ldots, A _ m \right) \) is an \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/integration.html#definition-measurable-partition">partition</a> of \( X \). The <b>lower Lebesgue sum</b> of \( f \) over \( P \) is
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>, \( f: X \to [0,\infty] \) is \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-extended-real-valued-measurable-function">measurable</a>, and \( P = \left( A _ 1, \ldots, A _ m \right) \) is an \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/integration.html#definition-measurable-partition">partition</a> of \( X \). The <b>lower Lebesgue sum</b> of \( f \) over \( P \) with respect to \(\mu\) is
         \[
-            L \left( f, P \right)
+            L \left( f, P, \mu \right)
             :=
-            \sum _ { j = 1 } ^ m \mu \left( A _ j \right) \inf _ { A _ j } f.
+            \sum _ { j = 1 } ^ m \mu \left( A _ j \right) <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-infimum-of-a-function-on-a-set">\inf _ { A _ j } f</a>.
         \]
     </div>
 </div>
@@ -33,7 +33,7 @@
         \[
             \int f \, d\mu
             :=
-            \sup \left\{ L \left( f, P \right): P \text{ is an } \mathcal{ S }\text{-partition of } X \right\}.
+            <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-supremum">\sup</a> \left\{ <a class="knowledge-link" href="/measure_theory/integration.html#definition-lower-lebesgue-sum">L \left( f, P, \mu \right)</a>: P \text{ is an } <a class="knowledge-link" href="/measure_theory/integration.html#definition-measurable-partition">\mathcal{ S }\text{-partition of } X</a> \right\}.
         \]
     </div>
 </div>
@@ -48,7 +48,9 @@
             \int \chi _ E \, d\mu = \mu \left( E \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>For any \( \mathcal{ S} \)-<a class="knowledge-link" href="/measure_theory/integration.html#definition-measurable-partition">partition</a> \( P \), the lower sum for \( \chi _ E \) counts only the parts contained in \( E \), so \( L\left( \chi _ E,P,\mu\right)\le \mu\left( E\right) \). Taking the partition \( E, X\setminus E \) gives \( L\left( \chi _ E,P,\mu\right)=\mu\left( E\right) \). Hence the <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-supremum">supremum</a> in the <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">definition of the integral</a> is \( \mu\left( E\right) \).</p>
+    </div>
 </div>
 
 <div class="proposition" id="proposition-integral-of-a-simple-function">
@@ -63,7 +65,14 @@
             \sum _ { k = 1 } ^ n c _ k \mu \left( E _ k \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Refine any partition by the measurable sets \( E _ 1,\ldots,E _ n \). On each \( E _ k \), the function has constant value \( c _ k \), and outside their union it has value \( 0 \). Applying <a class="knowledge-link" href="/measure_theory/integration.html#proposition-integral-of-a-characteristic-function">the characteristic-function computation</a> and finite additivity of <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">measure</a> gives
+        \[
+            \int \left( \sum _ { k=1 } ^ n c _ k \chi _ { E _ k } \right)d\mu
+            =
+            \sum _ { k=1 } ^ n c _ k \mu\left( E _ k\right).
+        \]</p>
+    </div>
 </div>
 
 <div class="proposition" id="proposition-integration-of-nonnegative-functions-is-order-preserving">
@@ -76,7 +85,9 @@
             \int f \, d\mu \le \int g \, d\mu.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>If \( P \) is an \( \mathcal{ S} \)-<a class="knowledge-link" href="/measure_theory/integration.html#definition-measurable-partition">partition</a>, then \( \inf _ A f \le \inf _ A g \) for every part \( A \in P \). Thus \( L\left( f,P,\mu\right)\le L\left( g,P,\mu\right) \). Taking <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-supremum">suprema</a> over all partitions gives \( \int f\,d\mu \le \int g\,d\mu \).</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-monotone-convergence">
@@ -95,7 +106,9 @@
             \int f \, d\mu.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>By <a class="knowledge-link" href="/measure_theory/integration.html#proposition-integration-of-nonnegative-functions-is-order-preserving">order preservation</a>, \( \int f _ k\,d\mu \le \int f\,d\mu \), so the limit of the integrals is at most \( \int f\,d\mu \). For the reverse inequality, take any lower sum \( L\left( f,P,\mu\right) \) and replace each infimum on a part by a slightly smaller value. Since \( f _ k \uparrow f \), the sets on which \( f _ k \) exceeds those smaller values increase to each part. The <a class="knowledge-link" href="/measure_theory/measures.html#theorem-measure-of-an-increasing-union">measure of an increasing union</a> then shows that \( \liminf _ k \int f _ k\,d\mu \ge L\left( f,P,\mu\right) \). Taking the <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-supremum">supremum</a> over \( P \) proves equality.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-additivity-of-integration-for-nonnegative-functions">
@@ -110,7 +123,9 @@
             \int f \, d\mu + \int g \, d\mu.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>First prove the result when \( f \) and \( g \) are nonnegative <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-simple-function">simple functions</a> by refining their measurable partitions and using the formula for the <a class="knowledge-link" href="/measure_theory/integration.html#proposition-integral-of-a-simple-function">integral of a simple function</a>. For general nonnegative measurable \( f \) and \( g \), choose increasing simple approximations from <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-approximation-by-simple-functions">approximation by simple functions</a>. Apply the simple case to the approximants and pass to the limit using the <a class="knowledge-link" href="/measure_theory/integration.html#theorem-monotone-convergence">monotone convergence theorem</a>.</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-positive-part-of-a-function">
@@ -123,8 +138,8 @@
             f ^ + \left( x \right)
             :=
             \begin{cases}
-                f \left( x \right) &amp; f \left( x \right) \ge 0, \\
-                0 &amp; f \left( x \right) \lt 0.
+                f \left( x \right) & f \left( x \right) \ge 0, \\
+                0 & f \left( x \right) \lt 0.
             \end{cases}
         \]
     </div>
@@ -140,8 +155,8 @@
             f ^ - \left( x \right)
             :=
             \begin{cases}
-                0 &amp; f \left( x \right) \ge 0, \\
-                -f \left( x \right) &amp; f \left( x \right) \lt 0.
+                0 & f \left( x \right) \ge 0, \\
+                -f \left( x \right) & f \left( x \right) \lt 0.
             \end{cases}
         \]
     </div>
@@ -152,11 +167,11 @@
         Integral of an Extended Real-Valued Function
     </div>
     <div class="content">
-        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( f: X \to [ -\infty, \infty ] \) is \( \mathcal{ S } \)-measurable. If at least one of \( \int f ^ + \, d\mu \) and \( \int f ^ - \, d\mu \) is finite, define
+        Suppose that \( \left( X, \mathcal{ S }, \mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a> and \( f: X \to [ -\infty, \infty ] \) is \( \mathcal{ S } \)-<a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-extended-real-valued-measurable-function">measurable</a>. Let \( <a class="knowledge-link" href="/measure_theory/integration.html#definition-positive-part-of-a-function">f ^ +</a> \) be the positive part of \( f \), and let \( <a class="knowledge-link" href="/measure_theory/integration.html#definition-negative-part-of-a-function">f ^ -</a> \) be the negative part of \( f \). If at least one of \( <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">\int f ^ + \, d\mu</a> \) and \( <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">\int f ^ - \, d\mu</a> \) is finite, define
         \[
             \int f \, d\mu
             :=
-            \int f ^ + \, d\mu - \int f ^ - \, d\mu.
+            <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">\int f ^ + \, d\mu</a> - <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">\int f ^ - \, d\mu</a>.
         \]
     </div>
 </div>
@@ -179,7 +194,15 @@
             \int f \, d\mu + \int g \, d\mu.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Write \( f=f ^ +-f ^ - \) and \( g=g ^ +-g ^ - \), using the <a class="knowledge-link" href="/measure_theory/integration.html#definition-positive-part-of-a-function">positive</a> and <a class="knowledge-link" href="/measure_theory/integration.html#definition-negative-part-of-a-function">negative</a> parts. The hypotheses imply all four nonnegative integrals are finite. Since
+        \[
+            \left( f+g\right)^+ + f^- + g^-
+            =
+            \left( f+g\right)^- + f^+ + g^+,
+        \]
+        applying <a class="knowledge-link" href="/measure_theory/integration.html#theorem-additivity-of-integration-for-nonnegative-functions">additivity for nonnegative functions</a> to both sides and rearranging gives \( \int\left( f+g\right)d\mu=\int f\,d\mu+\int g\,d\mu \).</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-integration-on-a-subset">
@@ -191,7 +214,9 @@
         \[
             \int _ E f \, d\mu
             :=
-            \int \chi _ E f \, d\mu
+            <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-an-extended-real-valued-function">\int</a>
+            <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-characteristic-function">\chi _ E</a>
+            f \, d\mu
         \]
         whenever the integral on the right is defined.
     </div>
@@ -221,7 +246,15 @@
             \int f \, d\mu.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Since \( \left\lvert f _ k\right\rvert \le c \) and \( \mu\left( X\right)\lt \infty \), the constant function \( c \) is integrable. The functions \( c+f _ k \) and \( c-f _ k \) are nonnegative and converge pointwise to \( c+f \) and \( c-f \). Applying the <a class="knowledge-link" href="/measure_theory/integration.html#theorem-monotone-convergence">monotone convergence theorem</a> to suitable increasing lower envelopes, or equivalently applying Fatou's lemma as derived from monotone convergence, gives
+        \[
+            \int f\,d\mu \le \liminf _ k \int f _ k\,d\mu
+            \le \limsup _ k \int f _ k\,d\mu
+            \le \int f\,d\mu .
+        \]
+        Therefore the integrals converge to \( \int f\,d\mu \).</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-dominated-convergence">
@@ -242,7 +275,15 @@
             \int f \, d\mu.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>After changing the functions on a null set, assume the pointwise convergence and domination hold everywhere. Since \( g+f _ k \ge 0 \) and \( g-f _ k \ge 0 \), Fatou's lemma, obtained from the <a class="knowledge-link" href="/measure_theory/integration.html#theorem-monotone-convergence">monotone convergence theorem</a>, gives
+        \[
+            \int g\,d\mu+\int f\,d\mu
+            \le
+            \liminf _ k \left( \int g\,d\mu+\int f _ k\,d\mu \right)
+        \]
+        and the analogous inequality for \( g-f _ k \). Because \( \int g\,d\mu\lt\infty \), subtracting \( \int g\,d\mu \) yields matching lower and upper bounds for \( \int f _ k\,d\mu \), so the limit is \( \int f\,d\mu \).</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-riemann-integrable-iff-continuous-almost-everywhere">
@@ -252,9 +293,9 @@
     <div class="content">
         Suppose that \( a \lt b \) and \( f: [ a, b ] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-bounded-function">bounded</a>. Then \( f \) is <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-riemann-integrable-function">Riemann integrable</a> if and only if
         \[
-            \left\lvert
+            \operatorname{omes} \left(
                 \left\{ x \in [ a, b ] : f \text{ is not continuous at } x \right\}
-            \right\rvert
+            \right)
             =
             0.
         \]
@@ -265,7 +306,9 @@
             \int _ { [ a, b ] } f \, d\lambda.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>This is Lebesgue's criterion for Riemann integrability. For a bounded function, the upper and lower Riemann sums differ by the total oscillation over the partition intervals. The points where the oscillation does not become small are exactly the discontinuities. If that set has outer measure \( 0 \), cover it by intervals of arbitrarily small total length and make the oscillation small on the complementary closed pieces by compactness; the upper and lower sums become arbitrarily close. Conversely, if the upper and lower sums can be made arbitrarily close, the set where the oscillation is at least \( 1/n \) must have outer measure \( 0 \) for each \( n \), and the discontinuity set is their countable union. The equality of the Riemann and Lebesgue integrals then follows by approximating \( f \) above and below by step functions and using the <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-an-extended-real-valued-function">Lebesgue integral</a> on intervals.</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-lebesgue-integral-on-an-interval">
@@ -273,11 +316,11 @@
         Lebesgue Integral on an Interval
     </div>
     <div class="content">
-        Suppose that \( -\infty \le a \lt b \le \infty \) and \( f: \left( a, b \right) \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-lebesgue-measurable-function">Lebesgue measurable</a>. Let \( \lambda \) be Lebesgue measure on \( \mathbb{ R } \). Define
+        Suppose that \( -\infty \le a \lt b \le \infty \) and \( f: \left( a, b \right) \to \mathbb{ R } \) is <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#definition-lebesgue-measurable-function">Lebesgue measurable</a>. Let \( \lambda \) be <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#definition-lebesgue-measure-on-lebesgue-measurable-sets">Lebesgue measure</a> on \( \mathbb{ R } \). Define
         \[
             \int _ a ^ b f
             :=
-            \int _ { \left( a, b \right) } f \, d\lambda
+            <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-an-extended-real-valued-function">\int _ { \left( a, b \right) } f \, d\lambda</a>
         \]
         and define \( \int _ b ^ a f := - \int _ a ^ b f \).
     </div>
@@ -321,7 +364,9 @@
             \lVert f - g \rVert _ 1 \lt \epsilon.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Apply <a class="knowledge-link" href="/measure_theory/convergence_of_measurable_functions.html#theorem-approximation-by-simple-functions">approximation by simple functions</a> to \( f ^ + \) and \( f ^ - \). The monotone convergence theorem implies that the integrals of the approximation errors decrease to \( 0 \). Choosing sufficiently far along both approximating sequences and subtracting gives a simple function \( g \) with \( \lVert f-g\rVert _ 1\lt \epsilon \). Since \( \lVert g\rVert _ 1 \le \lVert f\rVert _ 1+\lVert f-g\rVert _ 1 \), we also have \( g\in L ^ 1\left( \mu\right) \).</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-step-function">
@@ -349,5 +394,7 @@
         \]
         and \( \left\{ x \in \mathbb{ R } : g \left( x \right) \neq 0 \right\} \) is bounded.
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>By <a class="knowledge-link" href="/measure_theory/integration.html#theorem-approximation-in-l1-by-simple-functions">approximation in \( L ^ 1 \) by simple functions</a>, first approximate \( f \) by a finite linear combination of characteristic functions of Lebesgue measurable sets of finite measure. Using the <a class="knowledge-link" href="/measure_theory/lebesgue_measure.html#theorem-equivalent-characterizations-of-lebesgue-measurable-sets">regularity characterization</a>, approximate each measurable set in \( L ^ 1 \) by a finite union of intervals. Finally replace each interval characteristic function by a continuous tent function that is \( 1 \) on most of the interval and \( 0 \) outside a slightly larger interval. The accumulated \( L ^ 1 \)-error can be made less than \( \epsilon \), and the resulting continuous function has bounded support.</p>
+    </div>
 </div>

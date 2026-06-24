@@ -3,15 +3,15 @@
         Length of an Open Interval
     </div>
     <div class="content">
-        The <b>length</b> \( \ell \left( I \right) \) of an open interval \( I \subseteq \mathbb{ R } \) is defined by
+        The <b>length</b> \( \ell \left( I \right) \) of an <a class="knowledge-link" href="/fundamentals/relations.html#definition-interval">open interval</a> \( I \subseteq <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-real-numbers-as-dedekind-cuts">\mathbb{ R }</a> \) is defined by
         \[
             \ell \left( I \right)
             =
             \begin{cases}
-                b - a &amp; I = \left( a, b \right) \text{ with } a \lt b, \\
-                0 &amp; I = \emptyset, \\
-                \infty &amp; I = \left( -\infty, a \right) \text{ or } I = \left( a, \infty \right), \\
-                \infty &amp; I = \left( -\infty, \infty \right).
+                b - a & I = \left( a, b \right) \text{ with } a \lt b, \\
+                0 & I = \emptyset, \\
+                \infty & I = \left( -\infty, a \right) \text{ or } I = \left( a, \infty \right), \\
+                \infty & I = \left( -\infty, \infty \right).
             \end{cases}
         \]
     </div>
@@ -22,18 +22,21 @@
         Outer Measure
     </div>
     <div class="content">
-        Suppose that \( A \subseteq \mathbb{ R } \). The <b>outer measure</b> of \( A \) is
+        Suppose that \( A <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-subset">\subseteq</a> <a class="knowledge-link" href="/analysis/single_variable/dedekind_cuts.html#definition-real-numbers-as-dedekind-cuts">\mathbb{ R }</a> \). The <b>outer measure</b> <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a>, denoted \( \operatorname{outer\_measure} \) or \( \operatorname{omes} \), is defined by
         \[
-            \left\lvert A \right\rvert
+            \operatorname{outer\_measure} \left( A \right)
             :=
-            \inf
+            \operatorname{omes} \left( A \right)
+            :=
+            <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-infimum">\inf</a>
             \left\{
                 \sum _ { k = 1 } ^ \infty \ell \left( I _ k \right)
                 :
-                A \subseteq \bigcup _ { k = 1 } ^ \infty I _ k
+                A \subseteq <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union-infinite-counting-notation">\bigcup _ { k = 1 } ^ \infty I _ k</a>
                 \text{ and each } I _ k \text{ is an open interval}
             \right\}.
         \]
+        Here \( I _ 1, I _ 2, \ldots \) is a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> of <a class="knowledge-link" href="/fundamentals/relations.html#definition-interval">open intervals</a>, and \( \ell \left( I _ k \right) \) is the <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-length-of-an-open-interval">length of an open interval</a>.
     </div>
 </div>
 
@@ -44,7 +47,25 @@
     <div class="content">
         Every countable subset of \( \mathbb{ R } \) has <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-outer-measure">outer measure</a> \( 0 \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let \( A \subseteq \mathbb{ R } \) be <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a>. Write \( A = \left\{ a _ 1, a _ 2, \ldots \right\} \), allowing repetitions if needed. Let \( \epsilon \in \mathbb{ R } ^ + \). For each \( k \in \mathbb{ N } _ 1 \), define the open interval
+        \[
+            I _ k
+            :=
+            \left( a _ k - \frac{\epsilon}{2 ^ k}, a _ k + \frac{\epsilon}{2 ^ k} \right).
+        \]
+        Then \( A \subseteq \bigcup _ { k = 1 } ^ \infty I _ k \), so by the <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-outer-measure">definition of outer measure</a>,
+        \[
+            \operatorname{omes} \left( A \right)
+            \le
+            \sum _ { k = 1 } ^ \infty \ell \left( I _ k \right)
+            =
+            \sum _ { k = 1 } ^ \infty \frac{2\epsilon}{2 ^ k}
+            =
+            2\epsilon.
+        \]
+        Since \( \epsilon \in \mathbb{ R } ^ + \) was arbitrary and outer measure is nonnegative by definition, \( \operatorname{omes} \left( A \right) = 0 \).</p>
+    </div>
 </div>
 
 <div class="proposition" id="proposition-outer-measure-preserves-order">
@@ -54,10 +75,18 @@
     <div class="content">
         Suppose that \( A, B \subseteq \mathbb{ R } \) and \( A \subseteq B \). Then
         \[
-            \left\lvert A \right\rvert \le \left\lvert B \right\rvert.
+            \operatorname{omes} \left( A \right) \le \operatorname{omes} \left( B \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let \( I _ 1, I _ 2, \ldots \) be any <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> of open intervals such that \( B \subseteq \bigcup _ { k = 1 } ^ \infty I _ k \). Since \( A \subseteq B \), the same sequence also covers \( A \). Hence by the <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-outer-measure">definition of outer measure</a>,
+        \[
+            \operatorname{omes} \left( A \right)
+            \le
+            \sum _ { k = 1 } ^ \infty \ell \left( I _ k \right).
+        \]
+        Taking the <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-infimum">infimum</a> over all such covers of \( B \) gives \( \operatorname{omes} \left( A \right) \le \operatorname{omes} \left( B \right) \).</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-translation-of-a-set">
@@ -79,10 +108,29 @@
     <div class="content">
         Suppose that \( t \in \mathbb{ R } \) and \( A \subseteq \mathbb{ R } \). Then
         \[
-            \left\lvert t + A \right\rvert = \left\lvert A \right\rvert.
+            \operatorname{omes} \left( t + A \right) = \operatorname{omes} \left( A \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Suppose \( I _ 1, I _ 2, \ldots \) is a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> of open intervals such that \( A \subseteq \bigcup _ { k = 1 } ^ \infty I _ k \). Then \( t + I _ 1, t + I _ 2, \ldots \) is a sequence of open intervals whose union contains \( t + A \). Translation does not change the <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-length-of-an-open-interval">length of an open interval</a>, so
+        \[
+            \operatorname{omes} \left( t + A \right)
+            \le
+            \sum _ { k = 1 } ^ \infty \ell \left( t + I _ k \right)
+            =
+            \sum _ { k = 1 } ^ \infty \ell \left( I _ k \right).
+        \]
+        Taking the <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-infimum">infimum</a> over all open-interval covers of \( A \), we get \( \operatorname{omes} \left( t + A \right) \le \operatorname{omes} \left( A \right) \).</p>
+        <p>For the reverse inequality, note that \( A = -t + \left( t + A \right) \). Applying the inequality already proved with \( t + A \) in place of \( A \) and \( -t \) in place of \( t \), we get
+        \[
+            \operatorname{omes} \left( A \right)
+            =
+            \operatorname{omes} \left( -t + \left( t + A \right) \right)
+            \le
+            \operatorname{omes} \left( t + A \right).
+        \]
+        Therefore \( \operatorname{omes} \left( t + A \right) = \operatorname{omes} \left( A \right) \).</p>
+    </div>
 </div>
 
 <div class="proposition" id="proposition-countable-subadditivity-of-outer-measure">
@@ -92,12 +140,36 @@
     <div class="content">
         Suppose that \( A _ 1, A _ 2, \ldots \subseteq \mathbb{ R } \). Then
         \[
-            \left\lvert \bigcup _ { k = 1 } ^ \infty A _ k \right\rvert
+            \operatorname{omes} \left( \bigcup _ { k = 1 } ^ \infty A _ k \right)
             \le
-            \sum _ { k = 1 } ^ \infty \left\lvert A _ k \right\rvert.
+            \sum _ { k = 1 } ^ \infty \operatorname{omes} \left( A _ k \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>If \( \operatorname{omes} \left( A _ k \right) = \infty \) for some \( k \), then the right side is \( \infty \), so the inequality is immediate. Thus assume \( \operatorname{omes} \left( A _ k \right) \lt \infty \) for every \( k \).</p>
+        <p>Let \( \epsilon \in \mathbb{ R } ^ + \). For each \( k \in \mathbb{ N } _ 1 \), choose a sequence of open intervals \( I _ { 1,k }, I _ { 2,k }, \ldots \) whose union contains \( A _ k \) and such that
+        \[
+            \sum _ { j = 1 } ^ \infty \ell \left( I _ { j,k } \right)
+            \le
+            \operatorname{omes} \left( A _ k \right) + \frac{\epsilon}{2 ^ k}.
+        \]
+        The doubly indexed family \( \left\{ I _ { j,k } : j,k \in \mathbb{ N } _ 1 \right\} \) can be listed as a single <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a>, and its union contains \( \bigcup _ { k = 1 } ^ \infty A _ k \). Hence by the <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-outer-measure">definition of outer measure</a>,
+        \[
+            \operatorname{omes} \left( \bigcup _ { k = 1 } ^ \infty A _ k \right)
+            \le
+            \sum _ { k = 1 } ^ \infty \sum _ { j = 1 } ^ \infty \ell \left( I _ { j,k } \right)
+            \le
+            \sum _ { k = 1 } ^ \infty \operatorname{omes} \left( A _ k \right)
+            +
+            \epsilon.
+        \]
+        Since \( \epsilon \in \mathbb{ R } ^ + \) was arbitrary, we obtain
+        \[
+            \operatorname{omes} \left( \bigcup _ { k = 1 } ^ \infty A _ k \right)
+            \le
+            \sum _ { k = 1 } ^ \infty \operatorname{omes} \left( A _ k \right).
+        \]</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-open-cover">
@@ -131,7 +203,25 @@
     <div class="content">
         Every <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-open-cover">open cover</a> of a <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a> <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-bounded">bounded</a> subset of \( \mathbb{ R } \) has a <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-finite-subcover">finite subcover</a>.
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>First suppose \( F = [ a,b ] \) with \( a \lt b \), and let \( \mathcal{ C } \) be an <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-open-cover">open cover</a> of \( [ a,b ] \). Define
+        \[
+            D
+            :=
+            \left\{ d \in [ a,b ] : [ a,d ] \text{ has a finite subcover from } \mathcal{ C } \right\}.
+        \]
+        Since \( a \) is contained in some member of \( \mathcal{ C } \), we have \( a \in D \), so \( D \neq \emptyset \). Also \( D \subseteq [ a,b ] \), so \( D \) is bounded above. Let \( s = \sup D \), using the <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-supremum">supremum</a>.</p>
+        <p>Choose \( G \in \mathcal{ C } \) with \( s \in G \). Since \( G \) is <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-open">open</a>, there exists \( \delta \in \mathbb{ R } ^ + \) such that \( \left( s - \delta, s + \delta \right) \subseteq G \). By the definition of \( s = \sup D \), some \( d \in D \) satisfies \( s - \delta \lt d \le s \). Since \( d \in D \), there are \( G _ 1, \ldots, G _ n \in \mathcal{ C } \) such that
+        \[
+            [ a,d ] \subseteq G _ 1 \cup \cdots \cup G _ n.
+        \]
+        Then for every \( d' \in [ s, s + \delta ) \cap [ a,b ] \),
+        \[
+            [ a,d' ] \subseteq G _ 1 \cup \cdots \cup G _ n \cup G.
+        \]
+        Thus every such \( d' \) is in \( D \). If \( s \lt b \), this puts points of \( D \) larger than \( s \), contradicting that \( s \) is an upper bound. Hence \( s = b \), and the displayed containment with \( d' = b \) gives a finite subcover of \( [ a,b ] \).</p>
+        <p>Now let \( F \subseteq \mathbb{ R } \) be closed and bounded, and let \( \mathcal{ C } \) be an open cover of \( F \). Choose \( a,b \in \mathbb{ R } \) with \( F \subseteq [ a,b ] \). Since \( F \) is <a class="knowledge-link" href="/analysis/multi_variable/closed_and_open_subsets.html#definition-closed">closed</a>, \( \mathbb{ R } \setminus F \) is open. Therefore \( \mathcal{ C } \cup \left\{ \mathbb{ R } \setminus F \right\} \) is an open cover of \( [ a,b ] \). By the interval case, finitely many of these sets cover \( [ a,b ] \). Removing \( \mathbb{ R } \setminus F \), if it appears, leaves finitely many members of \( \mathcal{ C } \) that cover \( F \). Thus \( \mathcal{ C } \) has a <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-finite-subcover">finite subcover</a>.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-outer-measure-of-a-closed-interval">
@@ -141,10 +231,44 @@
     <div class="content">
         Suppose that \( a, b \in \mathbb{ R } \) and \( a \lt b \). Then
         \[
-            \left\lvert [ a, b ] \right\rvert = b - a.
+            \operatorname{omes} \left( [ a, b ] \right) = b - a.
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>For every \( \epsilon \in \mathbb{ R } ^ + \), the open interval \( \left( a - \epsilon, b + \epsilon \right) \) covers \( [ a,b ] \). Hence by the <a class="knowledge-link" href="/measure_theory/outer_measure.html#definition-outer-measure">definition of outer measure</a>,
+        \[
+            \operatorname{omes} \left( [ a,b ] \right)
+            \le
+            \ell \left( \left( a - \epsilon, b + \epsilon \right) \right)
+            =
+            b - a + 2\epsilon.
+        \]
+        Since \( \epsilon \in \mathbb{ R } ^ + \) was arbitrary, \( \operatorname{omes} \left( [ a,b ] \right) \le b - a \).</p>
+        <p>For the reverse inequality, let \( I _ 1, I _ 2, \ldots \) be any sequence of open intervals with
+        \[
+            [ a,b ] \subseteq \bigcup _ { k = 1 } ^ \infty I _ k.
+        \]
+        By the <a class="knowledge-link" href="/measure_theory/outer_measure.html#theorem-heine-borel">Heine-Borel theorem</a>, finitely many of these intervals cover \( [ a,b ] \). Thus there is \( n \in \mathbb{ N } _ 1 \) such that
+        \[
+            [ a,b ] \subseteq I _ 1 \cup \cdots \cup I _ n
+        \]
+        after relabeling if needed.</p>
+        <p>We claim that \( \sum _ { k = 1 } ^ n \ell \left( I _ k \right) \ge b - a \). This is proved by induction on \( n \). For \( n = 1 \), one open interval covering \( [ a,b ] \) must have length at least \( b - a \). For the induction step, suppose \( I _ 1,\ldots,I _ { n+1 } \) cover \( [ a,b ] \). Relabel so \( b \in I _ { n+1 } = ( c,d ) \). If \( c \le a \), then \( \ell \left( I _ { n+1 } \right) \ge b - a \). Otherwise \( a \lt c \lt b \), and \( I _ 1,\ldots,I _ n \) cover \( [ a,c ] \). By the induction hypothesis,
+        \[
+            \sum _ { k = 1 } ^ n \ell \left( I _ k \right) \ge c - a.
+        \]
+        Therefore
+        \[
+            \sum _ { k = 1 } ^ { n+1 } \ell \left( I _ k \right)
+            \ge
+            ( c - a ) + ( d - c )
+            =
+            d - a
+            \ge
+            b - a.
+        \]
+        Hence every open-interval cover of \( [ a,b ] \) has total length at least \( b - a \), so taking the <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#definition-infimum">infimum</a> gives \( b - a \le \operatorname{omes} \left( [ a,b ] \right) \). Combining the two inequalities proves the result.</p>
+    </div>
 </div>
 
 <div class="corollary" id="corollary-nontrivial-intervals-are-uncountable">
@@ -154,7 +278,13 @@
     <div class="content">
         Every interval in \( \mathbb{ R } \) that contains at least two distinct elements is uncountable.
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let \( I \subseteq \mathbb{ R } \) be an interval containing two distinct elements \( a \lt b \). Then \( [ a,b ] \subseteq I \). If \( I \) were <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a>, then \( [ a,b ] \) would be countable as a subset of a countable set. By <a class="knowledge-link" href="/measure_theory/outer_measure.html#proposition-countable-sets-have-outer-measure-zero">countable sets have outer measure zero</a>, this would imply \( \operatorname{omes} \left( [ a,b ] \right) = 0 \). But by the <a class="knowledge-link" href="/measure_theory/outer_measure.html#theorem-outer-measure-of-a-closed-interval">outer measure of a closed interval</a>,
+        \[
+            \operatorname{omes} \left( [ a,b ] \right) = b - a \gt 0,
+        \]
+        a contradiction. Therefore \( I \) is uncountable.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-outer-measure-is-not-additive">
@@ -164,12 +294,42 @@
     <div class="content">
         There exist disjoint subsets \( A, B \subseteq \mathbb{ R } \) such that
         \[
-            \left\lvert A \cup B \right\rvert
+            \operatorname{omes} \left( A \cup B \right)
             \neq
-            \left\lvert A \right\rvert + \left\lvert B \right\rvert.
+            \operatorname{omes} \left( A \right) + \operatorname{omes} \left( B \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Define a relation on \( [0,1] \) by \( x \sim y \) if and only if \( x - y \in \mathbb{ Q } \). This is an <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-relation">equivalence relation</a>. Choose a set \( V \subseteq [0,1] \) containing exactly one representative from each <a class="knowledge-link" href="/fundamentals/relations.html#definition-equivalence-class">equivalence class</a>. Let
+        \[
+            Q _ 0 := \mathbb{ Q } \cap [ -1,1 ].
+        \]
+        For each \( q \in Q _ 0 \), consider the translate \( q + V \).</p>
+        <p>If \( q,r \in Q _ 0 \) and \( q \neq r \), then \( \left( q + V \right) \cap \left( r + V \right) = \emptyset \). Indeed, if \( q + v = r + w \), then \( v - w = r - q \in \mathbb{ Q } \), so \( v \sim w \). Since \( V \) contains only one representative from each equivalence class, \( v = w \), and then \( q = r \), a contradiction.</p>
+        <p>Also,
+        \[
+            [0,1]
+            \subseteq
+            \bigcup _ { q \in Q _ 0 } \left( q + V \right)
+            \subseteq
+            [ -1,2 ].
+        \]
+        The left inclusion holds because every \( x \in [0,1] \) is equivalent to some \( v \in V \), so \( x - v \in \mathbb{ Q } \cap [ -1,1 ] \). The right inclusion holds because \( q \in [ -1,1 ] \) and \( V \subseteq [0,1] \).</p>
+        <p>Suppose, for contradiction, that outer measure were additive for every pair of disjoint subsets of \( \mathbb{ R } \). Then it would be additive for every finite disjoint union. By <a class="knowledge-link" href="/measure_theory/outer_measure.html#proposition-outer-measure-is-translation-invariant">translation invariance</a>, each \( q + V \) has outer measure \( \operatorname{omes} \left( V \right) \). Since every finite union of these disjoint translates is contained in \( [ -1,2 ] \), <a class="knowledge-link" href="/measure_theory/outer_measure.html#proposition-outer-measure-preserves-order">order preservation</a> and the <a class="knowledge-link" href="/measure_theory/outer_measure.html#theorem-outer-measure-of-a-closed-interval">outer measure of a closed interval</a> give
+        \[
+            n \operatorname{omes} \left( V \right) \le 3
+        \]
+        for every \( n \in \mathbb{ N } _ 1 \). Hence \( \operatorname{omes} \left( V \right) = 0 \).</p>
+        <p>Because \( Q _ 0 \) is <a class="knowledge-link" href="/cardinal_numbers/cardinal_numbers.html#definition-countable-set">countable</a>, <a class="knowledge-link" href="/measure_theory/outer_measure.html#proposition-countable-subadditivity-of-outer-measure">countable subadditivity</a> gives
+        \[
+            \operatorname{omes} \left( \bigcup _ { q \in Q _ 0 } \left( q + V \right) \right)
+            \le
+            \sum _ { q \in Q _ 0 } \operatorname{omes} \left( q + V \right)
+            =
+            0.
+        \]
+        But this union contains \( [0,1] \), so by <a class="knowledge-link" href="/measure_theory/outer_measure.html#proposition-outer-measure-preserves-order">order preservation</a> and the <a class="knowledge-link" href="/measure_theory/outer_measure.html#theorem-outer-measure-of-a-closed-interval">closed interval computation</a>, its outer measure is at least \( 1 \), a contradiction. Therefore outer measure cannot be additive on all disjoint pairs of subsets of \( \mathbb{ R } \).</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-no-countably-additive-translation-invariant-extension-of-length-to-all-subsets">
@@ -184,5 +344,37 @@
             <li>\( \mu \left( t + A \right) = \mu \left( A \right) \) for every \( t \in \mathbb{ R } \) and every \( A \subseteq \mathbb{ R } \).</li>
         </ul>
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Assume, for contradiction, that such a function \( \mu \) exists. Use the same representative set \( V \subseteq [0,1] \) and the same countable set \( Q _ 0 = \mathbb{ Q } \cap [ -1,1 ] \) from the proof of <a class="knowledge-link" href="/measure_theory/outer_measure.html#theorem-outer-measure-is-not-additive">outer measure is not additive</a>. The sets \( q + V \), for \( q \in Q _ 0 \), are pairwise disjoint, their union contains \( [0,1] \), and their union is contained in \( [ -1,2 ] \).</p>
+        <p>By translation invariance of \( \mu \), each set \( q + V \) has the same \( \mu \)-value as \( V \). Since every finite union of these sets is contained in \( [ -1,2 ] \subseteq \left( -2,3 \right) \), countable additivity, monotonicity, and the extension-of-length property imply
+        \[
+            n \mu \left( V \right)
+            =
+            \mu \left( \bigcup _ { j = 1 } ^ n \left( q _ j + V \right) \right)
+            \le
+            \mu \left( \left( -2,3 \right) \right)
+            =
+            5
+        \]
+        for every finite list \( q _ 1,\ldots,q _ n \) of distinct elements of \( Q _ 0 \). Hence \( \mu \left( V \right) = 0 \).</p>
+        <p>Now use countable additivity on the disjoint sequence of all translates \( q + V \), \( q \in Q _ 0 \). We get
+        \[
+            \mu \left( \bigcup _ { q \in Q _ 0 } \left( q + V \right) \right)
+            =
+            \sum _ { q \in Q _ 0 } \mu \left( q + V \right)
+            =
+            0.
+        \]
+        But \( \left( 0,1 \right) \) is contained in that union, so monotonicity, which follows from countable additivity, gives
+        \[
+            1
+            =
+            \mu \left( \left( 0,1 \right) \right)
+            \le
+            \mu \left( \bigcup _ { q \in Q _ 0 } \left( q + V \right) \right)
+            =
+            0,
+        \]
+        a contradiction. Therefore no countably additive translation-invariant extension of interval length can be defined on all subsets of \( \mathbb{ R } \).</p>
+    </div>
 </div>

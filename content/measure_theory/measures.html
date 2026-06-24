@@ -33,7 +33,15 @@
             <li>if \( \mu \left( D \right) \lt \infty \), then \( \mu \left( E \setminus D \right) = \mu \left( E \right) - \mu \left( D \right) \).</li>
         </ul>
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Since \( D \subseteq E \), we can write \( E = D \sqcup \left( E \setminus D \right) \), where the union is <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-pairwise-disjoint-sets">disjoint</a>. By the <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">definition of a measure</a>,
+        \[
+            \mu \left( E \right)
+            =
+            \mu \left( D \right) + \mu \left( E \setminus D \right).
+        \]
+        Since \( \mu \left( E \setminus D \right) \ge 0 \), we get \( \mu \left( D \right) \le \mu \left( E \right) \). If \( \mu \left( D \right) \lt \infty \), subtracting \( \mu \left( D \right) \) from both sides gives \( \mu \left( E \setminus D \right) = \mu \left( E \right) - \mu \left( D \right) \).</p>
+    </div>
 </div>
 
 <div class="proposition" id="proposition-countable-subadditivity-of-measures">
@@ -48,7 +56,29 @@
             \sum _ { k = 1 } ^ \infty \mu \left( E _ k \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Define disjoint sets
+        \[
+            F _ 1 := E _ 1,
+            \qquad
+            F _ k := E _ k \setminus \bigcup _ { j = 1 } ^ { k - 1 } E _ j
+            \quad \text{for } k \ge 2.
+        \]
+        Each \( F _ k \in \mathcal{ S } \) because <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#proposition-sigma-algebras-are-closed-under-standard-set-operations">\( \sigma \)-algebras are closed under standard set operations</a>. Also \( F _ k \subseteq E _ k \), and
+        \[
+            \bigcup _ { k = 1 } ^ \infty E _ k
+            =
+            \bigcup _ { k = 1 } ^ \infty F _ k.
+        \]
+        By <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">countable additivity</a> and <a class="knowledge-link" href="/measure_theory/measures.html#proposition-measure-preserves-order-and-set-difference">order preservation</a>,
+        \[
+            \mu \left( \bigcup _ { k = 1 } ^ \infty E _ k \right)
+            =
+            \sum _ { k = 1 } ^ \infty \mu \left( F _ k \right)
+            \le
+            \sum _ { k = 1 } ^ \infty \mu \left( E _ k \right).
+        \]</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-measure-of-an-increasing-union">
@@ -63,7 +93,28 @@
             \lim _ { k \to \infty } \mu \left( E _ k \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Set \( F _ 1 := E _ 1 \) and \( F _ k := E _ k \setminus E _ { k - 1 } \) for \( k \ge 2 \). Then \( F _ 1,F _ 2,\ldots \) are pairwise disjoint, each belongs to \( \mathcal{ S } \), and
+        \[
+            \bigcup _ { k = 1 } ^ \infty E _ k
+            =
+            \bigcup _ { k = 1 } ^ \infty F _ k.
+        \]
+        By the <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">definition of a measure</a>,
+        \[
+            \mu \left( \bigcup _ { k = 1 } ^ \infty E _ k \right)
+            =
+            \sum _ { k = 1 } ^ \infty \mu \left( F _ k \right)
+            =
+            \lim _ { n \to \infty } \sum _ { k = 1 } ^ n \mu \left( F _ k \right).
+        \]
+        For each \( n \), the finite disjoint union \( F _ 1 \sqcup \cdots \sqcup F _ n \) equals \( E _ n \), so \( \sum _ { k = 1 } ^ n \mu \left( F _ k \right) = \mu \left( E _ n \right) \). Therefore
+        \[
+            \mu \left( \bigcup _ { k = 1 } ^ \infty E _ k \right)
+            =
+            \lim _ { n \to \infty } \mu \left( E _ n \right).
+        \]</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-measure-of-a-decreasing-intersection">
@@ -78,7 +129,34 @@
             \lim _ { k \to \infty } \mu \left( E _ k \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Let
+        \[
+            F _ k := E _ 1 \setminus E _ k.
+        \]
+        Then \( F _ 1 \subseteq F _ 2 \subseteq \cdots \), and
+        \[
+            \bigcup _ { k = 1 } ^ \infty F _ k
+            =
+            E _ 1 \setminus \bigcap _ { k = 1 } ^ \infty E _ k.
+        \]
+        By <a class="knowledge-link" href="/measure_theory/measures.html#theorem-measure-of-an-increasing-union">measure of an increasing union</a>,
+        \[
+            \mu \left( E _ 1 \setminus \bigcap _ { k = 1 } ^ \infty E _ k \right)
+            =
+            \lim _ { k \to \infty } \mu \left( E _ 1 \setminus E _ k \right).
+        \]
+        Since \( \mu \left( E _ 1 \right) \lt \infty \), <a class="knowledge-link" href="/measure_theory/measures.html#proposition-measure-preserves-order-and-set-difference">set-difference for finite measure</a> gives
+        \[
+            \mu \left( E _ 1 \right)
+            -
+            \mu \left( \bigcap _ { k = 1 } ^ \infty E _ k \right)
+            =
+            \lim _ { k \to \infty }
+            \left( \mu \left( E _ 1 \right) - \mu \left( E _ k \right) \right).
+        \]
+        Cancelling the finite value \( \mu \left( E _ 1 \right) \) gives the desired equality.</p>
+    </div>
 </div>
 
 <div class="proposition" id="proposition-measure-of-a-union">
@@ -93,5 +171,29 @@
             \mu \left( D \right) + \mu \left( E \right) - \mu \left( D \cap E \right).
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Write the union as the disjoint union
+        \[
+            D \cup E
+            =
+            D \sqcup \left( E \setminus \left( D \cap E \right) \right).
+        \]
+        By <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure">finite additivity</a>,
+        \[
+            \mu \left( D \cup E \right)
+            =
+            \mu \left( D \right)
+            +
+            \mu \left( E \setminus \left( D \cap E \right) \right).
+        \]
+        Since \( \mu \left( D \cap E \right) \lt \infty \), <a class="knowledge-link" href="/measure_theory/measures.html#proposition-measure-preserves-order-and-set-difference">set-difference for finite measure</a> gives
+        \[
+            \mu \left( E \setminus \left( D \cap E \right) \right)
+            =
+            \mu \left( E \right)
+            -
+            \mu \left( D \cap E \right).
+        \]
+        Substituting this into the previous equation proves the formula.</p>
+    </div>
 </div>

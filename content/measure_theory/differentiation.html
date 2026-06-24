@@ -36,7 +36,9 @@
     <div class="content">
         Suppose that \( f \in L ^ 1 _ { \operatorname{ loc } } \left( \mathbb{ R } \right) \). Then almost every \( a \in \mathbb{ R } \) is a <a class="knowledge-link" href="/measure_theory/differentiation.html#definition-lebesgue-point">Lebesgue point</a> of \( f \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>It is enough to prove the claim for \( f\in L ^ 1\left( \mathbb{ R}\right) \), then apply it on bounded intervals for the local case. Approximate \( f \) in \( L ^ 1 \) by a continuous compactly supported function \( g \), using <a class="knowledge-link" href="/measure_theory/integration.html#theorem-approximation-in-l1-by-continuous-functions">approximation in \( L ^ 1 \) by continuous functions</a>. Every point is a Lebesgue point of \( g \) by <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuity</a>. The bad set for \( f \) is controlled by the Hardy-Littlewood maximal function of \( f-g \); the <a class="knowledge-link" href="/measure_theory/differentiation.html#theorem-hardy-littlewood-maximal-inequality">maximal inequality</a> makes its measure arbitrarily small as \( \lVert f-g\rVert _1\to0 \). Hence the non-Lebesgue points of \( f \) form a null set.</p>
+    </div>
 </div>
 
 <div class="theorem" id="theorem-differentiation-of-indefinite-integrals">
@@ -52,7 +54,15 @@
         \]
         Then \( F ^ \prime \left( x \right) = f \left( x \right) \) for almost every \( x \in \mathbb{ R } \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>If \( a \) is a <a class="knowledge-link" href="/measure_theory/differentiation.html#definition-lebesgue-point">Lebesgue point</a> of \( f \), then
+        \[
+            \frac{F\left( a+h\right)-F\left( a\right)}{h}-f\left( a\right)
+            =
+            \frac{1}{h}\int_a^{a+h}\left( f-f\left( a\right)\right)d\lambda
+        \]
+        for \( h\gt0 \), with the analogous formula for \( h\lt0 \). The absolute value of the right side is bounded by the average of \( \left\lvert f-f\left( a\right)\right\rvert \) over an interval shrinking to \( a \), which tends to \( 0 \). By the <a class="knowledge-link" href="/measure_theory/differentiation.html#theorem-lebesgue-differentiation-theorem">Lebesgue differentiation theorem</a>, this holds for almost every \( a \).</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-hardy-littlewood-maximal-function">
@@ -88,7 +98,17 @@
             \lVert f \rVert _ 1 .
         \]
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>For each \( x \) with \( Mf\left( x\right)\gt\alpha \), choose an interval \( I_x \) centered at \( x \) such that \( \int_{I_x}\left\lvert f\right\rvert d\lambda\gt \alpha\lambda\left( I_x\right) \). On any bounded subcollection, the one-dimensional covering lemma selects disjoint intervals \( I_j \) whose triples cover the same centers. Therefore
+        \[
+            \lambda\left( \left\{ Mf\gt\alpha\right\}\cap[-N,N]\right)
+            \le
+            3\sum_j \lambda\left( I_j\right)
+            \le
+            \frac{3}{\alpha}\int \left\lvert f\right\rvert d\lambda.
+        \]
+        Letting \( N\to\infty \) and using the <a class="knowledge-link" href="/measure_theory/measures.html#theorem-measure-of-an-increasing-union">measure of an increasing union</a> proves the inequality.</p>
+    </div>
 </div>
 
 <div class="definition" id="definition-absolutely-continuous-function-on-an-interval">
@@ -118,5 +138,11 @@
         \]
         whenever \( a \le x \le y \le b \).
     </div>
-    <div class="proof"></div>
+    <div class="proof">
+        <p>Absolute continuity implies bounded variation, so \( F \) is differentiable almost everywhere and \( F'\in L ^ 1\left( [a,b]\right) \). Define
+        \[
+            G\left( x\right)=F\left( a\right)+\int_a^x F'\,d\lambda.
+        \]
+        By <a class="knowledge-link" href="/measure_theory/differentiation.html#theorem-differentiation-of-indefinite-integrals">differentiation of indefinite integrals</a>, \( G'=F' \) almost everywhere. Thus \( H=F-G \) is absolutely continuous with derivative \( 0 \) almost everywhere. Applying the absolute-continuity condition to the open set where \( H \) changes by more than a fixed amount shows \( H \) is constant. Since \( H(a)=0 \), \( H=0 \), giving the displayed integral formula.</p>
+    </div>
 </div>
