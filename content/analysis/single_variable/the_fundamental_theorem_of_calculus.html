@@ -1,0 +1,105 @@
+<div class="theorem" id="theorem-fundamental-theorem-of-calculus-i">
+    <div class="title">
+        Fundamental Theorem of Calculus I
+    </div>
+    <div class="content">
+        Suppose that \( a,b \in \mathbb{ R } \), \( a \lt b \), and \( f: [a,b] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-riemann-integrable-function">Riemann integrable</a>. Define \( F: [a,b] \to \mathbb{ R } \) by
+        \[
+            F \left( x \right)
+            :=
+            <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-riemann-integral">\int _ a ^ x f</a>.
+        \]
+        Then \( F \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a> on \( [a,b] \). If \( f \) is continuous at \( x _ 0 \in (a,b) \), then \( F \) is <a class="knowledge-link" href="/analysis/single_variable/differentiation.html#definition-derivative">differentiable</a> at \( x _ 0 \) and
+        \[
+            F ^ \prime \left( x _ 0 \right)
+            =
+            f \left( x _ 0 \right).
+        \]
+    </div>
+    <div class="proof">
+        Since \( f \) is <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-riemann-integrable-function">Riemann integrable</a>, it is bounded. Choose \( M \in \mathbb{ R } \) such that \( \left\lvert f \left( t \right) \right\rvert \le M \) for every \( t \in [a,b] \). If \( x,y \in [a,b] \) and \( x \lt y \), then by the <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#proposition-bounds-on-a-riemann-integral">bounds on a Riemann integral</a>,
+        \[
+            \left\lvert F \left( y \right) - F \left( x \right) \right\rvert
+            =
+            \left\lvert \int _ x ^ y f \right\rvert
+            \le
+            M \left( y - x \right).
+        \]
+        The same inequality with \( x \) and \( y \) interchanged gives \( \left\lvert F \left( y \right) - F \left( x \right) \right\rvert \le M \left\lvert y - x \right\rvert \), so \( F \) is continuous.
+        <p>Now suppose that \( f \) is continuous at \( x _ 0 \in (a,b) \). For \( h \neq 0 \) small enough that \( x _ 0 + h \in (a,b) \),</p>
+        \[
+            \frac{F \left( x _ 0 + h \right) - F \left( x _ 0 \right)}{h}
+            -
+            f \left( x _ 0 \right)
+            =
+            \frac{1}{h}
+            \int _ { x _ 0 } ^ { x _ 0 + h }
+            \left( f \left( t \right) - f \left( x _ 0 \right) \right) \, dt.
+        \]
+        Let \( \epsilon \in \mathbb{ R } ^ + \). Since \( f \) is continuous at \( x _ 0 \), there is \( \delta \in \mathbb{ R } ^ + \) such that \( \left\lvert f \left( t \right) - f \left( x _ 0 \right) \right\rvert \lt \epsilon \) whenever \( \left\lvert t - x _ 0 \right\rvert \lt \delta \). Hence, whenever \( \left\lvert h \right\rvert \lt \delta \),
+        \[
+            \left\lvert
+            \frac{F \left( x _ 0 + h \right) - F \left( x _ 0 \right)}{h}
+            -
+            f \left( x _ 0 \right)
+            \right\rvert
+            \le
+            \epsilon.
+        \]
+        Therefore the derivative exists and is equal to \( f \left( x _ 0 \right) \).
+    </div>
+</div>
+
+<div class="proposition" id="proposition-zero-derivative-implies-constant">
+    <div class="title">
+        Zero Derivative Implies Constant
+    </div>
+    <div class="content">
+        Suppose that \( a,b \in \mathbb{ R } \), \( a \lt b \), and \( F: [a,b] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a> on \( [a,b] \) and <a class="knowledge-link" href="/analysis/single_variable/differentiation.html#definition-derivative">differentiable</a> on \( (a,b) \). If \( F ^ \prime \left( x \right) = 0 \) for every \( x \in (a,b) \), then \( F \) is constant on \( [a,b] \).
+    </div>
+    <div class="proof">
+        Let \( x,y \in [a,b] \) with \( x \lt y \). By the <a class="knowledge-link" href="/analysis/single_variable/mean_value_theorem.html#theorem-mean-value">Mean Value Theorem</a>, there is \( c \in (x,y) \) such that
+        \[
+            \frac{F \left( y \right) - F \left( x \right)}{y - x}
+            =
+            F ^ \prime \left( c \right)
+            =
+            0.
+        \]
+        Since \( y - x \neq 0 \), we have \( F \left( y \right) = F \left( x \right) \). Thus \( F \) is constant.
+    </div>
+</div>
+
+<div class="theorem" id="theorem-fundamental-theorem-of-calculus-ii">
+    <div class="title">
+        Fundamental Theorem of Calculus II
+    </div>
+    <div class="content">
+        Suppose that \( a,b \in \mathbb{ R } \), \( a \lt b \), and \( f: [a,b] \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a>. If \( F: [a,b] \to \mathbb{ R } \) is continuous on \( [a,b] \), differentiable on \( (a,b) \), and \( F ^ \prime \left( x \right) = f \left( x \right) \) for every \( x \in (a,b) \), then
+        \[
+            <a class="knowledge-link" href="/analysis/single_variable/riemann_integration.html#definition-riemann-integral">\int _ a ^ b f</a>
+            =
+            F \left( b \right) - F \left( a \right).
+        \]
+    </div>
+    <div class="proof">
+        Define \( G: [a,b] \to \mathbb{ R } \) by
+        \[
+            G \left( x \right)
+            :=
+            \int _ a ^ x f.
+        \]
+        By <a class="knowledge-link" href="/analysis/single_variable/the_fundamental_theorem_of_calculus.html#theorem-fundamental-theorem-of-calculus-i">Fundamental Theorem of Calculus I</a>, \( G ^ \prime \left( x \right) = f \left( x \right) \) for every \( x \in (a,b) \). Since \( F ^ \prime = f \) on \( (a,b) \), the function \( H := F - G \) has derivative \( 0 \) on \( (a,b) \). By <a class="knowledge-link" href="/analysis/single_variable/the_fundamental_theorem_of_calculus.html#proposition-zero-derivative-implies-constant">zero derivative implies constant</a>, \( H \) is constant. Thus
+        \[
+            F \left( b \right) - G \left( b \right)
+            =
+            F \left( a \right) - G \left( a \right).
+        \]
+        Since \( G \left( a \right) = \int _ a ^ a f = 0 \) and \( G \left( b \right) = \int _ a ^ b f \), rearranging gives
+        \[
+            \int _ a ^ b f
+            =
+            F \left( b \right) - F \left( a \right).
+        \]
+    </div>
+</div>

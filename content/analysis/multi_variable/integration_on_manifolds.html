@@ -1,0 +1,849 @@
+<div class="definition" id="definition-diffeomorphism">
+    <div class="title">
+        Diffeomorphism
+    </div>
+    <div class="content">
+        If \( U,V \subseteq \mathbb{ R } ^ n \) are <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a>, a diffeomorphism \( h: U \to V \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-bijective-function">bijection</a> such that both \( h \) and its <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-function">inverse function</a> \( h ^ { -1 } \) are <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-c-infinity-function">\( C ^ \infty \)</a>.
+    </div>
+</div>
+<div class="definition" id="definition-k-dimensional-manifold-in-euclidean-space">
+    <div class="title">
+        \( k \)-Dimensional Manifold in Euclidean Space
+    </div>
+    <div class="content">
+        A subset \( M \subseteq \mathbb{ R } ^ n \) is a \( k \)-dimensional manifold if for every \( x \in M \), there are <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open sets</a> \( U,V \subseteq \mathbb{ R } ^ n \) with \( x \in U \), and a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-diffeomorphism">diffeomorphism</a> \( h: U \to V \), such that
+        \[
+            h\left( U \cap M \right)
+            =
+            V \cap \left( \mathbb{ R } ^ k \times \left\{ 0 \right\} \right).
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-regular-level-set-is-a-manifold">
+    <div class="title">
+        Regular Level Set is a Manifold
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ R } ^ n \) be <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a> and let \( g: A \to \mathbb{ R } ^ p \) be <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-c-infinity-function">\( C ^ \infty \)</a>. If the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> \( g'\left( x \right) \) has <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-rank">rank</a> \( p \) whenever \( g\left( x \right)=0 \), then
+        \[
+            g ^ { -1 }\left( 0 \right)
+        \]
+        is an \( \left( n-p \right) \)-dimensional manifold in \( \mathbb{ R } ^ n \).
+    </div>
+    <div class="proof">
+        Let \( x\in g ^ { -1 }\left( 0 \right) \), and write the coordinate variables in \( \mathbb{ R } ^ n \) as \( z_1,\ldots,z_n \). The <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> \( g'\left( x \right) \) is a \( p\times n \) matrix whose \( j \)-th column is the derivative of \( g \) in the \( z_j \)-direction.
+        <p>
+            Since \( g'\left( x \right) \) has <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-rank">rank</a> \( p \), its \( n \) columns span a \( p \)-dimensional subspace of \( \mathbb{ R } ^ p \). Therefore some \( p \) of those \( n \) columns form a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> of \( \mathbb{ R } ^ p \). Choose their indices and call them \( j_1,\ldots,j_p \).
+        </p>
+        <p>
+            Let \( v=\left( z_{j_1},\ldots,z_{j_p} \right) \), and let \( u \) be the remaining \( n-p \) coordinate variables. With the coordinates ordered as \( \left( u,v \right)\in\mathbb{ R } ^ { n-p }\times\mathbb{ R } ^ p \), the \( p\times p \) matrix
+            \[
+                \left[
+                    \frac{\partial g ^ i}{\partial v_j}\left( x \right)
+                \right]_{1\le i,j\le p}
+            \]
+            has those selected columns as its columns. Since those columns form a basis of \( \mathbb{ R } ^ p \), this matrix is <a class="knowledge-link" href="/algebra/linear/matrices.html#theorem-matrix-with-basis-columns-is-invertible">invertible</a>.
+        </p>
+        <p>
+            By the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-implicit-function-theorem">implicit function theorem</a>, after restricting to a small neighborhood, the equation \( g\left( u,v \right)=0 \) uniquely determines \( v \) as a \( C ^ \infty \) function \( v=\varphi\left( u \right) \). Define
+            \[
+                h\left( u,v \right)=\left( u,v-\varphi\left( u \right) \right).
+            \]
+            Then \( h \) is a local <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-diffeomorphism">diffeomorphism</a>, and it sends the local set \( g ^ { -1 }\left( 0 \right) \) exactly to \( \mathbb{ R } ^ { n-p }\times\left\{0\right\} \). This is the local model required in the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">definition of a manifold</a>, so \( g ^ { -1 }\left( 0 \right) \) is an \( \left( n-p \right) \)-dimensional manifold.
+        </p>
+    </div>
+</div>
+<div class="exercise" id="exercise-unit-sphere-is-a-two-dimensional-manifold">
+    <div class="title">
+        Unit Sphere is a 2-Dimensional Manifold
+    </div>
+    <div class="content">
+        The unit sphere
+        \[
+            S ^ 2
+            =
+            \left\{ \left( x,y,z \right)\in \mathbb{ R } ^ 3 : x ^ 2+y ^ 2+z ^ 2=1 \right\}
+        \]
+        is a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">2-dimensional manifold in Euclidean space</a>.
+    </div>
+    <div class="proof">
+        Define \( g: \mathbb{ R } ^ 3 \to \mathbb{ R } \) by
+        \[
+            g\left( x,y,z \right)
+            =
+            x ^ 2+y ^ 2+z ^ 2-1.
+        \]
+        Then \( S ^ 2 = g ^ { -1 }\left( 0 \right) \), and \( g \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-c-infinity-function">\( C ^ \infty \)</a>. Its <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> is
+        \[
+            g'\left( x,y,z \right)
+            =
+            \begin{bmatrix}
+                2x & 2y & 2z
+            \end{bmatrix}.
+        \]
+        If \( \left( x,y,z \right)\in S ^ 2 \), then \( x ^ 2+y ^ 2+z ^ 2=1 \), so not all of \( x,y,z \) are zero. Therefore \( g'\left( x,y,z \right) \) has <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-rank">rank</a> \(1\) on \( g ^ { -1 }\left( 0 \right) \). By the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#theorem-regular-level-set-is-a-manifold">regular level set theorem</a>, \( S ^ 2 \) is a \( \left( 3-1 \right) \)-dimensional manifold in \( \mathbb{ R } ^ 3 \), so it is a 2-dimensional manifold.
+    </div>
+</div>
+<div class="definition" id="definition-coordinate-system-on-a-manifold">
+    <div class="title">
+        Coordinate System on a Manifold
+    </div>
+    <div class="content">
+        Let \( M \subseteq \mathbb{ R } ^ n \) be a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">\( k \)-dimensional manifold</a>. A coordinate system around \( x \in M \) is the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f:W\to\mathbb{ R } ^ n \), where \( W\subseteq\mathbb{ R } ^ k \) is the <b>coordinate domain</b> and \( f\left( W \right) \) is the patch of \( M \) being described. The function \( f \) must satisfy:
+        <ul>
+            <li>\( W \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a> in \( \mathbb{ R } ^ k \), and there is an open set \( U\subseteq\mathbb{ R } ^ n \) such that \( f\left( W \right)=M\cap U \) and \( x\in f\left( W \right) \).</li>
+            <li>\( f \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">one-to-one</a> and <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-c-infinity-function">\( C ^ \infty \)</a>.</li>
+            <li>The <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> \( f'\left( y \right) \) has <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-rank">rank</a> \( k \) for every \( y\in W \).</li>
+            <li>The inverse \( f ^ { -1 }:f\left( W \right)\to W \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous</a>.</li>
+        </ul>
+        A point \( y\in W \) is a coordinate value, and \( f\left( y \right)\in M \) is the corresponding point on the manifold.
+    </div>
+</div>
+
+<div class="exercise" id="exercise-upper-hemisphere-coordinate-system-on-the-sphere">
+    <div class="title">
+        Upper Hemisphere Coordinate System on the Sphere
+    </div>
+    <div class="content">
+        Let
+        \[
+            S ^ 2
+            =
+            \left\{ \left( x,y,z \right)\in\mathbb{ R } ^ 3 : x ^ 2+y ^ 2+z ^ 2=1 \right\}
+        \]
+        and let
+        \[
+            W=\left\{ \left( u,v \right)\in\mathbb{ R } ^ 2 : u ^ 2+v ^ 2 \lt 1 \right\}.
+        \]
+        Show that \( f:W\to\mathbb{ R } ^ 3 \), defined by
+        \[
+            f\left( u,v \right)
+            =
+            \left( u,v,\sqrt{1-u ^ 2-v ^ 2} \right),
+        \]
+        is a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a> around every point of the upper hemisphere \( S ^ 2\cap\left\{ z\gt 0 \right\} \).
+    </div>
+    <div class="proof">
+        The set \( W \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a> in \( \mathbb{ R } ^ 2 \). The map \( f \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-c-infinity-function">\( C ^ \infty \)</a> on \( W \), because \( 1-u ^ 2-v ^ 2 \gt 0 \) there and the square root function is smooth on positive real numbers.
+        <p>
+            The map \( f \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">one-to-one</a>: if \( f\left( u_1,v_1 \right)=f\left( u_2,v_2 \right) \), then comparing the first two coordinates gives \( u_1=u_2 \) and \( v_1=v_2 \).
+        </p>
+        <p>
+            Let \( U=\left\{ \left( x,y,z \right)\in\mathbb{ R } ^ 3 : z\gt 0 \right\} \). Then
+            \[
+                f\left( W \right)=S ^ 2\cap U.
+            \]
+            Indeed, every \( f\left( u,v \right) \) lies on \( S ^ 2 \) and has positive \( z \)-coordinate. Conversely, if \( \left( x,y,z \right)\in S ^ 2\cap U \), then \( x ^ 2+y ^ 2=1-z ^ 2\lt 1 \), so \( \left( x,y \right)\in W \), and because \( z\gt 0 \),
+            \[
+                z=\sqrt{1-x ^ 2-y ^ 2}.
+            \]
+            Thus \( \left( x,y,z \right)=f\left( x,y \right) \).
+        </p>
+        <p>
+            The inverse function on the image is
+            \[
+                f ^ { -1 }:S ^ 2\cap U\to W,
+                \qquad
+                f ^ { -1 }\left( x,y,z \right)=\left( x,y \right),
+            \]
+            which is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous</a>.
+        </p>
+        <p>
+            Finally, the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> is
+            \[
+                f'\left( u,v \right)
+                =
+                \begin{bmatrix}
+                    1 & 0 \\
+                    0 & 1 \\
+                    \frac{-u}{\sqrt{1-u ^ 2-v ^ 2}} & \frac{-v}{\sqrt{1-u ^ 2-v ^ 2}}
+                \end{bmatrix}.
+            \]
+            Its first two rows form the \( 2\times 2 \) identity matrix, so its columns are linearly independent and the matrix has <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-rank">rank</a> \(2\). Therefore \( f \) satisfies every condition in the definition of a coordinate system around every point of \( S ^ 2\cap\left\{ z\gt 0 \right\} \).
+        </p>
+    </div>
+</div>
+
+<div class="exercise" id="exercise-standard-coordinate-system-on-the-x-axis">
+    <div class="title">
+        Standard Coordinate System on the \( x \)-Axis
+    </div>
+    <div class="content">
+        Let
+        \[
+            M=\mathbb{ R }\times\left\{0\right\}\subseteq\mathbb{ R } ^ 2.
+        \]
+        Show that \( f:\mathbb{ R }\to\mathbb{ R } ^ 2 \), defined by
+        \[
+            f\left( t \right)=\left( t,0 \right),
+        \]
+        is a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a> around every point of \( M \).
+    </div>
+    <div class="proof">
+        Let \( x=\left( a,0 \right)\in M \). The domain \( W=\mathbb{ R } \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a> in \( \mathbb{ R } \), and \( f \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">one-to-one</a>, because \( f\left( s \right)=f\left( t \right) \) implies \( \left( s,0 \right)=\left( t,0 \right) \), so \( s=t \).
+        <p>
+            The map \( f \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-c-infinity-function">\( C ^ \infty \)</a>, and its <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> is
+            \[
+                f'\left( t \right)
+                =
+                \begin{bmatrix}
+                    1 \\
+                    0
+                \end{bmatrix}.
+            \]
+            This matrix has <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-rank">rank</a> \( 1 \) for every \( t\in\mathbb{ R } \).
+        </p>
+        <p>
+            Taking \( U=\mathbb{ R } ^ 2 \), we have \( f\left( W \right)=M=M\cap U \). The inverse function on the image is
+            \[
+                f ^ { -1 } : M\to\mathbb{ R },
+                \qquad
+                f ^ { -1 }\left( t,0 \right)=t,
+            \]
+            which is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous</a>. Therefore \( f \) satisfies every condition in the definition of a coordinate system around \( x \). Since \( x\in M \) was arbitrary, \( f \) is a coordinate system around every point of \( M \).
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-induced-volume-of-a-manifold-subset">
+    <div class="title">
+        Induced Volume of a Manifold Subset
+    </div>
+    <div class="content">
+        Let \(M\subseteq\mathbb R^n\) be a \(k\)-dimensional <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">manifold</a>, and let \(E\subseteq M\). Suppose first that \(E\subseteq f\left(W\right)\) for a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a> \(f:W\to\mathbb R^n\). The <b>induced \(k\)-dimensional volume</b> of \(E\) is
+        \[
+            \operatorname{vol}_M\left(E\right)
+            =
+            \int_{f^{-1}\left(E\right)}
+            \sqrt{
+                <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-determinant">\det</a>
+                \left(
+                    <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">f'\left(u\right)</a>^<a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-transpose">T</a>
+                    <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">f'\left(u\right)</a>
+                \right)
+            }\;du,
+        \]
+        whenever this integral exists. The matrix \(f'\left(u\right)^T f'\left(u\right)\) records the inner products of the coordinate tangent vectors, so its determinant gives the squared \(k\)-dimensional volume distortion of the coordinate map at \(u\).
+        <p>
+            If \(E\) is not contained in one coordinate image, decompose \(E\) into countably many disjoint measurable pieces, each contained in a coordinate image, and add the above values. The change-of-variables formula makes the result independent of the chosen coordinate systems. When \(k=2\), this induced volume is called the <b>surface area</b> of \(E\), and is denoted \(\operatorname{area}_M\left(E\right)\).
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-surface-area-measure">
+    <div class="title">
+        Surface Area Measure
+    </div>
+    <div class="content">
+        Let \(M\subseteq\mathbb R^n\) be a two-dimensional <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">manifold</a>. The <b>surface area measure</b> on \(M\), denoted \(A_M\), is the measure whose value on a measurable subset \(E\subseteq M\) is the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">surface area</a> of \(E\):
+        \[
+            A_M(E)=\operatorname{area}_M(E).
+        \]
+        Thus an expression such as
+        \[
+            \int_M f(q)\,dA_M(q)
+        \]
+        means integration with respect to the surface area measure \(A_M\). The symbol \(A_M\) denotes a measure on subsets of \(M\), not a scalar-valued function of the point \(q\).
+    </div>
+</div>
+<div class="definition" id="definition-surface-area-density-in-coordinates">
+    <div class="title">
+        Surface Area Density in Coordinates
+    </div>
+    <div class="content">
+        Let \(M\subseteq\mathbb R^3\) be a two-dimensional <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">manifold</a>, and let
+        \[
+            f:U\to M,
+            \qquad
+            U\subseteq\mathbb R^2,
+        \]
+        be a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a>. The <b>surface area density of \(M\) in the coordinates \(f\)</b> is the function
+        \[
+            \rho_f:U\to\mathbb R^{\ge0}
+        \]
+        defined by
+        \[
+            \rho_f(u)
+            =
+            \sqrt{
+                \det\left(
+                    f'\left(u\right)^T f'\left(u\right)
+                \right)
+            }.
+        \]
+        This is the factor that appears in the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">induced volume definition</a> when \(k=2\). Thus locally,
+        \[
+            dA=\rho_f(u)\,du.
+        \]
+    </div>
+</div>
+
+<div class="proposition" id="proposition-surface-area-density-cross-product-formula">
+    <div class="title">
+        Surface Area Density Cross Product Formula
+    </div>
+    <div class="content">
+        Let \(M\subseteq\mathbb R^3\) be a two-dimensional manifold, and let \(f:U\to M\) be a coordinate system with \(U\subseteq\mathbb R^2\). Define the coordinate tangent vectors
+        \[
+            f_1(u)=\frac{\partial f}{\partial u_1}(u),
+            \qquad
+            f_2(u)=\frac{\partial f}{\partial u_2}(u).
+        \]
+        Then the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-surface-area-density-in-coordinates">surface area density in the coordinates \(f\)</a> is
+        \[
+            \rho_f(u)
+            =
+            \left\|f_1(u)\times f_2(u)\right\|.
+        \]
+    </div>
+    <div class="proof">
+        The Jacobian matrix \(f'\left(u\right)\) has columns \(f_1(u)\) and \(f_2(u)\). Therefore
+        \[
+            f'\left(u\right)^T f'\left(u\right)
+            =
+            \begin{bmatrix}
+                f_1(u)\cdot f_1(u) & f_1(u)\cdot f_2(u)\\
+                f_2(u)\cdot f_1(u) & f_2(u)\cdot f_2(u)
+            \end{bmatrix}.
+        \]
+        Its determinant is
+        \[
+            \left(f_1\cdot f_1\right)\left(f_2\cdot f_2\right)
+            -
+            \left(f_1\cdot f_2\right)^2,
+        \]
+        where the argument \(u\) is suppressed to reduce notation. By the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-vector-component-formula">component formula for the cross product</a> and the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">definition of dot product</a>,
+        \[
+            \left\|f_1\times f_2\right\|^2
+            =
+            \left(f_1\cdot f_1\right)\left(f_2\cdot f_2\right)
+            -
+            \left(f_1\cdot f_2\right)^2.
+        \]
+        Hence
+        \[
+            \det\left(f'\left(u\right)^T f'\left(u\right)\right)
+            =
+            \left\|f_1(u)\times f_2(u)\right\|^2.
+        \]
+        Taking the nonnegative square root in the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-surface-area-density-in-coordinates">definition of surface area density</a> gives
+        \[
+            \rho_f(u)
+            =
+            \left\|f_1(u)\times f_2(u)\right\|.
+        \]
+    </div>
+</div>
+
+<div class="exercise" id="exercise-induced-volume-of-the-unit-square">
+    <div class="title">
+        Induced Volume of the Unit Square
+    </div>
+    <div class="content">
+        Let
+        \[
+            M=\mathbb{ R } ^ 2\times\left\{0\right\}\subseteq\mathbb{ R } ^ 3
+        \]
+        and let
+        \[
+            E=\left[0,1\right]\times\left[0,1\right]\times\left\{0\right\}\subseteq M.
+        \]
+        Use the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">induced volume of a manifold subset</a> to compute the surface area of \(E\).
+    </div>
+    <div class="proof">
+        Use the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a> \(f:\mathbb{ R } ^ 2\to\mathbb{ R } ^ 3\) defined by
+        \[
+            f\left( u,v \right)=\left( u,v,0 \right).
+        \]
+        Then \(f^{-1}\left(E\right)=\left[0,1\right]\times\left[0,1\right]\), and the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> is
+        \[
+            f'\left( u,v \right)
+            =
+            \begin{bmatrix}
+                1 & 0\\
+                0 & 1\\
+                0 & 0
+            \end{bmatrix}.
+        \]
+        Therefore
+        \[
+            f'\left( u,v \right)^T f'\left( u,v \right)
+            =
+            \begin{bmatrix}
+                1 & 0\\
+                0 & 1
+            \end{bmatrix},
+        \]
+        so its <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-determinant">determinant</a> is \(1\). By the definition of induced volume,
+        \[
+            \operatorname{area}_M\left(E\right)
+            =
+            \int_{\left[0,1\right]\times\left[0,1\right]}
+            \sqrt{1}\;du\,dv
+            =
+            1.
+        \]
+        Thus the induced surface area of the unit square is \(1\), as expected.
+    </div>
+</div>
+<div class="exercise" id="exercise-induced-area-of-the-projected-unit-disk-on-the-sphere">
+    <div class="title">
+        Induced Area of the Projected Unit Disk on the Sphere
+    </div>
+    <div class="content">
+        Let
+        \[
+            S ^ 2
+            =
+            \left\{ \left( x,y,z \right)\in\mathbb{ R } ^ 3 : x ^ 2+y ^ 2+z ^ 2=1 \right\}.
+        \]
+        Project the open unit disk
+        \[
+            W=\left\{ \left( u,v \right)\in\mathbb{ R } ^ 2 : u ^ 2+v ^ 2\lt1 \right\}
+        \]
+        onto the top of the unit sphere by
+        \[
+            f\left( u,v \right)=\left( u,v,\sqrt{1-u ^ 2-v ^ 2} \right).
+        \]
+        Use the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">induced volume of a manifold subset</a> to compute the surface area of \( f\left( W \right) \).
+    </div>
+    <div class="proof">
+        The <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> of \( f \) is
+        \[
+            f'\left( u,v \right)
+            =
+            \begin{bmatrix}
+                1 & 0\\
+                0 & 1\\
+                -\frac{u}{\sqrt{1-u ^ 2-v ^ 2}} & -\frac{v}{\sqrt{1-u ^ 2-v ^ 2}}
+            \end{bmatrix}.
+        \]
+        Hence
+        \[
+            f'\left( u,v \right)^T f'\left( u,v \right)
+            =
+            \begin{bmatrix}
+                1+\frac{u ^ 2}{1-u ^ 2-v ^ 2} & \frac{uv}{1-u ^ 2-v ^ 2}\\
+                \frac{uv}{1-u ^ 2-v ^ 2} & 1+\frac{v ^ 2}{1-u ^ 2-v ^ 2}
+            \end{bmatrix}.
+        \]
+        Its <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-determinant">determinant</a> is
+        \[
+            \left( 1+\frac{u ^ 2}{1-u ^ 2-v ^ 2} \right)
+            \left( 1+\frac{v ^ 2}{1-u ^ 2-v ^ 2} \right)
+            -
+            \left( \frac{uv}{1-u ^ 2-v ^ 2} \right) ^ 2
+            =
+            \frac{1}{1-u ^ 2-v ^ 2}.
+        \]
+        Therefore
+        \[
+            \operatorname{area}_{S ^ 2}\left( f\left( W \right) \right)
+            =
+            \int_W
+            \frac{1}{\sqrt{1-u ^ 2-v ^ 2}}\;du\,dv.
+        \]
+        The integrand becomes unbounded as \(u ^ 2+v ^ 2\to1\), so we first compute the area on smaller disks that stay away from the boundary circle. These smaller disks exhaust \(W\), and the final area is obtained by taking their limit using <a class="knowledge-link" href="/measure_theory/integration.html#theorem-monotone-convergence">monotone convergence</a>.
+        <p>
+        For \(0\lt\rho\lt1\), let
+        \[
+            W_\rho=\left\{ \left( u,v \right)\in\mathbb{ R } ^ 2:u ^ 2+v ^ 2\lt \rho ^ 2 \right\}.
+        \]
+        </p>
+        Apply the <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#corollary-polar-coordinate-change-of-variables">polar coordinate change of variables</a> on \(W_\rho\) with
+        \[
+            q\left( u,v \right)
+            =
+            \frac{1}{\sqrt{1-u ^ 2-v ^ 2}}.
+        \]
+        Since
+        \[
+            q\left( r\cos\theta,r\sin\theta \right)
+            =
+            \frac{1}{\sqrt{1-r ^ 2}},
+        \]
+        the corollary gives
+        \[
+            \operatorname{area}_{S ^ 2}\left( f\left( W_\rho \right) \right)
+            =
+            \int_0^{2\pi}\int_0^\rho
+            \frac{r}{\sqrt{1-r ^ 2}}\;dr\,d\theta
+        \]
+        To evaluate the inner integral, use the substitution \(s=1-r ^ 2\), so \(ds=-2r\,dr\). Therefore
+        \[
+            \int_0^\rho
+            \frac{r}{\sqrt{1-r ^ 2}}\;dr
+            =
+            -\frac{1}{2}
+            \int_1^{1-\rho ^ 2}
+            s ^ { -1/2 }\;ds
+            =
+            \left[ -\sqrt{1-r ^ 2} \right] _ { 0 } ^ { \rho }
+            =
+            1-\sqrt{1-\rho ^ 2},
+        \]
+        where the bracket evaluation uses the <a class="knowledge-link" href="/analysis/single_variable/the_fundamental_theorem_of_calculus.html#theorem-fundamental-theorem-of-calculus">fundamental theorem of calculus</a>. Hence
+        \[
+            \operatorname{area}_{S ^ 2}\left( f\left( W_\rho \right) \right)
+            =
+            \int_0^{2\pi}
+            \left( 1-\sqrt{1-\rho ^ 2} \right)\;d\theta
+            =
+            2\pi\left( 1-\sqrt{1-\rho ^ 2} \right).
+        \]
+        As \( \rho\to1^- \), the sets \( W_\rho \) <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-increasing-sequence-of-sets">increase</a> to \( W \). Since \( q\ge0 \), the functions \( q\,\mathbf{1}_{W_\rho} \) increase pointwise to \( q\,\mathbf{1}_W \). By the <a class="knowledge-link" href="/measure_theory/integration.html#theorem-monotone-convergence">monotone convergence theorem</a>,
+        \[
+            \int_W q\left( u,v \right)\;du\,dv
+            =
+            \lim_{\rho\to1^-}
+            \int_{W_\rho} q\left( u,v \right)\;du\,dv.
+        \]
+        Therefore taking the limit as \( \rho\to1^- \) gives
+        \[
+            \operatorname{area}_{S ^ 2}\left( f\left( W \right) \right)
+            =
+            2\pi.
+        \]
+        Thus the projected unit disk covers the upper hemisphere, whose induced surface area is \(2\pi\).
+    </div>
+</div>
+<div class="theorem" id="theorem-coordinate-characterization-of-manifolds">
+    <div class="title">
+        Coordinate Characterization of Manifolds
+    </div>
+    <div class="content">
+        A subset \( M \subseteq \mathbb{ R } ^ n \) is a \( k \)-dimensional manifold if and only if every point of \( M \) has a coordinate system around it.
+    </div>
+    <div class="proof">
+        Suppose first that \( M \) is a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">\( k \)-dimensional manifold</a>. Choose a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-diffeomorphism">diffeomorphism</a> \( h:U\to V \) giving the local manifold model. Let
+        \[
+            W=\left\{ a\in\mathbb{ R } ^ k:\left( a,0 \right)\in h\left( M\cap U \right) \right\}
+        \]
+        and define \( f:W\to\mathbb{ R } ^ n \) by \( f\left( a \right)=h ^ { -1 }\left( a,0 \right) \). This gives \( f\left( W \right)=M\cap U \), and the inverse coordinate map is continuous. If \( H \) denotes the first \( k \) components of \( h \), then \( H\circ f \) is the identity on \( W \), so \( H'\left( f\left( y \right) \right)f'\left( y \right)=I \). Hence \( f'\left( y \right) \) has <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-rank">rank</a> \( k \).
+        <p>
+            Conversely, suppose \( f:W\to\mathbb{ R } ^ n \) satisfies the coordinate condition near \( x=f\left( y \right) \). Choose \( k \) component functions of \( f \) whose \( k\times k \) derivative matrix has nonzero determinant. After reordering coordinates, define
+            \[
+                G\left( a,b \right)=f\left( a \right)+\left( 0,b \right),
+                \qquad b\in\mathbb{ R } ^ { n-k }.
+            \]
+            Then \( G'\left( y,0 \right) \) is invertible. By the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-inverse-function-theorem">inverse function theorem</a>, \( G \) has a local differentiable inverse \( h \). Since \( f ^ { -1 } \) is continuous on \( f\left( W \right) \), shrinking the neighborhoods gives
+            \[
+                h\left( V\cap M \right)=V'\cap\left( \mathbb{ R } ^ k\times\left\{0\right\} \right).
+            \]
+            This is exactly the local model for a \( k \)-dimensional manifold.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-half-space">
+    <div class="title">
+        Half-Space
+    </div>
+    <div class="content">
+        The half-space \( H ^ k \subseteq \mathbb{ R } ^ k \) is
+        \[
+            H ^ k = \left\{ x \in \mathbb{ R } ^ k: x ^ k \ge 0 \right\}.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-manifold-with-boundary">
+    <div class="title">
+        Manifold with Boundary
+    </div>
+    <div class="content">
+        A subset \( M \subseteq \mathbb{ R } ^ n \) is a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">\( k \)-dimensional manifold</a> with boundary if every point of \( M \) has a local <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-diffeomorphism">diffeomorphic</a> model either on \( \mathbb{ R } ^ k \times \left\{0\right\} \) or on <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-half-space">\( H ^ k \)</a> \( \times \left\{0\right\} \). Points modeled on the boundary \( \left\{ x ^ k=0 \right\} \) form the boundary of the manifold, denoted \( \partial M \).
+    </div>
+</div>
+<div class="theorem" id="theorem-boundary-of-manifold-with-boundary-is-a-manifold">
+    <div class="title">
+        Boundary of a Manifold with Boundary is a Manifold
+    </div>
+    <div class="content">
+        If \( M \) is a \( k \)-dimensional manifold with boundary, then \( \partial M \) is a \( \left( k-1 \right) \)-dimensional manifold and \( M\setminus\partial M \) is a \( k \)-dimensional manifold.
+    </div>
+    <div class="proof">
+        Let \( x\in M \). By the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-manifold-with-boundary">definition of manifold with boundary</a>, a neighborhood of \( x \) is locally diffeomorphic either to \( \mathbb{ R } ^ k\times\left\{0\right\} \) or to \( H ^ k\times\left\{0\right\} \).
+        <p>
+            If \( x\notin\partial M \), then in local coordinates \( M \) is modeled on the interior of \( H ^ k \), which is locally \( \mathbb{ R } ^ k \). Thus \( M\setminus\partial M \) is locally a \( k \)-dimensional <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">manifold</a>.
+        </p>
+        <p>
+            If \( x\in\partial M \), then a boundary chart carries \( \partial M \) locally to
+            \[
+                \left\{ y\in H ^ k : y ^ k=0 \right\}\times\left\{0\right\},
+            \]
+            which is diffeomorphic to \( \mathbb{ R } ^ { k-1 }\times\left\{0\right\} \). Therefore \( \partial M \) is a \( \left( k-1 \right) \)-dimensional manifold.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-tangent-space-of-a-manifold">
+    <div class="title">
+        Tangent Space of a Manifold
+    </div>
+    <div class="content">
+        Let \( M \subseteq \mathbb{ R } ^ n \) be a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">\( k \)-dimensional manifold</a> and let \( x=f\left( a \right) \) for a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a> \( f: W \to \mathbb{ R } ^ n \). The tangent space of \( M \) at \( x \) is
+        \[
+            M _ x = Df\left( a \right)\left( \mathbb{ R } ^ k \right).
+        \]
+        Here <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-derivative-at-a-point">\(Df\left( a \right)\)</a> is the derivative linear transformation of \(f\) at \(a\), and \(Df\left( a \right)\left( \mathbb{ R } ^ k \right)\) means the <a class="knowledge-link" href="/fundamentals/functions.html#definition-image-of-a-set">image of the set</a> \(\mathbb{ R } ^ k\) under that linear transformation:
+        \[
+            Df\left( a \right)\left( \mathbb{ R } ^ k \right)
+            =
+            \left\{ Df\left( a \right)\left( v \right): v\in\mathbb{ R } ^ k \right\}.
+        \]
+        This <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-subspace-of-a-vector-space">subspace</a> is independent of the coordinate system.
+    </div>
+</div>
+<div class="definition" id="definition-vector-field-on-a-manifold">
+    <div class="title">
+        Vector Field on a Manifold
+    </div>
+    <div class="content">
+        A vector field on a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">manifold</a> \( M \) assigns to each \( x \in M \) a vector \( F\left( x \right)\in \)<a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-tangent-space-of-a-manifold">\( M _ x \)</a>. It is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> if its coordinate representation is differentiable in every <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a>.
+    </div>
+</div>
+<div class="definition" id="definition-differential-form-on-a-manifold">
+    <div class="title">
+        Differential Form on a Manifold
+    </div>
+    <div class="content">
+        A \( p \)-form on a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">manifold</a> \( M \) assigns to each \( x \in M \) an <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-alternating-tensor">alternating tensor</a> in \( \Lambda ^ p\left( M _ x \right) \), where \( M_x \) is the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-tangent-space-of-a-manifold">tangent space</a> of \( M \) at \( x \). It is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> if its <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-pullback-of-a-form">pullback</a> by every <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a> is differentiable.
+    </div>
+</div>
+<div class="theorem" id="theorem-exterior-derivative-on-manifolds">
+    <div class="title">
+        Exterior Derivative on Manifolds
+    </div>
+    <div class="content">
+        There is a unique \( \left( p+1 \right) \)-form \( d\omega \) on \( M \) such that for every coordinate system \( f: W \to \mathbb{ R } ^ n \),
+        \[
+            f ^ *\left( d\omega \right)
+            =
+            d\left( f ^ *\omega \right).
+        \]
+    </div>
+    <div class="proof">
+        Let \( f:W\to\mathbb{ R } ^ n \) be a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate system</a> with \( x=f\left( a \right) \), and let \( v_1,\ldots,v_{p+1}\in M_x \). Since \( f'\left( a \right) \) identifies \( \mathbb{ R } ^ k \) with the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-tangent-space-of-a-manifold">tangent space</a> \( M_x \), there are unique \( w_1,\ldots,w_{p+1}\in\mathbb{ R } ^ k \) such that \( f'\left( a \right)w_i=v_i \).
+        <p>
+            Define
+            \[
+                d\omega\left( x \right)\left( v_1,\ldots,v_{p+1} \right)
+                =
+                d\left( f ^ *\omega \right)\left( a \right)\left( w_1,\ldots,w_{p+1} \right).
+            \]
+            The right side uses the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-exterior-derivative">exterior derivative</a> on the coordinate domain. The compatibility of coordinate changes shows that this value does not depend on the coordinate system \( f \), so \( d\omega \) is well-defined.
+        </p>
+        <p>
+            This construction gives \( f ^ *\left( d\omega \right)=d\left( f ^ *\omega \right) \) in every coordinate system. It is also forced by that equation, so the form \( d\omega \) is unique.
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-orientable-manifold">
+    <div class="title">
+        Orientable Manifold
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-k-dimensional-manifold-in-euclidean-space">manifold</a> \( M \) is orientable if its <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-tangent-space-of-a-manifold">tangent spaces</a> \( M _ x \) can be assigned <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-orientation-of-a-vector-space">orientations</a> consistently across <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate systems</a>. A manifold together with such a choice is an oriented manifold.
+    </div>
+</div>
+<div class="definition" id="definition-induced-boundary-orientation">
+    <div class="title">
+        Induced Boundary Orientation
+    </div>
+    <div class="content">
+        If \( M \) is an oriented manifold with boundary, the induced orientation on \( \partial M \) is determined by requiring that
+        \[
+            \left[ n\left( x \right),v _ 1,\ldots,v _ { k-1 } \right]
+        \]
+        have the orientation of \( M _ x \), where \( n\left( x \right) \) is the outward unit normal and \( v _ 1,\ldots,v _ { k-1 } \in \left( \partial M \right) _ x \).
+    </div>
+</div>
+<div class="definition" id="definition-integral-of-a-form-over-a-manifold">
+    <div class="title">
+        Integral of a Form over a Manifold
+    </div>
+    <div class="content">
+        If \( M \) is an <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-orientable-manifold">oriented</a> \( k \)-dimensional manifold and \( \omega \) is a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-differential-form-on-a-manifold">\( k \)-form on \( M \)</a>, the integral \( \int _ M \omega \) is defined by pulling \( \omega \) back to orientation-preserving <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-coordinate-system-on-a-manifold">coordinate systems</a> and assembling the local integrals with a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition-of-unity">partition of unity</a>.
+    </div>
+</div>
+<div class="theorem" id="theorem-stokes-theorem-on-manifolds">
+    <div class="title">
+        Stokes' Theorem on Manifolds
+    </div>
+    <div class="content">
+        If \( M \) is a compact oriented \( k \)-dimensional manifold with boundary and \( \omega \) is a \( \left( k-1 \right) \)-form on \( M \), then
+        \[
+            \int _ M d\omega
+            =
+            \int _ { \partial M } \omega,
+        \]
+        where \( \partial M \) has the induced orientation.
+    </div>
+    <div class="proof">
+        First suppose \( \omega \) is supported in the image of a single orientation-preserving singular \( k \)-cube \( c \) lying in \( M\setminus\partial M \). By the definition of <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#theorem-exterior-derivative-on-manifolds">exterior derivative on a manifold</a> and the cube version of Stokes' theorem,
+        \[
+            \int_M d\omega
+            =
+            \int_c d\omega
+            =
+            \int_{\partial c}\omega.
+        \]
+        Since \( \omega \) is zero on \( \partial c \) and also zero on \( \partial M \), both sides of the theorem are zero.
+        <p>
+            Next suppose \( \omega \) is supported in one singular \( k \)-cube \( c \) whose only face in \( \partial M \) is \( c_{(k,0)} \). The <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-boundary-orientation">induced boundary orientation</a> was chosen so that the sign of this face agrees with the boundary integral. Therefore the cube Stokes theorem gives
+            \[
+                \int_M d\omega
+                =
+                \int_{\partial M}\omega.
+            \]
+        </p>
+        <p>
+            In the general case, choose an open cover and a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition-of-unity">partition of unity</a> \( \Phi \) so that each \( \varphi\omega \), for \( \varphi\in\Phi \), has one of the two supported forms above. Since \( M \) is compact, only finitely many terms contribute. Also,
+            \[
+                \sum_{\varphi\in\Phi} d\varphi\wedge\omega=0
+            \]
+            because \( \sum_{\varphi\in\Phi}\varphi=1 \). Hence
+            \[
+                \int_M d\omega
+                =
+                \sum_{\varphi\in\Phi}\int_M d\left( \varphi\omega \right)
+                =
+                \sum_{\varphi\in\Phi}\int_{\partial M}\varphi\omega
+                =
+                \int_{\partial M}\omega.
+            \]
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-volume-element-on-a-manifold">
+    <div class="title">
+        Volume Element on a Manifold
+    </div>
+    <div class="content">
+        If \( M \) is an <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-orientable-manifold">oriented</a> \( k \)-dimensional manifold with the <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-euclidean-inner-product">inner product</a> inherited from \( \mathbb{ R } ^ n \), the volume element \( dV \) is the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-differential-form-on-a-manifold">\( k \)-form</a> assigning to each \( x \in M \) the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-volume-element-of-an-oriented-inner-product-space">volume element of the oriented inner product space</a> \( M _ x \). The volume of \( M \) is
+        \[
+            \int _ M dV
+        \]
+        whenever this integral exists.
+    </div>
+</div>
+<div class="theorem" id="theorem-surface-area-element-in-r3">
+    <div class="title">
+        Surface Area Element in \( \mathbb{ R } ^ 3 \)
+    </div>
+    <div class="content">
+        If \( M \subseteq \mathbb{ R } ^ 3 \) is an oriented surface with unit normal \( n \), then its area element \( dA \) satisfies
+        \[
+            dA\left( v,w \right)
+            =
+            \left( v \times w,n \right)
+        \]
+        for positively oriented tangent vectors \( v,w \in M _ x \).
+    </div>
+    <div class="proof">
+        At \( x\in M \), the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-volume-element-on-a-manifold">volume element</a> on the two-dimensional tangent space \( M_x \) is the oriented area form. If \( v,w\in M_x \) are positively oriented tangent vectors, then \( v\times w \) is parallel to the chosen unit normal \( n \).
+        <p>
+            The scalar \( \left( v\times w,n \right) \) is the signed area of the parallelogram spanned by \( v \) and \( w \), positive exactly when \( v,w \) have the orientation determined by \( n \). Therefore the oriented area element satisfies
+            \[
+                dA\left( v,w \right)=\left( v\times w,n \right).
+            \]
+        </p>
+    </div>
+</div>
+<div class="theorem" id="theorem-greens-theorem">
+    <div class="title">
+        Green's Theorem
+    </div>
+    <div class="content">
+        Let \( M \subseteq \mathbb{ R } ^ 2 \) be a compact oriented two-dimensional manifold with boundary, with the usual orientation. If \( \alpha,\beta: M \to \mathbb{ R } \) are differentiable, then
+        \[
+            \int _ { \partial M } \alpha dx + \beta dy
+            =
+            \int _ M
+            \left( D _ 1\beta-D _ 2\alpha \right) dx\wedge dy.
+        \]
+    </div>
+    <div class="proof">
+        Apply <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#theorem-stokes-theorem-on-manifolds">Stokes' theorem on manifolds</a> to the \(1\)-form
+        \[
+            \omega=\alpha dx+\beta dy.
+        \]
+        Using the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-exterior-derivative">definition of exterior derivative</a> and the antisymmetry of the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-wedge-product">wedge product</a>,
+        \[
+            d\omega
+            =
+            D_1\beta\,dx\wedge dy
+            +
+            D_2\alpha\,dy\wedge dx
+            =
+            \left( D_1\beta-D_2\alpha \right)dx\wedge dy.
+        \]
+        Substituting this into Stokes' theorem gives the stated formula.
+    </div>
+</div>
+<div class="theorem" id="theorem-divergence-theorem">
+    <div class="title">
+        Divergence Theorem
+    </div>
+    <div class="content">
+        Let \( M \subseteq \mathbb{ R } ^ 3 \) be a compact oriented three-dimensional manifold with boundary, and let \( n \) be the outward unit normal on \( \partial M \). If \( F \) is a differentiable vector field on \( M \), then
+        \[
+            \int _ M \operatorname{div} F\, dV
+            =
+            \int _ { \partial M } \left( F,n \right)dA.
+        \]
+    </div>
+    <div class="proof">
+        Write \( F=\left( P,Q,R \right) \) and associate to \( F \) the \(2\)-form
+        \[
+            \omega
+            =
+            P\,dy\wedge dz
+            +
+            Q\,dz\wedge dx
+            +
+            R\,dx\wedge dy.
+        \]
+        By the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-exterior-derivative">definition of exterior derivative</a>,
+        \[
+            d\omega
+            =
+            \left( D_1P+D_2Q+D_3R \right)
+            dx\wedge dy\wedge dz
+            =
+            \operatorname{div}F\,dV.
+        \]
+        On the boundary, the pullback of \( \omega \) is \( \left( F,n \right)dA \), by the definition of the outward normal and the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#theorem-surface-area-element-in-r3">surface area element</a>. Applying <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#theorem-stokes-theorem-on-manifolds">Stokes' theorem</a> gives the divergence theorem.
+    </div>
+</div>
+<div class="theorem" id="theorem-classical-stokes-theorem">
+    <div class="title">
+        Classical Stokes' Theorem
+    </div>
+    <div class="content">
+        Let \( M \subseteq \mathbb{ R } ^ 3 \) be a compact oriented surface with boundary, let \( n \) be the unit normal determined by the orientation, and let \( T \) be the positively oriented unit tangent field on \( \partial M \). If \( F \) is a differentiable vector field near \( M \), then
+        \[
+            \int _ M \left( \nabla \times F,n \right)dA
+            =
+            \int _ { \partial M } \left( F,T \right)ds.
+        \]
+    </div>
+    <div class="proof">
+        Associate to \( F=\left( P,Q,R \right) \) the \(1\)-form
+        \[
+            \omega=Pdx+Qdy+Rdz.
+        \]
+        Its <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-exterior-derivative">exterior derivative</a> is the \(2\)-form corresponding to the curl:
+        \[
+            d\omega
+            =
+            \left( \nabla\times F,n \right)dA
+        \]
+        when restricted to the oriented surface \( M \). On the boundary curve, the pullback of \( \omega \) is
+        \[
+            \left( F,T \right)ds,
+        \]
+        where \( T \) is the positively oriented unit tangent. Applying <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#theorem-stokes-theorem-on-manifolds">Stokes' theorem on manifolds</a> to \( \omega \) gives
+        \[
+            \int _ M \left( \nabla \times F,n \right)dA
+            =
+            \int _ { \partial M } \left( F,T \right)ds.
+        \]
+    </div>
+</div>

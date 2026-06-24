@@ -196,7 +196,7 @@
         Suppose that \( f: \left[ a, b \right] \to \mathbb{ R } \) is bounded, and let \( P = \left\{ x _ 1, \ldots , x _ { n + 1 } \right\} \) be a partition of \( \left[ a, b \right] \) then we have that \[ U \left( f, P \right) - L \left( f, P \right) \le 2 \lVert f \rVert _ \infty \left( b - a \right) \]
     </div>
     <div class="proof">
-        \[ \begin{align} U \left( f, P \right) - L \left( f, P \right) &amp;= \sum _ { i = 1 } ^ { n } \left( \sup _ { x \in \left[ x _ i , x _ { i + 1 } \right] } f \left( x \right) - \inf \left( x \in \left[ x _ i, x _ { i + 1 } \right] f \left( x \right) \right) \right) \Delta _ i \\ & \stackrel{1}{=} \sum _ { i = 1 } ^ { n } \left( \sup _ { x \in \left[ x _ i , x _ { i + 1 } \right] } f \left( x \right) + \sup \left( x \in \left[ x _ i, x _ { i + 1 } \right] -f \left( x \right) \right) \right) \Delta _ i \\ & \stackrel{2}{=} \sum _ { i = 1 } ^ { n } \left( \sup _ { x, y \in \left[ x _ i , x _ { i + 1 } \right] } \left( f \left( x \right) - f \left( y \right) \right) \right) \Delta _ i \\ & \stackrel{3}{=} \sum _ { i = 1 } ^ { n } \left( \sup _ { x, y \in \left[ x _ i , x _ { i + 1 } \right] } \left( \left\lvert f \left( x \right) - f \left( y \right) \right\rvert \right) \right) \Delta _ i \\ & \stackrel{4}{\le} \sum _ { i = 1 } ^ { n } \left( 2 \sup _ { x, y \in \left[ x _ i , x _ { i + 1 } \right] } \left( \left\lvert f \left( x \right) \right\rvert \right) \right) \Delta _ i \\ & \stackrel{5}{\le} \sum _ { i = 1 } ^ { n } \left( 2 \lVert f \rVert _ \infty \right) \Delta _ i \\ &amp;= 2 \lVert f \rVert _ \infty \sum _ { i = 1 } ^ { n } \Delta _ i \\ &amp;\stackrel{6}{=} 2 \lVert f \rVert _ \infty \left( b - a \right) \\ \end{align} \] Where we've used
+        \[ \begin{align} U \left( f, P \right) - L \left( f, P \right) &= \sum _ { i = 1 } ^ { n } \left( \sup _ { x \in \left[ x _ i , x _ { i + 1 } \right] } f \left( x \right) - \inf \left( x \in \left[ x _ i, x _ { i + 1 } \right] f \left( x \right) \right) \right) \Delta _ i \\ & \stackrel{1}{=} \sum _ { i = 1 } ^ { n } \left( \sup _ { x \in \left[ x _ i , x _ { i + 1 } \right] } f \left( x \right) + \sup \left( x \in \left[ x _ i, x _ { i + 1 } \right] -f \left( x \right) \right) \right) \Delta _ i \\ & \stackrel{2}{=} \sum _ { i = 1 } ^ { n } \left( \sup _ { x, y \in \left[ x _ i , x _ { i + 1 } \right] } \left( f \left( x \right) - f \left( y \right) \right) \right) \Delta _ i \\ & \stackrel{3}{=} \sum _ { i = 1 } ^ { n } \left( \sup _ { x, y \in \left[ x _ i , x _ { i + 1 } \right] } \left( \left\lvert f \left( x \right) - f \left( y \right) \right\rvert \right) \right) \Delta _ i \\ & \stackrel{4}{\le} \sum _ { i = 1 } ^ { n } \left( 2 \sup _ { x, y \in \left[ x _ i , x _ { i + 1 } \right] } \left( \left\lvert f \left( x \right) \right\rvert \right) \right) \Delta _ i \\ & \stackrel{5}{\le} \sum _ { i = 1 } ^ { n } \left( 2 \lVert f \rVert _ \infty \right) \Delta _ i \\ &= 2 \lVert f \rVert _ \infty \sum _ { i = 1 } ^ { n } \Delta _ i \\ &\stackrel{6}{=} 2 \lVert f \rVert _ \infty \left( b - a \right) \\ \end{align} \] Where we've used
         <ul>
             <li>
                 <a class="knowledge-link" href="/analysis/single_variable/boundedness.html#proposition-negative-of-infimum-is-supremum-of-negatives">fact 1</a>
@@ -248,6 +248,574 @@
         <p>Note that one can manage to prove that if \( f \) is RMI over \( \left[ a, b \right] \) with \( 1 \le i \le k \) jump discontinuities, then it is RMI over \( \left[ a, b \right] \) if it has \( k + 1 \) discontinuities. This can be done because we can break \( \left[ a, b \right] \) into two intervals \( I _ 1, I _ 2 \) such that \( I _ 1 \sqcup I _ 2 = \left[ a, b \right] \), where \( I _ 1, I _ 2 \) each have a number of discontinuities within the range \( \left[ 1, \ldots , k \right] \) so that \( f \restriction I _ 1 \) and \( f \restriction I _ 2 \) are both integrable on their respective intervals, <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#lemma-riemann-integrable-on-two-parts-of-the-interval-means-riemann-integrable-on-the-whole-interval">so that</a> \( f \) is RMI on \( \left[ a, b \right] \).</p>
         <p>Therefore all that remains is the base case, which is that \( f \) is RMI if there is exactly \( 1 \) jump discontinuity of \( f \) on the set \( \left[ a, b \right] \), let \( d \) be this discontinuity, since \( f \) is continuous on \( L := \left[ a, d - \delta \right] \) and \( R := \left[ d + \delta , b \right] \) for any small \( \delta \), then we know that \( f \) is RMI when restricted to these intervals.</p>
         <p>Let \( \epsilon \in \mathbb{ R } ^ + \) by (2) of the RMI characterization we obtain \( P _ L, P _ R \) which are partitions of \( L, R \) respectively (note that \( P _ L \cap P _ R = \emptyset \) such that \[ U \left( f \restriction L, P _ L \right) - L \left( f \restriction L, P _ L \right) \lt \frac{\epsilon }{3} \] and \[ U \left( f \restriction R, P _ R \right) - L \left( f \restriction R, P _ R \right) \lt \frac{\epsilon}{3} \]</p>
-        <p>Finally Consider \( P _ L \cup P _ R \) which is a partition of \( \left[ a, b \right] \) which contains the section \( \left[ d - \delta, d + \delta \right] \) along with the left and right partitions. Focusing on this section we can see it will contribute \[ \left( \sup _ { x \in \left[ d - \delta, d + \delta \right] } f \left( x \right) - \sup _ { y \in \left[ d - \delta, d + \delta \right] } f \left( y \right) \right) 2 \delta \] to \( U \left( f, P _ L \cup P _ R \right) - L \left( f, P _ L \cup P _ R \right) \), now:</p>\[ \begin{align} U \left( f, P _ L \cup P _ R \right) - L \left( f, P _ L \cup P _ R \right) &amp;= \left( U \left( f \restriction L, P _ L \right) + \left( \sup _ { x \in \left[ d - \delta, d + \delta \right] }f \left( x \right) \right) 2 \delta + U \left( f \restriction R, P _ R \right) \right) - \left( L \left( f \restriction L, P _ L \right) + \left( \inf _ { x \in \left[ d - \delta, d + \delta \right] }f \left( x \right) \right) 2 \delta + L \left( f \restriction R, P _ R \right) \right) \\ &amp;= \left( U \left( f \restriction L , P _ L \right) - L \left( f \restriction L, P _ L \right) \right) + \left( \sup _ { x \in \left[ d - \delta, d + \delta \right] }f \left( x \right) - \inf _ { x \in \left[ d - \delta, d + \delta \right] } f \left( x \right) \right) 2 \delta + \left( U \left( f \restriction R, P _ R \right) - L \left( f \restriction L , P _ L \right) \right)\\ &amp;\lt \frac{2 \epsilon }{3} + \sup _ { x, y \in \left[ d - \delta, d + \delta \right] } \left( \left\lvert f \left( x \right) - f \left( y \right) \right\rvert \right) 2 \delta \\ &amp;\le \frac{2 \epsilon }{3} + 2 \sup _ { x \in \left[ d - \delta, d + \delta \right] } \left\lvert f \left( x \right) \right\rvert \\ &amp;\le \frac{2 \epsilon }{3} + 2 \lVert f \rVert _ \infty 2 \delta \\ &amp;= \frac{2 \epsilon }{3} + 4 \lVert f \rVert _ \infty \delta \end{align} \] Thus a selection of \( \delta = \frac{\epsilon }{4 \lVert f \rVert _ \infty 3 } \) shows that \( U \left( f, P _ L \cup P _ R \right) - L \left( f, P _ L \cup P _ R \right) \lt \epsilon \) as needed.
+        <p>Finally Consider \( P _ L \cup P _ R \) which is a partition of \( \left[ a, b \right] \) which contains the section \( \left[ d - \delta, d + \delta \right] \) along with the left and right partitions. Focusing on this section we can see it will contribute \[ \left( \sup _ { x \in \left[ d - \delta, d + \delta \right] } f \left( x \right) - \sup _ { y \in \left[ d - \delta, d + \delta \right] } f \left( y \right) \right) 2 \delta \] to \( U \left( f, P _ L \cup P _ R \right) - L \left( f, P _ L \cup P _ R \right) \), now:</p>\[ \begin{align} U \left( f, P _ L \cup P _ R \right) - L \left( f, P _ L \cup P _ R \right) &= \left( U \left( f \restriction L, P _ L \right) + \left( \sup _ { x \in \left[ d - \delta, d + \delta \right] }f \left( x \right) \right) 2 \delta + U \left( f \restriction R, P _ R \right) \right) - \left( L \left( f \restriction L, P _ L \right) + \left( \inf _ { x \in \left[ d - \delta, d + \delta \right] }f \left( x \right) \right) 2 \delta + L \left( f \restriction R, P _ R \right) \right) \\ &= \left( U \left( f \restriction L , P _ L \right) - L \left( f \restriction L, P _ L \right) \right) + \left( \sup _ { x \in \left[ d - \delta, d + \delta \right] }f \left( x \right) - \inf _ { x \in \left[ d - \delta, d + \delta \right] } f \left( x \right) \right) 2 \delta + \left( U \left( f \restriction R, P _ R \right) - L \left( f \restriction L , P _ L \right) \right)\\ &\lt \frac{2 \epsilon }{3} + \sup _ { x, y \in \left[ d - \delta, d + \delta \right] } \left( \left\lvert f \left( x \right) - f \left( y \right) \right\rvert \right) 2 \delta \\ &\le \frac{2 \epsilon }{3} + 2 \sup _ { x \in \left[ d - \delta, d + \delta \right] } \left\lvert f \left( x \right) \right\rvert \\ &\le \frac{2 \epsilon }{3} + 2 \lVert f \rVert _ \infty 2 \delta \\ &= \frac{2 \epsilon }{3} + 4 \lVert f \rVert _ \infty \delta \end{align} \] Thus a selection of \( \delta = \frac{\epsilon }{4 \lVert f \rVert _ \infty 3 } \) shows that \( U \left( f, P _ L \cup P _ R \right) - L \left( f, P _ L \cup P _ R \right) \lt \epsilon \) as needed.
     </div>
+</div>
+<div class="definition" id="definition-volume-of-a-rectangle">
+    <div class="title">
+        Volume of a Rectangle
+    </div>
+    <div class="content">
+        Suppose that
+        \[
+            A = \left[ a _ 1, b _ 1 \right] \times \cdots \times \left[ a _ n, b _ n \right] \subseteq \mathbb{ R } ^ n.
+        \]
+        The volume of the <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangle</a> \( A \) is
+        \[
+            v \left( A \right) = \prod _ { i = 1 } ^ n \left( b _ i - a _ i \right).
+        \]
+        We use the same formula for the corresponding <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-rectangle-in-euclidean-space">open rectangle</a> \( \left( a _ 1, b _ 1 \right) \times \cdots \times \left( a _ n, b _ n \right) \).
+    </div>
+</div>
+<div class="definition" id="definition-partition-of-a-closed-rectangle">
+    <div class="title">
+        Partition of a Closed Rectangle
+    </div>
+    <div class="content">
+        Suppose that \( A = \left[ a _ 1, b _ 1 \right] \times \cdots \times \left[ a _ n, b _ n \right] \) is a <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangle</a>. A partition of \( A \) is a tuple
+        \[
+            P = \left( P _ 1, \ldots, P _ n \right),
+        \]
+        where each \( P _ i \) is a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition">partition</a> of the interval \( \left[ a _ i, b _ i \right] \).
+    </div>
+</div>
+<div class="definition" id="definition-subrectangle-of-a-partition">
+    <div class="title">
+        Subrectangle of a Partition
+    </div>
+    <div class="content">
+        Let \( P = \left( P _ 1,\ldots,P _ n \right) \) be a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition-of-a-closed-rectangle">partition of a closed rectangle</a> \( A \), and write
+        \[
+            P _ i = \left( t _ { i,0 }, t _ { i,1 }, \ldots, t _ { i,N_i } \right).
+        \]
+        A subrectangle of \( P \) is a rectangle of the form
+        \[
+            \left[ t _ { 1,j_1 - 1 }, t _ { 1,j_1 } \right] \times \cdots \times \left[ t _ { n,j_n - 1 }, t _ { n,j_n } \right],
+        \]
+        where \( 1 \le j _ i \le N _ i \) for every \( i \).
+    </div>
+</div>
+<div class="definition" id="definition-multivariable-upper-and-lower-sums">
+    <div class="title">
+        Multivariable Upper and Lower Sums
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } ^ n \) is a <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangle</a>, \( f: A \to \mathbb{ R } \) is bounded, and \( P \) is a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition-of-a-closed-rectangle">partition</a> of \( A \). For each <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-subrectangle-of-a-partition">subrectangle</a> \( S \) of \( P \), define
+        \[
+            m _ S \left( f \right) = \inf \left\{ f \left( x \right): x \in S \right\}
+        \]
+        and
+        \[
+            M _ S \left( f \right) = \sup \left\{ f \left( x \right): x \in S \right\}.
+        \]
+        The lower sum and upper sum of \( f \) over \( P \) are
+        \[
+            L \left( f, P \right) = \sum _ S m _ S \left( f \right) v \left( S \right)
+        \]
+        and
+        \[
+            U \left( f, P \right) = \sum _ S M _ S \left( f \right) v \left( S \right),
+        \]
+        where \( v\left( S \right) \) is the <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-volume-of-a-rectangle">volume of the rectangle</a> \( S \), and the sums range over all subrectangles \( S \) of \( P \).
+    </div>
+</div>
+<div class="definition" id="definition-riemann-integrable-on-a-closed-rectangle">
+    <div class="title">
+        Riemann Integrable on a Closed Rectangle
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } ^ n \) is a <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangle</a> and \( f: A \to \mathbb{ R } \) is bounded. We say that \( f \) is Riemann integrable on \( A \) if
+        \[
+            \sup _ P L \left( f, P \right) = \inf _ P U \left( f, P \right),
+        \]
+        where \( P \) ranges over all <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition-of-a-closed-rectangle">partitions of \( A \)</a>. The common value is denoted
+        \[
+            \int _ A f
+        \]
+        or
+        \[
+            \int _ A f \left( x ^ 1,\ldots,x ^ n \right) dx ^ 1 \cdots dx ^ n.
+        \]
+    </div>
+</div>
+<div class="lemma" id="lemma-multivariable-refinement-improves-darboux-sums">
+    <div class="title">
+        Multivariable Refinement Improves Darboux Sums
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } ^ n \) is a closed rectangle, \( f: A \to \mathbb{ R } \) is bounded, and \( P' \) refines \( P \), meaning each subrectangle of \( P' \) is contained in a subrectangle of \( P \). Then
+        \[
+            L \left( f, P \right) \le L \left( f, P' \right)
+        \]
+        and
+        \[
+            U \left( f, P' \right) \le U \left( f, P \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-multivariable-lower-sums-below-upper-sums">
+    <div class="title">
+        Multivariable Lower Sums are Below Upper Sums
+    </div>
+    <div class="content">
+        If \( P \) and \( Q \) are partitions of a closed rectangle \( A \), then
+        \[
+            L \left( f, P \right) \le U \left( f, Q \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-multivariable-riemann-integrability-criterion">
+    <div class="title">
+        Multivariable Riemann Integrability Criterion
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } ^ n \) is a closed rectangle and \( f: A \to \mathbb{ R } \) is bounded. Then \( f \) is <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-riemann-integrable-on-a-closed-rectangle">Riemann integrable on \( A \)</a> if and only if for every \( \epsilon \in \mathbb{ R } ^ + \), there is a partition \( P \) of \( A \) such that
+        \[
+            U \left( f, P \right) - L \left( f, P \right) \lt \epsilon.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-measure-zero-in-euclidean-space">
+    <div class="title">
+        Measure Zero in Euclidean Space
+    </div>
+    <div class="content">
+        A set \( E \subseteq \mathbb{ R } ^ n \) has \( n \)-dimensional measure zero if for every \( \epsilon \in \mathbb{ R } ^ + \), there is a sequence \( U _ 1,U _ 2,\ldots \) of <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangles</a> such that
+        \[
+            E \subseteq \bigcup _ { i = 1 } ^ \infty U _ i
+        \]
+        and
+        \[
+            \sum _ { i = 1 } ^ \infty v \left( U _ i \right) \lt \epsilon.
+        \]
+        Here \( v\left( U_i \right) \) is the <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-volume-of-a-rectangle">volume of the rectangle</a> \( U_i \).
+    </div>
+</div>
+<div class="definition" id="definition-content-zero-in-euclidean-space">
+    <div class="title">
+        Content Zero in Euclidean Space
+    </div>
+    <div class="content">
+        A set \( E \subseteq \mathbb{ R } ^ n \) has \( n \)-dimensional content zero if for every \( \epsilon \in \mathbb{ R } ^ + \), there are finitely many <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangles</a> \( U _ 1,\ldots,U _ k \) such that
+        \[
+            E \subseteq U _ 1 \cup \cdots \cup U _ k
+        \]
+        and
+        \[
+            \sum _ { i = 1 } ^ k v \left( U _ i \right) \lt \epsilon.
+        \]
+        Here \( v\left( U_i \right) \) is the <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-volume-of-a-rectangle">volume of the rectangle</a> \( U_i \).
+    </div>
+</div>
+<div class="theorem" id="theorem-countable-union-of-measure-zero-sets-has-measure-zero">
+    <div class="title">
+        Countable Union of Measure Zero Sets has Measure Zero
+    </div>
+    <div class="content">
+        If \( E = \bigcup _ { i = 1 } ^ \infty E _ i \) and each \( E _ i \subseteq \mathbb{ R } ^ n \) has <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-measure-zero-in-euclidean-space">measure zero</a>, then \( E \) has measure zero.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-compact-measure-zero-implies-content-zero">
+    <div class="title">
+        Compact Measure Zero Implies Content Zero
+    </div>
+    <div class="content">
+        If \( E \subseteq \mathbb{ R } ^ n \) is <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-compact">compact</a> and has <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-measure-zero-in-euclidean-space">measure zero</a>, then \( E \) has <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-content-zero-in-euclidean-space">content zero</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-spivak-lebesgue-criterion-for-riemann-integrability">
+    <div class="title">
+        Lebesgue Criterion for Multivariable Riemann Integrability
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } ^ n \) is a closed rectangle and \( f: A \to \mathbb{ R } \) is bounded. Let
+        \[
+            D = \left\{ x \in A: f \text{ is not continuous at } x \right\}.
+        \]
+        Then \( f \) is <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-riemann-integrable-on-a-closed-rectangle">Riemann integrable on \( A \)</a> if and only if \( D \) has <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-measure-zero-in-euclidean-space">measure zero</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-jordan-measurable-set">
+    <div class="title">
+        Jordan Measurable Set
+    </div>
+    <div class="content">
+        A bounded set \( C \subseteq \mathbb{ R } ^ n \) is Jordan measurable if its characteristic function \( \chi _ C \) is <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-riemann-integrable-on-a-closed-rectangle">Riemann integrable</a> on some <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangle</a> \( A \) with \( C \subseteq A \). In that case its Jordan content is
+        \[
+            \left\lvert C \right\rvert = \int _ A \chi _ C.
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-jordan-measurable-iff-boundary-has-measure-zero">
+    <div class="title">
+        Jordan Measurable iff Boundary has Measure Zero
+    </div>
+    <div class="content">
+        A bounded set \( C \subseteq \mathbb{ R } ^ n \) is <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-jordan-measurable-set">Jordan measurable</a> if and only if its boundary has <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-measure-zero-in-euclidean-space">measure zero</a>.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-integral-over-a-jordan-measurable-set">
+    <div class="title">
+        Integral over a Jordan Measurable Set
+    </div>
+    <div class="content">
+        Suppose that \( C \subseteq \mathbb{ R } ^ n \) is bounded, \( C \subseteq A \), \( A \) is a <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangle</a>, and \( f: A \to \mathbb{ R } \) is bounded. If \( f \chi _ C \) is <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-riemann-integrable-on-a-closed-rectangle">Riemann integrable</a> on \( A \), define
+        \[
+            \int _ C f = \int _ A f \chi _ C.
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-removing-measure-zero-set-does-not-change-riemann-integral">
+    <div class="title">
+        Removing a Measure-Zero Set Does Not Change a Riemann Integral
+    </div>
+    <div class="content">
+        Suppose \( C \subseteq \mathbb{ R } ^ n \) is <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-jordan-measurable-set">Jordan measurable</a>, \( E \subseteq C \) has <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-measure-zero-in-euclidean-space">measure zero</a>, and \( f:C\to\mathbb{ R } \) is bounded and <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-integral-over-a-jordan-measurable-set">integrable over \( C \)</a>. Then
+        \[
+            \int_C f
+            =
+            \int_{C\setminus E} f.
+        \]
+    </div>
+    <div class="proof">
+        Choose a closed rectangle \( A \) containing \( C \). The two integrals are
+        \[
+            \int_A f\chi_C
+            \qquad\text{and}\qquad
+            \int_A f\chi_{C\setminus E}.
+        \]
+        These two functions differ only on \( E \). Since \( E \) has measure zero, changing a bounded function only on \( E \) does not change its upper or lower Riemann integrals: rectangles covering \( E \) can be chosen with arbitrarily small total volume, so the possible change in any Riemann sum is bounded by the bound for \( f \) times an arbitrarily small total volume. Therefore the two integrals are equal.
+    </div>
+</div>
+<div class="theorem" id="theorem-fubini-for-riemann-integrals-on-rectangles">
+    <div class="title">
+        Fubini for Riemann Integrals on Rectangles
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } ^ n \) and \( B \subseteq \mathbb{ R } ^ m \) are <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangles</a> and \( f: A \times B \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-riemann-integrable-on-a-closed-rectangle">Riemann integrable</a>. If for each \( x \in A \), the function \( y \mapsto f \left( x,y \right) \) is Riemann integrable on \( B \), and the function
+        \[
+            x \mapsto \int _ B f \left( x,y \right) dy
+        \]
+        is Riemann integrable on \( A \), then
+        \[
+            \int _ { A \times B } f
+            =
+            \int _ A \left( \int _ B f \left( x,y \right) dy \right) dx.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-support-of-a-function">
+    <div class="title">
+        Support of a Function
+    </div>
+    <div class="content">
+        The support of a function \( \varphi: A \to \mathbb{ R } \) is the <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-closure">closure</a> of the set where \( \varphi \) is nonzero:
+        \[
+            \operatorname{supp} \left( \varphi \right)
+            =
+            \overline{ \left\{ x \in A: \varphi \left( x \right) \neq 0 \right\} }.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-partition-of-unity">
+    <div class="title">
+        Partition of Unity
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ R } ^ n \) and let \( \mathcal{ U } \) be an <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-open-cover">open cover</a> of \( A \). A partition of unity for \( A \), subordinate to \( \mathcal{ U } \), is a collection \( \Phi \) of nonnegative <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous functions</a> \( \varphi: A \to \mathbb{ R } \) such that:
+        <ul>
+            <li>for each \( \varphi \in \Phi \), there is some \( U \in \mathcal{ U } \) with <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-support-of-a-function">\( \operatorname{supp} \left( \varphi \right) \)</a> \( \subseteq U \),</li>
+            <li>each point of \( A \) has a neighborhood on which only finitely many \( \varphi \in \Phi \) are nonzero,</li>
+            <li>for every \( x \in A \), \( \sum _ { \varphi \in \Phi } \varphi \left( x \right) = 1 \).</li>
+        </ul>
+    </div>
+</div>
+<div class="theorem" id="theorem-existence-of-partitions-of-unity-in-euclidean-space">
+    <div class="title">
+        Existence of Partitions of Unity in Euclidean Space
+    </div>
+    <div class="content">
+        If \( A \subseteq \mathbb{ R } ^ n \) and \( \mathcal{ U } \) is an <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-open-cover">open cover</a> of \( A \), then there is a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition-of-unity">partition of unity</a> for \( A \) subordinate to \( \mathcal{ U } \).
+    </div>
+    <div class="proof">
+        First suppose that \( A \) is <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-compact">compact</a>. Choose a finite <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-subcover">subcover</a> \( U_1,\ldots,U_N \) of \( A \) from \( \mathcal{ U } \). We construct compact sets \( D_i\subseteq U_i \) whose <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-interior">interiors</a> cover \( A \).
+        <p>
+            Suppose \( D_1,\ldots,D_k \) have been chosen so that
+            \[
+                \operatorname{int}D_1,\ldots,\operatorname{int}D_k,U_{k+1},\ldots,U_N
+            \]
+            still cover \( A \). Let
+            \[
+                C_{k+1}
+                =
+                A\setminus
+                \left(
+                    \operatorname{int}D_1\cup\cdots\cup\operatorname{int}D_k
+                    \cup U_{k+2}\cup\cdots\cup U_N
+                \right).
+            \]
+            Then \( C_{k+1} \) is compact and \( C_{k+1}\subseteq U_{k+1} \). Since \( U_{k+1} \) is open, choose a compact neighborhood \( D_{k+1} \) with
+            \[
+                C_{k+1}\subseteq\operatorname{int}D_{k+1}
+                \qquad\text{and}\qquad
+                D_{k+1}\subseteq U_{k+1}.
+            \]
+            Continuing this process gives compact sets \( D_1,\ldots,D_N \) whose interiors cover \( A \).
+        </p>
+        <p>
+            For each \( i \), define a nonnegative <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous function</a> \( \psi_i \) that is positive on \( D_i \) and zero outside \( U_i \). One explicit choice uses the Euclidean distance to a set:
+            \[
+                \psi_i\left( x \right)
+                =
+                \frac{d\left( x,\mathbb{ R } ^ n\setminus U_i \right)}
+                {d\left( x,\mathbb{ R } ^ n\setminus U_i \right)+d\left( x,D_i \right)}.
+            \]
+            This is continuous, equals \(0\) off \(U_i\), and is positive on \(D_i\). Since the interiors of the \(D_i\) cover \(A\), the sum
+            \[
+                \sigma\left( x \right)=\psi_1\left( x \right)+\cdots+\psi_N\left( x \right)
+            \]
+            is positive on \( A \). Set
+            \[
+                \varphi_i\left( x \right)=\frac{\psi_i\left( x \right)}{\sigma\left( x \right)}.
+            \]
+            Then the \( \varphi_i \) are nonnegative continuous functions, their sum is \(1\) on \(A\), and the <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-support-of-a-function">support</a> of \( \varphi_i \) is contained in \( U_i \). Thus they form the required partition in the compact case.
+        </p>
+        <p>
+            Next suppose that \( A=A_1\cup A_2\cup\cdots \), where each \( A_i \) is compact and \( A_i\subseteq\operatorname{int}A_{i+1} \). Put \( A_0=A_{-1}=\emptyset \) and
+            \[
+                B_i=A_i\setminus\operatorname{int}A_{i-1}.
+            \]
+            Each \( B_i \) is compact. Cover \( B_i \) by the sets
+            \[
+                U\cap\left( \operatorname{int}A_{i+1}\setminus A_{i-2} \right),
+                \qquad U\in\mathcal{ U}.
+            \]
+            By the compact case, choose a partition of unity \( \Phi_i \) for \( B_i \) subordinate to this cover. At each \( x\in A \), only finitely many of the functions from all the \( \Phi_i \) are nonzero near \( x \), because the \(i\)-th family is supported in \( \operatorname{int}A_{i+1}\setminus A_{i-2} \). Therefore
+            \[
+                \sigma\left( x \right)=\sum_i\sum_{\varphi\in\Phi_i}\varphi\left( x \right)
+            \]
+            is locally finite and positive on \( A \). Replacing every \( \varphi \) by \( \varphi/\sigma \) gives a partition of unity on \( A \) subordinate to \( \mathcal{ U} \).
+        </p>
+        <p>
+            If \( A \) is open, define
+            \[
+                A_i
+                =
+                \left\{ x\in A:\left\lvert x\right\rvert\le i
+                \text{ and }
+                d\left( x,\mathbb{ R } ^ n\setminus A \right)\ge\frac{1}{i}
+                \right\}.
+            \]
+            These sets are compact, their union is \( A \), and \( A_i\subseteq\operatorname{int}A_{i+1} \). Hence the previous case applies.
+        </p>
+        <p>
+            Finally let \( A \) be arbitrary and let \( B=\bigcup_{U\in\mathcal{ U}}U \). The set \( B \) is open and \( A\subseteq B \). Apply the open case to \( B \) and then restrict the resulting functions to \( A \). The restricted functions still sum to \(1\) on \(A\), are locally finite on \(A\), and have supports contained in elements of \( \mathcal{ U} \). Thus they form the desired partition of unity.
+        </p>
+    </div>
+</div>
+<div class="theorem" id="theorem-change-of-variables-for-riemann-integrals">
+    <div class="title">
+        Change of Variables for Riemann Integrals
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ R } ^ n \) be <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a> and let \( g: A \to \mathbb{ R } ^ n \) be <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">one-to-one</a> and <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-continuously-differentiable-iff-continuous-partials">continuously differentiable</a> with
+        \[
+            <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-determinant">\det</a>
+            <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">\left[ Dg\left( x \right) \right] _ E</a>
+            \neq 0
+        \]
+        for every \( x \in A \). If \( f: g \left( A \right) \to \mathbb{ R } \) is <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-riemann-integrable-on-a-closed-rectangle">integrable</a>, then
+        \[
+            \int _ { g \left( A \right) } f
+            =
+            \int _ A
+            \left( f \circ g \right)
+            \left\lvert
+            <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-determinant">\det</a>
+            <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">\left[ Dg \right] _ E</a>
+            \right\rvert.
+        \]
+    </div>
+    <div class="proof">
+        <p>
+            First reduce the result to local pieces. Suppose \( \mathcal{ V} \) is an open cover of \( A \) such that the formula holds on each \( V\in\mathcal{ V} \). The sets \( g\left( V \right) \) form an open cover of \( g\left( A \right) \). Choose a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition-of-unity">partition of unity</a> \( \Phi \) on \( g\left( A \right) \) subordinate to this cover. For each \( \varphi\in\Phi \), choose \( V_\varphi\in\mathcal{ V} \) with
+            \[
+                \operatorname{supp}\left( \varphi \right)\subseteq g\left( V_\varphi \right).
+            \]
+            Since \( g \) is one-to-one, the function \( \left( \varphi f \right)\circ g \) is zero outside \( V_\varphi \). Applying the local formula to \( \varphi f \) gives
+            \[
+                \int_{g\left( A \right)}\varphi f
+                =
+                \int_A
+                \left( \left( \varphi f \right)\circ g \right)
+                \left\lvert \det \left[ Dg \right] _ E \right\rvert.
+            \]
+            Summing over the locally finite family \( \Phi \), and using \( \sum_{\varphi\in\Phi}\varphi=1 \), gives
+            \[
+                \int_{g\left( A \right)}f
+                =
+                \int_A
+                \left( f\circ g \right)
+                \left\lvert \det \left[ Dg \right] _ E \right\rvert.
+            \]
+        </p>
+        <p>
+            It is enough to prove the formula for constant functions on rectangles. Indeed, let \( R\subseteq g\left( A \right) \) be a closed rectangle and let \( P \) be a <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-partition-of-a-closed-rectangle">partition</a> of \( R \). For each <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-subrectangle-of-a-partition">subrectangle</a> \( S \), let \( m_S\left( f \right) \) and \( M_S\left( f \right) \) be the lower and upper values of \( f \) on \( S \). Applying the constant-function case to the characteristic pieces of \(S\) gives the lower-sum inequality
+            \[
+                L\left( f,P \right)
+                \le
+                \int_{g^{-1}\left( R \right)}
+                \left( f\circ g \right)\left\lvert \det \left[ Dg \right] _ E \right\rvert
+            \]
+            and similarly the upper-sum inequality in the other direction. Taking the supremum of lower sums and the infimum of upper sums, using the <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-riemann-integrable-on-a-closed-rectangle">definition of Riemann integrability</a>, proves the formula for \( f \).
+        </p>
+        <p>
+            The formula is compatible with composition. If it holds for \( g:A\to\mathbb{ R } ^ n \) and for \( h:B\to\mathbb{ R } ^ n \), with \( g\left( A \right)\subseteq B \), then
+            \[
+                \int_{h\left( g\left( A \right) \right)} f
+                =
+                \int_{g\left( A \right)}
+                \left( f\circ h \right)\left\lvert \det \left[ Dh \right] _ E \right\rvert
+            \]
+            and applying the formula again to \( g \) gives
+            \[
+                \int_A
+                \left( f\circ h\circ g \right)
+                \left\lvert \det \left[ Dh\left( g\left( x \right) \right) \right] _ E\right\rvert
+                \left\lvert \det \left[ Dg\left( x \right) \right] _ E\right\rvert.
+            \]
+            By the chain rule and multiplicativity of determinants, this is
+            \[
+                \int_A
+                \left( f\circ h\circ g \right)
+                \left\lvert \det \left[ D\left( h\circ g \right) \right] _ E\right\rvert.
+            \]
+        </p>
+        <p>
+            The formula holds for invertible linear maps because the determinant is the signed volume-scaling factor of a linear map: for every rectangle \( R \),
+            \[
+                \left\lvert T\left( R \right)\right\rvert
+                =
+                \left\lvert \det T \right\rvert\left\lvert R \right\rvert,
+            \]
+            and the constant-function reduction then gives the integral formula.
+        </p>
+        <p>
+            We now prove the theorem by induction on \( n \). The case \( n=1 \) is the ordinary one-dimensional substitution formula. Assume the theorem is known in dimension \( n-1 \), and let \( a\in A \). By the local reduction it is enough to prove the formula on some open neighborhood of \( a \). Composing with the inverse of the linear map \( Dg\left( a \right) \), and using the linear case and the composition step, we may assume
+            \[
+                \left[ Dg\left( a \right) \right] _ E=I_n.
+            \]
+        </p>
+        <p>
+            Write \( g=\left( g^1,\ldots,g^n \right) \). Define
+            \[
+                h\left( x^1,\ldots,x^n \right)
+                =
+                \left( g^1\left( x \right),\ldots,g^{n-1}\left( x \right),x^n \right).
+            \]
+            Since \( \left[ Dh\left( a \right) \right] _ E=I_n \), the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-inverse-function-theorem">inverse function theorem</a> gives an open neighborhood \( U' \) of \( a \) on which \( h \) is one-to-one and \( \det \left[ Dh \right] _ E \neq 0 \). On \( h\left( U' \right) \), define
+            \[
+                k\left( y^1,\ldots,y^n \right)
+                =
+                \left( y^1,\ldots,y^{n-1},g^n\left( h^{-1}\left( y \right) \right) \right).
+            \]
+            Then \( g=k\circ h \) on \( U' \). Shrinking \( U' \) if needed, the inverse function theorem also gives \( \det \left[ Dk \right] _ E\neq0 \) on \( h\left( U' \right) \). By the composition step, it remains to prove the formula for maps of the form \( h \) and \( k \), each of which changes only one coordinate after the other coordinates are fixed.
+        </p>
+        <p>
+            We prove it for \( h \); the proof for \( k \) is the same. Let \( W=D\times\left[ a_n,b_n \right]\subseteq U' \), where \( D\subseteq\mathbb{ R } ^ { n-1 } \) is a rectangle. For each fixed \( x^n \), define
+            \[
+                h_{x^n}\left( x^1,\ldots,x^{n-1} \right)
+                =
+                \left( g^1\left( x \right),\ldots,g^{n-1}\left( x \right) \right).
+            \]
+            Each \( h_{x^n} \) is a one-to-one continuously differentiable map in \( \mathbb{ R } ^ { n-1 } \), and
+            \[
+                \det \left[ Dh_{x^n}\left( x^1,\ldots,x^{n-1} \right) \right] _ E
+                =
+                \det \left[ Dh\left( x^1,\ldots,x^n \right) \right] _ E.
+            \]
+            Applying the induction hypothesis to each slice and then applying <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#theorem-fubini-for-riemann-integrals-on-rectangles">Fubini's theorem</a> gives
+            \[
+                \int_{h\left( W \right)}1
+                =
+                \int_{a_n}^{b_n}
+                \int_D
+                \left\lvert\det \left[ Dh\left( x^1,\ldots,x^n \right) \right] _ E\right\rvert
+                dx^1\cdots dx^{n-1}dx^n
+                =
+                \int_W\left\lvert\det \left[ Dh \right] _ E\right\rvert.
+            \]
+            By the constant-function reduction, the change-of-variables formula holds for \( h \) on \( W \). These rectangles form a local cover of \( U' \), so the local reduction proves the formula near \( a \). Since \( a \) was arbitrary, the theorem follows on all of \( A \).
+        </p>
+    </div>
+</div>
+<div class="corollary" id="corollary-polar-coordinate-change-of-variables">
+    <div class="title">
+        Polar Coordinate Change of Variables
+    </div>
+    <div class="content">
+        Let
+        \[
+            W=\left\{ \left( u,v \right)\in\mathbb{ R } ^ 2:u ^ 2+v ^ 2\lt R ^ 2 \right\}
+        \]
+        with \( R\gt 0 \). If \( q:W\to\mathbb{ R } \) is integrable, then
+        \[
+            \int_W q\left( u,v \right)\;du\,dv
+            =
+            \int_0^{2\pi}\int_0^R
+            q\left( r\cos\theta,r\sin\theta \right) r\;dr\,d\theta.
+        \]
+    </div>
+    <div class="proof">
+        Let
+        \[
+            \phi\left( r,\theta \right)
+            =
+            \left( r\cos\theta,r\sin\theta \right)
+        \]
+        on \( \left( 0,R \right)\times\left( 0,2\pi \right) \). This map is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">one-to-one</a> onto \( W \) with the origin and one radius removed. Its <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> is
+        \[
+            \phi'\left( r,\theta \right)
+            =
+            \begin{bmatrix}
+                \cos\theta & -r\sin\theta\\
+                \sin\theta & r\cos\theta
+            \end{bmatrix},
+        \]
+        so
+        \[
+            \left\lvert \det \phi'\left( r,\theta \right) \right\rvert
+            =
+            r.
+        \]
+        The omitted origin and radius have <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-measure-zero-in-euclidean-space">measure zero</a>, so by <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#proposition-removing-measure-zero-set-does-not-change-riemann-integral">removing a measure-zero set</a>, the integral over \( W \) equals the integral over the image of \( \phi \). Applying the <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#theorem-change-of-variables-for-riemann-integrals">change of variables theorem</a> gives
+        \[
+            \int_W q\left( u,v \right)\;du\,dv
+            =
+            \int_{\left( 0,R \right)\times\left( 0,2\pi \right)}
+            q\left( r\cos\theta,r\sin\theta \right) r\;dr\,d\theta.
+        \]
+        Writing this integral as an <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#theorem-fubini-for-riemann-integrals-on-rectangles">iterated integral</a> gives the stated formula.
+    </div>
+</div>
+<div class="theorem" id="theorem-sards-theorem-equal-dimension-c1-case">
+    <div class="title">
+        Sard's Theorem for the Equal-Dimension \( C ^ 1 \) Case
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ R } ^ n \) be <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a> and let \( g: A \to \mathbb{ R } ^ n \) be <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-continuously-differentiable-iff-continuous-partials">continuously differentiable</a>. If
+        \[
+            B = \left\{ x \in A: \det \left[ Dg \left( x \right) \right] _ E = 0 \right\},
+        \]
+        then \( g \left( B \right) \) has <a class="knowledge-link" href="/analysis/multi_variable/riemann_integration.html#definition-measure-zero-in-euclidean-space">measure zero</a>.
+    </div>
+    <div class="proof"></div>
 </div>

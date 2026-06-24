@@ -1,0 +1,309 @@
+<div class="definition" id="definition-k-tensor">
+    <div class="title">
+        \( k \)-Tensor
+    </div>
+    <div class="content">
+        Let \( V \) be a real <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a>. A \( k \)-tensor on \( V \) is a multilinear <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a>
+        \[
+            T: V ^ k \to \mathbb{ R }.
+        \]
+        The <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> of \( k \)-tensors on \( V \) is denoted \( \mathcal{ T } ^ k\left( V \right) \).
+    </div>
+</div>
+<div class="definition" id="definition-tensor-product">
+    <div class="title">
+        Tensor Product
+    </div>
+    <div class="content">
+        If \( S \in \)<a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-k-tensor">\( \mathcal{ T } ^ k\left( V \right) \)</a> and \( T \in \mathcal{ T } ^ l\left( V \right) \), define the tensor product \( S \otimes T \in \mathcal{ T } ^ { k+l }\left( V \right) \) by
+        \[
+            \left( S \otimes T \right)\left( v _ 1,\ldots,v _ { k+l } \right)
+            =
+            S\left( v _ 1,\ldots,v _ k \right)
+            T\left( v _ { k+1 },\ldots,v _ { k+l } \right).
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-tensor-product-basis">
+    <div class="title">
+        Tensor Product Basis
+    </div>
+    <div class="content">
+        Let \( v _ 1,\ldots,v _ n \) be a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> for \( V \), and let \( \varphi ^ 1,\ldots,\varphi ^ n \) be the dual basis. Then the \( k \)-fold <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-tensor-product">tensor products</a>
+        \[
+            \varphi ^ { i_1 } \otimes \cdots \otimes \varphi ^ { i_k }
+        \]
+        form a basis for \( \mathcal{ T } ^ k\left( V \right) \). Hence \( \dim \mathcal{ T } ^ k\left( V \right)=n ^ k \).
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-alternating-tensor">
+    <div class="title">
+        Alternating Tensor
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-k-tensor">\( k \)-tensor</a> \( \omega \) on \( V \) is alternating if interchanging any two arguments changes its sign. The <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> of alternating \( k \)-tensors on \( V \) is denoted \( \Lambda ^ k\left( V \right) \).
+    </div>
+</div>
+<div class="definition" id="definition-alternating-operator">
+    <div class="title">
+        Alternating Operator
+    </div>
+    <div class="content">
+        If \( T \in \)<a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-k-tensor">\( \mathcal{ T } ^ k\left( V \right) \)</a>, define
+        \[
+            \operatorname{Alt}\left( T \right)\left( v _ 1,\ldots,v _ k \right)
+            =
+            \frac{1}{k!}
+            \sum _ { \sigma \in S _ k }
+            \operatorname{sgn}\left( \sigma \right)
+            T\left( v _ { \sigma\left( 1 \right) },\ldots,v _ { \sigma\left( k \right) } \right).
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-wedge-product">
+    <div class="title">
+        Wedge Product
+    </div>
+    <div class="content">
+        If \( \omega \in \)<a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-alternating-tensor">\( \Lambda ^ k\left( V \right) \)</a> and \( \eta \in \Lambda ^ l\left( V \right) \), define the wedge product using the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-alternating-operator">alternating operator</a> and <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-tensor-product">tensor product</a>:
+        \[
+            \omega \wedge \eta
+            =
+            \frac{\left( k+l \right)!}{k!l!}
+            \operatorname{Alt}\left( \omega \otimes \eta \right).
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-wedge-product-properties">
+    <div class="title">
+        Wedge Product Properties
+    </div>
+    <div class="content">
+        The wedge product is bilinear, associative, and graded-commutative:
+        \[
+            \omega \wedge \eta
+            =
+            \left( -1 \right) ^ { kl }
+            \eta \wedge \omega
+        \]
+        for \( \omega \in \Lambda ^ k\left( V \right) \) and \( \eta \in \Lambda ^ l\left( V \right) \).
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-alternating-tensor-basis">
+    <div class="title">
+        Alternating Tensor Basis
+    </div>
+    <div class="content">
+        If \( v _ 1,\ldots,v _ n \) is a basis for \( V \) and \( \varphi ^ 1,\ldots,\varphi ^ n \) is its dual basis, then the elements
+        \[
+            \varphi ^ { i_1 } \wedge \cdots \wedge \varphi ^ { i_k },
+            \qquad
+            i _ 1 \lt \cdots \lt i _ k,
+        \]
+        form a basis for \( \Lambda ^ k\left( V \right) \). Hence
+        \[
+            \dim \Lambda ^ k\left( V \right)=\binom{n}{k}.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-orientation-of-a-vector-space">
+    <div class="title">
+        Orientation of a Vector Space
+    </div>
+    <div class="content">
+        An orientation of an \( n \)-dimensional real <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> \( V \) is one of the two classes of ordered <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">bases</a>, where two ordered bases are equivalent if the change-of-basis determinant between them is positive.
+    </div>
+</div>
+<div class="definition" id="definition-volume-element-of-an-oriented-inner-product-space">
+    <div class="title">
+        Volume Element of an Oriented Inner Product Space
+    </div>
+    <div class="content">
+        If \( V \) is an <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-orientation-of-a-vector-space">oriented</a> \( n \)-dimensional inner product space, its volume element is the unique <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-alternating-tensor">alternating tensor</a> \( \omega \in \Lambda ^ n\left( V \right) \) such that
+        \[
+            \omega\left( v _ 1,\ldots,v _ n \right)=1
+        \]
+        for every positively oriented orthonormal <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> \( v _ 1,\ldots,v _ n \).
+    </div>
+</div>
+<div class="definition" id="definition-vector-field-on-an-open-set">
+    <div class="title">
+        Vector Field on an Open Set
+    </div>
+    <div class="content">
+        A vector field on an <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open set</a> \( A \subseteq \mathbb{ R } ^ n \) is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( F \) assigning to each \( x \in A \) a vector \( F\left( x \right) \in \mathbb{ R } ^ n _ x \).
+    </div>
+</div>
+<div class="definition" id="definition-differential-form-on-an-open-set">
+    <div class="title">
+        Differential Form on an Open Set
+    </div>
+    <div class="content">
+        A \( k \)-form on an <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open set</a> \( A \subseteq \mathbb{ R } ^ n \) assigns to each \( x \in A \) an <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-alternating-tensor">alternating \( k \)-tensor</a> on the tangent space \( \mathbb{ R } ^ n _ x \). In coordinates, a \( k \)-form can be written
+        \[
+            \omega
+            =
+            \sum _ { i_1 \lt \cdots \lt i_k }
+            \omega _ { i_1,\ldots,i_k }
+            dx ^ { i_1 } \wedge \cdots \wedge dx ^ { i_k }.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-pullback-of-a-form">
+    <div class="title">
+        Pullback of a Form
+    </div>
+    <div class="content">
+        If \( f: A \to B \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> and \( \omega \) is a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-differential-form-on-an-open-set">\( k \)-form</a> on \( B \), then the pullback \( f ^ * \omega \) is the \( k \)-form on \( A \) defined by
+        \[
+            \left( f ^ * \omega \right)\left( x \right)\left( v _ 1,\ldots,v _ k \right)
+            =
+            \omega\left( f\left( x \right) \right)
+            \left( Df\left( x \right)v _ 1,\ldots,Df\left( x \right)v _ k \right).
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-exterior-derivative">
+    <div class="title">
+        Exterior Derivative
+    </div>
+    <div class="content">
+        If
+        \[
+            \omega
+            =
+            \sum _ { i_1 \lt \cdots \lt i_k }
+            \omega _ { i_1,\ldots,i_k }
+            dx ^ { i_1 } \wedge \cdots \wedge dx ^ { i_k },
+        \]
+        then its exterior derivative is
+        \[
+            d\omega
+            =
+            \sum _ { i_1 \lt \cdots \lt i_k }
+            \sum _ { j = 1 } ^ n
+            D _ j\omega _ { i_1,\ldots,i_k }
+            dx ^ j \wedge dx ^ { i_1 } \wedge \cdots \wedge dx ^ { i_k }.
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-exterior-derivative-properties">
+    <div class="title">
+        Exterior Derivative Properties
+    </div>
+    <div class="content">
+        If \( \omega \) is a \( k \)-form and \( \eta \) is a form, then
+        \[
+            d\left( \omega \wedge \eta \right)
+            =
+            d\omega \wedge \eta
+            +
+            \left( -1 \right) ^ k \omega \wedge d\eta.
+        \]
+        Also,
+        \[
+            d\left( d\omega \right)=0.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-closed-and-exact-forms">
+    <div class="title">
+        Closed and Exact Forms
+    </div>
+    <div class="content">
+        A form \( \omega \) is closed if its <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-exterior-derivative">exterior derivative</a> satisfies \( d\omega=0 \). It is exact if there is a form \( \eta \) such that
+        \[
+            \omega=d\eta.
+        \]
+        Every exact form is closed.
+    </div>
+</div>
+<div class="definition" id="definition-singular-cube">
+    <div class="title">
+        Singular Cube
+    </div>
+    <div class="content">
+        A singular \( k \)-cube in a set \( A \subseteq \mathbb{ R } ^ n \) is a <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">map</a>
+        \[
+            c: \left[ 0,1 \right] ^ k \to A.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-singular-chain">
+    <div class="title">
+        Singular Chain
+    </div>
+    <div class="content">
+        A singular \( k \)-chain in \( A \) is a finite formal integer combination
+        \[
+            c = \sum _ { i = 1 } ^ r a _ i c _ i
+        \]
+        of <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-singular-cube">singular \( k \)-cubes</a> \( c _ i \) in \( A \).
+    </div>
+</div>
+<div class="definition" id="definition-boundary-of-a-singular-cube">
+    <div class="title">
+        Boundary of a Singular Cube
+    </div>
+    <div class="content">
+        For a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-singular-cube">singular \( k \)-cube</a> \( c \), let \( c _ { \left( i,\alpha \right) } \) denote the \( \left( k-1 \right) \)-cube obtained by setting the \( i \)-th coordinate equal to \( \alpha \in \left\{ 0,1 \right\} \). The boundary of \( c \) is
+        \[
+            \partial c
+            =
+            \sum _ { i = 1 } ^ k
+            \sum _ { \alpha = 0 } ^ 1
+            \left( -1 \right) ^ { i+\alpha }
+            c _ { \left( i,\alpha \right) }.
+        \]
+        This extends linearly to <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-singular-chain">chains</a>.
+    </div>
+</div>
+<div class="theorem" id="theorem-boundary-squared-is-zero">
+    <div class="title">
+        Boundary Squared is Zero
+    </div>
+    <div class="content">
+        If \( c \) is a singular chain, then
+        \[
+            \partial\left( \partial c \right)=0.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-integral-of-a-form-over-a-chain">
+    <div class="title">
+        Integral of a Form over a Chain
+    </div>
+    <div class="content">
+        If \( \omega \) is a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-differential-form-on-an-open-set">\( k \)-form</a> on \( A \) and \( c \) is a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-singular-cube">singular \( k \)-cube</a> in \( A \), define the integral using the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-pullback-of-a-form">pullback</a>
+        \[
+            \int _ c \omega
+            =
+            \int _ { \left[ 0,1 \right] ^ k } c ^ *\omega.
+        \]
+        For a <a class="knowledge-link" href="/analysis/multi_variable/integration_on_chains.html#definition-singular-chain">chain</a> \( c=\sum a_i c_i \), define
+        \[
+            \int _ c \omega
+            =
+            \sum a_i \int _ { c_i } \omega.
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-stokes-theorem-for-chains">
+    <div class="title">
+        Stokes' Theorem for Chains
+    </div>
+    <div class="content">
+        If \( \omega \) is a \( \left( k-1 \right) \)-form on an open set \( A \subseteq \mathbb{ R } ^ n \), and \( c \) is a singular \( k \)-chain in \( A \), then
+        \[
+            \int _ c d\omega
+            =
+            \int _ { \partial c } \omega.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>

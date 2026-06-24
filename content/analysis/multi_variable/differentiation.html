@@ -5,7 +5,7 @@
     <div class="content">
         Let \( f{:} \mathbb{R}^{n} \to \mathbb{R} \) and let \( a , v \in \mathbb{R}^{n} \), then the directional derivative of \( f \) at \( a \) along \( v \) is defined as
         <div class="centered-content">
-            \( \nabla_{v} f{\left ( a \right )} := \lim_{h \to 0} \frac{f{\left ( a + h v \right )} - f{\left ( a \right )}}{h} \)
+            \( \nabla_{v} f{\left ( a \right )} := \)<a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-limit-of-a-function">\( \lim_{h \to 0} \)</a>\( \frac{f{\left ( a + h v \right )} - f{\left ( a \right )}}{h} \)
         </div>
     </div>
 </div>
@@ -14,9 +14,9 @@
         Partial Derivative
     </div>
     <div class="content">
-        Let \( f{:} \mathbb{R}^{n} \to R \) then the partial derivative with respect to \( x_{i} \) is the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-directional-derivative">directional derivative of \( f \) at \( a \) along \( e_{i} \)</a>
+        Let \( f{:} \mathbb{R}^{n} \to \mathbb{R} \) and let \(a\in\mathbb R^n\). The partial derivative with respect to \(x_i\) is:
         <div class="centered-content">
-            \( \frac{\partial}{\partial x_{i}} f{\left ( a \right )} := \nabla_{e_{i}} f{\left ( a \right )} \)
+            \( \frac{\partial}{\partial x_{i}} f{\left ( a \right )} := \)<a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-directional-derivative">\( \nabla_{e_{i}} f{\left ( a \right )} \)</a>
         </div>
     </div>
 </div>
@@ -88,10 +88,94 @@
         differentaibility
     </div>
     <div class="content">
-        a function \( f{:} A \to \mathbb{R}^{m} \) with \( A \subseteq \mathbb{R}^{n} \) is differentiable at the point \( a \in \mathbb{R}^{n} \) if there exists a linear transformation \( T : \mathbb{R}^{n} \to \mathbb{R}^{m} \) such that
+        a <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-function-between-euclidean-spaces">function</a> \( f{:} A \to \mathbb{R}^{m} \) with \( A \subseteq \mathbb{R}^{n} \) is differentiable at the point \( a \in \mathbb{R}^{n} \) if there exists a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> \( T : \mathbb{R}^{n} \to \mathbb{R}^{m} \) such that
         <div class="centered-content">
             \( \lim_{x \to a} \frac{\left \| f{\left ( x \right )} - \left ( f{\left ( a \right )} + T \left ( x - a \right ) \right ) \right \| }{\left \| x - a \right \| } = 0 \)
         </div>
+    </div>
+</div>
+<div class="exercise" id="exercise-quadratic-function-is-differentiable-at-a-point">
+    <div class="title">
+        Quadratic Function is Differentiable at a Point
+    </div>
+    <div class="content">
+        Let \( f:\mathbb{ R } ^ 2 \to \mathbb{ R } \) be given by
+        \[
+            f\left( x,y \right)=x ^ 2+y ^ 2.
+        \]
+        Show that \( f \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at \( a=\left( 1,-1 \right) \).
+    </div>
+    <div class="proof">
+        Define \( T:\mathbb{ R } ^ 2\to\mathbb{ R } \) by
+        \[
+            T\left( h,k \right)=2h-2k.
+        \]
+        This is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a>. For \( \left( x,y \right)\in\mathbb{ R } ^ 2 \), write
+        \[
+            \left( h,k \right)=\left( x,y \right)-\left( 1,-1 \right)=\left( x-1,y+1 \right).
+        \]
+        Then
+        \[
+            \begin{aligned}
+            f\left( x,y \right)-\left( f\left( 1,-1 \right)+T\left( h,k \right) \right)
+            &=x ^ 2+y ^ 2-\left( 2+2\left( x-1 \right)-2\left( y+1 \right) \right)\\
+            &=\left( x-1 \right) ^ 2+\left( y+1 \right) ^ 2\\
+            &=\left\lVert \left( h,k \right) \right\rVert ^ 2.
+            \end{aligned}
+        \]
+        Therefore
+        \[
+            \frac{
+                \left\lvert
+                f\left( x,y \right)-\left( f\left( 1,-1 \right)+T\left( \left( x,y \right)-\left( 1,-1 \right) \right) \right)
+                \right\rvert
+            }{
+                \left\lVert \left( x,y \right)-\left( 1,-1 \right) \right\rVert
+            }
+            =
+            \left\lVert \left( x,y \right)-\left( 1,-1 \right) \right\rVert.
+        \]
+        As \( \left( x,y \right)\to\left( 1,-1 \right) \), the right side tends to \( 0 \). Hence \( f \) is differentiable at \( \left( 1,-1 \right) \).
+    </div>
+</div>
+<div class="exercise" id="exercise-euclidean-norm-is-not-differentiable-at-the-origin">
+    <div class="title">
+        Euclidean Norm is Not Differentiable at the Origin
+    </div>
+    <div class="content">
+        Let \( f:\mathbb{ R } ^ 2 \to \mathbb{ R } \) be the <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-euclidean-norm">Euclidean norm</a> function
+        \[
+            f\left( x,y \right)=\left\lVert \left( x,y \right) \right\rVert.
+        \]
+        Show that \( f \) is not <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at \( \left( 0,0 \right) \).
+    </div>
+    <div class="proof">
+        Suppose for contradiction that \( f \) is differentiable at \( \left( 0,0 \right) \). Then there exists a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> \( T:\mathbb{ R } ^ 2\to\mathbb{ R } \) such that
+        \[
+            \lim _ { \left( x,y \right)\to\left( 0,0 \right) }
+            \frac{\left\lvert \left\lVert \left( x,y \right) \right\rVert -T\left( x,y \right)\right\rvert}{\left\lVert \left( x,y \right) \right\rVert}
+            =
+            0.
+        \]
+        Taking points \( \left( t,0 \right) \) with \( t\gt0 \), we get
+        \[
+            0
+            =
+            \lim _ { t\to0 ^ + }
+            \frac{\left\lvert t-T\left( t,0 \right)\right\rvert}{t}
+            =
+            \left\lvert 1-T\left( 1,0 \right)\right\rvert,
+        \]
+        so \( T\left( 1,0 \right)=1 \). Taking points \( \left( t,0 \right) \) with \( t\lt0 \), we get
+        \[
+            0
+            =
+            \lim _ { t\to0 ^ - }
+            \frac{\left\lvert -t-T\left( t,0 \right)\right\rvert}{-t}
+            =
+            \left\lvert 1+T\left( 1,0 \right)\right\rvert,
+        \]
+        so \( T\left( 1,0 \right)=-1 \). This is impossible. Therefore no such linear transformation \( T \) exists, and \( f \) is not differentiable at \( \left( 0,0 \right) \).
     </div>
 </div>
 <div class="theorem" id="theorem-continuous-partials-implies-differentiabiity">
@@ -103,5 +187,750 @@
     </div>
     <div class="proof">
         ToDo
+    </div>
+</div>
+<div class="theorem" id="theorem-derivative-is-unique">
+    <div class="title">
+        Derivative is Unique
+    </div>
+    <div class="content">
+        Suppose that \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at \( a \in \mathbb{ R } ^ n \). Then there is a unique <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> \( T: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) such that
+        \[
+            \lim _ { h \to 0 }
+            \frac{\left\lvert f\left( a+h \right)-f\left( a \right)-T\left( h \right)\right\rvert}{\left\lvert h \right\rvert}
+            =
+            0.
+        \]
+        This linear transformation is denoted \( Df\left( a \right) \).
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-derivative-at-a-point">
+    <div class="title">
+        Derivative at a Point
+    </div>
+    <div class="content">
+        Suppose that \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at \( a \in \mathbb{ R } ^ n \). The <b>derivative of \( f \) at \( a \)</b>, denoted \( Df\left( a \right) \), is the unique <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> \( T: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) from the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-derivative-is-unique">derivative uniqueness theorem</a>.
+        <p>
+            Thus \( Df\left( a \right) \) is not a number in general. It is a linear map that takes a small displacement \( h\in\mathbb{ R } ^ n \) and returns the best linear approximation to the change \( f\left( a+h \right)-f\left( a \right) \).
+        </p>
+    </div>
+</div>
+<div class="proposition" id="proposition-derivative-of-identity-function">
+    <div class="title">
+        Derivative of the Identity Function
+    </div>
+    <div class="content">
+        Let
+        \[
+            \operatorname{id}_{\mathbb R ^ n}:\mathbb R ^ n\to\mathbb R ^ n
+        \]
+        be the <a class="knowledge-link" href="/fundamentals/functions.html#definition-identity-function">identity function</a>. For every \(a\in\mathbb R ^ n\),
+        \[
+            D\operatorname{id}_{\mathbb R ^ n}\left(a\right)
+            =
+            \operatorname{id}_{\mathbb R ^ n}.
+        \]
+        Equivalently, for every \(v\in\mathbb R ^ n\),
+        \[
+            D\operatorname{id}_{\mathbb R ^ n}\left(a\right)\left(v\right)=v.
+        \]
+    </div>
+    <div class="proof">
+        Let \(T=\operatorname{id}_{\mathbb R ^ n}\). Then \(T\) is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a>. For every \(h\neq0\),
+        \[
+            \frac{
+                \left\|
+                    \operatorname{id}_{\mathbb R ^ n}\left(a+h\right)
+                    -
+                    \operatorname{id}_{\mathbb R ^ n}\left(a\right)
+                    -
+                    T\left(h\right)
+                \right\|
+            }{
+                \left\|h\right\|
+            }
+            =
+            \frac{\left\|\left(a+h\right)-a-h\right\|}{\left\|h\right\|}
+            =
+            0.
+        \]
+        Therefore \(T\) satisfies the defining limit for the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">derivative</a> of \(\operatorname{id}_{\mathbb R ^ n}\) at \(a\). By <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-derivative-is-unique">derivative uniqueness</a>,
+        \[
+            D\operatorname{id}_{\mathbb R ^ n}\left(a\right)
+            =
+            \operatorname{id}_{\mathbb R ^ n}.
+        \]
+        Applying both sides to \(v\) gives \(D\operatorname{id}_{\mathbb R ^ n}\left(a\right)\left(v\right)=v\).
+    </div>
+</div>
+<div class="exercise" id="exercise-derivative-of-squared-norm">
+    <div class="title">
+        Derivative of Squared Norm
+    </div>
+    <div class="content">
+        Let
+        \[
+            S:\mathbb R ^ n\to\mathbb R,
+            \qquad
+            S(x)=x\cdot x.
+        \]
+        Show that \(S\) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at every \(a\in\mathbb R ^ n\), and that for every \(v\in\mathbb R ^ n\),
+        \[
+            DS\left(a\right)\left(v\right)=2a\cdot v.
+        \]
+    </div>
+    <div class="proof">
+        Fix \(a\in\mathbb R ^ n\). Define
+        \[
+            T:\mathbb R ^ n\to\mathbb R,
+            \qquad
+            T(h)=2a\cdot h.
+        \]
+        This is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a>. For \(h\in\mathbb R ^ n\),
+        \[
+            S\left(a+h\right)-S\left(a\right)-T\left(h\right)
+            =
+            \left(a+h\right)\cdot\left(a+h\right)-a\cdot a-2a\cdot h.
+        \]
+        Expanding with the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-distributes-into-vector-addition-from-the-right">distributivity of the dot product</a> and <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-is-symmetric">symmetry of the dot product</a> gives
+        \[
+            S\left(a+h\right)-S\left(a\right)-T\left(h\right)
+            =
+            h\cdot h.
+        \]
+        Therefore
+        \[
+            \frac{
+                \left|S\left(a+h\right)-S\left(a\right)-T\left(h\right)\right|
+            }{
+                \left\|h\right\|
+            }
+            =
+            \frac{\left|h\cdot h\right|}{\left\|h\right\|}
+            =
+            \left\|h\right\|
+            \to0
+        \]
+        as \(h\to0\). Thus \(T\) satisfies the defining limit for the derivative of \(S\) at \(a\). By the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-derivative-at-a-point">definition of derivative at a point</a>,
+        \[
+            DS\left(a\right)=T.
+        \]
+        Applying both sides to \(v\) gives
+        \[
+            DS\left(a\right)\left(v\right)=2a\cdot v.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-jacobian-matrix">
+    <div class="title">
+        Jacobian Matrix
+    </div>
+    <div class="content">
+        If \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at \( a \), then <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-derivative-at-a-point">\( Df\left( a \right) \)</a> is a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> \( \mathbb{ R } ^ n\to\mathbb{ R } ^ m \). Its <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-of-a-linear-transformation-in-bases">matrix with respect to the standard bases</a> \( E_n \) and \( E_m \) is called the Jacobian matrix of \( f \) at \( a \), and is denoted
+        \[
+            \left[ Df\left( a \right) \right] _ { E_m \leftarrow E_n }.
+        \]
+        The notation \( f'\left( a \right) \) is also used for this matrix, but \( Df\left( a \right) \) itself denotes the derivative as a linear transformation.
+    </div>
+</div>
+<div class="corollary" id="corollary-jacobian-entries-are-partial-derivatives">
+    <div class="title">
+        Jacobian Entries are Partial Derivatives
+    </div>
+    <div class="content">
+        Let \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) be <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at \( a \), and write
+        \[
+            f=\left( f ^ 1,\ldots,f ^ m \right).
+        \]
+        Then the \( i,j \)-entry of the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> is the \( j \)-th <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-partial-derivative">partial derivative</a> of the \( i \)-th component:
+        \[
+            \left( \left[ Df\left( a \right) \right] _ { E_m \leftarrow E_n } \right) _ { i,j }
+            =
+            D_j f ^ i\left( a \right).
+        \]
+        Equivalently,
+        \[
+            \left[ Df\left( a \right) \right] _ { E_m \leftarrow E_n }
+            =
+            \begin{bmatrix}
+                \frac{\partial f ^ 1}{\partial x_1}\left( a \right) &
+                \frac{\partial f ^ 1}{\partial x_2}\left( a \right) &
+                \cdots &
+                \frac{\partial f ^ 1}{\partial x_n}\left( a \right) \\
+                \frac{\partial f ^ 2}{\partial x_1}\left( a \right) &
+                \frac{\partial f ^ 2}{\partial x_2}\left( a \right) &
+                \cdots &
+                \frac{\partial f ^ 2}{\partial x_n}\left( a \right) \\
+                \vdots & \vdots & \ddots & \vdots \\
+                \frac{\partial f ^ m}{\partial x_1}\left( a \right) &
+                \frac{\partial f ^ m}{\partial x_2}\left( a \right) &
+                \cdots &
+                \frac{\partial f ^ m}{\partial x_n}\left( a \right)
+            \end{bmatrix}.
+        \]
+    </div>
+    <div class="proof">
+        Let \( T=Df\left( a \right) \). By the <a class="knowledge-link" href="/algebra/linear/matrices.html#theorem-linear-transformation-has-standard-matrix">standard matrix theorem for linear transformations</a>, the \( j \)-th column of \( \left[ T \right] _ { E_m \leftarrow E_n } \) is \( T\left( e_j \right) \), where \( e_j \) is the \( j \)-th vector in the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-standard-basis-of-rn">standard basis</a> of \( \mathbb{ R } ^ n \). Therefore
+        \[
+            \left( \left[ Df\left( a \right) \right] _ { E_m \leftarrow E_n } \right) _ { i,j }
+            =
+            \left( T\left( e_j \right) \right) _ i.
+        \]
+        Since \( T \) is the derivative of \( f \) at \( a \),
+        \[
+            f\left( a+t e_j \right)
+            =
+            f\left( a \right)+T\left( t e_j \right)+r\left( t \right),
+            \qquad
+            \frac{\left\lVert r\left( t \right)\right\rVert}{\left\lvert t \right\rvert}\to0
+        \]
+        as \( t\to0 \). Taking the \( i \)-th component and using the <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linearity</a> of \( T \),
+        \[
+            \frac{f ^ i\left( a+t e_j \right)-f ^ i\left( a \right)}{t}
+            =
+            \left( T\left( e_j \right) \right)_i
+            +
+            \frac{r ^ i\left( t \right)}{t}.
+        \]
+        The final term tends to \(0\), so the limit on the left exists and equals \( \left( T\left( e_j \right) \right)_i \). By the definition of partial derivative, that limit is \( D_j f ^ i\left( a \right) \). Hence
+        \[
+            D_j f ^ i\left( a \right)
+            =
+            \left( \left[ Df\left( a \right) \right] _ { E_m \leftarrow E_n } \right) _ { i,j }.
+        \]
+        Since this holds for every \(i\) and every \(j\), the displayed matrix formula follows.
+    </div>
+</div>
+<div class="theorem" id="theorem-differentiability-implies-continuity">
+    <div class="title">
+        Differentiability Implies Continuity
+    </div>
+    <div class="content">
+        If \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at \( a \), then \( f \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous</a> at \( a \).
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-chain-rule-for-total-derivatives">
+    <div class="title">
+        Chain Rule for Total Derivatives
+    </div>
+    <div class="content">
+        Suppose that \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at \( a \), and \( g: \mathbb{ R } ^ m \to \mathbb{ R } ^ p \) is differentiable at \( f\left( a \right) \). Then the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function-composition">composition</a> \( g \circ f \) is differentiable at \( a \), and
+        \[
+            D\left( g \circ f \right)\left( a \right)
+            =
+            Dg\left( f\left( a \right) \right) \circ Df\left( a \right).
+        \]
+        Equivalently,
+        \[
+            \left[ D\left( g\circ f \right)\left( a \right) \right] _ { E_p \leftarrow E_n }
+            =
+            \left[ Dg\left( f\left( a \right) \right) \right] _ { E_p \leftarrow E_m }
+            \left[ Df\left( a \right) \right] _ { E_m \leftarrow E_n }.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-basic-derivative-rules-in-euclidean-space">
+    <div class="title">
+        Basic Derivative Rules in Euclidean Space
+    </div>
+    <div class="content">
+        The following derivative rules hold:
+        <ul>
+            <li>If \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) is constant, then \( Df\left( a \right) = 0 \).</li>
+            <li>If \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) is linear, then \( Df\left( a \right) = f \).</li>
+            <li>If \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \), then \( f \) is differentiable at \( a \) if and only if each component \( f ^ i \) is differentiable at \( a \), and \( Df\left( a \right)=\left( Df ^ 1\left( a \right),\ldots,Df ^ m\left( a \right) \right) \).</li>
+            <li>If \( f,g: \mathbb{ R } ^ n \to \mathbb{ R } \) are differentiable at \( a \), then \( D\left( f+g \right)\left( a \right)=Df\left( a \right)+Dg\left( a \right) \).</li>
+            <li>If \( f,g: \mathbb{ R } ^ n \to \mathbb{ R } \) are differentiable at \( a \), then \( D\left( fg \right)\left( a \right)=g\left( a \right)Df\left( a \right)+f\left( a \right)Dg\left( a \right) \).</li>
+            <li>If \( g\left( a \right) \neq 0 \), then
+            \[
+                D\left( \frac{f}{g} \right)\left( a \right)
+                =
+                \frac{g\left( a \right)Df\left( a \right)-f\left( a \right)Dg\left( a \right)}{g\left( a \right) ^ 2}.
+            \]
+            </li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-mixed-partials-commute-under-continuity">
+    <div class="title">
+        Mixed Partials Commute Under Continuity
+    </div>
+    <div class="content">
+        If \( D _ { i,j } f \) and \( D _ { j,i } f \) are continuous on an open set containing \( a \), then
+        \[
+            D _ { i,j } f\left( a \right) = D _ { j,i } f\left( a \right).
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-higher-order-partial-derivative">
+    <div class="title">
+        Higher-Order Partial Derivative
+    </div>
+    <div class="content">
+        A <b>partial derivative of order \(k\)</b> is obtained by applying <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-partial-derivative">partial derivative</a> operators \(k\) times in sequence. For example,
+        \[
+            D _ { i,j } f
+            =
+            D _ i\left( D _ j f \right)
+        \]
+        is a partial derivative of order \(2\).
+    </div>
+</div>
+<div class="definition" id="definition-c-infinity-function">
+    <div class="title">
+        \( C ^ \infty \) Function
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> is \( C ^ \infty \) if <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-higher-order-partial-derivative">partial derivatives of all orders</a> exist and are <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous</a>.
+    </div>
+</div>
+<div class="theorem" id="theorem-interior-extremum-has-zero-partials">
+    <div class="title">
+        Interior Extremum has Zero Partials
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ R } ^ n \). If \( f: A \to \mathbb{ R } \) has a maximum or minimum at a point \( a \) in the <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-interior">interior</a> of \( A \), and \( D _ i f\left( a \right) \) exists, then
+        \[
+            D _ i f\left( a \right)=0.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-matrix-norm">
+    <div class="title">
+        Matrix Norm
+    </div>
+    <div class="content">
+        If \( A \) is an \( m \times n \) <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix">matrix</a>, its norm is
+        \[
+            \left\lvert A \right\rvert
+            =
+            \sqrt{\sum _ { i = 1 } ^ m \sum _ { j = 1 } ^ n a _ { i,j } ^ 2 }.
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-mean-value-inequality-in-euclidean-space">
+    <div class="title">
+        Mean Value Inequality in Euclidean Space
+    </div>
+    <div class="content">
+        Suppose that \( A \subseteq \mathbb{ R } ^ n \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a>, \( f: A \to \mathbb{ R } ^ m \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a>, and the line segment from \( a \) to \( b \) lies in \( A \). If \( \left\lvert Df\left( x \right)\right\rvert \le M \) for every point \( x \) on that segment, then
+        \[
+            \left\lvert f\left( b \right)-f\left( a \right)\right\rvert
+            \le
+            M \left\lvert b-a \right\rvert.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-continuously-differentiable-iff-continuous-partials">
+    <div class="title">
+        Continuously Differentiable iff Continuous Partials
+    </div>
+    <div class="content">
+        A function \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ m \) is continuously differentiable on an <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open set</a> \( A \) if and only if all <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-partial-derivative">partial derivatives</a> \( D _ j f ^ i \) exist and are <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous</a> on \( A \). In this case the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> is
+        \[
+            \left[ Df\left( x \right) \right] _ { E_m \leftarrow E_n }
+            =
+            \left( D _ j f ^ i\left( x \right) \right).
+        \]
+    </div>
+    <div class="proof">
+        In this statement, continuously differentiable means that \( f \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-differentiability">differentiable</a> at every point of \( A \), and that the derivative map
+        \[
+            x\mapsto Df\left( x \right)
+        \]
+        is continuous when \( Df\left( x \right) \) is represented by its <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a>.
+        <p>
+            First suppose \( f \) is continuously differentiable on \( A \). Then \( f \) is differentiable at every \( x\in A \), so \( Df\left( x \right) \) exists. The \( j \)-th partial derivative of the \( i \)-th <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-component-functions">component function</a> is the \( i,j \)-entry of the Jacobian matrix:
+            \[
+                D_j f ^ i\left( x \right)
+                =
+                \left( \left[ Df\left( x \right) \right] _ { E_m \leftarrow E_n } \right)_{i,j}.
+            \]
+            Since the matrix-valued function \( x\mapsto \left[ Df\left( x \right) \right] _ { E_m \leftarrow E_n } \) is continuous, each entry function \( x\mapsto D_j f ^ i\left( x \right) \) is continuous. Thus all partial derivatives exist and are continuous on \( A \).
+        </p>
+        <p>
+            Conversely, suppose all partial derivatives \( D_j f ^ i \) exist and are continuous on \( A \). Fix \( a\in A \). Since \( A \) is open, choose a small rectangle around \( a \) contained in \( A \). Define a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a> \( T_a:\mathbb{ R } ^ n\to\mathbb{ R } ^ m \) by
+            \[
+                T_a h
+                =
+                \left( \sum_{j=1}^n D_j f ^ 1\left( a \right)h_j,\ldots,
+                \sum_{j=1}^n D_j f ^ m\left( a \right)h_j \right).
+            \]
+            We show that \( T_a \) is the derivative of \( f \) at \( a \).
+        </p>
+        <p>
+            Write \( h=\left( h_1,\ldots,h_n \right) \), and for \( 0\le j\le n \), set
+            \[
+                z_j=a+\left( h_1,\ldots,h_j,0,\ldots,0 \right).
+            \]
+            For each component \( f ^ i \), telescope the change from \( a \) to \( a+h \):
+            \[
+                f ^ i\left( a+h \right)-f ^ i\left( a \right)
+                =
+                \sum_{j=1}^n
+                \left( f ^ i\left( z_j \right)-f ^ i\left( z_{j-1} \right) \right).
+            \]
+            Each summand changes only the \( j \)-th coordinate. By the one-variable mean value theorem applied along that coordinate segment, if \( h_j\neq0 \), there is a point \( \xi_j \) on the segment from \( z_{j-1} \) to \( z_j \) such that
+            \[
+                f ^ i\left( z_j \right)-f ^ i\left( z_{j-1} \right)
+                =
+                D_j f ^ i\left( \xi_j \right)h_j.
+            \]
+            If \( h_j=0 \), the same formula holds with any point \( \xi_j \) on the segment.
+        </p>
+        <p>
+            Therefore
+            \[
+                f ^ i\left( a+h \right)-f ^ i\left( a \right)
+                -
+                \sum_{j=1}^n D_j f ^ i\left( a \right)h_j
+                =
+                \sum_{j=1}^n
+                \left( D_j f ^ i\left( \xi_j \right)-D_j f ^ i\left( a \right) \right)h_j.
+            \]
+            Since each \( D_j f ^ i \) is continuous at \( a \), the differences
+            \[
+                D_j f ^ i\left( \xi_j \right)-D_j f ^ i\left( a \right)
+            \]
+            go to \(0\) as \( h\to0 \). Hence
+            \[
+                \frac{
+                    \left\lvert f\left( a+h \right)-f\left( a \right)-T_a h\right\rvert
+                }{
+                    \left\lvert h\right\rvert
+                }
+                \to0.
+            \]
+            By the definition of differentiability, \( f \) is differentiable at \( a \), with \( Df\left( a \right)=T_a \).
+        </p>
+        <p>
+            Since \( a\in A \) was arbitrary, \( f \) is differentiable on \( A \). The <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-of-a-linear-transformation-in-bases">matrix of</a> \( T_a \) is exactly
+            \[
+                \left( D_j f ^ i\left( a \right) \right),
+            \]
+            so
+            \[
+                \left[ Df\left( a \right) \right] _ { E_m \leftarrow E_n }=\left( D_j f ^ i\left( a \right) \right).
+            \]
+            The entries of this matrix are continuous functions of \( a \), so the Jacobian matrix varies continuously on \( A \). Thus \( f \) is continuously differentiable on \( A \).
+        </p>
+    </div>
+</div>
+<div class="theorem" id="theorem-projection-functions-are-continuously-differentiable">
+    <div class="title">
+        Projection Functions are Continuously Differentiable
+    </div>
+    <div class="content">
+        Each <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-projection-function">projection function</a> \( \pi ^ i:\mathbb{ R } ^ n\to\mathbb{ R } \) is continuously differentiable.
+    </div>
+    <div class="proof">
+        For the \( i \)-th projection function,
+        \[
+            D_j\pi ^ i\left( x \right)
+            =
+            \begin{cases}
+                1 & j=i, \\
+                0 & j\neq i.
+            \end{cases}
+        \]
+        These partial derivatives exist and are constant, hence continuous. Therefore \( \pi ^ i \) is continuously differentiable by the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-continuously-differentiable-iff-continuous-partials">continuous partials characterization</a>.
+    </div>
+</div>
+<div class="theorem" id="theorem-componentwise-continuously-differentiable-map">
+    <div class="title">
+        Componentwise Continuously Differentiable Map
+    </div>
+    <div class="content">
+        Let \( A\subseteq\mathbb{ R } ^ n \) be <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a>. If \( f ^ 1,\ldots,f ^ m:A\to\mathbb{ R } \) are continuously differentiable, then the function \( f:A\to\mathbb{ R } ^ m \) defined by
+        \[
+            f\left( x \right)=\left( f ^ 1\left( x \right),\ldots,f ^ m\left( x \right) \right)
+        \]
+        is continuously differentiable.
+    </div>
+    <div class="proof">
+        By the <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-component-functions">definition of component functions</a>, the component functions of \( f \) are \( f ^ 1,\ldots,f ^ m \). Each \( f ^ i \) is continuously differentiable, so all partial derivatives \( D_j f ^ i \) exist and are continuous on \( A \). Therefore \( f \) is continuously differentiable by the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-continuously-differentiable-iff-continuous-partials">continuous partials characterization</a>.
+    </div>
+</div>
+<div class="proposition" id="proposition-derivative-of-vector-scalar-division-map">
+    <div class="title">
+        Derivative of the Vector Scalar Division Map
+    </div>
+    <div class="content">
+        Let
+        \[
+            Q:\mathbb R ^ m\times\left(\mathbb R\setminus\left\{0\right\}\right)\to\mathbb R ^ m,
+            \qquad
+            Q(y,t)=\frac{y}{t}.
+        \]
+        If \(y\in\mathbb R ^ m\), \(t\neq0\), \(u\in\mathbb R ^ m\), and \(s\in\mathbb R\), then
+        \[
+            DQ(y,t)(u,s)
+            =
+            \frac{u}{t}-\frac{s}{t ^ 2}y.
+        \]
+    </div>
+    <div class="proof">
+        Write \(y=\left(y_1,\ldots,y_m\right)\). The component functions of \(Q\) are
+        \[
+            Q ^ i(y,t)=\frac{y_i}{t}
+        \]
+        for \(1\le i\le m\). For \(1\le j\le m\),
+        \[
+            \frac{\partial Q ^ i}{\partial y_j}(y,t)
+            =
+            \begin{cases}
+                \frac{1}{t}, & i=j,\\
+                0, & i\neq j,
+            \end{cases}
+        \]
+        and
+        \[
+            \frac{\partial Q ^ i}{\partial t}(y,t)
+            =
+            -\frac{y_i}{t ^ 2}.
+        \]
+        These partial derivatives are continuous wherever \(t\neq0\). Therefore, by the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-continuously-differentiable-iff-continuous-partials">continuous partials characterization</a>, \(Q\) is differentiable at \((y,t)\).
+        <p>
+            By the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#corollary-jacobian-entries-are-partial-derivatives">Jacobian entries are partial derivatives corollary</a>, the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-jacobian-matrix">Jacobian matrix</a> of \(Q\) at \((y,t)\), with input coordinates ordered as \(y_1,\ldots,y_m,t\), is
+            \[
+                \left[DQ(y,t)\right]_{E_m\leftarrow E_{m+1}}
+                =
+                \begin{bmatrix}
+                    \frac{1}{t} & 0 & \cdots & 0 & -\frac{y_1}{t ^ 2}\\
+                    0 & \frac{1}{t} & \cdots & 0 & -\frac{y_2}{t ^ 2}\\
+                    \vdots & \vdots & \ddots & \vdots & \vdots\\
+                    0 & 0 & \cdots & \frac{1}{t} & -\frac{y_m}{t ^ 2}
+                \end{bmatrix}.
+            \]
+        </p>
+        Applying this matrix to the displacement \((u,s)=\left(u_1,\ldots,u_m,s\right)\) gives
+        \[
+            DQ(y,t)(u,s)
+            =
+            \left(
+                \frac{u_1}{t}-\frac{s y_1}{t ^ 2},
+                \ldots,
+                \frac{u_m}{t}-\frac{s y_m}{t ^ 2}
+            \right)
+            =
+            \frac{u}{t}-\frac{s}{t ^ 2}y.
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-inverse-function-theorem">
+    <div class="title">
+        Inverse Function Theorem
+    </div>
+    <div class="content">
+        Suppose that \( f: \mathbb{ R } ^ n \to \mathbb{ R } ^ n \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-continuously-differentiable-iff-continuous-partials">continuously differentiable</a> in an <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open set</a> containing \( a \), and that the <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-determinant">determinant</a> of the Jacobian matrix is nonzero:
+        \[
+            \det \left[ Df\left( a \right) \right] _ E \neq 0.
+        \]
+        Then there are open sets \( U \) and \( V \) with \( a \in U \), \( f\left( a \right) \in V \), such that \( f: U \to V \) is <a class="knowledge-link" href="/fundamentals/functions.html#definition-injective-function">one-to-one</a>, <a class="knowledge-link" href="/fundamentals/functions.html#definition-surjective-function">onto</a>, and has a continuously differentiable <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-function">inverse</a>. Moreover,
+        \[
+            \left[ D\left( f ^ { -1 } \right)\left( y \right) \right] _ E
+            =
+            \left( \left[ Df\left( f ^ { -1 }\left( y \right) \right) \right] _ E \right) ^ { -1 }.
+        \]
+        If \( f \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-c-infinity-function">\( C ^ \infty \)</a>, then \( f ^ { -1 } \) is \( C ^ \infty \).
+    </div>
+    <div class="proof">
+        Let \( A=\left[ Df\left( a \right) \right] _ E \). Since \( \det A\neq 0 \), \( A \) is an <a class="knowledge-link" href="/algebra/linear/matrices.html#theorem-nonzero-determinant-iff-invertible">invertible matrix</a>. Composing \( f \) with the affine change of variables
+        \[
+            x\mapsto A ^ { -1 }\left( f\left( x \right)-f\left( a \right) \right)+a
+        \]
+        reduces the proof to the case \( f\left( a \right)=a \) and \( \left[ Df\left( a \right) \right] _ E=I_n \). After proving the theorem in this normalized case, composing back with the affine maps gives the original statement.
+        <p>
+            In the normalized case, continuity of the Jacobian matrix gives a closed rectangle \( R \) with \( a \) in its <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-interior">interior</a> such that \( \left[ Df\left( x \right) \right] _ E \) stays close to \( I_n \) on \( R \). Applying the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-mean-value-inequality-in-euclidean-space">mean value inequality</a> to \( x\mapsto f\left( x \right)-x \), after shrinking \( R \) if needed, gives
+            \[
+                \left\lvert
+                    \left( f\left( x \right)-x \right)
+                    -
+                    \left( f\left( y \right)-y \right)
+                \right\rvert
+                \le
+                \frac{1}{2}\left\lvert x-y \right\rvert
+            \]
+            for all \( x,y\in R \). Therefore
+            \[
+                \left\lvert f\left( x \right)-f\left( y \right)\right\rvert
+                \ge
+                \frac{1}{2}\left\lvert x-y \right\rvert,
+            \]
+            so \( f \) is one-to-one on \( R \).
+        </p>
+        <p>
+            The boundary of \( R \) is compact, and \( f\left( a \right) \) is not in the image of that boundary. Hence there is an open ball \( V \) around \( f\left( a \right) \) such that every \( z\in V \) is closer to \( f\left( a \right) \) than to any value \( f\left( x \right) \) with \( x \) on the boundary of \( R \).
+        </p>
+        <p>
+            Fix \( z\in V \), and define
+            \[
+                \Phi_z\left( x \right)=\left\lvert z-f\left( x \right)\right\rvert ^ 2
+            \]
+            on \( R \). Since \( R \) is a compact <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-closed-rectangle-in-euclidean-space">closed rectangle</a> and \( \Phi_z \) is continuous, the <a class="knowledge-link" href="/analysis/multi_variable/compactness_and_extreme_values.html#theorem-extreme-value">extreme value theorem</a> gives a point where \( \Phi_z \) is minimized. The choice of \( V \) prevents this minimum from occurring on the boundary, so the minimum occurs at an interior point \( x \).
+        </p>
+        <p>
+            By the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-interior-extremum-has-zero-partials">interior extremum theorem</a>, all partial derivatives of \( \Phi_z \) vanish at \( x \). Written in matrix form, this says
+            \[
+                \left( z-f\left( x \right) \right)^T \left[ Df\left( x \right) \right] _ E=0.
+            \]
+            Since \( \left[ Df\left( x \right) \right] _ E \) is close to \( I_n \), it is invertible. Therefore \( z-f\left( x \right)=0 \), so \( z=f\left( x \right) \). This proves that every \( z\in V \) has a preimage in the interior of \( R \). Together with injectivity, this gives a local inverse \( f ^ { -1 }:V\to U \), where \( U=f ^ { -1 }\left( V \right)\cap\operatorname{int}\left( R \right) \).
+        </p>
+        <p>
+            The estimate
+            \[
+                \left\lvert f\left( x \right)-f\left( y \right)\right\rvert
+                \ge
+                \frac{1}{2}\left\lvert x-y \right\rvert
+            \]
+            implies
+            \[
+                \left\lvert f ^ { -1 }\left( z_1 \right)-f ^ { -1 }\left( z_2 \right)\right\rvert
+                \le
+                2\left\lvert z_1-z_2 \right\rvert,
+            \]
+            so \( f ^ { -1 } \) is continuous.
+        </p>
+        <p>
+            Let \( z=f\left( x \right) \in V \). Since \( f \) is differentiable at \( x \),
+            \[
+                f\left( x+h \right)
+                =
+                f\left( x \right)+\left[ Df\left( x \right) \right] _ E h+r\left( h \right),
+                \qquad
+                \frac{\left\lvert r\left( h \right)\right\rvert}{\left\lvert h \right\rvert}\to 0.
+            \]
+            Using the continuity estimate for \( f ^ { -1 } \), this remainder identity implies
+            \[
+                \left[ D\left( f ^ { -1 } \right)\left( z \right) \right] _ E
+                =
+                \left( \left[ Df\left( x \right) \right] _ E \right) ^ { -1 }
+                =
+                \left( \left[ Df\left( f ^ { -1 }\left( z \right) \right) \right] _ E \right) ^ { -1 }.
+            \]
+            Since the Jacobian matrix of \( f \) is continuous and matrix inversion is continuous on invertible matrices, \( f ^ { -1 } \) is continuously differentiable. If \( f \) is \( C ^ \infty \), repeated differentiation of
+            \[
+                f\left( f ^ { -1 }\left( z \right) \right)=z
+            \]
+            shows inductively that \( f ^ { -1 } \) is \( C ^ \infty \).
+        </p>
+    </div>
+</div>
+<div class="theorem" id="theorem-implicit-function-theorem">
+    <div class="title">
+        Implicit Function Theorem
+    </div>
+    <div class="content">
+        Suppose that \( F: \mathbb{ R } ^ { n + m } \to \mathbb{ R } ^ m \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-continuously-differentiable-iff-continuous-partials">continuously differentiable</a> <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-near-a-point-in-euclidean-space">near</a> \( \left( a,b \right) \), \( F\left( a,b \right)=0 \), and the \( m \times m \) <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix">matrix</a> of partial derivatives of \( F \) with respect to the last \( m \) variables is <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-invertible-matrix">invertible</a> at \( \left( a,b \right) \). Then <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-near-a-point-in-euclidean-space">near</a> \( \left( a,b \right) \), the equation
+        \[
+            F\left( x,y \right)=0
+        \]
+        uniquely determines \( y \) as a continuously differentiable function \( y=g\left( x \right) \). If \( F \) is <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#definition-c-infinity-function">\( C ^ \infty \)</a>, then \( g \) is \( C ^ \infty \).
+    </div>
+    <div class="proof">
+        Let
+        \[
+            B=
+            \left[
+                \frac{\partial F ^ i}{\partial y_j}\left( a,b \right)
+            \right]_{1\le i,j\le m}.
+        \]
+        By hypothesis, \( B \) is an <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-invertible-matrix">invertible matrix</a>. Define
+        \[
+            H:\mathbb{ R } ^ { n+m }\to\mathbb{ R } ^ { n+m },
+            \qquad
+            H\left( x,y \right)=\left( x,F\left( x,y \right) \right).
+        \]
+        Since \( F \) is continuously differentiable near \( \left( a,b \right) \), there is an <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open set</a> \( U \) containing \( \left( a,b \right) \) on which \( F \) is continuously differentiable. On \( U \), the first \( n \) component functions of \( H \) are <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-projection-functions-are-continuously-differentiable">projection functions</a>, and the last \( m \) component functions are the component functions of \( F \). Hence \( H \) is continuously differentiable on \( U \) by the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-componentwise-continuously-differentiable-map">componentwise continuously differentiable map theorem</a>.
+        <p>
+            The derivative matrix of \( H \) at \( \left( a,b \right) \), written in the \( x \)-variables followed by the \( y \)-variables, has <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-block-matrix">block form</a>
+            \[
+                H'\left( a,b \right)
+                =
+                \begin{bmatrix}
+                    I_n & 0 \\
+                    C & B
+                \end{bmatrix},
+            \]
+            where \( C \) is the matrix of partial derivatives of \( F \) with respect to the \( x \)-variables. This block matrix is invertible, with inverse
+            \[
+                \begin{bmatrix}
+                    I_n & 0 \\
+                    -B ^ { -1 }C & B ^ { -1 }
+                \end{bmatrix}.
+            \]
+            Indeed, by <a class="knowledge-link" href="/algebra/linear/matrices.html#theorem-two-by-two-block-matrix-multiplication">block matrix multiplication</a>,
+            \[
+                \begin{bmatrix}
+                    I_n & 0 \\
+                    C & B
+                \end{bmatrix}
+                \begin{bmatrix}
+                    I_n & 0 \\
+                    -B ^ { -1 }C & B ^ { -1 }
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    I_n & 0 \\
+                    C-BB ^ { -1 }C & BB ^ { -1 }
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    I_n & 0 \\
+                    0 & I_m
+                \end{bmatrix},
+            \]
+            and the product in the opposite order is also the identity matrix.
+        </p>
+        <p>
+            By the <a class="knowledge-link" href="/analysis/multi_variable/differentiation.html#theorem-inverse-function-theorem">inverse function theorem</a>, after restricting to open neighborhoods, \( H \) has a continuously differentiable inverse. Write this inverse as
+            \[
+                H ^ { -1 }\left( s,t \right)=\left( s,k\left( s,t \right) \right).
+            \]
+            The first component must be \( s \), because the first component of \( H\left( x,y \right) \) is \( x \).
+        </p>
+        <p>
+            Define
+            \[
+                g\left( s \right)=k\left( s,0 \right).
+            \]
+            Then
+            \[
+                H\left( s,g\left( s \right) \right)
+                =
+                \left( s,0 \right),
+            \]
+            so \( F\left( s,g\left( s \right) \right)=0 \).
+        </p>
+        <p>
+            Conversely, if \( F\left( s,y \right)=0 \) for \( \left( s,y \right) \) in the chosen neighborhood, then
+            \[
+                H\left( s,y \right)=\left( s,0 \right).
+            \]
+            Since \( H \) is one-to-one on that neighborhood, \( \left( s,y \right)=H ^ { -1 }\left( s,0 \right)=\left( s,g\left( s \right) \right) \). Hence \( y=g\left( s \right) \), proving uniqueness.
+        </p>
+        <p>
+            Since \( g \) is obtained from the continuously differentiable inverse \( H ^ { -1 } \), it is continuously differentiable. If \( F \) is \( C ^ \infty \), then \( H \) is \( C ^ \infty \), so \( H ^ { -1 } \) is \( C ^ \infty \) by the smooth part of the inverse function theorem. Therefore \( g \) is \( C ^ \infty \).
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-lagrange-multiplier-condition">
+    <div class="title">
+        Lagrange Multiplier Condition
+    </div>
+    <div class="content">
+        If \( g: A \to \mathbb{ R } ^ p \) has full <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-rank">rank</a> \( p \) on \( g ^ { -1 }\left( 0 \right) \), and \( f: A \to \mathbb{ R } \) has a constrained extremum at \( a \in g ^ { -1 }\left( 0 \right) \), then there are scalars \( \lambda _ 1,\ldots,\lambda _ p \) such that
+        \[
+            df\left( a \right)
+            =
+            \sum _ { i = 1 } ^ p \lambda _ i dg ^ i\left( a \right).
+        \]
     </div>
 </div>

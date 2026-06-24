@@ -130,7 +130,7 @@
     <div class="proof">
         <p>Let \( \epsilon \in \mathbb{ R } ^ + \) we need to pick an \( N \in \mathbb{ N } _ 0 \) such that for every \( n \ge N \) we have that \( \lvert b _ n - L \rvert \lt \epsilon \).</p>
         <p>Since \( \lim _ { n \to \infty } a _ n = L \) then we can set \( \epsilon ^ \prime = f \left( \epsilon \right) \) for any function \( f : \mathbb{ R } ^ + \to \mathbb{ R } ^ + \) of our choosing, to get some \( N ^ \prime \) such that for any \( n \ge N ^ \prime \) we have \( \lvert a _ n - L \rvert \lt f \left( \epsilon \right) \)</p>
-        <p>Morover note that for this given \( \epsilon \) we can always find a \( K \in \mathbb{ N } _ 1 \) such that \( \frac{1}{K} \lt g \left( \epsilon \right) \) where \( g : \mathbb{ R } ^ + \to \mathbb{ R } ^ + \) is of our choosing, By picking \( N = \max \left( N ^ \prime, K \right) \) we know that</p>\[ \begin{align} \lvert b _ n - L \rvert &amp;= \lvert b _ n - a _ n + a _ n - L \rvert \\ &amp;\le \lvert b _ n - a _ n \rvert + \lvert a _ n - L \rvert \\ &amp;\le \frac{1}{n} + f \left( \epsilon \right) \\ &amp;\le \frac{1}{K} + f \left( \epsilon \right) \\ &amp;\le g \left( \epsilon \right) + f \left( \epsilon\right) \end{align} \]
+        <p>Morover note that for this given \( \epsilon \) we can always find a \( K \in \mathbb{ N } _ 1 \) such that \( \frac{1}{K} \lt g \left( \epsilon \right) \) where \( g : \mathbb{ R } ^ + \to \mathbb{ R } ^ + \) is of our choosing, By picking \( N = \max \left( N ^ \prime, K \right) \) we know that</p>\[ \begin{align} \lvert b _ n - L \rvert &= \lvert b _ n - a _ n + a _ n - L \rvert \\ &\le \lvert b _ n - a _ n \rvert + \lvert a _ n - L \rvert \\ &\le \frac{1}{n} + f \left( \epsilon \right) \\ &\le \frac{1}{K} + f \left( \epsilon \right) \\ &\le g \left( \epsilon \right) + f \left( \epsilon\right) \end{align} \]
         <p>to obtain the desired inequality one would have to pick \( f, g \) such that \( f \left( \epsilon \right) + g \left( \epsilon \right) \lt \epsilon \), a simple choice of \( f \left( x \right) = g \left( x \right) = \frac{x}{4} \) yields \( \lvert b _ n - L \rvert \lt \frac{\epsilon }{2} \lt \epsilon \)</p>
     </div>
 </div>
@@ -181,6 +181,64 @@
     <div class="proof">
         <p>Let \( \epsilon \in \mathbb{ R } ^ + \), because the limits of \( \left( a _ n \right), \left( c _ n \right) \) exist, then we get \( N _ a, N _ c \in \mathbb{ N } _ 0 \) such that for any \( n \ge N _ a \) we have \( \lvert a _ n - L \rvert \lt \epsilon \) and for any \( m \ge N _ c \) we have \( \lvert c _ m - L \rvert \lt \epsilon \).</p>
         <p>Recall that these two inequalities <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">are equivalent</a> to \( L - \epsilon \lt a _ n \lt L + \epsilon \) and \( L - \epsilon \lt c _ m \lt L + \epsilon \). Therefore by setting \( N = \max \left( N _ a, N _ c \right) \) then for any \( n \ge N \) both of the aformentioned inequalities hold true, showing that \[ L - \epsilon \lt a _ n \le b _ n \le c _ n \lt L + \epsilon \] which is to say that \( \lvert b _ n - L \rvert \lt \epsilon \)</p>
+    </div>
+</div>
+<div class="definition" id="definition-function-limit-at-positive-infinity">
+    <div class="title">
+        Function Limit at Positive Infinity
+    </div>
+    <div class="content">
+        Suppose that \( f: A \to \mathbb{ R } \), where \( A \subseteq \mathbb{ R } \), and \( L \in \mathbb{ R } \). We say that \( f \) has limit \( L \) at positive infinity, and write
+        \[
+            \lim _ { x \to \infty } f \left( x \right)
+            =
+            L,
+        \]
+        if for every \( \epsilon \in \mathbb{ R } ^ + \), there exists \( N \in \mathbb{ R } \) such that for every \( x \in A \),
+        \[
+            x \ge N
+            \implies
+            \left\lvert f \left( x \right) - L \right\rvert \lt \epsilon.
+        \]
+    </div>
+</div>
+<div class="lemma" id="lemma-integer-values-determine-monotone-function-limit-at-infinity">
+    <div class="title">
+        Integer Values Determine Monotone Function Limit at Infinity
+    </div>
+    <div class="content">
+        Suppose that \( f : \mathbb{ R } \to \mathbb{ R } \) is non-decreasing, \( f \left( x \right) \le L \) for all \( x \in \mathbb{ R } \), and
+        \[
+            \lim _ { n \to \infty } f \left( n \right)
+            =
+            L.
+        \]
+        Then
+        \[
+            \lim _ { x \to \infty } f \left( x \right)
+            =
+            L.
+        \]
+    </div>
+    <div class="proof">
+        Let \( \epsilon \in <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#definition-positive-real-number">\mathbb{ R } ^ +</a> \). Since \( <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-sequence-convergence">\lim _ { n \to \infty } f \left( n \right) = L</a> \), there is \( N \in \mathbb{ N } \) such that \( L - \epsilon \lt f \left( N \right) \). If \( x \ge N \), then \( f \left( N \right) \le f \left( x \right) \) because \( f \) is <a class="knowledge-link" href="/analysis/single_variable/inverse_functions.html#definition-increasing-function">non-decreasing</a>. Also \( f \left( x \right) \le L \) by assumption. Therefore
+        \[
+            L - \epsilon
+            \lt
+            f \left( N \right)
+            \le
+            f \left( x \right)
+            \le
+            L
+            \lt
+            L + \epsilon.
+        \]
+        Hence \( \left\lvert f \left( x \right) - L \right\rvert \lt \epsilon \) for all \( x \ge N \) by <a class="knowledge-link" href="/analysis/single_variable/absolute_value.html#corollary-absolute-value-bounds-distance">absolute value bounds distance</a>, so by the definition of <a class="knowledge-link" href="/analysis/single_variable/limits.html#definition-function-limit-at-positive-infinity">function limit at positive infinity</a>,
+        \[
+            \lim _ { x \to \infty } f \left( x \right)
+            =
+            L.
+        \]
     </div>
 </div>
 <div class="definition" id="definition-limsup">
@@ -254,7 +312,7 @@
         Let \( \left( x _ n \right) \) be a cauchy sequence and \( \left( x _ { \sigma \left( n \right) } \right) \) a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-subsequence">subsequence</a> such that \( \lim _ { k \to \infty } x _ { \sigma \left( k \right) } = L \) then \( \lim _ { n \to \infty } x _ n = L \).
     </div>
     <div class="proof">
-        Let \( \epsilon \in \mathbb{ R } ^ + \), since \( \left( x _ n \right) \) is cauchy we obtain some \( N _ 1 \) such that for any \( n, m \ge N, \lvert a _ n - a _ m \rvert \le \frac{\epsilon}{2} \), on the other hand we see that there is some \( N _ 2 \) such that for all \( n \ge N _ 2 \) we have \( \lvert x _ { \sigma \left( n \right) } - L \rvert \le \frac{\epsilon }{2} \), so let \( N = \max \left( N _ 1, N _ 2 \right) \) and let \( n \ge N \), consider \( \sigma \left( n \right) \), we will want this value to be greater or equal to \( N _ 1 \) so we can use it in-place of \( m \), if it turns out that \( \sigma \left( n \right) \lt N _ 1 \) then since \( \sigma \) is increasing there exists some \( k \gt n \ge N _ 2 \) such that \( \sigma \left( k \right) \ge N _ 1 \), then note: \[ \begin{align} \lvert x _ n - L \rvert &amp;= \lvert x _ n - x _ { \sigma \left( k \right) } + x _ { \sigma \left( k \right) } - L \rvert \\ &amp;\le \lvert x _ n - x _ { \sigma \left( k \right) } \rvert + \lvert x _ { \sigma \left( k \right) } - L \rvert \\ &amp;\lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon \end{align} \]
+        Let \( \epsilon \in \mathbb{ R } ^ + \), since \( \left( x _ n \right) \) is cauchy we obtain some \( N _ 1 \) such that for any \( n, m \ge N, \lvert a _ n - a _ m \rvert \le \frac{\epsilon}{2} \), on the other hand we see that there is some \( N _ 2 \) such that for all \( n \ge N _ 2 \) we have \( \lvert x _ { \sigma \left( n \right) } - L \rvert \le \frac{\epsilon }{2} \), so let \( N = \max \left( N _ 1, N _ 2 \right) \) and let \( n \ge N \), consider \( \sigma \left( n \right) \), we will want this value to be greater or equal to \( N _ 1 \) so we can use it in-place of \( m \), if it turns out that \( \sigma \left( n \right) \lt N _ 1 \) then since \( \sigma \) is increasing there exists some \( k \gt n \ge N _ 2 \) such that \( \sigma \left( k \right) \ge N _ 1 \), then note: \[ \begin{align} \lvert x _ n - L \rvert &= \lvert x _ n - x _ { \sigma \left( k \right) } + x _ { \sigma \left( k \right) } - L \rvert \\ &\le \lvert x _ n - x _ { \sigma \left( k \right) } \rvert + \lvert x _ { \sigma \left( k \right) } - L \rvert \\ &\lt \frac{\epsilon }{2} + \frac{\epsilon }{2} = \epsilon \end{align} \]
     </div>
 </div>
 <div class="lemma" id="lemma-strictly-increasing-natural-number-function-surpasses-all-values">
@@ -291,7 +349,7 @@
     <div class="proof">
         <p>We will construct a subsequence \( \left( x _ { \sigma \left( n \right) } \right) \) such that \( \lvert x _ \sigma \left( k \right) - L \rvert \lt \frac{1}{k} \). By doing so, we will have solved the problem, because for any \( \epsilon \in \mathbb{ R } ^ + \) there is always a \( k \in \mathbb{ N } _ 1 \) such that \( \frac{1}{k} \lt \epsilon \) which shows that \( \lvert x _ { \sigma \left( k \right) } - L \rvert \lt \epsilon \) by transitivity.</p>
         <p>Let \( k \in \mathbb{ N } _ 1 \) since \( \left( L _ n \right) \to L \) then by considering \( \frac{1}{2k} \) we know that there is an \( N _ k ^ \prime \in \mathbb{ N } _ 1 \) such that for all \( n \ge N _ k ^ \prime \) we have \( \left\lvert L _ n - L \right\rvert \lt \frac{1}{2k} \), now consider any \( m _ k \ge N _ k ^ \prime \), thus we know that \( \left\lvert L _ { m _ k } - L \right\rvert \lt \frac{1}{2k} \).</p>
-        <p>Now since \( m _ k \in \mathbb{ N } _ 1 \) then there exists a subsequence \( x _ { \sigma _ { m _ k } \left( n \right) } \to L _ { m _ k } \) , therefore using \( \epsilon = \frac{1}{2k} \) we get a \( N _ k \) such that for all \( n \ge N _ k, \left\lvert x _ { \sigma _ { m _ k } \left( n \right) - L _ { m _ k } } \right\rvert \lt \frac{1}{2k} \), therefore we have</p>\[ \begin{align} \left\lvert x _ { \sigma _ { m _ k } \left( n \right) } - L \right\rvert &amp;= \left\lvert x _ { \sigma _ { m _ k } \left( n \right) } - L _ m + L _ m - L \right\rvert \\ &amp;\le \left\lvert x _ { \sigma _ { m _ k } \left( n \right) } - L _ { m _ k } \right\rvert + \left\lvert L _ { m _ k } - L \right\rvert \\ &amp;\lt \frac{1}{2k} + \frac{1}{2k} = \frac{1}{k} \end{align} \]
+        <p>Now since \( m _ k \in \mathbb{ N } _ 1 \) then there exists a subsequence \( x _ { \sigma _ { m _ k } \left( n \right) } \to L _ { m _ k } \) , therefore using \( \epsilon = \frac{1}{2k} \) we get a \( N _ k \) such that for all \( n \ge N _ k, \left\lvert x _ { \sigma _ { m _ k } \left( n \right) - L _ { m _ k } } \right\rvert \lt \frac{1}{2k} \), therefore we have</p>\[ \begin{align} \left\lvert x _ { \sigma _ { m _ k } \left( n \right) } - L \right\rvert &= \left\lvert x _ { \sigma _ { m _ k } \left( n \right) } - L _ m + L _ m - L \right\rvert \\ &\le \left\lvert x _ { \sigma _ { m _ k } \left( n \right) } - L _ { m _ k } \right\rvert + \left\lvert L _ { m _ k } - L \right\rvert \\ &\lt \frac{1}{2k} + \frac{1}{2k} = \frac{1}{k} \end{align} \]
         <p>Initially it might seem as simple as taking the subsequence \( x _ { \sigma _ { m _ 1 } \left( N _ 1 \right) }, x _ { \sigma _ { m _ 2 } \left( N _ 2 \right) }, x _ { \sigma _ { m _ 3 } \left( N _ 3 \right) }, \ldots \) but there's no guarentee that this subsequence has increasing indices (which is a requirement of a subsequence), therefore we need more work.</p>
         <p>Condensing what we've proven above, we've shown that \[ \forall k \in \mathbb{ N } _ 1, \exists N _ k \in \mathbb{ N } _ 1, \sigma _ { m _ k } : \mathbb{ N } _ 1 \to \mathbb{ N } _ 1 \text{ st } \forall n \ge N _ 2, P \left( k, \sigma _ m \left( n \right) \right) \]</p>
         <p>Where \( P \left( k, v \right) := \left\lvert x _ v - L \right\rvert \lt \frac{1}{k} \), and since \( \sigma _ { m _ k } \) defines a subsequence then it is strictly increasing, <a class="knowledge-link" href="/analysis/single_variable/limits.html#lemma-for-all-there-exists-past-a-point-yields-ordered-satisfaction">therefore</a> there exists an ordered sequence \( \left( \alpha _ 1 \le \alpha _ 2 \le \alpha _ 3 \le \ldots \right) \) such that \( P \left( k , \alpha _ k \right) \) which is to say that \( \left\lvert x _ { \alpha _ k } - L \right\rvert \lt \frac{1}{k} \) so that the following subsequence works \[ \left( x _ { \alpha _ 1 }, x _ { \alpha _ 2 }, \ldots \right) \] or in another notation with \( \sigma \left( n \right) = \alpha _ n \) we are using the subsequence \( \left( x _ { \sigma \left( n \right) } \right) \)</p>
@@ -316,7 +374,7 @@
         Let \( \left( a _ n \right) \) be a sequence such that \( \lim _ { N \to \infty } \sum _ { n = 1 } ^ N \lvert a _ n - a _ { n + 1 } \rvert \lt \infty \), show that \( \left( a _ n \right) \) is cauchy.
     </div>
     <div class="proof">
-        <p>Let \( \epsilon \in \mathbb{ R } ^ + \) and set \( S _ m := \sum _ { i = 1 } ^ { k - 1 } \lvert a _ {i - 1} - a _ { i } \rvert \) since we we assumed that \( \lim _ { N \to \infty } S _ N \) exists, then the sequence is cauchy so we get some \( N ^ \prime \) such that for any \( a, b \ge N, \lvert S _ a - S _ b \rvert \le \epsilon \) and take \( N = N ^ \prime \) and let \( n, m \ge N \), and without loss of generality assume that \( n \le m \) \[ \begin{align} \lvert a _ n - a _ m \rvert &amp;\le \lvert a _ n - a _ { n + 1 } \rvert + \lvert a _ { n + 1 } - a _ { n + 2 } \rvert + \cdots + \lvert a _ { m - 1 } - a _ m \rvert \\ &amp;= S _ m - S _ n \\ &amp;= \lvert S _ m - S _ n \rvert \le \epsilon \end{align} \] where we've used the <a class="knowledge-link" href="/analysis/single_variable/limits.html#proposition-telescoping-triangle-inequality">generalized triangle inequality</a> and the fact that \( S _ k \) is increasing, as each higher index adds a non-negative element to the sum.</p>
+        <p>Let \( \epsilon \in \mathbb{ R } ^ + \) and set \( S _ m := \sum _ { i = 1 } ^ { k - 1 } \lvert a _ {i - 1} - a _ { i } \rvert \) since we we assumed that \( \lim _ { N \to \infty } S _ N \) exists, then the sequence is cauchy so we get some \( N ^ \prime \) such that for any \( a, b \ge N, \lvert S _ a - S _ b \rvert \le \epsilon \) and take \( N = N ^ \prime \) and let \( n, m \ge N \), and without loss of generality assume that \( n \le m \) \[ \begin{align} \lvert a _ n - a _ m \rvert &\le \lvert a _ n - a _ { n + 1 } \rvert + \lvert a _ { n + 1 } - a _ { n + 2 } \rvert + \cdots + \lvert a _ { m - 1 } - a _ m \rvert \\ &= S _ m - S _ n \\ &= \lvert S _ m - S _ n \rvert \le \epsilon \end{align} \] where we've used the <a class="knowledge-link" href="/analysis/single_variable/limits.html#proposition-telescoping-triangle-inequality">generalized triangle inequality</a> and the fact that \( S _ k \) is increasing, as each higher index adds a non-negative element to the sum.</p>
     </div>
 </div>
 <div class="proposition" id="proposition-cauchy-sequence-implies-subsequence-with-convergent-differences">

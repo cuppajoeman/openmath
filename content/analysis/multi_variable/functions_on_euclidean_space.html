@@ -1,0 +1,411 @@
+<div class="definition" id="definition-euclidean-n-space">
+    <div class="title">
+        Euclidean n-space
+    </div>
+    <div class="content">
+        For \( n \in \mathbb{ N } \), Euclidean \( n \)-space is the set
+        \[
+            \mathbb{ R } ^ n = \left\{ \left( x ^ 1, \ldots, x ^ n \right): x ^ i \in \mathbb{ R } \right\}.
+        \]
+        Its elements may be treated as points or as vectors in a real <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a>, with vector addition and scalar multiplication defined coordinatewise.
+    </div>
+</div>
+<div class="definition" id="definition-euclidean-norm">
+    <div class="title">
+        Euclidean Norm
+    </div>
+    <div class="content">
+        If \( x = \left( x ^ 1, \ldots, x ^ n \right) \in \mathbb{ R } ^ n \), then the Euclidean norm of \( x \) is
+        \[
+            \left\lvert x \right\rvert = \sqrt{ \sum _ { i = 1 } ^ n \left( x ^ i \right) ^ 2 }.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-euclidean-distance">
+    <div class="title">
+        Euclidean Distance
+    </div>
+    <div class="content">
+        If \(x,y\in\mathbb R^n\), then the <b>Euclidean distance</b> from \(x\) to \(y\) is
+        \[
+            d_{\mathbb R^n}(x,y)
+            =
+            \left\lvert x-y\right\rvert,
+        \]
+        where \(\left\lvert x-y\right\rvert\) is the <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-euclidean-norm">Euclidean norm</a> of the vector \(x-y\).
+    </div>
+</div>
+<div class="proposition" id="proposition-euclidean-distance-is-a-metric">
+    <div class="title">
+        Euclidean Distance Is a Metric
+    </div>
+    <div class="content">
+        The <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-euclidean-distance">Euclidean distance</a>
+        \[
+            d_{\mathbb R^n}(x,y)=\left\lvert x-y\right\rvert
+        \]
+        is a <a class="knowledge-link" href="/topology/metric_topology.html#definition-metric">metric</a> on \(\mathbb R^n\).
+    </div>
+    <div class="proof">
+        Let \(x,y,z\in\mathbb R^n\). By the <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#theorem-euclidean-norm-properties">Euclidean norm properties</a>,
+        \[
+            d_{\mathbb R^n}(x,y)=\left\lvert x-y\right\rvert\ge0.
+        \]
+        Also,
+        \[
+            d_{\mathbb R^n}(x,y)=0
+        \]
+        if and only if \(\left\lvert x-y\right\rvert=0\), which holds if and only if \(x-y=0\), equivalently \(x=y\).
+        <p>
+            For symmetry, use \(x-y=-\left(y-x\right)\) and the scalar multiplication property of the Euclidean norm:
+        </p>
+        \[
+            d_{\mathbb R^n}(x,y)
+            =
+            \left\lvert x-y\right\rvert
+            =
+            \left\lvert -\left(y-x\right)\right\rvert
+            =
+            \left\lvert y-x\right\rvert
+            =
+            d_{\mathbb R^n}(y,x).
+        \]
+        Finally, since \(x-z=\left(x-y\right)+\left(y-z\right)\), the triangle inequality for the Euclidean norm gives
+        \[
+            d_{\mathbb R^n}(x,z)
+            =
+            \left\lvert x-z\right\rvert
+            =
+            \left\lvert \left(x-y\right)+\left(y-z\right)\right\rvert
+            \le
+            \left\lvert x-y\right\rvert+\left\lvert y-z\right\rvert
+            =
+            d_{\mathbb R^n}(x,y)+d_{\mathbb R^n}(y,z).
+        \]
+        Therefore \(d_{\mathbb R^n}\) satisfies the definition of a metric.
+    </div>
+</div>
+<div class="definition" id="definition-euclidean-inner-product">
+    <div class="title">
+        Euclidean Inner Product
+    </div>
+    <div class="content">
+        If \( x, y \in \mathbb{ R } ^ n \), then their Euclidean inner product is
+        \[
+            \left( x, y \right) = \sum _ { i = 1 } ^ n x ^ i y ^ i.
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-euclidean-norm-properties">
+    <div class="title">
+        Euclidean Norm Properties
+    </div>
+    <div class="content">
+        If \( x, y \in \mathbb{ R } ^ n \) and \( a \in \mathbb{ R } \), then:
+        <ul>
+            <li>\( \left\lvert x \right\rvert \ge 0 \), and \( \left\lvert x \right\rvert = 0 \) if and only if \( x = 0 \).</li>
+            <li>\( \left\lvert \sum _ { i = 1 } ^ n x ^ i y ^ i \right\rvert \le \left\lvert x \right\rvert \left\lvert y \right\rvert \), with equality if and only if \( x \) and \( y \) are linearly dependent.</li>
+            <li>\( \left\lvert x + y \right\rvert \le \left\lvert x \right\rvert + \left\lvert y \right\rvert \).</li>
+            <li>\( \left\lvert a x \right\rvert = \left\lvert a \right\rvert \left\lvert x \right\rvert \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-euclidean-inner-product-properties">
+    <div class="title">
+        Euclidean Inner Product Properties
+    </div>
+    <div class="content">
+        If \( x, x _ 1, x _ 2, y, y _ 1, y _ 2 \in \mathbb{ R } ^ n \) and \( a \in \mathbb{ R } \), then:
+        <ul>
+            <li>\( \left( x, y \right) = \left( y, x \right) \).</li>
+            <li>\( \left( a x, y \right) = \left( x, a y \right) = a \left( x, y \right) \).</li>
+            <li>\( \left( x _ 1 + x _ 2, y \right) = \left( x _ 1, y \right) + \left( x _ 2, y \right) \).</li>
+            <li>\( \left( x, y _ 1 + y _ 2 \right) = \left( x, y _ 1 \right) + \left( x, y _ 2 \right) \).</li>
+            <li>\( \left( x, x \right) \ge 0 \), and \( \left( x, x \right) = 0 \) if and only if \( x = 0 \).</li>
+            <li>\( \left\lvert x \right\rvert = \sqrt{ \left( x, x \right) } \).</li>
+            <li>\( \left( x, y \right) = \frac{ \left\lvert x + y \right\rvert ^ 2 - \left\lvert x - y \right\rvert ^ 2 }{4} \).</li>
+        </ul>
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-standard-basis">
+    <div class="title">
+        Standard Basis
+    </div>
+    <div class="content">
+        The standard <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> of <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-euclidean-n-space">\( \mathbb{ R } ^ n \)</a> is \( e _ 1, \ldots, e _ n \), where \( e _ i \) has \( 1 \) in its \( i \)-th coordinate and \( 0 \) in every other coordinate.
+    </div>
+</div>
+<div class="definition" id="definition-product-of-subsets-of-euclidean-space">
+    <div class="title">
+        Product of Subsets of Euclidean Space
+    </div>
+    <div class="content">
+        If \( A \subseteq \mathbb{ R } ^ m \) and \( B \subseteq \mathbb{ R } ^ n \), then their <a class="knowledge-link" href="/fundamentals/sets/cartesian_product.html#definition-cartesian-product">Cartesian product</a> is
+        \[
+            A \times B = \left\{ \left( x, y \right) \in \mathbb{ R } ^ { m + n }: x \in A \text{ and } y \in B \right\}.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-closed-rectangle-in-euclidean-space">
+    <div class="title">
+        Closed Rectangle in Euclidean Space
+    </div>
+    <div class="content">
+        A closed rectangle in <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-euclidean-n-space">\( \mathbb{ R } ^ n \)</a> is a <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-product-of-subsets-of-euclidean-space">product</a> of closed intervals, a set of the form
+        \[
+            \left[ a _ 1, b _ 1 \right] \times \cdots \times \left[ a _ n, b _ n \right].
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-open-rectangle-in-euclidean-space">
+    <div class="title">
+        Open Rectangle in Euclidean Space
+    </div>
+    <div class="content">
+        An open rectangle in <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-euclidean-n-space">\( \mathbb{ R } ^ n \)</a> is a <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-product-of-subsets-of-euclidean-space">product</a> of open intervals, a set of the form
+        \[
+            \left( a _ 1, b _ 1 \right) \times \cdots \times \left( a _ n, b _ n \right).
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-open-subset-of-euclidean-space">
+    <div class="title">
+        Open Subset of Euclidean Space
+    </div>
+    <div class="content">
+        A set \( U \subseteq \mathbb{ R } ^ n \) is open if for every \( x \in U \), there is an <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-rectangle-in-euclidean-space">open rectangle</a> \( A \) such that
+        \[
+            x \in A \subseteq U.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-near-a-point-in-euclidean-space">
+    <div class="title">
+        Near a Point in Euclidean Space
+    </div>
+    <div class="content">
+        A statement depending on points of \( \mathbb{ R } ^ n \) holds <b>near</b> \( a\in\mathbb{ R } ^ n \) if there is an <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open set</a> \( U\subseteq\mathbb{ R } ^ n \) with \( a\in U \) such that the statement holds for every point of \( U \).
+        <p>
+            For example, a function has a property near \( a \) if it has that property on some open set containing \( a \).
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-closed-subset-of-euclidean-space">
+    <div class="title">
+        Closed Subset of Euclidean Space
+    </div>
+    <div class="content">
+        A set \( C \subseteq \mathbb{ R } ^ n \) is closed if \( \mathbb{ R } ^ n \setminus C \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open</a>.
+    </div>
+</div>
+<div class="definition" id="definition-interior-exterior-boundary">
+    <div class="title">
+        Interior, Exterior, and Boundary
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ R } ^ n \). A point \( x \in \mathbb{ R } ^ n \) is:
+        <ul>
+            <li>in the <a class="knowledge-link" href="/topology/interior_and_closure.html#definition-interior">interior</a> of \( A \) if there is an <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-rectangle-in-euclidean-space">open rectangle</a> \( B \) such that \( x \in B \subseteq A \),</li>
+            <li>in the exterior of \( A \) if there is an open rectangle \( B \) such that \( x \in B \subseteq \mathbb{ R } ^ n \setminus A \),</li>
+            <li>on the boundary of \( A \) if every open rectangle \( B \) containing \( x \) meets both \( A \) and \( \mathbb{ R } ^ n \setminus A \).</li>
+        </ul>
+    </div>
+</div>
+<div class="definition" id="definition-open-cover">
+    <div class="title">
+        Open Cover
+    </div>
+    <div class="content">
+        A collection \( \mathcal{ U } \) of <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open subsets</a> of \( \mathbb{ R } ^ n \) is an <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-open-cover">open cover</a> of \( A \subseteq \mathbb{ R } ^ n \) if every point of \( A \) lies in some \( U \in \mathcal{ U } \).
+    </div>
+</div>
+<div class="definition" id="definition-compact-subset-of-euclidean-space">
+    <div class="title">
+        Compact Subset of Euclidean Space
+    </div>
+    <div class="content">
+        A set \( A \subseteq \mathbb{ R } ^ n \) is <a class="knowledge-link" href="/topology/connectedness_and_compactness.html#definition-compact">compact</a> if every <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-cover">open cover</a> of \( A \) has a finite subcover.
+    </div>
+</div>
+<div class="theorem" id="theorem-heine-borel-closed-interval">
+    <div class="title">
+        Heine-Borel for Closed Intervals
+    </div>
+    <div class="content">
+        Every closed interval \( \left[ a, b \right] \subseteq \mathbb{ R } \) is compact.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-tube-lemma-for-compact-factor">
+    <div class="title">
+        Tube Lemma for a Compact Factor
+    </div>
+    <div class="content">
+        Let \( B \subseteq \mathbb{ R } ^ m \) be compact and let \( x \in \mathbb{ R } ^ n \). If \( \mathcal{ U } \) is an open cover of \( \left\{ x \right\} \times B \), then there is an open set \( V \subseteq \mathbb{ R } ^ n \) with \( x \in V \) such that \( V \times B \) is covered by finitely many sets from \( \mathcal{ U } \).
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-product-of-compact-sets-is-compact">
+    <div class="title">
+        Product of Compact Sets is Compact
+    </div>
+    <div class="content">
+        If \( A \subseteq \mathbb{ R } ^ n \) and \( B \subseteq \mathbb{ R } ^ m \) are compact, then \( A \times B \subseteq \mathbb{ R } ^ { n + m } \) is compact.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-finite-product-of-compact-sets-is-compact">
+    <div class="title">
+        Finite Product of Compact Sets is Compact
+    </div>
+    <div class="content">
+        If \( A _ 1, \ldots, A _ k \) are compact, then \( A _ 1 \times \cdots \times A _ k \) is compact. In particular, every closed rectangle in \( \mathbb{ R } ^ k \) is compact.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="corollary" id="corollary-closed-bounded-subset-of-euclidean-space-is-compact">
+    <div class="title">
+        Closed Bounded Subset of Euclidean Space is Compact
+    </div>
+    <div class="content">
+        Every closed bounded subset of \( \mathbb{ R } ^ n \) is compact.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-function-between-euclidean-spaces">
+    <div class="title">
+        Function Between Euclidean Spaces
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( f: A \to \mathbb{ R } ^ m \), where \( A \subseteq \mathbb{ R } ^ n \), assigns to each \( x \in A \) a point \( f \left( x \right) \in \mathbb{ R } ^ m \). The set \( A \) is called the domain of \( f \).
+    </div>
+</div>
+<div class="definition" id="definition-image-and-preimage">
+    <div class="title">
+        Image and Preimage
+    </div>
+    <div class="content">
+        If \( f: A \to \mathbb{ R } ^ m \), \( B \subseteq A \), and \( C \subseteq \mathbb{ R } ^ m \), then the image and <a class="knowledge-link" href="/fundamentals/functions.html#definition-inverse-image-of-a-function">preimage</a> are
+        \[
+            f \left( B \right) = \left\{ f \left( x \right): x \in B \right\}
+        \]
+        and
+        \[
+            f ^ { -1 } \left( C \right) = \left\{ x \in A: f \left( x \right) \in C \right\}.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-component-functions">
+    <div class="title">
+        Component Functions
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-function-between-euclidean-spaces">function between Euclidean spaces</a> \( f: A \to \mathbb{ R } ^ m \) determines component functions \( f ^ 1, \ldots, f ^ m: A \to \mathbb{ R } \) by
+        \[
+            f \left( x \right) = \left( f ^ 1 \left( x \right), \ldots, f ^ m \left( x \right) \right).
+        \]
+        These are called the component functions of \( f \).
+    </div>
+</div>
+<div class="definition" id="definition-projection-function">
+    <div class="title">
+        Projection Function
+    </div>
+    <div class="content">
+        The \( i \)-th projection <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \( \pi ^ i: \mathbb{ R } ^ n \to \mathbb{ R } \) is defined by
+        \[
+            \pi ^ i \left( x ^ 1, \ldots, x ^ n \right) = x ^ i.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-limit-of-vector-valued-function">
+    <div class="title">
+        Limit of a Vector-Valued Function
+    </div>
+    <div class="content">
+        Let \( f: A \to \mathbb{ R } ^ m \), where \( A \subseteq \mathbb{ R } ^ n \). We write the <a class="knowledge-link" href="/analysis/multi_variable/limits_and_continuity.html#definition-limit-of-a-function">limit</a>
+        \[
+            \lim _ { x \to a } f \left( x \right) = b
+        \]
+        when for every \( \epsilon \in \mathbb{ R } ^ + \), there is a \( \delta \in \mathbb{ R } ^ + \) such that if \( x \in A \) and \( 0 \lt \left\lvert x - a \right\rvert \lt \delta \), then \( \left\lvert f \left( x \right) - b \right\rvert \lt \epsilon \).
+    </div>
+</div>
+<div class="definition" id="definition-continuity-between-euclidean-spaces">
+    <div class="title">
+        Continuity Between Euclidean Spaces
+    </div>
+    <div class="content">
+        A <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-function-between-euclidean-spaces">function</a> \( f: A \to \mathbb{ R } ^ m \), where \( A \subseteq \mathbb{ R } ^ n \), is <a class="knowledge-link" href="/topology/continuous_functions.html#definition-continuous-function">continuous</a> at \( a \in A \) if
+        \[
+            \lim _ { x \to a } f \left( x \right) = f \left( a \right).
+        \]
+        It is continuous if it is continuous at every point of \( A \).
+    </div>
+</div>
+<div class="theorem" id="theorem-continuity-open-set-characterization">
+    <div class="title">
+        Continuity Open Set Characterization
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ R } ^ n \). A function \( f: A \to \mathbb{ R } ^ m \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous</a> if and only if for every <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-open-subset-of-euclidean-space">open set</a> \( U \subseteq \mathbb{ R } ^ m \), there is an open set \( V \subseteq \mathbb{ R } ^ n \) such that
+        \[
+            f ^ { -1 } \left( U \right) = V \cap A.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-continuous-image-of-compact-set-is-compact">
+    <div class="title">
+        Continuous Image of Compact Set is Compact
+    </div>
+    <div class="content">
+        If \( A \subseteq \mathbb{ R } ^ n \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-compact-subset-of-euclidean-space">compact</a> and \( f: A \to \mathbb{ R } ^ m \) is <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-continuity-between-euclidean-spaces">continuous</a>, then the <a class="knowledge-link" href="/analysis/multi_variable/functions_on_euclidean_space.html#definition-image-and-preimage">image</a> \( f \left( A \right) \subseteq \mathbb{ R } ^ m \) is compact.
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="definition" id="definition-oscillation">
+    <div class="title">
+        Oscillation
+    </div>
+    <div class="content">
+        Let \( f: A \to \mathbb{ R } \) be bounded, where \( A \subseteq \mathbb{ R } ^ n \). For \( a \in A \) and \( \delta \in \mathbb{ R } ^ + \), define the upper and lower local bounds
+        \[
+            M \left( a, f, \delta \right) = \sup \left\{ f \left( x \right): x \in A \text{ and } \left\lvert x - a \right\rvert \lt \delta \right\}
+        \]
+        and
+        \[
+            m \left( a, f, \delta \right) = \inf \left\{ f \left( x \right): x \in A \text{ and } \left\lvert x - a \right\rvert \lt \delta \right\}.
+        \]
+        The oscillation of \( f \) at \( a \) is
+        \[
+            o \left( f, a \right) = \lim _ { \delta \to 0 } \left( M \left( a, f, \delta \right) - m \left( a, f, \delta \right) \right).
+        \]
+    </div>
+</div>
+<div class="theorem" id="theorem-continuity-oscillation-characterization">
+    <div class="title">
+        Continuity Oscillation Characterization
+    </div>
+    <div class="content">
+        A bounded function \( f: A \to \mathbb{ R } \) is continuous at \( a \in A \) if and only if
+        \[
+            o \left( f, a \right) = 0.
+        \]
+    </div>
+    <div class="proof"></div>
+</div>
+<div class="theorem" id="theorem-large-oscillation-set-is-closed">
+    <div class="title">
+        Large Oscillation Set is Closed
+    </div>
+    <div class="content">
+        Let \( A \subseteq \mathbb{ R } ^ n \) be closed. If \( f: A \to \mathbb{ R } \) is bounded and \( \epsilon \in \mathbb{ R } ^ + \), then
+        \[
+            \left\{ x \in A: o \left( f, x \right) \gt \epsilon \right\}
+        \]
+        is closed.
+    </div>
+    <div class="proof"></div>
+</div>
