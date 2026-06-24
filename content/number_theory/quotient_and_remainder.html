@@ -168,7 +168,7 @@
         Suppose that \( d \mid a + b \) and \( d \mid a \) then \( d \mid b \)
     </div>
     <div class="proof">
-        We know that \( \left( a + b \right) ~\%~ d = 0 \) and that \( a ~\%~ d = 0 \) since \[ \begin{align} 0 &amp;= \left( a + b \right) ~\%~ d \\ &amp;= \left( a ~\%~ b + b ~\%~ d \right) ~\%~ d \\ &amp;= \left( 0 + b ~\%~ d \right) ~\%~ d \\ &amp;= b ~\%~ d \end{align} \] therefore \( d \mid b \)
+        We know that \( \left( a + b \right) ~\%~ d = 0 \) and that \( a ~\%~ d = 0 \) since \[ \begin{align} 0 &= \left( a + b \right) ~\%~ d \\ &= \left( a ~\%~ b + b ~\%~ d \right) ~\%~ d \\ &= \left( 0 + b ~\%~ d \right) ~\%~ d \\ &= b ~\%~ d \end{align} \] therefore \( d \mid b \)
     </div>
 </div>
 <div class="proposition" id="proposition-adding-multiples-of-the-divisor-never-changes-the-remainder">
@@ -188,7 +188,7 @@
         Suppose \( n \in \mathbb{ N } _ 1 \) then for every \( m \in \left[ 2, \ldots , n \right] \) \[ m \nmid n! \pm 1 \]
     </div>
     <div class="proof">
-        <a class="knowledge-link" href="/number_theory/division.html#proposition-n-factorial-is-divisible-by-its-factors">Recall</a> that \( m \mid n! \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-divides-iff-zero-remainder">therefore</a> \( n! ~\%~ m = 0 \). But then \[ \begin{align} \left( n! \pm 1 \right) ~\%~ m &amp;= \left( n! ~\%~ m \pm 1 ~\%~ m \right) ~\%~ m \\ &amp;= \left( \pm 1 ~\%~ m \right) ~\%~ m \\ &amp;= \pm 1 ~\%~ m \end{align} \] Note that in going from the second to the third line we used <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-repeated-application-of-the-remainder-function-does-nothing">this fact</a>.
+        <a class="knowledge-link" href="/number_theory/division.html#proposition-n-factorial-is-divisible-by-its-factors">Recall</a> that \( m \mid n! \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-divides-iff-zero-remainder">therefore</a> \( n! ~\%~ m = 0 \). But then \[ \begin{align} \left( n! \pm 1 \right) ~\%~ m &= \left( n! ~\%~ m \pm 1 ~\%~ m \right) ~\%~ m \\ &= \left( \pm 1 ~\%~ m \right) ~\%~ m \\ &= \pm 1 ~\%~ m \end{align} \] Note that in going from the second to the third line we used <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-repeated-application-of-the-remainder-function-does-nothing">this fact</a>.
         <p>if \( \pm = + \) then we have \( \left( n! + 1 \right) ~\%~ m = 1 \) otherwise we have \[ \left( n ! + 1 \right) ~\%~ m = -1 ~\%~ m = m - 1 \] and since \( m \neq 1 \) then \( m - 1 \neq 0 \) therefore in both cases we see that \( \left( n ! + 1 \right) ~\%~ m \neq 0 \) <a class="knowledge-link" href="/number_theory/quotient_and_remainder.html#proposition-divides-iff-zero-remainder">therefore</a> \( m \nmid \left( n! + 1 \right) \) as needed.</p>
     </div>
 </div>
