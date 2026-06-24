@@ -28,6 +28,25 @@
         \]
     </div>
 </div>
+<div class="definition" id="definition-unit-sphere">
+    <div class="title">
+        Unit Sphere
+    </div>
+    <div class="content">
+        The <b>unit sphere</b> in \(\mathbb{R}^n\), denoted \(\mathbb{S}^{n-1}\), is the set of <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-vector">vectors</a> with <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-length">length</a> \(1\):
+        \[
+            \mathbb{S}^{n-1}
+            =
+            \left\{ x\in\mathbb{R}^n : \lVert x\rVert = 1 \right\}.
+        \]
+        In particular,
+        \[
+            \mathbb{S}^2
+            =
+            \left\{ x\in\mathbb{R}^3 : \lVert x\rVert = 1 \right\}.
+        \]
+    </div>
+</div>
 <div class="definition" id="definition-angle-between-nonzero-vectors">
     <div class="title">
         Angle Between Nonzero Vectors
@@ -99,10 +118,10 @@
         \[
         \begin{align}
             \left( a + b \right) \cdot c
-            &amp;= \sum _ { i = 1 } ^ n \left( a_i + b_i \right)c_i \\
-            &amp;= \sum _ { i = 1 } ^ n \left( a_i c_i + b_i c_i \right) \\
-            &amp;= \sum _ { i = 1 } ^ n a_i c_i + \sum _ { i = 1 } ^ n b_i c_i \\
-            &amp;= a \cdot c + b \cdot c
+            &= \sum _ { i = 1 } ^ n \left( a_i + b_i \right)c_i \\
+            &= \sum _ { i = 1 } ^ n \left( a_i c_i + b_i c_i \right) \\
+            &= \sum _ { i = 1 } ^ n a_i c_i + \sum _ { i = 1 } ^ n b_i c_i \\
+            &= a \cdot c + b \cdot c
         \end{align}
         \]
     </div>
@@ -208,11 +227,11 @@
     <div class="content">
         If \( x \in \mathbb{ R } ^ n \) and \( x \neq 0 \), then
         \[
-            \lVert x \rVert &gt; 0
+            \lVert x \rVert \gt 0
         \]
     </div>
     <div class="proof">
-        By <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-norm-squared-is-the-dot-product">norm squared is the dot product</a> and the fact that the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-is-positive-definite">dot product is positive definite</a>, \( \lVert x \rVert ^ 2 = x \cdot x &gt; 0 \). Since \( \lVert x \rVert \) is non-negative by the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-length">definition of length</a>, it follows that \( \lVert x \rVert &gt; 0 \).
+        By <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-norm-squared-is-the-dot-product">norm squared is the dot product</a> and the fact that the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-is-positive-definite">dot product is positive definite</a>, \( \lVert x \rVert ^ 2 = x \cdot x \gt 0 \). Since \( \lVert x \rVert \) is non-negative by the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-length">definition of length</a>, it follows that \( \lVert x \rVert \gt 0 \).
     </div>
 </div>
 <div class="proposition" id="proposition-dot-product-expansion-of-norm-squared">
@@ -238,9 +257,9 @@
         \[
         \begin{align}
             \lVert x + y \rVert ^ 2
-            &amp;= \left( x + y \right) \cdot \left( x + y \right) \\
-            &amp;= x \cdot x + x \cdot y + y \cdot x + y \cdot y \\
-            &amp;= \lVert x \rVert ^ 2 + 2x \cdot y + \lVert y \rVert ^ 2
+            &= \left( x + y \right) \cdot \left( x + y \right) \\
+            &= x \cdot x + x \cdot y + y \cdot x + y \cdot y \\
+            &= \lVert x \rVert ^ 2 + 2x \cdot y + \lVert y \rVert ^ 2
         \end{align}
         \]
         Replacing \( y \) by \( -y \), and using <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-is-compatible-with-scalar-multiplication">compatibility with scalar multiplication</a>, gives
@@ -320,6 +339,76 @@
         \]
     </div>
 </div>
+<div class="proposition" id="proposition-norm-equals-absolute-dot-product-with-parallel-unit-vector">
+    <div class="title">
+        Norm Equals Absolute Dot Product with a Parallel Unit Vector
+    </div>
+    <div class="content">
+        Let \(\omega\in\mathbb R^n\) be a <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-unit-vector">unit vector</a>. If \(x=\lambda\omega\) for some \(\lambda\in\mathbb R\), then
+        \[
+            \left\|x\right\|
+            =
+            \left|x\cdot\omega\right|.
+        \]
+    </div>
+    <div class="proof">
+        Since \(x=\lambda\omega\) and \(\omega\) is a unit vector,
+        \[
+            \left\|x\right\|
+            =
+            \left\|\lambda\omega\right\|
+            =
+            \left|\lambda\right|\left\|\omega\right\|
+            =
+            \left|\lambda\right|.
+        \]
+        Also,
+        \[
+            x\cdot\omega
+            =
+            \left(\lambda\omega\right)\cdot\omega
+            =
+            \lambda\left(\omega\cdot\omega\right)
+            =
+            \lambda,
+        \]
+        because \(\omega\cdot\omega=\left\|\omega\right\|^2=1\). Therefore \(\left\|x\right\|=\left|x\cdot\omega\right|\).
+    </div>
+</div>
+<div class="proposition" id="proposition-dot-product-of-vector-parallel-to-unit-vector">
+    <div class="title">
+        Dot Product of a Vector Parallel to a Unit Vector
+    </div>
+    <div class="content">
+        Let \(n,\omega\in\mathbb R^n\), and suppose \(n\) is a <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-unit-vector">unit vector</a>. If \(x=\lambda n\) for some \(\lambda\in\mathbb R\), then
+        \[
+            \left|x\cdot\omega\right|
+            =
+            \left\|x\right\|\left|n\cdot\omega\right|.
+        \]
+    </div>
+    <div class="proof">
+        Since \(x=\lambda n\),
+        \[
+            \left|x\cdot\omega\right|
+            =
+            \left|\left(\lambda n\right)\cdot\omega\right|
+            =
+            \left|\lambda\right|\left|n\cdot\omega\right|.
+        \]
+        Since \(n\) is a unit vector,
+        \[
+            \left\|x\right\|
+            =
+            \left\|\lambda n\right\|
+            =
+            \left|\lambda\right|\left\|n\right\|
+            =
+            \left|\lambda\right|.
+        \]
+        Therefore \(\left|x\cdot\omega\right|=\left\|x\right\|\left|n\cdot\omega\right|\).
+    </div>
+</div>
 <div class="definition" id="definition-positively-oriented-triple-in-r3">
     <div class="title">
         Positively Oriented Triple in R3
@@ -367,27 +456,216 @@
         \[
         \begin{align}
             a \cdot \left( a \times b \right)
-            &amp;= a_1 \left( a_2 b_3 - a_3 b_2 \right)
+            &= a_1 \left( a_2 b_3 - a_3 b_2 \right)
               + a_2 \left( a_3 b_1 - a_1 b_3 \right)
               + a_3 \left( a_1 b_2 - a_2 b_1 \right) \\
-            &amp;= a_1 a_2 b_3 - a_1 a_3 b_2
+            &= a_1 a_2 b_3 - a_1 a_3 b_2
               + a_2 a_3 b_1 - a_1 a_2 b_3
               + a_1 a_3 b_2 - a_2 a_3 b_1 \\
-            &amp;= 0
+            &= 0
         \end{align}
         \]
         The same calculation gives
         \[
         \begin{align}
             b \cdot \left( a \times b \right)
-            &amp;= b_1 \left( a_2 b_3 - a_3 b_2 \right)
+            &= b_1 \left( a_2 b_3 - a_3 b_2 \right)
               + b_2 \left( a_3 b_1 - a_1 b_3 \right)
               + b_3 \left( a_1 b_2 - a_2 b_1 \right) \\
-            &amp;= a_2 b_1 b_3 - a_3 b_1 b_2
+            &= a_2 b_1 b_3 - a_3 b_1 b_2
               + a_3 b_1 b_2 - a_1 b_2 b_3
               + a_1 b_2 b_3 - a_2 b_1 b_3 \\
-            &amp;= 0
+            &= 0
         \end{align}
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-cross-product-distributes-over-vector-addition-in-second-input">
+    <div class="title">
+        Cross Product Distributes Over Vector Addition in the Second Input
+    </div>
+    <div class="content">
+        If \(a,b,c\in\mathbb R^3\), then
+        \[
+            a\times\left(b+c\right)
+            =
+            a\times b+a\times c.
+        \]
+    </div>
+    <div class="proof">
+        Write the vectors in coordinates. The <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-vector-component-formula">component formula for the cross product</a> shows that each component of \(a\times\left(b+c\right)\) distributes over the coordinate sums in \(b+c\). Therefore \(a\times\left(b+c\right)=a\times b+a\times c\).
+    </div>
+</div>
+<div class="proposition" id="proposition-cross-product-scalar-multiplication-in-second-input">
+    <div class="title">
+        Cross Product Scalar Multiplication in the Second Input
+    </div>
+    <div class="content">
+        If \(a,b\in\mathbb R^3\) and \(\lambda\in\mathbb R\), then
+        \[
+            a\times\left(\lambda b\right)
+            =
+            \lambda\left(a\times b\right).
+        \]
+    </div>
+    <div class="proof">
+        Write the vectors in coordinates. The <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-vector-component-formula">component formula for the cross product</a> shows that each component of \(a\times\left(\lambda b\right)\) has a common factor \(\lambda\). Factoring it out gives \(a\times\left(\lambda b\right)=\lambda\left(a\times b\right)\).
+    </div>
+</div>
+<div class="proposition" id="proposition-cross-product-is-anti-commutative">
+    <div class="title">
+        Cross Product is Anti-Commutative
+    </div>
+    <div class="content">
+        If \(a,b\in\mathbb R^3\), then
+        \[
+            a\times b=-\left(b\times a\right).
+        \]
+    </div>
+    <div class="proof">
+        Write \(a=\left(a_1,a_2,a_3\right)\) and \(b=\left(b_1,b_2,b_3\right)\). By the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-vector-component-formula">component formula for the cross product</a>,
+        \[
+            b\times a
+            =
+            \left(
+                b_2a_3-b_3a_2,
+                b_3a_1-b_1a_3,
+                b_1a_2-b_2a_1
+            \right).
+        \]
+        Multiplying by \(-1\) gives
+        \[
+            -\left(b\times a\right)
+            =
+            \left(
+                a_2b_3-a_3b_2,
+                a_3b_1-a_1b_3,
+                a_1b_2-a_2b_1
+            \right)
+            =
+            a\times b.
+        \]
+    </div>
+</div>
+<div class="corollary" id="corollary-cross-product-distributes-over-vector-addition-in-first-input">
+    <div class="title">
+        Cross Product Distributes Over Vector Addition in the First Input
+    </div>
+    <div class="content">
+        If \(a,b,c\in\mathbb R^3\), then
+        \[
+            \left(a+b\right)\times c
+            =
+            a\times c+b\times c.
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-is-anti-commutative">anti-commutativity</a>, <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-distributes-over-vector-addition-in-second-input">distribution in the second input</a>, and anti-commutativity again,
+        \[
+            \left(a+b\right)\times c
+            =
+            -\left(c\times\left(a+b\right)\right)
+            =
+            -\left(c\times a+c\times b\right)
+            =
+            a\times c+b\times c.
+        \]
+    </div>
+</div>
+<div class="corollary" id="corollary-cross-product-scalar-multiplication-in-first-input">
+    <div class="title">
+        Cross Product Scalar Multiplication in the First Input
+    </div>
+    <div class="content">
+        If \(a,b\in\mathbb R^3\) and \(\lambda\in\mathbb R\), then
+        \[
+            \left(\lambda a\right)\times b
+            =
+            \lambda\left(a\times b\right).
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-is-anti-commutative">anti-commutativity</a>, <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-scalar-multiplication-in-second-input">scalar multiplication in the second input</a>, and anti-commutativity again,
+        \[
+            \left(\lambda a\right)\times b
+            =
+            -\left(b\times\left(\lambda a\right)\right)
+            =
+            -\lambda\left(b\times a\right)
+            =
+            \lambda\left(a\times b\right).
+        \]
+    </div>
+</div>
+<div class="corollary" id="proposition-cross-product-expands-over-vector-addition">
+    <div class="title">
+        Cross Product Expands Over Two Vector Sums
+    </div>
+    <div class="content">
+        If \(a,b,c,d\in\mathbb R^3\), then
+        \[
+            \left(a+b\right)\times\left(c+d\right)
+            =
+            a\times c+a\times d+b\times c+b\times d.
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-distributes-over-vector-addition-in-second-input">distribution in the second input</a>,
+        \[
+            \left(a+b\right)\times\left(c+d\right)
+            =
+            \left(a+b\right)\times c+\left(a+b\right)\times d.
+        \]
+        By <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-cross-product-distributes-over-vector-addition-in-first-input">distribution in the first input</a>,
+        \[
+            \left(a+b\right)\times c+\left(a+b\right)\times d
+            =
+            a\times c+b\times c+a\times d+b\times d.
+        \]
+        Reordering the sum gives
+        \[
+            \left(a+b\right)\times\left(c+d\right)
+            =
+            a\times c+a\times d+b\times c+b\times d.
+        \]
+    </div>
+</div>
+<div class="proposition" id="proposition-oriented-projected-area-identity">
+    <div class="title">
+        Oriented Projected Area Identity
+    </div>
+    <div class="content">
+        Let \( \omega\in\mathbb R^3 \) be a <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-unit-vector">unit vector</a>. For \( u,v\in\mathbb R^3 \), define
+        \[
+            u'=u-\left(u\cdot\omega\right)\omega,
+            \qquad
+            v'=v-\left(v\cdot\omega\right)\omega.
+        \]
+        Then
+        \[
+            \left(u'\times v'\right)\cdot\omega
+            =
+            \left(u\times v\right)\cdot\omega.
+        \]
+    </div>
+    <div class="proof">
+        By <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-expands-over-vector-addition">expanding the cross product over vector addition</a> and pulling scalar factors out of the <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-cross-product-scalar-multiplication-in-first-input">first</a> and <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-scalar-multiplication-in-second-input">second</a> inputs,
+        \[
+            u'\times v'
+            =
+            u\times v
+            -
+            \left(v\cdot\omega\right)\left(u\times\omega\right)
+            -
+            \left(u\cdot\omega\right)\left(\omega\times v\right)
+            +
+            \left(u\cdot\omega\right)\left(v\cdot\omega\right)\left(\omega\times\omega\right).
+        \]
+        Since \(\omega\times\omega=0\), the last term is \(0\). Also \(u\times\omega\) and \(\omega\times v\) are <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-cross-product-is-orthogonal-to-factors">orthogonal to their factors</a>, so both are orthogonal to \(\omega\). Taking the dot product with \(\omega\) leaves
+        \[
+            \left(u'\times v'\right)\cdot\omega
+            =
+            \left(u\times v\right)\cdot\omega.
         \]
     </div>
 </div>
@@ -428,7 +706,7 @@
     </div>
     <div class="proof">
         Let \( n = u \times v \).
-        Let \( \theta \) be the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-angle-between-nonzero-vectors">angle between</a> \( u \) and \( v \). Since \( u, v \in \mathbb{ R } ^ 3 \setminus \left\{ 0 \right\} \), we have \( \lVert u \rVert &gt; 0 \) and \( \lVert v \rVert &gt; 0 \) by <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-nonzero-vector-has-positive-length">nonzero vectors have positive length</a>. Since \( u \) and \( v \) are <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>, the angle satisfies \( \theta \neq 0 \) and \( \theta \neq \pi \) by <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-linearly-independent-nonzero-vectors-have-non-extreme-angle">linearly independent nonzero vectors have non-extreme angle</a>. Also \( \theta \in \left[0,\pi\right] \) by the definition of angle, so \( \sin \left( \theta \right) \neq 0 \) by <a class="knowledge-link" href="/analysis/single_variable/trigonometric_functions.html#proposition-sine-zero-on-zero-to-pi">sine is zero on \( \left[0,\pi\right] \) only at the endpoints</a>. Therefore, by the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-cross-product">definition of the cross product</a>,
+        Let \( \theta \) be the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-angle-between-nonzero-vectors">angle between</a> \( u \) and \( v \). Since \( u, v \in \mathbb{ R } ^ 3 \setminus \left\{ 0 \right\} \), we have \( \lVert u \rVert \gt 0 \) and \( \lVert v \rVert \gt 0 \) by <a class="knowledge-link" href="/algebra/linear/vectors.html#corollary-nonzero-vector-has-positive-length">nonzero vectors have positive length</a>. Since \( u \) and \( v \) are <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>, the angle satisfies \( \theta \neq 0 \) and \( \theta \neq \pi \) by <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-linearly-independent-nonzero-vectors-have-non-extreme-angle">linearly independent nonzero vectors have non-extreme angle</a>. Also \( \theta \in \left[0,\pi\right] \) by the definition of angle, so \( \sin \left( \theta \right) \neq 0 \) by <a class="knowledge-link" href="/analysis/single_variable/trigonometric_functions.html#proposition-sine-zero-on-zero-to-pi">sine is zero on \( \left[0,\pi\right] \) only at the endpoints</a>. Therefore, by the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-cross-product">definition of the cross product</a>,
         \[
             \lVert u \times v \rVert
             =
@@ -525,15 +803,15 @@
         \[
         \begin{align}
             \left( q - p \right) \cdot n = 0
-            &amp;\iff
+            &\iff
             \left( x - p_1, y - p_2, z - p_3 \right) \cdot \left( a, b, c \right) = 0 \\
-            &amp;\iff
+            &\iff
             a \left( x - p_1 \right) + b \left( y - p_2 \right) + c \left( z - p_3 \right) = 0 \\
-            &amp;\iff
+            &\iff
             ax + by + cz = ap_1 + bp_2 + cp_3 \\
-            &amp;\iff
+            &\iff
             ax + by + cz = p \cdot n \\
-            &amp;\iff
+            &\iff
             ax + by + cz = d
         \end{align}
         \]
@@ -601,11 +879,11 @@
         \[
         \begin{align}
             \lVert x + y \rVert ^ 2 + \lVert x - y \rVert ^ 2
-            &amp;=
+            &=
             \left( \lVert x \rVert ^ 2 + 2 x \cdot y + \lVert y \rVert ^ 2 \right)
             +
             \left( \lVert x \rVert ^ 2 - 2 x \cdot y + \lVert y \rVert ^ 2 \right) \\
-            &amp;= 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2
+            &= 2 \lVert x \rVert ^ 2 + 2 \lVert y \rVert ^ 2
         \end{align}
         \]
     </div>
@@ -634,8 +912,8 @@
         \[
         \begin{align}
             \lVert x + y \rVert ^ 2
-            &amp;= \lVert x \rVert ^ 2 + 2 x \cdot y + \lVert y \rVert ^ 2 \\
-            &amp;= \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta \right) + \lVert y \rVert ^ 2
+            &= \lVert x \rVert ^ 2 + 2 x \cdot y + \lVert y \rVert ^ 2 \\
+            &= \lVert x \rVert ^ 2 + 2 \lVert x \rVert \lVert y \rVert \cos \left( \theta \right) + \lVert y \rVert ^ 2
         \end{align}
         \]
     </div>

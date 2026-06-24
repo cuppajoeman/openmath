@@ -28,7 +28,7 @@
         Left Fold
     </div>
     <div class="content">
-        Suppose that \( \star : S \times S \to S \) is a binary operation, and \( \left( x _ 1, x _ 2, \ldots x _ k \right) \) be a tuple in \( \mathbb{ N } _ 0 \) for some \( k \in \mathbb{ N } _ 1 \) then \[ \operatorname{ foldl } \left( \star, \left( x _ 1, x _ 2, \ldots x _ k \right) \right) := \begin{cases} \left( \operatorname{ foldl } \left( \star, \left( x _ 1, x _ 2, \ldots x _ { k - 1 } \right) \right) \right) \star x _ k &amp;\text{ if } k \ge 2 \\ x _ 1 &amp;\text{ if } k = 1 \end{cases} \]
+        Suppose that \( \star : S \times S \to S \) is a binary operation, and \( \left( x _ 1, x _ 2, \ldots x _ k \right) \) be a tuple in \( \mathbb{ N } _ 0 \) for some \( k \in \mathbb{ N } _ 1 \) then \[ \operatorname{ foldl } \left( \star, \left( x _ 1, x _ 2, \ldots x _ k \right) \right) := \begin{cases} \left( \operatorname{ foldl } \left( \star, \left( x _ 1, x _ 2, \ldots x _ { k - 1 } \right) \right) \right) \star x _ k &\text{ if } k \ge 2 \\ x _ 1 &\text{ if } k = 1 \end{cases} \]
     </div>
 </div>
 <p>Left fold formalizes the idea that we want to look at objects of the form \( \left( \left( \left( x _ 0 \star x _ 1 \right) \star x _ 2 \right) \star \cdots \star x _ k \right) \), we also have a right fold:</p>
@@ -37,7 +37,7 @@
         Right Fold
     </div>
     <div class="content">
-        Suppose that \( \star : S \times S \to S \) is a binary operation, and \( \left( x _ 1, x _ 2, \ldots x _ k \right) \) be a tuple in \( \mathbb{ N } _ 0 \) for some \( k \in \mathbb{ N } _ 1 \) then \[ \operatorname{ foldr } \left( \star, \left( x _ 1, x _ 2, \ldots x _ k \right) \right) := \begin{cases} x _ 1 \star \left( \operatorname{ foldr } \left( \star, \left( x _ 2, \ldots x _ { k } \right) \right) \right) &amp;\text{ if } k \ge 2 \\ x _ 1 &amp;\text{ if } k = 1 \end{cases} \]
+        Suppose that \( \star : S \times S \to S \) is a binary operation, and \( \left( x _ 1, x _ 2, \ldots x _ k \right) \) be a tuple in \( \mathbb{ N } _ 0 \) for some \( k \in \mathbb{ N } _ 1 \) then \[ \operatorname{ foldr } \left( \star, \left( x _ 1, x _ 2, \ldots x _ k \right) \right) := \begin{cases} x _ 1 \star \left( \operatorname{ foldr } \left( \star, \left( x _ 2, \ldots x _ { k } \right) \right) \right) &\text{ if } k \ge 2 \\ x _ 1 &\text{ if } k = 1 \end{cases} \]
     </div>
 </div><!--                    TODO: rename distributes right into  and make distributes left into-->
 <div class="definition" id="definition-distributivity">
@@ -229,7 +229,7 @@
         Suppose \( G \) is a group and \( a , b , c \in G \), then \( a \star c = b \star c \implies a = b \) and \( c \star a = c \star b \implies a = b \), in other words, we can cancel common elements on right and left
     </div>
     <div class="proof">
-        Suppose that \( a \star c = b \star c \), let \( c ^ { -1 } \) be the inverse of \( c \) , then we have the following \[ \begin{gather} a \star c = b \star c &amp;\iff \\ \left( a \star c \right) \star c ^ { -1 } = \left( b \star c \right) \star c ^ { -1 } &amp;\iff \\ a \star \left( c \star c ^ { -1 } \right) = b \star \left( c \star c ^ { -1 } \right) &amp;\iff \\ a \star e = b \star e &amp;\iff \\ a = b \end{gather} \] Where we've used associativity followed by the definition of inverse and then the identity element. The proof for right cancellation can be obtained by placing a mirror on the left of the above chain of equalities and reversing individual elements, so that if you see ɘ you interpret it as e.
+        Suppose that \( a \star c = b \star c \), let \( c ^ { -1 } \) be the inverse of \( c \) , then we have the following \[ \begin{gather} a \star c = b \star c &\iff \\ \left( a \star c \right) \star c ^ { -1 } = \left( b \star c \right) \star c ^ { -1 } &\iff \\ a \star \left( c \star c ^ { -1 } \right) = b \star \left( c \star c ^ { -1 } \right) &\iff \\ a \star e = b \star e &\iff \\ a = b \end{gather} \] Where we've used associativity followed by the definition of inverse and then the identity element. The proof for right cancellation can be obtained by placing a mirror on the left of the above chain of equalities and reversing individual elements, so that if you see ɘ you interpret it as e.
     </div>
 </div>
 <div class="definition" id="definition-order-of-a-group">

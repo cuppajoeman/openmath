@@ -71,6 +71,77 @@
         <p>Where the arrows are there to remind you that they expand graphically expand vertically. Also observe that this matrix is an element of \( M _ { 1 \times c } \left( M _ { r \times 1 } \left( \mathbb{ R } \right) \right) \).</p>
     </div>
 </div>We can connect some of the previous definitions here to say that \( R \) is a <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-column-matrix">column matrix</a> whose entries are <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-row-matrix">row matrices</a>.
+<div class="definition" id="definition-matrix-rank">
+    <div class="title">
+        Matrix Rank
+    </div>
+    <div class="content">
+        Let \( A \in M _ { r \times c }\left( \mathbb{ R } \right) \). The <b>rank</b> of \( A \), denoted \( \operatorname{rank}\left( A \right) \), is the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-dimension-of-a-vector-space">dimension</a> of the <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-span">span</a> of the columns of \( A \), considered as vectors in \( \mathbb{ R } ^ r \).
+    </div>
+</div>
+<div class="definition" id="definition-determinant">
+    <div class="title">
+        Determinant
+    </div>
+    <div class="content">
+        The <b>determinant</b> is a function \( \det:M _ { n\times n }\left( \mathbb{ R } \right)\to\mathbb{ R } \) defined recursively as follows. If \( A=\begin{bmatrix} a \end{bmatrix} \), then
+        \[
+            \det A=a.
+        \]
+        If \( n\gt 1 \), let \( A _ { 1,j } \) be the \( \left( n-1 \right)\times\left( n-1 \right) \) matrix obtained from \( A \) by deleting the first row and the \( j \)-th column. Then
+        \[
+            \det A
+            =
+            \sum _ { j=1 } ^ n
+            \left( -1 \right) ^ { 1+j }
+            a _ { 1,j }\det A _ { 1,j }.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-invertible-matrix">
+    <div class="title">
+        Invertible Matrix
+    </div>
+    <div class="content">
+        A square <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix">matrix</a> \( A\in M _ { n\times n }\left( \mathbb{ R } \right) \) is <b>invertible</b> if the function
+        \[
+            L_A:\mathbb{ R } ^ n\to\mathbb{ R } ^ n,
+            \qquad
+            L_A\left( x \right)=Ax,
+        \]
+        is an <a class="knowledge-link" href="/fundamentals/functions.html#definition-invertible">invertible function</a>.
+    </div>
+</div>
+<div class="theorem" id="theorem-nonzero-determinant-iff-invertible">
+    <div class="title">
+        Nonzero Determinant iff Invertible
+    </div>
+    <div class="content">
+        A square matrix \( A\in M _ { n\times n }\left( \mathbb{ R } \right) \) is an <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-invertible-matrix">invertible matrix</a> if and only if \( \det A\neq 0 \).
+    </div>
+    <div class="proof">
+        The determinant measures the signed volume-scaling factor of the linear map \( L_A\left( x \right)=Ax \). This factor is nonzero exactly when \( L_A \) sends the standard basis to a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> of \( \mathbb{ R } ^ n \). By the <a class="knowledge-link" href="/algebra/linear/matrices.html#theorem-matrix-with-basis-columns-is-invertible">matrix with basis columns is invertible theorem</a>, this is exactly the condition that \( A \) be invertible.
+    </div>
+</div>
+<div class="theorem" id="theorem-matrix-with-basis-columns-is-invertible">
+    <div class="title">
+        Matrix with Basis Columns is Invertible
+    </div>
+    <div class="content">
+        Let \( A\in M _ { n\times n }\left( \mathbb{ R } \right) \). If the columns of \( A \) form a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> of \( \mathbb{ R } ^ n \), then \( A \) is an <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-invertible-matrix">invertible matrix</a>.
+    </div>
+    <div class="proof">
+        Write the columns of \( A \) as \( a_1,\ldots,a_n \). For any \( x=\left( x_1,\ldots,x_n \right)\in\mathbb{ R } ^ n \), <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-multiplication">matrix multiplication</a> gives
+        \[
+            Ax=x_1a_1+\cdots+x_na_n.
+        \]
+        Since \( a_1,\ldots,a_n \) form a basis of \( \mathbb{ R } ^ n \), every vector \( y\in\mathbb{ R } ^ n \) has a unique representation
+        \[
+            y=x_1a_1+\cdots+x_na_n
+        \]
+        by <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#basis-implies-unique-representation">basis implies unique representation</a>. Therefore there is a unique \( x\in\mathbb{ R } ^ n \) such that \( Ax=y \). Thus \( L_A\left( x \right)=Ax \) is bijective, so it is invertible. Hence \( A \) is an invertible matrix.
+    </div>
+</div>
 <div class="definition" id="definition-matrix-multiplication">
     <div class="title">
         Matrix Multiplication
@@ -79,6 +150,90 @@
         <p>Suppose \( r _ A, c _ A, r _ B, c _ B \in \mathbb{ N } _ 1 \) such that \( c _ A = r _ B \) and that we have two matrices \( A, B \in M _ { r _ A \times c _ A } \left( \mathbb{ R } \right), M _ { r _ B \times c _ B } \left( \mathbb{ R } \right) \), defined as</p>\[ A = \begin{bmatrix} a_{1 , 1} & a_{1 , 2} & \ldots & a_{1 , c_A} \\ a_{2 , 1} & a_{2 , 2} & \ldots & a_{2 , c_A} \\ \vdots & \vdots & \ddots & \vdots \\ a_{r_A , 1} & a_{r_A , 2} & \ldots & a_{r_A , c_A} \end{bmatrix}, B = \begin{bmatrix} b_{1 , 1} & b_{1 , 2} & \ldots & b_{1 , c_B} \\ b_{2 , 1} & b_{2 , 2} & \ldots & b_{2 , c_B} \\ \vdots & \vdots & \ddots & \vdots \\ b_{r_B , 1} & b_{r_B , 2} & \ldots & b_{r_B , c_B} \end{bmatrix} \]
         <p>Then we define the matrix multiplication of \( A \) and \( B \) as the matrix \( P \in M _ { r _ A \times c _ B } \)</p>\[ P = \begin{bmatrix} c_{1 , 1} & c_{1 , 2} & \ldots & c_{1 , c_P} \\ c_{2 , 1} & c_{2 , 2} & \ldots & c_{2 , c_P} \\ \vdots & \vdots & \ddots & \vdots \\ c_{r_P , 1} & c_{r_P , 2} & \ldots & c_{r_P , c_P} \end{bmatrix} \]
         <p>Where:</p>\[ c _ { i, j } := a _ { i, 1 } b _ { 1, j } + a _ { i, 2 } b _ { 2, j } + \cdots + a _ { i, c _ A } b _ { c _ A, j } = \sum _ { k = 1 } ^ { c _ A } a _ { i, k } b _ { k, j } \]
+    </div>
+</div>
+<div class="theorem" id="theorem-matrix-times-standard-basis-vector-is-column">
+    <div class="title">
+        Matrix Times Standard Basis Vector is a Column
+    </div>
+    <div class="content">
+        Let \( A\in M _ { m\times n }\left( \mathbb{ R } \right) \), and let \( e_j \) be the \( j \)-th vector in the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-standard-basis-of-rn">standard basis</a> of \( \mathbb{ R } ^ n \). Then
+        \[
+            Ae_j=A_{\mid,j},
+        \]
+        where \( A_{\mid,j} \) denotes the \( j \)-th <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-column-of-a-matrix">column of \( A \)</a>, viewed as a vector in \( \mathbb{ R } ^ m \).
+    </div>
+    <div class="proof">
+        Write \( A=\left[ a_{i,k} \right] \). By the <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-multiplication">definition of matrix multiplication</a>, the \( i \)-th coordinate of \( Ae_j \) is
+        \[
+            \sum _ { k=1 } ^ n a_{i,k}\left( e_j \right)_k.
+        \]
+        Since \( \left( e_j \right)_k=0 \) for \( k\neq j \) and \( \left( e_j \right)_j=1 \), this sum is \( a_{i,j} \). Therefore every coordinate of \( Ae_j \) equals the corresponding coordinate of the \( j \)-th column of \( A \), so \( Ae_j=A_{\mid,j} \).
+    </div>
+</div>
+<div class="theorem" id="theorem-linear-transformation-has-standard-matrix">
+    <div class="title">
+        Linear Transformation has a Standard Matrix
+    </div>
+    <div class="content">
+        Let \( T:\mathbb{ R } ^ n\to\mathbb{ R } ^ m \) be a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a>. There exists a unique matrix \( A\in M _ { m\times n }\left( \mathbb{ R } \right) \) such that
+        \[
+            T\left( x \right)=Ax
+        \]
+        for every \( x\in\mathbb{ R } ^ n \). This matrix is the <b>matrix of \( T \) with respect to the standard bases</b>, and is denoted
+        \[
+            \left[ T \right] _ { E_m \leftarrow E_n },
+        \]
+        where \( E_n \) and \( E_m \) are the standard bases of \( \mathbb{ R } ^ n \) and \( \mathbb{ R } ^ m \). Equivalently,
+        \[
+            \left[ T\left( x \right) \right] _ { E_m }
+            =
+            \left[ T \right] _ { E_m \leftarrow E_n }
+            \left[ x \right] _ { E_n }.
+        \]
+        When \( m=n \), this is often abbreviated to \( \left[ T \right] _ E \).
+    </div>
+    <div class="proof">
+        Let \( e_1,\ldots,e_n \) be the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-standard-basis-of-rn">standard basis</a> of \( \mathbb{ R } ^ n \). Define \( A \) to be the matrix whose \( j \)-th column is \( T\left( e_j \right) \):
+        \[
+            A=
+            \begin{bmatrix}
+                \uparrow & \uparrow & & \uparrow\\
+                T\left( e_1 \right) & T\left( e_2 \right) & \cdots & T\left( e_n \right)\\
+                \downarrow & \downarrow & & \downarrow
+            \end{bmatrix}.
+        \]
+        If \( x=\left( x_1,\ldots,x_n \right)\in\mathbb{ R } ^ n \), then by the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#proposition-standard-basis-of-rn-is-a-basis">standard basis expansion</a>,
+        \[
+            x=x_1e_1+\cdots+x_ne_n.
+        \]
+        Since \( T \) is linear,
+        \[
+            T\left( x \right)=x_1T\left( e_1 \right)+\cdots+x_nT\left( e_n \right).
+        \]
+        By <a class="knowledge-link" href="/algebra/linear/matrices.html#theorem-matrix-times-standard-basis-vector-is-column">matrix times standard basis vector is a column</a>, the same expression is exactly \( Ax \). Thus \( T\left( x \right)=Ax \) for every \( x \).
+        <p>
+            To prove uniqueness, suppose \( B\in M _ { m\times n }\left( \mathbb{ R } \right) \) also satisfies \( T\left( x \right)=Bx \) for every \( x \). Then \( Be_j=T\left( e_j \right)=Ae_j \) for every \( j \). By <a class="knowledge-link" href="/algebra/linear/matrices.html#theorem-matrix-times-standard-basis-vector-is-column">matrix times standard basis vector is a column</a>, the \( j \)-th column of \( B \) equals the \( j \)-th column of \( A \) for every \( j \). Therefore \( A=B \).
+        </p>
+    </div>
+</div>
+<div class="definition" id="definition-matrix-of-a-linear-transformation-in-bases">
+    <div class="title">
+        Matrix of a Linear Transformation in Bases
+    </div>
+    <div class="content">
+        Let \( T:V\to W \) be a <a class="knowledge-link" href="/algebra/linear/vector_spaces/linear_transformations.html#definition-linear-transformation">linear transformation</a>, let \( B \) be an ordered <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> of \( V \), and let \( C \) be an ordered basis of \( W \). The matrix of \( T \) from the \( B \)-basis to the \( C \)-basis, denoted
+        \[
+            \left[ T \right] _ { C \leftarrow B },
+        \]
+        is the matrix satisfying
+        \[
+            \left[ T\left( v \right) \right] _ C
+            =
+            \left[ T \right] _ { C \leftarrow B }
+            \left[ v \right] _ B
+        \]
+        for every \( v\in V \), where \( \left[ v \right] _ B \) and \( \left[ T\left( v \right) \right] _ C \) are <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-coordinate-vector-in-a-basis">coordinate vectors in bases</a>. The arrow records that the matrix takes \( B \)-coordinates as input and returns \( C \)-coordinates as output.
     </div>
 </div>
 <div class="definition" id="definition-matrix-addition-and-scalar-multiplication">
@@ -109,6 +264,52 @@
         0 & i \neq j.
         \end{cases}
         \]
+    </div>
+</div>
+<h2>Block Matrices</h2>
+<div class="definition" id="definition-block-matrix">
+    <div class="title">
+        Block Matrix
+    </div>
+    <div class="content">
+        A <b>block matrix</b> is a <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix">matrix</a> written as a rectangular array of smaller matrices, called blocks. For example, if the block sizes fit together, then
+        \[
+            M=
+            \begin{bmatrix}
+                A & B \\
+                C & D
+            \end{bmatrix}
+        \]
+        denotes the ordinary matrix obtained by placing \( A \) and \( B \) side by side, placing \( C \) and \( D \) side by side, and then stacking the two block rows.
+        <p>
+            The block notation is valid only when blocks in the same block row have the same number of rows, and blocks in the same block column have the same number of columns.
+        </p>
+    </div>
+</div>
+<div class="theorem" id="theorem-two-by-two-block-matrix-multiplication">
+    <div class="title">
+        Two by Two Block Matrix Multiplication
+    </div>
+    <div class="content">
+        Suppose the block sizes are compatible for <a class="knowledge-link" href="/algebra/linear/matrices.html#definition-matrix-multiplication">matrix multiplication</a>. Then
+        \[
+            \begin{bmatrix}
+                A & B \\
+                C & D
+            \end{bmatrix}
+            \begin{bmatrix}
+                E & F \\
+                G & H
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                AE+BG & AF+BH \\
+                CE+DG & CF+DH
+            \end{bmatrix}.
+        \]
+    </div>
+    <div class="proof">
+        Each entry of the product is computed by taking a row of the first matrix and a column of the second matrix. If the rows and columns are grouped into blocks, the same calculation groups the resulting sums into blocks. The upper-left block receives the contributions \( AE \) and \( BG \), the upper-right block receives \( AF \) and \( BH \), the lower-left block receives \( CE \) and \( DG \), and the lower-right block receives \( CF \) and \( DH \). This is exactly the displayed block product.
     </div>
 </div>
 <div class="definition" id="definition-matrix-transpose">

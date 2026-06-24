@@ -104,17 +104,111 @@
         By the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#proposition-linear-idependent-set-expansion-to-basis">linear independent set expansion to basis proposition</a>, \( S \) can be extended to a basis \( \mathcal{ B } \) of \( V \). Since \( \operatorname{ dim } \left( V \right) = n \), every basis of \( V \) has \( n \) elements by the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-dimension-of-a-vector-space">definition of dimension</a>. But \( S \) already has \( n \) elements, so the extension cannot add any new vectors. Therefore \( S = \mathcal{ B } \), so \( S \) is a basis of \( V \).
     </div>
 </div>
-<div class="definition">
+<div class="definition" id="definition-coordinate-vector-in-a-basis">
     <div class="title">
-        representation in a basis
+        Coordinate Vector in a Basis
     </div>
     <div class="content">
-        <p>Let \( \mathcal{B} = \left \lbrace b_{1} , \ldots , b_{n} \right \rbrace \) be a basis for a subspace \( V \) and let \( v \in V \). The representation of \( v \) in the basis notated by \( \text{wam} \left ( v , \mathcal{B} \right ) \) is the matrix:</p>
-        <div class="centered-content">
-            \( \text{wam} \left ( v , \mathcal{B} \right ) = \left [ \begin{matrix} a_{1} \\ \vdots \\ a_{k} \end{matrix} \right ] \)
-        </div>
-        <p>where \( v = \sum_{i = 1}^{k} a_{i} b_{i} \), note that \( \text{wam} \left ( \cdot , \mathcal{B} \right ) : V \to M_{k \times 1} \left ( \mathbb{R} \right ) \) and wam is an acronym for "written as matrix". We can also define the inverse function \( \text{wav} \left ( \cdot , \mathcal{B} \right ) : M_{k \times 1} \left ( \mathbb{R} \right ) \to V \). Which stands for "written as vector"</p>
-        <p>If a basis is clear by context, then we may omit it and write \( \text{wam} \left ( v \right ) \) or \( \text{wav} \left ( v \right ) \).</p>
+        Let \(V\) be an \(n\)-dimensional <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space">vector space</a> over \(\mathbb R\), and let \(\mathcal B=\left(b_1,\ldots,b_n\right)\) be an ordered <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> of \(V\). The <b>coordinate map in the basis \(\mathcal B\)</b> is the function
+        \[
+            \left[\cdot\right]_{\mathcal B}:V\to\mathbb R^n
+        \]
+        defined as follows. For \(v\in V\), write the unique basis expansion
+        \[
+            v=\sum_{i=1}^n a_i b_i,
+        \]
+        whose existence and uniqueness follow from <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#basis-implies-unique-representation">basis implies unique representation</a>. Then the <b>coordinate vector</b> of \(v\) in the basis \(\mathcal B\) is
+        \[
+            \left[v\right]_{\mathcal B}
+            =
+            \begin{bmatrix}
+                a_1\\
+                \vdots\\
+                a_n
+            \end{bmatrix}
+            \in\mathbb R^n.
+        \]
+        <p>The older notation \( \text{wam}\left( v,\mathcal{B} \right) \) means the same thing. The inverse operation takes a coordinate column and reconstructs the vector in \( V \).</p>
+    </div>
+</div>
+<p>
+    A small subtlety appears when \(V=\mathbb R^n\). Since \(\mathbb R^n\) is an \(n\)-dimensional <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space">vector space</a>, any ordered <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> \(\mathcal X=\left(x_1,\ldots,x_n\right)\) of \(\mathbb R^n\) gives a coordinate map
+    \[
+        \left[\cdot\right]_{\mathcal X}:\mathbb R^n\to\mathbb R^n.
+    \]
+    If \(v=\left(v_1,\ldots,v_n\right)\in\mathbb R^n\), then \(\left[v\right]_{\mathcal X}\) is the vector of coefficients
+    \[
+        \left[v\right]_{\mathcal X}
+        =
+        \begin{bmatrix}
+            c_1\\
+            \vdots\\
+            c_n
+        \end{bmatrix}
+        =
+        \left(c_1,\ldots,c_n\right)
+        \in\mathbb R^n
+    \]
+    such that
+    \[
+        c_1x_1+\cdots+c_nx_n
+        =
+        \left(v_1,\ldots,v_n\right).
+    \]
+    Thus, in this special case, the coordinate map takes an element of \(\mathbb R^n\) and returns an element of \(\mathbb R^n\), but that is a coincidence of the example. The vector \(\left[v\right]_{\mathcal X}\) is an encoding: its entries are the coefficients placed on the basis vectors \(x_1,\ldots,x_n\) so that the resulting linear combination equals \(v\). It also happens to be an element of \(\mathbb R^n\), just as \(v\) is. So even though \(v\) and \(\left[v\right]_{\mathcal X}\) both live in \(\mathbb R^n\), they are being read differently: \(v\) is the vector being represented, while \(\left[v\right]_{\mathcal X}\) is the coefficient list that represents it in the basis \(\mathcal X\). This is why it is often easier to first learn coordinate vectors in a vector space \(V\) that is not literally \(\mathbb R^n\); then the difference between a vector and its coordinate representation is harder to blur.
+</p>
+<div class="exercise" id="exercise-coordinate-vector-in-a-nonstandard-basis">
+    <div class="title">
+        Coordinate Vector in a Nonstandard Basis
+    </div>
+    <div class="content">
+        Let \(\mathcal E=\left(e_1,e_2\right)\) be the standard basis of \(\mathbb R^2\), and let
+        \[
+            \mathcal A
+            =
+            \left(
+                2e_1+e_2,\,
+                e_1+3e_2
+            \right).
+        \]
+        If
+        \[
+            v=7e_1+11e_2,
+        \]
+        find \(\left[v\right]_{\mathcal A}\).
+    </div>
+    <div class="proof">
+        We need scalars \(a_1,a_2\in\mathbb R\) such that
+        \[
+            v
+            =
+            a_1\left(2e_1+e_2\right)
+            +
+            a_2\left(e_1+3e_2\right).
+        \]
+        Expanding in the standard basis gives
+        \[
+            7e_1+11e_2
+            =
+            \left(2a_1+a_2\right)e_1
+            +
+            \left(a_1+3a_2\right)e_2.
+        \]
+        Since the standard basis representation is unique, the coefficients satisfy
+        \[
+            2a_1+a_2=7,
+            \qquad
+            a_1+3a_2=11.
+        \]
+        Solving gives \(a_1=2\) and \(a_2=3\). Therefore
+        \[
+            \left[v\right]_{\mathcal A}
+            =
+            \begin{bmatrix}
+                2\\
+                3
+            \end{bmatrix}.
+        \]
     </div>
 </div>
 <div class="corollary" id="corollary-generating-a-unit-column-matrix">
@@ -181,15 +275,73 @@
         </div>
     </div>
 </div>
-<div class="definition">
+<div class="definition" id="definition-change-of-basis-matrix">
     <div class="title">
-        change of basis matrix
+        Change of Basis Matrix
     </div>
     <div class="content">
-        let \( \mathcal{V} = \left \lbrace v_{1} , \ldots , v_{k} \right \rbrace \) and \( \mathcal{W} = \left \lbrace w_{1} , \ldots , w_{1} \right \rbrace \) be bases for a vector space \( V \) and \( v \) be an arbitrary element of \( V \). Then the matrix \( M_{\mathcal{V} \to \mathcal{W}} \) such that :
-        <div class="centered-content">
-            \( M_{\mathcal{V} \to \mathcal{W}} \text{wam} \left ( v , \mathcal{V} \right ) = \text{wam} \left ( v , \mathcal{W} \right ) \)
-        </div>is called the change of basis matrix from \( \mathcal{V} \) to \( \mathcal{W} \)
+        Let \(V\) be an \(n\)-dimensional <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space">vector space</a> over \(\mathbb R\), and let
+        \[
+            \mathcal A=\left(a_1,\ldots,a_n\right),
+            \qquad
+            \mathcal B=\left(b_1,\ldots,b_n\right)
+        \]
+        be ordered <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">bases</a> of \(V\). The <b>change of basis matrix from \(\mathcal A\) to \(\mathcal B\)</b>, denoted
+        \[
+            [\mathcal B\leftarrow\mathcal A],
+        \]
+        is the matrix satisfying
+        \[
+            [\mathcal B\leftarrow\mathcal A]\left[x\right]_{\mathcal A}
+            =
+            \left[x\right]_{\mathcal B}
+        \]
+        for every \(x\in V\).
+    </div>
+</div>
+
+<div class="theorem" id="theorem-change-of-basis-columns">
+    <div class="title">
+        Change of Basis Matrix Columns
+    </div>
+    <div class="content">
+        Let \(\mathcal A=\left(a_1,\ldots,a_n\right)\) and \(\mathcal B=\left(b_1,\ldots,b_n\right)\) be ordered bases of an \(n\)-dimensional vector space \(V\). Then
+        \[
+            [\mathcal B\leftarrow\mathcal A]
+            =
+            \begin{bmatrix}
+                \uparrow & \uparrow & & \uparrow\\
+                \left[a_1\right]_{\mathcal B} & \left[a_2\right]_{\mathcal B} & \cdots & \left[a_n\right]_{\mathcal B}\\
+                \downarrow & \downarrow & & \downarrow
+            \end{bmatrix}.
+        \]
+        That is, the \(j\)-th column of \([\mathcal B\leftarrow\mathcal A]\) is the \(\mathcal B\)-coordinate vector of the \(j\)-th basis vector of \(\mathcal A\).
+    </div>
+    <div class="proof">
+        Let \(e_j\) be the \(j\)-th vector in the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-standard-basis-of-rn">standard basis</a> \(\mathcal E\) of \(\mathbb R^n\). Since \(a_j\) is the \(j\)-th vector of the basis \(\mathcal A\),
+        \[
+            \left[a_j\right]_{\mathcal A}=e_j.
+        \]
+        By the <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-change-of-basis-matrix">definition of the change of basis matrix</a>,
+        \[
+            [\mathcal B\leftarrow\mathcal A]\left[a_j\right]_{\mathcal A}
+            =
+            \left[a_j\right]_{\mathcal B}.
+        \]
+        Substituting \(\left[a_j\right]_{\mathcal A}=e_j\) gives
+        \[
+            [\mathcal B\leftarrow\mathcal A]e_j
+            =
+            \left[a_j\right]_{\mathcal B}.
+        \]
+        By <a class="knowledge-link" href="/algebra/linear/matrices.html#theorem-matrix-times-standard-basis-vector-is-column">matrix times standard basis vector is a column</a>, \([\mathcal B\leftarrow\mathcal A]e_j\) is the \(j\)-th column of \([\mathcal B\leftarrow\mathcal A]\). Therefore the \(j\)-th column is \(\left[a_j\right]_{\mathcal B}\). Since this holds for every \(j\in\left\{1,\ldots,n\right\}\), the matrix is exactly
+        \[
+            \begin{bmatrix}
+                \uparrow & \uparrow & & \uparrow\\
+                \left[a_1\right]_{\mathcal B} & \left[a_2\right]_{\mathcal B} & \cdots & \left[a_n\right]_{\mathcal B}\\
+                \downarrow & \downarrow & & \downarrow
+            \end{bmatrix}.
+        \]
     </div>
 </div>
 <div class="proposition" id="proposition-linear-idependent-set-expansion-to-basis">
