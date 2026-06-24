@@ -1,0 +1,64 @@
+<div class="definition" id="definition-increasing-sequence-of-sets">
+    <div class="title">
+        Increasing Sequence of Sets
+    </div>
+    <div class="content">
+        Let \(\left(A_n\right)\) be a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> of <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">sets</a>. The sequence \(\left(A_n\right)\) is <b>increasing</b> if
+        \[
+            A_1 \subseteq A_2 \subseteq A_3 \subseteq \cdots .
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-decreasing-sequence-of-sets">
+    <div class="title">
+        Decreasing Sequence of Sets
+    </div>
+    <div class="content">
+        Let \(\left(A_n\right)\) be a <a class="knowledge-link" href="/fundamentals/sequences.html#definition-sequence">sequence</a> of <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">sets</a>. The sequence \(\left(A_n\right)\) is <b>decreasing</b> if
+        \[
+            A_1 \supseteq A_2 \supseteq A_3 \supseteq \cdots .
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-sequence-of-sets-increases-to-a-set">
+    <div class="title">
+        Sequence of Sets Increases to a Set
+    </div>
+    <div class="content">
+        Let \(\left(A_n\right)\) be an <a class="knowledge-link" href="#definition-increasing-sequence-of-sets">increasing sequence of sets</a>. We say that \(\left(A_n\right)\) <b>increases to</b> \(A\), and write \(A_n \nearrow A\), if
+        \[
+            A = \bigcup_{n=1}^{\infty} A_n.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-sequence-of-sets-decreases-to-a-set">
+    <div class="title">
+        Sequence of Sets Decreases to a Set
+    </div>
+    <div class="content">
+        Let \(\left(A_n\right)\) be a <a class="knowledge-link" href="#definition-decreasing-sequence-of-sets">decreasing sequence of sets</a>. We say that \(\left(A_n\right)\) <b>decreases to</b> \(A\), and write \(A_n \searrow A\), if
+        \[
+            A = \bigcap_{n=1}^{\infty} A_n.
+        \]
+    </div>
+</div>
+
+<p>
+    The intervals \(A_n=\left[-1/n,1/n\right]\) form a decreasing sequence of sets, and \(A_n \searrow \left\{0\right\}\). Each later interval is contained in the previous one, and the only point that remains in every interval is \(0\).
+</p>
+
+<div class="definition" id="definition-sequence-of-sets-shrinks-to-a-point">
+    <div class="title">
+        Sequence of Sets Shrinks to a Point
+    </div>
+    <div class="content">
+        Let \(X\) be a <a class="knowledge-link" href="/fundamentals/sets/basics.html#definition-set">set</a>, let \(p\in X\), and let \(\left(A_n\right)\) be a sequence of subsets of \(X\). We say that \(\left(A_n\right)\) <b>shrinks to</b> \(p\) if <a class="knowledge-link" href="#definition-sequence-of-sets-decreases-to-a-set">\(A_n \searrow \left\{p\right\}\)</a>.
+    </div>
+</div>
+
+<p>
+    This notation is useful when a quantity is first measured on a region and then localized to one point. For instance, instead of writing an informal limit like \(A\to p\), one can choose sets \(A_n\) with \(A_n \searrow \left\{p\right\}\) and then take an ordinary sequence limit as \(n\to\infty\).
+</p>

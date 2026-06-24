@@ -72,7 +72,7 @@
 </div>
 <div class="definition" id="definition-arbitrary-union-counting-notation">
     <div class="title">
-        Arbitrary Union Counting Notation
+        Arbitrary Union Finite Counting Notation
     </div>
     <div class="content">
         Suppose that \( a , b \in \mathbb{Z} \), with \( a \lt b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then \( \bigcup_{i = a}^{b} A_{i} = \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\( \bigcup \mathcal{A} \)</a>
@@ -80,10 +80,48 @@
 </div>
 <div class="definition" id="definition-arbitrary-intersection-counting-notation">
     <div class="title">
-        Arbitrary Intersection Counting Notation
+        Arbitrary Intersection Finite Counting Notation
     </div>
     <div class="content">
         Suppose that \( a , b \in \mathbb{Z} \), with \( a \lt b \), and \( \mathcal{A} := \left \lbrace A_{i} : i \in \mathbb{Z} , a \le i \le b \right \rbrace \), then \( \bigcap_{i = a}^{b} A_{i} = \) <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\( \bigcap \mathcal{A} \)</a>
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-union-infinite-counting-notation">
+    <div class="title">
+        Arbitrary Union Infinite Counting Notation
+    </div>
+    <div class="content">
+        Suppose that \( a \in \mathbb{Z} \), and \( \mathcal{A} := \left\{ A _ i : i \in \mathbb{Z}, a \le i \right\} \), where each \( A _ i \) is a set. Then
+        \[
+            \bigcup _ { i = a } ^ \infty A _ i
+            :=
+            <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-union">\bigcup \mathcal{A}</a>.
+        \]
+        Equivalently,
+        \[
+            x \in \bigcup _ { i = a } ^ \infty A _ i
+            \iff
+            \exists i \in \mathbb{Z} \text{ such that } a \le i \text{ and } x \in A _ i.
+        \]
+    </div>
+</div>
+<div class="definition" id="definition-arbitrary-intersection-infinite-counting-notation">
+    <div class="title">
+        Arbitrary Intersection Infinite Counting Notation
+    </div>
+    <div class="content">
+        Suppose that \( a \in \mathbb{Z} \), and \( \mathcal{A} := \left\{ A _ i : i \in \mathbb{Z}, a \le i \right\} \), where each \( A _ i \) is a set. Then
+        \[
+            \bigcap _ { i = a } ^ \infty A _ i
+            :=
+            <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-arbitrary-intersection">\bigcap \mathcal{A}</a>.
+        \]
+        Equivalently,
+        \[
+            x \in \bigcap _ { i = a } ^ \infty A _ i
+            \iff
+            \forall i \in \mathbb{Z}, a \le i \implies x \in A _ i.
+        \]
     </div>
 </div>
 <div class="definition" id="definition-disjoint-sets">

@@ -86,6 +86,56 @@
         <p>Now suppose that \( p \in \left ( A \cap X \right ) \backslash B \) so \( p \in A \), \( p \in X \) but \( p \notin B \), recombining this information we can see that \( p \in \left ( A \backslash B \right ) \cap X \), as needed.</p>
     </div>
 </div>
+<div class="proposition" id="proposition-set-difference-decomposition">
+    <div class="title">
+        Set Difference Decomposition
+    </div>
+    <div class="content">
+        Suppose that \( A \) and \( B \) are sets. Then \( A \setminus B \) and \( A \cap B \) are <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#definition-disjoint-sets">disjoint</a>, and
+        \[
+            A
+            =
+            \left( A \setminus B \right) \cup \left( A \cap B \right).
+        \]
+    </div>
+    <div class="proof">
+        First, suppose that \( x \in \left( A \setminus B \right) \cap \left( A \cap B \right) \). Then \( x \in A \setminus B \), so \( x \notin B \), and \( x \in A \cap B \), so \( x \in B \). This is impossible, so \( A \setminus B \) and \( A \cap B \) are disjoint.
+        <p>To prove the equality, use <a class="knowledge-link" href="/fundamentals/sets/basics.html#proposition-set-equality-by-subsets">set equality by subsets</a>. If \( x \in A \), then either \( x \in B \) or \( x \notin B \). If \( x \in B \), then \( x \in A \cap B \). If \( x \notin B \), then \( x \in A \setminus B \). In either case, \( x \in \left( A \setminus B \right) \cup \left( A \cap B \right) \).</p>
+        <p>Conversely, if \( x \in \left( A \setminus B \right) \cup \left( A \cap B \right) \), then \( x \in A \setminus B \) or \( x \in A \cap B \). Either condition implies \( x \in A \), so \( \left( A \setminus B \right) \cup \left( A \cap B \right) \subseteq A \). Therefore \( A = \left( A \setminus B \right) \cup \left( A \cap B \right) \).</p>
+    </div>
+</div>
+<div class="proposition" id="proposition-intersection-with-ambient-difference">
+    <div class="title">
+        Intersection with an Ambient Difference
+    </div>
+    <div class="content">
+        Suppose that \( A, B \subseteq X \). Then
+        \[
+            \left( X \setminus A \right) \cap B
+            =
+            B \setminus A
+        \]
+    </div>
+    <div class="proof">
+        We have \( x \in \left( X \setminus A \right) \cap B \) if and only if \( x \in X \), \( x \notin A \), and \( x \in B \). Since \( B \subseteq X \), this is equivalent to \( x \in B \) and \( x \notin A \), which is equivalent to \( x \in B \setminus A \).
+    </div>
+</div>
+<div class="proposition" id="proposition-intersection-of-ambient-differences">
+    <div class="title">
+        Intersection of Ambient Differences
+    </div>
+    <div class="content">
+        Suppose that \( A, B \subseteq X \). Then
+        \[
+            \left( X \setminus A \right) \cap \left( X \setminus B \right)
+            =
+            \left( X \setminus A \right) \setminus B.
+        \]
+    </div>
+    <div class="proof">
+        We have \( x \in \left( X \setminus A \right) \cap \left( X \setminus B \right) \) if and only if \( x \in X \), \( x \notin A \), and \( x \notin B \). This is equivalent to \( x \in X \setminus A \) and \( x \notin B \), which is equivalent to \( x \in \left( X \setminus A \right) \setminus B \).
+    </div>
+</div>
 <div class="proposition" id="proposition-union-intersection-inversion-through-set-difference">
     <div class="title">
         Union Intersection Inversion through set Difference
@@ -142,7 +192,7 @@
         Suppose that \( B \subseteq A \) then \( A \setminus \left( A \setminus B \right) = B \)
     </div>
     <div class="proof">
-        Recall that \( A \setminus \left( A \setminus B \right) = A \cap B \) and since \( B \subseteq A \) we know it's equal to \( B \)
+        Recall that \( <a class="knowledge-link" href="/fundamentals/sets/set_difference.html#proposition-double-difference-yields-intersection">A \setminus \left( A \setminus B \right) = A \cap B</a> \). Since \( B \subseteq A \), <a class="knowledge-link" href="/fundamentals/sets/union_and_intersection.html#proposition-a-set-intersected-with-a-superset-is-itself">intersection with a superset is itself</a>, so \( A \cap B = B \).
     </div>
 </div>
 <div id="proposition" id="proposition-solution">
