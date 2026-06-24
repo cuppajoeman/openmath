@@ -212,7 +212,7 @@
     <div class="proof">
         Suppose that \( a \lt b \in \mathbb{ R }  \) and we'll prove that \( U = d ^ { -1 } \left( \left( a, b \right)  \right) \subseteq X \) is open, so let \( x \times y \in U \) and consider \( r = d \left( x, y \right) \in \left( a, b \right)  \) which is a long way of saying \( a \lt r \lt b \), where we can now find some \( \epsilon \in \mathbb{ R } ^ { \ge 0 } \) such that \( a \lt r - 2 \epsilon  \) and \( r + 2 \epsilon \lt b \), while it's not necessarily obvious why we've done this we claim that \( B _ d \left( x, \epsilon  \right) \times B _ d \left( x, \epsilon  \right)  \) is a neighborhood of \( x \times y \) contained in \( U \), to see why consider a point \( w \times z \in B _ d \left( x, \epsilon  \right) \times B _ d \left( x, \epsilon  \right)  \) so that we know that \( d \left( x, w \right) \lt \epsilon   \) and that \( d \left( y, z \right) \lt \epsilon   \) so that 
         \[
-          d \( w, z \) \le d \left( w, x \right) + d \left( x, y  \right) + d \left( y, z \right) =  \epsilon + r + \epsilon = r + 2 \epsilon \lt b
+          d \left( w, z \right) \le d \left( w, x \right) + d \left( x, y  \right) + d \left( y, z \right) =  \epsilon + r + \epsilon = r + 2 \epsilon \lt b
         \] 
         in order to match with our other ineqality we can use a similar idea: 
         \[
@@ -286,7 +286,7 @@
 
     <div class="proof">
         <p>
-            Let \( \left( x _ n \right) \in \left( \mathbb{ R } ^ \infty  \right) ^ \prime \) we will prove that \( \left( x _ n \right)  \) must converge to 0. If we take any \( \epsilon \in \left( 0, 1 \right)  \) and consider the open neighborhood containing \( x \) which is \( B _ \bar \rho \left( x, \epsilon  \right)  \) then <a class="knowledge-link" href="/topology/limit_points.html#definition-limit-point">we know</a> that there is some \( y \in  B _ \bar \rho \left( x, \epsilon  \right) \cap \mathbb{ R } ^ \infty  \) where \( y \neq x \), recall that since \( y \in :\mathbb{ R } ^ \infty  \) it eventually becomes zero, specifically there is some \( J \) such that for all \( j \ge J \) we have that \( y _ j = 0 \) but then we know that:
+            Let \( \left( x _ n \right) \in \left( \mathbb{ R } ^ \infty  \right) ^ \prime \) we will prove that \( \left( x _ n \right)  \) must converge to 0. If we take any \( \epsilon \in \left( 0, 1 \right)  \) and consider the open neighborhood containing \( x \) which is \( B _ { \bar \rho } \left( x, \epsilon  \right)  \) then <a class="knowledge-link" href="/topology/limit_points.html#definition-limit-point">we know</a> that there is some \( y \in  B _ { \bar \rho } \left( x, \epsilon  \right) \cap \mathbb{ R } ^ \infty  \) where \( y \neq x \), recall that since \( y \in :\mathbb{ R } ^ \infty  \) it eventually becomes zero, specifically there is some \( J \) such that for all \( j \ge J \) we have that \( y _ j = 0 \) but then we know that:
             \[
                  \sup \left\{ \min \left(  \left\lvert x _ n - y _ n \right\rvert, 1\right) : n \in \mathbb{ N } _ 1\right\} \lt \epsilon 
             \] 

@@ -39,7 +39,7 @@
     </div>
     <div class="proof">
         <p>Let \( A = \left\{ x \in X : f \left( x \right) \le g \left( x \right) \right\} \) and \( B = \left\{ x \in X : g \left( x \right) \le f \left( x \right) \right\} \) which we know are closed, and thus \( A \cap B \) is also closed, moreover we know that \( A \cap B = \left\{ x \in X : f \left( x \right) = g \left( x \right) \right\} \) but also that \( A \cup B = X \) in order to use the pasting lemma we need to restrict our functions \( f, g \) to \( f ^ \prime , g ^ \prime \) so that \( f ^ \prime : A \to Y \) and \( f ^ \prime : B \to Y \) (which we know are continuous as a restriction of a continuous function).</p>
-        <p>With these functions we can notice that \[ h \left( x \right) = \min \left\{ f \left( x \right), g \left( x \right) \right\} = \begin{cases} f ^ \prime \left( x \right) &amp;\text{ if } x \in A \\ g ^ \prime \left( x \right) &amp;\text{ if } x \in B \end{cases} \] thus by invoking the pasting lemma we conclude that \( h \left( x \right) \) is a continuous function which is what we wanted to show.</p>
+        <p>With these functions we can notice that \[ h \left( x \right) = \min \left\{ f \left( x \right), g \left( x \right) \right\} = \begin{cases} f ^ \prime \left( x \right) &\text{ if } x \in A \\ g ^ \prime \left( x \right) &\text{ if } x \in B \end{cases} \] thus by invoking the pasting lemma we conclude that \( h \left( x \right) \) is a continuous function which is what we wanted to show.</p>
     </div>
 </div>
 <div class="definition" id="definition-finite-to-one">
@@ -137,7 +137,7 @@
     </div>
     <div class="proof">
         <p>Let \( V \) be an open set of \( Y \), we want to show that \( f ^ { -1 } \left( V \right) \) is an open set of \( X \), set \( B = Y \setminus V \).</p>
-        <p>Since \( V \) was open, then \( B \) is closed, and thus \( f ^ { -1 } \left( B \right) \) is a closed set. But note this: \[ \begin{align} f ^ { -1 } \left( B \right) &amp;= f ^ { -1 } \left( Y \setminus V \right) \\ &amp;= f ^ { -1 } \left( Y \right) \setminus f ^ { -1 } \left( V \right) \tag{\alpha} \\ &amp;= X \setminus f ^ { -1 } \left( V \right) \tag{\beta} \end{align} \]</p>Where we've used the facts:
+        <p>Since \( V \) was open, then \( B \) is closed, and thus \( f ^ { -1 } \left( B \right) \) is a closed set. But note this: \[ \begin{align} f ^ { -1 } \left( B \right) &= f ^ { -1 } \left( Y \setminus V \right) \\ &= f ^ { -1 } \left( Y \right) \setminus f ^ { -1 } \left( V \right) \tag{alpha} \\ &= X \setminus f ^ { -1 } \left( V \right) \tag{beta} \end{align} \]</p>Where we've used the facts:
         <ul>
             <li>
                 <a class="knowledge-link" href="/fundamentals/functions.html#proposition-set-difference-factors-through-inverse-image">\( \alpha \)</a>
@@ -277,7 +277,7 @@
         Pasting
     </div>
     <div class="content">
-        Let \( X = A \cup B \) where \( A, B \) are closed in \( X \). Let \( f : A \to Y \) and \( g : B \to Y \) be continuous. If \( f \left( x \right) = g \left( x \right) \) for every \( x \in A \cap B \) then \( f \) and \( g \) combine to give a continuous function \( h :X \to Y \) defined as \[ h \left( x \right) = \begin{cases} f \left( x \right) &amp;\text{ if } x \in A \\ g \left( x \right) &amp;\text{ if } x \in B \end{cases} \]
+        Let \( X = A \cup B \) where \( A, B \) are closed in \( X \). Let \( f : A \to Y \) and \( g : B \to Y \) be continuous. If \( f \left( x \right) = g \left( x \right) \) for every \( x \in A \cap B \) then \( f \) and \( g \) combine to give a continuous function \( h :X \to Y \) defined as \[ h \left( x \right) = \begin{cases} f \left( x \right) &\text{ if } x \in A \\ g \left( x \right) &\text{ if } x \in B \end{cases} \]
     </div>
     <div class="proof">
         Let \( C \) be a closed subset of \( Y \) then we know that \( h ^ { -1 } \left( C \right) = f ^ { -1 } \left( C \right) \cup g ^ { -1 } \left( C \right) \) but since \( f, g \) were continuous then their inverse images are also closed, therefore as \( h ^ { -1 } \left( C \right) \) is a union of two closed sets we deduce that it is closed as well showing that \( h \) is continuous.
