@@ -300,16 +300,56 @@ function sourceFiles(dir) {
     return files;
 }
 
-function proofCoverageForSource(source) {
-    const proofs = Array.from(source.matchAll(/<div\s+class=["']proof["'][^>]*>([\s\S]*?)<\/div>/gi));
+function proofQualityForStatement(segment, relativePath) {
+    const proofs = Array.from(segment.matchAll(/<div\s+class=["']proof["'][^>]*>([\s\S]*?)<\/div>/gi));
     const total = proofs.length;
 
     if (total === 0) {
-        return { total, filled: 0, coverage: 1 };
+        return { total, filled: 0, coverage: 1, issues: [] };
     }
 
-    const filled = proofs.filter((match) => stripHtml(match[1]).length > 0).length;
-    return { total, filled, coverage: filled / total };
+    const bodySource = statementBodySource(segment);
+    const hasStatementLink = collectKnowledgeLinkTargets(bodySource, relativePath).length > 0;
+    const issues = [];
+    let filled = 0;
+
+    proofs.forEach((proof, index) => {
+        const proofBody = proof[1];
+        const hasProofText = stripHtml(proofBody).length > 0;
+        const hasProofLink = collectKnowledgeLinkTargets(proofBody, relativePath).length > 0;
+        const reasons = [];
+
+        if (!hasProofText) {
+            reasons.push("empty proof");
+        }
+
+        if (!hasStatementLink) {
+            reasons.push("statement needs a knowledge link");
+        }
+
+        if (!hasProofLink) {
+            reasons.push("proof needs a knowledge link");
+        }
+
+        if (reasons.length === 0) {
+            filled += 1;
+        } else {
+            issues.push({ index: index + 1, reasons });
+        }
+    });
+
+    return { total, filled, coverage: filled / total, issues };
+}
+
+function aggregateProofQuality(statements) {
+    const total = statements.reduce((sum, statement) => sum + statement.proof.total, 0);
+    const filled = statements.reduce((sum, statement) => sum + statement.proof.filled, 0);
+
+    return {
+        total,
+        filled,
+        coverage: total === 0 ? 1 : filled / total,
+    };
 }
 
 function normalizeStatementHref(href, currentPath) {
@@ -374,6 +414,12 @@ function attrValue(tag, name) {
     return match ? match[1] : "";
 }
 
+function statementBodySource(segment) {
+    return segment
+        .replace(/<div\s+class=["']title["'][^>]*>[\s\S]*?<\/div>/i, "")
+        .replace(/<div\s+class=["']proof["'][^>]*>[\s\S]*?<\/div>/gi, "");
+}
+
 function collectStatements(source, relativePath) {
     const openings = [];
     const tagPattern = /<div\b[^>]*>/gi;
@@ -404,10 +450,8 @@ function collectStatements(source, relativePath) {
         const rawTitle = titleMatch ? titleMatch[1] : "";
         const title = rawTitle ? stripHtml(rawTitle) : "";
         const cleanTitle = cleanStatementTitle(title, opening.id, relativePath);
-        const proof = proofCoverageForSource(segment);
-        const bodySource = segment
-            .replace(/<div\s+class=["']title["'][^>]*>[\s\S]*?<\/div>/i, "")
-            .replace(/<div\s+class=["']proof["'][^>]*>[\s\S]*?<\/div>/gi, "");
+        const proof = proofQualityForStatement(segment, relativePath);
+        const bodySource = statementBodySource(segment);
 
         return {
             id: opening.id,
@@ -417,7 +461,7 @@ function collectStatements(source, relativePath) {
             path: relativePath,
             href: `/${relativePath}#${opening.id}`,
             proof,
-            hasProof: proof.total === 0 || proof.filled > 0,
+            hasProof: proof.coverage === 1,
             hasBody: stripHtml(bodySource).length > 0,
             linksTo: collectKnowledgeLinkTargets(segment, relativePath),
         };
@@ -433,13 +477,13 @@ function collectProofCoverage() {
     for (const filePath of sourceFiles(contentDir)) {
         const relativePath = relativeUrl(filePath);
         const source = fs.readFileSync(filePath, "utf-8");
+        const pageStatements = collectStatements(source, relativePath);
         const data = {
-            ...proofCoverageForSource(source),
+            ...aggregateProofQuality(pageStatements),
             path: relativePath,
             title: pageTitleFromPath(filePath),
         };
-        const pageStatements = collectStatements(source, relativePath);
-        data.missingProofs = pageStatements.filter((statement) => statement.proof.total > 0 && statement.proof.filled === 0);
+        data.missingProofs = pageStatements.filter((statement) => statement.proof.total > 0 && statement.proof.coverage < 1);
 
         coverage.set(relativePath, data);
         for (const statement of pageStatements) {
@@ -970,6 +1014,12 @@ ${sections || "<p>No coverage map has been defined yet.</p>"}`;
     console.log(`Built: coverage map page -> ${outPath}`);
 }
 
+function proofIssueLabel(statement) {
+    const reasons = Array.from(new Set(statement.proof.issues.flatMap((issue) => issue.reasons)));
+
+    return reasons.length > 0 ? reasons.join("; ") : "proof quality";
+}
+
 function buildProofCoveragePage(template, stats, quality) {
     const rows = quality.incomplete.map((item) => {
         const percent = Math.round(item.coverage * 100);
@@ -977,6 +1027,7 @@ function buildProofCoveragePage(template, stats, quality) {
         const missingProofs = item.missingProofs.map((proof) => `<li>
     <a href="${escapeHtml(proof.href)}">${escapeHtml(proof.title)}</a>
     <span class="quality-coverage quality-low">${escapeHtml(proof.type)}</span>
+    <span class="quality-coverage quality-medium">${escapeHtml(proofIssueLabel(proof))}</span>
   </li>`).join("\n");
         const summary = `<span class="proof-coverage-title">${escapeHtml(item.title)}</span>
   <span class="quality-coverage ${qualityClass(item.coverage)}">${percent}% (${item.filled}/${item.total})</span>
@@ -992,7 +1043,7 @@ ${missingProofs || "      <li>No individual missing proof blocks were found.</li
 
     const content = `<h1>Pages Needing Proofs</h1>
 <p>
-  These pages have at least one empty proof. Pages below ${Math.round(proofCoverageThreshold * 100)}% proof coverage are hidden from directory pages until enough proof blocks are filled in.
+  These pages have at least one proof that is empty or missing required knowledge links. A valid proof item needs content, a knowledge link in the statement, and a knowledge link in the proof body. Pages below ${Math.round(proofCoverageThreshold * 100)}% proof quality are hidden from directory pages until enough proof blocks are valid.
   Click a page title to show the specific proofs that need work.
 </p>
 <div class="proof-coverage-list">
@@ -1282,8 +1333,8 @@ function build() {
     console.log("");
     console.log(`Done. Built ${stats.files} HTML files to: ${distDir}`);
     console.log(`Render errors: ${stats.errors}`);
-    console.log(`Proof coverage threshold: ${Math.round(proofCoverageThreshold * 100)}%`);
-    console.log(`Pages below proof coverage threshold: ${quality.underThreshold.length}`);
+    console.log(`Proof quality threshold: ${Math.round(proofCoverageThreshold * 100)}%`);
+    console.log(`Pages below proof quality threshold: ${quality.underThreshold.length}`);
     console.log(`Development mode: ${developmentMode ? "on; low-coverage directory links are marked" : "off; low-coverage directory links are hidden"}`);
 
     if (stats.errors > 0) {
