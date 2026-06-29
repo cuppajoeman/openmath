@@ -40,20 +40,36 @@
         Solid Angle
     </div>
     <div class="content">
-        Let \(\mathcal S_{\mathbb S^2}\) be the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\(\sigma\)-algebra</a> of surface-measurable subsets of the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-unit-sphere">unit sphere</a> \(\mathbb S^2\). A <b>solid angle</b> is the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a> \(\sigma:\mathcal S_{\mathbb S^2}\to\mathbb R^{\ge0}\) that sends a measurable direction set \(A\in\mathcal S_{\mathbb S^2}\) to the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">surface area</a> of \(A\) as a subset of \(\mathbb S^2\):
+        Let \(p\in\mathbb R^3\). The <b>direction projection from \(p\)</b> is the <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a>
+        \[
+            \pi_p:\mathbb R^3\setminus\left\{p\right\}\to\mathbb S^2,
+            \qquad
+            \pi_p(x)=\frac{x-p}{\left\|x-p\right\|}.
+        \]
+        If \(X\subseteq\mathbb R^3\setminus\left\{p\right\}\) and \(\pi_p(X)\) is surface-measurable as a subset of the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-unit-sphere">unit sphere</a> \(\mathbb S^2\), then the <b>solid angle subtended by \(X\) from \(p\)</b> is
+        \[
+            \sigma_p(X)
+            =
+            \operatorname{area}_{\mathbb S^2}\left(\pi_p(X)\right).
+        \]
+        For a measurable direction set \(A\subseteq\mathbb S^2\), we write
         \[
             \sigma(A)=\operatorname{area}_{\mathbb S^2}(A).
         \]
-        Thus \(\sigma(A)\in\mathbb R^{\ge0}\). This is the three-dimensional analogue of defining an angle in radians by arc length on the unit circle.
+        This is the special case of measuring the surface area of a set of directions.
     </div>
 </div>
+
+<p>
+    The projection \(\pi_p\) forgets distance and remembers only direction from \(p\). If many points of \(X\) lie on the same ray from \(p\), they contribute the same direction to \(\pi_p(X)\). Thus solid angle measures angular size as seen from \(p\), not physical area or distance.
+</p>
 
 <div class="theorem" id="theorem-solid-angle-is-a-measure">
     <div class="title">
         Solid Angle is a Measure
     </div>
     <div class="content">
-        With \(\mathcal S_{\mathbb S^2}\) as above, the solid angle function
+        Let \(\mathcal S_{\mathbb S^2}\) be the <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-sigma-algebra">\(\sigma\)-algebra</a> of surface-measurable subsets of \(\mathbb S^2\). The solid angle function
         \[
             \sigma:\mathcal S_{\mathbb S^2}\to\mathbb R^{\ge0}
         \]
@@ -287,24 +303,136 @@
     </div>
 </div>
 
+<div class="definition" id="definition-radiometric-particle-state">
+    <div class="title">
+        Radiometric Particle State
+    </div>
+    <div class="content">
+        A <b>radiometric particle state</b> is the <a class="knowledge-link" href="/fundamentals/structs.html#definition-struct-type">struct type</a>
+        \[
+            \operatorname{Particle\_State} :: \left\{
+            \begin{array}{rcl}
+                \operatorname{position} & : & \mathbb R^3 \\
+                \operatorname{direction} & : & \mathbb S^2 \\
+                \operatorname{wavelength} & : & \mathbb R^{\gt0}
+            \end{array}
+            \right.
+        \]
+        A state \(s\in\operatorname{Particle\_State}\) has fields \(s.\operatorname{position}\), \(s.\operatorname{direction}\), and \(s.\operatorname{wavelength}\).
+    </div>
+</div>
+
+<div class="definition" id="definition-travelling-particle">
+    <div class="title">
+        Travelling Particle
+    </div>
+    <div class="content">
+        A <b>travelling particle</b> is a <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous function</a>
+        \[
+            \operatorname{TP}:\mathbb R\to\operatorname{Particle\_State}.
+        \]
+        The value \(\operatorname{TP}(t).\operatorname{position}\) is the particle's position at time \(t\), and \(\operatorname{TP}(t).\operatorname{direction}\) is its direction at time \(t\).
+    </div>
+</div>
+
+<div class="definition" id="definition-travelling-particle-hits-a-surface-patch">
+    <div class="title">
+        Travelling Particle Hits a Surface Patch
+    </div>
+    <div class="content">
+        Let \(P\subseteq\mathbb R^3\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a>. A <a class="knowledge-link" href="#definition-travelling-particle">travelling particle</a> \(\operatorname{TP}\) <b>hits</b> \(P\) during the time interval \(\left[t,t+\tau\right]\) if there exists \(u\in\left[t,t+\tau\right]\) such that
+        \[
+            \operatorname{TP}(u).\operatorname{position}\in P.
+        \]
+    </div>
+</div>
+
+<div class="definition" id="definition-travelling-particle-locally-leaves-a-surface-patch">
+    <div class="title">
+        Travelling Particle Locally Leaves a Surface Patch
+    </div>
+    <div class="content">
+        Let \(P\subseteq\mathbb R^3\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a>. A <a class="knowledge-link" href="#definition-travelling-particle">travelling particle</a> \(\operatorname{TP}\) <b>locally leaves</b> \(P\) at time \(u\) if \(\operatorname{TP}(u).\operatorname{position}\in P\) and there exists \(\epsilon\in\mathbb R^{\gt0}\) such that
+        \[
+            \operatorname{TP}(u+s).\operatorname{position}\notin P
+            \qquad
+            \text{for every }s\in\left(0,\epsilon\right).
+        \]
+        It locally leaves \(P\) during \(\left[t,t+\tau\right]\) if it locally leaves \(P\) at some \(u\in\left[t,t+\tau\right]\).
+    </div>
+</div>
+
+<p>
+    The word locally matters. A reflected particle can leave a patch at one interaction and hit the same patch again later; that later hit is a separate event. The outgoing condition only says that immediately after the event, the particle is no longer on the patch.
+</p>
+
+<div class="definition" id="definition-travelling-particle-direction-set">
+    <div class="title">
+        Travelling Particle in a Direction Set
+    </div>
+    <div class="content">
+        Let \(A\subseteq\mathbb S^2\). A <a class="knowledge-link" href="#definition-travelling-particle">travelling particle</a> \(\operatorname{TP}\) is <b>travelling in the direction set</b> \(A\) at time \(t\) if
+        \[
+            \operatorname{TP}(t).\operatorname{direction}\in A.
+        \]
+    </div>
+</div>
+
+<p>
+    A direction set \(A\subseteq\mathbb S^2\) is the same data as a cone of directions from the origin. Saying that a particle is travelling in \(A\) means its direction field points into that cone at the time being measured.
+</p>
+
+<div class="definition" id="definition-radiant-energy-of-particle-collection">
+    <div class="title">
+        Radiant Energy of a Particle Collection
+    </div>
+    <div class="content">
+        Let \(\mathcal T\) be the set of <a class="knowledge-link" href="#definition-travelling-particle">travelling particles</a> under consideration. A <b>radiant energy function</b> is a <a class="knowledge-link" href="/fundamentals/functions.html#definition-function">function</a>
+        \[
+            \operatorname{radiant\_energy}:\mathcal E\to\mathbb R^{\ge0},
+        \]
+        where \(\mathcal E\) is a collection of subsets of \(\mathcal T\), such that \(\operatorname{radiant\_energy}(C)\) is the total <a class="knowledge-link" href="#definition-radiant-energy">radiant energy</a> carried by the particle collection \(C\). In the continuous radiometric model, individual particles have zero radiant energy:
+        \[
+            \operatorname{radiant\_energy}\left(\left\{\operatorname{TP}\right\}\right)=0
+        \]
+        for every \(\operatorname{TP}\in\mathcal T\).
+    </div>
+</div>
+
+<p>
+    This follows the usual continuum idealization: instead of counting a finite list of photons, radiometry treats photon events as so numerous that their energy distribution is modeled continuously. A single exact travelling particle has zero energy, while a measurable bundle of travelling particles can have positive radiant energy.
+</p>
+
 <div class="definition" id="definition-radiant-flux">
     <div class="title">
         Radiant Flux
     </div>
     <div class="content">
-        Let \(P\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a>. After choosing a time coordinate, let \(\Delta Q_P:\mathbb R\times\mathbb R^{\gt0}\to\mathbb R^{\ge0}\) be the function whose value \(\Delta Q_P\left(t,\tau\right)\) is the <a class="knowledge-link" href="#definition-radiant-energy">radiant energy</a> crossing \(P\) during the <a class="knowledge-link" href="/physics/index.html#definition-time">time</a> interval from \(t\) to \(t+\tau\). The <b>radiant flux</b>, also called <b>radiant power</b>, through \(P\) at time \(t\) is the instantaneous rate
+        Let \(\mathcal T\) be the set of <a class="knowledge-link" href="#definition-travelling-particle">travelling particles</a> under consideration. A <b>time-windowed particle collection</b> is a function
         \[
-            \Phi_P(t)
+            C:\mathbb R\times\mathbb R^{\gt0}\to\mathcal E,
+        \]
+        where \(C(t,\tau)\subseteq\mathcal T\) is the collection of travelling particles selected during the time interval from \(t\) to \(t+\tau\). The <b>radiant flux</b>, also called <b>radiant power</b>, of \(C\) at time \(t\) is
+        \[
+            \Phi(C,t)
             =
-            \lim_{\tau \to 0^+}
-            \frac{\Delta Q_P\left(t,\tau\right)}{\tau},
+            \lim_{\tau\to0^+}
+            \frac{\operatorname{radiant\_energy}\left(C(t,\tau)\right)}{\tau},
         \]
         whenever this limit exists. Radiant flux has units of <a class="knowledge-link" href="/physics/index.html#definition-joule-unit-of-energy">joules</a> per <a class="knowledge-link" href="/physics/index.html#definition-second-unit-of-time">second</a>, more commonly called <a class="knowledge-link" href="#definition-watt">watts</a>.
     </div>
 </div>
 
 <p>
-    For example, if no <a class="knowledge-link" href="/physics/index.html#definition-electromagnetic-radiation">electromagnetic radiation</a> crosses the chosen surface patch \(P\) during a small time interval, then \(\Delta Q_P\left(t,\tau\right)=0J\), so \(\Phi_P(t)=0W\). If <a class="knowledge-link" href="/physics/index.html#definition-radiation">radiation</a> crosses \(P\) at a constant rate of \(3\)<a class="knowledge-link" href="/physics/index.html#definition-joule-unit-of-energy">joules</a> every \(1\)<a class="knowledge-link" href="/physics/index.html#definition-second-unit-of-time">second</a>, then \(\Delta Q_P\left(t,\tau\right)=3\tau\) joules, so \(\Phi_P(t)=3W\).
+    If \(C\) and \(D\) are time-windowed particle collections, then \(C\cap D\) means the time-windowed collection defined by
+    \[
+        \left(C\cap D\right)(t,\tau)=C(t,\tau)\cap D(t,\tau).
+    \]
+    This lets us restrict radiant flux by several conditions at once, such as hitting a surface patch and travelling in a chosen set of directions.
+</p>
+
+<p>
+    For example, if \(C_P^{\mathrm{hit}}(t,\tau)\) is the collection of particles that hit a surface patch \(P\) during \(\left[t,t+\tau\right]\), then \(\Phi(C_P^{\mathrm{hit}},t)\) is the radiant flux incident on \(P\) at time \(t\). If no such particles hit \(P\) during a small time interval, then \(\operatorname{radiant\_energy}\left(C_P^{\mathrm{hit}}(t,\tau)\right)=0J\), so \(\Phi(C_P^{\mathrm{hit}},t)=0W\). If particles hitting \(P\) carry \(3\)<a class="knowledge-link" href="/physics/index.html#definition-joule-unit-of-energy">joules</a> every \(1\)<a class="knowledge-link" href="/physics/index.html#definition-second-unit-of-time">second</a>, then \(\operatorname{radiant\_energy}\left(C_P^{\mathrm{hit}}(t,\tau)\right)=3\tau\) joules, so \(\Phi(C_P^{\mathrm{hit}},t)=3W\).
 </p>
 
 <div class="proposition" id="proposition-radiant-energy-from-flux">
@@ -312,41 +440,45 @@
         Radiant Energy from Flux
     </div>
     <div class="content">
-        Let \(P\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a>, let \(t_0,t_1\in\mathbb R\) with \(t_0\lt t_1\), and suppose that there is a differentiable accumulated radiant energy function \(Q_P:\left[t_0,t_1\right]\to\mathbb R\) such that
+        Let \(C\) be a <a class="knowledge-link" href="#definition-radiant-flux">time-windowed particle collection</a>, let \(t_0,t_1\in\mathbb R\) with \(t_0\lt t_1\), and suppose that there is a differentiable accumulated radiant energy function \(Q_C:\left[t_0,t_1\right]\to\mathbb R\) such that
         \[
-            Q_P(t_1)-Q_P(t_0)=\Delta Q_P\left(t_0,t_1-t_0\right).
-        \]
-        If the <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> through \(P\) is \(\Phi_P(t)=Q_P'(t)\) for every \(t\in\left(t_0,t_1\right)\), and \(\Phi_P\) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a> on \(\left[t_0,t_1\right]\), then the radiant energy crossing \(P\) from \(t_0\) to \(t_1\) is
-        \[
-            \Delta Q_P\left(t_0,t_1-t_0\right)
+            Q_C(t_1)-Q_C(t_0)
             =
-            \int_{t_0}^{t_1}\Phi_P(t)\,dt.
+            \operatorname{radiant\_energy}\left(C\left(t_0,t_1-t_0\right)\right).
+        \]
+        If the <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> of \(C\) is \(\Phi(C,t)=Q_C'(t)\) for every \(t\in\left(t_0,t_1\right)\), and \(t\mapsto\Phi(C,t)\) is <a class="knowledge-link" href="/analysis/single_variable/continuity.html#definition-continuous-function">continuous</a> on \(\left[t_0,t_1\right]\), then the radiant energy selected by \(C\) from \(t_0\) to \(t_1\) is
+        \[
+            \operatorname{radiant\_energy}\left(C\left(t_0,t_1-t_0\right)\right)
+            =
+            \int_{t_0}^{t_1}\Phi(C,t)\,dt.
         \]
     </div>
     <div class="proof">
-        Since \(\Phi_P(t)=Q_P'(t)\) on \(\left(t_0,t_1\right)\), the <a class="knowledge-link" href="/analysis/single_variable/the_fundamental_theorem_of_calculus.html#theorem-fundamental-theorem-of-calculus-ii">Fundamental Theorem of Calculus II</a> gives
+        Since \(\Phi(C,t)=Q_C'(t)\) on \(\left(t_0,t_1\right)\), the <a class="knowledge-link" href="/analysis/single_variable/the_fundamental_theorem_of_calculus.html#theorem-fundamental-theorem-of-calculus-ii">Fundamental Theorem of Calculus II</a> gives
         \[
-            \int_{t_0}^{t_1}\Phi_P(t)\,dt
+            \int_{t_0}^{t_1}\Phi(C,t)\,dt
             =
-            Q_P(t_1)-Q_P(t_0).
+            Q_C(t_1)-Q_C(t_0).
         \]
         By the defining property of the accumulated radiant energy function on this interval,
         \[
-            Q_P(t_1)-Q_P(t_0)=\Delta Q_P\left(t_0,t_1-t_0\right).
+            Q_C(t_1)-Q_C(t_0)
+            =
+            \operatorname{radiant\_energy}\left(C\left(t_0,t_1-t_0\right)\right).
         \]
         Therefore
         \[
-            \Delta Q_P\left(t_0,t_1-t_0\right)
+            \operatorname{radiant\_energy}\left(C\left(t_0,t_1-t_0\right)\right)
             =
-            \int_{t_0}^{t_1}\Phi_P(t)\,dt.
+            \int_{t_0}^{t_1}\Phi(C,t)\,dt.
         \]
     </div>
 </div>
 
 <p>
-    As a more physical example, aim a flashlight at a small circular patch \(P\) on a wall. If the flashlight output pulses in time, then the radiant flux \(\Phi_P(t)\) through that circular patch changes with time. For instance, a simple model might be
+    As a more physical example, aim a flashlight at a small circular patch \(P\) on a wall, and let \(C_P^{\mathrm{hit}}\) select the particles that hit \(P\) during each time interval. If the flashlight output pulses in time, then the radiant flux \(\Phi\left(C_P^{\mathrm{hit}},t\right)\) through that circular patch changes with time. For instance, a simple model might be
     \[
-        \Phi_P(t)=2W+W\sin(t),
+        \Phi\left(C_P^{\mathrm{hit}},t\right)=2W+W\sin(t),
     \]
     meaning the patch receives \(2W\) on average, with the instantaneous radiant flux rising and falling between \(1W\) and \(3W\).
 </p>
@@ -356,9 +488,9 @@
         Irradiance
     </div>
     <div class="content">
-        Let \(\left(P_k\right)\) be a sequence of <a class="knowledge-link" href="#definition-surface-patch">surface patches</a> that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\). Write \(\Phi_{P_k}^{\mathrm{in}}(t)\) for the incoming <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> through \(P_k\) at time \(t\). The <b>irradiance</b> at \(p\) and time \(t\) is the area density of incoming flux:
+        Let \(\left(P_k\right)\) be a sequence of <a class="knowledge-link" href="#definition-surface-patch">surface patches</a> that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\). Let \(C_{P_k}^{\mathrm{hit}}\) be the <a class="knowledge-link" href="#definition-radiant-flux">time-windowed particle collection</a> that selects particles that <a class="knowledge-link" href="#definition-travelling-particle-hits-a-surface-patch">hit</a> \(P_k\). The <b>irradiance</b> at \(p\) and time \(t\) is the area density of incoming flux:
         \[
-            \operatorname{irradiance}(p,t) = \lim_{k\to\infty} \frac{\Phi_{P_k}^{\mathrm{in}}(t)}{\operatorname{area}(P_k)},
+            \operatorname{irradiance}(p,t) = \lim_{k\to\infty} \frac{\Phi\left(C_{P_k}^{\mathrm{hit}},t\right)}{\operatorname{area}(P_k)},
         \]
         when this limit exists and has the same value for the shrinking patches under consideration. Irradiance is measured in \(W \cdot m^{-2}\), using the <a class="knowledge-link" href="#definition-watt">watt</a> and the <a class="knowledge-link" href="/physics/index.html#definition-metre-unit-of-length">metre</a>.
     </div>
@@ -377,9 +509,9 @@
         Radiant Flux from Irradiance
     </div>
     <div class="content">
-        Let \(P\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a> on a <a class="knowledge-link" href="#definition-surface">surface</a>, and fix a time \(t\). Suppose the incoming <a class="knowledge-link" href="#definition-irradiance">irradiance</a> \(\operatorname{irradiance}(q,t)\) is defined at each point \(q\in P\), is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a> and integrable with respect to surface area on \(P\), and represents the area density of incoming <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> with respect to the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">surface area</a> on \(P\). Then the incoming radiant flux through \(P\) is
+        Let \(P\) be a <a class="knowledge-link" href="#definition-surface-patch">surface patch</a> on a <a class="knowledge-link" href="#definition-surface">surface</a>, fix a time \(t\), and let \(C_P^{\mathrm{hit}}\) select particles that <a class="knowledge-link" href="#definition-travelling-particle-hits-a-surface-patch">hit</a> \(P\). Suppose the incoming <a class="knowledge-link" href="#definition-irradiance">irradiance</a> \(\operatorname{irradiance}(q,t)\) is defined at each point \(q\in P\), is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a> and integrable with respect to surface area on \(P\), and represents the area density of incoming <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> with respect to the <a class="knowledge-link" href="/analysis/multi_variable/integration_on_manifolds.html#definition-induced-volume-of-a-manifold-subset">surface area</a> on \(P\). Then the incoming radiant flux through \(P\) is
         \[
-            \Phi_P^{\mathrm{in}}(t)
+            \Phi\left(C_P^{\mathrm{hit}},t\right)
             =
             <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">\int_P</a> \operatorname{irradiance}(q,t)\,dA,
         \]
@@ -392,13 +524,13 @@
         \]
         Adding the approximations gives
         \[
-            \Phi_P^{\mathrm{in}}(t)
+            \Phi\left(C_P^{\mathrm{hit}},t\right)
             \approx
             \sum_{j=1}^N \operatorname{irradiance}(q_j,t)\operatorname{area}(P_j).
         \]
         In the limit as the partition is refined, these sums converge to the <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">integral</a> of \(\operatorname{irradiance}\) <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">over the subset</a> \(P\) with respect to surface area. Therefore
         \[
-            \Phi_P^{\mathrm{in}}(t)
+            \Phi\left(C_P^{\mathrm{hit}},t\right)
             =
             <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">\int_P</a> \operatorname{irradiance}(q,t)\,dA.
         \]
@@ -422,9 +554,9 @@
                 \left(x,y,0\right)\in M:x^2+y^2\le\frac{1}{k^2}
             \right\}.
         \]
-        Suppose that, at a fixed time \(t\), the incoming <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> through every patch \(P_k\) is
+        Let \(C_{P_k}^{\mathrm{hit}}\) select particles that hit \(P_k\). Suppose that, at a fixed time \(t\), the incoming <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> through every patch \(P_k\) is
         \[
-            \Phi_{P_k}^{\mathrm{in}}(t)
+            \Phi\left(C_{P_k}^{\mathrm{hit}},t\right)
             =
             5W\cdot m^{-2}\operatorname{area}(P_k).
         \]
@@ -441,7 +573,7 @@
         <p>
             The area of \(P_k\) is \(\pi/k^2\). By the given flux formula,
             \[
-                \frac{\Phi_{P_k}^{\mathrm{in}}(t)}{\operatorname{area}(P_k)}
+                \frac{\Phi\left(C_{P_k}^{\mathrm{hit}},t\right)}{\operatorname{area}(P_k)}
                 =
                 \frac{5W\cdot m^{-2}\operatorname{area}(P_k)}{\operatorname{area}(P_k)}
                 =
@@ -452,7 +584,7 @@
                 \operatorname{irradiance}(p,t)
                 =
                 \lim_{k\to\infty}
-                \frac{\Phi_{P_k}^{\mathrm{in}}(t)}{\operatorname{area}(P_k)}
+                \frac{\Phi\left(C_{P_k}^{\mathrm{hit}},t\right)}{\operatorname{area}(P_k)}
                 =
                 5W\cdot m^{-2}.
             \]
@@ -465,9 +597,9 @@
         Radiant Exitance
     </div>
     <div class="content">
-        Let \(\left(P_k\right)\) be a sequence of <a class="knowledge-link" href="#definition-surface-patch">surface patches</a> that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\). Write \(\Phi_{P_k}^{\mathrm{out}}(t)\) for the outgoing <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> through \(P_k\) at time \(t\). The <b>radiant exitance</b> at \(p\) and time \(t\) is the area density of outgoing flux:
+        Let \(\left(P_k\right)\) be a sequence of <a class="knowledge-link" href="#definition-surface-patch">surface patches</a> that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\). Let \(C_{P_k}^{\mathrm{leave}}\) be the <a class="knowledge-link" href="#definition-radiant-flux">time-windowed particle collection</a> that selects particles that <a class="knowledge-link" href="#definition-travelling-particle-locally-leaves-a-surface-patch">locally leave</a> \(P_k\). The <b>radiant exitance</b> at \(p\) and time \(t\) is the area density of outgoing flux:
         \[
-            M(p,t) = \lim_{k\to\infty} \frac{\Phi_{P_k}^{\mathrm{out}}(t)}{\operatorname{area}(P_k)},
+            M(p,t) = \lim_{k\to\infty} \frac{\Phi\left(C_{P_k}^{\mathrm{leave}},t\right)}{\operatorname{area}(P_k)},
         \]
         when this limit exists and has the same value for the shrinking patches under consideration. Radiant exitance is measured in \(W \cdot m^{-2}\), using the <a class="knowledge-link" href="#definition-watt">watt</a> and the <a class="knowledge-link" href="/physics/index.html#definition-metre-unit-of-length">metre</a>.
     </div>
@@ -482,16 +614,24 @@
         Radiant Intensity
     </div>
     <div class="content">
-        Suppose \(\omega\in\mathbb S^2\), and let \(\left(A_k\right)\) be a sequence of subsets of \(\mathbb S^2\) that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(\omega\). Write \(\Phi_{A_k}(t)\) for the <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> emitted into \(A_k\) at time \(t\), and write \(\sigma(A_k)\) for the set's <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>. The <b>radiant intensity</b> at \(\omega\) and time \(t\) is the solid-angle density of emitted flux:
+        Suppose \(\omega\in\mathbb S^2\), and let \(\left(A_k\right)\) be a sequence of subsets of \(\mathbb S^2\) that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(\omega\). Let \(C_{A_k}\) be the <a class="knowledge-link" href="#definition-radiant-flux">time-windowed particle collection</a> that selects particles <a class="knowledge-link" href="#definition-travelling-particle-direction-set">travelling in the direction set</a> \(A_k\). The <b>radiant intensity</b> at \(\omega\) and time \(t\) is the solid-angle density of emitted flux:
         \[
-            I(\omega,t) = \lim_{k\to\infty} \frac{\Phi_{A_k}(t)}{\sigma(A_k)},
+            I(\omega,t) = \lim_{k\to\infty} \frac{\Phi\left(C_{A_k},t\right)}{\sigma(A_k)},
         \]
         when this limit exists and has the same value for the shrinking direction sets under consideration. Radiant intensity is measured in \(W \cdot sr^{-1}\), using the <a class="knowledge-link" href="#definition-watt">watt</a> and <a class="knowledge-link" href="#definition-steradian">steradian</a>.
     </div>
 </div>
 
 <p>
-    Radiant intensity uses the same density idea, but with direction sets instead of surface patches. Imagine a very small light source at the center of the unit sphere. If we accept twice as large a cone of outgoing directions, we expect about twice as much emitted <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> to lie in that cone. Dividing by the cone's <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>, then shrinking the cone around one direction, gives a directional density of emitted power.
+    In this definition, \(C_{A_k}\) selects the travelling particles whose directions lie in \(A_k\). Equivalently, if \(A_k\) is pictured as an imaginary surface patch on the unit sphere centered at the light source, those are the same particles that cross that empty-space patch. The patch is not a material surface; it is a way to visualize a bundle of directions.
+</p>
+
+<p>
+    Usually, radiant intensity is pictured with a small <a class="knowledge-link" href="/physics/index.html#definition-light">light</a> source at the center of a sphere. Each point of the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-unit-sphere">unit sphere</a> represents one outgoing direction, and radiant intensity asks how much emitted power is concentrated near that direction. In the special case of the unit sphere, the numerical value of radiant intensity in a direction \(\omega\) matches the numerical value of the <a class="knowledge-link" href="#definition-irradiance">irradiance</a> measured at the corresponding point \(\omega\in\mathbb S^2\), using surface patches on \(\mathbb S^2\) that shrink to \(\omega\). The limits have the same denominator because, on the unit sphere, <a class="knowledge-link" href="#definition-solid-angle">solid angle</a> is surface area. The quantities are still different: radiant intensity has units \(W\cdot sr^{-1}\), while irradiance has units \(W\cdot m^{-2}\). If the receiving sphere has radius \(2\), then the same bundle of directions lands on four times as much physical area, so the irradiance at the corresponding point \(2\omega\) is one fourth as large. Radiant intensity does not change in this comparison because the bundle of directions has the same solid angle.
+</p>
+
+<p>
+    Radiant intensity uses the same density idea as irradiance, but with direction sets instead of physical surface patches. If we accept twice as large a cone of outgoing directions, we expect about twice as much emitted <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> to lie in that cone. Dividing by the cone's <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>, then shrinking the cone around one direction, gives a directional density of emitted power.
 </p>
 
 <p>
@@ -503,9 +643,9 @@
         Radiant Flux from Radiant Intensity
     </div>
     <div class="content">
-        Let \(A\subseteq\mathbb S^2\) be a measurable set of outgoing directions, and fix a time \(t\). Suppose the <a class="knowledge-link" href="#definition-radiant-intensity">radiant intensity</a> \(I(\omega,t)\) is defined for \(\omega\in A\), is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a> and integrable with respect to <a class="knowledge-link" href="#theorem-solid-angle-is-a-measure">solid angle measure</a> on \(A\), and represents the <a class="knowledge-link" href="#definition-solid-angle">solid-angle</a> density of emitted <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a>. Then the radiant flux emitted into \(A\) is
+        Let \(A\subseteq\mathbb S^2\) be a measurable set of outgoing directions, fix a time \(t\), and let \(C_A\) be the <a class="knowledge-link" href="#definition-radiant-flux">time-windowed particle collection</a> that selects particles <a class="knowledge-link" href="#definition-travelling-particle-direction-set">travelling in</a> \(A\). Suppose the <a class="knowledge-link" href="#definition-radiant-intensity">radiant intensity</a> \(I(\omega,t)\) is defined for \(\omega\in A\), is <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-measurable-function">measurable</a> and integrable with respect to <a class="knowledge-link" href="#theorem-solid-angle-is-a-measure">solid angle measure</a> on \(A\), and represents the <a class="knowledge-link" href="#definition-solid-angle">solid-angle</a> density of emitted <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a>. Then the radiant flux emitted into \(A\) is
         \[
-            \Phi_A(t)
+            \Phi\left(C_A,t\right)
             =
             <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">\int_A</a> I(\omega,t)\,d\sigma(\omega),
         \]
@@ -518,13 +658,13 @@
         \]
         Adding the approximations gives
         \[
-            \Phi_A(t)
+            \Phi\left(C_A,t\right)
             \approx
             \sum_{j=1}^N I(\omega_j,t)\sigma(A_j).
         \]
         In the limit as the direction partition is refined, these sums converge to the <a class="knowledge-link" href="/measure_theory/integration.html#definition-integral-of-a-nonnegative-measurable-function">integral</a> of \(I\) <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">over the subset</a> \(A\) with respect to solid angle. Therefore
         \[
-            \Phi_A(t)
+            \Phi\left(C_A,t\right)
             =
             <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">\int_A</a> I(\omega,t)\,d\sigma(\omega).
         \]
@@ -536,13 +676,13 @@
         Radiant Intensity from Shrinking Direction Sets
     </div>
     <div class="content">
-        Fix a direction \(\omega\in\mathbb S^2\) and a time \(t_0\). Let \(\left(A_k\right)\) be direction sets that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrink to</a> \(\omega\), and suppose
+        Fix a direction \(\omega\in\mathbb S^2\) and a time \(t_0\). Let \(\left(A_k\right)\) be direction sets that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrink to</a> \(\omega\), and let \(C_{A_k}\) select particles travelling in \(A_k\). Suppose
         \[
             \sigma(A_k)=\frac{1}{k}.
         \]
         Suppose the emitted <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> into \(A_k\) at time \(t_0\) is
         \[
-            \Phi_{A_k}(t_0)=\frac{6}{k}+\frac{2}{k^2}
+            \Phi\left(C_{A_k},t_0\right)=\frac{6}{k}+\frac{2}{k^2}
         \]
         watts. Compute the <a class="knowledge-link" href="#definition-radiant-intensity">radiant intensity</a> at \(\omega\) and \(t_0\).
     </div>
@@ -552,11 +692,11 @@
             I(\omega,t_0)
             =
             \lim_{k\to\infty}
-            \frac{\Phi_{A_k}(t_0)}{\sigma(A_k)}.
+            \frac{\Phi\left(C_{A_k},t_0\right)}{\sigma(A_k)}.
         \]
         Substituting the given values,
         \[
-            \frac{\Phi_{A_k}(t_0)}{\sigma(A_k)}
+            \frac{\Phi\left(C_{A_k},t_0\right)}{\sigma(A_k)}
             =
             \frac{\frac{6}{k}+\frac{2}{k^2}}{\frac{1}{k}}
             =
@@ -579,12 +719,12 @@
         Radiance
     </div>
     <div class="content">
-        <b>Radiance</b> measures <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> per unit <a class="knowledge-link" href="#definition-projected-area">projected area</a> and per unit <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>. Let \(\left(P_k\right)\) be a sequence of <a class="knowledge-link" href="#definition-surface-patch">surface patches</a> that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\), and let \(\left(A_k\right)\) be a sequence of direction sets that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(\omega\). Write \(\Phi_{P_k,A_k}(t)\) for the flux associated with \(P_k\) and \(A_k\) at time \(t\). The radiance at \(p\), in direction \(\omega\), at time \(t\), is
+        <b>Radiance</b> measures <a class="knowledge-link" href="#definition-radiant-flux">radiant flux</a> per unit <a class="knowledge-link" href="#definition-projected-area">projected area</a> and per unit <a class="knowledge-link" href="#definition-solid-angle">solid angle</a>. Let \(\left(P_k\right)\) be a sequence of <a class="knowledge-link" href="#definition-surface-patch">surface patches</a> that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(p\), and let \(\left(A_k\right)\) be a sequence of direction sets that <a class="knowledge-link" href="/fundamentals/sets/limits_of_sets.html#definition-sequence-of-sets-shrinks-to-a-point">shrinks to</a> \(\omega\). Let \(C_{P_k}\) be the <a class="knowledge-link" href="#definition-radiant-flux">time-windowed particle collection</a> that selects particles whose positions lie in \(P_k\), and let \(C_{A_k}\) be the time-windowed particle collection that selects particles <a class="knowledge-link" href="#definition-travelling-particle-direction-set">travelling in</a> \(A_k\). The radiance at \(p\), in direction \(\omega\), at time \(t\), is
         \[
             \operatorname{radiance}(p,\omega,t)
             =
             \lim_{k\to\infty}
-                \frac{\Phi_{P_k,A_k}(t)}
+                \frac{\Phi\left(C_{P_k}\cap C_{A_k},t\right)}
                 {\operatorname{area}^{\perp}_{\omega}(P_k)\,\sigma(A_k)},
         \]
         when this limit exists and has the same value for the shrinking patches and direction sets under consideration. Here \(\operatorname{area}^{\perp}_{\omega}(P_k)\) is the <a class="knowledge-link" href="#definition-projected-area">projected area</a> of \(P_k\) in direction \(\omega\). Equivalently, when \(\operatorname{area}^{\perp}_{\omega}(P_k)=\lvert n \cdot \omega \rvert\operatorname{area}(P_k)\),
@@ -592,7 +732,7 @@
             \operatorname{radiance}(p,\omega,t)
             =
             \lim_{k\to\infty}
-                \frac{\Phi_{P_k,A_k}(t)}
+                \frac{\Phi\left(C_{P_k}\cap C_{A_k},t\right)}
                 {\lvert n \cdot \omega \rvert\operatorname{area}(P_k)\,\sigma(A_k)}.
         \]
         Radiance is measured in \(W \cdot m^{-2} \cdot sr^{-1}\), using the <a class="knowledge-link" href="#definition-watt">watt</a>, <a class="knowledge-link" href="/physics/index.html#definition-metre-unit-of-length">metre</a>, and <a class="knowledge-link" href="#definition-steradian">steradian</a>.

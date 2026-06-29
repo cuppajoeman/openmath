@@ -222,6 +222,41 @@
     </div>
 </div>
 
+<div class="definition" id="definition-bound-variable-notation-for-integrals">
+    <div class="title">
+        Bound Variable Notation for Integrals
+    </div>
+    <div class="content">
+        Suppose that \( \left( X,\mathcal S,\mu \right) \) is a <a class="knowledge-link" href="/measure_theory/measures.html#definition-measure-space">measure space</a>, \(E\in\mathcal S\), and an expression \(A(x)\) defines a <a class="knowledge-link" href="/measure_theory/measurable_spaces_and_functions.html#definition-extended-real-valued-measurable-function">measurable function</a>
+        \[
+            g:X\to[-\infty,\infty],
+            \qquad
+            g(x)=A(x).
+        \]
+        Then
+        \[
+            \int_E A(x)\,d\mu(x)
+            :=
+            <a class="knowledge-link" href="/measure_theory/integration.html#definition-integration-on-a-subset">\int_E g\,d\mu</a>,
+        \]
+        whenever the integral on the right is defined. The notation \(d\mu(x)\) means that \(x\) is the bound variable of integration; it is not a new measure and it is not multiplication by \(dx\).
+    </div>
+</div>
+
+<p>
+    Other symbols appearing in \(A(x)\) are treated as fixed parameters unless they are also bound by an integral or quantifier. For example, if \(\left(\Omega,\mathcal S,\sigma\right)\) is a measure space, \(D\in\mathcal S\), and \(x\) is fixed, then
+    \[
+        \int_D \left|\omega\cdot N(x)\right|\,d\sigma(\omega)
+    \]
+    means
+    \[
+        \int_D g_x\,d\sigma,
+        \qquad
+        g_x(\omega)=\left|\omega\cdot N(x)\right|.
+    \]
+    Here \(\omega\) is the variable being integrated over, while \(x\) is just a parameter.
+</p>
+
 <div class="definition" id="definition-almost-every">
     <div class="title">
         Almost Every
