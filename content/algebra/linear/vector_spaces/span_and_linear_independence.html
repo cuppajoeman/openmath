@@ -23,11 +23,26 @@
         Linearly Independent
     </div>
     <div class="content">
-        A set of vectors \( \left\{ v _ 1, \ldots, v _ m \right\} \subseteq V\) is said to be linearly independent if the only solution to 
+        Let \(V\) be a <a class="knowledge-link" href="/algebra/linear/vector_spaces/vector_spaces.html#definition-vector-space-over-a-field">vector space</a> over a field \(F\). A set of vectors \(\left\{v_1,\ldots,v_m\right\}\subseteq V\) is linearly independent if, for scalars \(a_1,\ldots,a_m\in F\), the only solution to
         \[ 
         \sum _ { i = 1 } ^ m a_i v_i = 0 
         \]
-        is \( \forall i \in \left\{ 1, ..., m \right\}, a_i = 0 \). We define \( \emptyset \) to be linearly independent.
+        is \(a_1=\cdots=a_m=0\). We define \(\emptyset\) to be linearly independent.
+    </div>
+</div>
+<div class="proposition" id="proposition-set-containing-zero-is-not-linearly-independent">
+    <div class="title">A Set Containing Zero Is Not Linearly Independent</div>
+    <div class="content">
+        Let \(V\) be a vector space over a field \(F\), and let \(S=\{v_1,\ldots,v_m\}\subseteq V\). If \(0\in S\), then \(S\) is not <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>.
+    </div>
+    <div class="proof">
+        Choose \(j\) with \(v_j=0\). Set \(a_j=1\) and \(a_i=0\) for every \(i\neq j\). Then
+        \[
+            \sum_{i=1}^m a_i v_i
+            =1\cdot v_j+\sum_{i\neq j}0\cdot v_i
+            =0,
+        \]
+        even though \(a_j\neq 0\). This contradicts the <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">definition of linear independence</a>.
     </div>
 </div>
 <div class="definition" id="definition-general-linear-independence" >

@@ -3,15 +3,14 @@
         Field
     </div>
     <div class="content">
-        A <b>field</b> is a set \( F \) with two binary operations \( \oplus, \otimes \) such that for any \( a, b, c \in F \) we have
-        <ol>
-            <li>\( \oplus, \otimes \) are both associative and commutative</li>
-            <li>Identities: There exist identity elements \( 0 _ F \neq 1 _ F \in F\) for \( \oplus \) and \( \otimes \) respectively</li>
-            <li>Additive Inverses: There exists an \( -a \in F \) such that \( a \oplus -a = 0 _ F \)</li>
-            <li>Multiplicative Inverses: If \( a \neq 0 \) there exists an \( a ^ { -1 } \in F \) such that \( a \otimes a ^ { -1 } = 1 _ F \)</li>
-            <li>Distributivity: \( \otimes \) <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-distributivity">distributes into</a> \( \oplus \)
-            </li>
-        </ol>
+        A <b>field</b> is a set \(F\) with two <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-binary-operation">binary operations</a> \(\oplus,\otimes\) satisfying:
+        <ul>
+            <li>\(\oplus\) and \(\otimes\) are each <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-associative-binary-operation">associative</a> and <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-commutative-binary-operation">commutative</a>.</li>
+            <li>There are distinct <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-identity-element">identity elements</a> \(0_F,1_F\in F\) for \(\oplus\) and \(\otimes\), respectively.</li>
+            <li>For every \(a\in F\), there is \(-a\in F\) such that \(a\oplus(-a)=0_F\).</li>
+            <li>For every \(a\in F\setminus\{0_F\}\), there is \(a^{-1}\in F\) such that \(a\otimes a^{-1}=1_F\).</li>
+            <li>\(\otimes\) <a class="knowledge-link" href="/algebra/groups/binary_operations_and_groups.html#definition-distributivity">distributes into</a> \(\oplus\).</li>
+        </ul>
     </div>
 </div>
 <div class="proposition" id="proposition-complex-numbers-form-a-field">

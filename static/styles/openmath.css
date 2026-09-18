@@ -348,6 +348,7 @@ math .knowledge-link:focus-visible {
 .expanded-knowledge {
   margin: 1.5em 0;
   text-align: left;
+  font-weight: normal;
 }
 
 .boxed {

@@ -200,6 +200,42 @@
         Since every square \( a_i ^ 2 \) is non-negative, \( a \cdot a \ge 0 \). Also, \( \sum _ { i = 1 } ^ n a_i ^ 2 = 0 \) exactly when each \( a_i ^ 2 = 0 \), which happens exactly when each \( a_i = 0 \), i.e. exactly when \( a = 0 \).
     </div>
 </div>
+<div class="proposition" id="proposition-positive-dot-product-expression-for-independent-plane-vectors">
+    <div class="title">Positive Dot Product Expression for Independent Plane Vectors</div>
+    <div class="content">
+        If \(x,y\in\mathbb{R}^2\) are <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>, then
+        \[
+            (x\cdot x)(y\cdot y)-(x\cdot y)^2>0.
+        \]
+    </div>
+    <div class="proof">
+        Write \(x=(x_1,x_2)\) and \(y=(y_1,y_2)\). By the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-dot-product">definition of the dot product</a>,
+        \[
+            x\cdot x=x_1^2+x_2^2,\qquad
+            y\cdot y=y_1^2+y_2^2,\qquad
+            x\cdot y=x_1y_1+x_2y_2.
+        \]
+        Substituting these expressions and multiplying out gives
+        \[
+        \begin{aligned}
+            (x\cdot x)(y\cdot y)-(x\cdot y)^2
+            &=(x_1^2+x_2^2)(y_1^2+y_2^2)-(x_1y_1+x_2y_2)^2 \\
+            &=x_1^2y_2^2+x_2^2y_1^2-2x_1x_2y_1y_2 \\
+            &=(x_1y_2-x_2y_1)^2.
+        \end{aligned}
+        \]
+        To show that this square is strictly positive, we must show that \(x_1y_2-x_2y_1\neq 0\). Suppose instead that \(x_1y_2-x_2y_1=0\), meaning \(x_1y_2=x_2y_1\). Since <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#proposition-set-containing-zero-is-not-linearly-independent">linearly independent sets cannot contain the zero vector</a>, \(x\neq 0\), so at least one of \(x_1,x_2\) is nonzero. We consider each possibility so that we divide only by a nonzero coordinate.
+        <p>If \(x_1\neq 0\), the assumed equality \(x_1y_2-x_2y_1=0\) gives \(y_2=(y_1/x_1)x_2\). Thus</p>
+        \[
+            y=(y_1,y_2)=\bigl(y_1,(y_1/x_1)x_2\bigr)=(y_1/x_1)(x_1,x_2)=(y_1/x_1)x.
+        \]
+        If \(x_1=0\), then \(x_2\neq 0\). The assumed equality becomes \(-x_2y_1=0\), so \(y_1=0\), and therefore
+        \[
+            y=(0,y_2)=(y_2/x_2)(0,x_2)=(y_2/x_2)x.
+        \]
+        In either case, \(y\) is a scalar multiple of \(x\), contradicting their linear independence. Hence \(x_1y_2-x_2y_1\neq 0\), and its square is positive.
+    </div>
+</div>
 <div class="corollary" id="corollary-norm-squared-is-the-dot-product">
     <div class="title">
         Norm Squared is the Dot Product
@@ -927,6 +963,88 @@
     </div>
     <div class="proof">
         Rearrange the first equality in the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-dot-product-expansion-of-norm-squared">dot product expansion of norm squared</a>.
+    </div>
+</div>
+<div class="definition" id="definition-barycentric-coordinates-of-a-triangle">
+    <div class="title">Barycentric Coordinates of a Triangle</div>
+    <div class="content">
+        Let \( a,b,c \in \mathbb{R}^2 \) be such that \( \{b-a,c-a\} \) is <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>. The <b>barycentric coordinates</b> of a point \( p \in \mathbb{R}^2 \) relative to the ordered vertices \( (a,b,c) \) are the unique real numbers \( (\lambda_a,\lambda_b,\lambda_c) \) satisfying
+        \[
+            p = \lambda_a a + \lambda_b b + \lambda_c c,
+            \qquad \lambda_a + \lambda_b + \lambda_c = 1.
+        \]
+    </div>
+</div>
+<p>It is not immediately obvious that every point \(p\in\mathbb{R}^2\) can be written this way. The following construction shows that it is possible.</p>
+<div class="proposition" id="proposition-barycentric-coordinates-from-dot-products">
+    <div class="title">Barycentric Coordinates from Dot Products</div>
+    <div class="content">
+        Suppose \( a,b,c \in \mathbb{R}^2 \) are such that \( \{b-a,c-a\} \) is <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>, and let \( p \in \mathbb{R}^2 \). Set
+        \[
+            x := c-a, \qquad y := b-a, \qquad z := p-a,
+            \qquad D := (x\cdot x)(y\cdot y)-(x\cdot y)^2.
+        \]
+        Then \( D > 0 \), and the <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-barycentric-coordinates-of-a-triangle">barycentric coordinates</a> of \( p \) relative to \( (a,b,c) \) are \( (1-u-v,v,u) \), where
+        \[
+            u = \frac{(y\cdot y)(x\cdot z)-(x\cdot y)(y\cdot z)}{D},
+            \qquad
+            v = \frac{(x\cdot x)(y\cdot z)-(x\cdot y)(x\cdot z)}{D}.
+        \]
+    </div>
+    <div class="proof">
+        The vectors \(x=c-a\) and \(y=b-a\) point from \(a\) toward the other two vertices, while \(z=p-a\) points from \(a\) toward \(p\). We first express \(z\) in terms of these two edge vectors; its coefficients will give the barycentric coordinates.
+        <p>By assumption, \( x \) and \( y \) are linearly independent and therefore form a <a class="knowledge-link" href="/algebra/linear/vector_spaces/basis.html#definition-basis">basis</a> of \( \mathbb{R}^2 \). Thus there are unique \( u,v \in \mathbb{R} \) with \( z=ux+vy \). Rearranging gives</p>
+        \[
+            p=a+u(c-a)+v(b-a)=(1-u-v)a+vb+uc.
+        \]
+        Hence \( (1-u-v,v,u) \) are the barycentric coordinates. We now want to compute \(u\) and \(v\). To get two scalar equations in these two unknowns, take the dot product of both sides of \(z=ux+vy\) with a fixed vector. We choose \(x\) once and \(y\) once. This is what it means here to “multiply” a vector equation by \(x\) or \(y\): each dot product gives a scalar equation.
+        \[
+        \begin{aligned}
+            x\cdot z &= u(x\cdot x)+v(x\cdot y), \\
+            y\cdot z &= u(x\cdot y)+v(y\cdot y).
+        \end{aligned}
+        \]
+        We solve these equations by making the coefficients of one unknown equal and then subtracting, so that unknown cancels. The <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-positive-dot-product-expression-for-independent-plane-vectors">positive dot product expression proposition</a> tells us that \(D>0\), because \(x\) and \(y\) are linearly independent. Thus we may divide by \(D\) after each cancellation.
+        <p>First, isolate \(v\). Multiply the first scalar equation by \(x\cdot y\) and the second by \(x\cdot x\). Both \(u\)-coefficients are then \((x\cdot x)(x\cdot y)\). Subtract the scaled first equation from the scaled second:</p>
+        \[
+        \begin{aligned}
+            (x\cdot x)(y\cdot z)-(x\cdot y)(x\cdot z)
+            &=(x\cdot x)\bigl[u(x\cdot y)+v(y\cdot y)\bigr] \\
+            &\quad -(x\cdot y)\bigl[u(x\cdot x)+v(x\cdot y)\bigr] \\
+            &=v\bigl[(x\cdot x)(y\cdot y)-(x\cdot y)^2\bigr] \\
+            &=vD.
+        \end{aligned}
+        \]
+        Dividing by \(D\) gives
+        \[
+            v=\frac{(x\cdot x)(y\cdot z)-(x\cdot y)(x\cdot z)}{D}.
+        \]
+        <p>Similarly, to isolate \(u\), multiply the first scalar equation by \(y\cdot y\) and the second by \(x\cdot y\). Both \(v\)-coefficients are then \((x\cdot y)(y\cdot y)\). Subtract the scaled second equation from the scaled first:</p>
+        \[
+        \begin{aligned}
+            (y\cdot y)(x\cdot z)-(x\cdot y)(y\cdot z)
+            &=(y\cdot y)\bigl[u(x\cdot x)+v(x\cdot y)\bigr] \\
+            &\quad -(x\cdot y)\bigl[u(x\cdot y)+v(y\cdot y)\bigr] \\
+            &=u\bigl[(x\cdot x)(y\cdot y)-(x\cdot y)^2\bigr] \\
+            &=uD.
+        \end{aligned}
+        \]
+        Thus
+        \[
+            u=\frac{(y\cdot y)(x\cdot z)-(x\cdot y)(y\cdot z)}{D},
+        \]
+        as claimed.
+    </div>
+</div>
+<div class="definition" id="definition-point-inside-a-triangle">
+    <div class="title">Point Inside a Triangle</div>
+    <div class="content">
+        Let \(a,b,c\in\mathbb{R}^2\) be such that \(\{b-a,c-a\}\) is <a class="knowledge-link" href="/algebra/linear/vector_spaces/span_and_linear_independence.html#definition-linearly-independent">linearly independent</a>, and let \(p\in\mathbb{R}^2\) have <a class="knowledge-link" href="/algebra/linear/vectors.html#definition-barycentric-coordinates-of-a-triangle">barycentric coordinates</a> \((\lambda_a,\lambda_b,\lambda_c)\) relative to \((a,b,c)\). We say that \(p\) is <b>inside the triangle</b> with vertices \(a,b,c\), including its boundary, if
+        \[
+            \lambda_a\geq 0,\qquad \lambda_b\geq 0,\qquad \lambda_c\geq 0.
+        \]
+        Using \((\lambda_a,\lambda_b,\lambda_c)=(1-u-v,v,u)\) from the <a class="knowledge-link" href="/algebra/linear/vectors.html#proposition-barycentric-coordinates-from-dot-products">preceding proposition</a>, this is equivalent to \(u\geq 0\), \(v\geq 0\), and \(u+v\leq 1\).
+        The point is <b>strictly inside</b> if all three coordinates are positive. It lies on the boundary if all three are nonnegative and at least one is zero.
     </div>
 </div><!--        <p>An example of the vector form of a line in \( \mathbb{R}^{3} \) could be \( x = t \left [ \begin{matrix} 1-->
 <!--        \\ 2 \\ 3 \end{matrix} \right ] + \left [ \begin{matrix} 3 \\ 2 \\ 1 \end{matrix} \right ] \), where \( \left [-->
